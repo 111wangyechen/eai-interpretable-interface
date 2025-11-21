@@ -1,0 +1,119 @@
+# iGibson环境示例配置文件 - 兼容版
+# 将此文件复制到iGibson配置目录
+# 适用于解决GLSL兼容性问题
+
+# 基础配置
+simulation_mode: 'headless'  # 使用无头模式，避免显示问题
+scene_id: 'empty'
+type: 'InteractiveTraversableScene'  # 场景类型
+semantic_only: false  # 是否仅使用语义信息
+
+# 渲染配置
+renderer_config:
+  use_fisheye: false
+  # 图像尺寸
+  width: 512
+  height: 512
+  # 视野角度
+  vertical_fov: 90
+  # 阴影设置
+  cast_shadows: false  # 禁用阴影以提高兼容性
+  # 启用光照
+  enable_shadow: false  # 禁用阴影以提高兼容性
+  use_simple_skybox: true  # 使用简单天空盒，解决GLSL问题
+
+# 代理配置
+avatars:
+  - id: 'agent_0'
+    # 相机配置
+    camera_dy: 1.2  # 相机高度
+    camera_fov: 90  # 相机视野
+    # 传感器配置
+    sensors:
+      # RGB相机
+      - type: 'RGBCamera'
+        width: 512
+        height: 512
+        vertical_fov: 90
+      # 深度相机
+      - type: 'DepthCamera'
+        width: 512
+        height: 512
+        vertical_fov: 90
+      # 语义相机
+      - type: 'SemanticSegmentationCamera'
+        width: 512
+        height: 512
+        vertical_fov: 90
+
+# 环境配置
+env_config:
+  # 物理参数
+  physics_enabled: true
+  # 时间步长
+  physics_timestep: 1.0 / 240.0
+  # 渲染帧率
+  render_timestep: 1.0 / 30.0
+  # 动作频率
+  action_timestep: 1.0 / 10.0
+  # 碰撞检测
+  collision_primitives: 'default'
+
+# 观察空间配置
+observation_space:
+  # 观察类型
+  rgb: true
+  depth: true
+  semantic: true
+  # 状态信息
+  task_obs: true
+
+# 动作空间配置
+action_space:
+  # 动作类型
+  type: 'continuous'
+  # 动作维度
+  size: 2  # 前进/后退和转向
+  # 动作范围
+  low: [-1.0, -1.0]
+  high: [1.0, 1.0]
+
+# 任务配置
+task_config:
+  # 任务类型
+  type: 'NavigationTask'
+  # 目标配置
+  target_config:
+    type: 'position'
+    # 目标范围
+    min_distance: 1.0
+    max_distance: 5.0
+  # 奖励配置
+  reward_config:
+    # 距离奖励权重
+    distance_weight: 1.0
+    # 完成奖励
+    completion_reward: 10.0
+    # 碰撞惩罚
+    collision_penalty: -0.1
+
+# 其他配置
+misc:
+  # 是否使用GPU - 设为false使用CPU渲染，解决GLSL兼容性问题
+  use_gpu: false
+  # 调试模式
+  debug: false
+  # 日志级别
+  log_level: 'INFO'
+  # 兼容性设置
+  use_fixed_resolution: true  # 使用固定分辨率
+  
+# 模拟器优化设置 - 解决GLSL兼容性
+compatibility:
+  use_cpu_only_rendering: true  # 使用CPU渲染
+  disable_advanced_shaders: true  # 禁用高级着色器
+  
+# 推荐将此文件复制到以下位置之一:
+# 1. /home/yeah/embodied-agent-interface/configs/
+# 2. /home/yeah/embodied-agent-interface/iGibson/configs/
+# 3. 与测试脚本同目录

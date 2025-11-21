@@ -1,0 +1,553 @@
+# Enhanced Configuration for Embodied Agent Interface - 方案三集成版
+# 通用具身推理框架配置 (InterPreT + AuDeRe + LogicGuard)
+
+# =============================================================================
+# 全局配置
+# =============================================================================
+global:
+  # 项目信息
+  project_name: "embodied_agent_interface"
+  version: "3.0.0"
+  integration_scheme: "scheme_three"  # 方案三：通用具身推理框架
+  
+  # 运行环境
+  environment: "ubuntu"
+  simulation_backend: "behavior"  # behavior / virtualhome / igibson
+  
+  # 性能设置
+  max_workers: 4
+  timeout_seconds: 300
+  memory_limit_gb: 16
+  
+  # 调试和日志
+  debug_mode: false
+  log_level: "INFO"
+  log_format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  enable_performance_monitoring: true
+
+# =============================================================================
+# BEHAVIOR仿真环境配置
+# =============================================================================
+behavior:
+  # 基础设置
+  scene_id: "Rs_int"
+  texture_randomization: false
+  object_randomization: false
+  
+  # 渲染配置
+  renderer:
+    mode: "headless"  # headless / gui
+    width: 512
+    height: 512
+    vertical_fov: 90
+    use_fisheye: false
+    enable_shadows: false
+    enable_global_illumination: false
+    
+  # 物理配置
+  physics:
+    enabled: true
+    timestep: 1.0 / 240.0
+    gravity: [0, 0, -9.81]
+    contact_offset: 0.01
+    
+  # 传感器配置
+  sensors:
+    rgb_camera:
+      enabled: true
+      width: 512
+      height: 512
+      fov: 90
+    depth_camera:
+      enabled: true
+      width: 512
+      height: 512
+      fov: 90
+    semantic_camera:
+      enabled: true
+      width: 512
+      height: 512
+      fov: 90
+      
+  # 任务配置
+  task:
+    domain: "behavior"
+    task_id: 0
+    instance_id: 0
+    online_sampling: false
+    is_discrete: true
+    
+  # 数据集配置
+  datasets:
+    behavior_dataset_path: "./behavior-00000-of-00001.parquet"
+    virtualhome_dataset_path: "./virtualhome-00000-of-00001.parquet"
+    cache_enabled: true
+    cache_size_mb: 1024
+
+# =============================================================================
+# 目标理解模块配置 (InterPreT集成)
+# =============================================================================
+goal_interpretation:
+  # InterPreT配置
+  interpretable:
+    enabled: true
+    model_path: "./models/interpretable"
+    feedback_learning_rate: 0.001
+    max_feedback_iterations: 5
+    confidence_threshold: 0.8
+    
+    # 交互式学习
+    interactive_learning:
+      enabled: true
+      feedback_buffer_size: 1000
+      active_learning_strategy: "uncertainty_sampling"
+      human_in_the_loop: false
+      
+    # PDDL域构建
+    pddl_domain:
+      auto_generate: true
+      domain_file_path: "./domains/generated_domain.pddl"
+      predicate_extraction:
+        use_llm: true
+        llm_model: "gpt-3.5-turbo"
+        temperature: 0.7
+        max_tokens: 1000
+        
+  # NLP解析器配置
+  nlp_parser:
+    model_name: "bert-base-uncased"
+    max_sequence_length: 512
+    use_gpu: true
+    batch_size: 16
+    
+  # LTL生成器配置
+  ltl_generator:
+    operator_mapping:
+      "always": "G"
+      "eventually": "F"
+      "until": "U"
+      "next": "X"
+      "and": "&"
+      "or": "|"
+      "not": "!"
+      "implies": "->"
+      
+  # LTL验证器配置
+  ltl_validator:
+    tool_path: "./tools/spot"
+    timeout_seconds: 30
+    strict_mode: false
+    
+  # 数据加载器配置
+  data_loader:
+    parquet_engine: "pyarrow"
+    chunk_size: 1000
+    parallel_loading: true
+    max_memory_usage: "2GB"
+
+# =============================================================================
+# 动作序列生成模块配置 (AuDeRe集成)
+# =============================================================================
+action_sequencing:
+  # AuDeRe配置
+  audere:
+    enabled: true
+    strategy_selection:
+      enabled: true
+      strategies:
+        - name: "classical_planning"
+          algorithm: "astar"
+          heuristic: "goal_distance"
+         适用场景: "simple_tasks"
+        - name: "sampling_based"
+          algorithm: "rrt"
+          samples: 1000
+          适用场景: "high_dimensional"
+        - name: "hierarchical"
+          algorithm: "htn"
+          decomposition_depth: 3
+          适用场景: "complex_tasks"
+          
+    # 任务描述分析
+    task_analysis:
+      complexity_metrics:
+        - "action_count"
+        - "object_count"
+        - "constraint_count"
+        - "temporal_depth"
+      complexity_thresholds:
+        simple: 5
+        medium: 15
+        complex: 30
+        
+    # 环境约束评估
+    constraint_evaluation:
+      spatial_constraints: true
+      temporal_constraints: true
+      resource_constraints: true
+      safety_constraints: true
+      
+  # 规划算法配置
+  planner:
+    default_algorithm: "astar"
+    max_depth: 50
+    max_time: 30.0
+    node_expansion_limit: 10000
+    
+    # 启发式配置
+    heuristic:
+      type: "goal_distance"
+      weight: 1.0
+      admissible: true
+      
+    # 搜索配置
+    search:
+      beam_width: 10
+      pruning_enabled: true
+      duplicate_detection: true
+      
+  # 动作数据配置
+  action_data:
+    action_types:
+      - "navigation"
+      - "manipulation"
+      - "grasping"
+      - "placing"
+      - "opening"
+      - "closing"
+      
+    # 动作成本配置
+    action_costs:
+      navigation: 1.0
+      manipulation: 2.0
+      grasping: 1.5
+      placing: 1.0
+      opening: 2.5
+      closing: 2.5
+
+# =============================================================================
+# 状态转换建模模块配置 (LogicGuard集成)
+# =============================================================================
+transition_modeling:
+  # LogicGuard配置
+  logic_guard:
+    enabled: true
+    model_path: "./models/logic_guard"
+    
+    # 时序逻辑验证
+    ltl_verification:
+      enabled: true
+      specifications:
+        - name: "safety"
+          formula: "G not (error_state)"
+          priority: "high"
+        - name: "liveness"
+          formula: "G (request -> F response)"
+          priority: "medium"
+        - name: "fairness"
+          formula: "G F (agent_action)"
+          priority: "low"
+          
+    # 运行时错误检测
+    runtime_detection:
+      enabled: true
+      detection_interval: 0.1  # seconds
+      error_types:
+        - "state_violation"
+        - "precondition_failure"
+        - "postcondition_failure"
+        - "temporal_violation"
+        
+    # 自动纠正
+    auto_correction:
+      enabled: true
+      correction_strategies:
+        - "state_recovery"
+        - "action_replanning"
+        - "constraint_relaxation"
+      max_correction_attempts: 3
+      
+  # 转换预测器配置
+  predictor:
+    model_type: "neural"
+    model_path: "./models/transition_predictor"
+    confidence_threshold: 0.7
+    max_prediction_horizon: 10
+    
+    # 特征配置
+    features:
+      state_features: true
+      action_features: true
+      temporal_features: true
+      contextual_features: true
+      
+  # 转换验证器配置
+  validator:
+    strict_mode: false
+    validation_rules:
+      - "state_consistency"
+      - "precondition_satisfaction"
+      - "postcondition_achievement"
+      - "temporal_ordering"
+      
+    # 验证超时
+    timeout_seconds: 10
+    max_validation_depth: 20
+
+# =============================================================================
+# 模块间通信配置
+# =============================================================================
+inter_module:
+  # 通信协议
+  protocol: "message_queue"  # message_queue / rpc / direct_call
+  
+  # 消息队列配置
+  message_queue:
+    type: "redis"  # redis / rabbitmq / memory
+    host: "localhost"
+    port: 6379
+    db: 0
+    
+    # 队列配置
+    queues:
+      goal_to_action: "goal_action_queue"
+      action_to_transition: "action_transition_queue"
+      transition_to_goal: "transition_goal_queue"
+      
+    # 消息配置
+    message:
+      max_size: 1048576  # 1MB
+      ttl: 3600  # 1 hour
+      retry_attempts: 3
+      
+  # 数据格式配置
+  data_format:
+    serialization: "json"  # json / pickle / msgpack
+    compression: "gzip"  # none / gzip / lz4
+    validation_schema: true
+    
+  # 同步配置
+  synchronization:
+    timeout_seconds: 30
+    retry_interval: 1.0
+    max_retries: 3
+
+# =============================================================================
+# 性能优化配置
+# =============================================================================
+performance:
+  # 缓存配置
+  cache:
+    enabled: true
+    type: "redis"  # redis / memory / file
+    ttl: 3600  # seconds
+    max_size: "1GB"
+    
+  # 并行处理配置
+  parallel:
+    enabled: true
+    max_workers: 4
+    process_pool: true
+    thread_pool: false
+    
+  # 内存管理
+  memory:
+    gc_threshold: 0.8
+    max_memory_usage: "8GB"
+    memory_monitoring: true
+    
+  # GPU配置
+  gpu:
+    enabled: true
+    device_id: 0
+    memory_fraction: 0.8
+    allow_growth: true
+
+# =============================================================================
+# 监控和调试配置
+# =============================================================================
+monitoring:
+  # 指标收集
+  metrics:
+    enabled: true
+    collection_interval: 10  # seconds
+    storage_type: "prometheus"  # prometheus / file / console
+    
+    # 关键指标
+    key_metrics:
+      - "task_completion_rate"
+      - "planning_time"
+      - "execution_time"
+      - "error_rate"
+      - "resource_usage"
+      
+  # 日志配置
+  logging:
+    level: "INFO"
+    format: "structured"  # structured / simple
+    output:
+      - "console"
+      - "file"
+      
+    # 日志文件配置
+    file:
+      path: "./logs"
+      max_size: "100MB"
+      backup_count: 5
+      rotation: "daily"
+      
+  # 调试配置
+  debugging:
+    enabled: false
+    breakpoints: []
+    trace_execution: false
+    save_intermediate_results: false
+
+# =============================================================================
+# 安全和可靠性配置
+# =============================================================================
+reliability:
+  # 错误处理
+  error_handling:
+    strategy: "graceful_degradation"  # graceful_degradation / fail_fast / retry
+    max_retries: 3
+    retry_delay: 1.0
+    
+    # 错误恢复
+    recovery:
+      enabled: true
+      strategies:
+        - "restart_module"
+        - "fallback_to_default"
+        - "skip_operation"
+        
+  # 安全配置
+  safety:
+    enabled: true
+    constraints:
+      - "no_collision"
+      - "stable_grasp"
+      - "safe_navigation"
+      
+    # 安全检查
+    safety_checks:
+      pre_action: true
+      post_action: true
+      continuous: true
+      
+  # 备份和恢复
+  backup:
+    enabled: true
+    interval: 300  # seconds
+    backup_path: "./backups"
+    max_backups: 10
+
+# =============================================================================
+# 实验和测试配置
+# =============================================================================
+experimentation:
+  # 测试配置
+  testing:
+    enabled: true
+    test_data_path: "./test_data"
+    test_scenarios:
+      - "simple_navigation"
+      - "object_manipulation"
+      - "multi_step_task"
+      - "complex_planning"
+      
+  # 基准测试
+  benchmarks:
+    enabled: false
+    datasets:
+      - "behavior"
+      - "virtualhome"
+      - "custom"
+      
+    # 评估指标
+    metrics:
+      - "success_rate"
+      - "planning_time"
+      - "execution_time"
+      - "path_length"
+      - "action_count"
+      
+  # A/B测试
+  ab_testing:
+    enabled: false
+    control_group: "baseline"
+    test_group: "enhanced"
+    traffic_split: 0.5
+
+# =============================================================================
+# 开发和部署配置
+# =============================================================================
+development:
+  # 开发模式
+  dev_mode: false
+  hot_reload: false
+  debug_port: 5678
+  
+  # 代码质量
+  code_quality:
+    linting: true
+    type_checking: true
+    test_coverage: true
+    coverage_threshold: 80
+    
+  # 文档
+  documentation:
+    auto_generate: true
+    format: "markdown"
+    output_path: "./docs"
+
+# =============================================================================
+# 部署配置
+# =============================================================================
+deployment:
+  # 容器化
+  containerization:
+    enabled: false
+    dockerfile_path: "./Dockerfile"
+    image_name: "embodied-agent-interface"
+    tag: "latest"
+    
+  # 分布式部署
+  distributed:
+    enabled: false
+    nodes:
+      - host: "localhost"
+        port: 8000
+        role: "master"
+      - host: "localhost"
+        port: 8001
+        role: "worker"
+        
+  # 负载均衡
+  load_balancing:
+    enabled: false
+    algorithm: "round_robin"
+    health_check_interval: 30
+
+# =============================================================================
+# 扩展配置
+# =============================================================================
+extensions:
+  # 插件系统
+  plugins:
+    enabled: false
+    plugin_path: "./plugins"
+    auto_load: true
+    
+  # 自定义模块
+  custom_modules:
+    enabled: false
+    module_path: "./custom_modules"
+    
+  # 第三方集成
+  third_party:
+    enabled: false
+    services:
+      - name: "external_api"
+        endpoint: "https://api.example.com"
+        timeout: 30

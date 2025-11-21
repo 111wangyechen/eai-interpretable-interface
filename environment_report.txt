@@ -1,0 +1,35 @@
+EAI Interpretable Interface - 环境报告
+生成时间: 2025年 11月 19日 星期三 15:52:53 CST
+========================================
+
+系统信息:
+- 操作系统: Linux yeah-VMware-Virtual-Platform 6.14.0-35-generic #35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Oct 14 13:55:17 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+- 内核版本: 6.14.0-35-generic
+
+Conda环境:
+- 当前环境: eai-eval
+- Python路径: /home/yeah/anaconda3/envs/eai-eval/bin/python
+- Python版本: Python 3.8.20
+
+关键依赖检查:
+✅ numpy: 1.24.4
+❌ torch: 未安装
+✅ gym: 0.26.2
+❌ pyyaml: 未安装
+✅ matplotlib: 3.7.5
+❌ eai: 未安装
+
+ _   _____  _  _
+(_) / ____|(_)| |
+ _ | |  __  _ | |__   ___   ___   _ __
+| || | |_ || || '_ \ / __| / _ \ | '_ \
+| || |__| || || |_) |\__ \| (_) || | | |
+|_| \_____||_||_.__/ |___/ \___/ |_| |_|
+
+✅ igibson: 2.2.3
+
+GPU信息:
+
+
+项目目录: /home/yeah/eai-interpretable-interface
+========================================
