@@ -6,16 +6,16 @@ Action Sequencing核心类
 """
 
 from typing import Dict, List, Any, Optional, Tuple, Union
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass, asdict, field
 import json
 import time
 import logging
 from pathlib import Path
 
-from .action_data import Action, ActionSequence, ActionType, ActionStatus
-from .state_manager import EnvironmentState, StateManager
-from .action_planner import ActionPlanner, PlanningAlgorithm, PlanningResult, HeuristicType
-from .aude_re import AuDeRe, AudereConfig, create_aude_re
+from action_data import Action, ActionSequence, ActionType, ActionStatus
+from state_manager import EnvironmentState, StateManager
+from action_planner import ActionPlanner, PlanningAlgorithm, PlanningResult, HeuristicType
+from aude_re import AuDeRe, AudereConfig, create_aude_re
 
 
 @dataclass

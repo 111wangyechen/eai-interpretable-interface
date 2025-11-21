@@ -53,7 +53,9 @@ class ParquetDataLoader:
             os.path.dirname(os.getcwd()),          # 上级目录
             os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."),  # 模块的上级目录
             "../..",                               # 上上级目录
-            "~"                                   # 用户主目录
+            "~",                                   # 用户主目录
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), "../data"),  # 项目的data目录
+            os.path.abspath("../data")            # 相对路径指向data目录
         ]
         
         for path in possible_paths:

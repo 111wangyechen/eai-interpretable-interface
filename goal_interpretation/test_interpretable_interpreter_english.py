@@ -115,8 +115,12 @@ class TestInterpretableGoalInterpreter(unittest.TestCase):
         ]
         
         try:
+            # Create a simple LTL formula for testing
+            from goal_interpreter import LTLFormula
+            test_formula = LTLFormula("True", {})
+            
             # Generate PDDL domain with learned predicates
-            pddl_domain = self.domain_builder.build_domain(learned_predicates)
+            pddl_domain = self.domain_builder.build_domain(test_formula, learned_predicates)
             self.assertIsNotNone(pddl_domain)
             print(f"✅ PDDL domain generation successful")
             
@@ -283,7 +287,10 @@ class TestInterPreTIntegration(unittest.TestCase):
             
             # 3. Generate PDDL domain with learned predicates
             learned_predicates = [learned_predicate]
-            pddl_domain = domain_builder.build_domain(learned_predicates)
+            # Create a simple LTL formula for testing
+            from goal_interpreter import LTLFormula
+            test_formula = LTLFormula("True", {})
+            pddl_domain = domain_builder.build_domain(test_formula, learned_predicates)
             self.assertIsNotNone(pddl_domain)
             print(f"✅ Step 3: PDDL domain generation completed")
             

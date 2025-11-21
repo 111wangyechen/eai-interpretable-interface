@@ -15,7 +15,7 @@ import numpy as np
 from collections import defaultdict
 
 # 导入action_data中的类
-from .action_data import Action, ActionSequence, ActionType, ActionStatus
+from action_data import Action, ActionSequence, ActionType, ActionStatus
 
 @dataclass
 class ActionPattern:
@@ -467,8 +467,8 @@ class AuDeRe:
         Returns:
             List[Action]: 排序后的动作列表
         """
-        # 短持续时间的动作优先
-        return sorted(actions, key=lambda a: a.estimated_duration)
+        # 短持续时间的动作优先，处理estimated_duration为None的情况
+        return sorted(actions, key=lambda a: a.estimated_duration if a.estimated_duration is not None else float('inf'))
     
     def _sort_by_cost(self, actions: List[Action]) -> List[Action]:
         """
@@ -480,8 +480,8 @@ class AuDeRe:
         Returns:
             List[Action]: 排序后的动作列表
         """
-        # 低成本动作优先
-        return sorted(actions, key=lambda a: a.cost)
+        # 低成本动作优先，使用duration作为替代成本指标
+        return sorted(actions, key=lambda a: a.duration)
     
     def _prioritize_high_success_rate(self, actions: List[Action]) -> List[Action]:
         """
@@ -493,8 +493,8 @@ class AuDeRe:
         Returns:
             List[Action]: 排序后的动作列表
         """
-        # 成功率高的动作优先
-        return sorted(actions, key=lambda a: a.success_rate, reverse=True)
+        # 成功率高的动作优先，使用success_probability属性
+        return sorted(actions, key=lambda a: a.success_probability, reverse=True)
     
     def interpret_natural_language_goal(self, goal_text: str) -> Dict[str, Any]:
         """
@@ -657,6 +657,23 @@ class AuDeRe:
             self._cache.clear()
             if hasattr(self, 'logger'):
                 self.logger.info("AuDeRe cache cleared")
+    
+    def get_statistics(self) -> Dict[str, Any]:
+        """获取统计信息
+        
+        Returns:
+            Dict[str, Any]: 包含统计信息的字典
+        """
+        return {
+            'pattern_count': len(self.action_patterns),
+            'cache_enabled': self.config.enable_caching,
+            'cache_size': len(self._cache) if self._cache is not None else 0,
+            'config': {
+                'enable_pattern_recognition': self.config.enable_pattern_recognition,
+                'enable_action_derivation': self.config.enable_action_derivation,
+                'enable_action_optimization': self.config.enable_action_optimization
+            }
+        }
 
 # 创建导出的公共接口
 def create_aude_re(config: Optional[Dict[str, Any]] = None) -> AuDeRe:

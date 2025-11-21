@@ -13,7 +13,8 @@ import time
 from pathlib import Path
 
 # 添加项目根目录到Python路径
-project_root = os.path.dirname(os.path.abspath(__file__))
+# tests文件夹和四个模块文件夹是并行的，所以需要将父目录添加到路径
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, project_root)
 
 # 导入四个模块
@@ -21,7 +22,7 @@ try:
     from goal_interpretation import GoalInterpreter
     from subgoal_decomposition import SubgoalDecomposer
     from transition_modeling import TransitionModeler, ModelingRequest, ModelingResponse
-    from action_sequencing import ActionSequencer
+    from action_sequencing import ActionSequencer, ActionType, Action
     print("✓ All four modules imported successfully")
 except ImportError as e:
     print(f"✗ Module import failed: {e}")
@@ -109,8 +110,8 @@ class FourModuleIntegrationTester:
             
             # 测试动作序列模块初始化
             try:
-                from action_sequencing.action_sequencer import SequencingRequest, Action
-                test_actions = [Action(id="test_move", name="move", action_type=ActionType.ATOMIC)]
+                from action_sequencing.action_sequencer import SequencingRequest
+                test_actions = [Action(id="test_move", name="move", action_type=ActionType.MANIPULATION)]
                 test_request = SequencingRequest(
                     initial_state={'at_location': 'start'},
                     goal_state={'at_location': 'goal'},
@@ -150,7 +151,7 @@ class FourModuleIntegrationTester:
         try:
             # 步骤1: 目标解释
             goal_description = "Move the red ball to the kitchen table"
-            goal_result = self.goal_interpreter.interpret_goal(goal_description)
+            goal_result = self.goal_interpreter.interpret(goal_description)
             
             if not goal_result:
                 raise Exception("Goal interpretation failed")
@@ -221,9 +222,8 @@ class FourModuleIntegrationTester:
                 'target_location': 'target_location'
             }
             
-            subgoal_result = self.subgoal_decomposer.decompose_goal(
-                goal=main_goal,
-                context=context
+            subgoal_result = self.subgoal_decomposer.decompose(
+                ltl_formula=main_goal
             )
             
             if not subgoal_result:
@@ -284,14 +284,13 @@ class FourModuleIntegrationTester:
             natural_goal = "Pick up the red ball from the floor and place it on the kitchen table"
             
             # 步骤1: 目标解释
-            goal_result = self.goal_interpreter.interpret_goal(natural_goal)
+            goal_result = self.goal_interpreter.interpret(natural_goal)
             if not goal_result:
                 raise Exception("Goal interpretation failed")
             
             # 步骤2: 子目标分解
-            subgoal_result = self.subgoal_decomposer.decompose_goal(
-                goal=natural_goal,
-                context=goal_result.get('context', {})
+            subgoal_result = self.subgoal_decomposer.decompose(
+                ltl_formula=natural_goal
             )
             if not subgoal_result:
                 raise Exception("Subgoal decomposition failed")
@@ -393,10 +392,9 @@ class FourModuleIntegrationTester:
             for scenario in complex_scenarios:
                 try:
                     # 执行完整工作流程
-                    goal_result = self.goal_interpreter.interpret_goal(scenario['goal'])
-                    subgoal_result = self.subgoal_decomposer.decompose_goal(
-                        goal=scenario['goal'],
-                        context={}
+                    goal_result = self.goal_interpreter.interpret(scenario['goal'])
+                    subgoal_result = self.subgoal_decomposer.decompose(
+                        ltl_formula=scenario['goal']
                     )
                     
                     # 简化的转换建模（使用示例转换）
@@ -481,15 +479,14 @@ class FourModuleIntegrationTester:
                 
                 # 目标解释性能测试
                 start_time = time.time()
-                goal_result = self.goal_interpreter.interpret_goal(f"Test goal {i}")
+                goal_result = self.goal_interpreter.interpret(f"Test goal {i}")
                 goal_time = time.time() - start_time
                 performance_metrics['goal_interpretation_times'].append(goal_time)
                 
                 # 子目标分解性能测试
                 start_time = time.time()
-                subgoal_result = self.subgoal_decomposer.decompose_goal(
-                    goal=f"Test goal {i}",
-                    context={}
+                subgoal_result = self.subgoal_decomposer.decompose(
+                    ltl_formula=f"Test goal {i}"
                 )
                 subgoal_time = time.time() - start_time
                 performance_metrics['subgoal_decomposition_times'].append(subgoal_time)
@@ -557,16 +554,15 @@ class FourModuleIntegrationTester:
             
             # 测试无效目标处理
             try:
-                goal_result = self.goal_interpreter.interpret_goal("")
+                goal_result = self.goal_interpreter.interpret("")
                 error_cases.append(('empty_goal', goal_result is not None))
             except:
                 error_cases.append(('empty_goal', True))
             
             # 测试无效上下文处理
             try:
-                subgoal_result = self.subgoal_decomposer.decompose_goal(
-                    goal="Test goal",
-                    context=None
+                subgoal_result = self.subgoal_decomposer.decompose(
+                    ltl_formula="Test goal"
                 )
                 error_cases.append(('invalid_context', subgoal_result is not None))
             except:

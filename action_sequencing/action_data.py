@@ -46,6 +46,7 @@ class Action:
     status: ActionStatus = ActionStatus.PENDING
     execution_time: Optional[float] = None
     metadata: Dict[str, Any] = field(default_factory=dict)
+    estimated_duration: Optional[float] = None
     
     def __post_init__(self):
         """后处理初始化"""

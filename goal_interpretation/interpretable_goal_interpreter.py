@@ -39,13 +39,28 @@ except ImportError:
 @dataclass
 class FeedbackRecord:
     """反馈记录类"""
-    text: str
-    initial_formula: str
-    refined_formula: str
-    feedback_type: str  # "positive", "negative", "correction"
-    feedback_content: str
-    timestamp: float
-    confidence: float
+    # 兼容测试脚本的参数结构
+    goal: Optional[str] = None  # 从测试脚本传入
+    user_feedback: Optional[str] = None  # 从测试脚本传入
+    corrected_predicate: Optional[str] = None  # 从测试脚本传入
+    
+    # 原有参数结构
+    text: str = ""
+    initial_formula: str = ""
+    refined_formula: str = ""
+    feedback_type: str = "correction"  # "positive", "negative", "correction"
+    feedback_content: str = ""
+    timestamp: float = 0.0
+    confidence: float = 0.9
+    
+    def __post_init__(self):
+        # 初始化兼容性转换
+        if self.goal:
+            self.text = self.goal
+        if self.user_feedback:
+            self.feedback_content = self.user_feedback
+        if not self.timestamp:
+            self.timestamp = time.time()
     
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
@@ -55,11 +70,25 @@ class FeedbackRecord:
 class SymbolicPredicate:
     """符号谓词类"""
     name: str
-    parameters: List[str]
-    arity: int
-    description: str
-    confidence: float
-    examples: List[str]
+    # 兼容测试脚本的参数名
+    arguments: Optional[List[str]] = None  # 从测试脚本传入
+    parameters: Optional[List[str]] = None  # 原有参数名
+    arity: int = 0
+    description: str = ""
+    confidence: float = 0.9
+    examples: List[str] = None
+    
+    def __post_init__(self):
+        # 初始化兼容性转换
+        if self.examples is None:
+            self.examples = []
+        # 使用arguments或parameters
+        if self.arguments:
+            self.parameters = self.arguments
+        if not self.parameters:
+            self.parameters = []
+        # 计算arity
+        self.arity = len(self.parameters)
     
     def to_pddl(self) -> str:
         """转换为PDDL格式"""
@@ -191,6 +220,38 @@ class InterPreTFeedbackLearner:
         for predicate in self.predicate_patterns:
             if any(word in record.text.lower() for word in predicate.split('_')):
                 self.predicate_confidence[predicate] += self.learning_rate * 0.5
+    
+    def learn_from_feedback(self, feedback: FeedbackRecord) -> Optional[SymbolicPredicate]:
+        """从反馈中学习谓词（测试脚本调用的方法）"""
+        # 添加反馈记录
+        self.add_feedback(feedback)
+        
+        # 如果有corrected_predicate，创建对应的SymbolicPredicate
+        if feedback.corrected_predicate:
+            # 简单解析corrected_predicate来创建SymbolicPredicate
+            # 格式如: is_red(book)
+            match = re.match(r'(\w+)\(([^)]+)\)', feedback.corrected_predicate)
+            if match:
+                name = match.group(1)
+                args = [arg.strip() for arg in match.group(2).split(',')]
+                
+                # 创建并返回新的谓词
+                new_predicate = SymbolicPredicate(
+                    name=name,
+                    parameters=args,
+                    arity=len(args),
+                    description=f"{name} predicate",
+                    confidence=feedback.confidence,
+                    examples=[feedback.text] if feedback.text else []
+                )
+                
+                # 更新统计信息
+                self.learning_stats['predicates_learned'] += 1
+                
+                return new_predicate
+        
+        # 如果没有明确的corrected_predicate，返回None
+        return None
     
     def get_learned_predicates(self) -> List[SymbolicPredicate]:
         """获取学习到的谓词"""
@@ -360,39 +421,41 @@ class PDDLDomainBuilder:
 
 
 class InterpretableGoalInterpreter(GoalInterpreter):
-    """InterPreT集成版目标解释器"""
+    """可解释的目标解释器"""
     
     def __init__(self, config: Optional[Dict[str, Any]] = None):
         """
-        初始化InterPreT目标解释器
+        初始化解释器
         
         Args:
             config: 配置参数
         """
-        # 初始化父类
-        super().__init__()
+        # 调用父类初始化，只传递use_data_loader参数
+        super().__init__(use_data_loader=True)
         
         self.config = config or {}
         self.logger = logging.getLogger(__name__)
         
-        # InterPreT组件
-        interpretable_config = self.config.get('interpretable', {})
-        self.feedback_learner = InterPreTFeedbackLearner(interpretable_config)
+        # 初始化反馈学习器
+        self.feedback_learner = InterPreTFeedbackLearner(config)
         
-        pddl_config = interpretable_config.get('pddl_domain', {})
-        self.domain_builder = PDDLDomainBuilder(pddl_config)
+        # 初始化PDDL域构建器
+        self.domain_builder = PDDLDomainBuilder(config)
         
-        # 配置参数
-        self.enable_interactive_learning = interpretable_config.get('interactive_learning', {}).get('enabled', True)
-        self.max_feedback_iterations = interpretable_config.get('max_feedback_iterations', 5)
+        # 交互式学习配置
+        self.enable_interactive_learning = self.config.get('enable_interactive_learning', True)
+        self.max_feedback_iterations = self.config.get('max_feedback_iterations', 5)
         
-        # 统计信息
+        # 解释统计
         self.interpretation_stats = {
             'total_interpretations': 0,
             'successful_interpretations': 0,
             'feedback_iterations_used': 0,
             'domains_generated': 0
         }
+        
+        # 学习的谓词
+        self.learned_predicates: List[SymbolicPredicate] = []
     
     def interpret_with_feedback(self, text: str, 
                                feedback_history: Optional[List[Dict]] = None) -> Tuple[LTLFormula, PDDLDomain]:
@@ -492,12 +555,27 @@ class InterpretableGoalInterpreter(GoalInterpreter):
         
         self.feedback_learner.add_feedback(feedback_record)
     
+    def _update_statistics(self, goal: str, interpretation: Any, success: bool):
+        """更新统计信息（测试脚本调用的方法）"""
+        # 这个方法会被测试脚本调用
+        self.interpretation_stats['total_interpretations'] += 1
+        if success:
+            self.interpretation_stats['successful_interpretations'] += 1
+    
     def get_statistics(self) -> Dict[str, Any]:
-        """获取统计信息"""
+        """获取解释器统计信息"""
+        # 为了兼容测试，添加total_tasks, successful_tasks, success_rate字段
+        total_tasks = self.interpretation_stats['total_interpretations']
+        successful_tasks = self.interpretation_stats['successful_interpretations']
+        success_rate = successful_tasks / total_tasks if total_tasks > 0 else 0.0
+        
         return {
+            'total_tasks': total_tasks,
+            'successful_tasks': successful_tasks,
+            'success_rate': success_rate,
             'interpretation_stats': self.interpretation_stats,
             'learning_stats': self.feedback_learner.learning_stats,
-            'learned_predicates_count': len(self.feedback_learner.get_learned_predicates())
+            'learned_predicates_count': len(self.learned_predicates)
         }
     
     def save_learned_predicates(self, filepath: str):
@@ -525,6 +603,84 @@ class InterpretableGoalInterpreter(GoalInterpreter):
             
         except Exception as e:
             self.logger.error(f"Failed to load learned predicates: {e}")
+    
+    def interpret_goal(self, goal_text: str) -> Dict[str, Any]:
+        """
+        解释目标文本，返回解释结果字典
+        
+        Args:
+            goal_text: 目标文本
+            
+        Returns:
+            Dict[str, Any]: 包含公式和语义的结果字典
+        """
+        # 使用interpret方法生成LTL公式
+        ltl_formula = self.interpret(goal_text)
+        
+        # 返回格式化结果
+        return {
+            'formula': ltl_formula.formula,
+            'semantics': ltl_formula.semantics,
+            'is_valid': ltl_formula.is_valid()
+        }
+    
+    def interpret_from_text(self, text: str) -> LTLFormula:
+        """
+        从文本解释目标，提供额外的文本处理
+        
+        Args:
+            text: 输入文本
+            
+        Returns:
+            LTLFormula: LTL公式对象
+        """
+        # 预处理文本
+        processed_text = self._preprocess(text)
+        
+        # 使用现有interpret方法
+        return self.interpret(processed_text)
+    
+    def extract_symbols(self, text: str) -> List[str]:
+        """
+        从文本中提取符号谓词
+        
+        Args:
+            text: 输入文本
+            
+        Returns:
+            List[str]: 提取的符号谓词列表
+        """
+        # 简单的符号提取实现
+        symbols = []
+        
+        # 从文本中提取动词-名词组合作为候选谓词
+        words = text.lower().split()
+        for i, word in enumerate(words):
+            if word in ['pick', 'place', 'move', 'open', 'close', 'clean', 'grab', 'put']:
+                if i + 1 < len(words):
+                    symbol = f"{word}_{words[i+1]}"
+                    symbols.append(symbol)
+        
+        return symbols
+    
+    def generate_domain_from_goal(self, goal_text: str) -> PDDLDomain:
+        """
+        从目标文本直接生成PDDL域
+        
+        Args:
+            goal_text: 目标文本
+            
+        Returns:
+            PDDLDomain: PDDL域对象
+        """
+        # 解释目标
+        ltl_formula = self.interpret(goal_text)
+        
+        # 获取学习到的谓词
+        learned_predicates = self.feedback_learner.get_learned_predicates()
+        
+        # 构建PDDL域
+        return self.domain_builder.build_domain(ltl_formula, learned_predicates)
 
 
 # 使用示例和测试

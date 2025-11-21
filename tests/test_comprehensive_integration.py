@@ -101,7 +101,7 @@ def test_goal_interpretation():
             print_test_result("Import GoalInterpreter (Basic)", True)
             
             english_goal = "Robot should walk to bathroom and wash hands"
-            result = interpreter.interpret_goal(english_goal)
+            result = interpreter.interpret(english_goal)
             
             success = result is not None
             print_test_result("Basic Goal Interpretation", success)

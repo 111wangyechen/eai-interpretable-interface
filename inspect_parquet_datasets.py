@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# This script inspects parquet datasets structure and content for the EAI project
 """
 Dataset Inspection Script
 This script inspects the structure and content of Parquet datasets used by the InterPreT system.
@@ -189,9 +190,15 @@ def main():
         'virtualhome-00000-of-00001.parquet'
     ]
     
-    # Get absolute paths
+    # Get absolute paths and check data directory
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    parquet_files = [os.path.join(base_dir, fname) for fname in default_files]
+    # First try to find files in the data subdirectory
+    data_dir = os.path.join(base_dir, 'data')
+    parquet_files = [os.path.join(data_dir, fname) for fname in default_files]
+    # If files not found in data directory, fall back to base directory
+    if not any(os.path.exists(f) for f in parquet_files):
+        print("⚠️ Files not found in data directory, trying base directory...")
+        parquet_files = [os.path.join(base_dir, fname) for fname in default_files]
     
     # Check if files exist
     existing_files = []

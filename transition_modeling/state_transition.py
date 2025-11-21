@@ -39,16 +39,19 @@ class StateCondition:
     
     def evaluate(self, state: Dict[str, Any]) -> bool:
         """评估条件是否满足"""
-        # 修复：处理不同的状态格式
+        # 检查谓词是否在状态中
         if self.predicate not in state:
-            # 如果谓词不在状态中，检查是否是嵌套状态
             return False
         
         state_value = state[self.predicate]
         
-        # 如果没有参数，简单检查布尔值或存在性
+        # 如果没有参数，检查布尔值（包括字符串形式的布尔值）
         if not self.parameters:
-            return state_value == True or state_value is not None
+            # 处理字符串形式的布尔值
+            if isinstance(state_value, str):
+                return state_value.lower() == "true"
+            # 处理其他类型的布尔值
+            return bool(state_value)
         
         # 处理复杂参数匹配
         for param_key, param_value in self.parameters.items():
@@ -57,7 +60,7 @@ class StateCondition:
                 if param_key not in state_value or state_value[param_key] != param_value:
                     return False
             else:
-                # 修复：如果状态值不是字典但参数只有一个，直接比较
+                # 如果状态值不是字典但参数只有一个，直接比较
                 if len(self.parameters) == 1 and state_value == param_value:
                     continue
                 # 否则不匹配

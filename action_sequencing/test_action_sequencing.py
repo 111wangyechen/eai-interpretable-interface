@@ -55,7 +55,7 @@ class TestActionData(unittest.TestCase):
     
     def test_action_execution(self):
         """测试动作执行"""
-        state = {"agent_location": "start", "agent_at_start": True}
+        state = {"agent_location": "start", "agent_at_start": "True"}
         new_state = self.test_action.execute(state)
         
         # 检查状态变化
@@ -445,15 +445,15 @@ class TestIntegration(unittest.TestCase):
         
         request = SequencingRequest(
             initial_state={
-                "in_living_room": True,
-                "in_kitchen": False,
-                "cup_available": True,
-                "holding_cup": False,
-                "near_sink": False,
-                "cup_with_water": False
+                "in_living_room": "True",
+                "in_kitchen": "False",
+                "cup_available": "True",
+                "holding_cup": "False",
+                "near_sink": "False",
+                "cup_with_water": "False"
             },
             goal_state={
-                "cup_with_water": True
+                "cup_with_water": "True"
             },
             available_actions=actions
         )
@@ -479,23 +479,23 @@ class TestIntegration(unittest.TestCase):
         scenarios = [
             {
                 'name': 'simple_navigation',
-                'initial': {'at_start': True, 'at_target': False},
-                'goal': {'at_target': True},
-                'actions': [
-                    Action('move', 'Move', ActionType.NAVIGATION, {}, 
-                          ['at_start'], ['at_target'], 1.0)
-                ]
+                'initial': {'at_start': "True", 'at_target': "False"},
+            'goal': {'at_target': "True"},
+            'actions': [
+                Action('move', 'Move', ActionType.NAVIGATION, {}, 
+                      ['at_start=True'], ['at_target=True'], 1.0)
+            ]
             },
             {
                 'name': 'multi_step',
-                'initial': {'at_door': True, 'has_key': False, 'door_open': False},
-                'goal': {'door_open': True},
-                'actions': [
-                    Action('find_key', 'FindKey', ActionType.PERCEPTION, {}, 
-                          ['at_door'], ['has_key'], 2.0),
-                    Action('open_door', 'OpenDoor', ActionType.MANIPULATION, {}, 
-                          ['has_key'], ['door_open'], 1.0)
-                ]
+                'initial': {'at_door': "True", 'has_key': "False", 'door_open': "False"},
+            'goal': {'door_open': "True"},
+            'actions': [
+                Action('find_key', 'FindKey', ActionType.PERCEPTION, {}, 
+                      ['at_door=True'], ['has_key=True'], 2.0),
+                Action('open_door', 'OpenDoor', ActionType.MANIPULATION, {}, 
+                      ['has_key=True'], ['door_open=True'], 1.0)
+            ]
             }
         ]
         
