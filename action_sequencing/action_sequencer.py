@@ -12,10 +12,36 @@ import time
 import logging
 from pathlib import Path
 
-from action_data import Action, ActionSequence, ActionType, ActionStatus
-from state_manager import EnvironmentState, StateManager
-from action_planner import ActionPlanner, PlanningAlgorithm, PlanningResult, HeuristicType
-from aude_re import AuDeRe, AudereConfig, create_aude_re
+# 导入缓存管理器
+try:
+    # 尝试绝对导入
+    from eai_interpretable_interface.utils.cache_manager import CacheManager, cache_result
+except ImportError:
+    # 如果绝对导入失败，尝试相对导入
+    try:
+        from utils.cache_manager import CacheManager, cache_result
+    except ImportError:
+        # 如果都失败，创建一个简单的回退实现
+        class CacheManager:
+            def __init__(self, cache_size=1000, ttl=3600, name="cache"):
+                self.cache = {}
+                self.name = name
+            def get(self, key):
+                return self.cache.get(key)
+            def set(self, key, value):
+                self.cache[key] = value
+            def clear(self):
+                self.cache.clear()
+            def __len__(self):
+                return len(self.cache)
+        
+        def cache_result(func):
+            return func
+
+from .action_data import Action, ActionSequence, ActionType, ActionStatus
+from .state_manager import EnvironmentState, StateManager
+from .action_planner import ActionPlanner, PlanningAlgorithm, PlanningResult, HeuristicType
+from .aude_re import AuDeRe, AudereConfig, create_aude_re
 
 
 @dataclass
@@ -144,8 +170,12 @@ class ActionSequencer:
                 if self.config.enable_logging:
                     self.logger.error(f"Failed to initialize AuDeRe module: {str(e)}")
         
-        # 结果缓存
-        self._result_cache = {} if self.config.cache_results else None
+        # 结果缓存 - 使用CacheManager替代简单字典
+        self._cache_manager = CacheManager(
+            cache_size=1000,  # 设置合理的缓存大小
+            ttl=3600,         # 缓存过期时间（秒）
+            name="action_sequencer_cache"
+        ) if self.config.cache_results else None
         
         # 统计信息
         self.stats = {
@@ -167,6 +197,7 @@ class ActionSequencer:
         )
         self.logger = logging.getLogger(__name__)
     
+    @cache_result
     def generate_sequence(self, request: SequencingRequest) -> SequencingResponse:
         """
         生成动作序列
@@ -191,14 +222,14 @@ class ActionSequencer:
                 )
             
             # 检查缓存
-            if self._result_cache is not None:
+            if self._cache_manager is not None:
                 cache_key = self._generate_cache_key(request)
-                if cache_key in self._result_cache:
+                cached_result = self._cache_manager.get(cache_key)
+                if cached_result is not None:
                     self.stats['cache_hits'] += 1
                     if self.config.enable_logging:
                         self.logger.info(f"Cache hit for request: {cache_key}")
                     
-                    cached_result = self._result_cache[cache_key]
                     action_sequence = cached_result['action_sequence']
                     
                     # 对缓存的结果也进行AuDeRe增强（如果启用）
@@ -289,12 +320,13 @@ class ActionSequencer:
                         )
             
             # 缓存结果
-            if self._result_cache is not None and planning_result.success:
+            if self._cache_manager is not None and planning_result.success:
                 cache_key = self._generate_cache_key(request)
-                self._result_cache[cache_key] = {
+                self._cache_manager.set(cache_key, {
                     'action_sequence': action_sequence,
-                    'planning_result': planning_result
-                }
+                    'planning_result': planning_result,
+                    'timestamp': time.time()
+                })
             
             # 记录日志
             if self.config.enable_logging:
@@ -308,7 +340,7 @@ class ActionSequencer:
                 action_sequence=action_sequence,
                 planning_result=planning_result,
                 execution_time=time.time() - start_time,
-                metadata={'cache_key': cache_key if self._result_cache is not None else None}
+                metadata={'cache_key': cache_key if self._cache_manager is not None else None}
             )
             
         except Exception as e:
@@ -419,7 +451,7 @@ class ActionSequencer:
         stats = {
             'stats': self.stats.copy(),
             'config': self.config.to_dict(),
-            'cache_size': len(self._result_cache) if self._result_cache is not None else 0
+            'cache_size': len(self._cache_manager) if self._cache_manager is not None else 0
         }
         
         # 如果启用了AuDeRe，添加其统计信息
@@ -435,8 +467,8 @@ class ActionSequencer:
     
     def clear_cache(self):
         """清空缓存"""
-        if self._result_cache is not None:
-            self._result_cache.clear()
+        if self._cache_manager is not None:
+            self._cache_manager.clear()
             if self.config.enable_logging:
                 self.logger.info("Cache cleared")
     
@@ -486,9 +518,13 @@ class ActionSequencer:
         
         # 清空缓存
         if self.config.cache_results:
-            self._result_cache = {}
+            self._cache_manager = CacheManager(
+                cache_size=1000,
+                ttl=3600,
+                name="action_sequencer_cache"
+            )
         else:
-            self._result_cache = None
+            self._cache_manager = None
         
         if self.config.enable_logging:
             self.logger.info("Configuration updated")

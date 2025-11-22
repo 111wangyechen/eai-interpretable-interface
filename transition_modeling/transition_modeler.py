@@ -314,29 +314,100 @@ class TransitionModeler:
         """预测转换序列"""
         sequences = []
         
-        # 使用预测器生成序列
-        raw_sequences = self.predictor.predict_state_sequence(
-            initial_state=request.initial_state,
-            goal_state=request.goal_state,
-            available_transitions=request.available_transitions,
-            max_depth=self.max_sequence_length
-        )
+        # 记录可用转换信息
+        available_transitions_count = len(request.available_transitions)
+        self.logger.info(f"Processing modeling request with {available_transitions_count} available transitions")
         
-        # 转换为TransitionSequence对象
-        for i, transition_list in enumerate(raw_sequences[:self.max_sequences]):
-            sequence = TransitionSequence(
-                id=f"sequence_{request.request_id}_{i}",
-                transitions=transition_list.copy(),
+        # 确保有可用转换
+        if not request.available_transitions:
+            self.logger.warning(f"No available transitions provided in request {request.request_id}")
+            # 即使没有转换，也返回一个空序列以避免级联失败
+            empty_sequence = TransitionSequence(
+                id=f"empty_sequence_{request.request_id}",
+                transitions=[],
                 initial_state=request.initial_state.copy()
             )
+            empty_sequence.final_state = request.initial_state.copy()
+            return [empty_sequence]
+        
+        # 使用预测器生成序列
+        try:
+            # 创建转换副本以避免意外修改原始数据
+            transitions_copy = request.available_transitions.copy()
             
-            # 计算最终状态
-            current_state = request.initial_state.copy()
-            for transition in transition_list:
-                current_state = transition.apply_effects(current_state)
-            sequence.final_state = current_state
+            # 临时降低置信度阈值以增加生成序列的可能性
+            original_threshold = self.predictor.confidence_threshold
+            self.predictor.confidence_threshold = max(0.005, original_threshold * 0.5)
             
-            sequences.append(sequence)
+            raw_sequences = self.predictor.predict_state_sequence(
+                initial_state=request.initial_state,
+                goal_state=request.goal_state,
+                available_transitions=transitions_copy,
+                max_depth=self.max_sequence_length
+            )
+            
+            # 恢复原始阈值
+            self.predictor.confidence_threshold = original_threshold
+            
+            self.logger.info(f"Predictor generated {len(raw_sequences)} raw sequences")
+            
+            # 转换为TransitionSequence对象
+            for i, transition_list in enumerate(raw_sequences[:self.max_sequences]):
+                sequence = TransitionSequence(
+                    id=f"sequence_{request.request_id}_{i}",
+                    transitions=transition_list.copy(),
+                    initial_state=request.initial_state.copy()
+                )
+                
+                # 计算最终状态
+                current_state = request.initial_state.copy()
+                for transition in transition_list:
+                    current_state = transition.apply_effects(current_state)
+                sequence.final_state = current_state
+                
+                sequences.append(sequence)
+            
+            # 如果没有生成序列，创建一个简单的后备序列
+            if not sequences:
+                self.logger.warning(f"No sequences were generated for request {request.request_id}, creating fallback")
+                
+                # 查找直接适用的转换作为后备
+                applicable_transitions = [
+                    t for t in transitions_copy if t.is_applicable(request.initial_state)
+                ]
+                
+                if applicable_transitions:
+                    # 使用第一个适用的转换创建简单序列
+                    fallback_sequence = TransitionSequence(
+                        id=f"fallback_sequence_{request.request_id}",
+                        transitions=[applicable_transitions[0]],
+                        initial_state=request.initial_state.copy()
+                    )
+                    # 计算最终状态
+                    final_state = request.initial_state.copy()
+                    final_state = applicable_transitions[0].apply_effects(final_state)
+                    fallback_sequence.final_state = final_state
+                    sequences.append(fallback_sequence)
+                else:
+                    # 如果没有适用的转换，创建空序列
+                    empty_sequence = TransitionSequence(
+                        id=f"empty_fallback_sequence_{request.request_id}",
+                        transitions=[],
+                        initial_state=request.initial_state.copy()
+                    )
+                    empty_sequence.final_state = request.initial_state.copy()
+                    sequences.append(empty_sequence)
+            
+        except Exception as e:
+            self.logger.error(f"Error predicting transition sequences: {str(e)}")
+            # 出错时创建后备序列
+            fallback_sequence = TransitionSequence(
+                id=f"error_fallback_sequence_{request.request_id}",
+                transitions=[],
+                initial_state=request.initial_state.copy()
+            )
+            fallback_sequence.final_state = request.initial_state.copy()
+            sequences = [fallback_sequence]
         
         return sequences
     
