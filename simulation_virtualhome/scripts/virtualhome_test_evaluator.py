@@ -50,6 +50,21 @@ except ImportError as e:
     # 使用本地备选实现
     logging.warning("使用本地备选实现...")
     
+    # 模拟pddlgym模块
+    class MockPddlgym:
+        class PDDLEnv:
+            def __init__(self, *args, **kwargs):
+                self.problem = {}
+                self.state = {}
+        
+        def make(*args, **kwargs):
+            return MockPddlgym.PDDLEnv()
+    
+    # 添加模拟模块到sys.modules
+    sys.modules['pddlgym'] = MockPddlgym
+    sys.modules['pddlgym.core'] = MockPddlgym
+    sys.modules['pddlgym.parser'] = MockPddlgym
+    
     # 定义本地备选实现类
     class MockVirtualHomeAgentEvaluator:
         def __init__(self):
@@ -126,12 +141,16 @@ except ImportError as e:
     StateManager = MockStateManager
     SubgoalDecomposer = MockSubgoalDecomposer
 
+# 确保logs目录存在
+logs_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'logs')
+os.makedirs(logs_dir, exist_ok=True)
+
 # 配置日志
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'logs', 'virtualhome_test.log')),
+        logging.FileHandler(os.path.join(logs_dir, 'virtualhome_test.log')),
         logging.StreamHandler()
     ]
 )
