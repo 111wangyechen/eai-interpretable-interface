@@ -184,7 +184,7 @@ class BEHAVIORActionLibrary:
                     "agent.hands_free(hand) == True"
                 ],
                 effects=[
-                    f"agent.holding_{'right' if '{hand}' == 'right' else 'left'}_hand = object_id",
+                    "agent.holding_right_hand = object_id",
                     "object.is_held = True",
                     "agent.energy -= 0.02"
                 ],
@@ -655,36 +655,189 @@ class BEHAVIORActionLibrary:
         return self.actions.get(name)
     
     def create_action(self, name: str, parameters: Dict[str, Any] = None) -> Optional[Action]:
-        """
-        创建动作实例
+        """创建动作实例
         
         Args:
             name: 动作名称
             parameters: 动作参数
             
         Returns:
-            Action实例或None
+            创建的动作实例，如果动作不存在则返回None
         """
-        action_def = self.get_action(name)
-        if not action_def:
+        if name not in self.actions:
             return None
         
-        # 验证参数
+        action_def = self.actions[name]
+        
+        # 验证并处理参数
         validated_params = self._validate_parameters(action_def, parameters or {})
         
-        # 创建Action对象
+        # 生成唯一ID
+        action_id = f"{name}_{int(time.time() * 1000)}"
+        
+        # 创建动作实例
         action = Action(
-            id=f"{name}_{hash(str(validated_params))}_{time.time()}",
-            name=name,
+            id=action_id,
+            name=action_def.name,
             action_type=action_def.action_type,
             parameters=validated_params,
-            preconditions=action_def.preconditions,
-            effects=action_def.effects,
-            duration=validated_params.get('duration', action_def.default_duration),
+            preconditions=action_def.preconditions.copy(),
+            effects=action_def.effects.copy(),
+            duration=action_def.default_duration,
             success_probability=action_def.default_success_prob
         )
         
+        # 添加元数据
+        action.metadata['definition'] = action_def.name
+        action.metadata['creation_time'] = time.time()
+        action.metadata['official_behavior_action'] = True
+        
+        # 增强前置条件，根据参数动态生成前置条件
+        self._enhance_preconditions(action)
+        
         return action
+    
+    def _enhance_preconditions(self, action: Action):
+        """根据参数和动作类型增强前置条件
+        
+        Args:
+            action: 要增强前置条件的动作实例
+        """
+        # 根据动作名称和参数动态生成前置条件
+        if action.name == "GraspObject" and "hand" in action.parameters:
+            hand = action.parameters["hand"]
+            # 移除通用前置条件并添加具体的手部前置条件
+            action.preconditions = [pc for pc in action.preconditions if "agent.hands_free" not in pc]
+            if hand == "right":
+                action.preconditions.append("agent.right_hand_free == True")
+            elif hand == "left":
+                action.preconditions.append("agent.left_hand_free == True")
+            elif hand == "both":
+                action.preconditions.append("agent.right_hand_free == True")
+                action.preconditions.append("agent.left_hand_free == True")
+            
+            # 增强object_id相关的前置条件
+            if "object_id" in action.parameters:
+                obj_id = action.parameters["object_id"]
+                action.preconditions.append(f"exists({obj_id}) == True")
+                action.preconditions.append(f"object_type({obj_id}) != 'fixed'")
+                action.preconditions.append(f"object_weight({obj_id}) < agent.strength")
+                
+                # 基于物体类型添加更具体的前置条件
+                action.preconditions.append(f"can_grasp_object({obj_id}) == True")
+        
+        elif action.name == "NavigateToObject" and "object_id" in action.parameters:
+            obj_id = action.parameters["object_id"]
+            action.preconditions.append(f"object_reachable({obj_id}) == True")
+            action.preconditions.append(f"agent.energy > 0.1")
+        
+        # 添加通用的安全前置条件
+        safety_preconditions = [
+            "agent.alive == True",
+            "agent.conscious == True"
+        ]
+        
+        for condition in safety_preconditions:
+            if condition not in action.preconditions:
+                action.preconditions.append(condition)
+    
+    def validate_action_preconditions(self, action: Action, state: Dict[str, Any]) -> Dict[str, bool]:
+        """验证动作在当前状态下的所有前置条件
+        
+        Args:
+            action: 要验证的动作
+            state: 当前环境状态
+            
+        Returns:
+            前置条件验证结果字典，键为前置条件，值为验证结果
+        """
+        results = {}
+        for precondition in action.preconditions:
+            results[precondition] = self._evaluate_precondition(precondition, state, action)
+        return results
+    
+    def _evaluate_precondition(self, precondition: str, state: Dict[str, Any], action: Action) -> bool:
+        """评估单个前置条件
+        
+        Args:
+            precondition: 前置条件字符串
+            state: 当前环境状态
+            action: 相关动作
+            
+        Returns:
+            前置条件是否满足
+        """
+        try:
+            # 处理特殊函数调用格式，如 exists(object_id), is_reachable(object_id) 等
+            if precondition.startswith("exists(") and precondition.endswith(")"):
+                obj_id = precondition[7:-1].strip()
+                # 处理参数引用
+                if obj_id.startswith("{}") and obj_id.endswith("}"):
+                    param_name = obj_id[2:-1].strip()
+                    obj_id = action.parameters.get(param_name, "")
+                return obj_id in state or f"object_{obj_id}" in state
+            
+            elif precondition.startswith("is_reachable(") and precondition.endswith(")"):
+                obj_id = precondition[13:-1].strip()
+                # 检查对象是否在可到达范围内
+                if f"object_{obj_id}_reachable" in state:
+                    return state[f"object_{obj_id}_reachable"]
+                # 简单判断：如果存在且距离合理，则认为可到达
+                return obj_id in state and state.get(f"distance_to_{obj_id}", float('inf')) < 2.0
+            
+            elif precondition.startswith("object_type(") and ":=" in precondition:
+                # 例如: object_type(cup_1) != 'fixed'
+                parts = precondition.split(":=")
+                if len(parts) == 2:
+                    obj_expr = parts[0].strip()
+                    expected_type = parts[1].strip().strip("'")
+                    if obj_expr.startswith("object_type(") and obj_expr.endswith(")"):
+                        obj_id = obj_expr[12:-1].strip()
+                        actual_type = state.get(f"object_{obj_id}_type", "")
+                        return actual_type != expected_type
+            
+            # 处理标准比较操作
+            elif '==' in precondition:
+                key, value = precondition.split('==', 1)
+                key = key.strip()
+                value = value.strip().strip("'\" ")
+                
+                # 尝试转换为布尔值
+                if value.lower() == "true":
+                    value = True
+                elif value.lower() == "false":
+                    value = False
+                
+                return state.get(key) == value
+            
+            elif '!=' in precondition:
+                key, value = precondition.split('!=', 1)
+                key = key.strip()
+                value = value.strip().strip("'\" ")
+                return state.get(key) != value
+            
+            elif '>' in precondition:
+                key, value = precondition.split('>', 1)
+                key = key.strip()
+                try:
+                    return float(state.get(key, 0)) > float(value.strip())
+                except:
+                    return False
+            
+            elif '<' in precondition:
+                key, value = precondition.split('<', 1)
+                key = key.strip()
+                try:
+                    return float(state.get(key, 0)) < float(value.strip())
+                except:
+                    return False
+            
+            # 简单的布尔条件
+            else:
+                return state.get(precondition.strip(), False)
+        except Exception:
+            # 如果解析失败，返回False
+            return False
     
     def _validate_parameters(self, action_def: ActionDefinition, parameters: Dict[str, Any]) -> Dict[str, Any]:
         """
@@ -819,34 +972,89 @@ global_action_library = BEHAVIORActionLibrary()
 
 
 def get_behavior_action_library() -> BEHAVIORActionLibrary:
-    """
-    获取BEHAVIOR动作库实例
+    """获取全局BEHAVIOR动作库实例
     
     Returns:
-        BEHAVIORActionLibrary实例
+        BEHAVIOR动作库实例
     """
     return global_action_library
 
-
 def create_behavior_action(name: str, parameters: Dict[str, Any] = None) -> Optional[Action]:
-    """
-    创建BEHAVIOR动作
+    """创建BEHAVIOR动作实例
     
     Args:
         name: 动作名称
         parameters: 动作参数
         
     Returns:
-        Action实例或None
+        创建的动作实例，如果动作不存在则返回None
     """
-    return global_action_library.create_action(name, parameters)
-
+    action = global_action_library.create_action(name, parameters)
+    if action:
+        # 标记为官方BEHAVIOR动作
+        action.metadata['is_official_behavior_action'] = True
+    return action
 
 def register_custom_action(action_def: ActionDefinition):
-    """
-    注册自定义动作
+    """注册自定义动作到全局动作库
     
     Args:
         action_def: 动作定义
     """
+    # 确保自定义动作不会覆盖官方动作
+    if action_def.name in global_action_library.actions:
+        official_action = global_action_library.actions[action_def.name]
+        # 在自定义动作名称后添加后缀以避免冲突
+        action_def.name = f"{action_def.name}_custom"
     global_action_library.actions[action_def.name] = action_def
+
+def validate_action_against_behavior_library(action: Action) -> Dict[str, Any]:
+    """验证动作是否符合BEHAVIOR动作库规范
+    
+    Args:
+        action: 要验证的动作
+        
+    Returns:
+        验证结果字典，包含有效性和详细信息
+    """
+    result = {
+        'is_valid': False,
+        'is_official_action': False,
+        'issues': [],
+        'suggestions': []
+    }
+    
+    # 检查是否为官方动作
+    library = get_behavior_action_library()
+    official_def = library.get_action(action.name)
+    
+    if official_def:
+        result['is_official_action'] = True
+        
+        # 验证参数是否符合官方定义
+        for param_name, param_schema in official_def.parameters_schema.items():
+            if param_schema.get('required', False) and param_name not in action.parameters:
+                result['issues'].append(f"Missing required parameter: {param_name}")
+        
+        # 验证前置条件是否完整
+        if len(action.preconditions) < len(official_def.preconditions):
+            result['issues'].append("Missing required preconditions")
+        
+        # 验证动作类型是否匹配
+        if action.action_type != official_def.action_type:
+            result['issues'].append(f"Action type mismatch: expected {official_def.action_type}, got {action.action_type}")
+        
+        # 如果没有问题，标记为有效
+        if not result['issues']:
+            result['is_valid'] = True
+    else:
+        result['issues'].append(f"Action '{action.name}' not found in BEHAVIOR official library")
+        # 寻找相似的官方动作作为建议
+        similar_actions = []
+        for def_name in library.actions:
+            if def_name.lower() == action.name.lower():
+                similar_actions.append(def_name)
+        if similar_actions:
+            result['suggestions'].append(f"Did you mean: {', '.join(similar_actions)}")
+    
+    return result

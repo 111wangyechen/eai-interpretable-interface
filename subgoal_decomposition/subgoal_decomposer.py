@@ -178,13 +178,462 @@ class SubgoalDecomposer:
         
         # 根据策略选择分解方法
         if self.strategy == DecompositionStrategy.TEMPORAL_HIERARCHICAL:
-            return self._temporal_hierarchical_decompose(formula_str, max_depth, max_subgoals)
+            result = self._temporal_hierarchical_decompose(formula_str, max_depth, max_subgoals)
         elif self.strategy == DecompositionStrategy.TASK_DEPENDENCY:
-            return self._task_dependency_decompose(formula_str, max_depth, max_subgoals)
+            result = self._task_dependency_decompose(formula_str, max_depth, max_subgoals)
         elif self.strategy == DecompositionStrategy.SEMANTIC_CLUSTERING:
-            return self._semantic_clustering_decompose(formula_str, max_depth, max_subgoals)
+            result = self._semantic_clustering_decompose(formula_str, max_depth, max_subgoals)
         else:  # HYBRID
-            return self._hybrid_decompose(formula_str, max_depth, max_subgoals)
+            result = self._hybrid_decompose(formula_str, max_depth, max_subgoals)
+        
+        # 增强子目标数量智能控制：如果子目标太少（少于3个），尝试进一步分解
+        if len(result.subgoals) < 3 and len(result.subgoals) > 0:
+            result = self._enhance_decomposition(result, max_depth, max_subgoals)
+        
+        # 智能合并相似子目标
+        result = self._smart_merge_similar_subgoals(result)
+        
+        # 重新计算执行顺序和总成本
+        result.execution_order = self._compute_execution_order(result.subgoals)
+        result.total_cost = sum(subgoal.estimated_cost for subgoal in result.subgoals)
+        
+        # 添加可行性分析元数据
+        feasibility = self._analyze_feasibility(result)
+        result.metadata.update({
+            'feasibility_analysis': feasibility,
+            'decomposition_quality': self._evaluate_decomposition_quality(result)
+        })
+        
+        return result
+    
+    def _enhance_decomposition(self, result: DecompositionResult, 
+                              max_depth: int, max_subgoals: int) -> DecompositionResult:
+        """
+        增强分解结果，当子目标数量过少时进一步分解
+        
+        Args:
+            result: 当前分解结果
+            max_depth: 最大分解深度
+            max_subgoals: 最大子目标数量
+            
+        Returns:
+            DecompositionResult: 增强后的分解结果
+        """
+        enhanced_subgoals = []
+        
+        # 复制原结果中的子目标
+        for subgoal in result.subgoals:
+            # 尝试进一步分解非原子子目标
+            if subgoal.subgoal_type != SubgoalType.ATOMIC:
+                # 解析现有公式
+                structure = self._parse_ltl_structure(subgoal.ltl_formula)
+                temp_subgoals = []
+                
+                # 设置新的临时计数器
+                temp_counter = self.subgoal_counter
+                
+                # 尝试分解
+                self._recursive_decompose(structure, temp_subgoals, 
+                                        subgoal.priority, max_depth, max_subgoals)
+                
+                # 如果成功分解出多个子目标，使用新子目标
+                if len(temp_subgoals) > 1:
+                    # 更新计数器
+                    self.subgoal_counter = temp_counter + len(temp_subgoals)
+                    
+                    # 添加新子目标并继承原依赖
+                    for new_subgoal in temp_subgoals:
+                        # 继承原依赖
+                        new_subgoal.dependencies = subgoal.dependencies.copy()
+                        # 更新深度
+                        new_subgoal.priority = subgoal.priority + new_subgoal.priority
+                        enhanced_subgoals.append(new_subgoal)
+                else:
+                    # 无法进一步分解，保留原目标
+                    enhanced_subgoals.append(subgoal)
+            else:
+                # 保留原子子目标
+                enhanced_subgoals.append(subgoal)
+        
+        # 更新结果
+        if len(enhanced_subgoals) > len(result.subgoals):
+            result.subgoals = enhanced_subgoals
+        
+        return result
+    
+    def _smart_merge_similar_subgoals(self, result: DecompositionResult) -> DecompositionResult:
+        """
+        智能合并相似子目标
+        
+        Args:
+            result: 当前分解结果
+            
+        Returns:
+            DecompositionResult: 合并后的分解结果
+        """
+        if len(result.subgoals) <= 1:
+            return result
+        
+        # 按照优先级和类型分组
+        groups = {}
+        for subgoal in result.subgoals:
+            key = (subgoal.subgoal_type, subgoal.priority)
+            if key not in groups:
+                groups[key] = []
+            groups[key].append(subgoal)
+        
+        # 合并相似子目标
+        merged_subgoals = []
+        processed_ids = set()
+        
+        for subgoal in result.subgoals:
+            if subgoal.id in processed_ids:
+                continue
+            
+            # 查找相似子目标
+            similar_subgoals = []
+            key = (subgoal.subgoal_type, subgoal.priority)
+            
+            for other in groups.get(key, []):
+                if other.id == subgoal.id or other.id in processed_ids:
+                    continue
+                
+                # 检查相似度（基于描述和公式的相似性）
+                desc_similarity = self._calculate_similarity(subgoal.description, other.description)
+                
+                # 如果相似度高于阈值，考虑合并
+                if desc_similarity > 0.6:
+                    similar_subgoals.append(other)
+                    processed_ids.add(other.id)
+            
+            # 如果找到相似子目标，进行合并
+            if similar_subgoals:
+                merged_subgoal = self._merge_subgoals([subgoal] + similar_subgoals)
+                merged_subgoals.append(merged_subgoal)
+                processed_ids.add(subgoal.id)
+            else:
+                merged_subgoals.append(subgoal)
+        
+        # 更新结果
+        result.subgoals = merged_subgoals
+        return result
+    
+    def _merge_subgoals(self, subgoals: List[Subgoal]) -> Subgoal:
+        """
+        合并多个子目标为一个
+        
+        Args:
+            subgoals: 要合并的子目标列表
+            
+        Returns:
+            Subgoal: 合并后的子目标
+        """
+        if not subgoals:
+            raise ValueError("Cannot merge empty list of subgoals")
+        
+        if len(subgoals) == 1:
+            return subgoals[0]
+        
+        # 创建新子目标ID
+        merged_id = f"merged_{self.subgoal_counter}"
+        self.subgoal_counter += 1
+        
+        # 合并描述
+        base_desc = subgoals[0].description
+        merged_desc = f"Combined action: {'; '.join([g.description for g in subgoals])}"
+        
+        # 合并LTL公式（对于原子动作，可以合并为并行执行）
+        ltl_formulas = [g.ltl_formula for g in subgoals]
+        merged_formula = " & ".join(ltl_formulas)
+        if len(ltl_formulas) > 1:
+            merged_formula = f"({merged_formula})"
+        
+        # 合并依赖
+        merged_dependencies = []
+        for subgoal in subgoals:
+            merged_dependencies.extend(subgoal.dependencies)
+        # 去重
+        merged_dependencies = list(set(merged_dependencies))
+        
+        # 合并前提条件
+        merged_preconditions = []
+        for subgoal in subgoals:
+            merged_preconditions.extend(subgoal.preconditions)
+        merged_preconditions = list(set(merged_preconditions))
+        
+        # 合并效果
+        merged_effects = []
+        for subgoal in subgoals:
+            merged_effects.extend(subgoal.effects)
+        merged_effects = list(set(merged_effects))
+        
+        # 计算总成本
+        total_cost = sum(g.estimated_cost for g in subgoals)
+        # 合并有一定效率提升
+        merged_cost = total_cost * 0.9
+        
+        # 合并元数据
+        merged_metadata = {
+            'merged_subgoals': [g.id for g in subgoals],
+            'original_count': len(subgoals)
+        }
+        
+        # 创建合并后的子目标
+        merged_subgoal = Subgoal(
+            id=merged_id,
+            description=merged_desc,
+            ltl_formula=merged_formula,
+            subgoal_type=subgoals[0].subgoal_type,
+            dependencies=merged_dependencies,
+            priority=min(g.priority for g in subgoals),
+            estimated_cost=merged_cost,
+            preconditions=merged_preconditions,
+            effects=merged_effects,
+            metadata=merged_metadata
+        )
+        
+        return merged_subgoal
+    
+    def _calculate_similarity(self, text1: str, text2: str) -> float:
+        """
+        计算两个文本之间的相似度
+        
+        Args:
+            text1: 第一个文本
+            text2: 第二个文本
+            
+        Returns:
+            float: 相似度得分 (0.0-1.0)
+        """
+        # 简单的基于词袋的相似度计算
+        words1 = set(re.findall(r'\b\w+\b', text1.lower()))
+        words2 = set(re.findall(r'\b\w+\b', text2.lower()))
+        
+        if not words1 and not words2:
+            return 0.0
+        
+        # Jaccard相似度
+        intersection = len(words1 & words2)
+        union = len(words1 | words2)
+        
+        return intersection / union if union > 0 else 0.0
+    
+    def _analyze_feasibility(self, result: DecompositionResult) -> Dict[str, any]:
+        """
+        分析分解结果的可行性
+        
+        Args:
+            result: 分解结果
+            
+        Returns:
+            Dict: 可行性分析报告
+        """
+        analysis = {
+            'dependency_cycles': self._check_dependency_cycles(result.subgoals),
+            'unreachable_subgoals': self._find_unreachable_subgoals(result.subgoals),
+            'missing_preconditions': self._identify_missing_preconditions(result.subgoals),
+            'estimated_success_rate': self._estimate_success_rate(result)
+        }
+        
+        # 综合评估
+        analysis['is_feasible'] = not analysis['dependency_cycles'] and \
+                                 len(analysis['unreachable_subgoals']) == 0 and \
+                                 analysis['estimated_success_rate'] > 0.5
+        
+        return analysis
+    
+    def _check_dependency_cycles(self, subgoals: List[Subgoal]) -> List[List[str]]:
+        """
+        检查依赖循环
+        
+        Args:
+            subgoals: 子目标列表
+            
+        Returns:
+            List[List[str]]: 循环依赖列表
+        """
+        # 构建依赖图
+        graph = {}
+        for subgoal in subgoals:
+            graph[subgoal.id] = subgoal.dependencies
+        
+        visited = set()
+        rec_stack = set()
+        cycles = []
+        
+        def dfs(node, path):
+            if node in rec_stack:
+                # 找到循环
+                cycle_start = path.index(node)
+                cycles.append(path[cycle_start:] + [node])
+                return
+            
+            if node in visited:
+                return
+            
+            visited.add(node)
+            rec_stack.add(node)
+            path.append(node)
+            
+            for neighbor in graph.get(node, []):
+                dfs(neighbor, path.copy())
+            
+            rec_stack.remove(node)
+        
+        for node in graph.keys():
+            if node not in visited:
+                dfs(node, [])
+        
+        return cycles
+    
+    def _find_unreachable_subgoals(self, subgoals: List[Subgoal]) -> List[str]:
+        """
+        找出无法到达的子目标
+        
+        Args:
+            subgoals: 子目标列表
+            
+        Returns:
+            List[str]: 无法到达的子目标ID列表
+        """
+        reachable = set()
+        
+        # 找出所有没有依赖的子目标（起点）
+        start_subgoals = [s.id for s in subgoals if not s.dependencies]
+        
+        def mark_reachable(node):
+            if node in reachable:
+                return
+            reachable.add(node)
+            # 找出依赖于当前节点的所有子目标
+            for subgoal in subgoals:
+                if node in subgoal.dependencies:
+                    mark_reachable(subgoal.id)
+        
+        # 从起点开始标记可达子目标
+        for start in start_subgoals:
+            mark_reachable(start)
+        
+        # 找出不可达的子目标
+        all_ids = {s.id for s in subgoals}
+        unreachable = list(all_ids - reachable)
+        
+        return unreachable
+    
+    def _identify_missing_preconditions(self, subgoals: List[Subgoal]) -> List[Dict[str, str]]:
+        """
+        识别缺失的前提条件
+        
+        Args:
+            subgoals: 子目标列表
+            
+        Returns:
+            List[Dict]: 缺失前提条件列表
+        """
+        missing = []
+        
+        # 构建所有效果的集合
+        all_effects = set()
+        for subgoal in subgoals:
+            all_effects.update(subgoal.effects)
+        
+        # 检查每个子目标的前提条件
+        for subgoal in subgoals:
+            for precondition in subgoal.preconditions:
+                # 检查前提条件是否是某个子目标的效果，或者是否是初始条件
+                if precondition not in all_effects:
+                    missing.append({
+                        'subgoal_id': subgoal.id,
+                        'precondition': precondition,
+                        'suggestion': f'Ensure {precondition} is established before executing {subgoal.description}'
+                    })
+        
+        return missing
+    
+    def _estimate_success_rate(self, result: DecompositionResult) -> float:
+        """
+        估计成功执行率
+        
+        Args:
+            result: 分解结果
+            
+        Returns:
+            float: 成功执行率估计 (0.0-1.0)
+        """
+        # 基于多个因素的简单估计模型
+        factors = {
+            'depth_factor': min(1.0, 1.0 - (self._get_max_depth(result.subgoals) / 10.0)),
+            'cost_factor': max(0.3, 1.0 - (result.total_cost / 50.0)),
+            'dependency_factor': 0.5 if result.subgoals else 1.0,
+            'subgoal_count_factor': min(1.0, 1.0 - (abs(len(result.subgoals) - 5) / 20.0))
+        }
+        
+        # 计算依赖因子：依赖数量适中的子目标更好
+        total_dependencies = sum(len(g.dependencies) for g in result.subgoals)
+        avg_dependencies = total_dependencies / len(result.subgoals) if result.subgoals else 0
+        factors['dependency_factor'] = max(0.3, 1.0 - abs(avg_dependencies - 1.0) / 5.0)
+        
+        # 加权平均
+        weights = {
+            'depth_factor': 0.2,
+            'cost_factor': 0.2,
+            'dependency_factor': 0.3,
+            'subgoal_count_factor': 0.3
+        }
+        
+        success_rate = sum(factors[k] * weights[k] for k in factors)
+        return min(1.0, max(0.0, success_rate))
+    
+    def _evaluate_decomposition_quality(self, result: DecompositionResult) -> Dict[str, float]:
+        """
+        评估分解质量
+        
+        Args:
+            result: 分解结果
+            
+        Returns:
+            Dict: 质量评估指标
+        """
+        subgoals = result.subgoals
+        if not subgoals:
+            return {
+                'granularity_score': 0.0,
+                'balance_score': 0.0,
+                'dependency_clarity_score': 0.0,
+                'overall_score': 0.0
+            }
+        
+        # 粒度评分：子目标数量适中
+        granularity_score = min(1.0, 1.0 - (abs(len(subgoals) - 8) / 20.0))
+        
+        # 平衡性评分：子目标深度分布均匀
+        depths = [g.priority for g in subgoals]
+        max_depth = max(depths) if depths else 1
+        depth_distribution = [depths.count(d) for d in range(max_depth + 1)]
+        # 计算标准差（越小越平衡）
+        import statistics
+        if len(depth_distribution) > 1:
+            std_dev = statistics.stdev(depth_distribution)
+            balance_score = max(0.0, 1.0 - (std_dev / 10.0))
+        else:
+            balance_score = 1.0
+        
+        # 依赖清晰度评分：依赖关系明确
+        total_possible_dependencies = len(subgoals) * (len(subgoals) - 1)
+        actual_dependencies = sum(len(g.dependencies) for g in subgoals)
+        dependency_ratio = actual_dependencies / total_possible_dependencies if total_possible_dependencies > 0 else 0
+        # 适中的依赖比例最好
+        dependency_clarity_score = max(0.0, 1.0 - abs(dependency_ratio - 0.3) / 0.5)
+        
+        # 综合评分
+        overall_score = 0.3 * granularity_score + 0.3 * balance_score + 0.4 * dependency_clarity_score
+        
+        return {
+            'granularity_score': round(granularity_score, 2),
+            'balance_score': round(balance_score, 2),
+            'dependency_clarity_score': round(dependency_clarity_score, 2),
+            'overall_score': round(overall_score, 2)
+        }
     
     def _temporal_hierarchical_decompose(self, formula: str, max_depth: int, max_subgoals: int) -> DecompositionResult:
         """
@@ -509,21 +958,288 @@ class SubgoalDecomposer:
             if len(action_description.split('_')) < 2 and not action_description.startswith('perform_'):
                 action_description = f"perform_{action_description}"
         
+        # 增强：自动推断前提条件和依赖关系
+        preconditions = self._infer_preconditions(action_description)
+        dependencies = self._infer_dependencies(action_description, subgoals)
+        
+        # 增强：基于动作类型计算更准确的成本
+        estimated_cost = self._calculate_action_cost(action_description)
+        
+        # 增强：生成更详细的效果描述
+        effects = self._generate_detailed_effects(action_description)
+        
+        # 增强：添加动作可行性评分
+        feasibility_score = self._assess_action_feasibility(action_description)
+        
         subgoal = Subgoal(
             id=subgoal_id,
             description=f"Execute atomic action: {action_description}",
             ltl_formula=action_description,  # 使用处理后的动作描述作为LTL公式
             subgoal_type=SubgoalType.ATOMIC,
-            dependencies=[],
+            dependencies=dependencies,
             priority=depth,
-            estimated_cost=1.0,
-            preconditions=[],
-            effects=[action_description],
-            metadata={'depth': depth, 'type': 'atomic', 'original_formula': formula}
+            estimated_cost=estimated_cost,
+            preconditions=preconditions,
+            effects=effects,
+            metadata={
+                'depth': depth, 
+                'type': 'atomic', 
+                'original_formula': formula,
+                'feasibility_score': feasibility_score,
+                'action_type': self._classify_action_type(action_description)
+            }
         )
         
         subgoals.append(subgoal)
         return subgoal_id
+    
+    def _infer_preconditions(self, action_description: str) -> List[str]:
+        """
+        自动推断动作的前提条件
+        
+        Args:
+            action_description: 动作描述
+            
+        Returns:
+            List[str]: 推断的前提条件列表
+        """
+        preconditions = []
+        
+        # 基于动作名称和模式推断前提条件
+        action_lower = action_description.lower()
+        
+        # 移动相关动作
+        if any(keyword in action_lower for keyword in ['move', 'walk', 'go', 'approach', 'navigate']):
+            preconditions.append('agent_available')
+            preconditions.append('path_clear')
+        
+        # 抓取相关动作
+        elif any(keyword in action_lower for keyword in ['pick', 'grab', 'take', 'grasp']):
+            preconditions.append('agent_available')
+            preconditions.append('object_visible')
+            preconditions.append('object_reachable')
+        
+        # 放置相关动作
+        elif any(keyword in action_lower for keyword in ['place', 'put', 'drop', 'release']):
+            preconditions.append('agent_available')
+            preconditions.append('object_in_hand')
+            preconditions.append('target_location_clear')
+        
+        # 操作相关动作
+        elif any(keyword in action_lower for keyword in ['open', 'close', 'turn', 'activate', 'deactivate']):
+            preconditions.append('agent_available')
+            preconditions.append('object_visible')
+            preconditions.append('object_reachable')
+        
+        # 检查相关动作
+        elif any(keyword in action_lower for keyword in ['check', 'verify', 'inspect', 'monitor']):
+            preconditions.append('agent_available')
+            preconditions.append('object_visible')
+        
+        # 通信相关动作
+        elif any(keyword in action_lower for keyword in ['communicate', 'report', 'say', 'tell']):
+            preconditions.append('agent_available')
+            preconditions.append('communication_channel_available')
+        
+        # 默认前提条件
+        else:
+            preconditions.append('agent_available')
+        
+        return preconditions
+    
+    def _infer_dependencies(self, action_description: str, existing_subgoals: List[Subgoal]) -> List[str]:
+        """
+        自动推断动作的依赖关系
+        
+        Args:
+            action_description: 动作描述
+            existing_subgoals: 已存在的子目标列表
+            
+        Returns:
+            List[str]: 推断的依赖关系列表
+        """
+        dependencies = []
+        
+        # 基于现有子目标的效果来推断依赖
+        for subgoal in existing_subgoals:
+            for effect in subgoal.effects:
+                # 如果现有子目标的效果是当前动作的前提条件，添加依赖
+                if effect in self._infer_preconditions(action_description):
+                    dependencies.append(subgoal.id)
+                    break
+        
+        # 基于动作顺序的简单规则
+        if len(existing_subgoals) > 0:
+            action_lower = action_description.lower()
+            
+            # 放置动作通常依赖于抓取动作
+            if any(place_keyword in action_lower for place_keyword in ['place', 'put', 'drop', 'release']):
+                for subgoal in existing_subgoals:
+                    if any(grab_keyword in subgoal.description.lower() 
+                           for grab_keyword in ['pick', 'grab', 'take', 'grasp']):
+                        dependencies.append(subgoal.id)
+                        break
+        
+        return list(set(dependencies))  # 去重
+    
+    def _calculate_action_cost(self, action_description: str) -> float:
+        """
+        基于动作类型计算更准确的成本
+        
+        Args:
+            action_description: 动作描述
+            
+        Returns:
+            float: 估计成本
+        """
+        # 基础成本
+        base_cost = 1.0
+        
+        # 动作复杂度因子
+        complexity_factor = 1.0
+        action_lower = action_description.lower()
+        
+        # 简单动作
+        simple_actions = ['check', 'verify', 'observe', 'monitor', 'report']
+        if any(action in action_lower for action in simple_actions):
+            complexity_factor = 0.7
+        
+        # 中等复杂度动作
+        medium_actions = ['move', 'walk', 'approach', 'open', 'close', 'turn']
+        if any(action in action_lower for action in medium_actions):
+            complexity_factor = 1.0
+        
+        # 高复杂度动作
+        complex_actions = ['pick', 'grab', 'take', 'place', 'put', 'assemble', 'disassemble', 'operate']
+        if any(action in action_lower for action in complex_actions):
+            complexity_factor = 1.5
+        
+        # 非常复杂的动作
+        very_complex_actions = ['repair', 'install', 'configure', 'program', 'solve']
+        if any(action in action_lower for action in very_complex_actions):
+            complexity_factor = 2.5
+        
+        # 动作长度因子（通常更长的动作描述表示更复杂的动作）
+        length_factor = 1.0 + min(0.5, (len(action_description) - 10) / 50.0)
+        
+        # 计算总成本
+        total_cost = base_cost * complexity_factor * length_factor
+        
+        return round(total_cost, 2)
+    
+    def _generate_detailed_effects(self, action_description: str) -> List[str]:
+        """
+        生成更详细的动作效果描述
+        
+        Args:
+            action_description: 动作描述
+            
+        Returns:
+            List[str]: 详细效果列表
+        """
+        effects = [action_description]  # 保留原始描述
+        
+        action_lower = action_description.lower()
+        
+        # 移动相关效果
+        if any(keyword in action_lower for keyword in ['move', 'walk', 'go', 'approach', 'navigate']):
+            effects.append('agent_position_changed')
+            # 提取目标位置
+            match = re.search(r'to_(\w+)', action_lower)
+            if match:
+                target = match.group(1)
+                effects.append(f'agent_at_{target}')
+        
+        # 抓取相关效果
+        elif any(keyword in action_lower for keyword in ['pick', 'grab', 'take', 'grasp']):
+            effects.append('object_in_hand')
+            effects.append('object_moved')
+        
+        # 放置相关效果
+        elif any(keyword in action_lower for keyword in ['place', 'put', 'drop', 'release']):
+            effects.append('object_placed')
+            effects.append('hand_empty')
+        
+        # 开关相关效果
+        elif 'open' in action_lower:
+            effects.append('object_opened')
+        elif 'close' in action_lower:
+            effects.append('object_closed')
+        
+        # 激活相关效果
+        elif 'activate' in action_lower:
+            effects.append('device_active')
+        elif 'deactivate' in action_lower:
+            effects.append('device_inactive')
+        
+        # 检查相关效果
+        elif any(keyword in action_lower for keyword in ['check', 'verify', 'inspect', 'monitor']):
+            effects.append('information_obtained')
+        
+        return effects
+    
+    def _assess_action_feasibility(self, action_description: str) -> float:
+        """
+        评估动作的可行性
+        
+        Args:
+            action_description: 动作描述
+            
+        Returns:
+            float: 可行性评分 (0.0-1.0)
+        """
+        # 基于动作类型和模式的简单可行性评估
+        action_lower = action_description.lower()
+        
+        # 常见且简单的动作通常可行性更高
+        simple_feasible_actions = ['check', 'verify', 'observe', 'monitor', 'move', 'walk', 'approach']
+        if any(action in action_lower for action in simple_feasible_actions):
+            return 0.9
+        
+        # 中等复杂性的动作
+        medium_actions = ['open', 'close', 'turn', 'grab', 'pick', 'place', 'put']
+        if any(action in action_lower for action in medium_actions):
+            return 0.7
+        
+        # 复杂或不太常见的动作
+        complex_actions = ['assemble', 'disassemble', 'repair', 'install', 'configure']
+        if any(action in action_lower for action in complex_actions):
+            return 0.5
+        
+        # 非常复杂或罕见的动作
+        very_complex_actions = ['program', 'solve', 'design', 'create', 'invent']
+        if any(action in action_lower for action in very_complex_actions):
+            return 0.3
+        
+        # 默认可行性
+        return 0.6
+    
+    def _classify_action_type(self, action_description: str) -> str:
+        """
+        分类动作类型
+        
+        Args:
+            action_description: 动作描述
+            
+        Returns:
+            str: 动作类型
+        """
+        action_lower = action_description.lower()
+        
+        if any(keyword in action_lower for keyword in ['move', 'walk', 'go', 'approach', 'navigate']):
+            return 'movement'
+        elif any(keyword in action_lower for keyword in ['pick', 'grab', 'take', 'grasp', 'place', 'put', 'drop']):
+            return 'manipulation'
+        elif any(keyword in action_lower for keyword in ['open', 'close', 'turn', 'activate', 'deactivate']):
+            return 'operation'
+        elif any(keyword in action_lower for keyword in ['check', 'verify', 'inspect', 'monitor', 'observe']):
+            return 'perception'
+        elif any(keyword in action_lower for keyword in ['communicate', 'report', 'say', 'tell']):
+            return 'communication'
+        elif any(keyword in action_lower for keyword in ['assemble', 'disassemble', 'repair', 'install']):
+            return 'maintenance'
+        else:
+            return 'general'
     
     def _create_temporal_subgoal(self, structure: Dict, subgoals: List[Subgoal], 
                                 depth: int, max_depth: int, max_subgoals: int) -> str:

@@ -113,8 +113,18 @@ class TransitionModeler:
         # 初始化子组件
         predictor_config = self.config.get('predictor', {})
         predictor_config['confidence_threshold'] = predictor_config.get('confidence_threshold', 0.01)  # 修复：进一步降低阈值
-        validator_config = self.config.get('validator', {})
         
+        # 添加PDDL支持配置
+        validator_config = self.config.get('validator', {})
+        validator_config['enable_pddl_validation'] = validator_config.get('enable_pddl_validation', True)
+        validator_config['pddl_validation_level'] = validator_config.get('pddl_validation_level', 'standard')
+        
+        # 添加模块联动配置
+        self.enable_module_feedback = self.config.get('enable_module_feedback', True)
+        self.enable_error_handling = self.config.get('enable_error_handling', True)
+        self.timeout_seconds = self.config.get('timeout_seconds', 30)
+        
+        # 初始化组件
         self.predictor = TransitionPredictor(predictor_config)
         self.validator = TransitionValidator(validator_config)
         
@@ -143,6 +153,14 @@ class TransitionModeler:
         self.models: Dict[str, TransitionModel] = {}
         self.model_history: List[Dict[str, Any]] = []
         
+        # 反向反馈机制
+        self.feedback_cache = {}
+        self.module_interfaces = {
+            'subgoal_decomposition': {'enabled': True, 'version': '1.0'},
+            'action_sequencing': {'enabled': True, 'version': '1.0'},
+            'goal_interpretation': {'enabled': True, 'version': '1.0'}
+        }
+        
         # 统计信息
         self.modeling_stats = {
             'total_requests': 0,
@@ -152,24 +170,33 @@ class TransitionModeler:
             'average_validation_time': 0.0,
             'ltl_validated_sequences': 0,
             'runtime_errors_detected': 0,
-            'sequences_corrected': 0
+            'sequences_corrected': 0,
+            'error_types': {},
+            'feedback_corrections': 0,
+            'module_invocations': {
+                'predictor': 0,
+                'validator': 0,
+                'logic_guard': 0
+            }
         }
         
-        self.logger.info("Transition Modeler initialized")
+        self.logger.info("Transition Modeler initialized with enhanced module integration support")
     
     def create_transition_model(self, 
                               name: str,
                               domain: str,
                               transitions: List[StateTransition],
-                              state_schema: Optional[Dict[str, Any]] = None) -> TransitionModel:
+                              state_schema: Optional[Dict[str, Any]] = None,
+                              enable_pddl_validation: bool = True) -> TransitionModel:
         """
-        创建转换模型
+        创建转换模型，支持PDDL格式验证
         
         Args:
             name: 模型名称
             domain: 应用领域
             transitions: 转换列表
             state_schema: 状态模式
+            enable_pddl_validation: 是否启用PDDL格式验证
             
         Returns:
             创建的转换模型
@@ -177,28 +204,100 @@ class TransitionModeler:
         # 生成唯一的模型ID
         model_id = f"model_{name}_{int(time.time() * 1000000)}"
         
+        # 预处理转换列表，确保符合PDDL格式
+        processed_transitions = []
+        for transition in transitions:
+            # 确保转换有参数支持
+            if not hasattr(transition, 'parameters'):
+                transition.parameters = []
+            processed_transitions.append(transition)
+        
         model = TransitionModel(
             id=model_id,
             name=name,
             domain=domain,
-            transitions=transitions,
+            transitions=processed_transitions,
             state_schema=state_schema or {}
         )
         
-        # 验证模型一致性
+        # 验证模型一致性，包括PDDL格式验证
         if self.enable_validation:
-            validation_result = self.validator.validate_model_consistency(transitions)
+            validation_result = self.validator.validate_model_consistency(processed_transitions)
             if not validation_result.is_valid:
                 self.logger.warning(f"Model consistency issues found: {validation_result.message}")
+            
+            # 生成PDDL验证报告
+            if enable_pddl_validation:
+                pddl_report = self.validator.generate_comprehensive_validation_report(processed_transitions)
+                if pddl_report and pddl_report.get('issues'):
+                    self.logger.warning(f"PDDL format issues found: {len(pddl_report['issues'])} issues detected")
         
         self.models[model.id] = model
         self.logger.info(f"Created transition model: {name} with {len(transitions)} transitions")
         
         return model
     
+    def export_model_to_pddl(self, model_id: str, filepath: str) -> bool:
+        """
+        将模型导出为PDDL格式
+        
+        Args:
+            model_id: 模型ID
+            filepath: 导出文件路径
+            
+        Returns:
+            是否成功导出
+        """
+        try:
+            if model_id not in self.models:
+                self.logger.error(f"Model {model_id} not found")
+                return False
+            
+            model = self.models[model_id]
+            
+            # 构建PDDL域文件内容
+            pddl_content = []
+            pddl_content.append(f"(define (domain {model.domain.replace(' ', '_')})")
+            pddl_content.append("  (:requirements :typing)")
+            
+            # 提取谓词定义
+            predicates = set()
+            for transition in model.transitions:
+                for condition in transition.preconditions:
+                    if hasattr(condition, 'to_pddl'):
+                        pred_str = condition.to_pddl().split(' ')[0].strip('()')
+                        predicates.add(pred_str)
+                for effect in transition.effects:
+                    if hasattr(effect, 'to_pddl'):
+                        pred_str = effect.to_pddl().split(' ')[0].strip('()')
+                        predicates.add(pred_str)
+            
+            # 添加谓词定义
+            pddl_content.append("  (:predicates")
+            for pred in sorted(predicates):
+                pddl_content.append(f"    ({pred} ?x - object)")
+            pddl_content.append("  )")
+            
+            # 添加动作定义
+            for transition in model.transitions:
+                if hasattr(transition, 'to_pddl'):
+                    pddl_content.append("  ")
+                    pddl_content.append(transition.to_pddl())
+            
+            # 保存到文件
+            pddl_content = '\n'.join(pddl_content)
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write(pddl_content)
+            
+            self.logger.info(f"Exported model {model_id} to PDDL file: {filepath}")
+            return True
+        except Exception as e:
+            self.logger.error(f"Failed to export model to PDDL: {str(e)}")
+            return False
+    
     def model_transitions(self, request: ModelingRequest) -> ModelingResponse:
         """
-        执行状态转换建模
+        执行状态转换建模，增强模块联动和错误处理
         
         Args:
             request: 建模请求
@@ -206,25 +305,57 @@ class TransitionModeler:
         Returns:
             建模响应
         """
+        import uuid
+        import hashlib
         start_time = time.time()
         self.modeling_stats['total_requests'] += 1
         
+        # 确保请求ID存在
+        if not hasattr(request, 'request_id'):
+            request.request_id = f"request_{uuid.uuid4()}"
+        
         try:
+            # 应用反向反馈调整
+            adjusted_request = self._apply_module_feedback(request)
+            
+            # 记录模块调用
+            self.modeling_stats['module_invocations']['predictor'] += 1
+            
             # 1. 预测转换序列
-            predicted_sequences = self._predict_transition_sequences(request)
+            predicted_sequences = self._predict_transition_sequences(adjusted_request)
+            
+            # 记录模块调用
+            self.modeling_stats['module_invocations']['validator'] += 1
             
             # 2. 验证预测序列
             validation_results = []
             if self.enable_validation:
-                validation_results = self._validate_sequences(request, predicted_sequences)
+                validation_results = self._validate_sequences(adjusted_request, predicted_sequences)
             
             # 3. 过滤有效序列
             valid_sequences = []
+            validation_details = []
+            
             for i, (sequence, validation) in enumerate(zip(predicted_sequences, validation_results)):
                 if validation.is_valid:
                     # 确保序列中的状态数据已清理
                     sequence.initial_state = self._clean_serializable_data(sequence.initial_state)
                     sequence.final_state = self._clean_serializable_data(sequence.final_state)
+                    
+                    # 添加PDDL兼容性标记
+                    if hasattr(sequence, 'validate_pddl_consistency'):
+                        pddl_valid = sequence.validate_pddl_consistency()
+                    else:
+                        pddl_valid = self._check_sequence_pddl_compatibility(sequence)
+                    
+                    validation_details.append({
+                        'sequence_id': sequence.id,
+                        'confidence': getattr(sequence, 'confidence', 0.0),
+                        'validity': validation.is_valid,
+                        'pddl_compatible': pddl_valid,
+                        'issues': getattr(validation, 'issues', [])
+                    })
+                    
                     valid_sequences.append(sequence)
                 else:
                     self.logger.warning(f"Sequence {i} validation failed: {validation.message}")
@@ -232,14 +363,15 @@ class TransitionModeler:
             # 4. 使用LogicGuard进行时序逻辑验证和运行时错误检测
             final_sequences = valid_sequences
             if self.enable_logic_guard and self.logic_guard and valid_sequences:
+                self.modeling_stats['module_invocations']['logic_guard'] += 1
                 final_sequences = []
                 for sequence in valid_sequences:
                     try:
                         # 时序逻辑验证
                         ltl_validation_result = self.logic_guard.validate_ltl_specifications(
-                            request.initial_state,
+                            adjusted_request.initial_state,
                             sequence.transitions,
-                            request.goal_state
+                            adjusted_request.goal_state
                         )
                         
                         if ltl_validation_result.get('valid', True):  # 默认通过，除非明确验证失败
@@ -279,8 +411,32 @@ class TransitionModeler:
                 # 如果LogicGuard不可用，记录警告并使用原始有效序列
                 self.logger.warning("LogicGuard is not available, skipping LTL validation and runtime error detection")
             
-            # 5. 构建响应
-            # 创建完全安全的响应数据，确保不包含任何LogicGuard相关引用
+            # 构建响应元数据
+            metadata = {
+                'total_sequences_generated': len(predicted_sequences),
+                'valid_sequences_count': len(valid_sequences),
+                'final_sequences_count': len(final_sequences),
+                'modeling_time': time.time() - start_time,
+                'ltl_validated': self.enable_logic_guard and self.logic_guard,
+                'runtime_errors_corrected': self.modeling_stats['sequences_corrected'],
+                'validation_details': validation_details,
+                'module_status': self._get_module_status()
+            }
+            
+            # 检查是否成功
+            success = len(final_sequences) > 0
+            
+            # 如果失败，尝试提供诊断信息
+            if not success and self.enable_error_handling:
+                diagnostics = self._diagnose_modeling_failure(
+                    adjusted_request.initial_state,
+                    adjusted_request.goal_state,
+                    adjusted_request.available_transitions
+                )
+                metadata['diagnostics'] = diagnostics
+                message = f"Failed to generate valid sequences: {diagnostics.get('possible_causes', ['Unknown'])[0]}"
+            else:
+                message = f"Generated {len(final_sequences)} valid sequences"
             
             # 清理ValidationResult对象，确保完全可JSON序列化
             cleaned_validation_results = []
@@ -301,18 +457,11 @@ class TransitionModeler:
             
             response = ModelingResponse(
                 request_id=request.request_id,
-                success=len(final_sequences) > 0,
-                message=f"Generated {len(final_sequences)} valid sequences",
+                success=success,
+                message=message,
                 predicted_sequences=final_sequences,
                 validation_results=cleaned_validation_results,
-                metadata={
-                    'total_sequences_generated': len(predicted_sequences),
-                    'valid_sequences_count': len(valid_sequences),
-                    'final_sequences_count': len(final_sequences),
-                    'modeling_time': time.time() - start_time,
-                    'ltl_validated': self.enable_logic_guard and self.logic_guard,
-                    'runtime_errors_corrected': self.modeling_stats['sequences_corrected']
-                }
+                metadata=metadata
             )
             
             # 6. 更新统计信息
@@ -465,21 +614,316 @@ class TransitionModeler:
         return validation_results
     
     def _update_statistics(self, response: ModelingResponse, start_time: float):
-        """更新统计信息"""
-        modeling_time = time.time() - start_time
-        sequence_count = len(response.predicted_sequences)
+        """
+        更新建模统计信息
         
-        # 更新平均序列数
+        Args:
+            response: 建模响应
+            start_time: 开始时间
+        """
+        if response.success:
+            self.modeling_stats['successful_modeling'] += 1
+        else:
+            self.modeling_stats['failed_modeling'] += 1
+            # 记录错误类型
+            error_type = 'unknown'
+            if 'diagnostics' in response.metadata:
+                if response.metadata['diagnostics'].get('possible_causes'):
+                    error_type = response.metadata['diagnostics']['possible_causes'][0].lower().replace(' ', '_')
+            self._record_error_type(error_type)
+            
+        # 更新平均序列生成数量
         total_requests = self.modeling_stats['total_requests']
         current_avg = self.modeling_stats['average_sequences_generated']
-        new_avg = (current_avg * (total_requests - 1) + sequence_count) / total_requests
-        self.modeling_stats['average_sequences_generated'] = new_avg
+        new_count = len(response.predicted_sequences)
+        self.modeling_stats['average_sequences_generated'] = \
+            (current_avg * (total_requests - 1) + new_count) / total_requests
         
         # 更新平均验证时间
-        if response.validation_results:
-            current_val_avg = self.modeling_stats['average_validation_time']
-            new_val_avg = (current_val_avg * (total_requests - 1) + modeling_time) / total_requests
-            self.modeling_stats['average_validation_time'] = new_val_avg
+        validation_time = time.time() - start_time
+        current_val_avg = self.modeling_stats['average_validation_time']
+        self.modeling_stats['average_validation_time'] = \
+            (current_val_avg * (total_requests - 1) + validation_time) / total_requests
+    
+    def _record_error_type(self, error_type: str):
+        """
+        记录错误类型统计
+        
+        Args:
+            error_type: 错误类型标识符
+        """
+        if error_type not in self.modeling_stats['error_types']:
+            self.modeling_stats['error_types'][error_type] = 0
+        self.modeling_stats['error_types'][error_type] += 1
+    
+    def _apply_module_feedback(self, request: ModelingRequest) -> ModelingRequest:
+        """
+        应用来自其他模块的反馈来优化请求
+        
+        Args:
+            request: 原始请求
+            
+        Returns:
+            ModelingRequest: 优化后的请求
+        """
+        if not self.enable_module_feedback:
+            return request
+        
+        # 创建请求特征哈希作为缓存键
+        state_features = f"{str(request.initial_state)}{str(request.goal_state)}"
+        request_hash = hashlib.md5(state_features.encode()).hexdigest()
+        
+        if request_hash in self.feedback_cache:
+            feedback = self.feedback_cache[request_hash]
+            self.modeling_stats['feedback_corrections'] += 1
+            self.logger.info(f"Applying feedback corrections for request {request.request_id}")
+            
+            # 合并可用转换
+            if 'adjusted_transitions' in feedback:
+                # 创建一个新的请求副本
+                import copy
+                adjusted_request = copy.copy(request)
+                
+                # 合并转换
+                existing_trans_ids = {t.id: i for i, t in enumerate(request.available_transitions) 
+                                    if hasattr(t, 'id')}
+                
+                for adjusted_trans in feedback['adjusted_transitions']:
+                    if hasattr(adjusted_trans, 'id') and adjusted_trans.id in existing_trans_ids:
+                        # 更新现有转换
+                        idx = existing_trans_ids[adjusted_trans.id]
+                        adjusted_request.available_transitions[idx] = adjusted_trans
+                    else:
+                        # 添加新转换
+                        adjusted_request.available_transitions.append(adjusted_trans)
+                
+                return adjusted_request
+        
+        return request
+    
+    def _diagnose_modeling_failure(self, initial_state: Dict, goal_state: Dict, transitions: List) -> Dict:
+        """
+        诊断建模失败的原因
+        
+        Args:
+            initial_state: 初始状态
+            goal_state: 目标状态
+            transitions: 可用转换
+            
+        Returns:
+            Dict: 诊断结果和建议
+        """
+        import re
+        diagnosis = {
+            'possible_causes': [],
+            'recommendations': [],
+            'analysis': {}
+        }
+        
+        # 检查状态差异
+        if initial_state and goal_state:
+            state_differences = set(goal_state.keys()) - set(initial_state.keys())
+            if state_differences:
+                diagnosis['possible_causes'].append('Missing state variables in initial state')
+                diagnosis['analysis']['missing_variables'] = list(state_differences)
+                diagnosis['recommendations'].append(
+                    f'Ensure initial state contains all variables needed to reach the goal: {list(state_differences)[:5]}'
+                )
+        
+        # 检查转换数量
+        if not transitions:
+            diagnosis['possible_causes'].append('No transitions available')
+            diagnosis['recommendations'].append('Provide valid transitions for modeling')
+        elif len(transitions) < 3:
+            diagnosis['possible_causes'].append('Insufficient transitions')
+            diagnosis['recommendations'].append('Increase the number of available transitions')
+        
+        # 检查转换质量
+        invalid_transitions = []
+        for i, trans in enumerate(transitions):
+            if not hasattr(trans, 'preconditions') or not hasattr(trans, 'effects'):
+                invalid_transitions.append(i)
+        
+        if invalid_transitions:
+            diagnosis['possible_causes'].append('Invalid transitions detected')
+            diagnosis['analysis']['invalid_transition_indices'] = invalid_transitions[:5]
+            diagnosis['recommendations'].append(
+                f'Fix transitions at indices: {invalid_transitions[:5]}'
+            )
+        
+        # 检查目标可达性
+        if goal_state:
+            diagnosis['analysis']['goal_complexity'] = len(goal_state)
+            if len(goal_state) > 10:
+                diagnosis['possible_causes'].append('Goal state too complex')
+                diagnosis['recommendations'].append('Simplify the goal state or break it down into subgoals')
+        
+        return diagnosis
+    
+    def _check_sequence_pddl_compatibility(self, sequence) -> bool:
+        """
+        检查序列的PDDL兼容性
+        
+        Args:
+            sequence: 转换序列
+            
+        Returns:
+            bool: 是否兼容
+        """
+        if not hasattr(sequence, 'transitions'):
+            return False
+        
+        for transition in sequence.transitions:
+            # 检查必要的PDDL属性
+            if not hasattr(transition, 'name') or not getattr(transition, 'name', ''):
+                return False
+            if not hasattr(transition, 'preconditions'):
+                return False
+            if not hasattr(transition, 'effects'):
+                return False
+        
+        return True
+    
+    def _get_module_status(self) -> Dict:
+        """
+        获取各模块的状态信息
+        
+        Returns:
+            Dict: 模块状态
+        """
+        return {
+            'predictor': 'available',
+            'validator': 'available',
+            'logic_guard': 'available' if self.logic_guard else 'unavailable',
+            'module_feedback': 'enabled' if self.enable_module_feedback else 'disabled',
+            'error_handling': 'enabled' if self.enable_error_handling else 'disabled'
+        }
+    
+    def register_feedback(self, request_id: str, feedback: Dict):
+        """
+        注册来自其他模块的反馈
+        
+        Args:
+            request_id: 请求ID
+            feedback: 反馈数据
+        """
+        if not self.enable_module_feedback:
+            return
+        
+        # 从反馈中提取状态信息创建缓存键
+        if 'initial_state' in feedback and 'goal_state' in feedback:
+            state_features = f"{str(feedback['initial_state'])}{str(feedback['goal_state'])}"
+            request_hash = hashlib.md5(state_features.encode()).hexdigest()
+            self.feedback_cache[request_hash] = feedback
+            self.logger.info(f"Registered feedback for request {request_id}")
+    
+    def create_integrated_request(self, initial_state: Dict, goal_state: Dict, 
+                                 subgoals: Optional[Any] = None, 
+                                 context: Optional[Dict] = None) -> ModelingRequest:
+        """
+        创建集成的建模请求，支持多种输入格式
+        
+        Args:
+            initial_state: 初始状态
+            goal_state: 目标状态
+            subgoals: 子目标信息（支持多种格式）
+            context: 额外上下文信息
+            
+        Returns:
+            ModelingRequest: 建模请求对象
+        """
+        # 创建基础转换
+        transitions = self.create_sample_transitions()
+        
+        # 根据子目标增强转换
+        if subgoals:
+            enhanced_transitions = self._enhance_transitions_with_subgoals(transitions, subgoals)
+            transitions = enhanced_transitions
+        
+        # 创建请求
+        request = ModelingRequest(
+            initial_state=initial_state,
+            goal_state=goal_state,
+            available_transitions=transitions,
+            context=context or {}
+        )
+        
+        return request
+    
+    def _enhance_transitions_with_subgoals(self, transitions: List, subgoals: Any) -> List:
+        """
+        根据子目标增强转换列表
+        
+        Args:
+            transitions: 原始转换列表
+            subgoals: 子目标信息
+            
+        Returns:
+            List: 增强后的转换列表
+        """
+        # 支持不同格式的子目标
+        subgoal_list = []
+        
+        if isinstance(subgoals, list):
+            subgoal_list = subgoals
+        elif hasattr(subgoals, 'subgoals'):
+            # 支持DecompositionResult格式
+            subgoal_list = subgoals.subgoals
+        
+        # 根据子目标创建额外的转换
+        for subgoal in subgoal_list:
+            try:
+                # 创建对应的转换
+                subgoal_transition = self._create_subgoal_transition(subgoal)
+                if subgoal_transition:
+                    transitions.append(subgoal_transition)
+            except Exception as e:
+                self.logger.error(f"Error creating subgoal transition: {str(e)}")
+        
+        return transitions
+    
+    def _create_subgoal_transition(self, subgoal: Any) -> Optional[StateTransition]:
+        """
+        根据子目标创建转换
+        
+        Args:
+            subgoal: 子目标对象
+            
+        Returns:
+            StateTransition: 创建的转换对象
+        """
+        try:
+            # 提取子目标信息
+            subgoal_id = getattr(subgoal, 'id', f'subgoal_{int(time.time() * 1000)}')
+            subgoal_desc = getattr(subgoal, 'description', 'Subgoal')
+            
+            # 从子目标提取前提条件和效果
+            preconditions = getattr(subgoal, 'preconditions', [])
+            effects = getattr(subgoal, 'effects', [])
+            
+            # 如果没有前提条件和效果，尝试从描述生成
+            if not preconditions:
+                preconditions = [f'subgoal_pre_{subgoal_id}']
+            if not effects:
+                effects = [f'subgoal_effect_{subgoal_id}']
+            
+            # 创建转换
+            transition = StateTransition(
+                id=subgoal_id,
+                name=f'execute_{subgoal_id}',
+                preconditions=preconditions,
+                effects=effects,
+                description=subgoal_desc
+            )
+            
+            # 添加PDDL参数支持
+            if hasattr(subgoal, 'metadata') and isinstance(subgoal.metadata, dict):
+                transition.parameters = subgoal.metadata.get('parameters', {})
+            
+            return transition
+        except Exception as e:
+            self.logger.error(f"Failed to create subgoal transition: {str(e)}")
+            return None
     
     def _clean_serializable_data(self, data):
         """递归清理数据，确保可JSON序列化"""

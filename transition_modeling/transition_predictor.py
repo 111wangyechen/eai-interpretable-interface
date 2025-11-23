@@ -37,6 +37,10 @@ class TransitionPredictor:
         self.max_predictions = self.config.get('max_predictions', 10)
         self.use_historical_data = self.config.get('use_historical_data', True)
         
+        # PDDL相关配置
+        self.enable_pddl_semantics = self.config.get('enable_pddl_semantics', True)
+        self.pddl_parameter_weight = self.config.get('pddl_parameter_weight', 0.2)
+        
         # 历史数据存储
         self.transition_history: List[Dict[str, Any]] = []
         self.success_rates: Dict[str, float] = {}
@@ -90,14 +94,16 @@ class TransitionPredictor:
     def _calculate_transition_confidence(self, 
                                        transition: StateTransition,
                                        current_state: Dict[str, Any], 
-                                       goal_state: Dict[str, Any]) -> float:
+                                       goal_state: Dict[str, Any],
+                                       context: Optional[Dict[str, Any]] = None) -> float:
         """
-        计算转换置信度
+        计算转换置信度，支持PDDL语义
         
         Args:
             transition: 状态转换
             current_state: 当前状态
             goal_state: 目标状态
+            context: 上下文信息
             
         Returns:
             置信度分数 (0.0 - 1.0)
@@ -105,24 +111,40 @@ class TransitionPredictor:
         try:
             confidence = 0.0
             
-            # 1. 前提条件满足度 (40%) - 增加权重
+            # 1. 前提条件满足度 (35%)
             precondition_score = self._evaluate_preconditions(transition, current_state)
-            confidence += precondition_score * 0.4
+            confidence += precondition_score * 0.35
             
-            # 2. 目标相关性 (40%) - 保持高权重
+            # 2. 目标相关性 (30%)
             relevance_score = self._calculate_goal_relevance(transition, current_state, goal_state)
-            confidence += relevance_score * 0.4
+            confidence += relevance_score * 0.3
             
-            # 3. 历史成功率 (20%) - 保持权重
+            # 3. 历史成功率 (15%)
             historical_score = self._get_historical_success_rate(transition)
-            confidence += historical_score * 0.2
+            confidence += historical_score * 0.15
             
-            # 4. 转换复杂度惩罚 (5%) - 降低惩罚
+            # 4. 转换复杂度惩罚 (10%)
             complexity_penalty = self._calculate_complexity_penalty(transition)
-            confidence -= complexity_penalty * 0.05
+            confidence -= complexity_penalty * 0.1
             
-            # 确保最小置信度 - 修复：避免完全过滤掉所有转换
-            min_confidence = 0.01  # 设置最小置信度，与阈值保持一致
+            # 5. PDDL参数匹配度（如果启用）
+            pddl_parameter_match = 1.0
+            if self.enable_pddl_semantics and hasattr(transition, 'parameters') and transition.parameters:
+                # 检查参数化谓词的匹配情况
+                parameter_match_count = 0
+                total_params = 0
+                for condition in transition.preconditions:
+                    if hasattr(condition, 'parameters') and condition.parameters:
+                        total_params += len(condition.parameters)
+                        for param in condition.parameters:
+                            if param in current_state:
+                                parameter_match_count += 1
+                if total_params > 0:
+                    pddl_parameter_match = parameter_match_count / total_params
+                confidence += pddl_parameter_match * 0.1
+            
+            # 确保最小置信度
+            min_confidence = 0.01
             confidence = max(confidence, min_confidence)
             
             return max(0.0, min(1.0, confidence))
@@ -130,6 +152,41 @@ class TransitionPredictor:
         except Exception as e:
             self.logger.error(f"Error calculating confidence for transition {transition.name}: {e}")
             return 0.01  # 返回最小置信度而不是0
+    
+    def validate_pddl_compatibility(self, transition: StateTransition) -> Dict[str, Any]:
+        """
+        验证转换的PDDL兼容性
+        
+        Args:
+            transition: 转换对象
+            
+        Returns:
+            兼容性验证报告
+        """
+        report = {
+            'is_compatible': True,
+            'issues': [],
+            'missing_elements': []
+        }
+        
+        # 检查是否有parameters属性
+        if not hasattr(transition, 'parameters'):
+            report['issues'].append('缺少parameters属性')
+            report['is_compatible'] = False
+        
+        # 检查前提条件是否支持PDDL格式
+        for i, condition in enumerate(transition.preconditions):
+            if not hasattr(condition, 'to_pddl'):
+                report['issues'].append(f'前提条件[{i}]不支持PDDL格式转换')
+                report['is_compatible'] = False
+            
+        # 检查效果是否支持PDDL格式
+        for i, effect in enumerate(transition.effects):
+            if not hasattr(effect, 'to_pddl'):
+                report['issues'].append(f'效果[{i}]不支持PDDL格式转换')
+                report['is_compatible'] = False
+        
+        return report
     
     def _evaluate_preconditions(self, transition: StateTransition, state: Dict[str, Any]) -> float:
         """评估前提条件满足度"""

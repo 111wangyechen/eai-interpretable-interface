@@ -56,15 +56,22 @@ class TransitionValidator:
         self.check_resource_constraints = self.config.get('check_resource_constraints', True)
         self.max_validation_depth = self.config.get('max_validation_depth', 100)
         
+        # PDDL格式验证配置
+        self.enable_pddl_validation = self.config.get('enable_pddl_validation', True)
+        self.max_transition_complexity = self.config.get('max_transition_complexity', 20)
+        
         # 验证统计
         self.validation_stats = {
             'total_validations': 0,
             'successful_validations': 0,
             'failed_validations': 0,
-            'common_errors': defaultdict(int)
+            'common_errors': defaultdict(int),
+            'pddl_format_errors': 0,
+            'consistency_errors': 0,
+            'complexity_warnings': 0
         }
         
-        self.logger.info("Transition Validator initialized")
+        self.logger.info("Transition Validator initialized with PDDL validation support")
     
     def validate_transition(self, 
                           transition: StateTransition,
@@ -121,7 +128,7 @@ class TransitionValidator:
             return ValidationResult(False, error_msg)
     
     def _validate_transition_structure(self, transition: StateTransition) -> ValidationResult:
-        """验证转换结构"""
+        """验证转换结构 - 增强PDDL格式验证"""
         # 检查必要字段
         if not transition.id or not transition.name:
             return ValidationResult(False, "Missing required fields: id or name")
@@ -137,16 +144,49 @@ class TransitionValidator:
         if transition.cost < 0:
             return ValidationResult(False, "Cost cannot be negative")
         
+        # 检查PDDL格式的名称合规性
+        if self.enable_pddl_validation and not self._is_valid_pddl_name(transition.name):
+            return ValidationResult(False, f"Invalid PDDL name format: {transition.name}. Use only letters, numbers, and dashes.")
+        
         # 检查前提条件和效果
         for condition in transition.preconditions:
             if not condition.predicate:
                 return ValidationResult(False, "Empty condition predicate")
+            # 验证PDDL格式的条件
+            if self.enable_pddl_validation:
+                try:
+                    if hasattr(condition, 'to_pddl'):
+                        condition.to_pddl()
+                except Exception as e:
+                    return ValidationResult(False, f"Invalid PDDL condition: {str(e)}")
         
         for effect in transition.effects:
             if not effect.predicate:
                 return ValidationResult(False, "Empty effect predicate")
+            # 验证PDDL格式的效果
+            if self.enable_pddl_validation:
+                try:
+                    if hasattr(effect, 'to_pddl'):
+                        effect.to_pddl()
+                except Exception as e:
+                    return ValidationResult(False, f"Invalid PDDL effect: {str(e)}")
+        
+        # 检查转换复杂度
+        complexity = len(transition.preconditions) + len(transition.effects)
+        if complexity > self.max_transition_complexity:
+            self.validation_stats['complexity_warnings'] += 1
+            if self.strict_mode:
+                return ValidationResult(False, f"Transition complexity exceeds maximum: {complexity} > {self.max_transition_complexity}")
+            else:
+                self.logger.warning(f"High transition complexity: {complexity} (recommended max: {self.max_transition_complexity})")
         
         return ValidationResult(True, "Structure validation passed")
+    
+    def _is_valid_pddl_name(self, name: str) -> bool:
+        """检查是否为有效的PDDL名称格式"""
+        # PDDL名称应该只包含字母、数字和连字符
+        import re
+        return bool(re.match(r'^[a-zA-Z0-9\-_]+$', name))
     
     def _validate_preconditions(self, 
                               transition: StateTransition, 
@@ -170,7 +210,7 @@ class TransitionValidator:
     def _validate_effects(self, 
                         transition: StateTransition, 
                         state: Dict[str, Any]) -> ValidationResult:
-        """验证效果一致性"""
+        """验证效果一致性 - 增强PDDL格式验证"""
         predicted_state = transition.apply_effects(state)
         
         # 检查状态变化是否合理
@@ -183,35 +223,57 @@ class TransitionValidator:
                         f"Invalid effect value for {effect.predicate}: {effect.value}"
                     )
         
-        # 检查是否有真正矛盾的效果（不是简单的重复谓词）
-        # 允许同一谓词的多个效果，只要它们是合理的（如设置新值和移除旧值）
-        effect_groups = defaultdict(list)
+        # 收集谓词信息（支持参数化）
+        predicate_info = defaultdict(list)
         for effect in transition.effects:
-            effect_groups[effect.predicate].append(effect)
+            if hasattr(effect, 'params') and effect.params:
+                pred_key = f"{effect.predicate}_{'_'.join(str(p) for p in effect.params)}"
+            else:
+                pred_key = effect.predicate
+            
+            effect_info = {
+                'value': effect.value,
+                'probability': effect.probability,
+                'effect_type': getattr(effect, 'effect_type', 'assign')
+            }
+            predicate_info[pred_key].append(effect_info)
         
-        for predicate, effects in effect_groups.items():
-            if len(effects) > 1:
-                # 检查是否有真正冲突的效果
-                positive_effects = [e for e in effects if e.probability > 0.5]
-                negative_effects = [e for e in effects if e.probability <= 0.5]
-                
-                # 如果有多个高概率效果设置不同值，则冲突
-                if len(positive_effects) > 1:
-                    values = [e.value for e in positive_effects]
-                    if len(set(values)) > 1:
-                        return ValidationResult(
-                            False, 
-                            f"Conflicting positive effects for {predicate}: {values}"
-                        )
-                
-                # 如果有多个低概率效果移除不同值，则冲突
-                if len(negative_effects) > 1:
-                    values = [e.value for e in negative_effects if e.value is not None]
-                    if len(set(values)) > 1:
-                        return ValidationResult(
-                            False, 
-                            f"Conflicting negative effects for {predicate}: {values}"
-                        )
+        # 检查重复的效果谓词
+        duplicate_predicates = [p for p, effects in predicate_info.items() if len(effects) > 1]
+        if duplicate_predicates:
+            return ValidationResult(
+                False, 
+                f"Duplicate effect predicates found: {duplicate_predicates}"
+            )
+        
+        # 检查PDDL格式的效果冲突
+        for pred_key, effects_info in predicate_info.items():
+            # 检查效果类型冲突（add和delete不能同时存在）
+            effect_types = [e['effect_type'] for e in effects_info]
+            if 'add' in effect_types and 'delete' in effect_types:
+                return ValidationResult(
+                    False, 
+                    f"Conflicting effect types for {pred_key}: both add and delete found"
+                )
+            
+            # 检查概率效果的一致性
+            high_prob_effects = [e for e in effects_info if e['probability'] > 0.5]
+            if len(high_prob_effects) > 1:
+                values = [e['value'] for e in high_prob_effects if e['value'] is not None]
+                if len(set(values)) > 1:
+                    return ValidationResult(
+                        False, 
+                        f"Conflicting high-probability effects for {pred_key}: {values}"
+                    )
+        
+        # 检查效果的PDDL语义一致性
+        if hasattr(transition, 'get_consistency_report'):
+            report = transition.get_consistency_report()
+            if report['has_conflicting_effects']:
+                return ValidationResult(
+                    False, 
+                    f"Conflicting effects found: {report['conflicting_effects']}"
+                )
         
         return ValidationResult(True, "Effects validation passed")
     
@@ -348,7 +410,7 @@ class TransitionValidator:
     def validate_model_consistency(self, 
                                  transitions: List[StateTransition]) -> ValidationResult:
         """
-        验证模型一致性
+        验证模型一致性 - 增强PDDL格式检查
         
         Args:
             transitions: 转换列表
@@ -359,7 +421,10 @@ class TransitionValidator:
         validation_details = {
             'duplicate_ids': [],
             'orphaned_transitions': [],
-            'deadlock_potential': []
+            'deadlock_potential': [],
+            'conflicting_transitions': [],
+            'pddl_format_issues': [],
+            'consistency_reports': []
         }
         
         # 检查重复ID
@@ -376,6 +441,44 @@ class TransitionValidator:
                 f"Duplicate transition IDs found: {duplicates}",
                 validation_details
             )
+        
+        # 检查重复名称（PDDL动作名必须唯一）
+        names = [t.name.lower() for t in transitions]
+        name_counts = defaultdict(int)
+        for name in names:
+            name_counts[name] += 1
+        
+        duplicate_names = [name for name, count in name_counts.items() if count > 1]
+        if duplicate_names:
+            validation_details['pddl_format_issues'].append(f"Duplicate PDDL action names: {duplicate_names}")
+            if self.strict_mode:
+                return ValidationResult(
+                    False, 
+                    f"Duplicate PDDL action names found: {duplicate_names}",
+                    validation_details
+                )
+        
+        # 检查PDDL格式合规性
+        if self.enable_pddl_validation:
+            for transition in transitions:
+                try:
+                    if hasattr(transition, 'to_pddl'):
+                        transition.to_pddl()
+                except Exception as e:
+                    issue = f"Transition {transition.name} (ID: {transition.id}) has invalid PDDL format: {str(e)}"
+                    validation_details['pddl_format_issues'].append(issue)
+                    self.validation_stats['pddl_format_errors'] += 1
+                    if self.strict_mode:
+                        return ValidationResult(False, issue, validation_details)
+        
+        # 收集一致性报告
+        for transition in transitions:
+            if hasattr(transition, 'get_consistency_report'):
+                report = transition.get_consistency_report()
+                validation_details['consistency_reports'].append(report)
+                if report['has_conflicting_preconditions'] or report['has_conflicting_effects']:
+                    validation_details['conflicting_transitions'].append(transition.id)
+                    self.validation_stats['consistency_errors'] += 1
         
         # 检查孤立转换（没有可达路径）
         reachable_transitions = self._find_reachable_transitions(transitions)
@@ -402,11 +505,92 @@ class TransitionValidator:
                     validation_details
                 )
         
+        # 生成综合报告消息
+        message = f"Model consistency validation passed with {len(transitions)} transitions"
+        if validation_details['conflicting_transitions']:
+            message += f" (Warning: {len(validation_details['conflicting_transitions'])} transitions have consistency issues)"
+        if validation_details['pddl_format_issues']:
+            message += f" (Warning: {len(validation_details['pddl_format_issues'])} PDDL format issues)"
+        
         return ValidationResult(
             True, 
-            "Model consistency validation passed",
+            message,
             validation_details
         )
+    
+    def generate_comprehensive_validation_report(self, 
+                                               transitions: List[StateTransition],
+                                               initial_state: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        """
+        生成综合验证报告
+        
+        Args:
+            transitions: 转换列表
+            initial_state: 初始状态（可选）
+            
+        Returns:
+            详细的验证报告
+        """
+        report = {
+            'summary': {
+                'total_transitions': len(transitions),
+                'valid_transitions': 0,
+                'invalid_transitions': 0,
+                'consistency_issues': 0,
+                'pddl_compliant': True
+            },
+            'transition_reports': [],
+            'model_consistency': None
+        }
+        
+        # 验证每个转换
+        for transition in transitions:
+            trans_report = {
+                'id': transition.id,
+                'name': transition.name,
+                'is_valid': True,
+                'issues': []
+            }
+            
+            # 基本结构验证
+            structure_result = self._validate_transition_structure(transition)
+            if not structure_result.is_valid:
+                trans_report['is_valid'] = False
+                trans_report['issues'].append(f"Structure: {structure_result.message}")
+                report['summary']['pddl_compliant'] = False
+            
+            # 前提条件和效果验证
+            if initial_state:
+                precond_result = self._validate_preconditions(transition, initial_state)
+                if not precond_result.is_valid:
+                    trans_report['issues'].append(f"Preconditions: {precond_result.message}")
+                
+                effect_result = self._validate_effects(transition, initial_state)
+                if not effect_result.is_valid:
+                    trans_report['is_valid'] = False
+                    trans_report['issues'].append(f"Effects: {effect_result.message}")
+            
+            # 一致性报告
+            if hasattr(transition, 'get_consistency_report'):
+                consistency = transition.get_consistency_report()
+                trans_report['consistency'] = consistency
+                if consistency['has_conflicting_preconditions'] or consistency['has_conflicting_effects']:
+                    trans_report['is_valid'] = False
+                    report['summary']['consistency_issues'] += 1
+            
+            # 更新统计
+            if trans_report['is_valid']:
+                report['summary']['valid_transitions'] += 1
+            else:
+                report['summary']['invalid_transitions'] += 1
+            
+            report['transition_reports'].append(trans_report)
+        
+        # 模型一致性验证
+        model_result = self.validate_model_consistency(transitions)
+        report['model_consistency'] = model_result.to_dict()
+        
+        return report
     
     def _find_reachable_transitions(self, transitions: List[StateTransition]) -> Set[str]:
         """找到可达的转换"""

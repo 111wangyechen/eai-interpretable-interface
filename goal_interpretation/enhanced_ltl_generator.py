@@ -23,6 +23,62 @@ class EnhancedLTLGenerator:
         self._init_complex_templates()
         self._init_nested_patterns()
         self._init_temporal_extensions()
+        self._init_entity_mapping()
+        self._init_disambiguation_rules()
+        
+    def _init_entity_mapping(self):
+        """
+        初始化实体-环境映射字典
+        用于将自然语言中的实体映射到环境中的具体对象
+        """
+        self.entity_mapping = {
+            # 常见家居实体映射
+            "chair": ["chair", "office_chair", "dining_chair", "armchair"],
+            "table": ["table", "dining_table", "coffee_table", "desk"],
+            "sofa": ["sofa", "couch"],
+            "lamp": ["lamp", "table_lamp", "floor_lamp", "ceiling_lamp"],
+            "door": ["door", "entrance_door", "room_door"],
+            "window": ["window", "windowpane"],
+            "kitchen": ["kitchen", "kitchen_counter", "stove", "sink"],
+            "bathroom": ["bathroom", "toilet", "shower", "bathtub", "sink"],
+            "bedroom": ["bedroom", "bed", "nightstand", "wardrobe"],
+            # 常见动作映射
+            "open": ["open_door", "open_window", "open_drawer", "open_fridge"],
+            "close": ["close_door", "close_window", "close_drawer", "close_fridge"],
+            "move": ["move_to", "walk_to", "go_to", "navigate_to"],
+            "pick": ["pick_up", "grasp", "take", "grab"],
+            "place": ["place", "put_down", "release", "set_down"]
+        }
+        
+    def _init_disambiguation_rules(self):
+        """
+        初始化歧义消除规则
+        用于处理自然语言中的歧义情况
+        """
+        self.disambiguation_rules = {
+            # 基于上下文的歧义消除规则
+            "context_rules": [
+                {"pattern": "open the door to the kitchen", "resolve_to": "open_door(kitchen_door)"},
+                {"pattern": "open the window", "resolve_to": "open_window(main_window)"},
+                {"pattern": "move to the table", "resolve_to": "navigate_to(nearest_table)"}
+            ],
+            # 基于场景的歧义消除规则
+            "scene_rules": {
+                "kitchen": [
+                    {"pattern": "use the sink", "resolve_to": "use_kitchen_sink"},
+                    {"pattern": "turn on the faucet", "resolve_to": "turn_on_kitchen_faucet"}
+                ],
+                "bathroom": [
+                    {"pattern": "use the sink", "resolve_to": "use_bathroom_sink"},
+                    {"pattern": "turn on the faucet", "resolve_to": "turn_on_bathroom_faucet"}
+                ]
+            },
+            # 默认优先级规则
+            "priority_rules": {
+                "entities": ["specific", "functional", "generic"],
+                "actions": ["specific_action", "general_movement", "ambiguous_action"]
+            }
+        }
     
     def _init_enhanced_operators(self):
         """
@@ -592,6 +648,7 @@ class EnhancedLTLGenerator:
     def validate_formula(self, formula: str) -> Dict:
         """
         验证LTL公式
+        特别确保最终状态使用F操作符，符合比赛要求
         
         Args:
             formula: LTL公式字符串
@@ -603,7 +660,9 @@ class EnhancedLTLGenerator:
             "is_valid": True,
             "errors": [],
             "warnings": [],
-            "suggestions": []
+            "suggestions": [],
+            "entity_issues": [],
+            "temporal_checks": {}
         }
         
         # 基本语法检查
@@ -652,7 +711,185 @@ class EnhancedLTLGenerator:
         if formula.count('(') > 10:
             result["warnings"].append("嵌套层次过深，建议简化公式结构")
         
+        # 检查是否包含至少一个时序操作符
+        temporal_operators = list(set([op for op in "FGXU R" if op in formula]))
+        if not temporal_operators:
+            result["is_valid"] = False
+            result["errors"].append("公式没有包含时序操作符，不是有效的LTL公式")
+        else:
+            result["temporal_checks"]["operators_used"] = temporal_operators
+        
+        # 检查最终状态是否使用F操作符（比赛要求）
+        if 'F' not in formula:
+            result["is_valid"] = False
+            result["errors"].append("最终状态必须使用F操作符，不符合比赛要求")
+        else:
+            result["temporal_checks"]["has_f_operator"] = True
+        
+        # 检查实体映射问题
+        for prop in propositions:
+            # 排除操作符和关键字
+            if prop in ['true', 'false', 'G', 'F', 'X', 'U', 'R', '&', '|', '!', '^']:
+                continue
+            # 检查是否存在于实体映射中
+            if prop not in self.entity_mapping and not any(prop in mappings for mappings in self.entity_mapping.values()):
+                result["entity_issues"].append(f"未映射的实体: {prop}")
+        
+        if result["entity_issues"]:
+            result["warnings"].append(f"发现 {len(result['entity_issues'])} 个未映射实体")
+        
         return result
+        
+    def map_entities(self, formula: str, scene_context: Optional[str] = None) -> Dict:
+        """
+        将公式中的实体映射到环境中的具体对象
+        
+        Args:
+            formula: LTL公式
+            scene_context: 场景上下文信息
+            
+        Returns:
+            包含映射结果的字典
+        """
+        mapping_result = {
+            "original_formula": formula,
+            "mapped_formula": formula,
+            "mappings": [],
+            "unmapped_entities": []
+        }
+        
+        # 提取所有实体
+        prop_pattern = r'\b[a-zA-Z_][a-zA-Z0-9_]*\b'
+        propositions = re.findall(prop_pattern, formula)
+        
+        mapped_formula = formula
+        for prop in propositions:
+            # 排除操作符和关键字
+            if prop in ['true', 'false', 'G', 'F', 'X', 'U', 'R', '&', '|', '!', '^']:
+                continue
+                
+            # 检查是否存在直接映射
+            if prop in self.entity_mapping and self.entity_mapping[prop]:
+                # 选择第一个映射作为默认值
+                mapped_entity = self.entity_mapping[prop][0]
+                # 如果有场景上下文，尝试使用场景特定规则
+                if scene_context and scene_context in self.disambiguation_rules["scene_rules"]:
+                    for rule in self.disambiguation_rules["scene_rules"][scene_context]:
+                        if prop in rule["pattern"]:
+                            mapped_entity = rule["resolve_to"]
+                            break
+                
+                # 执行映射替换
+                if prop != mapped_entity:
+                    # 确保只替换完整的实体名，而不是部分匹配
+                    pattern = r'\b' + re.escape(prop) + r'\b'
+                    mapped_formula = re.sub(pattern, mapped_entity, mapped_formula)
+                    mapping_result["mappings"].append({
+                        "original": prop,
+                        "mapped": mapped_entity,
+                        "reason": "基于实体映射字典"
+                    })
+            elif not any(prop in mappings for mappings in self.entity_mapping.values()):
+                # 未映射的实体
+                mapping_result["unmapped_entities"].append(prop)
+        
+        mapping_result["mapped_formula"] = mapped_formula
+        return mapping_result
+        
+    def generate_disambiguation_report(self, text: str, parse_result: Dict) -> Dict:
+        """
+        生成歧义消除报告
+        
+        Args:
+            text: 原始自然语言文本
+            parse_result: 解析结果
+            
+        Returns:
+            歧义消除报告
+        """
+        report = {
+            "original_text": text,
+            "ambiguity_detected": False,
+            "ambiguity_cases": [],
+            "resolutions": [],
+            "confidence_scores": {}
+        }
+        
+        # 检查上下文规则匹配
+        for rule in self.disambiguation_rules["context_rules"]:
+            if rule["pattern"] in text.lower():
+                report["ambiguity_detected"] = True
+                report["ambiguity_cases"].append({
+                    "text_segment": rule["pattern"],
+                    "ambiguity_type": "contextual",
+                    "possible_interpretations": [rule["resolve_to"]]
+                })
+                report["resolutions"].append({
+                    "ambiguity": rule["pattern"],
+                    "resolved_to": rule["resolve_to"],
+                    "rule_type": "contextual"
+                })
+                report["confidence_scores"][rule["pattern"]] = 0.95  # 上下文规则的置信度
+        
+        # 检查实体映射歧义
+        if "entities" in parse_result:
+            for entity in parse_result["entities"]:
+                entity_lower = entity.lower()
+                possible_mappings = []
+                
+                # 查找可能的映射
+                for key, mappings in self.entity_mapping.items():
+                    if entity_lower == key or entity_lower in [m.lower() for m in mappings]:
+                        possible_mappings.extend(mappings)
+                
+                # 去重并检查是否有多个可能的映射
+                possible_mappings = list(set(possible_mappings))
+                if len(possible_mappings) > 1:
+                    report["ambiguity_detected"] = True
+                    report["ambiguity_cases"].append({
+                        "text_segment": entity,
+                        "ambiguity_type": "entity_mapping",
+                        "possible_interpretations": possible_mappings
+                    })
+                    
+                    # 选择第一个作为默认映射（可以根据其他规则改进）
+                    report["resolutions"].append({
+                        "ambiguity": entity,
+                        "resolved_to": possible_mappings[0],
+                        "rule_type": "entity_default"
+                    })
+                    report["confidence_scores"][entity] = 0.7  # 实体映射的置信度
+        
+        # 检查动作映射歧义
+        if "actions" in parse_result:
+            for action in parse_result["actions"]:
+                action_lower = action.lower()
+                possible_mappings = []
+                
+                # 查找可能的动作映射
+                for key, mappings in self.entity_mapping.items():
+                    if action_lower == key or action_lower in [m.lower() for m in mappings]:
+                        possible_mappings.extend(mappings)
+                
+                # 去重并检查是否有多个可能的映射
+                possible_mappings = list(set(possible_mappings))
+                if len(possible_mappings) > 1:
+                    report["ambiguity_detected"] = True
+                    report["ambiguity_cases"].append({
+                        "text_segment": action,
+                        "ambiguity_type": "action_mapping",
+                        "possible_interpretations": possible_mappings
+                    })
+                    
+                    # 选择第一个作为默认映射
+                    report["resolutions"].append({
+                        "ambiguity": action,
+                        "resolved_to": possible_mappings[0],
+                        "rule_type": "action_default"
+                    })
+                    report["confidence_scores"][action] = 0.75  # 动作映射的置信度
+        
+        return report
     
     def optimize_formula(self, formula: str) -> str:
         """

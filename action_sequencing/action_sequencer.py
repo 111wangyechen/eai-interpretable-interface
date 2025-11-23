@@ -42,6 +42,7 @@ from .action_data import Action, ActionSequence, ActionType, ActionStatus
 from .state_manager import EnvironmentState, StateManager
 from .action_planner import ActionPlanner, PlanningAlgorithm, PlanningResult, HeuristicType
 from .aude_re import AuDeRe, AudereConfig, create_aude_re
+from .behavior_action_library import get_behavior_action_library, validate_action_against_behavior_library
 
 
 @dataclass
@@ -245,12 +246,20 @@ class ActionSequencer:
                             if self.config.enable_logging:
                                 self.logger.warning(f"Failed to enhance cached sequence with AuDeRe: {str(e)}")
                     
+                    # 验证缓存结果中的动作是否符合BEHAVIOR规范
+                    validated_actions = []
+                    warnings = []
+                    for action in action_sequence.actions:
+                        validation_result = validate_action_against_behavior_library(action)
+                        if not validation_result['is_valid']:
+                            warnings.append(f"Action {action.name} in cached sequence has validation issues: {validation_result['issues']}")
+                    
                     return SequencingResponse(
                         success=True,
                         action_sequence=action_sequence,
                         planning_result=cached_result['planning_result'],
                         execution_time=time.time() - start_time,
-                        metadata={'from_cache': True}
+                        metadata={'from_cache': True, 'warnings': warnings if warnings else None}
                     )
             
             # 如果需要，使用AuDeRe增强请求
@@ -261,6 +270,48 @@ class ActionSequencer:
                 except Exception as e:
                     if self.config.enable_logging:
                         self.logger.warning(f"Failed to enhance request with AuDeRe: {str(e)}")
+            
+            # 验证动作是否符合BEHAVIOR库规范
+            validated_actions = []
+            invalid_actions = []
+            warnings = []
+            
+            for action in request.available_actions:
+                validation_result = validate_action_against_behavior_library(action)
+                if validation_result['is_valid']:
+                    validated_actions.append(action)
+                    # 增强前置条件
+                    self._enhance_action_preconditions(action, request.initial_state)
+                else:
+                    invalid_actions.append((action.name, validation_result))
+                    # 记录警告信息
+                    for issue in validation_result['issues']:
+                        warnings.append(f"Action {action.name}: {issue}")
+                    # 如果有建议，也记录
+                    if validation_result['suggestions']:
+                        warnings.extend([f"Suggestion: {s}" for s in validation_result['suggestions']])
+            
+            # 如果有无效动作，记录警告
+            if invalid_actions and self.config.enable_logging:
+                for action_name, result in invalid_actions:
+                    self.logger.warning(f"Invalid action {action_name}: {result['issues']}")
+            
+            # 如果所有动作都无效，返回错误
+            if not validated_actions:
+                error_msg = f"No valid BEHAVIOR actions available: {warnings}"
+                if self.config.enable_logging:
+                    self.logger.error(error_msg)
+                return SequencingResponse(
+                    success=False,
+                    action_sequence=None,
+                    planning_result=None,
+                    execution_time=time.time() - start_time,
+                    error_message=error_msg,
+                    metadata={'warnings': warnings}
+                )
+            
+            # 使用验证后的动作
+            enhanced_request.available_actions = validated_actions
             
             # 准备状态转换
             state_transitions = None
@@ -284,7 +335,7 @@ class ActionSequencer:
             planning_result = self.action_planner.plan(
                 initial_state=enhanced_request.initial_state,
                 goal_state=enhanced_request.goal_state,
-                available_actions=request.available_actions,
+                available_actions=validated_actions,
                 state_transitions=state_transitions
             )
             
@@ -349,12 +400,20 @@ class ActionSequencer:
                 else:
                     self.logger.warning(f"Failed to generate action sequence: {planning_result.metadata.get('reason', 'Unknown reason')}")
             
+            # 计算行为规范合规性
+            behavior_compliance = 'full' if len(invalid_actions) == 0 else 'partial'
+            
             return SequencingResponse(
                 success=planning_result.success,
                 action_sequence=action_sequence,
                 planning_result=planning_result,
                 execution_time=time.time() - start_time,
-                metadata={'cache_key': cache_key if self._cache_manager is not None else None}
+                metadata={
+                    'cache_key': cache_key if self._cache_manager is not None else None,
+                    'invalid_actions': invalid_actions,
+                    'warnings': warnings,
+                    'behavior_compliance': behavior_compliance
+                }
             )
             
         except Exception as e:
@@ -369,7 +428,8 @@ class ActionSequencer:
                 action_sequence=None,
                 planning_result=None,
                 execution_time=time.time() - start_time,
-                error_message=str(e)
+                error_message=str(e),
+                metadata={'warnings': warnings if 'warnings' in locals() else []}
             )
     
     def _generate_cache_key(self, request: SequencingRequest) -> str:
@@ -404,21 +464,45 @@ class ActionSequencer:
         """
         errors = []
         warnings = []
+        statistics = {
+            'action_count': len(sequence.actions),
+            'unique_actions': len(set(a.name for a in sequence.actions)),
+            'total_duration': sequence.get_total_duration() if sequence else 0,
+            'official_behavior_actions_count': 0,
+            'precondition_validation_results': {},
+            'goal_achievement_rate': 0.0
+        }
         
         try:
             # 检查序列是否为空
             if not sequence.actions:
                 errors.append("Action sequence is empty")
-                return {'valid': False, 'errors': errors, 'warnings': warnings}
+                return {'valid': False, 'errors': errors, 'warnings': warnings, 'statistics': statistics}
+            
+            # 获取BEHAVIOR动作库
+            behavior_library = get_behavior_action_library()
             
             # 模拟执行序列
             current_state = initial_state.copy()
             
             for i, action in enumerate(sequence.actions):
-                # 检查前置条件
-                if not action.can_execute(current_state):
-                    errors.append(f"Action {i+1} ({action.name}) preconditions not satisfied")
-                    continue
+                # 检查是否为官方BEHAVIOR动作
+                is_official = 'is_official_behavior_action' in action.metadata and action.metadata['is_official_behavior_action']
+                if is_official:
+                    statistics['official_behavior_actions_count'] += 1
+                
+                # 使用增强的前置条件验证
+                precondition_results = behavior_library.validate_action_preconditions(action, current_state)
+                statistics['precondition_validation_results'][action.id] = precondition_results
+                
+                # 检查动作是否可执行
+                unsatisfied = [pc for pc, satisfied in precondition_results.items() if not satisfied]
+                if unsatisfied:
+                    errors.append(f"Action {i+1} ({action.name}) preconditions not satisfied: {unsatisfied}")
+                    # 尝试提供修复建议
+                    suggestions = self._generate_precondition_suggestions(action, unsatisfied, current_state)
+                    if suggestions:
+                        warnings.append(f"Suggestions for action {i+1} ({action.name}): {suggestions}")
                 
                 try:
                     # 执行动作
@@ -427,17 +511,28 @@ class ActionSequencer:
                     errors.append(f"Action {i+1} ({action.name}) execution failed: {str(e)}")
             
             # 检查是否达到目标状态
-            goal_achieved = True
+            goal_matches = []
+            goal_mismatches = []
+            
             # 添加类型检查确保 goal_state 是字典类型
             if isinstance(goal_state, dict):
                 for key, goal_value in goal_state.items():
-                    if current_state.get(key) != goal_value:
-                        goal_achieved = False
+                    current_value = current_state.get(key)
+                    if current_value == goal_value:
+                        goal_matches.append(f"{key}={goal_value}")
+                    else:
+                        goal_mismatches.append(f"{key} (expected: {goal_value}, actual: {current_value})")
                         warnings.append(f"Goal state not achieved for variable: {key}")
+                
+                # 计算目标达成率
+                statistics['goal_achievement_rate'] = len(goal_matches) / len(goal_state) if goal_state else 1.0
             else:
                 # 如果 goal_state 不是字典，记录警告并设置目标未达成
                 warnings.append(f"Warning: goal_state is not a dictionary but a {type(goal_state).__name__}")
-                goal_achieved = False
+                statistics['goal_achievement_rate'] = 0.0
+            
+            if goal_mismatches:
+                errors.append(f"Goal not fully achieved. Unmet goals: {goal_mismatches}")
             
             # 如果启用了AuDeRe，使用它进行额外的序列验证
             aude_re_validation = True
@@ -457,14 +552,151 @@ class ActionSequencer:
                     if self.config.enable_logging:
                         self.logger.warning(f"AuDeRe validation failed: {str(e)}")
             
-            if goal_achieved and not errors and aude_re_validation:
-                return {'valid': True, 'errors': [], 'warnings': warnings}
-            else:
-                return {'valid': False, 'errors': errors, 'warnings': warnings}
+            # 检查动作序列是否包含至少一个官方BEHAVIOR动作
+            if statistics['official_behavior_actions_count'] == 0:
+                errors.append("No official BEHAVIOR actions found in sequence")
+            
+            # 检查动作序列的合理性
+            self._check_sequence_rationality(sequence, warnings)
+            
+            # 判断验证结果
+            is_valid = len(errors) == 0 and (statistics['goal_achievement_rate'] == 1.0 or not goal_mismatches)
+            
+            return {
+                'valid': is_valid,
+                'errors': errors,
+                'warnings': warnings,
+                'statistics': statistics
+            }
                 
         except Exception as e:
             errors.append(f"Validation failed with exception: {str(e)}")
-            return {'valid': False, 'errors': errors, 'warnings': warnings}
+            return {
+                'valid': False,
+                'errors': errors,
+                'warnings': warnings,
+                'statistics': statistics
+            }
+    
+    def _enhance_action_preconditions(self, action: Action, initial_state: Dict[str, Any]):
+        """
+        根据初始状态增强动作前置条件
+        
+        Args:
+            action: 要增强的动作
+            initial_state: 初始环境状态
+        """
+        # 获取BEHAVIOR动作库
+        behavior_library = get_behavior_action_library()
+        
+        # 使用库的前置条件验证功能
+        precondition_results = behavior_library.validate_action_preconditions(action, initial_state)
+        
+        # 检查是否有前置条件在当前状态下不满足
+        unsatisfied_preconditions = [pc for pc, result in precondition_results.items() if not result]
+        
+        # 如果有不满足的前置条件，添加到动作元数据中
+        if unsatisfied_preconditions:
+            if not hasattr(action, 'metadata') or action.metadata is None:
+                action.metadata = {}
+            action.metadata['unsatisfied_preconditions'] = unsatisfied_preconditions
+            action.metadata['precondition_validation_time'] = time.time()
+        
+        # 对于导航类动作，增强位置相关前置条件
+        if hasattr(action, 'action_type') and action.action_type == ActionType.NAVIGATION and \
+           hasattr(action, 'parameters') and 'target_location' in action.parameters:
+            target = action.parameters['target_location']
+            # 添加目标可达性前置条件
+            if f"location_{target}_accessible" not in [pc.split('==')[0].strip() for pc in action.preconditions]:
+                action.preconditions.append(f"location_{target}_accessible == True")
+        
+        # 对于操作类动作，增强物体相关前置条件
+        elif hasattr(action, 'action_type') and action.action_type == ActionType.MANIPULATION and \
+             hasattr(action, 'parameters') and 'object_id' in action.parameters:
+            obj_id = action.parameters['object_id']
+            # 添加物体状态检查前置条件
+            if f"object_{obj_id}_stable" not in [pc.split('==')[0].strip() for pc in action.preconditions]:
+                action.preconditions.append(f"object_{obj_id}_stable == True")
+            if f"object_{obj_id}_graspable" not in [pc.split('==')[0].strip() for pc in action.preconditions]:
+                action.preconditions.append(f"object_{obj_id}_graspable == True")
+    
+    def _generate_precondition_suggestions(self, action: Action, unsatisfied: List[str], 
+                                          current_state: Dict[str, Any]) -> List[str]:
+        """
+        为不满足的前置条件生成修复建议
+        
+        Args:
+            action: 动作实例
+            unsatisfied: 不满足的前置条件列表
+            current_state: 当前状态
+            
+        Returns:
+            建议列表
+        """
+        suggestions = []
+        
+        # 检查手部空闲条件
+        for pc in unsatisfied:
+            if "right_hand_free" in pc:
+                suggestions.append("Consider adding a ReleaseObject action for the right hand before this action")
+            elif "left_hand_free" in pc:
+                suggestions.append("Consider adding a ReleaseObject action for the left hand before this action")
+            elif "object_reachable" in pc:
+                # 提取对象ID
+                parts = pc.split('(')
+                if len(parts) > 1:
+                    obj_id_part = parts[1].split(')')[0]
+                    suggestions.append(f"Consider adding a NavigateToObject action for {obj_id_part} before this action")
+            elif "agent.energy" in pc:
+                suggestions.append("Consider adding a Rest action to increase agent energy")
+        
+        return suggestions
+    
+    def _check_sequence_rationality(self, sequence: ActionSequence, warnings: List[str]):
+        """
+        检查动作序列的合理性
+        
+        Args:
+            sequence: 动作序列
+            warnings: 警告列表
+        """
+        if not sequence or not sequence.actions:
+            return
+            
+        # 检查重复动作
+        action_counts = {}
+        for action in sequence.actions:
+            action_counts[action.name] = action_counts.get(action.name, 0) + 1
+        
+        redundant_actions = [name for name, count in action_counts.items() if count > 3]
+        if redundant_actions:
+            warnings.append(f"Potentially redundant actions: {redundant_actions}")
+        
+        # 检查导航-操作顺序合理性
+        for i in range(1, len(sequence.actions)):
+            prev_action = sequence.actions[i-1]
+            curr_action = sequence.actions[i]
+            
+            # 操作类动作应该在导航动作之后（除非有特殊情况）
+            if (hasattr(curr_action, 'action_type') and curr_action.action_type == ActionType.MANIPULATION and 
+                hasattr(prev_action, 'action_type') and prev_action.action_type != ActionType.NAVIGATION):
+                # 检查当前操作是否有相关对象
+                if hasattr(curr_action, 'parameters') and 'object_id' in curr_action.parameters:
+                    # 检查前一个动作是否处理相同对象
+                    has_related_navigation = False
+                    # 向前查找最近的导航动作
+                    for j in range(max(0, i-5), i):
+                        if (hasattr(sequence.actions[j], 'action_type') and 
+                            sequence.actions[j].action_type == ActionType.NAVIGATION and 
+                            hasattr(sequence.actions[j], 'parameters') and 
+                            'object_id' in sequence.actions[j].parameters and 
+                            sequence.actions[j].parameters['object_id'] == curr_action.parameters['object_id']):
+                            has_related_navigation = True
+                            break
+                    
+                    if not has_related_navigation:
+                        warnings.append(
+                            f"Consider adding a NavigateToObject action for {curr_action.parameters['object_id']} before {curr_action.name}")
     
     def get_statistics(self) -> Dict[str, Any]:
         """获取统计信息"""
