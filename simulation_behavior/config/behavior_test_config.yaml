@@ -1,0 +1,140 @@
+# BEHAVIOR环境测试配置文件
+
+# 环境配置
+environment:
+  # 是否使用无头模式（无图形界面）
+  headless: true
+  # 渲染帧率
+  render_fps: 30
+  # 测试超时时间（秒）
+  timeout: 300
+  # 是否启用物理引擎
+  physics_enabled: true
+  # 碰撞检测精度
+  collision_precision: medium
+  # 环境资源路径
+  resource_path: "../embodied-agent-interface/src/behavior_eval/resources"
+
+# 评估配置
+evaluation:
+  # 要测试的场景列表
+  scenarios:
+    - basic_navigation
+    - object_manipulation
+    - complex_task
+    - multi_step_interaction
+  # 要收集的评估指标
+  metrics:
+    - success_rate
+    - completion_time
+    - action_efficiency
+    - goal_achievement
+    - plan_adaptability
+    - safety_compliance
+  # 每个场景的重复次数
+  repeats_per_scenario: 3
+  # 是否启用交叉验证
+  cross_validation: false
+
+# 智能体配置
+agent:
+  # 智能体类型
+  type: default
+  # 智能体配置参数
+  config:
+    # 感知配置
+    perception:
+      vision_enabled: true
+      object_detection: true
+      depth_sensing: true
+    # 规划配置
+    planning:
+      max_plan_depth: 10
+      lookahead_steps: 5
+      replanning_threshold: 0.3
+    # 执行配置
+    execution:
+      action_duration: 0.5
+      retry_attempts: 3
+      timeout_per_action: 10
+
+# 时序逻辑公式配置
+temporal_logic:
+  # 公式验证器类型
+  validator_type: 'ltl'
+  # 验证超时时间
+  validation_timeout: 60
+  # 是否使用近似验证
+  approximate_validation: false
+
+# 数据配置
+data:
+  # 结果输出目录
+  output_dir: "../results"
+  # 是否保存原始数据
+  save_raw_data: true
+  # 是否可视化结果
+  visualize_results: true
+  # 日志级别
+  log_level: "INFO"
+
+# 场景特定配置
+scenarios_config:
+  # 基础导航场景配置
+  basic_navigation:
+    difficulty: "easy"
+    navigation_points: 5
+    obstacle_density: "low"
+    timeout: 60
+  # 物体操作场景配置
+  object_manipulation:
+    difficulty: "medium"
+    objects_count: 3
+    manipulation_complexity: "basic"
+    timeout: 120
+  # 复杂任务场景配置
+  complex_task:
+    difficulty: "hard"
+    subtasks_count: 4
+    dependency_complexity: "high"
+    timeout: 180
+  # 多步交互场景配置
+  multi_step_interaction:
+    difficulty: "medium"
+    interaction_steps: 6
+    environmental_changes: true
+    timeout: 240
+
+# 子目标分解配置
+subgoal_decomposition:
+  # 是否启用子目标分解
+  enabled: true
+  # 分解策略
+  strategy: "hierarchical"
+  # 最大子目标数量
+  max_subgoals: 8
+  # 子目标验证阈值
+  validation_threshold: 0.8
+
+# 监控配置
+monitoring:
+  # 是否启用实时监控
+  enabled: false
+  # 监控指标
+  metrics:
+    - memory_usage
+    - cpu_usage
+    - frame_rate
+  # 监控频率（秒）
+  frequency: 5
+
+# 调试配置
+debug:
+  # 是否启用调试模式
+  enabled: false
+  # 是否记录动作轨迹
+  log_trajectories: true
+  # 是否保存环境状态快照
+  save_snapshots: false
+  # 快照保存间隔（步数）
+  snapshot_interval: 100

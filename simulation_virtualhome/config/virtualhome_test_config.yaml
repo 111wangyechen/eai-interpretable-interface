@@ -1,0 +1,180 @@
+# VirtualHome环境测试配置文件
+
+# 环境配置
+environment:
+  # 是否使用无头模式（无图形界面）
+  headless: true
+  # 渲染模式
+  render_mode: 'rgb_array'
+  # 渲染分辨率
+  resolution: 
+    width: 800
+    height: 600
+  # 帧率
+  fps: 30
+  # 测试超时时间（秒）
+  timeout: 300
+  # 场景加载超时（秒）
+  scene_load_timeout: 60
+  # 环境资源路径
+  resource_path: "../embodied-agent-interface/src/virtualhome_eval/resources"
+
+# 评估配置
+evaluation:
+  # 要测试的场景列表
+  scenarios:
+    - simple_daily_tasks
+    - object_interactions
+    - multi_agent_cooperation
+    - complex_instruction_following
+  # 要收集的评估指标
+  metrics:
+    - success_rate
+    - completion_time
+    - instruction_fidelity
+    - scene_relevance
+    - action_completeness
+    - plan_adaptability
+  # 每个场景的重复次数
+  repeats_per_scenario: 3
+  # 是否启用交叉验证
+  cross_validation: false
+
+# 智能体配置
+agent:
+  # 智能体类型
+  type: default
+  # 智能体配置参数
+  config:
+    # 感知配置
+    perception:
+      vision_enabled: true
+      object_recognition: true
+      scene_understanding: true
+    # 指令理解配置
+    instruction_understanding:
+      nlp_model: "default"
+      context_window_size: 1024
+      instruction_cache_size: 100
+    # 规划配置
+    planning:
+      max_plan_depth: 10
+      lookahead_steps: 5
+      replanning_threshold: 0.3
+    # 执行配置
+    execution:
+      action_duration: 1.2
+      retry_attempts: 3
+      timeout_per_action: 15
+
+# 时序逻辑公式配置
+temporal_logic:
+  # 公式验证器类型
+  validator_type: 'ltl'
+  # 验证超时时间
+  validation_timeout: 60
+  # 是否使用近似验证
+  approximate_validation: false
+
+# 数据配置
+data:
+  # 结果输出目录
+  output_dir: "../results"
+  # 是否保存原始数据
+  save_raw_data: true
+  # 是否可视化结果
+  visualize_results: true
+  # 是否保存视频
+  save_videos: false
+  # 视频保存格式
+  video_format: "mp4"
+  # 日志级别
+  log_level: "INFO"
+
+# 场景特定配置
+scenarios_config:
+  # 简单日常任务场景配置
+  simple_daily_tasks:
+    difficulty: "easy"
+    tasks_count: 3
+    instruction_complexity: "low"
+    timeout: 120
+    # 示例任务
+    sample_tasks:
+      - "Go to the kitchen and get a glass of water"
+      - "Sit on the sofa and watch TV"
+      - "Pick up the book from the table"
+  # 物体交互场景配置
+  object_interactions:
+    difficulty: "medium"
+    objects_count: 5
+    interaction_complexity: "medium"
+    timeout: 180
+    # 示例任务
+    sample_tasks:
+      - "Open the refrigerator and take out the milk"
+      - "Turn on the lights and close the window"
+      - "Pick up the phone and call someone"
+  # 多智能体协作场景配置
+  multi_agent_cooperation:
+    difficulty: "hard"
+    agents_count: 2
+    communication_required: true
+    coordination_complexity: "high"
+    timeout: 240
+    # 示例任务
+    sample_tasks:
+      - "Work together with another agent to move the table"
+      - "Cooperate to cook a meal"
+      - "Communicate to find a hidden object"
+  # 复杂指令遵循场景配置
+  complex_instruction_following:
+    difficulty: "hard"
+    instruction_length: "long"
+    subtasks_count: 6
+    dependency_complexity: "high"
+    timeout: 300
+    # 示例任务
+    sample_tasks:
+      - "Go to the bedroom, change into your pajamas, brush your teeth, and then go to sleep"
+      - "Make a cup of coffee: first boil water, grind the beans, put the coffee in the filter, pour hot water over it, and wait for it to brew"
+      - "Clean the house: vacuum the living room, dust the furniture, mop the kitchen floor, and take out the trash"
+
+# 子目标分解配置
+subgoal_decomposition:
+  # 是否启用子目标分解
+  enabled: true
+  # 分解策略
+  strategy: "semantic"
+  # 最大子目标数量
+  max_subgoals: 10
+  # 子目标验证阈值
+  validation_threshold: 0.85
+
+# 监控配置
+monitoring:
+  # 是否启用实时监控
+  enabled: false
+  # 监控指标
+  metrics:
+    - memory_usage
+    - cpu_usage
+    - frame_rate
+    - action_execution_time
+  # 监控频率（秒）
+  frequency: 5
+
+# 调试配置
+debug:
+  # 是否启用调试模式
+  enabled: false
+  # 是否记录动作轨迹
+  log_trajectories: true
+  # 是否保存环境状态快照
+  save_snapshots: false
+  # 快照保存间隔（步数）
+  snapshot_interval: 100
+  # 是否保存中间状态图像
+  save_images: false
+  # 图像保存路径
+  images_path: "../results/images"
