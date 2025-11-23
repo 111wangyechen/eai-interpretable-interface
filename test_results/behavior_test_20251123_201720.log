@@ -1,0 +1,4 @@
+ERROR:root:导入BEHAVIOR评估模块失败: No module named 'embodied_agent_interface'
+WARNING:root:尝试使用本地实现...
+测试完成！
+成功率: 100.00% (4/4)
