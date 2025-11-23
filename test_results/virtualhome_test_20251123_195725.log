@@ -1,0 +1,13 @@
+ERROR:root:导入VirtualHome评估模块失败: No module named 'embodied_agent_interface'
+WARNING:root:尝试使用本地实现...
+Traceback (most recent call last):
+  File "/home/yeah/eai-interpretable-interface/simulation_virtualhome/scripts/virtualhome_test_evaluator.py", line 51, in <module>
+    logging.FileHandler(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'logs', 'virtualhome_test.log')),
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yeah/anaconda3/lib/python3.13/logging/__init__.py", line 1219, in __init__
+    StreamHandler.__init__(self, self._open())
+                                 ~~~~~~~~~~^^
+  File "/home/yeah/anaconda3/lib/python3.13/logging/__init__.py", line 1248, in _open
+    return open_func(self.baseFilename, self.mode,
+                     encoding=self.encoding, errors=self.errors)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/yeah/eai-interpretable-interface/simulation_virtualhome/logs/virtualhome_test.log'
