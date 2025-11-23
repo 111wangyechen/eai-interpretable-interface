@@ -1,0 +1,27 @@
+{
+  "request_id": "request_1763881482798359",
+  "success": false,
+  "message": "Generated 0 valid sequences",
+  "predicted_sequences": [],
+  "validation_results": [
+    {
+      "is_valid": true,
+      "message": "Sequence validation passed: 0 transitions",
+      "details": {
+        "transition_validations": [],
+        "state_evolution": [
+          {
+            "at_location": "start",
+            "task_completed": false
+          }
+        ]
+      },
+      "timestamp": 1763881482.7985005
+    }
+  ],
+  "metadata": {
+    "total_sequences_generated": 1,
+    "valid_sequences_count": 1,
+    "final_sequences_count": 0,
+    "modeling_time": 0.00016260147094726562,
+    "ltl_validated": 

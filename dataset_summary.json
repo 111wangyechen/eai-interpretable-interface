@@ -1,0 +1,106 @@
+{
+  "timestamp": "2025-11-23T10:42:47.955688",
+  "data_directory": "/home/yeah/eai-interpretable-interface/data",
+  "files": [
+    {
+      "filename": "behavior-00000-of-00001.parquet",
+      "size_mb": 0.1,
+      "rows": 100,
+      "columns": [
+        "scene_id",
+        "task_id",
+        "task_name",
+        "natural_language_description",
+        "original_goal",
+        "tl_goal",
+        "action_trajectory",
+        "transition_model"
+      ],
+      "column_types": {
+        "scene_id": "object",
+        "task_id": "object",
+        "task_name": "object",
+        "natural_language_description": "object",
+        "original_goal": "object",
+        "tl_goal": "object",
+        "action_trajectory": "object",
+        "transition_model": "object"
+      },
+      "sample_data": [
+        {
+          "scene_id": "default",
+          "task_id": "assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37",
+          "task_name": "assembling_gift_baskets",
+          "natural_language_description": "Put one candle, one cheese, one cookie, and one bow into each basket.",
+          "original_goal": "(define (problem assembling_gift_baskets_0)\n    (:domain igibson)\n\n    (:objects\n     \tbasket.n.01_1 basket.n.01_2 basket.n.01_3 basket.n.01_4 - basket.n.01\n    \tfloor.n.01_1 - floor.n.01\n    \tcandle.n.01_1 candle.n.01_2 candle.n.01_3 candle.n.01_4 - candle.n.01\n    \tcookie.n.01_1 cookie.n.01_2 cookie.n.01_3 cookie.n.01_4 - cookie.n.01\n    \tcheese.n.01_1 cheese.n.01_2 cheese.n.01_3 cheese.n.01_4 - cheese.n.01\n    \tbow.n.08_1 bow.n.08_2 bow.n.08_3 bow.n.08_4 - bow.n.08\n        table.n.02_1 table.n.02_2 - table.n.02\n        agent.n.01_1 - agent.n.01\n    )\n    \n    (:init \n        (onfloor basket.n.01_1 floor.n.01_1) \n        (onfloor basket.n.01_2 floor.n.01_1) \n        (onfloor basket.n.01_3 floor.n.01_1) \n        (onfloor basket.n.01_4 floor.n.01_1) \n        (ontop candle.n.01_1 table.n.02_1) \n        (ontop candle.n.01_2 table.n.02_1) \n        (ontop candle.n.01_3 table.n.02_1) \n        (ontop candle.n.01_4 table.n.02_1) \n        (ontop cookie.n.01_1 table.n.02_1) \n        (ontop cookie.n.01_2 table.n.02_1) \n        (ontop cookie.n.01_3 table.n.02_1) \n        (ontop cookie.n.01_4 table.n.02_1) \n        (ontop cheese.n.01_1 table.n.02_2) \n        (ontop cheese.n.01_2 table.n.02_2) \n        (ontop cheese.n.01_3 table.n.02_2) \n        (ontop cheese.n.01_4 table.n.02_2) \n        (ontop bow.n.08_1 table.n.02_2) \n        (ontop bow.n.08_2 table.n.02_2) \n        (ontop bow.n.08_3 table.n.02_2) \n        (ontop bow.n.08_4 table.n.02_2) \n        (inroom floor.n.01_1 living_room) \n        (inroom table.n.02_1 living_room) \n        (inroom table.n.02_2 living_room) \n        (onfloor agent.n.01_1 floor.n.01_1)\n    )\n    \n    (:goal \n        (and \n            (forpairs \n                (?basket.n.01 - basket.n.01) \n                (?candle.n.01 - candle.n.01) \n                (inside ?candle.n.01 ?basket.n.01)\n            ) \n            (forpairs \n                (?basket.n.01 - basket.n.01) \n                (?cheese.n.01 - cheese.n.01) \n                (inside ?cheese.n.01 ?basket.n.01)\n            ) \n            (forpairs \n                (?basket.n.01 - basket.n.01) \n                (?cookie.n.01 - cookie.n.01) \n                (inside ?cookie.n.01 ?basket.n.01)\n            ) \n            (forpairs \n                (?basket.n.01 - basket.n.01) \n                (?bow.n.08 - bow.n.08) \n                (inside ?bow.n.08 ?basket.n.01)\n            )\n        )\n    )\n)",
+          "tl_goal": "forall x0. (not basket_n_01(x0) or forn 1. x1. (not candle_n_01(x1) or inside(x1, x0))) and forall x1. (not candle_n_01(x1) or forn 1. x0. (not basket_n_01(x0) or inside(x1, x0))) and forall x0. (not basket_n_01(x0) or forn 1. x1. (not cheese_n_01(x1) or inside(x1, x0))) and forall x1. (not cheese_n_01(x1) or forn 1. x0. (not basket_n_01(x0) or inside(x1, x0))) and forall x0. (not basket_n_01(x0) or forn 1. x1. (not cookie_n_01(x1) or inside(x1, x0))) and forall x1. (not cookie_n_01(x1) or forn 1. x0. (not basket_n_01(x0) or inside(x1, x0))) and forall x0. (not basket_n_01(x0) or forn 1. x1. (not bow_n_08(x1) or inside(x1, x0))) and forall x1. (not bow_n_08(x1) or forn 1. x0. (not basket_n_01(x0) or inside(x1, x0)))",
+          "action_trajectory": "[{'action': 'RIGHT_GRASP', 'object': 'bow_0'}, {'action': 'LEFT_GRASP', 'object': 'bow_1'}, {'action': 'RIGHT_PLACE_INSIDE', 'object': 'basket_0'}, {'action': 'LEFT_PLACE_INSIDE', 'object': 'basket_1'}, {'action': 'RIGHT_GRASP', 'object': 'bow_2'}, {'action': 'LEFT_GRASP', 'object': 'bow_3'}, {'action': 'RIGHT_PLACE_INSIDE', 'object': 'basket_2'}, {'action': 'LEFT_PLACE_INSIDE', 'object': 'basket_3'}, {'action': 'RIGHT_GRASP', 'object': 'cheese_0'}, {'action': 'LEFT_GRASP', 'object': 'cheese_1'}, {'action': 'RIGHT_PLACE_INSIDE', 'object': 'basket_0'}, {'action': 'LEFT_PLACE_INSIDE', 'object': 'basket_1'}, {'action': 'RIGHT_GRASP', 'object': 'cheese_2'}, {'action': 'LEFT_GRASP', 'object': 'cheese_3'}, {'action': 'RIGHT_PLACE_INSIDE', 'object': 'basket_2'}, {'action': 'LEFT_PLACE_INSIDE', 'object': 'basket_3'}, {'action': 'RIGHT_GRASP', 'object': 'cookie_0'}, {'action': 'LEFT_GRASP', 'object': 'cookie_1'}, {'action': 'RIGHT_PLACE_INSIDE', 'object': 'basket_0'}, {'action': 'LEFT_PLACE_INSIDE', 'object': 'basket_1'}, {'action': 'RIGHT_GRASP', 'object': 'cookie_2'}, {'action': 'LEFT_GRASP', 'object': 'cookie_3'}, {'action': 'RIGHT_PLACE_INSIDE', 'object': 'basket_2'}, {'action': 'LEFT_PLACE_INSIDE', 'object': 'basket_3'}, {'action': 'RIGHT_GRASP', 'object': 'candle_0'}, {'action': 'LEFT_GRASP', 'object': 'candle_1'}, {'action': 'RIGHT_PLACE_INSIDE', 'object': 'basket_0'}, {'action': 'LEFT_PLACE_INSIDE', 'object': 'basket_1'}, {'action': 'RIGHT_GRASP', 'object': 'candle_2'}, {'action': 'LEFT_GRASP', 'object': 'candle_3'}, {'action': 'RIGHT_PLACE_INSIDE', 'object': 'basket_2'}, {'action': 'LEFT_PLACE_INSIDE', 'object': 'basket_3'}]",
+          "transition_model": "(define (problem assembling_gift_baskets)\n    (:domain igibson)\n    (:objects agent_n_01_1 - agent basket_n_01_1 basket_n_01_2 - basket_n_01 bow_n_08_2 - bow_n_08 candle_n_01_1 - candle_n_01 cheese_n_01_1 - cheese_n_01 cookie_n_01_1 - cookie_n_01 floor_n_01_1 - floor_n_01 table_n_02_1 table_n_02_2 - table_n_02)\n    (:init (onfloor basket_n_01_1 floor_n_01_1) (onfloor basket_n_01_2 floor_n_01_1) (ontop bow_n_08_2 table_n_02_2) (ontop candle_n_01_1 table_n_02_1) (ontop cheese_n_01_1 table_n_02_2) (ontop cookie_n_01_1 table_n_02_1) (same_obj basket_n_01_1 basket_n_01_1) (same_obj basket_n_01_2 basket_n_01_2) (same_obj bow_n_08_2 bow_n_08_2) (same_obj candle_n_01_1 candle_n_01_1) (same_obj cheese_n_01_1 cheese_n_01_1) (same_obj cookie_n_01_1 cookie_n_01_1) (same_obj floor_n_01_1 floor_n_01_1) (same_obj table_n_02_1 table_n_02_1) (same_obj table_n_02_2 table_n_02_2))\n    (:goal (and (inside bow_n_08_2 basket_n_01_2) (inside candle_n_01_1 basket_n_01_2) (inside cheese_n_01_1 basket_n_01_1) (inside cookie_n_01_1 basket_n_01_1)))\n)"
+        },
+        {
+          "scene_id": "default",
+          "task_id": "brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56",
+          "task_name": "brushing_lint_off_clothing",
+          "natural_language_description": "Check every sweater for lint, make sure none of them are dusty, and put them on the bed.",
+          "original_goal": "(define (problem brushing_lint_off_clothing_0)\n    (:domain igibson)\n\n    (:objects\n     \tsweater.n.01_1 sweater.n.01_2 sweater.n.01_3 sweater.n.01_4 - sweater.n.01\n    \tfloor.n.01_1 - floor.n.01\n    \tbed.n.01_1 - bed.n.01\n    \tscrub_brush.n.01_1 - scrub_brush.n.01\n    \tagent.n.01_1 - agent.n.01\n    )\n    \n    (:init \n        (onfloor sweater.n.01_1 floor.n.01_1) \n        (onfloor sweater.n.01_2 floor.n.01_1) \n        (ontop sweater.n.01_3 bed.n.01_1) \n        (ontop sweater.n.01_4 bed.n.01_1) \n        (dusty sweater.n.01_1) \n        (dusty sweater.n.01_2) \n        (dusty sweater.n.01_3) \n        (dusty sweater.n.01_4) \n        (onfloor scrub_brush.n.01_1 floor.n.01_1) \n        (not \n            (dusty scrub_brush.n.01_1)\n        ) \n        (inroom floor.n.01_1 bedroom) \n        (inroom bed.n.01_1 bedroom) \n        (onfloor agent.n.01_1 floor.n.01_1)\n    )\n    \n    (:goal \n        (and \n            (forall \n                (?sweater.n.01 - sweater.n.01) \n                (not \n                    (dusty ?sweater.n.01)\n                )\n            ) \n            (forall \n                (?sweater.n.01 - sweater.n.01) \n                (ontop ?sweater.n.01 ?bed.n.01_1)\n            )\n        )\n    )\n)",
+          "tl_goal": "forall x0. (not sweater_n_01(x0) or (not dusty(x0))) and forall x0. (not sweater_n_01(x0) or ontop(x0, bed.11))",
+          "action_trajectory": "[{'action': 'RIGHT_GRASP', 'object': 'scrub_brush_40'}, {'action': 'CLEAN', 'object': 'sweater_36'}, {'action': 'LEFT_GRASP', 'object': 'sweater_36'}, {'action': 'LEFT_PLACE_ONTOP', 'object': 'bed_11'}, {'action': 'CLEAN', 'object': 'sweater_37'}, {'action': 'LEFT_GRASP', 'object': 'sweater_37'}, {'action': 'LEFT_PLACE_ONTOP', 'object': 'bed_11'}, {'action': 'CLEAN', 'object': 'sweater_38'}, {'action': 'LEFT_GRASP', 'object': 'sweater_38'}, {'action': 'LEFT_PLACE_ONTOP', 'object': 'bed_11'}, {'action': 'CLEAN', 'object': 'sweater_39'}, {'action': 'LEFT_GRASP', 'object': 'sweater_39'}, {'action': 'LEFT_PLACE_ONTOP', 'object': 'bed_11'}]",
+          "transition_model": "(define (problem brushing_lint_off_clothing)\n    (:domain igibson)\n    (:objects agent_n_01_1 - agent bed_n_01_1 - bed_n_01 floor_n_01_1 - floor_n_01 scrub_brush_n_01_1 - scrub_brush_n_01 sweater_n_01_1 sweater_n_01_2 sweater_n_01_3 sweater_n_01_4 - sweater_n_01)\n    (:init (dusty sweater_n_01_1) (dusty sweater_n_01_2) (dusty sweater_n_01_3) (not (dusty scrub_brush_n_01_1)) (onfloor scrub_brush_n_01_1 floor_n_01_1) (onfloor sweater_n_01_1 floor_n_01_1) (onfloor sweater_n_01_2 floor_n_01_1) (ontop sweater_n_01_3 bed_n_01_1) (ontop sweater_n_01_4 bed_n_01_1) (same_obj bed_n_01_1 bed_n_01_1) (same_obj floor_n_01_1 floor_n_01_1) (same_obj scrub_brush_n_01_1 scrub_brush_n_01_1) (same_obj sweater_n_01_1 sweater_n_01_1) (same_obj sweater_n_01_2 sweater_n_01_2) (same_obj sweater_n_01_3 sweater_n_01_3) (same_obj sweater_n_01_4 sweater_n_01_4))\n    (:goal (and (ontop sweater_n_01_1 bed_n_01_1) (not (dusty sweater_n_01_1)) (ontop sweater_n_01_2 bed_n_01_1) (ontop sweater_n_01_3 bed_n_01_1)))\n)"
+        }
+      ]
+    },
+    {
+      "filename": "virtualhome-00000-of-00001.parquet",
+      "size_mb": 0.11,
+      "rows": 338,
+      "columns": [
+        "scene_id",
+        "task_id",
+        "task_name",
+        "natural_language_description",
+        "original_goal",
+        "tl_goal",
+        "action_trajectory",
+        "transition_model"
+      ],
+      "column_types": {
+        "scene_id": "object",
+        "task_id": "object",
+        "task_name": "object",
+        "natural_language_description": "object",
+        "original_goal": "object",
+        "tl_goal": "object",
+        "action_trajectory": "object",
+        "transition_model": "object"
+      },
+      "sample_data": [
+        {
+          "scene_id": "scene_1",
+          "task_id": "27_2",
+          "task_name": "Wash clothes",
+          "natural_language_description": "Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine.",
+          "original_goal": "{'actions': [], 'goal': [{'id': 1001, 'class_name': 'washing_machine', 'state': 'CLOSED'}, {'id': 1001, 'class_name': 'washing_machine', 'state': 'ON'}, {'id': 1001, 'class_name': 'washing_machine', 'state': 'PLUGGED_IN'}, {'from_id': 1003, 'relation_type': 'ON', 'to_id': 1001}, {'from_id': 1002, 'relation_type': 'ON', 'to_id': 1001}]}",
+          "tl_goal": "(CLOSED(washing_machine.1001) and ON(washing_machine.1001) and PLUGGED_IN(washing_machine.1001) and ONTOP(clothes_jacket.1003, washing_machine.1001) and ONTOP(soap.1002, washing_machine.1001))",
+          "action_trajectory": "['[WALK] <dining_room> (201)', '[WALK] <basket_for_clothes> (1000)', '[FIND] <basket_for_clothes> (1000)', '[FIND] <washing_machine> (1001)', '[TURNTO] <washing_machine> (1001)', '[FIND] <soap> (1002)', '[GRAB] <soap> (1002)', '[OPEN] <washing_machine> (1001)', '[PUTBACK] <soap> (1002) <washing_machine> (1001)', '[FIND] <clothes_jacket> (1003)', '[GRAB] <clothes_jacket> (1003)', '[PUTBACK] <clothes_jacket> (1003) <washing_machine> (1001)', '[CLOSE] <washing_machine> (1001)', '[SWITCHON] <washing_machine> (1001)']",
+          "transition_model": "(define (problem Wash_clothes)\n    (:domain virtualhome)\n    (:objects\n    character - character\n    bathroom clothes_jacket washing_machine basket_for_clothes dining_room soap - object\n)\n    (:init\n    (obj_next_to soap basket_for_clothes)\n    (grabbable clothes_jacket)\n    (off washing_machine)\n    (movable clothes_jacket)\n    (inside_room basket_for_clothes dining_room)\n    (hangable clothes_jacket)\n    (containers washing_machine)\n    (plugged_in washing_machine)\n    (can_open basket_for_clothes)\n    (obj_next_to washing_machine basket_for_clothes)\n    (inside_room washing_machine dining_room)\n    (has_switch washing_machine)\n    (obj_next_to basket_for_clothes soap)\n    (grabbable basket_for_clothes)\n    (movable soap)\n    (has_plug washing_machine)\n    (containers basket_for_clothes)\n    (can_open washing_machine)\n    (clothes clothes_jacket)\n    (inside_room soap dining_room)\n    (closed washing_machine)\n    (clean washing_machine)\n    (obj_inside basket_for_clothes basket_for_clothes)\n    (inside_room clothes_jacket dining_room)\n    (obj_next_to clothes_jacket basket_for_clothes)\n    (obj_inside clothes_jacket washing_machine)\n    (obj_ontop washing_machine basket_for_clothes)\n    (recipient washing_machine)\n    (obj_next_to basket_for_clothes washing_machine)\n    (obj_next_to basket_for_clothes basket_for_clothes)\n    (obj_next_to basket_for_clothes clothes_jacket)\n    (inside character bathroom)\n    (movable basket_for_clothes)\n    (cream soap)\n    (grabbable soap)\n)\n    (:goal\n    (and\n        (closed washing_machine)\n        (on washing_machine)\n        (plugged_in washing_machine)\n        (obj_ontop soap washing_machine)\n        (obj_ontop clothes_jacket washing_machine)\n    )\n)\n    )\n    "
+        },
+        {
+          "scene_id": "scene_1",
+          "task_id": "417_1",
+          "task_name": "Wash clothes",
+          "natural_language_description": "I will load the dirty clothes into the washing machine.",
+          "original_goal": "{'actions': [], 'goal': [{'id': 1000, 'class_name': 'washing_machine', 'state': 'CLOSED'}, {'id': 1000, 'class_name': 'washing_machine', 'state': 'ON'}, {'id': 1000, 'class_name': 'washing_machine', 'state': 'PLUGGED_IN'}, {'from_id': 1001, 'relation_type': 'ON', 'to_id': 1000}, {'from_id': 1004, 'relation_type': 'ON', 'to_id': 1000}, {'from_id': 1003, 'relation_type': 'ON', 'to_id': 1000}, {'from_id': 1002, 'relation_type': 'ON', 'to_id': 1000}, {'from_id': 1005, 'relation_type': 'ON', 'to_id': 1000}]}",
+          "tl_goal": "(CLOSED(washing_machine.1000) and ON(washing_machine.1000) and PLUGGED_IN(washing_machine.1000) and ONTOP(clothes_pants.1001, washing_machine.1000) and ONTOP(clothes_shirt.1004, washing_machine.1000) and ONTOP(clothes_shirt.1003, washing_machine.1000) and ONTOP(clothes_pants.1002, washing_machine.1000) and ONTOP(soap.1005, washing_machine.1000))",
+          "action_trajectory": "['[FIND] <washing_machine> (1000)', '[OPEN] <washing_machine> (1000)', '[FIND] <clothes_pants> (1001)', '[GRAB] <clothes_pants> (1001)', '[PUTBACK] <clothes_pants> (1001) <washing_machine> (1000)', '[FIND] <clothes_pants> (2.1002)', '[GRAB] <clothes_pants> (2.1002)', '[PUTBACK] <clothes_pants> (2.1002) <washing_machine> (1000)', '[FIND] <clothes_shirt> (1003)', '[GRAB] <clothes_shirt> (1003)', '[PUTBACK] <clothes_shirt> (1003) <washing_machine> (1000)', '[FIND] <clothes_shirt> (2.1004)', '[GRAB] <clothes_shirt> (2.1004)', '[PUTBACK] <clothes_shirt> (2.1004) <washing_machine> (1000)', '[FIND] <soap> (1005)', '[GRAB] <soap> (1005)', '[PUTBACK] <soap> (1005) <washing_machine> (1000)', '[CLOSE] <washing_machine> (1000)', '[SWITCHON] <washing_machine> (1000)']",
+          "transition_model": "(define (problem Wash_clothes)\n    (:domain virtualhome)\n    (:objects\n    character - character\n    clothes_shirt clothes_pants soap washing_machine - object\n)\n    (:init\n    (clothes clothes_pants)\n    (movable clothes_pants)\n    (obj_inside clothes_shirt washing_machine)\n    (off washing_machine)\n    (hangable clothes_shirt)\n    (grabbable soap)\n    (containers washing_machine)\n    (plugged_in washing_machine)\n    (has_switch washing_machine)\n    (movable soap)\n    (has_plug washing_machine)\n    (obj_inside soap washing_machine)\n    (can_open washing_machine)\n    (closed washing_machine)\n    (clean washing_machine)\n    (grabbable clothes_pants)\n    (grabbable clothes_shirt)\n    (obj_inside clothes_pants washing_machine)\n    (hangable clothes_pants)\n    (recipient washing_machine)\n    (clothes clothes_shirt)\n    (cream soap)\n    (movable clothes_shirt)\n)\n    (:goal\n    (and\n        (closed washing_machine)\n        (on washing_machine)\n        (plugged_in washing_machine)\n        (obj_ontop soap washing_machine)\n        (obj_ontop clothes_shirt washing_machine)\n        (obj_ontop clothes_pants washing_machine)\n    )\n)\n    )\n    "
+        }
+      ]
+    }
+  ],
+  "summary_stats": {
+    "total_files": 2,
+    "total_size_mb": 0.2,
+    "total_rows": 438,
+    "average_rows_per_file": 219.0
+  }
+}

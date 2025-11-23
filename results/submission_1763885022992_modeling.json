@@ -1,0 +1,34 @@
+{
+  "request_id": "request_1763885022995112",
+  "success": false,
+  "message": "Generated 0 valid sequences",
+  "predicted_sequences": [],
+  "validation_results": [
+    {
+      "is_valid": true,
+      "message": "Sequence validation passed: 0 transitions",
+      "details": {
+        "transition_validations": [],
+        "state_evolution": [
+          {
+            "at_location": "start",
+            "task_completed": false
+          }
+        ]
+      },
+      "timestamp": 1763885022.9952712
+    }
+  ],
+  "metadata": {
+    "total_sequences_generated": 1,
+    "valid_sequences_count": 1,
+    "final_sequences_count": 0,
+    "modeling_time": 0.00015807151794433594,
+    "ltl_validated": {
+      "type": "LogicGuard",
+      "description": "Logic guard condition"
+    },
+    "runtime_errors_corrected": 0
+  },
+  "timestamp": 1763885022.9952738
+}
