@@ -1,0 +1,34 @@
+{
+  "test_run_id": "20251123_201455",
+  "start_time": "2025-11-23T20:14:55.520317",
+  "end_time": "2025-11-23T20:14:56.358382",
+  "environments": {
+    "behavior": {
+      "environment": "behavior",
+      "status": "success",
+      "exit_code": 0,
+      "duration": 0.38398075103759766,
+      "log_file": "/home/yeah/eai-interpretable-interface/test_results/behavior_test_20251123_201455.log",
+      "result_files": [],
+      "start_time": "2025-11-23T20:14:55.520729",
+      "end_time": "2025-11-23T20:14:55.904710"
+    },
+    "virtualhome": {
+      "environment": "virtualhome",
+      "status": "success",
+      "exit_code": 0,
+      "duration": 0.4530961513519287,
+      "log_file": "/home/yeah/eai-interpretable-interface/test_results/virtualhome_test_20251123_201455.log",
+      "result_files": [],
+      "start_time": "2025-11-23T20:14:55.904988",
+      "end_time": "2025-11-23T20:14:56.358084"
+    }
+  },
+  "summary": {
+    "total_environments": 2,
+    "successful_environments": 2,
+    "failed_environments": 0,
+    "metrics": {},
+    "success_rate": 1.0
+  }
+}

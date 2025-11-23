@@ -1,0 +1,4 @@
+ERROR:root:导入VirtualHome评估模块失败: No module named 'pddlgym'
+WARNING:root:使用本地备选实现...
+测试完成！
+成功率: 100.00% (4/4)

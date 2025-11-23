@@ -31,3 +31,14 @@
 2025-11-23 20:10:23,800 - test_runner - INFO - 所有测试完成
 2025-11-23 20:10:23,800 - test_runner - INFO - JSON报告已保存至: /home/yeah/eai-interpretable-interface/test_results/test_summary_20251123_201022.json
 2025-11-23 20:10:23,800 - test_runner - INFO - Markdown报告已保存至: /home/yeah/eai-interpretable-interface/test_results/test_summary_20251123_201022.md
+2025-11-23 20:14:55,520 - test_runner - INFO - 开始运行所有测试
+2025-11-23 20:14:55,520 - test_runner - INFO - 验证通过环境: behavior
+2025-11-23 20:14:55,520 - test_runner - INFO - 验证通过环境: virtualhome
+2025-11-23 20:14:55,520 - test_runner - INFO - 开始顺序执行测试: behavior, virtualhome
+2025-11-23 20:14:55,520 - test_runner - INFO - 开始运行 behavior 环境测试
+2025-11-23 20:14:55,904 - test_runner - INFO - behavior 环境测试完成，状态: 成功
+2025-11-23 20:14:55,904 - test_runner - INFO - 开始运行 virtualhome 环境测试
+2025-11-23 20:14:56,358 - test_runner - INFO - virtualhome 环境测试完成，状态: 成功
+2025-11-23 20:14:56,358 - test_runner - INFO - 所有测试完成
+2025-11-23 20:14:56,358 - test_runner - INFO - JSON报告已保存至: /home/yeah/eai-interpretable-interface/test_results/test_summary_20251123_201455.json
+2025-11-23 20:14:56,358 - test_runner - INFO - Markdown报告已保存至: /home/yeah/eai-interpretable-interface/test_results/test_summary_20251123_201455.md
