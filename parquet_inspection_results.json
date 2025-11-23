@@ -1,1 +1,204 @@
-{}
+{
+  "behavior-00000-of-00001.parquet": {
+    "file_path": "/home/yeah/eai-interpretable-interface/data/behavior-00000-of-00001.parquet",
+    "file_size_mb": 0.1,
+    "shape": [
+      100,
+      8
+    ],
+    "columns": [
+      "scene_id",
+      "task_id",
+      "task_name",
+      "natural_language_description",
+      "original_goal",
+      "tl_goal",
+      "action_trajectory",
+      "transition_model"
+    ],
+    "dtypes": {
+      "scene_id": "object",
+      "task_id": "object",
+      "task_name": "object",
+      "natural_language_description": "object",
+      "original_goal": "object",
+      "tl_goal": "object",
+      "action_trajectory": "object",
+      "transition_model": "object"
+    },
+    "sample_rows": 10,
+    "null_counts": {
+      "scene_id": 0,
+      "task_id": 0,
+      "task_name": 0,
+      "natural_language_description": 0,
+      "original_goal": 0,
+      "tl_goal": 0,
+      "action_trajectory": 0,
+      "transition_model": 0
+    },
+    "column_stats": {
+      "scene_id": {
+        "null_count": 0,
+        "null_percent": 0.0,
+        "unique_count": 1
+      },
+      "task_id": {
+        "null_count": 0,
+        "null_percent": 0.0,
+        "unique_count": 100
+      },
+      "task_name": {
+        "null_count": 0,
+        "null_percent": 0.0,
+        "unique_count": 100
+      },
+      "natural_language_description": {
+        "null_count": 0,
+        "null_percent": 0.0,
+        "unique_count": 100
+      },
+      "original_goal": {
+        "null_count": 0,
+        "null_percent": 0.0,
+        "unique_count": 100
+      },
+      "tl_goal": {
+        "null_count": 0,
+        "null_percent": 0.0,
+        "unique_count": 99
+      },
+      "action_trajectory": {
+        "null_count": 0,
+        "null_percent": 0.0,
+        "unique_count": 99
+      },
+      "transition_model": {
+        "null_count": 0,
+        "null_percent": 0.0,
+        "unique_count": 100
+      }
+    },
+    "unique_values": {
+      "scene_id": [
+        "default"
+      ]
+    }
+  },
+  "virtualhome-00000-of-00001.parquet": {
+    "file_path": "/home/yeah/eai-interpretable-interface/data/virtualhome-00000-of-00001.parquet",
+    "file_size_mb": 0.11,
+    "shape": [
+      338,
+      8
+    ],
+    "columns": [
+      "scene_id",
+      "task_id",
+      "task_name",
+      "natural_language_description",
+      "original_goal",
+      "tl_goal",
+      "action_trajectory",
+      "transition_model"
+    ],
+    "dtypes": {
+      "scene_id": "object",
+      "task_id": "object",
+      "task_name": "object",
+      "natural_language_description": "object",
+      "original_goal": "object",
+      "tl_goal": "object",
+      "action_trajectory": "object",
+      "transition_model": "object"
+    },
+    "sample_rows": 10,
+    "null_counts": {
+      "scene_id": 0,
+      "task_id": 0,
+      "task_name": 0,
+      "natural_language_description": 0,
+      "original_goal": 0,
+      "tl_goal": 0,
+      "action_trajectory": 0,
+      "transition_model": 0
+    },
+    "column_stats": {
+      "scene_id": {
+        "null_count": 0,
+        "null_percent": 0.0,
+        "unique_count": 1
+      },
+      "task_id": {
+        "null_count": 0,
+        "null_percent": 0.0,
+        "unique_count": 338
+      },
+      "task_name": {
+        "null_count": 0,
+        "null_percent": 0.0,
+        "unique_count": 26
+      },
+      "natural_language_description": {
+        "null_count": 0,
+        "null_percent": 0.0,
+        "unique_count": 334
+      },
+      "original_goal": {
+        "null_count": 0,
+        "null_percent": 0.0,
+        "unique_count": 82
+      },
+      "tl_goal": {
+        "null_count": 0,
+        "null_percent": 0.0,
+        "unique_count": 92
+      },
+      "action_trajectory": {
+        "null_count": 0,
+        "null_percent": 0.0,
+        "unique_count": 287
+      },
+      "transition_model": {
+        "null_count": 0,
+        "null_percent": 0.0,
+        "unique_count": 283
+      }
+    },
+    "unique_values": {
+      "scene_id": [
+        "scene_1"
+      ]
+    }
+  },
+  "comparison": {
+    "file1": "/home/yeah/eai-interpretable-interface/data/behavior-00000-of-00001.parquet",
+    "file2": "/home/yeah/eai-interpretable-interface/data/virtualhome-00000-of-00001.parquet",
+    "file_sizes": {
+      "file1_mb": 0.1,
+      "file2_mb": 0.11,
+      "ratio": 0.9090909090909092
+    },
+    "row_counts": {
+      "file1": 100,
+      "file2": 338,
+      "difference": 238
+    },
+    "column_comparison": {
+      "common_columns": [
+        "task_name",
+        "natural_language_description",
+        "transition_model",
+        "task_id",
+        "action_trajectory",
+        "tl_goal",
+        "original_goal",
+        "scene_id"
+      ],
+      "file1_only_columns": [],
+      "file2_only_columns": [],
+      "total_columns_in_common": 8,
+      "total_columns_difference": 0
+    }
+  }
+}

@@ -44,6 +44,7 @@ from .action_planner import ActionPlanner, PlanningAlgorithm, PlanningResult, He
 from .aude_re import AuDeRe, AudereConfig, create_aude_re
 
 
+
 @dataclass
 class SequencingConfig:
     """动作序列配置类"""

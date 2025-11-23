@@ -15,7 +15,7 @@ import numpy as np
 from collections import defaultdict
 
 # 导入action_data中的类
-from .action_data import Action, ActionSequence, ActionType, ActionStatus
+from action_data import Action, ActionSequence, ActionType, ActionStatus
 
 @dataclass
 class ActionPattern:
