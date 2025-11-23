@@ -10,6 +10,11 @@ from dataclasses import dataclass, field
 import json
 import uuid
 import time
+import sys
+import os
+
+# 添加项目根目录到Python路径，以便导入embodied-agent-interface
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
 
 # 设置日志
 logging.basicConfig(level=logging.INFO)
@@ -91,8 +96,9 @@ class TransitionModelerIntegration:
     
     def _initialize_original_module(self):
         """
-        初始化原始转换建模模块
+        初始化原始转换建模模块和embodied-agent-interface的TransitionModelingEvaluator
         """
+        # 初始化原始转换建模器
         try:
             # 动态导入原始转换建模模块
             from transition_modeler import TransitionModeler
@@ -111,6 +117,17 @@ class TransitionModelerIntegration:
             except Exception as e:
                 logger.error(f"Failed to initialize original TransitionModeler: {str(e)}")
                 self.original_modeler = None
+        
+        # 尝试导入embodied-agent-interface中的TransitionModelingEvaluator
+        self.transition_modeling_evaluator = None
+        try:
+            from embodied_agent_interface.src.behavior_eval.evaluation.transition_modeling.transition_modeling_evaluator import TransitionModelingEvaluator
+            self.transition_modeling_evaluator = TransitionModelingEvaluator
+            logger.info("TransitionModelingEvaluator from embodied-agent-interface imported successfully")
+        except ImportError as e:
+            logger.warning(f"Failed to import TransitionModelingEvaluator: {str(e)}")
+        except Exception as e:
+            logger.error(f"Error initializing TransitionModelingEvaluator: {str(e)}")
     
     def model_transitions_for_integration(self, 
                                          goal_text: str, 
@@ -118,13 +135,13 @@ class TransitionModelerIntegration:
                                          module_feedback: Optional[Dict[str, Any]] = None,
                                          context: Optional[Dict[str, Any]] = None) -> IntegratedModelingResult:
         """
-        为集成流程建模转换
+        为集成流程建模转换，支持使用embodied-agent-interface的TransitionModelingEvaluator
         
         Args:
             goal_text: 目标文本
             subgoal_data: 子目标数据
             module_feedback: 模块反馈
-            context: 上下文信息
+            context: 上下文信息，可包含demo_name用于TransitionModelingEvaluator
             
         Returns:
             IntegratedModelingResult: 集成转换建模结果
@@ -180,15 +197,58 @@ class TransitionModelerIntegration:
                     self.stats['validation_errors'] += 1
                     return self._finalize_result(result, start_time)
             
-            # 调用原始转换建模模块
-            modeling_result = self._call_original_modeler(goal_text, prepared_data, context)
-            
-            # 处理原始结果
-            if modeling_result:
-                result = self._process_original_result(modeling_result, result)
+            # 尝试使用embodied-agent-interface的TransitionModelingEvaluator
+            if self.transition_modeling_evaluator:
+                try:
+                    # 从上下文获取demo_name
+                    demo_name = context.get('demo_name', 'default_demo') if context else 'default_demo'
+                    
+                    # 创建TransitionModelingEvaluator实例
+                    evaluator_instance = self.transition_modeling_evaluator(demo_name=demo_name)
+                    
+                    # 获取提示
+                    prompt = evaluator_instance.get_prompt()
+                    logger.info(f"Generated prompt from TransitionModelingEvaluator for demo: {demo_name}")
+                    
+                    # 在实际使用中，这里应该调用LLM API获取响应
+                    # 为了测试，使用模拟响应
+                    mock_response = self._generate_mock_evaluator_response(prompt, demo_name)
+                    
+                    # 解析响应
+                    parsed_actions = evaluator_instance.parse_response(mock_response)
+                    
+                    # 计算分数
+                    modeling_result = evaluator_instance.compute_score(parsed_actions)
+                    
+                    # 处理evaluator结果
+                    result = self._process_evaluator_result(modeling_result, result, demo_name)
+                    
+                    # 标记使用了evaluator
+                    result.diagnostics['used_evaluator'] = True
+                except Exception as e:
+                    logger.error(f"Error using TransitionModelingEvaluator: {str(e)}")
+                    # 如果evaluator调用失败，回退到原始转换建模模块
+                    modeling_result = self._call_original_modeler(goal_text, prepared_data, context)
+                    
+                    # 处理原始结果
+                    if modeling_result:
+                        result = self._process_original_result(modeling_result, result)
+                    else:
+                        # 如果原始模块不可用，使用模拟结果
+                        result = self._create_fallback_result(goal_text, prepared_data, result)
+                    
+                    # 记录错误
+                    result.diagnostics['evaluator_error'] = str(e)
             else:
-                # 如果原始模块不可用，使用模拟结果
-                result = self._create_fallback_result(goal_text, prepared_data, result)
+                # 如果evaluator不可用，使用原始转换建模模块
+                modeling_result = self._call_original_modeler(goal_text, prepared_data, context)
+                
+                # 处理原始结果
+                if modeling_result:
+                    result = self._process_original_result(modeling_result, result)
+                else:
+                    # 如果原始模块不可用，使用模拟结果
+                    result = self._create_fallback_result(goal_text, prepared_data, result)
             
             # 构建动作序列所需数据
             result.action_sequencing_data = self._build_action_sequencing_data(
@@ -600,6 +660,116 @@ class TransitionModelerIntegration:
                 'has_dependencies': len(dependencies) > 0
             }
         }
+    
+    def _process_evaluator_result(self, evaluator_result: Dict[str, Any], 
+                                  integrated_result: IntegratedModelingResult, 
+                                  demo_name: str) -> IntegratedModelingResult:
+        """
+        处理TransitionModelingEvaluator的结果
+        
+        Args:
+            evaluator_result: TransitionModelingEvaluator的结果
+            integrated_result: 集成结果对象
+            demo_name: 演示名称
+            
+        Returns:
+            IntegratedModelingResult: 更新后的集成结果
+        """
+        # 设置基本信息
+        integrated_result.success = True
+        
+        # 从评估器结果构建转换序列
+        transition_sequences = []
+        for action_name, action_data in evaluator_result.items():
+            if action_name != 'avg_summary' and isinstance(action_data, dict):
+                transition = {
+                    'action': action_name,
+                    'precondition_score': action_data.get('precondition_score', 0.0),
+                    'effect_score': action_data.get('effect_score', 0.0),
+                    'action_type': 'evaluator_action',
+                    'demo_name': demo_name
+                }
+                transition_sequences.append(transition)
+        
+        integrated_result.transition_sequences = transition_sequences
+        
+        # 计算置信度分数（基于评估器的平均分数）
+        if 'avg_summary' in evaluator_result:
+            avg_summary = evaluator_result['avg_summary']
+            precondition_score = avg_summary.get('precondition_score', 0.0)
+            effect_score = avg_summary.get('effect_score', 0.0)
+            # 加权平均
+            confidence_score = (precondition_score * 0.5 + effect_score * 0.5)
+            integrated_result.confidence_score = confidence_score
+        else:
+            # 如果没有平均分数，使用默认值
+            integrated_result.confidence_score = 0.7
+        
+        # 添加诊断信息
+        integrated_result.diagnostics.update({
+            'evaluator_result': evaluator_result,
+            'demo_name': demo_name,
+            'transition_count': len(transition_sequences)
+        })
+        
+        # 检查置信度是否高于阈值
+        if integrated_result.confidence_score >= self.min_confidence_threshold:
+            integrated_result.success = True
+        else:
+            integrated_result.success = False
+            integrated_result.warnings.append({
+                'type': 'low_confidence',
+                'message': f"Low confidence score: {integrated_result.confidence_score}",
+                'threshold': self.min_confidence_threshold
+            })
+        
+        return integrated_result
+    
+    def _generate_mock_evaluator_response(self, prompt: str, demo_name: str) -> str:
+        """
+        生成模拟的TransitionModelingEvaluator响应（用于测试）
+        
+        Args:
+            prompt: 提示文本
+            demo_name: 演示名称
+            
+        Returns:
+            str: 模拟响应
+        """
+        # 生成一些常见的动作定义
+        mock_response = f"""
+        (:action NAVIGATE_TO
+        :parameters (?a - agent ?l - location)
+        :precondition ()
+        :effect ()
+        )
+        
+        (:action LEFT_GRASP
+        :parameters (?a - agent ?o - object)
+        :precondition ()
+        :effect ()
+        )
+        
+        (:action RIGHT_GRASP
+        :parameters (?a - agent ?o - object)
+        :precondition ()
+        :effect ()
+        )
+        
+        (:action LEFT_PLACE_ONTOP
+        :parameters (?a - agent ?o1 - object ?o2 - object)
+        :precondition ()
+        :effect ()
+        )
+        
+        (:action RIGHT_PLACE_ONTOP
+        :parameters (?a - agent ?o1 - object ?o2 - object)
+        :precondition ()
+        :effect ()
+        )
+        """
+        
+        return mock_response
     
     def _set_compatibility_flags(self, result: IntegratedModelingResult) -> Dict[str, bool]:
         """

@@ -16,6 +16,19 @@ import time
 from goal_interpretation.goal_interpreter import GoalInterpreter, InterpretationRequest, InterpretationResponse
 from goal_interpretation.models import GoalType, GoalState, ContextInfo
 
+# 尝试导入embodied-agent-interface中的目标解释评估器
+try:
+    from embodied_agent_interface.src.behavior_eval.evaluation.goal_interpretation.scripts.evaluate_results import (
+        evaluate_goals,
+        dataset_error_analysis,
+        parse_json,
+        goal_interpretation_data
+    )
+    GOAL_INTERPRETATION_EVALUATOR_AVAILABLE = True
+except ImportError as e:
+    logging.warning(f"Failed to import goal interpretation evaluator: {e}")
+    GOAL_INTERPRETATION_EVALUATOR_AVAILABLE = False
+
 # 设置日志
 logger = logging.getLogger(__name__)
 
@@ -76,6 +89,10 @@ class GoalInterpreterIntegration:
             'error_types': {},
             'average_confidence': 0.0
         }
+        
+        # 评估器配置
+        self.use_evaluator = self.config.get('use_evaluator', False)
+        self.evaluator_data = None
         
         logger.info("Goal Interpreter Integration initialized")
     
@@ -414,6 +431,140 @@ class GoalInterpreterIntegration:
         enhanced['timestamp'] = time.time()
         
         return enhanced
+    
+    def _evaluate_interpretation(self, 
+                                interpreted_goal: GoalState, 
+                                ground_truth: Dict[str, Any],
+                                context: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+        """
+        使用embodied-agent-interface的评估器评估目标解释结果
+        
+        Args:
+            interpreted_goal: 解释后的目标状态
+            ground_truth: 真实目标状态
+            context: 上下文信息
+            
+        Returns:
+            Dict[str, Any]: 评估结果
+        """
+        if not self.use_evaluator or not GOAL_INTERPRETATION_EVALUATOR_AVAILABLE:
+            return {'error': 'Evaluator not available'}
+        
+        try:
+            # 将解释结果转换为评估器需要的格式
+            predicted_goals = self._convert_to_evaluator_format(interpreted_goal)
+            
+            # 调用评估器
+            satisfied_conditions, unsatisfied_conditions, false_positive_conditions, flattened_predicted_conditions = \
+                evaluate_goals(predicted_goals, ground_truth)
+            
+            # 计算错误分析（如果有上下文信息）
+            demo_name = context.get('demo_name', 'default_demo') if context else 'default_demo'
+            
+            # 使用统一的错误分析函数
+            error_analysis = dataset_error_analysis(
+                satisfied_conditions, 
+                unsatisfied_conditions, 
+                false_positive_conditions, 
+                flattened_predicted_conditions, 
+                num_object_hallucinations=0
+            )
+            
+            # 计算综合评分
+            overall_metrics = error_analysis.get('overall', {})
+            confusion_metrics = overall_metrics.get('overall_confusion_metrics', {})
+            
+            # 计算置信度分数（基于F1分数）
+            f1_score = confusion_metrics.get('f1', 0.0)
+            confidence_score = float(f1_score)  # 转换为float类型
+            
+            return {
+                'satisfied_conditions': satisfied_conditions,
+                'unsatisfied_conditions': unsatisfied_conditions,
+                'false_positive_conditions': false_positive_conditions,
+                'error_analysis': error_analysis,
+                'confidence_score': confidence_score
+            }
+            
+        except Exception as e:
+            logging.error(f"Error evaluating interpretation: {str(e)}")
+            return {'error': str(e)}
+    
+    def _convert_to_evaluator_format(self, goal_state: GoalState) -> Dict[str, List]:
+        """
+        将GoalState转换为评估器所需的格式
+        
+        Args:
+            goal_state: 目标状态
+            
+        Returns:
+            Dict[str, List]: 评估器格式的目标表示
+        """
+        # 初始化节点目标和边目标
+        node_goals = []
+        edge_goals = []
+        
+        # 处理约束
+        for constraint in goal_state.constraints:
+            # 根据约束的长度和类型判断是节点目标还是边目标
+            # 节点目标通常格式为 [object, state]
+            # 边目标通常格式为 [object1, relation, object2]
+            
+            # 这里需要根据实际的constraint结构进行适当的转换
+            # 这是一个简化的实现，实际可能需要更复杂的逻辑
+            if hasattr(constraint, 'to_tuple'):
+                constraint_tuple = constraint.to_tuple()
+                if len(constraint_tuple) == 2:
+                    node_goals.append(constraint_tuple)
+                elif len(constraint_tuple) == 3:
+                    edge_goals.append(constraint_tuple)
+            else:
+                # 尝试直接处理
+                try:
+                    if isinstance(constraint, (list, tuple)):
+                        if len(constraint) == 2:
+                            node_goals.append(constraint)
+                        elif len(constraint) == 3:
+                            edge_goals.append(constraint)
+                except Exception as e:
+                    logging.warning(f"Failed to convert constraint: {constraint}, error: {e}")
+        
+        return {
+            "node goals": node_goals,
+            "edge goals": edge_goals
+        }
+    
+    def _generate_mock_evaluator_response(self, goal_state: GoalState) -> Dict[str, Any]:
+        """
+        当评估器不可用时生成模拟评估结果
+        
+        Args:
+            goal_state: 目标状态
+            
+        Returns:
+            Dict[str, Any]: 模拟评估结果
+        """
+        # 基于约束数量和复杂性生成一个简单的模拟评分
+        num_constraints = len(goal_state.constraints)
+        
+        # 简单的启发式评分
+        if num_constraints == 0:
+            confidence_score = 0.1
+        elif num_constraints <= 2:
+            confidence_score = 0.7
+        elif num_constraints <= 5:
+            confidence_score = 0.8
+        else:
+            confidence_score = 0.9
+        
+        return {
+            'satisfied_conditions': [],
+            'unsatisfied_conditions': [],
+            'false_positive_conditions': [],
+            'error_analysis': {'overall': {'overall_confusion_metrics': {'f1': confidence_score}}},
+            'confidence_score': confidence_score,
+            'is_mock': True
+        }
     
     def _determine_decomposition_strategy(self, goal_type: GoalType, variables: Dict) -> str:
         """

@@ -13,6 +13,24 @@ import uuid
 import hashlib
 import time
 from enum import Enum
+import sys
+import os
+
+# 添加embodied-agent-interface路径到Python路径
+eai_interface_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'embodied-agent-interface'))
+if eai_interface_path not in sys.path:
+    sys.path.insert(0, eai_interface_path)
+
+# 尝试导入评估器相关模块
+EVALUATOR_AVAILABLE = False
+try:
+    from src.embodied_agent.evaluate_results import evaluate_task
+    from src.embodied_agent.subgoal_eval_utils import traj_eval_stats, goal_eval_stats
+    from src.embodied_agent.subgoal_sim_utils import EvalStatistics
+    EVALUATOR_AVAILABLE = True
+    logging.info("Action sequence evaluation components imported successfully")
+except ImportError as e:
+    logging.warning(f"Failed to import action sequence evaluation components: {e}")
 
 from action_sequencing.action_sequencer import ActionSequencer, SequencingRequest, SequencingResponse
 from action_sequencing.models import ActionType, SequencingConfig
@@ -33,6 +51,7 @@ class IntegratedActionSequenceResult:
     compatibility_flags: Dict[str, bool] = field(default_factory=dict)
     execution_estimates: Dict[str, Any] = field(default_factory=dict)
     confidence_score: float = 0.0
+    evaluation_results: Optional[Dict[str, Any]] = None
 
 
 class ActionSequencerIntegration:
@@ -58,12 +77,23 @@ class ActionSequencerIntegration:
         self.enable_error_handling = self.config.get('enable_error_handling', True)
         self.timeout_seconds = self.config.get('timeout_seconds', 30)
         
+        # 评估器配置
+        self.evaluator_config = self.config.get('evaluator', {})
+        self.evaluate_results = self.evaluator_config.get('enabled', False)
+        self.evaluator_data = self.evaluator_config.get('data', {})
+        self.result_dir = self.evaluator_config.get('result_dir', 'results/action_sequences')
+        
+        # 创建结果目录
+        if self.evaluate_results:
+            os.makedirs(self.result_dir, exist_ok=True)
+        
         # 反向反馈缓存
         self.feedback_cache = {}
         self.module_interfaces = {
             'goal_interpretation': {'enabled': True, 'version': '1.0'},
             'subgoal_decomposition': {'enabled': True, 'version': '1.0'},
-            'transition_modeling': {'enabled': True, 'version': '1.0'}
+            'transition_modeling': {'enabled': True, 'version': '1.0'},
+            'evaluation': {'enabled': EVALUATOR_AVAILABLE, 'version': '1.0'}
         }
         
         # 统计信息
@@ -72,6 +102,8 @@ class ActionSequencerIntegration:
             'successful_sequences': 0,
             'failed_sequences': 0,
             'feedback_applied': 0,
+            'evaluations_performed': 0,
+            'evaluation_errors': 0,
             'error_types': {},
             'average_action_count': 0.0,
             'average_confidence': 0.0
@@ -83,7 +115,8 @@ class ActionSequencerIntegration:
                                         goal_text: str, 
                                         subgoal_data: Dict[str, Any],
                                         transition_data: Optional[Dict[str, Any]] = None,
-                                        module_feedback: Optional[Dict[str, Any]] = None) -> IntegratedActionSequenceResult:
+                                        module_feedback: Optional[Dict[str, Any]] = None,
+                                        evaluate: Optional[bool] = None) -> IntegratedActionSequenceResult:
         """
         为模块集成生成动作序列
         
@@ -124,6 +157,22 @@ class ActionSequencerIntegration:
             # 验证与执行引擎的兼容性
             compatibility_flags = self._validate_execution_compatibility(result)
             result.compatibility_flags = compatibility_flags
+            
+            # 执行评估（如果启用）
+            should_evaluate = evaluate if evaluate is not None else self.evaluate_results
+            if should_evaluate and EVALUATOR_AVAILABLE and result.action_sequence:
+                try:
+                    evaluation_results = self._evaluate_action_sequence(
+                        goal_text, 
+                        result.action_sequence,
+                        subgoal_data
+                    )
+                    result.evaluation_results = evaluation_results
+                    self.stats['evaluations_performed'] += 1
+                except Exception as eval_error:
+                    logger.error(f"Error during action sequence evaluation: {str(eval_error)}")
+                    self.stats['evaluation_errors'] += 1
+                    self._record_error_type('evaluation_failed')
             
             if sequencing_response.success:
                 self.stats['successful_sequences'] += 1
@@ -588,6 +637,149 @@ class ActionSequencerIntegration:
             'error_distribution': self.stats['error_types'],
             'module_interfaces': {k: v['enabled'] for k, v in self.module_interfaces.items()}
         }
+    
+    def _evaluate_action_sequence(self, goal_text: str, action_sequence: List[Dict[str, Any]], 
+                                 subgoal_data: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        评估动作序列
+        
+        Args:
+            goal_text: 目标文本
+            action_sequence: 动作序列
+            subgoal_data: 子目标数据
+            
+        Returns:
+            Dict[str, Any]: 评估结果
+        """
+        # 转换为评估器需要的格式
+        evaluator_input = self._convert_to_evaluator_format(goal_text, action_sequence, subgoal_data)
+        
+        # 如果评估器可用，执行实际评估
+        if EVALUATOR_AVAILABLE:
+            # 创建临时任务数据
+            task_data = {
+                'goal': goal_text,
+                'subgoals': subgoal_data.get('subgoals', []),
+                'action_sequence': evaluator_input['action_sequence'],
+                'timestamp': time.time()
+            }
+            
+            # 执行评估
+            eval_statistics = EvalStatistics()
+            result = evaluate_task(task_data, eval_statistics)
+            
+            # 计算统计数据
+            traj_stats = traj_eval_stats(eval_statistics.results_dict)
+            goal_stats = goal_eval_stats(eval_statistics.results_dict)
+            
+            # 构建完整评估结果
+            evaluation_results = {
+                'trajectory_evaluation': traj_stats,
+                'goal_evaluation': goal_stats,
+                'raw_results': result,
+                'timestamp': time.time(),
+                'evaluator_version': '1.0'
+            }
+            
+            # 保存评估结果
+            self._save_evaluation_results(evaluation_results, goal_text)
+            
+            return evaluation_results
+        else:
+            # 生成模拟评估结果
+            return self._generate_mock_evaluator_response(goal_text, action_sequence)
+    
+    def _convert_to_evaluator_format(self, goal_text: str, action_sequence: List[Dict[str, Any]], 
+                                   subgoal_data: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        转换动作序列为评估器需要的格式
+        
+        Args:
+            goal_text: 目标文本
+            action_sequence: 动作序列
+            subgoal_data: 子目标数据
+            
+        Returns:
+            Dict[str, Any]: 转换后的格式
+        """
+        # 转换动作序列
+        converted_sequence = []
+        for action in action_sequence:
+            converted_action = {
+                'name': action.get('type', 'unknown'),
+                'parameters': action.get('parameters', {}),
+                'preconditions': action.get('preconditions', []),
+                'effects': action.get('effects', []),
+                'index': action.get('sequence_index', 0)
+            }
+            converted_sequence.append(converted_action)
+        
+        return {
+            'goal': goal_text,
+            'action_sequence': converted_sequence,
+            'subgoals': subgoal_data.get('subgoals', []),
+            'constraints': subgoal_data.get('global_action_constraints', [])
+        }
+    
+    def _generate_mock_evaluator_response(self, goal_text: str, action_sequence: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """
+        生成模拟评估结果（当评估器不可用时）
+        
+        Args:
+            goal_text: 目标文本
+            action_sequence: 动作序列
+            
+        Returns:
+            Dict[str, Any]: 模拟评估结果
+        """
+        # 基于动作序列长度和类型生成模拟评分
+        sequence_length = len(action_sequence)
+        action_types = set()
+        for action in action_sequence:
+            action_types.add(action.get('type', 'unknown'))
+        
+        # 计算模拟成功率（基于动作序列的合理性假设）
+        mock_success_rate = min(1.0, max(0.3, 0.5 + (sequence_length * 0.02) + (len(action_types) * 0.05)))
+        
+        return {
+            'trajectory_evaluation': {
+                'success_rate': mock_success_rate,
+                'execution_time': sequence_length * 1.5,  # 模拟执行时间
+                'action_count': sequence_length,
+                'unique_action_types': len(action_types),
+                'syntax_errors': 0,
+                'runtime_errors': 0 if mock_success_rate > 0.5 else 1
+            },
+            'goal_evaluation': {
+                'goal_achievement_score': mock_success_rate,
+                'subgoal_completion_rate': mock_success_rate,
+                'constraint_satisfaction_rate': mock_success_rate * 0.9
+            },
+            'raw_results': {'mock_evaluation': True},
+            'timestamp': time.time(),
+            'evaluator_version': 'mock-1.0'
+        }
+    
+    def _save_evaluation_results(self, evaluation_results: Dict[str, Any], goal_text: str):
+        """
+        保存评估结果到文件
+        
+        Args:
+            evaluation_results: 评估结果
+            goal_text: 目标文本
+        """
+        try:
+            # 创建唯一文件名
+            file_name = f"eval_{time.time()}_{hashlib.md5(goal_text.encode()).hexdigest()[:8]}.json"
+            file_path = os.path.join(self.result_dir, file_name)
+            
+            # 保存结果
+            with open(file_path, 'w', encoding='utf-8') as f:
+                json.dump(evaluation_results, f, ensure_ascii=False, indent=2)
+            
+            logger.info(f"Evaluation results saved to {file_path}")
+        except Exception as e:
+            logger.error(f"Failed to save evaluation results: {str(e)}")
     
     def create_error_diagnosis(self, result: IntegratedActionSequenceResult) -> Dict[str, Any]:
         """

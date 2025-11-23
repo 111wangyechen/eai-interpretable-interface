@@ -87,17 +87,31 @@ class MainIntegrator:
         """
         动态导入并初始化各个模块
         """
+        # 添加项目根目录到Python路径
+        import sys
+        import os
+        sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        
         try:
-            # 动态导入目标解释模块
+            # 从embodied-agent-interface导入目标解释评估器
+            from embodied-agent-interface.src.behavior_eval.evaluation.goal_interpretation.scripts.evaluate_results import goal_interpretation_data
+            self.goal_interpretation_data = goal_interpretation_data()
+            # 创建兼容层
             from goal_interpretation.goal_interpreter_integration import GoalInterpreterIntegration
-            self.goal_interpreter = GoalInterpreterIntegration(self.module_configs['goal_interpretation'])
+            self.goal_interpreter = GoalInterpreterIntegration(
+                self.module_configs['goal_interpretation'],
+                data_manager=self.goal_interpretation_data
+            )
             logger.info("Goal Interpretation module initialized")
         except Exception as e:
             logger.error(f"Failed to initialize Goal Interpretation module: {str(e)}")
             self.goal_interpreter = None
         
         try:
-            # 动态导入子目标分解模块
+            # 从embodied-agent-interface导入子目标分解相关模块
+            from embodied-agent-interface.src.behavior_eval.evaluation.subgoal_decomposition.checkers import SubgoalPlan
+            self.subgoal_plan_class = SubgoalPlan
+            # 创建兼容层
             from subgoal_decomposition.subgoal_decomposer_integration import SubgoalDecomposerIntegration
             self.subgoal_decomposer = SubgoalDecomposerIntegration(self.module_configs['subgoal_decomposition'])
             logger.info("Subgoal Decomposition module initialized")
@@ -106,18 +120,28 @@ class MainIntegrator:
             self.subgoal_decomposer = None
         
         try:
-            # 动态导入转换建模模块
-            from transition_modeling.transition_modeler import TransitionModeler
-            self.transition_modeler = TransitionModeler(self.module_configs['transition_modeling'])
+            # 从embodied-agent-interface导入转换建模评估器
+            from embodied-agent-interface.src.behavior_eval.evaluation.transition_modeling.transition_modeling_evaluator import TransitionModelingEvaluator
+            # 创建兼容层
+            from transition_modeling.transition_modeler_integration import TransitionModelerIntegration
+            self.transition_modeler = TransitionModelerIntegration(
+                self.module_configs['transition_modeling'],
+                evaluator_class=TransitionModelingEvaluator
+            )
             logger.info("Transition Modeling module initialized")
         except Exception as e:
             logger.error(f"Failed to initialize Transition Modeling module: {str(e)}")
             self.transition_modeler = None
         
         try:
-            # 动态导入动作序列模块
+            # 从embodied-agent-interface导入动作序列评估器
+            from embodied-agent-interface.src.behavior_eval.evaluation.action_sequencing.action_sequence_evaluator import ActionSequenceEvaluator
+            # 创建兼容层
             from action_sequencing.action_sequencer_integration import ActionSequencerIntegration
-            self.action_sequencer = ActionSequencerIntegration(self.module_configs['action_sequencing'])
+            self.action_sequencer = ActionSequencerIntegration(
+                self.module_configs['action_sequencing'],
+                evaluator_class=ActionSequenceEvaluator
+            )
             logger.info("Action Sequencing module initialized")
         except Exception as e:
             logger.error(f"Failed to initialize Action Sequencing module: {str(e)}")
