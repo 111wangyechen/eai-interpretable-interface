@@ -1,0 +1,129 @@
+{
+  "timestamp": "2025-11-23T15:14:58.394115",
+  "total_goals": 20,
+  "successful_goals": 0,
+  "failed_goals": 20,
+  "success_rate": 0.0,
+  "results": [
+    {
+      "submission_id": "submission_1763882098361",
+      "status": "failed",
+      "error": "Transition modeling failed: Object of type LogicGuard is not JSON serializable",
+      "timestamp": "2025-11-23T15:14:58.365725"
+    },
+    {
+      "submission_id": "submission_1763882098365",
+      "status": "failed",
+      "error": "Transition modeling failed: Object of type LogicGuard is not JSON serializable",
+      "timestamp": "2025-11-23T15:14:58.367017"
+    },
+    {
+      "submission_id": "submission_1763882098367",
+      "status": "failed",
+      "error": "Transition modeling failed: Object of type LogicGuard is not JSON serializable",
+      "timestamp": "2025-11-23T15:14:58.368463"
+    },
+    {
+      "submission_id": "submission_1763882098368",
+      "status": "failed",
+      "error": "Transition modeling failed: Object of type LogicGuard is not JSON serializable",
+      "timestamp": "2025-11-23T15:14:58.370675"
+    },
+    {
+      "submission_id": "submission_1763882098370",
+      "status": "failed",
+      "error": "Transition modeling failed: Object of type LogicGuard is not JSON serializable",
+      "timestamp": "2025-11-23T15:14:58.371948"
+    },
+    {
+      "submission_id": "submission_1763882098371",
+      "status": "failed",
+      "error": "Transition modeling failed: Object of type LogicGuard is not JSON serializable",
+      "timestamp": "2025-11-23T15:14:58.373250"
+    },
+    {
+      "submission_id": "submission_1763882098373",
+      "status": "failed",
+      "error": "Transition modeling failed: Object of type LogicGuard is not JSON serializable",
+      "timestamp": "2025-11-23T15:14:58.374433"
+    },
+    {
+      "submission_id": "submission_1763882098374",
+      "status": "failed",
+      "error": "Transition modeling failed: Object of type LogicGuard is not JSON serializable",
+      "timestamp": "2025-11-23T15:14:58.375457"
+    },
+    {
+      "submission_id": "submission_1763882098375",
+      "status": "failed",
+      "error": "Transition modeling failed: Object of type LogicGuard is not JSON serializable",
+      "timestamp": "2025-11-23T15:14:58.376832"
+    },
+    {
+      "submission_id": "submission_1763882098376",
+      "status": "failed",
+      "error": "Transition modeling failed: Object of type LogicGuard is not JSON serializable",
+      "timestamp": "2025-11-23T15:14:58.378036"
+    },
+    {
+      "submission_id": "submission_1763882098378",
+      "status": "failed",
+      "error": "Transition modeling failed: Object of type LogicGuard is not JSON serializable",
+      "timestamp": "2025-11-23T15:14:58.379248"
+    },
+    {
+      "submission_id": "submission_1763882098379",
+      "status": "failed",
+      "error": "Transition modeling failed: Object of type LogicGuard is not JSON serializable",
+      "timestamp": "2025-11-23T15:14:58.381049"
+    },
+    {
+      "submission_id": "submission_1763882098381",
+      "status": "failed",
+      "error": "Transition modeling failed: Object of type LogicGuard is not JSON serializable",
+      "timestamp": "2025-11-23T15:14:58.382555"
+    },
+    {
+      "submission_id": "submission_1763882098382",
+      "status": "failed",
+      "error": "Transition modeling failed: Object of type LogicGuard is not JSON serializable",
+      "timestamp": "2025-11-23T15:14:58.383999"
+    },
+    {
+      "submission_id": "submission_1763882098384",
+      "status": "failed",
+      "error": "Transition modeling failed: Object of type LogicGuard is not JSON serializable",
+      "timestamp": "2025-11-23T15:14:58.385989"
+    },
+    {
+      "submission_id": "submission_1763882098386",
+      "status": "failed",
+      "error": "Transition modeling failed: Object of type LogicGuard is not JSON serializable",
+      "timestamp": "2025-11-23T15:14:58.388149"
+    },
+    {
+      "submission_id": "submission_1763882098388",
+      "status": "failed",
+      "error": "Transition modeling failed: Object of type LogicGuard is not JSON serializable",
+      "timestamp": "2025-11-23T15:14:58.389940"
+    },
+    {
+      "submission_id": "submission_1763882098389",
+      "status": "failed",
+      "error": "Transition modeling failed: Object of type LogicGuard is not JSON serializable",
+      "timestamp": "2025-11-23T15:14:58.391141"
+    },
+    {
+      "submission_id": "submission_1763882098391",
+      "status": "failed",
+      "error": "Transition modeling failed: Object of type LogicGuard is not JSON serializable",
+      "timestamp": "2025-11-23T15:14:58.392838"
+    },
+    {
+      "submission_id": "submission_1763882098392",
+      "status": "failed",
+      "error": "Transition modeling failed: Object of type LogicGuard is not JSON serializable",
+      "timestamp": "2025-11-23T15:14:58.394051"
+    }
+  ]
+}

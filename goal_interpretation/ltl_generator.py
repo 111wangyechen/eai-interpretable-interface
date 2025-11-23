@@ -24,12 +24,15 @@ class LTLGenerator:
             "最终": "F",  # Finally
             "总是": "G",  # Globally
             "直到": "U",  # Until
+            "释放": "R",  # Release
+            "弱直到": "W",  # Weak until
             "下一个": "X",  # Next
             # 逻辑操作符
             "并且": "&",  # And
             "或者": "|",  # Or
             "非": "!",   # Not
-            "蕴含": "-",  # Implies (通常用 -> 表示)
+            "蕴含": "->",  # Implies
+            "双向蕴含": "<->",  # Equivalence
             # 任务类型对应的结构
             "顺序任务": "F(",
             "条件任务": "",
@@ -208,6 +211,16 @@ class LTLGenerator:
         
         # 替换可能的问题字符
         formula = formula.replace("-", "->")  # 正确表示蕴含
+        formula = formula.replace("<->", "<->")  # 确保双向蕴含格式正确
+        
+        # 移除多余的空格
+        formula = re.sub(r'\s+', ' ', formula)
+        
+        # 确保操作符周围没有多余空格
+        formula = re.sub(r'\s*->\s*', '->', formula)
+        formula = re.sub(r'\s*<->\s*', '<->', formula)
+        formula = re.sub(r'\s*&\s*', '&', formula)
+        formula = re.sub(r'\s*\|\s*', '|', formula)
         
         return formula
     

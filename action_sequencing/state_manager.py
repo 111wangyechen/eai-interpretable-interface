@@ -211,15 +211,36 @@ class EnvironmentState:
     
     def apply_transition(self, transition: StateTransition) -> bool:
         """应用状态转换"""
-        if not transition.is_applicable(self.get_state_dict()):
+        # 添加类型检查
+        if not isinstance(transition, StateTransition):
+            print(f"Error: Expected StateTransition, got {type(transition).__name__}")
+            return False
+        
+        current_state = self.get_state_dict()
+        
+        # 检查转换是否适用于当前状态
+        if not transition.is_applicable(current_state):
             return False
         
         # 保存当前状态到历史
-        self.state_history.append(self.get_state_dict())
+        self.state_history.append(current_state)
         
-        # 应用转换
-        for key, value in transition.to_state.items():
-            self.set_value(key, value)
+        # 应用转换，添加错误处理
+        try:
+            for key, value in transition.to_state.items():
+                # 确保key是字符串类型
+                if not isinstance(key, str):
+                    continue
+                
+                # 确保value是可序列化的
+                if value is not None:
+                    self.set_value(key, value)
+        except Exception as e:
+            print(f"Error applying transition: {str(e)}")
+            # 恢复到之前的状态
+            if self.state_history:
+                self.load_state(self.state_history[-1])
+            return False
         
         # 记录转换历史
         self.transition_history.append(transition)

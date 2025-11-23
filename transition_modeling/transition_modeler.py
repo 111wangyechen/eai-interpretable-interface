@@ -17,7 +17,20 @@ try:
     from .logic_guard import LogicGuard, create_logic_guard
 except ImportError:
     # 如果相对导入失败，尝试绝对导入
-    from logic_guard import LogicGuard, create_logic_guard
+    try:
+        import sys
+        import os
+        # 添加当前目录到Python路径
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        if current_dir not in sys.path:
+            sys.path.insert(0, current_dir)
+        from logic_guard import LogicGuard, create_logic_guard
+    except ImportError:
+        # 如果仍然导入失败，设置为None并在运行时处理
+        LogicGuard = None
+        create_logic_guard = None
+        import logging
+        logging.warning("LogicGuard module not available, some features will be disabled")
 
 try:
     from .state_transition import (
@@ -108,13 +121,17 @@ class TransitionModeler:
         # 初始化LogicGuard模块
         self.logic_guard = None
         self.enable_logic_guard = self.config.get('enable_logic_guard', True)
-        if self.enable_logic_guard:
+        if self.enable_logic_guard and create_logic_guard is not None:
             try:
                 logic_guard_config = self.config.get('logic_guard', {})
                 self.logic_guard = create_logic_guard(logic_guard_config)
                 self.logger.info("LogicGuard module initialized successfully")
             except Exception as e:
                 self.logger.error(f"Failed to initialize LogicGuard module: {str(e)}")
+                self.logic_guard = None
+        elif create_logic_guard is None:
+            self.enable_logic_guard = False
+            self.logger.warning("LogicGuard module is not available, disabling LTL validation and runtime error detection")
         
         # 建模参数
         self.max_sequences = self.config.get('max_sequences', 5)
@@ -205,6 +222,9 @@ class TransitionModeler:
             valid_sequences = []
             for i, (sequence, validation) in enumerate(zip(predicted_sequences, validation_results)):
                 if validation.is_valid:
+                    # 确保序列中的状态数据已清理
+                    sequence.initial_state = self._clean_serializable_data(sequence.initial_state)
+                    sequence.final_state = self._clean_serializable_data(sequence.final_state)
                     valid_sequences.append(sequence)
                 else:
                     self.logger.warning(f"Sequence {i} validation failed: {validation.message}")
@@ -226,37 +246,22 @@ class TransitionModeler:
                             self.modeling_stats['ltl_validated_sequences'] += 1
                             
                             # 运行时错误检测
-                            runtime_errors = self.logic_guard.detect_runtime_errors(
-                                request.initial_state,
-                                sequence.transitions
-                            )
+                            runtime_errors = self.logic_guard.detect_runtime_errors(sequence)
                             
                             if runtime_errors:
                                 self.modeling_stats['runtime_errors_detected'] += len(runtime_errors)
                                 self.logger.info(f"Detected {len(runtime_errors)} runtime errors in sequence {sequence.id}")
                                 
                                 # 自动纠正
-                                corrected_sequence = self.logic_guard.correct_sequence(
-                                    request.initial_state,
-                                    sequence.transitions,
-                                    runtime_errors,
-                                    request.goal_state
-                                )
+                                corrected_sequences = self.logic_guard.auto_correct_sequences([sequence], runtime_errors)
+                                if corrected_sequences and len(corrected_sequences) > 0:
+                                    corrected_sequence = corrected_sequences[0]
                                 
                                 if corrected_sequence:
                                     self.modeling_stats['sequences_corrected'] += 1
-                                    # 创建新的序列对象
-                                    new_sequence = TransitionSequence(
-                                        id=f"{sequence.id}_corrected",
-                                        transitions=corrected_sequence,
-                                        initial_state=request.initial_state.copy()
-                                    )
-                                    # 计算最终状态
-                                    current_state = request.initial_state.copy()
-                                    for transition in corrected_sequence:
-                                        current_state = transition.apply_effects(current_state)
-                                    new_sequence.final_state = current_state
-                                    final_sequences.append(new_sequence)
+                                    # corrected_sequence已经是TransitionSequence对象
+                                    corrected_sequence.id = f"{sequence.id}_corrected"
+                                    final_sequences.append(corrected_sequence)
                                     self.logger.info(f"Corrected sequence {sequence.id}")
                                 else:
                                     # 如果无法纠正，使用原始序列
@@ -270,14 +275,36 @@ class TransitionModeler:
                         self.logger.warning(f"Error during LogicGuard processing for sequence {sequence.id}: {str(e)}")
                         # 出错时使用原始序列
                         final_sequences.append(sequence)
+            elif not self.logic_guard and valid_sequences:
+                # 如果LogicGuard不可用，记录警告并使用原始有效序列
+                self.logger.warning("LogicGuard is not available, skipping LTL validation and runtime error detection")
             
             # 5. 构建响应
+            # 创建完全安全的响应数据，确保不包含任何LogicGuard相关引用
+            
+            # 清理ValidationResult对象，确保完全可JSON序列化
+            cleaned_validation_results = []
+            for result in validation_results[:len(predicted_sequences)]:  # 确保长度匹配
+                # 创建一个新的ValidationResult对象，只保留基本信息
+                cleaned_details = {}
+                if hasattr(result, 'details') and result.details:
+                    # 深度清理details字段，确保不包含任何复杂对象
+                    cleaned_details = self._clean_serializable_data(result.details)
+                
+                # 创建新的ValidationResult对象
+                cleaned_result = ValidationResult(
+                    is_valid=result.is_valid,
+                    message=result.message,
+                    details=cleaned_details
+                )
+                cleaned_validation_results.append(cleaned_result)
+            
             response = ModelingResponse(
                 request_id=request.request_id,
                 success=len(final_sequences) > 0,
                 message=f"Generated {len(final_sequences)} valid sequences",
                 predicted_sequences=final_sequences,
-                validation_results=validation_results,
+                validation_results=cleaned_validation_results,
                 metadata={
                     'total_sequences_generated': len(predicted_sequences),
                     'valid_sequences_count': len(valid_sequences),
@@ -293,7 +320,11 @@ class TransitionModeler:
             
             # 7. 学习更新
             if self.enable_learning:
-                self._update_learning_model(request, response)
+                # 确保学习更新不会导致LogicGuard对象被引用
+                try:
+                    self._update_learning_model(request, response)
+                except Exception as e:
+                    self.logger.warning(f"Failed to update learning model: {str(e)}")
             
             self.modeling_stats['successful_modeling'] += 1
             self.logger.info(f"Modeling completed: {len(final_sequences)} final valid sequences")
@@ -353,17 +384,20 @@ class TransitionModeler:
             
             # 转换为TransitionSequence对象
             for i, transition_list in enumerate(raw_sequences[:self.max_sequences]):
+                # 清理初始状态，确保不包含LogicGuard引用
+                cleaned_initial_state = self._clean_serializable_data(request.initial_state.copy())
+                
                 sequence = TransitionSequence(
                     id=f"sequence_{request.request_id}_{i}",
                     transitions=transition_list.copy(),
-                    initial_state=request.initial_state.copy()
+                    initial_state=cleaned_initial_state
                 )
                 
-                # 计算最终状态
+                # 计算最终状态并清理
                 current_state = request.initial_state.copy()
                 for transition in transition_list:
                     current_state = transition.apply_effects(current_state)
-                sequence.final_state = current_state
+                sequence.final_state = self._clean_serializable_data(current_state)
                 
                 sequences.append(sequence)
             
@@ -378,35 +412,38 @@ class TransitionModeler:
                 
                 if applicable_transitions:
                     # 使用第一个适用的转换创建简单序列
+                    cleaned_initial_state = self._clean_serializable_data(request.initial_state.copy())
                     fallback_sequence = TransitionSequence(
                         id=f"fallback_sequence_{request.request_id}",
                         transitions=[applicable_transitions[0]],
-                        initial_state=request.initial_state.copy()
+                        initial_state=cleaned_initial_state
                     )
-                    # 计算最终状态
+                    # 计算最终状态并清理
                     final_state = request.initial_state.copy()
                     final_state = applicable_transitions[0].apply_effects(final_state)
-                    fallback_sequence.final_state = final_state
+                    fallback_sequence.final_state = self._clean_serializable_data(final_state)
                     sequences.append(fallback_sequence)
                 else:
                     # 如果没有适用的转换，创建空序列
+                    cleaned_initial_state = self._clean_serializable_data(request.initial_state.copy())
                     empty_sequence = TransitionSequence(
                         id=f"empty_fallback_sequence_{request.request_id}",
                         transitions=[],
-                        initial_state=request.initial_state.copy()
+                        initial_state=cleaned_initial_state
                     )
-                    empty_sequence.final_state = request.initial_state.copy()
+                    empty_sequence.final_state = cleaned_initial_state
                     sequences.append(empty_sequence)
             
         except Exception as e:
             self.logger.error(f"Error predicting transition sequences: {str(e)}")
             # 出错时创建后备序列
+            cleaned_initial_state = self._clean_serializable_data(request.initial_state.copy())
             fallback_sequence = TransitionSequence(
                 id=f"error_fallback_sequence_{request.request_id}",
                 transitions=[],
-                initial_state=request.initial_state.copy()
+                initial_state=cleaned_initial_state
             )
-            fallback_sequence.final_state = request.initial_state.copy()
+            fallback_sequence.final_state = cleaned_initial_state
             sequences = [fallback_sequence]
         
         return sequences
@@ -444,13 +481,39 @@ class TransitionModeler:
             new_val_avg = (current_val_avg * (total_requests - 1) + modeling_time) / total_requests
             self.modeling_stats['average_validation_time'] = new_val_avg
     
+    def _clean_serializable_data(self, data):
+        """递归清理数据，确保可JSON序列化"""
+        if isinstance(data, (str, int, float, bool, type(None))):
+            return data
+        elif isinstance(data, (list, tuple)):
+            return [self._clean_serializable_data(item) for item in data if isinstance(item, (str, int, float, bool, type(None), list, tuple, dict))]
+        elif isinstance(data, dict):
+            cleaned = {}
+            for key, value in data.items():
+                if isinstance(key, str):  # 确保键是字符串
+                    try:
+                        cleaned_value = self._clean_serializable_data(value)
+                        # 只保留非空的清理后的值
+                        if cleaned_value is not None:
+                            cleaned[key] = cleaned_value
+                    except:
+                        # 如果无法清理，跳过该键值对
+                        continue
+            return cleaned
+        else:
+            # 对于其他类型，转换为字符串表示
+            try:
+                return str(data)
+            except:
+                return "<non-serializable object>"
+                
     def _update_learning_model(self, request: ModelingRequest, response: ModelingResponse):
         """更新学习模型"""
-        # 记录建模历史
+        # 记录建模历史，但确保不存储任何可能包含LogicGuard引用的数据
         history_entry = {
             'request_id': request.request_id,
-            'initial_state': request.initial_state,
-            'goal_state': request.goal_state,
+            'initial_state': self._clean_serializable_data(request.initial_state),
+            'goal_state': self._clean_serializable_data(request.goal_state),
             'success': response.success,
             'sequences_generated': len(response.predicted_sequences),
             'timestamp': time.time()

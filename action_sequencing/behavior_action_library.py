@@ -1,0 +1,852 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+BEHAVIOR官方动作库
+定义标准的BEHAVIOR动作集，包括导航、操作、感知等多种动作类型
+"""
+
+from typing import Dict, List, Any, Optional, Tuple, Union
+from dataclasses import dataclass, field
+from enum import Enum
+import json
+from pathlib import Path
+
+from .action_data import Action, ActionType, ActionStatus
+
+
+@dataclass
+class ActionDefinition:
+    """动作定义数据类"""
+    name: str
+    action_type: ActionType
+    description: str
+    parameters_schema: Dict[str, Dict[str, Any]]
+    preconditions: List[str]
+    effects: List[str]
+    default_duration: float = 1.0
+    default_success_prob: float = 0.95
+    examples: List[Dict[str, Any]] = field(default_factory=list)
+
+
+class BEHAVIORActionLibrary:
+    """BEHAVIOR动作库类"""
+    
+    def __init__(self):
+        """初始化BEHAVIOR动作库"""
+        self.actions: Dict[str, ActionDefinition] = {}
+        self._initialize_standard_actions()
+    
+    def _initialize_standard_actions(self):
+        """初始化标准动作库"""
+        # 导航类动作
+        self._add_navigation_actions()
+        
+        # 操作类动作
+        self._add_manipulation_actions()
+        
+        # 感知类动作
+        self._add_perception_actions()
+        
+        # 通信类动作
+        self._add_communication_actions()
+        
+        # 等待类动作
+        self._add_wait_actions()
+        
+        # 条件类动作
+        self._add_conditional_actions()
+    
+    def _add_navigation_actions(self):
+        """添加导航类动作"""
+        navigation_actions = [
+            ActionDefinition(
+                name="WalkToLocation",
+                action_type=ActionType.NAVIGATION,
+                description="走到指定位置",
+                parameters_schema={
+                    "target_location": {
+                        "type": "string",
+                        "required": True,
+                        "description": "目标位置名称或坐标"
+                    },
+                    "approach_distance": {
+                        "type": "float",
+                        "required": False,
+                        "default": 0.5,
+                        "description": "接近目标的距离阈值"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "agent.energy > 0.1"
+                ],
+                effects=[
+                    "agent.location = target_location",
+                    "agent.energy -= 0.01"
+                ],
+                default_duration=2.0,
+                examples=[
+                    {"parameters": {"target_location": "kitchen"}},
+                    {"parameters": {"target_location": "living_room", "approach_distance": 0.3}}
+                ]
+            ),
+            ActionDefinition(
+                name="NavigateToObject",
+                action_type=ActionType.NAVIGATION,
+                description="导航到指定物体附近",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "目标物体ID"
+                    },
+                    "distance": {
+                        "type": "float",
+                        "required": False,
+                        "default": 1.0,
+                        "description": "与物体的距离"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "exists(object_id)",
+                    "agent.energy > 0.1"
+                ],
+                effects=[
+                    "agent.location = object_location(object_id)",
+                    "agent.energy -= 0.01"
+                ],
+                default_duration=3.0,
+                examples=[
+                    {"parameters": {"object_id": "table_1"}},
+                    {"parameters": {"object_id": "fridge", "distance": 0.8}}
+                ]
+            ),
+            ActionDefinition(
+                name="TurnTowards",
+                action_type=ActionType.NAVIGATION,
+                description="转身朝向指定方向或物体",
+                parameters_schema={
+                    "target": {
+                        "type": ["string", "object"],
+                        "required": True,
+                        "description": "目标物体ID或方向"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True"
+                ],
+                effects=[
+                    "agent.orientation = target_orientation",
+                    "agent.energy -= 0.005"
+                ],
+                default_duration=0.5,
+                examples=[
+                    {"parameters": {"target": "door_1"}},
+                    {"parameters": {"target": "north"}}
+                ]
+            )
+        ]
+        
+        for action_def in navigation_actions:
+            self.actions[action_def.name] = action_def
+    
+    def _add_manipulation_actions(self):
+        """添加操作类动作"""
+        manipulation_actions = [
+            ActionDefinition(
+                name="GraspObject",
+                action_type=ActionType.MANIPULATION,
+                description="抓取指定物体",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要抓取的物体ID"
+                    },
+                    "grasp_type": {
+                        "type": "string",
+                        "required": False,
+                        "default": "power_grip",
+                        "description": "抓取类型"
+                    },
+                    "hand": {
+                        "type": "string",
+                        "required": False,
+                        "default": "right",
+                        "description": "使用的手（left/right/both）"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "exists(object_id)",
+                    "is_reachable(object_id)",
+                    "agent.hands_free(hand) == True"
+                ],
+                effects=[
+                    f"agent.holding_{'right' if '{hand}' == 'right' else 'left'}_hand = object_id",
+                    "object.is_held = True",
+                    "agent.energy -= 0.02"
+                ],
+                default_duration=1.0,
+                examples=[
+                    {"parameters": {"object_id": "cup_1"}},
+                    {"parameters": {"object_id": "book_1", "hand": "left"}}
+                ]
+            ),
+            ActionDefinition(
+                name="ReleaseObject",
+                action_type=ActionType.MANIPULATION,
+                description="释放手中的物体",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要释放的物体ID"
+                    },
+                    "hand": {
+                        "type": "string",
+                        "required": False,
+                        "default": "right",
+                        "description": "使用的手（left/right）"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    f"agent.holding_{'right' if '{hand}' == 'right' else 'left'}_hand == object_id"
+                ],
+                effects=[
+                    f"agent.holding_{'right' if '{hand}' == 'right' else 'left'}_hand = None",
+                    "object.is_held = False",
+                    "object.location = agent.location",
+                    "agent.energy -= 0.01"
+                ],
+                default_duration=0.5,
+                examples=[
+                    {"parameters": {"object_id": "cup_1"}},
+                    {"parameters": {"object_id": "book_1", "hand": "left"}}
+                ]
+            ),
+            ActionDefinition(
+                name="OpenObject",
+                action_type=ActionType.MANIPULATION,
+                description="打开指定物体（如门、抽屉、容器等）",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要打开的物体ID"
+                    },
+                    "open_percentage": {
+                        "type": "float",
+                        "required": False,
+                        "default": 1.0,
+                        "description": "打开程度（0.0-1.0）"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "exists(object_id)",
+                    "is_reachable(object_id)",
+                    "can_open(object_id) == True",
+                    "object.is_open == False"
+                ],
+                effects=[
+                    "object.is_open = True",
+                    "object.open_percentage = open_percentage",
+                    "agent.energy -= 0.015"
+                ],
+                default_duration=0.8,
+                examples=[
+                    {"parameters": {"object_id": "fridge"}},
+                    {"parameters": {"object_id": "drawer_1", "open_percentage": 0.5}}
+                ]
+            ),
+            ActionDefinition(
+                name="CloseObject",
+                action_type=ActionType.MANIPULATION,
+                description="关闭指定物体",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要关闭的物体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "exists(object_id)",
+                    "is_reachable(object_id)",
+                    "object.is_open == True"
+                ],
+                effects=[
+                    "object.is_open = False",
+                    "object.open_percentage = 0.0",
+                    "agent.energy -= 0.015"
+                ],
+                default_duration=0.8,
+                examples=[
+                    {"parameters": {"object_id": "door_1"}},
+                    {"parameters": {"object_id": "window_2"}}
+                ]
+            ),
+            ActionDefinition(
+                name="PickupObject",
+                action_type=ActionType.MANIPULATION,
+                description="拾取物体并保持在手中",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要拾取的物体ID"
+                    },
+                    "hand": {
+                        "type": "string",
+                        "required": False,
+                        "default": "right",
+                        "description": "使用的手"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "exists(object_id)",
+                    "is_reachable(object_id)",
+                    "agent.hands_free(hand) == True",
+                    "object.weight < agent.strength"
+                ],
+                effects=[
+                    f"agent.holding_{'right' if '{hand}' == 'right' else 'left'}_hand = object_id",
+                    "object.is_held = True",
+                    "agent.energy -= 0.03"
+                ],
+                default_duration=1.2,
+                examples=[
+                    {"parameters": {"object_id": "apple_1"}},
+                    {"parameters": {"object_id": "key_1", "hand": "left"}}
+                ]
+            ),
+            ActionDefinition(
+                name="PlaceObject",
+                action_type=ActionType.MANIPULATION,
+                description="将手中的物体放置到指定位置",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要放置的物体ID"
+                    },
+                    "target_location": {
+                        "type": "string",
+                        "required": True,
+                        "description": "目标位置或表面"
+                    },
+                    "hand": {
+                        "type": "string",
+                        "required": False,
+                        "default": "right",
+                        "description": "使用的手"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    f"agent.holding_{'right' if '{hand}' == 'right' else 'left'}_hand == object_id",
+                    "exists(target_location)",
+                    "is_reachable(target_location)"
+                ],
+                effects=[
+                    f"agent.holding_{'right' if '{hand}' == 'right' else 'left'}_hand = None",
+                    "object.is_held = False",
+                    "object.location = target_location",
+                    "agent.energy -= 0.025"
+                ],
+                default_duration=1.5,
+                examples=[
+                    {"parameters": {"object_id": "cup_1", "target_location": "table_1"}},
+                    {"parameters": {"object_id": "book_1", "target_location": "shelf_2", "hand": "left"}}
+                ]
+            )
+        ]
+        
+        for action_def in manipulation_actions:
+            self.actions[action_def.name] = action_def
+    
+    def _add_perception_actions(self):
+        """添加感知类动作"""
+        perception_actions = [
+            ActionDefinition(
+                name="LookAt",
+                action_type=ActionType.PERCEPTION,
+                description="查看指定物体或区域",
+                parameters_schema={
+                    "target": {
+                        "type": ["string", "object"],
+                        "required": True,
+                        "description": "查看目标"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "is_visible(target)"
+                ],
+                effects=[
+                    "agent.last_observed = target",
+                    "agent.has_visual_info(target) = True",
+                    "agent.energy -= 0.005"
+                ],
+                default_duration=0.5,
+                examples=[
+                    {"parameters": {"target": "window"}},
+                    {"parameters": {"target": "person_1"}}
+                ]
+            ),
+            ActionDefinition(
+                name="ListenTo",
+                action_type=ActionType.PERCEPTION,
+                description="聆听指定声音来源",
+                parameters_schema={
+                    "source": {
+                        "type": ["string", "object"],
+                        "required": True,
+                        "description": "声音来源"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "is_audible(source)"
+                ],
+                effects=[
+                    "agent.last_heard = source",
+                    "agent.has_audio_info(source) = True",
+                    "agent.energy -= 0.005"
+                ],
+                default_duration=1.0,
+                examples=[
+                    {"parameters": {"source": "radio"}},
+                    {"parameters": {"source": "person_2"}}
+                ]
+            ),
+            ActionDefinition(
+                name="InspectObject",
+                action_type=ActionType.PERCEPTION,
+                description="仔细检查物体的详细信息",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要检查的物体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "exists(object_id)",
+                    "is_reachable(object_id)"
+                ],
+                effects=[
+                    "agent.has_detailed_info(object_id) = True",
+                    "agent.last_inspected = object_id",
+                    "agent.energy -= 0.01"
+                ],
+                default_duration=2.0,
+                examples=[
+                    {"parameters": {"object_id": "document_1"}},
+                    {"parameters": {"object_id": "device_1"}}
+                ]
+            )
+        ]
+        
+        for action_def in perception_actions:
+            self.actions[action_def.name] = action_def
+    
+    def _add_communication_actions(self):
+        """添加通信类动作"""
+        communication_actions = [
+            ActionDefinition(
+                name="Speak",
+                action_type=ActionType.COMMUNICATION,
+                description="说话或发出声音",
+                parameters_schema={
+                    "message": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要说的内容"
+                    },
+                    "target": {
+                        "type": ["string", "object"],
+                        "required": False,
+                        "default": "everyone",
+                        "description": "交流目标"
+                    },
+                    "volume": {
+                        "type": "string",
+                        "required": False,
+                        "default": "normal",
+                        "description": "音量级别"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True"
+                ],
+                effects=[
+                    "agent.last_spoke = message",
+                    "agent.energy -= 0.01"
+                ],
+                default_duration=1.5,
+                examples=[
+                    {"parameters": {"message": "Hello!"}},
+                    {"parameters": {"message": "Follow me", "target": "person_1", "volume": "loud"}}
+                ]
+            ),
+            ActionDefinition(
+                name="Gesture",
+                action_type=ActionType.COMMUNICATION,
+                description="做出手势动作",
+                parameters_schema={
+                    "gesture_type": {
+                        "type": "string",
+                        "required": True,
+                        "description": "手势类型"
+                    },
+                    "target": {
+                        "type": ["string", "object"],
+                        "required": False,
+                        "default": "everyone",
+                        "description": "手势目标"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "agent.hands_free() == True"
+                ],
+                effects=[
+                    "agent.last_gesture = gesture_type",
+                    "agent.energy -= 0.008"
+                ],
+                default_duration=0.8,
+                examples=[
+                    {"parameters": {"gesture_type": "wave"}},
+                    {"parameters": {"gesture_type": "point", "target": "door"}}
+                ]
+            )
+        ]
+        
+        for action_def in communication_actions:
+            self.actions[action_def.name] = action_def
+    
+    def _add_wait_actions(self):
+        """添加等待类动作"""
+        wait_actions = [
+            ActionDefinition(
+                name="Wait",
+                action_type=ActionType.WAIT,
+                description="等待指定时间",
+                parameters_schema={
+                    "duration": {
+                        "type": "float",
+                        "required": True,
+                        "description": "等待时长（秒）"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True"
+                ],
+                effects=[
+                    "world.time += duration",
+                    "agent.energy -= duration * 0.001"
+                ],
+                default_duration=1.0,
+                examples=[
+                    {"parameters": {"duration": 2.0}},
+                    {"parameters": {"duration": 5.0}}
+                ]
+            ),
+            ActionDefinition(
+                name="WaitForCondition",
+                action_type=ActionType.WAIT,
+                description="等待直到条件满足",
+                parameters_schema={
+                    "condition": {
+                        "type": "string",
+                        "required": True,
+                        "description": "等待条件表达式"
+                    },
+                    "max_wait_time": {
+                        "type": "float",
+                        "required": False,
+                        "default": 10.0,
+                        "description": "最大等待时间"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True"
+                ],
+                effects=[
+                    "world.time += actual_wait_time",
+                    "agent.energy -= actual_wait_time * 0.001"
+                ],
+                default_duration=5.0,
+                examples=[
+                    {"parameters": {"condition": "door_1.is_open == True"}},
+                    {"parameters": {"condition": "person_1.arrived == True", "max_wait_time": 20.0}}
+                ]
+            )
+        ]
+        
+        for action_def in wait_actions:
+            self.actions[action_def.name] = action_def
+    
+    def _add_conditional_actions(self):
+        """添加条件类动作"""
+        conditional_actions = [
+            ActionDefinition(
+                name="IfThenElse",
+                action_type=ActionType.CONDITIONAL,
+                description="条件执行动作",
+                parameters_schema={
+                    "condition": {
+                        "type": "string",
+                        "required": True,
+                        "description": "条件表达式"
+                    },
+                    "then_actions": {
+                        "type": "array",
+                        "required": True,
+                        "description": "条件为真时执行的动作列表"
+                    },
+                    "else_actions": {
+                        "type": "array",
+                        "required": False,
+                        "default": [],
+                        "description": "条件为假时执行的动作列表"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True"
+                ],
+                effects=[
+                    "agent.executed_conditional = True",
+                    "agent.last_condition_result = condition_result"
+                ],
+                default_duration=0.2,
+                examples=[
+                    {
+                        "parameters": {
+                            "condition": "light.is_on == True",
+                            "then_actions": [{"name": "NavigateToObject", "parameters": {"object_id": "light"}}],
+                            "else_actions": [{"name": "Wait", "parameters": {"duration": 1.0}}]
+                        }
+                    }
+                ]
+            )
+        ]
+        
+        for action_def in conditional_actions:
+            self.actions[action_def.name] = action_def
+    
+    def get_action(self, name: str) -> Optional[ActionDefinition]:
+        """
+        获取动作定义
+        
+        Args:
+            name: 动作名称
+            
+        Returns:
+            ActionDefinition或None
+        """
+        return self.actions.get(name)
+    
+    def create_action(self, name: str, parameters: Dict[str, Any] = None) -> Optional[Action]:
+        """
+        创建动作实例
+        
+        Args:
+            name: 动作名称
+            parameters: 动作参数
+            
+        Returns:
+            Action实例或None
+        """
+        action_def = self.get_action(name)
+        if not action_def:
+            return None
+        
+        # 验证参数
+        validated_params = self._validate_parameters(action_def, parameters or {})
+        
+        # 创建Action对象
+        action = Action(
+            id=f"{name}_{hash(str(validated_params))}_{time.time()}",
+            name=name,
+            action_type=action_def.action_type,
+            parameters=validated_params,
+            preconditions=action_def.preconditions,
+            effects=action_def.effects,
+            duration=validated_params.get('duration', action_def.default_duration),
+            success_probability=action_def.default_success_prob
+        )
+        
+        return action
+    
+    def _validate_parameters(self, action_def: ActionDefinition, parameters: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        验证动作参数
+        
+        Args:
+            action_def: 动作定义
+            parameters: 传入的参数
+            
+        Returns:
+            验证后的参数
+        """
+        validated = {}
+        
+        for param_name, param_schema in action_def.parameters_schema.items():
+            # 检查参数是否必需
+            if param_schema.get('required', False) and param_name not in parameters:
+                if 'default' in param_schema:
+                    validated[param_name] = param_schema['default']
+                else:
+                    # 如果是必需参数且没有默认值，则使用None
+                    validated[param_name] = None
+            elif param_name in parameters:
+                # 验证类型
+                expected_type = param_schema.get('type')
+                if expected_type:
+                    # 简单类型验证
+                    param_value = parameters[param_name]
+                    if isinstance(expected_type, str):
+                        # 单一类型
+                        if expected_type == 'string' and not isinstance(param_value, str):
+                            validated[param_name] = str(param_value)
+                        elif expected_type == 'float' and not isinstance(param_value, (int, float)):
+                            try:
+                                validated[param_name] = float(param_value)
+                            except:
+                                validated[param_name] = param_schema.get('default', None)
+                        elif expected_type == 'int' and not isinstance(param_value, int):
+                            try:
+                                validated[param_name] = int(param_value)
+                            except:
+                                validated[param_name] = param_schema.get('default', None)
+                        elif expected_type == 'bool' and not isinstance(param_value, bool):
+                            validated[param_name] = bool(param_value)
+                        else:
+                            validated[param_name] = param_value
+                    elif isinstance(expected_type, list):
+                        # 多类型
+                        validated[param_name] = param_value
+                else:
+                    validated[param_name] = parameters[param_name]
+            elif 'default' in param_schema:
+                validated[param_name] = param_schema['default']
+        
+        return validated
+    
+    def get_actions_by_type(self, action_type: ActionType) -> List[ActionDefinition]:
+        """
+        获取指定类型的所有动作
+        
+        Args:
+            action_type: 动作类型
+            
+        Returns:
+            动作定义列表
+        """
+        return [action for action in self.actions.values() if action.action_type == action_type]
+    
+    def save_to_file(self, file_path: str):
+        """
+        保存动作库到文件
+        
+        Args:
+            file_path: 文件路径
+        """
+        actions_data = []
+        for action_def in self.actions.values():
+            action_dict = {
+                'name': action_def.name,
+                'action_type': action_def.action_type.value,
+                'description': action_def.description,
+                'parameters_schema': action_def.parameters_schema,
+                'preconditions': action_def.preconditions,
+                'effects': action_def.effects,
+                'default_duration': action_def.default_duration,
+                'default_success_prob': action_def.default_success_prob,
+                'examples': action_def.examples
+            }
+            actions_data.append(action_dict)
+        
+        # 确保目录存在
+        Path(file_path).parent.mkdir(parents=True, exist_ok=True)
+        
+        # 保存到JSON文件
+        with open(file_path, 'w', encoding='utf-8') as f:
+            json.dump(actions_data, f, indent=2, ensure_ascii=False)
+    
+    def load_from_file(self, file_path: str):
+        """
+        从文件加载动作库
+        
+        Args:
+            file_path: 文件路径
+        """
+        if not Path(file_path).exists():
+            raise FileNotFoundError(f"动作库文件不存在: {file_path}")
+        
+        with open(file_path, 'r', encoding='utf-8') as f:
+            actions_data = json.load(f)
+        
+        self.actions.clear()
+        for action_data in actions_data:
+            action_def = ActionDefinition(
+                name=action_data['name'],
+                action_type=ActionType(action_data['action_type']),
+                description=action_data['description'],
+                parameters_schema=action_data['parameters_schema'],
+                preconditions=action_data['preconditions'],
+                effects=action_data['effects'],
+                default_duration=action_data.get('default_duration', 1.0),
+                default_success_prob=action_data.get('default_success_prob', 0.95),
+                examples=action_data.get('examples', [])
+            )
+            self.actions[action_def.name] = action_def
+
+
+# 导入必要的模块
+import time
+
+# 创建全局动作库实例
+global_action_library = BEHAVIORActionLibrary()
+
+
+def get_behavior_action_library() -> BEHAVIORActionLibrary:
+    """
+    获取BEHAVIOR动作库实例
+    
+    Returns:
+        BEHAVIORActionLibrary实例
+    """
+    return global_action_library
+
+
+def create_behavior_action(name: str, parameters: Dict[str, Any] = None) -> Optional[Action]:
+    """
+    创建BEHAVIOR动作
+    
+    Args:
+        name: 动作名称
+        parameters: 动作参数
+        
+    Returns:
+        Action实例或None
+    """
+    return global_action_library.create_action(name, parameters)
+
+
+def register_custom_action(action_def: ActionDefinition):
+    """
+    注册自定义动作
+    
+    Args:
+        action_def: 动作定义
+    """
+    global_action_library.actions[action_def.name] = action_def

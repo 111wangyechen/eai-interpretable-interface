@@ -152,8 +152,8 @@ class Action:
         """应用动作效果"""
         new_state = state.copy()
         
-        # 简单的效果应用逻辑
-        # 支持格式: "key=value", "key+=value", "key-=value"
+        # 增强的效果应用逻辑
+        # 支持格式: "key=value", "key+=value", "key-=value"，以及简单的布尔键如"at_location_target"
         try:
             if '=' in effect and '+' not in effect and '-' not in effect:
                 key, value = effect.split('=', 1)
@@ -166,8 +166,22 @@ class Action:
                 key, value = effect.split('-=', 1)
                 current_val = float(new_state.get(key.strip(), 0))
                 new_state[key.strip()] = current_val - float(value.strip())
+            else:
+                # 处理简单的布尔键效果，如"at_location_target"
+                # 将其设置为True
+                new_state[effect.strip()] = True
+                # 同时处理状态转换：如果效果是"at_location_target"，可能需要将"at_location_start"设置为False
+                if '_target' in effect:
+                    # 尝试找到对应的起始状态并设置为False
+                    start_key = effect.replace('_target', '_start')
+                    if start_key in new_state:
+                        new_state[start_key] = False
         except Exception:
-            pass
+            # 如果解析失败，仍然尝试将效果作为布尔键设置为True
+            try:
+                new_state[effect.strip()] = True
+            except:
+                pass
         
         return new_state
 

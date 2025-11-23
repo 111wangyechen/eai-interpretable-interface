@@ -1,0 +1,129 @@
+{
+  "timestamp": "2025-11-23T14:36:35.417957",
+  "total_goals": 20,
+  "successful_goals": 0,
+  "failed_goals": 20,
+  "success_rate": 0.0,
+  "results": [
+    {
+      "submission_id": "submission_1763879795400",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'LTLFormula' object has no attribute 'description'",
+      "timestamp": "2025-11-23T14:36:35.404894"
+    },
+    {
+      "submission_id": "submission_1763879795404",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'LTLFormula' object has no attribute 'description'",
+      "timestamp": "2025-11-23T14:36:35.405575"
+    },
+    {
+      "submission_id": "submission_1763879795405",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'LTLFormula' object has no attribute 'description'",
+      "timestamp": "2025-11-23T14:36:35.406187"
+    },
+    {
+      "submission_id": "submission_1763879795406",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'LTLFormula' object has no attribute 'description'",
+      "timestamp": "2025-11-23T14:36:35.407066"
+    },
+    {
+      "submission_id": "submission_1763879795407",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'LTLFormula' object has no attribute 'description'",
+      "timestamp": "2025-11-23T14:36:35.407886"
+    },
+    {
+      "submission_id": "submission_1763879795407",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'LTLFormula' object has no attribute 'description'",
+      "timestamp": "2025-11-23T14:36:35.408561"
+    },
+    {
+      "submission_id": "submission_1763879795408",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'LTLFormula' object has no attribute 'description'",
+      "timestamp": "2025-11-23T14:36:35.409189"
+    },
+    {
+      "submission_id": "submission_1763879795409",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'LTLFormula' object has no attribute 'description'",
+      "timestamp": "2025-11-23T14:36:35.409796"
+    },
+    {
+      "submission_id": "submission_1763879795409",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'LTLFormula' object has no attribute 'description'",
+      "timestamp": "2025-11-23T14:36:35.410414"
+    },
+    {
+      "submission_id": "submission_1763879795410",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'LTLFormula' object has no attribute 'description'",
+      "timestamp": "2025-11-23T14:36:35.411089"
+    },
+    {
+      "submission_id": "submission_1763879795411",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'LTLFormula' object has no attribute 'description'",
+      "timestamp": "2025-11-23T14:36:35.411922"
+    },
+    {
+      "submission_id": "submission_1763879795411",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'LTLFormula' object has no attribute 'description'",
+      "timestamp": "2025-11-23T14:36:35.412645"
+    },
+    {
+      "submission_id": "submission_1763879795412",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'LTLFormula' object has no attribute 'description'",
+      "timestamp": "2025-11-23T14:36:35.413244"
+    },
+    {
+      "submission_id": "submission_1763879795413",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'LTLFormula' object has no attribute 'description'",
+      "timestamp": "2025-11-23T14:36:35.413909"
+    },
+    {
+      "submission_id": "submission_1763879795413",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'LTLFormula' object has no attribute 'description'",
+      "timestamp": "2025-11-23T14:36:35.414579"
+    },
+    {
+      "submission_id": "submission_1763879795414",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'LTLFormula' object has no attribute 'description'",
+      "timestamp": "2025-11-23T14:36:35.415220"
+    },
+    {
+      "submission_id": "submission_1763879795415",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'LTLFormula' object has no attribute 'description'",
+      "timestamp": "2025-11-23T14:36:35.415902"
+    },
+    {
+      "submission_id": "submission_1763879795415",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'LTLFormula' object has no attribute 'description'",
+      "timestamp": "2025-11-23T14:36:35.416567"
+    },
+    {
+      "submission_id": "submission_1763879795416",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'LTLFormula' object has no attribute 'description'",
+      "timestamp": "2025-11-23T14:36:35.417312"
+    },
+    {
+      "submission_id": "submission_1763879795417",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'LTLFormula' object has no attribute 'description'",
+      "timestamp": "2025-11-23T14:36:35.417924"
+    }
+  ]
+}

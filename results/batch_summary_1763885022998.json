@@ -1,0 +1,129 @@
+{
+  "timestamp": "2025-11-23T16:03:42.998383",
+  "total_goals": 20,
+  "successful_goals": 0,
+  "failed_goals": 20,
+  "success_rate": 0.0,
+  "results": [
+    {
+      "submission_id": "submission_1763885022965",
+      "status": "failed",
+      "error": "Action sequencing failed: 'list' object has no attribute 'items'",
+      "timestamp": "2025-11-23T16:03:42.970762"
+    },
+    {
+      "submission_id": "submission_1763885022970",
+      "status": "failed",
+      "error": "Action sequencing failed: 'list' object has no attribute 'items'",
+      "timestamp": "2025-11-23T16:03:42.973287"
+    },
+    {
+      "submission_id": "submission_1763885022973",
+      "status": "failed",
+      "error": "Action sequencing failed: 'list' object has no attribute 'items'",
+      "timestamp": "2025-11-23T16:03:42.974721"
+    },
+    {
+      "submission_id": "submission_1763885022974",
+      "status": "failed",
+      "error": "Action sequencing failed: 'list' object has no attribute 'items'",
+      "timestamp": "2025-11-23T16:03:42.976033"
+    },
+    {
+      "submission_id": "submission_1763885022976",
+      "status": "failed",
+      "error": "Action sequencing failed: 'list' object has no attribute 'items'",
+      "timestamp": "2025-11-23T16:03:42.977299"
+    },
+    {
+      "submission_id": "submission_1763885022977",
+      "status": "failed",
+      "error": "Action sequencing failed: 'list' object has no attribute 'items'",
+      "timestamp": "2025-11-23T16:03:42.978467"
+    },
+    {
+      "submission_id": "submission_1763885022978",
+      "status": "failed",
+      "error": "Action sequencing failed: 'list' object has no attribute 'items'",
+      "timestamp": "2025-11-23T16:03:42.979776"
+    },
+    {
+      "submission_id": "submission_1763885022979",
+      "status": "failed",
+      "error": "Action sequencing failed: 'list' object has no attribute 'items'",
+      "timestamp": "2025-11-23T16:03:42.981008"
+    },
+    {
+      "submission_id": "submission_1763885022981",
+      "status": "failed",
+      "error": "Action sequencing failed: 'list' object has no attribute 'items'",
+      "timestamp": "2025-11-23T16:03:42.982349"
+    },
+    {
+      "submission_id": "submission_1763885022982",
+      "status": "failed",
+      "error": "Action sequencing failed: 'list' object has no attribute 'items'",
+      "timestamp": "2025-11-23T16:03:42.983813"
+    },
+    {
+      "submission_id": "submission_1763885022983",
+      "status": "failed",
+      "error": "Action sequencing failed: 'list' object has no attribute 'items'",
+      "timestamp": "2025-11-23T16:03:42.985341"
+    },
+    {
+      "submission_id": "submission_1763885022985",
+      "status": "failed",
+      "error": "Action sequencing failed: 'list' object has no attribute 'items'",
+      "timestamp": "2025-11-23T16:03:42.986642"
+    },
+    {
+      "submission_id": "submission_1763885022986",
+      "status": "failed",
+      "error": "Action sequencing failed: 'list' object has no attribute 'items'",
+      "timestamp": "2025-11-23T16:03:42.987862"
+    },
+    {
+      "submission_id": "submission_1763885022987",
+      "status": "failed",
+      "error": "Action sequencing failed: 'list' object has no attribute 'items'",
+      "timestamp": "2025-11-23T16:03:42.989082"
+    },
+    {
+      "submission_id": "submission_1763885022989",
+      "status": "failed",
+      "error": "Action sequencing failed: 'list' object has no attribute 'items'",
+      "timestamp": "2025-11-23T16:03:42.990148"
+    },
+    {
+      "submission_id": "submission_1763885022990",
+      "status": "failed",
+      "error": "Action sequencing failed: 'list' object has no attribute 'items'",
+      "timestamp": "2025-11-23T16:03:42.991568"
+    },
+    {
+      "submission_id": "submission_1763885022991",
+      "status": "failed",
+      "error": "Action sequencing failed: 'list' object has no attribute 'items'",
+      "timestamp": "2025-11-23T16:03:42.992899"
+    },
+    {
+      "submission_id": "submission_1763885022992",
+      "status": "failed",
+      "error": "Action sequencing failed: 'list' object has no attribute 'items'",
+      "timestamp": "2025-11-23T16:03:42.995535"
+    },
+    {
+      "submission_id": "submission_1763885022995",
+      "status": "failed",
+      "error": "Action sequencing failed: 'list' object has no attribute 'items'",
+      "timestamp": "2025-11-23T16:03:42.996741"
+    },
+    {
+      "submission_id": "submission_1763885022996",
+      "status": "failed",
+      "error": "Action sequencing failed: 'list' object has no attribute 'items'",
+      "timestamp": "2025-11-23T16:03:42.998325"
+    }
+  ]
+}

@@ -88,6 +88,7 @@ class HeuristicCalculator:
             heuristic_type: 启发式类型
         """
         self.heuristic_type = heuristic_type
+        self.heuristic_cache = {}  # 初始化启发式缓存
     
     def calculate(self, current_state: Dict[str, Any], goal_state: Dict[str, Any],
                   available_actions: List[Action]) -> float:
@@ -631,7 +632,8 @@ class ActionPlanner:
             subgoal_result = self._astar_planning(current_state, subgoal, available_actions)
             
             if not subgoal_result.success:
-                return self._create_failure_result()
+                subgoal_reason = subgoal_result.metadata.get('reason', 'Unknown reason')
+                return self._create_failure_result(f"Failed to plan subgoal {subgoal}: {subgoal_reason}")
             
             all_actions.extend(subgoal_result.action_sequence.actions)
             current_state = subgoal_result.action_sequence.actions[-1].execute(current_state)
@@ -737,11 +739,15 @@ class ActionPlanner:
                 # 计算动作与目标的相关性
                 relevance = 0
                 # 检查动作效果是否与目标匹配
-                for key, value in action.effects.items():
-                    if key in goal and goal[key] == value:
-                        relevance += 2  # 直接匹配目标给予高权重
-                    elif key in goal:
-                        relevance += 0.5  # 影响目标相关变量给予低权重
+                # 注意：effects是List[str]类型，需要特殊处理
+                for effect in action.effects:
+                    # 简单解析效果字符串，寻找可能与目标相关的部分
+                    # 假设效果字符串格式可能包含目标相关信息
+                    effect_lower = effect.lower()
+                    # 检查效果字符串是否包含任何目标键相关内容
+                    for goal_key in goal:
+                        if goal_key.lower() in effect_lower:
+                            relevance += 1.5  # 效果包含目标键给予权重
                 # 优先考虑成功率高的动作
                 relevance += action.success_probability * 0.5
                 # 优先考虑执行时间短的动作
@@ -985,8 +991,12 @@ class ActionPlanner:
             metadata={"final_state": node.state}
         )
     
-    def _create_failure_result(self) -> PlanningResult:
-        """创建失败结果"""
+    def _create_failure_result(self, reason: str = "No solution found within time/depth limits") -> PlanningResult:
+        """创建失败结果
+        
+        Args:
+            reason: 失败的具体原因
+        """
         return PlanningResult(
             success=False,
             action_sequence=None,
@@ -995,5 +1005,5 @@ class ActionPlanner:
             solution_cost=float('inf'),
             solution_length=0,
             algorithm=self.algorithm,
-            metadata={"reason": "No solution found within time/depth limits"}
+            metadata={"reason": reason}
         )

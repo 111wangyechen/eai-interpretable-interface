@@ -442,8 +442,7 @@ class SubgoalLTLIntegration:
             'original_goal': result.original_goal,
             'ltl_formula': {
                 'formula': result.ltl_formula.formula,
-                'description': result.ltl_formula.description,
-                'confidence': result.ltl_formula.confidence
+                'is_valid': result.ltl_formula.is_valid()
             },
             'decomposition': {
                 'subgoals': [

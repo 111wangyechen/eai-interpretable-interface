@@ -1,0 +1,129 @@
+{
+  "timestamp": "2025-11-23T11:13:35.311893",
+  "total_goals": 20,
+  "successful_goals": 0,
+  "failed_goals": 20,
+  "success_rate": 0.0,
+  "results": [
+    {
+      "submission_id": "submission_1763867615301",
+      "status": "failed",
+      "error": "Goal interpretation failed: 'LTLFormula' object has no attribute 'confidence'",
+      "timestamp": "2025-11-23T11:13:35.304863"
+    },
+    {
+      "submission_id": "submission_1763867615304",
+      "status": "failed",
+      "error": "Goal interpretation failed: 'LTLFormula' object has no attribute 'confidence'",
+      "timestamp": "2025-11-23T11:13:35.305358"
+    },
+    {
+      "submission_id": "submission_1763867615305",
+      "status": "failed",
+      "error": "Goal interpretation failed: 'LTLFormula' object has no attribute 'confidence'",
+      "timestamp": "2025-11-23T11:13:35.305814"
+    },
+    {
+      "submission_id": "submission_1763867615305",
+      "status": "failed",
+      "error": "Goal interpretation failed: 'LTLFormula' object has no attribute 'confidence'",
+      "timestamp": "2025-11-23T11:13:35.306177"
+    },
+    {
+      "submission_id": "submission_1763867615306",
+      "status": "failed",
+      "error": "Goal interpretation failed: 'LTLFormula' object has no attribute 'confidence'",
+      "timestamp": "2025-11-23T11:13:35.306528"
+    },
+    {
+      "submission_id": "submission_1763867615306",
+      "status": "failed",
+      "error": "Goal interpretation failed: 'LTLFormula' object has no attribute 'confidence'",
+      "timestamp": "2025-11-23T11:13:35.306847"
+    },
+    {
+      "submission_id": "submission_1763867615306",
+      "status": "failed",
+      "error": "Goal interpretation failed: 'LTLFormula' object has no attribute 'confidence'",
+      "timestamp": "2025-11-23T11:13:35.307187"
+    },
+    {
+      "submission_id": "submission_1763867615307",
+      "status": "failed",
+      "error": "Goal interpretation failed: 'LTLFormula' object has no attribute 'confidence'",
+      "timestamp": "2025-11-23T11:13:35.307520"
+    },
+    {
+      "submission_id": "submission_1763867615307",
+      "status": "failed",
+      "error": "Goal interpretation failed: 'LTLFormula' object has no attribute 'confidence'",
+      "timestamp": "2025-11-23T11:13:35.308143"
+    },
+    {
+      "submission_id": "submission_1763867615308",
+      "status": "failed",
+      "error": "Goal interpretation failed: 'LTLFormula' object has no attribute 'confidence'",
+      "timestamp": "2025-11-23T11:13:35.308524"
+    },
+    {
+      "submission_id": "submission_1763867615308",
+      "status": "failed",
+      "error": "Goal interpretation failed: 'LTLFormula' object has no attribute 'confidence'",
+      "timestamp": "2025-11-23T11:13:35.308840"
+    },
+    {
+      "submission_id": "submission_1763867615308",
+      "status": "failed",
+      "error": "Goal interpretation failed: 'LTLFormula' object has no attribute 'confidence'",
+      "timestamp": "2025-11-23T11:13:35.309161"
+    },
+    {
+      "submission_id": "submission_1763867615309",
+      "status": "failed",
+      "error": "Goal interpretation failed: 'LTLFormula' object has no attribute 'confidence'",
+      "timestamp": "2025-11-23T11:13:35.309506"
+    },
+    {
+      "submission_id": "submission_1763867615309",
+      "status": "failed",
+      "error": "Goal interpretation failed: 'LTLFormula' object has no attribute 'confidence'",
+      "timestamp": "2025-11-23T11:13:35.309838"
+    },
+    {
+      "submission_id": "submission_1763867615309",
+      "status": "failed",
+      "error": "Goal interpretation failed: 'LTLFormula' object has no attribute 'confidence'",
+      "timestamp": "2025-11-23T11:13:35.310162"
+    },
+    {
+      "submission_id": "submission_1763867615310",
+      "status": "failed",
+      "error": "Goal interpretation failed: 'LTLFormula' object has no attribute 'confidence'",
+      "timestamp": "2025-11-23T11:13:35.310517"
+    },
+    {
+      "submission_id": "submission_1763867615310",
+      "status": "failed",
+      "error": "Goal interpretation failed: 'LTLFormula' object has no attribute 'confidence'",
+      "timestamp": "2025-11-23T11:13:35.310837"
+    },
+    {
+      "submission_id": "submission_1763867615310",
+      "status": "failed",
+      "error": "Goal interpretation failed: 'LTLFormula' object has no attribute 'confidence'",
+      "timestamp": "2025-11-23T11:13:35.311152"
+    },
+    {
+      "submission_id": "submission_1763867615311",
+      "status": "failed",
+      "error": "Goal interpretation failed: 'LTLFormula' object has no attribute 'confidence'",
+      "timestamp": "2025-11-23T11:13:35.311513"
+    },
+    {
+      "submission_id": "submission_1763867615311",
+      "status": "failed",
+      "error": "Goal interpretation failed: 'LTLFormula' object has no attribute 'confidence'",
+      "timestamp": "2025-11-23T11:13:35.311836"
+    }
+  ]
+}

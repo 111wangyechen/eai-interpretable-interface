@@ -22,11 +22,11 @@ class LTLValidator:
         # 定义LTL语法规则
         self.valid_operators = {
             "temporal": ["F", "G", "X", "U", "R", "W"],  # 时间操作符
-            "logical": ["&", "|", "!", "->"],               # 逻辑操作符
+            "logical": ["&", "|", "!", "->", "<->"],        # 逻辑操作符，添加双向蕴含
         }
         
-        # 定义LTL公式的正则表达式模式，只支持英文
-        self.formula_pattern = re.compile(r'^[a-zA-Z0-9_\s&|!->()FGUXRW]+$')
+        # 定义LTL公式的正则表达式模式，支持标准LTL操作符
+        self.formula_pattern = re.compile(r'^[a-zA-Z0-9_\s&|!-><()FGUXRW]+$')
         
         # 初始化错误消息
         self.error_messages = {
@@ -147,11 +147,21 @@ class LTLValidator:
             if '->' in formula:
                 positions = [i for i, char in enumerate(formula) if formula.startswith('->', i)]
                 for pos in positions:
-                    if pos == 0 or pos + 2 >= len(formula):
-                        return False
+                    # 检查蕴含操作符->
+                    if operator == '->':
+                        if pos == 0 or pos + 2 >= len(formula):
+                            return False
+                    # 检查双向蕴含操作符<->
+                    elif operator == '<->':
+                        if pos == 0 or pos + 3 >= len(formula):
+                            return False
+                    # 检查其他二元操作符
+                    else:
+                        if pos == 0 or pos + 1 >= len(formula):
+                            return False
             
             # 确保没有连续的逻辑操作符
-            invalid_patterns = ['&&', '||', '!!', '->->', '&|', '|&', '->&', '->|', '&->', '|->']
+            invalid_patterns = ['&&', '||', '!!', '->->', '<-><->', '&|', '|&', '->&', '->|', '&->', '|->', '-><->', '<->->']
             for pattern in invalid_patterns:
                 if pattern in formula:
                     return False
@@ -207,8 +217,8 @@ class LTLValidator:
         Returns:
             bool: 如果所有操作符后的表达式都有效返回True
         """
-        # 检查二元操作符（&, |, ->）前后是否有内容
-        binary_operators = ["&", "|", "->"]
+        # 检查二元操作符（&, |, ->, <->）前后是否有内容
+        binary_operators = ["&", "|", "->", "<->"]
         
         for operator in binary_operators:
             if operator in formula:

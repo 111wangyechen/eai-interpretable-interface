@@ -1,0 +1,129 @@
+{
+  "timestamp": "2025-11-23T16:16:59.131206",
+  "total_goals": 20,
+  "successful_goals": 0,
+  "failed_goals": 20,
+  "success_rate": 0.0,
+  "results": [
+    {
+      "submission_id": "submission_1763885819064",
+      "status": "failed",
+      "error": "Action sequencing failed: None",
+      "timestamp": "2025-11-23T16:16:59.072360"
+    },
+    {
+      "submission_id": "submission_1763885819072",
+      "status": "failed",
+      "error": "Action sequencing failed: None",
+      "timestamp": "2025-11-23T16:16:59.075817"
+    },
+    {
+      "submission_id": "submission_1763885819075",
+      "status": "failed",
+      "error": "Action sequencing failed: None",
+      "timestamp": "2025-11-23T16:16:59.078555"
+    },
+    {
+      "submission_id": "submission_1763885819078",
+      "status": "failed",
+      "error": "Action sequencing failed: None",
+      "timestamp": "2025-11-23T16:16:59.081652"
+    },
+    {
+      "submission_id": "submission_1763885819081",
+      "status": "failed",
+      "error": "Action sequencing failed: None",
+      "timestamp": "2025-11-23T16:16:59.084357"
+    },
+    {
+      "submission_id": "submission_1763885819084",
+      "status": "failed",
+      "error": "Action sequencing failed: None",
+      "timestamp": "2025-11-23T16:16:59.086990"
+    },
+    {
+      "submission_id": "submission_1763885819087",
+      "status": "failed",
+      "error": "Action sequencing failed: None",
+      "timestamp": "2025-11-23T16:16:59.089924"
+    },
+    {
+      "submission_id": "submission_1763885819089",
+      "status": "failed",
+      "error": "Action sequencing failed: None",
+      "timestamp": "2025-11-23T16:16:59.092658"
+    },
+    {
+      "submission_id": "submission_1763885819092",
+      "status": "failed",
+      "error": "Action sequencing failed: None",
+      "timestamp": "2025-11-23T16:16:59.095633"
+    },
+    {
+      "submission_id": "submission_1763885819095",
+      "status": "failed",
+      "error": "Action sequencing failed: None",
+      "timestamp": "2025-11-23T16:16:59.098348"
+    },
+    {
+      "submission_id": "submission_1763885819098",
+      "status": "failed",
+      "error": "Action sequencing failed: None",
+      "timestamp": "2025-11-23T16:16:59.102085"
+    },
+    {
+      "submission_id": "submission_1763885819102",
+      "status": "failed",
+      "error": "Action sequencing failed: None",
+      "timestamp": "2025-11-23T16:16:59.104970"
+    },
+    {
+      "submission_id": "submission_1763885819105",
+      "status": "failed",
+      "error": "Action sequencing failed: None",
+      "timestamp": "2025-11-23T16:16:59.107979"
+    },
+    {
+      "submission_id": "submission_1763885819108",
+      "status": "failed",
+      "error": "Action sequencing failed: None",
+      "timestamp": "2025-11-23T16:16:59.110908"
+    },
+    {
+      "submission_id": "submission_1763885819110",
+      "status": "failed",
+      "error": "Action sequencing failed: None",
+      "timestamp": "2025-11-23T16:16:59.114198"
+    },
+    {
+      "submission_id": "submission_1763885819114",
+      "status": "failed",
+      "error": "Action sequencing failed: None",
+      "timestamp": "2025-11-23T16:16:59.117882"
+    },
+    {
+      "submission_id": "submission_1763885819117",
+      "status": "failed",
+      "error": "Action sequencing failed: None",
+      "timestamp": "2025-11-23T16:16:59.121698"
+    },
+    {
+      "submission_id": "submission_1763885819121",
+      "status": "failed",
+      "error": "Action sequencing failed: None",
+      "timestamp": "2025-11-23T16:16:59.125314"
+    },
+    {
+      "submission_id": "submission_1763885819125",
+      "status": "failed",
+      "error": "Action sequencing failed: None",
+      "timestamp": "2025-11-23T16:16:59.128153"
+    },
+    {
+      "submission_id": "submission_1763885819128",
+      "status": "failed",
+      "error": "Action sequencing failed: None",
+      "timestamp": "2025-11-23T16:16:59.131148"
+    }
+  ]
+}

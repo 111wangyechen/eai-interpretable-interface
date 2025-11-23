@@ -1,0 +1,129 @@
+{
+  "timestamp": "2025-11-23T15:58:55.087508",
+  "total_goals": 20,
+  "successful_goals": 0,
+  "failed_goals": 20,
+  "success_rate": 0.0,
+  "results": [
+    {
+      "submission_id": "submission_1763884735052",
+      "status": "failed",
+      "error": "Action sequencing failed: 'ActionSequencer' object has no attribute 'sequence_actions'",
+      "timestamp": "2025-11-23T15:58:55.057686"
+    },
+    {
+      "submission_id": "submission_1763884735057",
+      "status": "failed",
+      "error": "Action sequencing failed: 'ActionSequencer' object has no attribute 'sequence_actions'",
+      "timestamp": "2025-11-23T15:58:55.059118"
+    },
+    {
+      "submission_id": "submission_1763884735059",
+      "status": "failed",
+      "error": "Action sequencing failed: 'ActionSequencer' object has no attribute 'sequence_actions'",
+      "timestamp": "2025-11-23T15:58:55.060814"
+    },
+    {
+      "submission_id": "submission_1763884735060",
+      "status": "failed",
+      "error": "Action sequencing failed: 'ActionSequencer' object has no attribute 'sequence_actions'",
+      "timestamp": "2025-11-23T15:58:55.062974"
+    },
+    {
+      "submission_id": "submission_1763884735063",
+      "status": "failed",
+      "error": "Action sequencing failed: 'ActionSequencer' object has no attribute 'sequence_actions'",
+      "timestamp": "2025-11-23T15:58:55.064943"
+    },
+    {
+      "submission_id": "submission_1763884735064",
+      "status": "failed",
+      "error": "Action sequencing failed: 'ActionSequencer' object has no attribute 'sequence_actions'",
+      "timestamp": "2025-11-23T15:58:55.066755"
+    },
+    {
+      "submission_id": "submission_1763884735066",
+      "status": "failed",
+      "error": "Action sequencing failed: 'ActionSequencer' object has no attribute 'sequence_actions'",
+      "timestamp": "2025-11-23T15:58:55.067805"
+    },
+    {
+      "submission_id": "submission_1763884735067",
+      "status": "failed",
+      "error": "Action sequencing failed: 'ActionSequencer' object has no attribute 'sequence_actions'",
+      "timestamp": "2025-11-23T15:58:55.069230"
+    },
+    {
+      "submission_id": "submission_1763884735069",
+      "status": "failed",
+      "error": "Action sequencing failed: 'ActionSequencer' object has no attribute 'sequence_actions'",
+      "timestamp": "2025-11-23T15:58:55.070385"
+    },
+    {
+      "submission_id": "submission_1763884735070",
+      "status": "failed",
+      "error": "Action sequencing failed: 'ActionSequencer' object has no attribute 'sequence_actions'",
+      "timestamp": "2025-11-23T15:58:55.072738"
+    },
+    {
+      "submission_id": "submission_1763884735072",
+      "status": "failed",
+      "error": "Action sequencing failed: 'ActionSequencer' object has no attribute 'sequence_actions'",
+      "timestamp": "2025-11-23T15:58:55.075287"
+    },
+    {
+      "submission_id": "submission_1763884735075",
+      "status": "failed",
+      "error": "Action sequencing failed: 'ActionSequencer' object has no attribute 'sequence_actions'",
+      "timestamp": "2025-11-23T15:58:55.077366"
+    },
+    {
+      "submission_id": "submission_1763884735077",
+      "status": "failed",
+      "error": "Action sequencing failed: 'ActionSequencer' object has no attribute 'sequence_actions'",
+      "timestamp": "2025-11-23T15:58:55.078377"
+    },
+    {
+      "submission_id": "submission_1763884735078",
+      "status": "failed",
+      "error": "Action sequencing failed: 'ActionSequencer' object has no attribute 'sequence_actions'",
+      "timestamp": "2025-11-23T15:58:55.079420"
+    },
+    {
+      "submission_id": "submission_1763884735079",
+      "status": "failed",
+      "error": "Action sequencing failed: 'ActionSequencer' object has no attribute 'sequence_actions'",
+      "timestamp": "2025-11-23T15:58:55.080385"
+    },
+    {
+      "submission_id": "submission_1763884735080",
+      "status": "failed",
+      "error": "Action sequencing failed: 'ActionSequencer' object has no attribute 'sequence_actions'",
+      "timestamp": "2025-11-23T15:58:55.082131"
+    },
+    {
+      "submission_id": "submission_1763884735082",
+      "status": "failed",
+      "error": "Action sequencing failed: 'ActionSequencer' object has no attribute 'sequence_actions'",
+      "timestamp": "2025-11-23T15:58:55.083784"
+    },
+    {
+      "submission_id": "submission_1763884735083",
+      "status": "failed",
+      "error": "Action sequencing failed: 'ActionSequencer' object has no attribute 'sequence_actions'",
+      "timestamp": "2025-11-23T15:58:55.084867"
+    },
+    {
+      "submission_id": "submission_1763884735084",
+      "status": "failed",
+      "error": "Action sequencing failed: 'ActionSequencer' object has no attribute 'sequence_actions'",
+      "timestamp": "2025-11-23T15:58:55.085924"
+    },
+    {
+      "submission_id": "submission_1763884735085",
+      "status": "failed",
+      "error": "Action sequencing failed: 'ActionSequencer' object has no attribute 'sequence_actions'",
+      "timestamp": "2025-11-23T15:58:55.087465"
+    }
+  ]
+}

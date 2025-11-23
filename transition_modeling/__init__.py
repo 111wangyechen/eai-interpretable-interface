@@ -10,17 +10,37 @@ from .state_transition import StateTransition, TransitionType, StateCondition, S
 from .transition_predictor import TransitionPredictor
 from .transition_validator import TransitionValidator
 
-__all__ = [
-    'TransitionModeler',
-    'ModelingRequest',
-    'ModelingResponse',
-    'StateTransition', 
-    'TransitionType',
-    'StateCondition',
-    'StateEffect',
-    'TransitionPredictor',
-    'TransitionValidator'
-]
+# 尝试导入LogicGuard模块
+try:
+    from .logic_guard import LogicGuard, create_logic_guard
+    __all__ = [
+        'TransitionModeler',
+        'ModelingRequest',
+        'ModelingResponse',
+        'StateTransition', 
+        'TransitionType',
+        'StateCondition',
+        'StateEffect',
+        'TransitionPredictor',
+        'TransitionValidator',
+        'LogicGuard',
+        'create_logic_guard'
+    ]
+except ImportError:
+    # 如果导入失败，不包含LogicGuard在__all__中
+    __all__ = [
+        'TransitionModeler',
+        'ModelingRequest',
+        'ModelingResponse',
+        'StateTransition', 
+        'TransitionType',
+        'StateCondition',
+        'StateEffect',
+        'TransitionPredictor',
+        'TransitionValidator'
+    ]
+    import logging
+    logging.warning("LogicGuard module could not be imported")
 
 __version__ = '1.0.0'
 __author__ = 'EAI Team'

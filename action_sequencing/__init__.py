@@ -30,6 +30,15 @@ from .action_data import (
     ActionSequence
 )
 
+# 导入BEHAVIOR动作库
+from .behavior_action_library import (
+    BEHAVIORActionLibrary,
+    ActionDefinition,
+    get_behavior_action_library,
+    create_behavior_action,
+    register_custom_action
+)
+
 # 导入状态管理相关类
 from .state_manager import (
     StateType,
@@ -76,6 +85,13 @@ __all__ = [
     'ActionStatus', 
     'Action',
     'ActionSequence',
+    
+    # BEHAVIOR动作库
+    'BEHAVIORActionLibrary',
+    'ActionDefinition',
+    'get_behavior_action_library',
+    'create_behavior_action',
+    'register_custom_action',
     
     # 状态管理
     'StateType',
