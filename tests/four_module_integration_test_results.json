@@ -3,8 +3,8 @@
     "total_tests": 7,
     "successful_tests": 4,
     "success_rate": 57.14285714285714,
-    "total_time": 0.01209259033203125,
-    "timestamp": "2025-11-22 18:01:10"
+    "total_time": 0.011528253555297852,
+    "timestamp": "2025-11-23 10:18:09"
   },
   "module_status": {
     "Goal Interpretation": "✓ Working",
@@ -26,17 +26,17 @@
     },
     {
       "test": "goal_to_transition_flow",
-      "success": true,
-      "message": "Goal→Transition flow: 1 sequences generated in 0.000s",
+      "success": false,
+      "message": "Goal→Transition flow: 0 sequences generated in 0.001s",
       "details": {
         "goal_interpretation_success": true,
         "subgoal_decomposition_success": true,
-        "transition_modeling_success": true,
-        "sequences_generated": 1,
-        "goal_interpretation_time": 0.00010251998901367188,
-        "subgoal_decomposition_time": 1.71661376953125e-05,
-        "modeling_time": 0.00019860267639160156,
-        "total_time": 0.00031828880310058594
+        "transition_modeling_success": false,
+        "sequences_generated": 0,
+        "goal_interpretation_time": 0.00010967254638671875,
+        "subgoal_decomposition_time": 2.1696090698242188e-05,
+        "modeling_time": 0.0007278919219970703,
+        "total_time": 0.0008592605590820312
       }
     },
     {
@@ -62,7 +62,7 @@
         "total_scenarios": 2,
         "successful_scenarios": 0,
         "success_rate": 0.0,
-        "workflow_time": 0.0013396739959716797,
+        "workflow_time": 0.0008983612060546875,
         "scenario_results": [
           {
             "name": "Basic Operation Scenario",
@@ -78,206 +78,22 @@
             "steps": {
               "goal_interpretation": {
                 "success": true,
-                "time": 8.487701416015625e-05,
+                "time": 0.000133514404296875,
                 "result": "put_the"
               },
               "subgoal_decomposition": {
                 "success": true,
-                "time": 1.33514404296875e-05
+                "time": 2.0742416381835938e-05
               },
               "transition_modeling": {
-                "success": true,
-                "time": 0.0002002716064453125
-              },
-              "action_sequencing": {
                 "success": false,
-                "time": 0.0001125335693359375
+                "time": 0.0002465248107910156
               }
             },
             "subgoals_count": 1,
-            "sequences_count": 1,
-            "success": false,
-            "error": "Action sequence generation failed",
-            "exception_type": "Exception"
-          },
-          {
-            "name": "Multi-step Scenario",
-            "goal": "Walk to the refrigerator first, then open the refrigerator door",
-            "initial_state": {
-              "at_location": "living_room",
-              "fridge_door_open": false
-            },
-            "goal_state": {
-              "at_location": "fridge",
-              "fridge_door_open": true
-            },
-            "steps": {
-              "goal_interpretation": {
-                "success": true,
-                "time": 9.799003601074219e-05,
-                "result": "walk_to"
-              },
-              "subgoal_decomposition": {
-                "success": true,
-                "time": 1.2636184692382812e-05
-              },
-              "transition_modeling": {
-                "success": true,
-                "time": 0.0002262592315673828
-              },
-              "action_sequencing": {
-                "success": false,
-                "time": 0.0002014636993408203
-              }
-            },
-            "subgoals_count": 1,
-            "sequences_count": 1,
-            "success": false,
-            "error": "Action sequence generation failed",
-            "exception_type": "Exception"
-          }
-        ]
-      }
-    },
-    {
-      "test": "complex_scenarios",
-      "success": false,
-      "message": "Complex scenarios: 0/3 successful",
-      "details": {
-        "total_scenarios": 3,
-        "successful_scenarios": 0,
-        "scenario_results": [
-          {
-            "name": "Multi-Goal Scenario",
-            "goal": "Put both the red ball and blue ball on the table",
-            "steps": {
-              "goal_interpretation": {
-                "success": true,
-                "time": 0.00011563301086425781
-              },
-              "subgoal_decomposition": {
-                "success": true,
-                "time": 1.9550323486328125e-05
-              },
-              "transition_modeling": {
-                "success": true,
-                "time": 0.00029850006103515625
-              },
-              "action_sequencing": {
-                "success": false,
-                "time": 0.00014543533325195312
-              }
-            },
-            "success": false,
-            "error": "Action sequence generation failed",
-            "exception_type": "Exception"
-          },
-          {
-            "name": "Conditional Constraint Scenario",
-            "goal": "If the room has light, pick up the red ball; otherwise, turn on the light first, then pick up the ball",
-            "steps": {
-              "goal_interpretation": {
-                "success": true,
-                "time": 0.0001239776611328125
-              },
-              "subgoal_decomposition": {
-                "success": true,
-                "time": 1.3828277587890625e-05
-              },
-              "transition_modeling": {
-                "success": true,
-                "time": 0.00024247169494628906
-              },
-              "action_sequencing": {
-                "success": false,
-                "time": 0.00012135505676269531
-              }
-            },
-            "success": false,
-            "error": "Action sequence generation failed",
-            "exception_type": "Exception"
-          },
-          {
-            "name": "Sequential Constraint Scenario",
-            "goal": "First open the computer, then check email, finally close the computer",
-            "steps": {
-              "goal_interpretation": {
-                "success": true,
-                "time": 9.250640869140625e-05
-              },
-              "subgoal_decomposition": {
-                "success": true,
-                "time": 1.2874603271484375e-05
-              },
-              "transition_modeling": {
-                "success": true,
-                "time": 0.00023818016052246094
-              },
-              "action_sequencing": {
-                "success": false,
-                "time": 0.00012111663818359375
-              }
-            },
-            "success": false,
-            "error": "Action sequence generation failed",
-            "exception_type": "Exception"
-          }
-        ]
-      }
-    },
-    {
-      "test": "performance_and_stability",
-      "success": true,
-      "message": "Performance: avg workflow time 0.00s, p95 response time 0.00s, success rate 100.0%, cache hit rate 64.5%",
-      "details": {
-        "iterations": 10,
-        "average_times": {
-          "goal_interpretation": 9.121894836425782e-05,
-          "subgoal_decomposition": 2.1886825561523437e-05,
-          "transition_modeling": 0.00022420883178710937,
-          "action_sequencing": 0.00010395050048828125,
-          "total_workflow": 0.0004448413848876953,
-          "p95_response_time": 0.0005381107330322266
-        },
-        "performance_criteria": {
-          "time_criteria": true,
-          "p95_criteria": true,
-          "success_criteria": true,
-          "cache_criteria": true,
-          "criteria_met": 4
-        },
-        "cache_performance": {
-          "avg_hit_rate": 0.6449999999999999
-        },
-        "stability": {
-          "avg_success_rate": 1.0
-        }
-      }
-    },
-    {
-      "test": "error_handling_and_recovery",
-      "success": false,
-      "message": "Error handling: 4 error cases tested",
-      "details": {
-        "error_cases": [
-          [
-            "empty_goal",
-            true
-          ],
-          [
-            "invalid_context",
-            true
-          ],
-          [
-            "invalid_states",
-            false
-          ],
-          [
-            "invalid_actions",
-            true
-          ]
-        ]
-      }
-    }
-  ]
-}
+            "subgoals_details": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: perform_put",
+                "ltl_formula": "perform_put",
+                "type": 
