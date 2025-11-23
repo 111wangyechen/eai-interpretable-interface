@@ -64,6 +64,26 @@ class Subgoal:
             self.effects = []
         if self.metadata is None:
             self.metadata = {}
+    
+    def to_dict(self) -> Dict:
+        """
+        将子目标转换为字典格式，处理 SubgoalType 的序列化
+        
+        Returns:
+            Dict: 可 JSON 序列化的字典
+        """
+        return {
+            'id': self.id,
+            'description': self.description,
+            'ltl_formula': self.ltl_formula,
+            'subgoal_type': self.subgoal_type.name,  # 使用枚举名称而不是枚举对象
+            'dependencies': self.dependencies,
+            'priority': self.priority,
+            'estimated_cost': self.estimated_cost,
+            'preconditions': self.preconditions,
+            'effects': self.effects,
+            'metadata': self.metadata
+        }
 
 
 @dataclass
@@ -471,17 +491,35 @@ class SubgoalDecomposer:
         subgoal_id = f"atomic_{self.subgoal_counter}"
         self.subgoal_counter += 1
         
+        # 确保生成完整的动作描述
+        action_description = formula
+        
+        # 全面处理formula的格式问题
+        if formula:
+            # 移除任何位置的"_the"后缀或部分
+            if "_the" in action_description:
+                # 更健壮的处理：移除末尾的"_the"
+                if action_description.endswith('_the'):
+                    action_description = action_description[:-4]
+                else:
+                    # 处理中间包含"_the"的情况
+                    action_description = action_description.replace('_the_', '_')
+            
+            # 为简单动作添加前缀，确保动作名称格式正确
+            if len(action_description.split('_')) < 2 and not action_description.startswith('perform_'):
+                action_description = f"perform_{action_description}"
+        
         subgoal = Subgoal(
             id=subgoal_id,
-            description=f"Execute atomic action: {formula}",
-            ltl_formula=formula,
+            description=f"Execute atomic action: {action_description}",
+            ltl_formula=action_description,  # 使用处理后的动作描述作为LTL公式
             subgoal_type=SubgoalType.ATOMIC,
             dependencies=[],
             priority=depth,
             estimated_cost=1.0,
             preconditions=[],
-            effects=[formula],
-            metadata={'depth': depth, 'type': 'atomic'}
+            effects=[action_description],
+            metadata={'depth': depth, 'type': 'atomic', 'original_formula': formula}
         )
         
         subgoals.append(subgoal)

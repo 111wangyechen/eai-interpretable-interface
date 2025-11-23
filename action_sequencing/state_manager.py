@@ -247,11 +247,22 @@ class EnvironmentState:
         """检查目标状态是否达成"""
         current_state = self.get_state_dict()
         
-        for key, goal_value in goal_state.items():
-            current_value = current_state.get(key)
-            
-            if current_value != goal_value:
-                return False
+        # 添加类型检查，确保goal_state是字典类型
+        if not isinstance(goal_state, dict):
+            # 如果不是字典，记录错误并返回False
+            print(f"Error: goal_state is not a dictionary, got {type(goal_state).__name__}")
+            return False
+        
+        try:
+            for key, goal_value in goal_state.items():
+                current_value = current_state.get(key)
+                
+                if current_value != goal_value:
+                    return False
+        except Exception as e:
+            # 捕获任何可能的异常
+            print(f"Error checking goal state: {str(e)}")
+            return False
         
         return True
     

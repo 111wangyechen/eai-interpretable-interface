@@ -1,0 +1,125 @@
+{
+  "submission": {
+    "team": {
+      "name": "EAI Interface Team",
+      "contact": "team@example.com"
+    },
+    "version": "1.0.0",
+    "timestamp": "2024-01-15T10:00:00Z",
+    "description": "Integrated interface for embodied agents combining goal interpretation, subgoal decomposition, transition modeling, and action sequencing",
+    "components": [
+      {
+        "name": "goal_interpretation",
+        "version": "1.0.0",
+        "description": "Natural language goal interpretation and LTL formula generation",
+        "main_module": "goal_interpretation/enhanced_goal_interpreter.py"
+      },
+      {
+        "name": "subgoal_decomposition",
+        "version": "1.0.0",
+        "description": "Hierarchical subgoal decomposition with LTL integration",
+        "main_module": "subgoal_decomposition/subgoal_ltl_integration.py"
+      },
+      {
+        "name": "transition_modeling",
+        "version": "1.0.0",
+        "description": "State transition modeling and prediction",
+        "main_module": "transition_modeling/transition_modeler.py"
+      },
+      {
+        "name": "action_sequencing",
+        "version": "1.0.0",
+        "description": "Action sequence planning and generation",
+        "main_module": "action_sequencing/action_sequencer.py"
+      }
+    ],
+    "integration": {
+      "main_script": "combine_results_en.py",
+      "sample_goals": "sample_goals_en.json",
+      "description": "English version of the integration script that processes natural language goals through all four modules"
+    },
+    "output_formats": {
+      "goal_interpretation": {
+        "type": "JSON",
+        "schema": {
+          "formula": "string",
+          "confidence": "number",
+          "interpretation_time_ms": "number",
+          "metadata": "object"
+        }
+      },
+      "subgoal_decomposition": {
+        "type": "JSON",
+        "schema": {
+          "original_goal": "string",
+          "subgoals": "array",
+          "ltl_formulas": "array",
+          "decomposition_time_ms": "number",
+          "metadata": "object"
+        }
+      },
+      "transition_modeling": {
+        "type": "JSON",
+        "schema": {
+          "request_id": "string",
+          "success": "boolean",
+          "predicted_sequences": "array",
+          "validation_results": "object",
+          "modeling_time_ms": "number",
+          "metadata": "object"
+        }
+      },
+      "action_sequencing": {
+        "type": "JSON",
+        "schema": {
+          "id": "string",
+          "actions": "array",
+          "initial_state": "object",
+          "goal_state": "object",
+          "sequence_time_ms": "number",
+          "metadata": "object"
+        }
+      },
+      "final_result": {
+        "type": "JSON",
+        "schema": {
+          "submission_id": "string",
+          "status": "string",
+          "timestamp": "string",
+          "execution_time_ms": "number",
+          "goal": "object",
+          "subgoals": "object",
+          "transition_model": "object",
+          "action_sequence": "object",
+          "files": "object"
+        }
+      }
+    },
+    "dataset_info": {
+      "behavior_dataset": {
+        "file": "data/behavior-00000-of-00001.parquet",
+        "records": 100,
+        "description": "Behavior dataset with task descriptions and scene information"
+      },
+      "virtualhome_dataset": {
+        "file": "data/virtualhome-00000-of-00001.parquet",
+        "records": 338,
+        "description": "VirtualHome dataset with task descriptions, action trajectories and transition models"
+      }
+    },
+    "usage_instructions": {
+      "single_goal": "python combine_results_en.py --single \"Make coffee in the kitchen\" --output-dir ./results",
+      "batch_processing": "python combine_results_en.py --batch sample_goals_en.json --output-dir ./batch_results",
+      "requirements": "requirements.txt"
+    },
+    "testing": {
+      "integration_tests": "tests/test_four_module_integration.py",
+      "unit_tests": {
+        "goal_interpretation": "goal_interpretation/test_interpretable_interpreter.py",
+        "subgoal_decomposition": "subgoal_decomposition/test_subgoal_decomposition.py",
+        "transition_modeling": "transition_modeling/test_transition_modeling.py",
+        "action_sequencing": "action_sequencing/test_action_sequencing.py"
+      }
+    }
+  }
+}

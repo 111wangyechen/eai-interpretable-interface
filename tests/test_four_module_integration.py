@@ -406,13 +406,36 @@ class FourModuleIntegrationTester:
                     scenario_details['subgoals_count'] = subgoals_count
                     print(f"       ✓ Subgoal decomposition successful, created {subgoals_count} subgoals")
                     
+                    # 添加子目标详细信息输出和存储
+                    subgoals_details = []
+                    if hasattr(subgoal_result, 'subgoals'):
+                        for i, subgoal in enumerate(subgoal_result.subgoals):
+                            subgoal_info = {
+                                'id': getattr(subgoal, 'id', 'unknown'),
+                                'description': getattr(subgoal, 'description', 'unknown'),
+                                'ltl_formula': getattr(subgoal, 'ltl_formula', 'unknown'),
+                                'type': getattr(subgoal, 'subgoal_type', 'unknown'),
+                                'dependencies': getattr(subgoal, 'dependencies', [])
+                            }
+                            subgoals_details.append(subgoal_info)
+                            print(f"         Subgoal {i+1}: {subgoal_info['description']}")
+                            print(f"           - ID: {subgoal_info['id']}")
+                            print(f"           - LTL: {subgoal_info['ltl_formula']}")
+                            print(f"           - Type: {subgoal_info['type']}")
+                    scenario_details['subgoals_details'] = subgoals_details
+                    
                     # 3. 转换建模
                     print("     Step 3: Transition Modeling")
                     modeling_start = time.time()
+                    
+                    # 记录可用转换
+                    available_transitions = self.transition_modeler.create_sample_transitions()
+                    print(f"       Available transitions count: {len(available_transitions)}")
+                    
                     modeling_request = ModelingRequest(
                         initial_state=scenario['initial_state'],
                         goal_state=scenario['goal_state'],
-                        available_transitions=self.transition_modeler.create_sample_transitions()
+                        available_transitions=available_transitions
                     )
                     
                     modeling_response = self.transition_modeler.model_transitions(modeling_request)
@@ -430,6 +453,17 @@ class FourModuleIntegrationTester:
                     scenario_details['sequences_count'] = sequences_count
                     print(f"       ✓ Transition modeling successful, created {sequences_count} sequences")
                     
+                    # 添加转换建模详细信息
+                    if hasattr(modeling_response, 'predicted_sequences'):
+                        sequences_info = []
+                        for seq_idx, sequence in enumerate(modeling_response.predicted_sequences):
+                            seq_info = {
+                                'index': seq_idx,
+                                'length': len(sequence) if hasattr(sequence, '__len__') else 0
+                            }
+                            sequences_info.append(seq_info)
+                        scenario_details['sequences_info'] = sequences_info
+                    
                     # 4. 动作序列生成
                     print("     Step 4: Action Sequencing")
                     
@@ -441,13 +475,17 @@ class FourModuleIntegrationTester:
                     ]
                     
                     # 为特定场景添加更多动作
-                    if "冰箱" in scenario['goal']:
+                    if "冰箱" in scenario['goal'] or "refrigerator" in scenario['goal'].lower():
                         test_actions.append(Action(id="open_door", name="open_door", action_type=ActionType.MANIPULATION))
+                    
+                    print(f"       Available actions: {[action.name for action in test_actions]}")
                     
                     sequencing_request = SequencingRequest(
                         initial_state=scenario['initial_state'],
                         goal_state=scenario['goal_state'],
-                        available_actions=test_actions
+                        available_actions=test_actions,
+                        subgoals=getattr(subgoal_result, 'subgoals', None),  # 传递子目标信息
+                        transition_modeling_result=modeling_response  # 传递转换建模结果
                     )
                     
                     action_start = time.time()
@@ -1040,7 +1078,14 @@ class FourModuleIntegrationTester:
             print(f"{i}. {result['test']}: {status}")
             print(f"   Message: {result['message']}")
             if 'details' in result:
-                print(f"   Details: {json.dumps(result['details'], indent=2, ensure_ascii=False)}")
+                # 自定义 JSON 编码器处理 SubgoalType
+                class SubgoalTypeEncoder(json.JSONEncoder):
+                    def default(self, obj):
+                        # 处理 SubgoalType 枚举
+                        if hasattr(obj, '__class__') and obj.__class__.__name__ == 'SubgoalType':
+                            return obj.name  # 返回枚举名称
+                        return super().default(obj)
+                print(f"   Details: {json.dumps(result['details'], indent=2, ensure_ascii=False, cls=SubgoalTypeEncoder)}")
             print()
         
         # 模块状态总结

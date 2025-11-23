@@ -1,0 +1,88 @@
+# Simulation Environment Configuration
+# This file configures simulation environments for the EAI Challenge
+
+# Common configuration settings
+general:
+  simulation_engine: "igibson"  # Options: "igibson", "behavior"
+  verbose: true
+  log_level: "INFO"
+  output_dir: "./simulation_results"
+
+# iGibson environment configuration
+igibson:
+  version: "2.0"
+  scene_id: "Rs_int"
+  mode: "headless"  # Options: "headless", "gui"
+  resolution: [256, 256]
+  # Agent configuration
+  agent:
+    name: "turtlebot"
+    sensor_config:
+      rgb_camera:
+        enabled: true
+        resolution: [256, 256]
+      depth_camera:
+        enabled: true
+        resolution: [256, 256]
+      lidar:
+        enabled: false
+  # Physics settings
+  physics:
+    gravity: [-9.8, 0, 0]
+    timestep: 0.01
+    iterations: 10
+  # Task configuration
+  task:
+    max_steps: 1000
+    success_reward: 10.0
+    failure_reward: -5.0
+    time_penalty: -0.1
+
+# Behavior environment configuration
+behavior:
+  version: "0.1.0"
+  scene_id: "default_apartment"
+  mode: "headless"  # Options: "headless", "gui"
+  # Agent configuration
+  agent:
+    name: "humanoid"
+    control_mode: "velocity"
+  # Task configuration
+  task:
+    max_duration: 60.0  # seconds
+    success_threshold: 0.9
+  # Rendering settings
+  rendering:
+    enabled: true
+    resolution: [512, 512]
+    fps: 30
+
+# Integration settings
+integration:
+  # How simulation connects to our modules
+  goal_interpretation_timeout: 5.0  # seconds
+  action_execution_timeout: 10.0  # seconds
+  state_update_frequency: 10  # Hz
+  # Data collection
+  collect_metrics: true
+  save_trajectories: true
+  save_frames: false  # Set to true for video recording
+  metrics_to_collect:
+    - "success_rate"
+    - "execution_time"
+    - "path_length"
+    - "action_accuracy"
+
+# Evaluation settings
+evaluation:
+  test_scenarios: ["kitchen", "living_room", "bedroom"]
+  metrics:
+    success_criteria: "goal_achieved"
+    timeout: 300.0  # seconds per scenario
+    num_trials: 5  # Number of trials per scenario
+
+# Debug settings
+debug:
+  enable_visualization: false
+  print_state_updates: false
+  save_debug_logs: true

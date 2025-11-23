@@ -85,6 +85,8 @@ class SequencingRequest:
     state_transitions: Optional[List[Dict[str, Any]]] = None
     constraints: Optional[Dict[str, Any]] = None
     preferences: Optional[Dict[str, Any]] = None
+    subgoals: Optional[List[Any]] = None  # 子目标信息
+    transition_modeling_result: Optional[Any] = None  # 转换建模结果
     
     def validate(self) -> bool:
         """验证请求的有效性"""
@@ -263,8 +265,20 @@ class ActionSequencer:
             # 准备状态转换
             state_transitions = None
             if enhanced_request.state_transitions:
-                # 假设StateTransition类已定义，这里保持原有的转换逻辑
-                state_transitions = enhanced_request.state_transitions
+                # 添加类型检查和错误处理，确保state_transitions是正确的类型
+                try:
+                    # 检查是否为列表类型
+                    if isinstance(enhanced_request.state_transitions, list):
+                        state_transitions = enhanced_request.state_transitions
+                    else:
+                        # 如果不是列表，尝试转换或者使用空列表
+                        if self.config.enable_logging:
+                            self.logger.warning(f"state_transitions is not a list, type: {type(enhanced_request.state_transitions).__name__}")
+                        state_transitions = []
+                except Exception as e:
+                    if self.config.enable_logging:
+                        self.logger.error(f"Error processing state_transitions: {str(e)}")
+                    state_transitions = []
             
             # 执行规划
             planning_result = self.action_planner.plan(
@@ -414,10 +428,16 @@ class ActionSequencer:
             
             # 检查是否达到目标状态
             goal_achieved = True
-            for key, goal_value in goal_state.items():
-                if current_state.get(key) != goal_value:
-                    goal_achieved = False
-                    warnings.append(f"Goal state not achieved for variable: {key}")
+            # 添加类型检查确保 goal_state 是字典类型
+            if isinstance(goal_state, dict):
+                for key, goal_value in goal_state.items():
+                    if current_state.get(key) != goal_value:
+                        goal_achieved = False
+                        warnings.append(f"Goal state not achieved for variable: {key}")
+            else:
+                # 如果 goal_state 不是字典，记录警告并设置目标未达成
+                warnings.append(f"Warning: goal_state is not a dictionary but a {type(goal_state).__name__}")
+                goal_achieved = False
             
             # 如果启用了AuDeRe，使用它进行额外的序列验证
             aude_re_validation = True
@@ -704,32 +724,33 @@ class ActionSequencer:
                                      initial_state: Dict[str, Any],
                                      goal_state: Dict[str, Any]) -> ActionSequence:
         """
-        使用AuDeRe增强动作序列
+        Enhance action sequence using AuDeRe
         
         Args:
-            action_sequence: 原始动作序列
-            initial_state: 初始状态
-            goal_state: 目标状态
+            action_sequence: Original action sequence
+            initial_state: Initial state
+            goal_state: Goal state
             
         Returns:
-            ActionSequence: 增强后的动作序列
+            ActionSequence: Enhanced action sequence
         """
         if not self.aude_re:
             return action_sequence
         
         try:
-            # 识别动作模式
-            action_dicts = [{
-                'type': action.name,
-                'target': action.parameters.get('target'),
-                'parameters': action.parameters
-            } for action in action_sequence.actions]
-            
-            recognized_patterns = self.aude_re.recognize_action_patterns(str(action_dicts))
-            if recognized_patterns:
-                self.stats['aude_re_pattern_recognitions'] += len(recognized_patterns)
-                if self.config.enable_logging:
-                    self.logger.info(f"Recognized {len(recognized_patterns)} action patterns")
+            # 识别动作模式 - 对每个动作单独识别模式，而不是将整个列表转换为字符串
+            for action in action_sequence.actions:
+                # 为每个动作创建自然语言描述
+                action_desc = f"{action.name} "
+                if action.parameters:
+                    if 'target' in action.parameters:
+                        action_desc += f"{action.parameters['target']}"
+                
+                recognized_patterns = self.aude_re.recognize_action_patterns(action_desc)
+                if recognized_patterns:
+                    self.stats['aude_re_pattern_recognitions'] += len(recognized_patterns)
+                    if self.config.enable_logging:
+                        self.logger.info(f"Recognized {len(recognized_patterns)} action patterns for {action.name}")
             
             # 优化动作序列
             if hasattr(self.aude_re, 'optimize_action_sequence'):

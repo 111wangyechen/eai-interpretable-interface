@@ -415,12 +415,87 @@ class LogicGuard:
     
     def get_statistics(self) -> Dict[str, Any]:
         """
-        获取统计信息
+        Get statistics information
         
         Returns:
-            统计信息字典
+            Dictionary containing statistics information
         """
         return self.stats.copy()
+    
+    def validate_ltl_specifications(self, initial_state: Dict[str, Any], 
+                                   transitions: List[StateTransition], 
+                                   goal_state: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Validate state transition sequences using LTL specifications
+        
+        Args:
+            initial_state: Initial state
+            transitions: List of state transitions
+            goal_state: Goal state
+            
+        Returns:
+            Dictionary containing validation results and detailed information
+        """
+        try:
+            # Create a TransitionSequence object from the input parameters
+            sequence = TransitionSequence(
+                id="validation_sequence",
+                initial_state=initial_state,
+                transitions=transitions,
+                goal_state=goal_state
+            )
+            
+            # Get the LTL specifications
+            specifications = self.extract_ltl_specifications({})
+            
+            # Validate using the existing validate_with_ltl method
+            validation_results = self.validate_with_ltl(sequence, specifications)
+            
+            # Collect detailed information about each specification
+            detailed_specs = []
+            for spec in specifications:
+                spec_info = {
+                    'name': spec.name,
+                    'formula': spec.formula,
+                    'priority': spec.priority,
+                    'satisfied': validation_results.get(spec.name, True),
+                    'violations': [
+                        {
+                            'step': v[0],
+                            'state': v[1],
+                            'message': v[2]
+                        } for v in spec.violations
+                    ]
+                }
+                detailed_specs.append(spec_info)
+            
+            # Construct the result dictionary
+            result = {
+                'valid': all(validation_results.values()) if validation_results else True,
+                'specifications': detailed_specs,
+                'total_verifications': self.stats['ltl_verifications'],
+                'total_violations': self.stats['ltl_violations']
+            }
+            
+            # Check if logging is enabled in config or use default
+            if self.config.get('enable_logging', False):
+                self.logger.info(f"LTL validation completed: valid={result['valid']}, specs_checked={len(specifications)}")
+            
+            return result
+            
+        except Exception as e:
+            # Check if logging is enabled in config or use default
+            if self.config.get('enable_logging', False):
+                self.logger.error(f"Error during LTL validation: {str(e)}")
+            
+            # Return a failure result
+            return {
+                'valid': False,
+                'specifications': [],
+                'total_verifications': self.stats['ltl_verifications'],
+                'total_violations': self.stats['ltl_violations'],
+                'error': str(e)
+            }
     
     def clear_cache(self):
         """清除缓存"""
