@@ -42,6 +42,9 @@ from .action_data import Action, ActionSequence, ActionType, ActionStatus
 from .state_manager import EnvironmentState, StateManager
 from .action_planner import ActionPlanner, PlanningAlgorithm, PlanningResult, HeuristicType
 from .aude_re import AuDeRe, AudereConfig, create_aude_re
+import importlib
+from . import behavior_action_library
+importlib.reload(behavior_action_library)
 from .behavior_action_library import get_behavior_action_library, validate_action_against_behavior_library
 
 

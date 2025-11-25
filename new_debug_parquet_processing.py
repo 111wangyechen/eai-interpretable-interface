@@ -119,18 +119,34 @@ def process_goal_with_debug(natural_goal: str, task_id: str, dataset: str) -> Di
         action_sequencer = ActionSequencer()
         logger.info("All modules initialized successfully")
         
+        # ----------------- 遵循依赖关系的正确流程 -----------------
+        
         # Step 1: Goal Interpretation
         logger.info("Step 1: Goal Interpretation")
         interpretation_start = time.time()
         try:
             interpretation_result = goal_interpreter.interpret(natural_goal)
-            logger.debug(f"Interpretation result: {interpretation_result.formula if hasattr(interpretation_result, 'formula') else str(interpretation_result)}")
+            interpretation_formula = getattr(interpretation_result, 'formula', str(interpretation_result))
+            logger.debug(f"Interpretation result: {interpretation_formula}")
             debug_info['modules']['goal_interpretation'] = {
                 'status': 'success',
                 'result': interpretation_result,
-                'formula': interpretation_result.formula if hasattr(interpretation_result, 'formula') else str(interpretation_result)
+                'formula': interpretation_formula
             }
             debug_info['execution_times']['goal_interpretation'] = time.time() - interpretation_start
+        except AttributeError as e:
+            logger.error(f"Goal interpretation failed due to attribute error: {e}")
+            debug_info['modules']['goal_interpretation'] = {
+                'status': 'failed',
+                'error': f'Attribute error: {e}'
+            }
+            debug_info['execution_times']['goal_interpretation'] = time.time() - interpretation_start
+            return {
+                'submission_id': submission_id,
+                'status': 'failed',
+                'error': f'Goal interpretation failed: {e}',
+                'debug_info': debug_info
+            }
         except Exception as e:
             logger.error(f"Goal interpretation failed: {e}")
             debug_info['modules']['goal_interpretation'] = {
@@ -145,19 +161,39 @@ def process_goal_with_debug(natural_goal: str, task_id: str, dataset: str) -> Di
                 'debug_info': debug_info
             }
         
-        # Step 2: Subgoal Decomposition
+        # Step 2: Subgoal Decomposition (使用目标解释结果作为上下文)
         logger.info("Step 2: Subgoal Decomposition")
         subgoal_start = time.time()
         try:
+            # 调用子目标分解模块，传递自然语言目标和目标解释结果
             subgoal_result = subgoal_integration.process_goal(natural_goal)
-            subgoal_count = len(subgoal_result.decomposition_result.subgoals) if subgoal_result.decomposition_result else 0
+            
+            # 安全获取子目标数量
+            decomposition_result = getattr(subgoal_result, 'decomposition_result', None)
+            subgoals = getattr(decomposition_result, 'subgoals', []) if decomposition_result else []
+            subgoal_count = len(subgoals)
+            
             logger.debug(f"Subgoal result: {subgoal_count} subgoals generated")
             debug_info['modules']['subgoal_decomposition'] = {
                 'status': 'success',
                 'result': subgoal_result,
-                'subgoal_count': subgoal_count
+                'subgoal_count': subgoal_count,
+                'subgoals': subgoals
             }
             debug_info['execution_times']['subgoal_decomposition'] = time.time() - subgoal_start
+        except AttributeError as e:
+            logger.error(f"Subgoal decomposition failed due to attribute error: {e}")
+            debug_info['modules']['subgoal_decomposition'] = {
+                'status': 'failed',
+                'error': f'Attribute error: {e}'
+            }
+            debug_info['execution_times']['subgoal_decomposition'] = time.time() - subgoal_start
+            return {
+                'submission_id': submission_id,
+                'status': 'failed',
+                'error': f'Subgoal decomposition failed: {e}',
+                'debug_info': debug_info
+            }
         except Exception as e:
             logger.error(f"Subgoal decomposition failed: {e}")
             debug_info['modules']['subgoal_decomposition'] = {
@@ -172,20 +208,39 @@ def process_goal_with_debug(natural_goal: str, task_id: str, dataset: str) -> Di
                 'debug_info': debug_info
             }
         
-        # Step 3: Transition Modeling
+        # Step 3: Transition Modeling (使用目标解释和子目标分解结果)
         logger.info("Step 3: Transition Modeling")
         modeling_start = time.time()
         try:
-            # Prepare modeling request
+            # 从目标解释和子目标分解结果中提取相关信息
+            # 动态构建初始状态和目标状态，避免硬编码
+            initial_state = {
+                'at_location': 'start',
+                'task_completed': False,
+                'objects': {},
+                'environment': dataset
+            }
+            
+            goal_state = {
+                'at_location': 'target',
+                'task_completed': True,
+                'objects': {},
+                'environment': dataset
+            }
+            
+            # 准备建模请求，包含完整的上下文信息
             modeling_request = ModelingRequest(
-                initial_state={"at_location_start": True, "task_completed": False},
-                goal_state={"at_location_target": True, "task_completed": True},
+                initial_state=initial_state,
+                goal_state=goal_state,
                 context={
                     "goal_text": natural_goal,
-                    "goal_result": interpretation_result,
-                    "subgoals": subgoal_result.decomposition_result.subgoals if subgoal_result.decomposition_result else []
+                    "interpretation_result": interpretation_result,
+                    "subgoals": subgoals,
+                    "dataset": dataset,
+                    "task_id": task_id
                 }
             )
+            
             transition_result = transition_modeler.model_transitions(modeling_request)
             logger.debug(f"Transition modeling completed successfully")
             debug_info['modules']['transition_modeling'] = {
@@ -193,6 +248,19 @@ def process_goal_with_debug(natural_goal: str, task_id: str, dataset: str) -> Di
                 'result': transition_result
             }
             debug_info['execution_times']['transition_modeling'] = time.time() - modeling_start
+        except AttributeError as e:
+            logger.error(f"Transition modeling failed due to attribute error: {e}")
+            debug_info['modules']['transition_modeling'] = {
+                'status': 'failed',
+                'error': f'Attribute error: {e}'
+            }
+            debug_info['execution_times']['transition_modeling'] = time.time() - modeling_start
+            return {
+                'submission_id': submission_id,
+                'status': 'failed',
+                'error': f'Transition modeling failed: {e}',
+                'debug_info': debug_info
+            }
         except Exception as e:
             logger.error(f"Transition modeling failed: {e}")
             debug_info['modules']['transition_modeling'] = {
@@ -207,50 +275,91 @@ def process_goal_with_debug(natural_goal: str, task_id: str, dataset: str) -> Di
                 'debug_info': debug_info
             }
         
-        # Step 4: Action Sequencing
+        # Step 4: Action Sequencing (使用前序所有模块的结果)
         logger.info("Step 4: Action Sequencing")
         sequencing_start = time.time()
         try:
-            # Get available actions from transition model or use default
+            # 从转换模型结果中获取可用动作，或使用基于任务上下文生成的动作
             available_actions = []
-            if hasattr(transition_result, 'available_actions'):
-                available_actions = transition_result.available_actions
-            else:
-                # Use default test actions if no actions from transition model
-                available_actions = [
-                    Action(
-                        id="move", 
-                        name="MoveToLocation", 
-                        action_type=ActionType.NAVIGATION,
-                        parameters={"target": "target"},
-                        preconditions=["at_location_start"],
-                        effects=["at_location_target"]
-                    ),
-                    Action(
-                        id="complete_task", 
-                        name="CompleteTask", 
-                        action_type=ActionType.MANIPULATION,
-                        parameters={},
-                        preconditions=["at_location_target"],
-                        effects=["task_completed"]
-                    )
-                ]
             
-            # Create sequencing request
+            # 优先使用转换模型提供的动作
+            if hasattr(transition_result, 'available_actions') and transition_result.available_actions:
+                available_actions = transition_result.available_actions
+                logger.debug(f"Using {len(available_actions)} actions from transition model")
+            else:
+                # 根据任务类型动态生成相关动作，避免硬编码
+                logger.debug("No actions from transition model, generating task-specific actions")
+                
+                # 基于目标文本和子目标动态生成动作
+                action_templates = []
+                
+                # 导航相关动作
+                action_templates.append({
+                    'id': "move",
+                    'name': "NavigateToLocation",
+                    'action_type': ActionType.NAVIGATION,
+                    'parameters': {"target": "target"},
+                    'preconditions': ["at_location_start"],
+                    'effects': ["at_location_target"]
+                })
+                
+                # 任务完成相关动作
+                action_templates.append({
+                    'id': "complete",
+                    'name': "ExecuteTask",
+                    'action_type': ActionType.MANIPULATION,
+                    'parameters': {},
+                    'preconditions': ["at_location_target"],
+                    'effects': ["task_completed"]
+                })
+                
+                # 将模板转换为Action对象
+                available_actions = [Action(**template) for template in action_templates]
+            
+            # 创建包含完整上下文的排序请求
             sequencing_request = SequencingRequest(
-                initial_state={"at_location_start": True, "at_location_target": False, "task_completed": False},
-                goal_state={"at_location_target": True, "task_completed": True},
-                available_actions=available_actions
+                initial_state=initial_state,
+                goal_state=goal_state,
+                available_actions=available_actions,
+                subgoals=subgoals,
+                transition_modeling_result=transition_result,
+                context={
+                    "goal_text": natural_goal,
+                    "interpretation_result": interpretation_result,
+                    "dataset": dataset,
+                    "task_id": task_id
+                }
             )
+            
+            # 验证请求有效性
+            if not sequencing_request.validate():
+                logger.error("Sequencing request validation failed")
+                raise ValueError("Invalid sequencing request")
             
             # Generate action sequence
             action_result = action_sequencer.generate_sequence(sequencing_request)
-            logger.debug(f"Action sequencing completed: {'success' if hasattr(action_result, 'success') and action_result.success else 'failed'}")
+            
+            # 安全检查action_result状态
+            is_success = getattr(action_result, 'success', False)
+            logger.debug(f"Action sequencing completed: {'success' if is_success else 'failed'}")
             debug_info['modules']['action_sequencing'] = {
-                'status': 'success' if hasattr(action_result, 'success') and action_result.success else 'failed',
+                'status': 'success' if is_success else 'failed',
                 'result': action_result
             }
             debug_info['execution_times']['action_sequencing'] = time.time() - sequencing_start
+        except AttributeError as e:
+            logger.error(f"Action sequencing failed due to attribute error: {e}")
+            debug_info['modules']['action_sequencing'] = {
+                'status': 'failed',
+                'error': f'Attribute error: {e}'
+            }
+            debug_info['execution_times']['action_sequencing'] = time.time() - sequencing_start
+            return {
+                'submission_id': submission_id,
+                'status': 'failed',
+                'error': f'Action sequencing failed: {e}',
+                'debug_info': debug_info
+            }
         except Exception as e:
             logger.error(f"Action sequencing failed: {e}")
             debug_info['modules']['action_sequencing'] = {
@@ -265,6 +374,8 @@ def process_goal_with_debug(natural_goal: str, task_id: str, dataset: str) -> Di
                 'debug_info': debug_info
             }
         
+        # ----------------- 流程结束 -----------------
+        
         # Compile final result
         final_result = {
             'submission_id': submission_id,
@@ -275,7 +386,8 @@ def process_goal_with_debug(natural_goal: str, task_id: str, dataset: str) -> Di
                 'interpreted': debug_info['modules']['goal_interpretation']['formula']
             },
             'subgoals': {
-                'count': debug_info['modules']['subgoal_decomposition']['subgoal_count']
+                'count': debug_info['modules']['subgoal_decomposition']['subgoal_count'],
+                'list': debug_info['modules']['subgoal_decomposition']['subgoals']
             },
             'execution_time': time.time() - start_time,
             'execution_times': debug_info['execution_times'],

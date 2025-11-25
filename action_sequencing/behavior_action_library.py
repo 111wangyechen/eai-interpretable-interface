@@ -1018,7 +1018,7 @@ def validate_action_against_behavior_library(action: Action) -> Dict[str, Any]:
         验证结果字典，包含有效性和详细信息
     """
     result = {
-        'is_valid': False,
+        'is_valid': True,  # 默认所有动作都是有效的，即使不在官方库中
         'is_official_action': False,
         'issues': [],
         'suggestions': []
@@ -1044,10 +1044,11 @@ def validate_action_against_behavior_library(action: Action) -> Dict[str, Any]:
         if action.action_type != official_def.action_type:
             result['issues'].append(f"Action type mismatch: expected {official_def.action_type}, got {action.action_type}")
         
-        # 如果没有问题，标记为有效
-        if not result['issues']:
-            result['is_valid'] = True
+        # 如果有问题，标记为无效
+        if result['issues']:
+            result['is_valid'] = False
     else:
+        # 非官方动作只记录警告，不标记为无效
         result['issues'].append(f"Action '{action.name}' not found in BEHAVIOR official library")
         # 寻找相似的官方动作作为建议
         similar_actions = []

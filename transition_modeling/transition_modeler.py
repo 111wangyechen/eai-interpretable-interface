@@ -10,6 +10,8 @@ import logging
 import time
 import json
 import os
+import uuid
+import hashlib
 from pathlib import Path
 
 # 导入LogicGuard模块
@@ -305,8 +307,6 @@ class TransitionModeler:
         Returns:
             建模响应
         """
-        import uuid
-        import hashlib
         start_time = time.time()
         self.modeling_stats['total_requests'] += 1
         

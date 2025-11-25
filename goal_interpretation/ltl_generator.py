@@ -6,6 +6,7 @@ LTL公式生成器
 """
 
 from typing import Dict, List, Optional, Union
+import re
 
 
 class LTLGenerator:

@@ -129,7 +129,7 @@ def process_goal(natural_goal: str, output_dir: str, task_id: str, dataset: str)
         print(f"   Step 4: Generating action sequence...")
         # Get available actions from transition model or use default
         available_actions = []
-        if hasattr(modeling_response, 'available_actions'):
+        if hasattr(modeling_response, 'available_actions') and modeling_response.available_actions:
             available_actions = modeling_response.available_actions
         else:
             # Use default test actions if no actions from transition model
