@@ -93,8 +93,17 @@ class MainIntegrator:
         sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         
         try:
+            # 动态导入官方embodied-agent-interface评估器（处理连字符模块名问题）
+            import sys
+            import os
+            
+            # 将embodied-agent-interface目录添加到sys.path
+            eai_path = os.path.join(os.path.dirname(__file__), '..', 'embodied-agent-interface')
+            if eai_path not in sys.path:
+                sys.path.insert(0, eai_path)
+            
             # 从embodied-agent-interface导入目标解释评估器
-            from embodied-agent-interface.src.behavior_eval.evaluation.goal_interpretation.scripts.evaluate_results import goal_interpretation_data
+            from src.behavior_eval.evaluation.goal_interpretation.scripts.evaluate_results import goal_interpretation_data
             self.goal_interpretation_data = goal_interpretation_data()
             # 创建兼容层
             from goal_interpretation.goal_interpreter_integration import GoalInterpreterIntegration
@@ -109,7 +118,7 @@ class MainIntegrator:
         
         try:
             # 从embodied-agent-interface导入子目标分解相关模块
-            from embodied-agent-interface.src.behavior_eval.evaluation.subgoal_decomposition.checkers import SubgoalPlan
+            from src.behavior_eval.evaluation.subgoal_decomposition.checkers import SubgoalPlan
             self.subgoal_plan_class = SubgoalPlan
             # 创建兼容层
             from subgoal_decomposition.subgoal_decomposer_integration import SubgoalDecomposerIntegration
@@ -121,7 +130,7 @@ class MainIntegrator:
         
         try:
             # 从embodied-agent-interface导入转换建模评估器
-            from embodied-agent-interface.src.behavior_eval.evaluation.transition_modeling.transition_modeling_evaluator import TransitionModelingEvaluator
+            from src.behavior_eval.evaluation.transition_modeling.transition_modeling_evaluator import TransitionModelingEvaluator
             # 创建兼容层
             from transition_modeling.transition_modeler_integration import TransitionModelerIntegration
             self.transition_modeler = TransitionModelerIntegration(
@@ -135,7 +144,7 @@ class MainIntegrator:
         
         try:
             # 从embodied-agent-interface导入动作序列评估器
-            from embodied-agent-interface.src.behavior_eval.evaluation.action_sequencing.action_sequence_evaluator import ActionSequenceEvaluator
+            from src.behavior_eval.evaluation.action_sequencing.action_sequence_evaluator import ActionSequenceEvaluator
             # 创建兼容层
             from action_sequencing.action_sequencer_integration import ActionSequencerIntegration
             self.action_sequencer = ActionSequencerIntegration(
