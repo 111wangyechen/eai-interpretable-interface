@@ -1,0 +1,3957 @@
+{
+  "timestamp": "2025-11-25T13:26:56.091828",
+  "submission_version": "1.0.0",
+  "total_datasets": 2,
+  "total_tasks": 438,
+  "successful_tasks": 0,
+  "failed_tasks": 438,
+  "success_rate": 0.0,
+  "datasets": [
+    "virtualhome-00000-of-00001.parquet",
+    "behavior-00000-of-00001.parquet"
+  ],
+  "results": [
+    {
+      "submission_id": "virtualhome_27_2_1764048415300",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.307790",
+      "dataset": "virtualhome",
+      "task_id": "27_2",
+      "natural_goal": "Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine."
+    },
+    {
+      "submission_id": "virtualhome_417_1_1764048415308",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.309031",
+      "dataset": "virtualhome",
+      "task_id": "417_1",
+      "natural_goal": "I will load the dirty clothes into the washing machine."
+    },
+    {
+      "submission_id": "virtualhome_850_1_1764048415309",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.310071",
+      "dataset": "virtualhome",
+      "task_id": "850_1",
+      "natural_goal": "Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on."
+    },
+    {
+      "submission_id": "virtualhome_954_2_1764048415310",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.311064",
+      "dataset": "virtualhome",
+      "task_id": "954_2",
+      "natural_goal": "I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine."
+    },
+    {
+      "submission_id": "virtualhome_11_1_1764048415311",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.311964",
+      "dataset": "virtualhome",
+      "task_id": "11_1",
+      "natural_goal": "I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it."
+    },
+    {
+      "submission_id": "virtualhome_120_1_1764048415312",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.312762",
+      "dataset": "virtualhome",
+      "task_id": "120_1",
+      "natural_goal": "Go to the kitchen and living room and turn on the lights."
+    },
+    {
+      "submission_id": "virtualhome_125_2_1764048415312",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.313548",
+      "dataset": "virtualhome",
+      "task_id": "125_2",
+      "natural_goal": "turn on the light for room"
+    },
+    {
+      "submission_id": "virtualhome_150_2_1764048415313",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.314348",
+      "dataset": "virtualhome",
+      "task_id": "150_2",
+      "natural_goal": "push any ligth button to turn it on, for example in the living room"
+    },
+    {
+      "submission_id": "virtualhome_160_1_1764048415314",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.315132",
+      "dataset": "virtualhome",
+      "task_id": "160_1",
+      "natural_goal": "Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one."
+    },
+    {
+      "submission_id": "virtualhome_180_2_1764048415315",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.315809",
+      "dataset": "virtualhome",
+      "task_id": "180_2",
+      "natural_goal": "Find the light circuit breaker in the kitchen"
+    },
+    {
+      "submission_id": "virtualhome_205_1_1764048415315",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.316494",
+      "dataset": "virtualhome",
+      "task_id": "205_1",
+      "natural_goal": "Walk into the bedroom and walk to the light switch. Flip the switch."
+    },
+    {
+      "submission_id": "virtualhome_222_1_1764048415316",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.317350",
+      "dataset": "virtualhome",
+      "task_id": "222_1",
+      "natural_goal": "walk into living room, walk to light, turn on light switch."
+    },
+    {
+      "submission_id": "virtualhome_232_2_1764048415317",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.318161",
+      "dataset": "virtualhome",
+      "task_id": "232_2",
+      "natural_goal": "I need to turn on the lights in the kitchen so I can make dinner."
+    },
+    {
+      "submission_id": "virtualhome_310_1_1764048415318",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.319058",
+      "dataset": "virtualhome",
+      "task_id": "310_1",
+      "natural_goal": "I enter the bedroom and find the light. Then I turn it on."
+    },
+    {
+      "submission_id": "virtualhome_311_1_1764048415319",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.319862",
+      "dataset": "virtualhome",
+      "task_id": "311_1",
+      "natural_goal": "I go home and it's dark so I can not see anything"
+    },
+    {
+      "submission_id": "virtualhome_331_2_1764048415319",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.320586",
+      "dataset": "virtualhome",
+      "task_id": "331_2",
+      "natural_goal": "switching on light in an area"
+    },
+    {
+      "submission_id": "virtualhome_345_1_1764048415320",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.321366",
+      "dataset": "virtualhome",
+      "task_id": "345_1",
+      "natural_goal": "We enter into the Living room and walk towards light switch. Then switch on the light."
+    },
+    {
+      "submission_id": "virtualhome_392_1_1764048415321",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.322115",
+      "dataset": "virtualhome",
+      "task_id": "392_1",
+      "natural_goal": "find lightswitch. walk to light switch. turn on light."
+    },
+    {
+      "submission_id": "virtualhome_394_2_1764048415322",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.322872",
+      "dataset": "virtualhome",
+      "task_id": "394_2",
+      "natural_goal": "Find light switch. switch on"
+    },
+    {
+      "submission_id": "virtualhome_432_1_1764048415322",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.323799",
+      "dataset": "virtualhome",
+      "task_id": "432_1",
+      "natural_goal": "Walk over to light switch, flip the switch to the on position"
+    },
+    {
+      "submission_id": "virtualhome_443_2_1764048415323",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.324591",
+      "dataset": "virtualhome",
+      "task_id": "443_2",
+      "natural_goal": "Turning on lights"
+    },
+    {
+      "submission_id": "virtualhome_445_1_1764048415324",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.325426",
+      "dataset": "virtualhome",
+      "task_id": "445_1",
+      "natural_goal": "Walk to living room, go to a light switch button, press button, confirm the light is on, go to next light switch button, press button, confirm the light is on"
+    },
+    {
+      "submission_id": "virtualhome_511_1_1764048415325",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.326146",
+      "dataset": "virtualhome",
+      "task_id": "511_1",
+      "natural_goal": "Walk over to light switch. Turn on lights."
+    },
+    {
+      "submission_id": "virtualhome_585_1_1764048415326",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.327009",
+      "dataset": "virtualhome",
+      "task_id": "585_1",
+      "natural_goal": "I walk up to the light switch in the entrance hall and flick it on. Then I flick on the light switch in the living room, and switch on the floor lamp. Then I walk into the adjacent kitchen and switch on the lights there."
+    },
+    {
+      "submission_id": "virtualhome_604_2_1764048415327",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.327790",
+      "dataset": "virtualhome",
+      "task_id": "604_2",
+      "natural_goal": "for i = 1 to n, where n is the number of lights: locate light i, move to light i, switch on light i"
+    },
+    {
+      "submission_id": "virtualhome_616_1_1764048415327",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.328521",
+      "dataset": "virtualhome",
+      "task_id": "616_1",
+      "natural_goal": "flip the switch and turn on the lights"
+    },
+    {
+      "submission_id": "virtualhome_705_1_1764048415328",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.329339",
+      "dataset": "virtualhome",
+      "task_id": "705_1",
+      "natural_goal": "Walk to the living room, walk to the lamp, switch on the lamp."
+    },
+    {
+      "submission_id": "virtualhome_708_1_1764048415329",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.330129",
+      "dataset": "virtualhome",
+      "task_id": "708_1",
+      "natural_goal": "Go to the living room and turn on the lights"
+    },
+    {
+      "submission_id": "virtualhome_715_2_1764048415330",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.331287",
+      "dataset": "virtualhome",
+      "task_id": "715_2",
+      "natural_goal": "walk to wall, find light switch, turn on lights"
+    },
+    {
+      "submission_id": "virtualhome_737_2_1764048415331",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.333089",
+      "dataset": "virtualhome",
+      "task_id": "737_2",
+      "natural_goal": "I walk in to the living room. I find the light switch. I turn on the lights."
+    },
+    {
+      "submission_id": "virtualhome_780_1_1764048415333",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.334821",
+      "dataset": "virtualhome",
+      "task_id": "780_1",
+      "natural_goal": "Turn on the lights in the house"
+    },
+    {
+      "submission_id": "virtualhome_812_1_1764048415335",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.336525",
+      "dataset": "virtualhome",
+      "task_id": "812_1",
+      "natural_goal": "I walk in the bedroom and notice it is dark. I flip on the lamp switch so that the lights come on."
+    },
+    {
+      "submission_id": "virtualhome_835_2_1764048415336",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.337572",
+      "dataset": "virtualhome",
+      "task_id": "835_2",
+      "natural_goal": "I walk into the living room and then I walk to the light switch in there and turn the lights on"
+    },
+    {
+      "submission_id": "virtualhome_85_2_1764048415337",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.338479",
+      "dataset": "virtualhome",
+      "task_id": "85_2",
+      "natural_goal": "walk in kitchen. switch on light. walk in living room. switch on light.walk in entrance hall. switch on light."
+    },
+    {
+      "submission_id": "virtualhome_874_2_1764048415338",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.339354",
+      "dataset": "virtualhome",
+      "task_id": "874_2",
+      "natural_goal": "I walk towards to the bedroom, and I open the door of the bedroom, and I switch on the lights inside the bedroom, the switch is beside the door."
+    },
+    {
+      "submission_id": "virtualhome_491_2_1764048415339",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.340084",
+      "dataset": "virtualhome",
+      "task_id": "491_2",
+      "natural_goal": "go to the bathroom and brush your teeth"
+    },
+    {
+      "submission_id": "virtualhome_696_1_1764048415340",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.340845",
+      "dataset": "virtualhome",
+      "task_id": "696_1",
+      "natural_goal": "EARLY MORNING AND BEFORE GOING TO BED"
+    },
+    {
+      "submission_id": "virtualhome_1003_2_1764048415340",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.341959",
+      "dataset": "virtualhome",
+      "task_id": "1003_2",
+      "natural_goal": "go to the home office and write an email"
+    },
+    {
+      "submission_id": "virtualhome_115_2_1764048415342",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.343352",
+      "dataset": "virtualhome",
+      "task_id": "115_2",
+      "natural_goal": "go to home office,switch on computer and send the mail by typing with keyboard"
+    },
+    {
+      "submission_id": "virtualhome_407_1_1764048415343",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.344148",
+      "dataset": "virtualhome",
+      "task_id": "407_1",
+      "natural_goal": "Walk to Home office. Sit on the chair. Switch on the computer. Find address in addressbook. Type in the keyboard. Write mail."
+    },
+    {
+      "submission_id": "virtualhome_430_1_1764048415344",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.344986",
+      "dataset": "virtualhome",
+      "task_id": "430_1",
+      "natural_goal": "I need to send an email to my friend so I go into my office and sit down at the desk. I turn on the computer and type the email."
+    },
+    {
+      "submission_id": "virtualhome_481_2_1764048415345",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.345841",
+      "dataset": "virtualhome",
+      "task_id": "481_2",
+      "natural_goal": "Switch on computer, Use keybord and mouse to open e-mail provider, type requested e-mail, click send, close e-mail provider, turn off computer"
+    },
+    {
+      "submission_id": "virtualhome_622_1_1764048415345",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.346693",
+      "dataset": "virtualhome",
+      "task_id": "622_1",
+      "natural_goal": "Walk to the office, sit down on chair, attach keyboard to the computer, attach mouse to the computer, switch the computer on, type the email on the keyboard"
+    },
+    {
+      "submission_id": "virtualhome_699_1_1764048415346",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.348235",
+      "dataset": "virtualhome",
+      "task_id": "699_1",
+      "natural_goal": "I wrote the task completion in a Notebook. After completing the work, I send email to my Superior. I done this task in day to day activity."
+    },
+    {
+      "submission_id": "virtualhome_824_1_1764048415348",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.349675",
+      "dataset": "virtualhome",
+      "task_id": "824_1",
+      "natural_goal": "I go to my office and sit at my desk. Turn on the computer and type my email at the keyboard."
+    },
+    {
+      "submission_id": "virtualhome_87_2_1764048415349",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.351437",
+      "dataset": "virtualhome",
+      "task_id": "87_2",
+      "natural_goal": "walk to home office and switch on laptop and with the useof mouse and keyboard send mail"
+    },
+    {
+      "submission_id": "virtualhome_986_2_1764048415351",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.352367",
+      "dataset": "virtualhome",
+      "task_id": "986_2",
+      "natural_goal": "I walk to the Home Office then find the computer and sit in the chair. I switch on the computer and start typing the email. I switch the computer off."
+    },
+    {
+      "submission_id": "virtualhome_996_2_1764048415352",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.354258",
+      "dataset": "virtualhome",
+      "task_id": "996_2",
+      "natural_goal": "I go to my bed room and sit on the chair and in front of me is my desktop computer and start writing an email."
+    },
+    {
+      "submission_id": "virtualhome_1004_2_1764048415354",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.355708",
+      "dataset": "virtualhome",
+      "task_id": "1004_2",
+      "natural_goal": "walk to kitchen, walk to fridge, look at bags, grab groceries, put groceries in fridge."
+    },
+    {
+      "submission_id": "virtualhome_152_2_1764048415355",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.357004",
+      "dataset": "virtualhome",
+      "task_id": "152_2",
+      "natural_goal": "take every item from groceries bag and put them in the fridge"
+    },
+    {
+      "submission_id": "virtualhome_298_2_1764048415357",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.358614",
+      "dataset": "virtualhome",
+      "task_id": "298_2",
+      "natural_goal": "I leave the bags with groceries near the fridge, open the door and put the groceries in the shelves."
+    },
+    {
+      "submission_id": "virtualhome_609_2_1764048415358",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.359629",
+      "dataset": "virtualhome",
+      "task_id": "609_2",
+      "natural_goal": "go to the kitchen and put the groceries in the fridge"
+    },
+    {
+      "submission_id": "virtualhome_703_2_1764048415359",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.360715",
+      "dataset": "virtualhome",
+      "task_id": "703_2",
+      "natural_goal": "walk to kitchen and seprate the groceries and arrange in fridge."
+    },
+    {
+      "submission_id": "virtualhome_772_1_1764048415360",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.361851",
+      "dataset": "virtualhome",
+      "task_id": "772_1",
+      "natural_goal": "Walk to kitchen. Open fridge. Put milk in fridge. Put turkey in fridge. Put eggs in fridge. Put fish in fridge. Put chicken in fridge."
+    },
+    {
+      "submission_id": "virtualhome_837_2_1764048415362",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.363675",
+      "dataset": "virtualhome",
+      "task_id": "837_2",
+      "natural_goal": "I find the groceries and carry them into the kitchen. I place them on the counter and begin to sort them out. I place the vegetables, eggs, cheese, and milk in the fridge."
+    },
+    {
+      "submission_id": "virtualhome_158_1_1764048415363",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.364709",
+      "dataset": "virtualhome",
+      "task_id": "158_1",
+      "natural_goal": "The person will stand , walk to the bathroom, and this case look at the toilet in the bathroom as no other action was requested"
+    },
+    {
+      "submission_id": "virtualhome_323_2_1764048415364",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.365758",
+      "dataset": "virtualhome",
+      "task_id": "323_2",
+      "natural_goal": "Walk to the bathroom.  Find the toilet.  Lift the top of the toilet.  Sit on the toilet."
+    },
+    {
+      "submission_id": "virtualhome_430_2_1764048415365",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.366748",
+      "dataset": "virtualhome",
+      "task_id": "430_2",
+      "natural_goal": "When I need to use the restroom I walk to the bathroom, sit on the toilet, do my business, wipe with toilet paper, stand up and flush. Then wash my hands."
+    },
+    {
+      "submission_id": "virtualhome_478_1_1764048415366",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.367593",
+      "dataset": "virtualhome",
+      "task_id": "478_1",
+      "natural_goal": "I walk into the bath room and go to the toilet"
+    },
+    {
+      "submission_id": "virtualhome_496_1_1764048415367",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.368861",
+      "dataset": "virtualhome",
+      "task_id": "496_1",
+      "natural_goal": "I walk to the entrance of the bathroom. I turn to the door. I open the door to the bathroom. I walk inside of the bathroom. I find the toilet inside of the bathroom and walk over to it. I turn and look at the toilet."
+    },
+    {
+      "submission_id": "virtualhome_624_2_1764048415369",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.369885",
+      "dataset": "virtualhome",
+      "task_id": "624_2",
+      "natural_goal": "I go to the bathroom open the door and close it, then i sit on the toilet.... I use toilet paper, wash my hands and open the door to exit."
+    },
+    {
+      "submission_id": "virtualhome_188_1_1764048415370",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.370817",
+      "dataset": "virtualhome",
+      "task_id": "188_1",
+      "natural_goal": "its time for my favorite show and im going change with the help of remote control and watch"
+    },
+    {
+      "submission_id": "virtualhome_803_2_1764048415370",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.371668",
+      "dataset": "virtualhome",
+      "task_id": "803_2",
+      "natural_goal": "I walk in living room. I find TV remote. I grab TV remote. I sit on sofa. I switch on TV. I switch channel."
+    },
+    {
+      "submission_id": "virtualhome_960_2_1764048415371",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.372451",
+      "dataset": "virtualhome",
+      "task_id": "960_2",
+      "natural_goal": "change tv channel with the remote, then watch the tv"
+    },
+    {
+      "submission_id": "virtualhome_101_2_1764048415372",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.373296",
+      "dataset": "virtualhome",
+      "task_id": "101_2",
+      "natural_goal": "Go to office, sit at desk, turn on computer, enter password, open application and begin work"
+    },
+    {
+      "submission_id": "virtualhome_1068_1_1764048415373",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.374307",
+      "dataset": "virtualhome",
+      "task_id": "1068_1",
+      "natural_goal": "walk to home office ,find computer ,switch on computer and work"
+    },
+    {
+      "submission_id": "virtualhome_153_2_1764048415374",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.375165",
+      "dataset": "virtualhome",
+      "task_id": "153_2",
+      "natural_goal": "turn computer on, open application to work with"
+    },
+    {
+      "submission_id": "virtualhome_196_2_1764048415375",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.376895",
+      "dataset": "virtualhome",
+      "task_id": "196_2",
+      "natural_goal": "Walk to over to desk, sit down on chair and face the computer, turn the computer on, use arms to place hands on the keyboard, type work into the computer and use eyes to review."
+    },
+    {
+      "submission_id": "virtualhome_198_1_1764048415377",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.379426",
+      "dataset": "virtualhome",
+      "task_id": "198_1",
+      "natural_goal": "Sit down on chair in front of computer, turn on computer, find mouse."
+    },
+    {
+      "submission_id": "virtualhome_201_2_1764048415379",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.380705",
+      "dataset": "virtualhome",
+      "task_id": "201_2",
+      "natural_goal": "Type on a computer in the home office."
+    },
+    {
+      "submission_id": "virtualhome_232_1_1764048415380",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.381833",
+      "dataset": "virtualhome",
+      "task_id": "232_1",
+      "natural_goal": "I need to complete work on my computer, so I will be pulling out my chair, turning on my computer and begin my task."
+    },
+    {
+      "submission_id": "virtualhome_234_1_1764048415381",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.382674",
+      "dataset": "virtualhome",
+      "task_id": "234_1",
+      "natural_goal": "I walk into the home office and to the computer to switch it on. I sit in the chair and operate the computer with the keyboard and mouse."
+    },
+    {
+      "submission_id": "virtualhome_343_2_1764048415382",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.383460",
+      "dataset": "virtualhome",
+      "task_id": "343_2",
+      "natural_goal": "Find Computer. Switch on computer.Sit on the chair.grab key board.type keyboard. click mouse.look at  computer."
+    },
+    {
+      "submission_id": "virtualhome_373_1_1764048415383",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.384349",
+      "dataset": "virtualhome",
+      "task_id": "373_1",
+      "natural_goal": "go to home office. turn the computer on. begin working"
+    },
+    {
+      "submission_id": "virtualhome_406_2_1764048415384",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.385833",
+      "dataset": "virtualhome",
+      "task_id": "406_2",
+      "natural_goal": "Find Computer and in the chair in from of him. Switch on the computer and look at it and work, tying text with the keyboard when needed."
+    },
+    {
+      "submission_id": "virtualhome_409_2_1764048415385",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.386886",
+      "dataset": "virtualhome",
+      "task_id": "409_2",
+      "natural_goal": "Walk to home office. Sit on chair. Switch on computer. type in keyboard."
+    },
+    {
+      "submission_id": "virtualhome_419_1_1764048415387",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.388012",
+      "dataset": "virtualhome",
+      "task_id": "419_1",
+      "natural_goal": "Walk to home office, walk to desk, sit in chair, turn on computer, look at computer, click mouse and type on keyboard."
+    },
+    {
+      "submission_id": "virtualhome_433_1_1764048415388",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.524461",
+      "dataset": "virtualhome",
+      "task_id": "433_1",
+      "natural_goal": "Using a computer"
+    },
+    {
+      "submission_id": "virtualhome_437_2_1764048415524",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.526053",
+      "dataset": "virtualhome",
+      "task_id": "437_2",
+      "natural_goal": "I walk into the office. I see my computer sitting on the desk. I walk over to the desk and sit down. I turn on the computer. I begin to use the keys and  mouse on the mousepad to work on the computer."
+    },
+    {
+      "submission_id": "virtualhome_440_1_1764048415526",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.526918",
+      "dataset": "virtualhome",
+      "task_id": "440_1",
+      "natural_goal": "I walk into the office where I see my computer on the desk. I go to sit down and turn on computer. I begin typing."
+    },
+    {
+      "submission_id": "virtualhome_453_2_1764048415527",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.527754",
+      "dataset": "virtualhome",
+      "task_id": "453_2",
+      "natural_goal": "I walk to the office. I sit down in the chair. I turn on the computer. I start typing on the keyboard."
+    },
+    {
+      "submission_id": "virtualhome_46_1_1764048415527",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.528421",
+      "dataset": "virtualhome",
+      "task_id": "46_1",
+      "natural_goal": "Using desktop computer in home office"
+    },
+    {
+      "submission_id": "virtualhome_475_2_1764048415528",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.529134",
+      "dataset": "virtualhome",
+      "task_id": "475_2",
+      "natural_goal": "I walk into home office. I walk to desk. I sit at chair. I turn on computer."
+    },
+    {
+      "submission_id": "virtualhome_503_1_1764048415529",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.529974",
+      "dataset": "virtualhome",
+      "task_id": "503_1",
+      "natural_goal": "Work on the computer"
+    },
+    {
+      "submission_id": "virtualhome_670_2_1764048415530",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.530714",
+      "dataset": "virtualhome",
+      "task_id": "670_2",
+      "natural_goal": "I need to finish some work on my computer in my home office to meet a deadline for tomorrow."
+    },
+    {
+      "submission_id": "virtualhome_719_2_1764048415530",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.531547",
+      "dataset": "virtualhome",
+      "task_id": "719_2",
+      "natural_goal": "Go into the office and sit down at the desk in front of the computer. Turn on the computer and look at it while clicking with the mouse and typing with the keyboard."
+    },
+    {
+      "submission_id": "virtualhome_757_2_1764048415531",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.532446",
+      "dataset": "virtualhome",
+      "task_id": "757_2",
+      "natural_goal": "Find the computer. Turn it on by pressing the on button. Wait for it to load. Use the mouse and keyboard to perform your tasks on screen."
+    },
+    {
+      "submission_id": "virtualhome_787_2_1764048415532",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.533288",
+      "dataset": "virtualhome",
+      "task_id": "787_2",
+      "natural_goal": "I walk to the office. I find the copmputer. I turn on the computer. I find the chair. I sit down. I find the keyboard and mouse. I type on the keyboard."
+    },
+    {
+      "submission_id": "virtualhome_795_1_1764048415533",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.534128",
+      "dataset": "virtualhome",
+      "task_id": "795_1",
+      "natural_goal": "I walk to the bedroom, then find the computer and sit in the chair ,next switch on the computer and finally type in the keyboard to start to work on it"
+    },
+    {
+      "submission_id": "virtualhome_819_1_1764048415534",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.534963",
+      "dataset": "virtualhome",
+      "task_id": "819_1",
+      "natural_goal": "I go in the office, sit at my desk, then turn on the computer."
+    },
+    {
+      "submission_id": "virtualhome_874_1_1764048415535",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.535850",
+      "dataset": "virtualhome",
+      "task_id": "874_1",
+      "natural_goal": "I walk to the home office. I open the door of the office room and sit on the chair and in front of me is my desktop computer,  and I switch on the computer."
+    },
+    {
+      "submission_id": "virtualhome_910_1_1764048415535",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.536691",
+      "dataset": "virtualhome",
+      "task_id": "910_1",
+      "natural_goal": "Work on computer"
+    },
+    {
+      "submission_id": "virtualhome_91_2_1764048415536",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.537966",
+      "dataset": "virtualhome",
+      "task_id": "91_2",
+      "natural_goal": "I go to my home office, sit on the chair and turn on the computer. I open my email account to look for all the information I need.I pull up my online task on the computer to look at what the assigned task is."
+    },
+    {
+      "submission_id": "virtualhome_93_2_1764048415538",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.538965",
+      "dataset": "virtualhome",
+      "task_id": "93_2",
+      "natural_goal": "walk to Office,Walk to desk ,sit down in chair, turn on computer, start homework."
+    },
+    {
+      "submission_id": "virtualhome_962_1_1764048415539",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.539959",
+      "dataset": "virtualhome",
+      "task_id": "962_1",
+      "natural_goal": "I walk to the living room. I find the computer and turn it on. I look at the computer screen. I move and click the mouse to select buttons on the screen."
+    },
+    {
+      "submission_id": "virtualhome_190_1_1764048415540",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.541016",
+      "dataset": "virtualhome",
+      "task_id": "190_1",
+      "natural_goal": "Put dishes in the dishwasher and start the dishwasher."
+    },
+    {
+      "submission_id": "virtualhome_201_1_1764048415541",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.542791",
+      "dataset": "virtualhome",
+      "task_id": "201_1",
+      "natural_goal": "Wash a plate using the dishwasher in the kitchen."
+    },
+    {
+      "submission_id": "virtualhome_223_2_1764048415543",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.544781",
+      "dataset": "virtualhome",
+      "task_id": "223_2",
+      "natural_goal": "walk into kitchen, find dishwasher, put plates in dishwasher, put soap in dishwasher, turn on dishwasher"
+    },
+    {
+      "submission_id": "virtualhome_327_2_1764048415545",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.547178",
+      "dataset": "virtualhome",
+      "task_id": "327_2",
+      "natural_goal": "I walk into the kitchen and go to the dishwasher. I open the dishwasher and grab the dishes. Iplace the dishes into the dishwasher then close it. I add soap then turn the dishwasher on."
+    },
+    {
+      "submission_id": "virtualhome_383_1_1764048415547",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.549013",
+      "dataset": "virtualhome",
+      "task_id": "383_1",
+      "natural_goal": "Walk to the  kitchen. Open the dishwasher. Put plates into the dishwasher. Put dish soap into the dishwasher. Close the dishwasher. Turn on the dishwasher."
+    },
+    {
+      "submission_id": "virtualhome_417_2_1764048415549",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.550787",
+      "dataset": "virtualhome",
+      "task_id": "417_2",
+      "natural_goal": "I will load the dishes into the dishwasher and start it."
+    },
+    {
+      "submission_id": "virtualhome_487_1_1764048415551",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.552695",
+      "dataset": "virtualhome",
+      "task_id": "487_1",
+      "natural_goal": "Collect dishes. Place them in the dishwasher. Load detergent. Turn on dishwasher."
+    },
+    {
+      "submission_id": "virtualhome_650_2_1764048415552",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.554621",
+      "dataset": "virtualhome",
+      "task_id": "650_2",
+      "natural_goal": "Put the dishes on dinner table in the dishwasher and wash them"
+    },
+    {
+      "submission_id": "virtualhome_783_1_1764048415554",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.556868",
+      "dataset": "virtualhome",
+      "task_id": "783_1",
+      "natural_goal": "I go to the kitchen and open the dishwasher. I fill it up with dirty dishes and glasses. Then I put dish soap in the dishwasher, close it and turn it on."
+    },
+    {
+      "submission_id": "virtualhome_815_2_1764048415557",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.559407",
+      "dataset": "virtualhome",
+      "task_id": "815_2",
+      "natural_goal": "I go the in kitchen then grab the plate on the table. I put the plate and dish soap in the dishwasher. Finally, I turn on the dishwasher."
+    },
+    {
+      "submission_id": "virtualhome_826_1_1764048415560",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.562057",
+      "dataset": "virtualhome",
+      "task_id": "826_1",
+      "natural_goal": "Go to kitchen, open dishwasher, load dishwasher and put in dish soap. Close dishwasher and start."
+    },
+    {
+      "submission_id": "virtualhome_856_1_1764048415562",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.564686",
+      "dataset": "virtualhome",
+      "task_id": "856_1",
+      "natural_goal": "Walk to the kitchen. Open the dishwasher. Grab plate and put it in the dishwasher. Grab dish soap and put it in the dishwasher. Switch on the dishwasher."
+    },
+    {
+      "submission_id": "virtualhome_911_1_1764048415564",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.566265",
+      "dataset": "virtualhome",
+      "task_id": "911_1",
+      "natural_goal": "I open the dishwasher, I inser all dishes I find in the kitchen, I find a dishwasher tab and insert it into the dishwasher, then I close the dishwasher and start the process"
+    },
+    {
+      "submission_id": "virtualhome_1027_2_1764048415566",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.567388",
+      "dataset": "virtualhome",
+      "task_id": "1027_2",
+      "natural_goal": "Walk to bedroom, walk to bed, lay down on bed, close eyes, go to sleep."
+    },
+    {
+      "submission_id": "virtualhome_181_1_1764048415567",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.571513",
+      "dataset": "virtualhome",
+      "task_id": "181_1",
+      "natural_goal": "go to bedroom, lie on Bed, sleep"
+    },
+    {
+      "submission_id": "virtualhome_244_2_1764048415571",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.573489",
+      "dataset": "virtualhome",
+      "task_id": "244_2",
+      "natural_goal": "I walk to my room, walk to my bed, lie in my bed, and go to sleep."
+    },
+    {
+      "submission_id": "virtualhome_269_2_1764048415573",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.575188",
+      "dataset": "virtualhome",
+      "task_id": "269_2",
+      "natural_goal": "Walk to the bedroom.  Find the bed.  Lie down on the bed.  Close your eyes.  Wait."
+    },
+    {
+      "submission_id": "virtualhome_509_2_1764048415575",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.577244",
+      "dataset": "virtualhome",
+      "task_id": "509_2",
+      "natural_goal": "I walk into my bedroom. I change out of my clothing into pajamas. I turn off the light. I lie down in my bed and pull my sheets over me. I go to sleep."
+    },
+    {
+      "submission_id": "virtualhome_875_1_1764048415577",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.579305",
+      "dataset": "virtualhome",
+      "task_id": "875_1",
+      "natural_goal": "walk to bedroom, look at the pillow, put pillow into bed, lie down in bed, sleep well"
+    },
+    {
+      "submission_id": "virtualhome_102_1_1764048415579",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.581668",
+      "dataset": "virtualhome",
+      "task_id": "102_1",
+      "natural_goal": "I go to the bathroom, walk to the sink, turn on the faucet and then wash my hands under the water."
+    },
+    {
+      "submission_id": "virtualhome_154_2_1764048415581",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.583812",
+      "dataset": "virtualhome",
+      "task_id": "154_2",
+      "natural_goal": "I go to the sink, turn on the water,  put soap on my hands, rub them together, then rinse them off and turn off the water. I then towel off my hands."
+    },
+    {
+      "submission_id": "virtualhome_176_1_1764048415584",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.585500",
+      "dataset": "virtualhome",
+      "task_id": "176_1",
+      "natural_goal": "Apply soap in hand over sink."
+    },
+    {
+      "submission_id": "virtualhome_214_1_1764048415585",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.587650",
+      "dataset": "virtualhome",
+      "task_id": "214_1",
+      "natural_goal": "walk to bathroom, find sink, turn on faucet, put soap in hands, wash and rinse hands,"
+    },
+    {
+      "submission_id": "virtualhome_258_2_1764048415588",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.590169",
+      "dataset": "virtualhome",
+      "task_id": "258_2",
+      "natural_goal": "walk to kitchen, turn on water, find soap, apply to hand, lather, rinse, dry hands"
+    },
+    {
+      "submission_id": "virtualhome_499_1_1764048415590",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.593295",
+      "dataset": "virtualhome",
+      "task_id": "499_1",
+      "natural_goal": "I walk into the bathroom. I turn on the water. I put soap on my hands. I rinse my hands. I turn off the water. I dry my hands."
+    },
+    {
+      "submission_id": "virtualhome_517_1_1764048415593",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.595367",
+      "dataset": "virtualhome",
+      "task_id": "517_1",
+      "natural_goal": "Go to the bathroom. turn on the water in the sink. apply soap to hands. rub hands together. rinse hands with water. turn off the water."
+    },
+    {
+      "submission_id": "virtualhome_549_2_1764048415595",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.598126",
+      "dataset": "virtualhome",
+      "task_id": "549_2",
+      "natural_goal": "Go to the sink. Turn on the water, wash hands with soap. turn off the sink."
+    },
+    {
+      "submission_id": "virtualhome_562_1_1764048415598",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.600835",
+      "dataset": "virtualhome",
+      "task_id": "562_1",
+      "natural_goal": "I turn on faucet. I hold out my hands. I get my hands wet."
+    },
+    {
+      "submission_id": "virtualhome_580_1_1764048415601",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.602916",
+      "dataset": "virtualhome",
+      "task_id": "580_1",
+      "natural_goal": "I go to the bathroom and locate the sink. I turn the faucet so that water is running, and rinse my hands briefly. Then I grab the soap and squeeze some onto my hands. I spend a few minutes rubbing my hands together, then I rinse them again. Finally, I turn the faucet off and wipe my hands on a towel."
+    },
+    {
+      "submission_id": "virtualhome_657_1_1764048415603",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.605180",
+      "dataset": "virtualhome",
+      "task_id": "657_1",
+      "natural_goal": "Go to bathroom, turn on faucet, wet hands, apply soap, rub hands, rinse hands, turn off faucet, dry hands"
+    },
+    {
+      "submission_id": "virtualhome_660_1_1764048415605",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.607618",
+      "dataset": "virtualhome",
+      "task_id": "660_1",
+      "natural_goal": "Go to the bathroom and to the sink, turn the faucet on, push the bottle of soap onto your hands and scrub them. Then rinse your hands out and turn the faucet off."
+    },
+    {
+      "submission_id": "virtualhome_672_1_1764048415607",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.609630",
+      "dataset": "virtualhome",
+      "task_id": "672_1",
+      "natural_goal": "I go to the bathroom, open the faucet rinse the hands, wash the hands with soap and rinse again, then wipe with a towel."
+    },
+    {
+      "submission_id": "virtualhome_710_1_1764048415609",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.610691",
+      "dataset": "virtualhome",
+      "task_id": "710_1",
+      "natural_goal": "Walk to bathroom. Walk to sink and turn on the water. Grab the soap and wash the hands."
+    },
+    {
+      "submission_id": "virtualhome_741_1_1764048415610",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.611790",
+      "dataset": "virtualhome",
+      "task_id": "741_1",
+      "natural_goal": "I walk in to the bathroom. I find the soap. I find the faucet. I turn on the faucet. I wash my hands. I put the soap back. I rinse my hands. I turn the faucet off."
+    },
+    {
+      "submission_id": "virtualhome_750_2_1764048415611",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.612741",
+      "dataset": "virtualhome",
+      "task_id": "750_2",
+      "natural_goal": "Go into the bathroom and go over to the sink. Grab soap and turn on the water. Wet your hands and rub them together so that the soap lathers. Rub the soap all over your hands thoroughly. Rinse off the soap with water and turn off the sink. Dry your hands with a towel."
+    },
+    {
+      "submission_id": "virtualhome_805_1_1764048415612",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.613513",
+      "dataset": "virtualhome",
+      "task_id": "805_1",
+      "natural_goal": "I walk into the bathroom. Walk to the sink. Turn on tap. Get soap. Wash and rinse hands. Turn off tap. Dry hands."
+    },
+    {
+      "submission_id": "virtualhome_80_1_1764048415613",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.614311",
+      "dataset": "virtualhome",
+      "task_id": "80_1",
+      "natural_goal": "Walk to the sink, turn on the faucet, put soap on hands, rub hands together under the water, rinse off hands, turn off faucet, dry hands"
+    },
+    {
+      "submission_id": "virtualhome_813_2_1764048415614",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.615043",
+      "dataset": "virtualhome",
+      "task_id": "813_2",
+      "natural_goal": "walk to bathroom, look at the water, wash hands"
+    },
+    {
+      "submission_id": "virtualhome_928_2_1764048415615",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.615840",
+      "dataset": "virtualhome",
+      "task_id": "928_2",
+      "natural_goal": "Going to the sink and scrubbing hands"
+    },
+    {
+      "submission_id": "virtualhome_995_2_1764048415615",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.616876",
+      "dataset": "virtualhome",
+      "task_id": "995_2",
+      "natural_goal": "Wash Hands"
+    },
+    {
+      "submission_id": "virtualhome_1035_1_1764048415617",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.617737",
+      "dataset": "virtualhome",
+      "task_id": "1035_1",
+      "natural_goal": "Find the cat. Touch the cat with your hands."
+    },
+    {
+      "submission_id": "virtualhome_113_2_1764048415617",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.618413",
+      "dataset": "virtualhome",
+      "task_id": "113_2",
+      "natural_goal": "I find cat. I touch cat."
+    },
+    {
+      "submission_id": "virtualhome_12_2_1764048415618",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.619609",
+      "dataset": "virtualhome",
+      "task_id": "12_2",
+      "natural_goal": "You walk to the living room and find the cat. You look at the cat and touch it to pet it."
+    },
+    {
+      "submission_id": "virtualhome_137_2_1764048415619",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.620596",
+      "dataset": "virtualhome",
+      "task_id": "137_2",
+      "natural_goal": "stimulate a feline tactily"
+    },
+    {
+      "submission_id": "virtualhome_203_2_1764048415620",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.621654",
+      "dataset": "virtualhome",
+      "task_id": "203_2",
+      "natural_goal": "Petting the cat"
+    },
+    {
+      "submission_id": "virtualhome_220_2_1764048415621",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.622814",
+      "dataset": "virtualhome",
+      "task_id": "220_2",
+      "natural_goal": "First I need to find the cat in the living room. Then I walk over to the cat and pet it gently."
+    },
+    {
+      "submission_id": "virtualhome_242_1_1764048415622",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.623826",
+      "dataset": "virtualhome",
+      "task_id": "242_1",
+      "natural_goal": "Find the cat; pet the cat by touching it"
+    },
+    {
+      "submission_id": "virtualhome_279_2_1764048415623",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.624756",
+      "dataset": "virtualhome",
+      "task_id": "279_2",
+      "natural_goal": "Find the cat.  Pet the cat."
+    },
+    {
+      "submission_id": "virtualhome_287_1_1764048415624",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.625584",
+      "dataset": "virtualhome",
+      "task_id": "287_1",
+      "natural_goal": "Locate the cat.  Move close to the cat.  Extend arm toward cat.  Gently pet the cat."
+    },
+    {
+      "submission_id": "virtualhome_292_1_1764048415625",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.626528",
+      "dataset": "virtualhome",
+      "task_id": "292_1",
+      "natural_goal": "I would walk into the living room. Then sit on the couch and pet the cat."
+    },
+    {
+      "submission_id": "virtualhome_297_1_1764048415626",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.627647",
+      "dataset": "virtualhome",
+      "task_id": "297_1",
+      "natural_goal": "The cat is laying on the couch in the living room. I want to pet it, so I am going to walk to the living room, sit on the couch, and pet the cat."
+    },
+    {
+      "submission_id": "virtualhome_381_1_1764048415627",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.628754",
+      "dataset": "virtualhome",
+      "task_id": "381_1",
+      "natural_goal": "Walk into the living room. Walk up to the cat. Pet the cat with your hand."
+    },
+    {
+      "submission_id": "virtualhome_388_2_1764048415628",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.629553",
+      "dataset": "virtualhome",
+      "task_id": "388_2",
+      "natural_goal": "Find cat. Walk to cat. Pick up cat. Pet the cat."
+    },
+    {
+      "submission_id": "virtualhome_38_1_1764048415629",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.630276",
+      "dataset": "virtualhome",
+      "task_id": "38_1",
+      "natural_goal": "I look for my cat and start petting it."
+    },
+    {
+      "submission_id": "virtualhome_429_1_1764048415630",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.631036",
+      "dataset": "virtualhome",
+      "task_id": "429_1",
+      "natural_goal": "I see my cat on the couch so I walk over, sit down and pet the cat."
+    },
+    {
+      "submission_id": "virtualhome_437_1_1764048415631",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.631912",
+      "dataset": "virtualhome",
+      "task_id": "437_1",
+      "natural_goal": "I walk into the living room. I see my cat on the couch. I go sit next to the cat on the couch. I pet the cat on the back."
+    },
+    {
+      "submission_id": "virtualhome_451_1_1764048415632",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.632791",
+      "dataset": "virtualhome",
+      "task_id": "451_1",
+      "natural_goal": "I walk to the living room. I find the cat. I pet the cat."
+    },
+    {
+      "submission_id": "virtualhome_469_2_1764048415632",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.633705",
+      "dataset": "virtualhome",
+      "task_id": "469_2",
+      "natural_goal": "I sit next to the cat. I hold out my hand. I put my hand on the cat. I pet the cat."
+    },
+    {
+      "submission_id": "virtualhome_479_2_1764048415633",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.634583",
+      "dataset": "virtualhome",
+      "task_id": "479_2",
+      "natural_goal": "I walk into the living room and I pet the cat"
+    },
+    {
+      "submission_id": "virtualhome_502_1_1764048415634",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.635378",
+      "dataset": "virtualhome",
+      "task_id": "502_1",
+      "natural_goal": "Pick up cat. Rub hand on cat."
+    },
+    {
+      "submission_id": "virtualhome_612_1_1764048415635",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.636279",
+      "dataset": "virtualhome",
+      "task_id": "612_1",
+      "natural_goal": "I enter the room where the cat is. I look for the cat. I find the cat. I walk over to the cat. I use my hand to pet the cat."
+    },
+    {
+      "submission_id": "virtualhome_856_2_1764048415636",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.637082",
+      "dataset": "virtualhome",
+      "task_id": "856_2",
+      "natural_goal": "Walk into bedrrom and to the sofa. Sit on the sofa and touch cat."
+    },
+    {
+      "submission_id": "virtualhome_384_1_1764048415637",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.638171",
+      "dataset": "virtualhome",
+      "task_id": "384_1",
+      "natural_goal": "I will walk to the computer at the desk in my home office, sit in the chair, turn on the computer, open a web browser, type in the address, and view the computer."
+    },
+    {
+      "submission_id": "virtualhome_540_1_1764048415638",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.639203",
+      "dataset": "virtualhome",
+      "task_id": "540_1",
+      "natural_goal": "I pick up my phone. I touch it to navigate to the web browser. I can swipe and tap the screen to visit different websites. Then I read or watch the content within those websites."
+    },
+    {
+      "submission_id": "virtualhome_60_1_1764048415639",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.640134",
+      "dataset": "virtualhome",
+      "task_id": "60_1",
+      "natural_goal": "first ill go to the entrance hall ill enter into my home office after that i will switch on mylaptop and then with the use of mouse and keyboard i will browse"
+    },
+    {
+      "submission_id": "virtualhome_71_2_1764048415640",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.640974",
+      "dataset": "virtualhome",
+      "task_id": "71_2",
+      "natural_goal": "Go to home office and browse the internet."
+    },
+    {
+      "submission_id": "virtualhome_7_1_1764048415641",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.641852",
+      "dataset": "virtualhome",
+      "task_id": "7_1",
+      "natural_goal": "I go to the office and sit in a chair, I turn on the computer and grab the mouse. I type on the keyboard and starting working on the computer."
+    },
+    {
+      "submission_id": "virtualhome_1070_1_1764048415641",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.642686",
+      "dataset": "virtualhome",
+      "task_id": "1070_1",
+      "natural_goal": "walk to bathroom, look at the toothbrush holder, grab the toothbrush from the toothbrush holder, find the toothpaste, squeeze the toothpaste into toothbrush, now wash the teeth"
+    },
+    {
+      "submission_id": "virtualhome_313_2_1764048415642",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.643411",
+      "dataset": "virtualhome",
+      "task_id": "313_2",
+      "natural_goal": "I go to sleep and i eat the dinner so i have to clean my mouth"
+    },
+    {
+      "submission_id": "virtualhome_689_1_1764048415643",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.644384",
+      "dataset": "virtualhome",
+      "task_id": "689_1",
+      "natural_goal": "WALK TO THE BATHROOM USE PASTE AND BRUSH TO WASH YOUR TEETH"
+    },
+    {
+      "submission_id": "virtualhome_718_1_1764048415644",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.645244",
+      "dataset": "virtualhome",
+      "task_id": "718_1",
+      "natural_goal": "before going to bed or when wake up earily morning brush teeth"
+    },
+    {
+      "submission_id": "virtualhome_1049_1_1764048415645",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.646170",
+      "dataset": "virtualhome",
+      "task_id": "1049_1",
+      "natural_goal": "walk to living room, look at the DVD player, switch on the dvd player, look at the sofa, sit on the sofa and listen the music"
+    },
+    {
+      "submission_id": "virtualhome_113_1_1764048415646",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.647014",
+      "dataset": "virtualhome",
+      "task_id": "113_1",
+      "natural_goal": "I find CD player. I turn on CD player. I press play."
+    },
+    {
+      "submission_id": "virtualhome_161_1_1764048415647",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.647788",
+      "dataset": "virtualhome",
+      "task_id": "161_1",
+      "natural_goal": "turn radio on, listen to music"
+    },
+    {
+      "submission_id": "virtualhome_173_1_1764048415647",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.648513",
+      "dataset": "virtualhome",
+      "task_id": "173_1",
+      "natural_goal": "Find player and switch on to headphones"
+    },
+    {
+      "submission_id": "virtualhome_23_1_1764048415648",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.649250",
+      "dataset": "virtualhome",
+      "task_id": "23_1",
+      "natural_goal": "I walk into the living room. I find the stereo and turn it on, and I listen to the music."
+    },
+    {
+      "submission_id": "virtualhome_263_1_1764048415649",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.650094",
+      "dataset": "virtualhome",
+      "task_id": "263_1",
+      "natural_goal": "Find radio, turn it on"
+    },
+    {
+      "submission_id": "virtualhome_305_2_1764048415650",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.651021",
+      "dataset": "virtualhome",
+      "task_id": "305_2",
+      "natural_goal": "I go to the bedroom and sit at my desk. I turn my radio on and listen to music."
+    },
+    {
+      "submission_id": "virtualhome_363_2_1764048415651",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.652003",
+      "dataset": "virtualhome",
+      "task_id": "363_2",
+      "natural_goal": "Walking to Living room. Grab the music player. Switch on player. Put CD into the player. Sit the chair and Listening music"
+    },
+    {
+      "submission_id": "virtualhome_385_2_1764048415652",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.652911",
+      "dataset": "virtualhome",
+      "task_id": "385_2",
+      "natural_goal": "Go to living room. Find CD player. Pick CD. Put CD in CD player. Play music."
+    },
+    {
+      "submission_id": "virtualhome_403_1_1764048415653",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.653749",
+      "dataset": "virtualhome",
+      "task_id": "403_1",
+      "natural_goal": "I walk into my room and turn the radio on so that I can listen to music."
+    },
+    {
+      "submission_id": "virtualhome_415_1_1764048415653",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.654569",
+      "dataset": "virtualhome",
+      "task_id": "415_1",
+      "natural_goal": "Find telephone and grab it. Find headset and put on your head. Connect it to the telephone. Look at your telephone and listen to music."
+    },
+    {
+      "submission_id": "virtualhome_462_2_1764048415654",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.655343",
+      "dataset": "virtualhome",
+      "task_id": "462_2",
+      "natural_goal": "I walk to my bedroom.  I locate my stereo and turn it on.  I put on my headphones and sit to listen."
+    },
+    {
+      "submission_id": "virtualhome_463_2_1764048415655",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.656167",
+      "dataset": "virtualhome",
+      "task_id": "463_2",
+      "natural_goal": "I walk into the bedroom. I walk to stereo. I turn on stereo."
+    },
+    {
+      "submission_id": "virtualhome_503_2_1764048415656",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.657063",
+      "dataset": "virtualhome",
+      "task_id": "503_2",
+      "natural_goal": "Walk to CD player and turn it on then go and sit in a chair and turn the remote control on and then listen to some music."
+    },
+    {
+      "submission_id": "virtualhome_59_1_1764048415657",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.658102",
+      "dataset": "virtualhome",
+      "task_id": "59_1",
+      "natural_goal": "walk to living room. grab cellphone. grab headset. put on headset. type with cellphone."
+    },
+    {
+      "submission_id": "virtualhome_737_1_1764048415658",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.658973",
+      "dataset": "virtualhome",
+      "task_id": "737_1",
+      "natural_goal": "I find a radio. I turn on the radio. I listen to music."
+    },
+    {
+      "submission_id": "virtualhome_773_1_1764048415659",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.659865",
+      "dataset": "virtualhome",
+      "task_id": "773_1",
+      "natural_goal": "Find radio. Turn on radio. Find a station that you like by switching through the channels. Listen."
+    },
+    {
+      "submission_id": "virtualhome_910_2_1764048415659",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.660582",
+      "dataset": "virtualhome",
+      "task_id": "910_2",
+      "natural_goal": "Listen to music"
+    },
+    {
+      "submission_id": "virtualhome_953_1_1764048415660",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.661318",
+      "dataset": "virtualhome",
+      "task_id": "953_1",
+      "natural_goal": "Walk to the living and turn to the music stand. Switch on the CD player to listen to music."
+    },
+    {
+      "submission_id": "virtualhome_1057_1_1764048415661",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.662231",
+      "dataset": "virtualhome",
+      "task_id": "1057_1",
+      "natural_goal": "Go to the living room, sit on the couch, find the remote, switch on the TV and watch"
+    },
+    {
+      "submission_id": "virtualhome_117_1_1764048415662",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.663158",
+      "dataset": "virtualhome",
+      "task_id": "117_1",
+      "natural_goal": "Go to the living room. Find the remote. Pick up the remote. Find the sofa. Sit on the sofa. Look at the television. Aim the remote at the television. Press the power button. Flip the channels."
+    },
+    {
+      "submission_id": "virtualhome_134_1_1764048415663",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.663894",
+      "dataset": "virtualhome",
+      "task_id": "134_1",
+      "natural_goal": "watching TV from sofa"
+    },
+    {
+      "submission_id": "virtualhome_170_1_1764048415664",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.664723",
+      "dataset": "virtualhome",
+      "task_id": "170_1",
+      "natural_goal": "find the TV remote, Use the remote to turn on the TV, sit on the couch, watch te"
+    },
+    {
+      "submission_id": "virtualhome_197_2_1764048415664",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.665598",
+      "dataset": "virtualhome",
+      "task_id": "197_2",
+      "natural_goal": "i will walk into living room and the i will first take the remote control switch on tv after that i will watch all my favorite shows"
+    },
+    {
+      "submission_id": "virtualhome_21_2_1764048415665",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.666395",
+      "dataset": "virtualhome",
+      "task_id": "21_2",
+      "natural_goal": "I go to living room, sit on sofa, find the remote control on the table, switch on TV and watch the TV."
+    },
+    {
+      "submission_id": "virtualhome_225_2_1764048415666",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.667342",
+      "dataset": "virtualhome",
+      "task_id": "225_2",
+      "natural_goal": "Sit down, turn on the TV with the remote control that is on the coffee table."
+    },
+    {
+      "submission_id": "virtualhome_259_1_1764048415667",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.668259",
+      "dataset": "virtualhome",
+      "task_id": "259_1",
+      "natural_goal": "stand up, walk to living room, find remote control, grab remote control, find couch, walk to couch, sit in couch, find television, lift remote control, switch on television, look at television"
+    },
+    {
+      "submission_id": "virtualhome_307_2_1764048415668",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.669176",
+      "dataset": "virtualhome",
+      "task_id": "307_2",
+      "natural_goal": "I go into the living room. I find the remote. I turn on the tv. I sit on the couch and watch tv."
+    },
+    {
+      "submission_id": "virtualhome_329_1_1764048415669",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.670288",
+      "dataset": "virtualhome",
+      "task_id": "329_1",
+      "natural_goal": "Walk to living room, walk to TV, grab TV remote, turn on TV, put down the remote, walk to sofa, sit in soft, watch TV"
+    },
+    {
+      "submission_id": "virtualhome_342_2_1764048415670",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.671064",
+      "dataset": "virtualhome",
+      "task_id": "342_2",
+      "natural_goal": "Turn on the TV, sit on the couch, find a show, and watch it."
+    },
+    {
+      "submission_id": "virtualhome_377_2_1764048415671",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.675188",
+      "dataset": "virtualhome",
+      "task_id": "377_2",
+      "natural_goal": "Walk into the living room/den. Turn on the television. Switch channels to find a program with remote. I find a program and look at the screen."
+    },
+    {
+      "submission_id": "virtualhome_383_2_1764048415675",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.676347",
+      "dataset": "virtualhome",
+      "task_id": "383_2",
+      "natural_goal": "Walk into the living room. Sit down on the sofa. Pick up the remote control. Turn on the television with the remote control. Put down the remote control. Watch the television."
+    },
+    {
+      "submission_id": "virtualhome_411_1_1764048415676",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.677363",
+      "dataset": "virtualhome",
+      "task_id": "411_1",
+      "natural_goal": "Walk to Living room. Find Television. Walk to sofa. Sit on sofa. Find Remote. Grab remote. Turn to television. Look at television. Switch on Television."
+    },
+    {
+      "submission_id": "virtualhome_454_2_1764048415677",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.678191",
+      "dataset": "virtualhome",
+      "task_id": "454_2",
+      "natural_goal": "Walk to the living room. Sit on the sofa. Grab the remote and turn on the television."
+    },
+    {
+      "submission_id": "virtualhome_459_1_1764048415678",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.679488",
+      "dataset": "virtualhome",
+      "task_id": "459_1",
+      "natural_goal": "I walk into the living room. I sit on the couch. I pick up the remote control. I push the power button.  I push the guide button and look for my favorite show \"The Middle.\"  I click that channel and enjoy my show."
+    },
+    {
+      "submission_id": "virtualhome_548_2_1764048415679",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.680323",
+      "dataset": "virtualhome",
+      "task_id": "548_2",
+      "natural_goal": "go to living room.Turn on TV with remote. Watch TV."
+    },
+    {
+      "submission_id": "virtualhome_595_1_1764048415680",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.681180",
+      "dataset": "virtualhome",
+      "task_id": "595_1",
+      "natural_goal": "I walk into the living room and sit on the couch. I pick up the remote to turn on the television. I put down the remote on the coffee table and look at the television."
+    },
+    {
+      "submission_id": "virtualhome_684_2_1764048415681",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.682126",
+      "dataset": "virtualhome",
+      "task_id": "684_2",
+      "natural_goal": "walk into the living room walk to the remote pick it up and turn in the tv and watch"
+    },
+    {
+      "submission_id": "virtualhome_74_1_1764048415682",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.683110",
+      "dataset": "virtualhome",
+      "task_id": "74_1",
+      "natural_goal": "Enter the living room, find TV remote, grab TV remote, switch on TV, find sofa, sit down on the sofa, watch TV"
+    },
+    {
+      "submission_id": "virtualhome_806_1_1764048415683",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.684068",
+      "dataset": "virtualhome",
+      "task_id": "806_1",
+      "natural_goal": "I will enter the room with the TV and walk to a remote. I'll pick up the remote and walk to a nearby couch or chair. I'll sit in the couch and use the remote to turn on the TV. I'll then select a channel to watch."
+    },
+    {
+      "submission_id": "virtualhome_98_1_1764048415684",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.684763",
+      "dataset": "virtualhome",
+      "task_id": "98_1",
+      "natural_goal": "Watching TV"
+    },
+    {
+      "submission_id": "virtualhome_1064_1_1764048415684",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.685458",
+      "dataset": "virtualhome",
+      "task_id": "1064_1",
+      "natural_goal": "Drink water"
+    },
+    {
+      "submission_id": "virtualhome_156_1_1764048415685",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.686191",
+      "dataset": "virtualhome",
+      "task_id": "156_1",
+      "natural_goal": "Drink water from a cup"
+    },
+    {
+      "submission_id": "virtualhome_171_2_1764048415686",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.687255",
+      "dataset": "virtualhome",
+      "task_id": "171_2",
+      "natural_goal": "Go to the kitchen, grab a cup from the cupboard, go to the sink, put cup under faucet, turn on faucet til cup is full, turn off faucet, drink from cup"
+    },
+    {
+      "submission_id": "virtualhome_175_2_1764048415687",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.688101",
+      "dataset": "virtualhome",
+      "task_id": "175_2",
+      "natural_goal": "To go kitchen and find a cup. open the faucet and fill water in the cup and drink."
+    },
+    {
+      "submission_id": "virtualhome_181_2_1764048415688",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.688967",
+      "dataset": "virtualhome",
+      "task_id": "181_2",
+      "natural_goal": "go to kitchen, find water glass and grab it, find fridge and open grab water and pour into it, then drink."
+    },
+    {
+      "submission_id": "virtualhome_26_1_1764048415689",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.690112",
+      "dataset": "virtualhome",
+      "task_id": "26_1",
+      "natural_goal": "I go to the kitchen, I pour water into a glass, I go back to the living room, sit down, and drink it."
+    },
+    {
+      "submission_id": "virtualhome_286_2_1764048415690",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.691110",
+      "dataset": "virtualhome",
+      "task_id": "286_2",
+      "natural_goal": "I enter the kitchen and grab a waterglass from the cupboard. I open the fridge and grap some water. I pour the water into the cup and drink it."
+    },
+    {
+      "submission_id": "virtualhome_291_1_1764048415691",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.691861",
+      "dataset": "virtualhome",
+      "task_id": "291_1",
+      "natural_goal": "GOING TO DRINK WATER IN KITCHEN"
+    },
+    {
+      "submission_id": "virtualhome_317_2_1764048415691",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.692861",
+      "dataset": "virtualhome",
+      "task_id": "317_2",
+      "natural_goal": "I walk the kitchen and walk up to the kitchen cabinet. I open the cabinet and take out a cup. I walk to sink and I turn the faucet on using the cold water handle. I put my cup under the running water until it is full. I turn off the cold water handle and bring the cup to my mouth and take a drink."
+    },
+    {
+      "submission_id": "virtualhome_488_2_1764048415692",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.693703",
+      "dataset": "virtualhome",
+      "task_id": "488_2",
+      "natural_goal": "Walk to kitchen, grab a glass, walk to sink, turn on tap and pour water into glass, drink from glass."
+    },
+    {
+      "submission_id": "virtualhome_510_1_1764048415693",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.694696",
+      "dataset": "virtualhome",
+      "task_id": "510_1",
+      "natural_goal": "I walk to the kitchen. Take a glass out of the cabinet. Then I walk to the sink and turn the water on and fill the glass. Then I take a drink."
+    },
+    {
+      "submission_id": "virtualhome_528_1_1764048415694",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.695582",
+      "dataset": "virtualhome",
+      "task_id": "528_1",
+      "natural_goal": "go to the kitchen"
+    },
+    {
+      "submission_id": "virtualhome_532_1_1764048415695",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.696654",
+      "dataset": "virtualhome",
+      "task_id": "532_1",
+      "natural_goal": "I walk to the kitchen and open the cabinet containing the drinking glasses. I grab a drinking glass and close the cabinet. I bring the glass to the sink and turn on the faucet to cold. I move the glass under the stream of water and keep it there until the glass is 80% full of water. I move the glass away from the stream of water and shut off the faucet. I bring the cup to my mouth and drink the water."
+    },
+    {
+      "submission_id": "virtualhome_589_1_1764048415696",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.697403",
+      "dataset": "virtualhome",
+      "task_id": "589_1",
+      "natural_goal": "I go to the kitchen. I get a glass. I fill it with water. I take a drink from the glass."
+    },
+    {
+      "submission_id": "virtualhome_600_1_1764048415697",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.698165",
+      "dataset": "virtualhome",
+      "task_id": "600_1",
+      "natural_goal": "walk to kitchen ,find fridge ,open fridge ,find water  glass , drink from water glass"
+    },
+    {
+      "submission_id": "virtualhome_662_1_1764048415698",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.698931",
+      "dataset": "virtualhome",
+      "task_id": "662_1",
+      "natural_goal": "Walk to kitchen. Find water glass. Grab water glass. Find water. Pour water in water glass. Drink water from water glass."
+    },
+    {
+      "submission_id": "virtualhome_688_1_1764048415699",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.699771",
+      "dataset": "virtualhome",
+      "task_id": "688_1",
+      "natural_goal": "I am thirsty and need to drink some water. Unfortunately, I am out of water bottles so I must get some tap water from the sink."
+    },
+    {
+      "submission_id": "virtualhome_787_1_1764048415699",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.700675",
+      "dataset": "virtualhome",
+      "task_id": "787_1",
+      "natural_goal": "I walk to the kitchen. I find a cup. I pick up the cup. I find the water faucet. I turn on the water faucet. I fill the cup. I turn off the water faucet. I drink the water."
+    },
+    {
+      "submission_id": "virtualhome_788_1_1764048415700",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.701691",
+      "dataset": "virtualhome",
+      "task_id": "788_1",
+      "natural_goal": "I go to the kitchen to get a glass from the cabinet. I turn on the faucet and fill up the glass. I take a drink."
+    },
+    {
+      "submission_id": "virtualhome_814_1_1764048415701",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.702562",
+      "dataset": "virtualhome",
+      "task_id": "814_1",
+      "natural_goal": "I walk to the kitchen. open the cupboard. Find the water glass, grab it. Fill the glass with water and drink water."
+    },
+    {
+      "submission_id": "virtualhome_850_2_1764048415702",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.703845",
+      "dataset": "virtualhome",
+      "task_id": "850_2",
+      "natural_goal": "I walk into the kitchen. I reach into the cabinet and pick up a water glass. Turn on the faucet and place the glass under the water stream. Bring the glass of water to lips and drink."
+    },
+    {
+      "submission_id": "virtualhome_861_2_1764048415703",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.704673",
+      "dataset": "virtualhome",
+      "task_id": "861_2",
+      "natural_goal": "I go in the kitchen and get the glass near the sink. I open the faucet, then I pour water in it, turn off the faucet and drink it."
+    },
+    {
+      "submission_id": "virtualhome_878_2_1764048415704",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.705410",
+      "dataset": "virtualhome",
+      "task_id": "878_2",
+      "natural_goal": "I need to go to Kitchen.  Get a cup.  Fill cup.  Drink"
+    },
+    {
+      "submission_id": "virtualhome_1073_1_1764048415705",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.706195",
+      "dataset": "virtualhome",
+      "task_id": "1073_1",
+      "natural_goal": "Walk to home office, turn on light, grab a book, sit in chair, start to read the book"
+    },
+    {
+      "submission_id": "virtualhome_1088_1_1764048415706",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.706918",
+      "dataset": "virtualhome",
+      "task_id": "1088_1",
+      "natural_goal": "I go to the book case, I select a book, I go back and sit down, then I read."
+    },
+    {
+      "submission_id": "virtualhome_15_2_1764048415707",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.707800",
+      "dataset": "virtualhome",
+      "task_id": "15_2",
+      "natural_goal": "Open coffee maker. Put filter in main basket, put ground coffee in filter, fill reservoir with water, turn on coffee maker."
+    },
+    {
+      "submission_id": "virtualhome_163_1_1764048415707",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.708520",
+      "dataset": "virtualhome",
+      "task_id": "163_1",
+      "natural_goal": "Take a book, open it and read it"
+    },
+    {
+      "submission_id": "virtualhome_16_2_1764048415708",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.709531",
+      "dataset": "virtualhome",
+      "task_id": "16_2",
+      "natural_goal": "I walk to the living room and pick up a book from the coffee table. I find my favorite chair.  I sit in the armchair and open the book.  I read."
+    },
+    {
+      "submission_id": "virtualhome_192_1_1764048415709",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.710295",
+      "dataset": "virtualhome",
+      "task_id": "192_1",
+      "natural_goal": "Take a book from the shelf, sit on sofa and start reading."
+    },
+    {
+      "submission_id": "virtualhome_208_2_1764048415710",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.711102",
+      "dataset": "virtualhome",
+      "task_id": "208_2",
+      "natural_goal": "Turn a light on and read a book in the bedroom."
+    },
+    {
+      "submission_id": "virtualhome_221_2_1764048415711",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.711975",
+      "dataset": "virtualhome",
+      "task_id": "221_2",
+      "natural_goal": "I open up my book to where my bookmark is, and then i begin reading to the end of the page. Then I turn the page and read to the end of the next and so on."
+    },
+    {
+      "submission_id": "virtualhome_241_2_1764048415712",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.712738",
+      "dataset": "virtualhome",
+      "task_id": "241_2",
+      "natural_goal": "Find book. Pick up book. Open book. Read the book."
+    },
+    {
+      "submission_id": "virtualhome_341_1_1764048415712",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.713547",
+      "dataset": "virtualhome",
+      "task_id": "341_1",
+      "natural_goal": "I finish of washes dishes, go to the living room, pick my book and read a while"
+    },
+    {
+      "submission_id": "virtualhome_484_1_1764048415713",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.714339",
+      "dataset": "virtualhome",
+      "task_id": "484_1",
+      "natural_goal": "I walk into the living room. I pick up a book. I sit down in a chair and read the book."
+    },
+    {
+      "submission_id": "virtualhome_504_2_1764048415714",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.715064",
+      "dataset": "virtualhome",
+      "task_id": "504_2",
+      "natural_goal": "I find my favorite book then I sit down open the book and begin reading it"
+    },
+    {
+      "submission_id": "virtualhome_508_2_1764048415715",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.715808",
+      "dataset": "virtualhome",
+      "task_id": "508_2",
+      "natural_goal": "go to bedroom, sit down, pick up book, read"
+    },
+    {
+      "submission_id": "virtualhome_544_1_1764048415715",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.716631",
+      "dataset": "virtualhome",
+      "task_id": "544_1",
+      "natural_goal": "pick up your book and read it"
+    },
+    {
+      "submission_id": "virtualhome_57_1_1764048415716",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.717490",
+      "dataset": "virtualhome",
+      "task_id": "57_1",
+      "natural_goal": "Walk to the couch in the living room, sit on ti and read the book"
+    },
+    {
+      "submission_id": "virtualhome_617_2_1764048415717",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.718450",
+      "dataset": "virtualhome",
+      "task_id": "617_2",
+      "natural_goal": "Go to the bedroom. Grab the book out of the nightstand. Lay down in bed. Open the book. Read the book."
+    },
+    {
+      "submission_id": "virtualhome_628_1_1764048415718",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.719316",
+      "dataset": "virtualhome",
+      "task_id": "628_1",
+      "natural_goal": "I go to the living room, take a book from the shelf, sit in the sofa and read the book"
+    },
+    {
+      "submission_id": "virtualhome_688_2_1764048415719",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.720220",
+      "dataset": "virtualhome",
+      "task_id": "688_2",
+      "natural_goal": "I want to read a book in my living room, but must first put my reading glasses on and turn the light by the couch on so I can see what I am reading."
+    },
+    {
+      "submission_id": "virtualhome_693_2_1764048415720",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.721069",
+      "dataset": "virtualhome",
+      "task_id": "693_2",
+      "natural_goal": "Go to bedroom, find a book I like, pull out a chair, sit in it and open the book to read"
+    },
+    {
+      "submission_id": "virtualhome_821_1_1764048415721",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.721947",
+      "dataset": "virtualhome",
+      "task_id": "821_1",
+      "natural_goal": "I walk to home office and search for a book, and sit to the chair with a table, and start reading."
+    },
+    {
+      "submission_id": "virtualhome_86_1_1764048415722",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.722820",
+      "dataset": "virtualhome",
+      "task_id": "86_1",
+      "natural_goal": "Walk to the Living Room. Look at the Cabinet. Find a Textbook. Grab the textbook. Open the Textbook. Read the textbook."
+    },
+    {
+      "submission_id": "virtualhome_896_2_1764048415722",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.723647",
+      "dataset": "virtualhome",
+      "task_id": "896_2",
+      "natural_goal": "Find book, grab book, fin bookmark, sit down somewhere comfortable, open book, read book, close book after reading."
+    },
+    {
+      "submission_id": "virtualhome_897_2_1764048415723",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.724600",
+      "dataset": "virtualhome",
+      "task_id": "897_2",
+      "natural_goal": "walk to home office, look at the light switch board, switch on the light, find the book, grap the book, sit in the chair, put the book into table, open the book, now read the book"
+    },
+    {
+      "submission_id": "virtualhome_1083_2_1764048415724",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.725533",
+      "dataset": "virtualhome",
+      "task_id": "1083_2",
+      "natural_goal": "walk to kicthen , find stove , find cooking pot , find vegetables , find water  ,put vegetables in cooking pot, pour water to cooking pot,put cooking pot on stove, switch on stove"
+    },
+    {
+      "submission_id": "virtualhome_392_2_1764048415725",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.726545",
+      "dataset": "virtualhome",
+      "task_id": "392_2",
+      "natural_goal": "find fridge. walk to fridge. open fridge. find food. grab food. close fridge door. find frying pan. walk to frying pan. grab frying pan. find stove. walk to stove. put frying pan on stove. put food in frying pan. switch on stove."
+    },
+    {
+      "submission_id": "virtualhome_755_2_1764048415726",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.727343",
+      "dataset": "virtualhome",
+      "task_id": "755_2",
+      "natural_goal": "Cook some pasta on the stove"
+    },
+    {
+      "submission_id": "virtualhome_124_1_1764048415727",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.728221",
+      "dataset": "virtualhome",
+      "task_id": "124_1",
+      "natural_goal": "go to the living room,find the sofa,sat down in the sofa,take some relaxation."
+    },
+    {
+      "submission_id": "virtualhome_137_1_1764048415728",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.729021",
+      "dataset": "virtualhome",
+      "task_id": "137_1",
+      "natural_goal": "allow sofa to support weight in order to decrease gravity induced entropy"
+    },
+    {
+      "submission_id": "virtualhome_204_2_1764048415729",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.729915",
+      "dataset": "virtualhome",
+      "task_id": "204_2",
+      "natural_goal": "im feeling so tired so i wanted to go to my living room and relax on my sofa and i love drinking coffee while relaxing and some good shows in television"
+    },
+    {
+      "submission_id": "virtualhome_268_1_1764048415730",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.730913",
+      "dataset": "virtualhome",
+      "task_id": "268_1",
+      "natural_goal": "I walk into the living room and turn on the light. I walk to the couch then sit on the couch."
+    },
+    {
+      "submission_id": "virtualhome_297_2_1764048415731",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.731930",
+      "dataset": "virtualhome",
+      "task_id": "297_2",
+      "natural_goal": "I am feeling tired, so I am going to go turn off the lamp, grab the pillow off of the chair, put it on the couch, and lie down to sleep."
+    },
+    {
+      "submission_id": "virtualhome_299_1_1764048415732",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.732694",
+      "dataset": "virtualhome",
+      "task_id": "299_1",
+      "natural_goal": "walk to living room, walk to sofa, sit in sofa, relax"
+    },
+    {
+      "submission_id": "virtualhome_300_1_1764048415732",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.733449",
+      "dataset": "virtualhome",
+      "task_id": "300_1",
+      "natural_goal": "Go to living room.  Find sofa.  Sit on sofa."
+    },
+    {
+      "submission_id": "virtualhome_321_1_1764048415733",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.734258",
+      "dataset": "virtualhome",
+      "task_id": "321_1",
+      "natural_goal": "Drink a glass of water in the sofa"
+    },
+    {
+      "submission_id": "virtualhome_332_2_1764048415734",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.735114",
+      "dataset": "virtualhome",
+      "task_id": "332_2",
+      "natural_goal": "I walk into the living room. I cross the room to the couch. I sit down and relax."
+    },
+    {
+      "submission_id": "virtualhome_379_2_1764048415735",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.735863",
+      "dataset": "virtualhome",
+      "task_id": "379_2",
+      "natural_goal": "go to living room and lie down on the sofa."
+    },
+    {
+      "submission_id": "virtualhome_387_1_1764048415735",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.736546",
+      "dataset": "virtualhome",
+      "task_id": "387_1",
+      "natural_goal": "Walk to living room. Find couch. Sit on couch"
+    },
+    {
+      "submission_id": "virtualhome_390_2_1764048415736",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.737236",
+      "dataset": "virtualhome",
+      "task_id": "390_2",
+      "natural_goal": "Walk into the living room. Walk up to the sofa. Sit down on the sofa."
+    },
+    {
+      "submission_id": "virtualhome_3_1_1764048415737",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.737941",
+      "dataset": "virtualhome",
+      "task_id": "3_1",
+      "natural_goal": "I go to the living room and sit in the sofa"
+    },
+    {
+      "submission_id": "virtualhome_416_1_1764048415738",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.738613",
+      "dataset": "virtualhome",
+      "task_id": "416_1",
+      "natural_goal": "I am going to lay on the sofa and relax."
+    },
+    {
+      "submission_id": "virtualhome_438_1_1764048415738",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.739322",
+      "dataset": "virtualhome",
+      "task_id": "438_1",
+      "natural_goal": "go to the living room and sit on the couch, ease into the sofa and relax."
+    },
+    {
+      "submission_id": "virtualhome_442_1_1764048415739",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.739999",
+      "dataset": "virtualhome",
+      "task_id": "442_1",
+      "natural_goal": "Find the sofa and sit on it."
+    },
+    {
+      "submission_id": "virtualhome_447_2_1764048415740",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.740820",
+      "dataset": "virtualhome",
+      "task_id": "447_2",
+      "natural_goal": "you walk to the living room, open the door, find a comfy sofa, sit on it, read a book or sip a cup of coffee and relax."
+    },
+    {
+      "submission_id": "virtualhome_449_1_1764048415740",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.741551",
+      "dataset": "virtualhome",
+      "task_id": "449_1",
+      "natural_goal": "Go into the living room. Walk over to the sofa. Lie down on the sofa. Turn on and watch TV."
+    },
+    {
+      "submission_id": "virtualhome_455_1_1764048415741",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.742295",
+      "dataset": "virtualhome",
+      "task_id": "455_1",
+      "natural_goal": "I walk to the living room and find the sofa. I sit on the sofa and get comfortable."
+    },
+    {
+      "submission_id": "virtualhome_456_2_1764048415742",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.758830",
+      "dataset": "virtualhome",
+      "task_id": "456_2",
+      "natural_goal": "I walk to the living room. I see the couch.  I sit down on the couch, then lie down and put my feet up."
+    },
+    {
+      "submission_id": "virtualhome_473_1_1764048415759",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.760371",
+      "dataset": "virtualhome",
+      "task_id": "473_1",
+      "natural_goal": "Find the sofa. Sit on it. Pick the blanket on the sofa and put on yourself. Relax."
+    },
+    {
+      "submission_id": "virtualhome_490_1_1764048415760",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.761334",
+      "dataset": "virtualhome",
+      "task_id": "490_1",
+      "natural_goal": "walk to living room, walk to sofa, sit in sofa"
+    },
+    {
+      "submission_id": "virtualhome_563_1_1764048415761",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.762218",
+      "dataset": "virtualhome",
+      "task_id": "563_1",
+      "natural_goal": "I walk to the sofa, and lie down on the sofa."
+    },
+    {
+      "submission_id": "virtualhome_567_2_1764048415762",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.763006",
+      "dataset": "virtualhome",
+      "task_id": "567_2",
+      "natural_goal": "I want to relax on the sofa to some relaxing music in the living room."
+    },
+    {
+      "submission_id": "virtualhome_570_1_1764048415763",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.763751",
+      "dataset": "virtualhome",
+      "task_id": "570_1",
+      "natural_goal": "I walk into the living room. I bend down. I sit on the sofa."
+    },
+    {
+      "submission_id": "virtualhome_674_2_1764048415763",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.764628",
+      "dataset": "virtualhome",
+      "task_id": "674_2",
+      "natural_goal": "Walk into the living room. Walk to the sofa and sit on it. Put your feet up on the sofa and lay down."
+    },
+    {
+      "submission_id": "virtualhome_6_1_1764048415764",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.765464",
+      "dataset": "virtualhome",
+      "task_id": "6_1",
+      "natural_goal": "I turn on the tv and sit in the sofa. I watch the tv and fall asleep."
+    },
+    {
+      "submission_id": "virtualhome_742_1_1764048415765",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.766281",
+      "dataset": "virtualhome",
+      "task_id": "742_1",
+      "natural_goal": "I walk to the living room. I sit in the sofa and I relax."
+    },
+    {
+      "submission_id": "virtualhome_762_2_1764048415766",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.767202",
+      "dataset": "virtualhome",
+      "task_id": "762_2",
+      "natural_goal": "Walk to the living room. Find the sofa. Walk to the sofa. Lie in the sofa."
+    },
+    {
+      "submission_id": "virtualhome_793_2_1764048415767",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.767968",
+      "dataset": "virtualhome",
+      "task_id": "793_2",
+      "natural_goal": "I walk to my living room and switch on the television, and lay on the sofa."
+    },
+    {
+      "submission_id": "virtualhome_798_2_1764048415768",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.769199",
+      "dataset": "virtualhome",
+      "task_id": "798_2",
+      "natural_goal": "Sitting down and relaxing on the sofa"
+    },
+    {
+      "submission_id": "virtualhome_932_2_1764048415769",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.770866",
+      "dataset": "virtualhome",
+      "task_id": "932_2",
+      "natural_goal": "walk to living room, find sofa, sit in sofa"
+    },
+    {
+      "submission_id": "virtualhome_941_2_1764048415771",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.772239",
+      "dataset": "virtualhome",
+      "task_id": "941_2",
+      "natural_goal": "Open coffee maker. Put filter in main basket, put ground coffee in filter, fill reservoir with water, turn on coffee maker."
+    },
+    {
+      "submission_id": "virtualhome_96_1_1764048415772",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.772943",
+      "dataset": "virtualhome",
+      "task_id": "96_1",
+      "natural_goal": "Relax"
+    },
+    {
+      "submission_id": "virtualhome_976_1_1764048415773",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.773853",
+      "dataset": "virtualhome",
+      "task_id": "976_1",
+      "natural_goal": "I go in the living room sit on the sofa and relax.I then I sleep on the sofa because I am so relaxed."
+    },
+    {
+      "submission_id": "virtualhome_149_1_1764048415773",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.774577",
+      "dataset": "virtualhome",
+      "task_id": "149_1",
+      "natural_goal": "stand up, walk to Entrance Hall, walk to table, lift the phone"
+    },
+    {
+      "submission_id": "virtualhome_154_1_1764048415774",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.775438",
+      "dataset": "virtualhome",
+      "task_id": "154_1",
+      "natural_goal": "I would walk to my room where my phone is plugged in, pick up the phone, press the answer button, and lift the phone to my ear."
+    },
+    {
+      "submission_id": "virtualhome_180_1_1764048415775",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.776154",
+      "dataset": "virtualhome",
+      "task_id": "180_1",
+      "natural_goal": "Find the phone"
+    },
+    {
+      "submission_id": "virtualhome_195_1_1764048415776",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.776850",
+      "dataset": "virtualhome",
+      "task_id": "195_1",
+      "natural_goal": "Go to the phone and pick it up."
+    },
+    {
+      "submission_id": "virtualhome_211_1_1764048415776",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.777564",
+      "dataset": "virtualhome",
+      "task_id": "211_1",
+      "natural_goal": "I walk over to the phone and pick it up."
+    },
+    {
+      "submission_id": "virtualhome_241_1_1764048415777",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.778404",
+      "dataset": "virtualhome",
+      "task_id": "241_1",
+      "natural_goal": "Find phone. Move to phone. Pick the phone up."
+    },
+    {
+      "submission_id": "virtualhome_264_1_1764048415778",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.779124",
+      "dataset": "virtualhome",
+      "task_id": "264_1",
+      "natural_goal": "Enter office. Go to desk. Pick up phone."
+    },
+    {
+      "submission_id": "virtualhome_265_2_1764048415779",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.779834",
+      "dataset": "virtualhome",
+      "task_id": "265_2",
+      "natural_goal": "I go to the living room and pick up the phone"
+    },
+    {
+      "submission_id": "virtualhome_287_2_1764048415779",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.780747",
+      "dataset": "virtualhome",
+      "task_id": "287_2",
+      "natural_goal": "Locate the phone.  Extend arm toward the phone and open hand.  Place hand on phone and close fingers around phone.  Lift phone."
+    },
+    {
+      "submission_id": "virtualhome_352_1_1764048415780",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.781407",
+      "dataset": "virtualhome",
+      "task_id": "352_1",
+      "natural_goal": "find the phone and pick it up"
+    },
+    {
+      "submission_id": "virtualhome_360_1_1764048415781",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.782063",
+      "dataset": "virtualhome",
+      "task_id": "360_1",
+      "natural_goal": "i go find the phone. i pick up the phone"
+    },
+    {
+      "submission_id": "virtualhome_388_1_1764048415782",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.782781",
+      "dataset": "virtualhome",
+      "task_id": "388_1",
+      "natural_goal": "Find phone. Walk to phone. Pick up phone. Answer call with a greeting."
+    },
+    {
+      "submission_id": "virtualhome_431_1_1764048415782",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.783506",
+      "dataset": "virtualhome",
+      "task_id": "431_1",
+      "natural_goal": "I hear the phone ringing in the living room. I walk to the living room and go to the phone. I pick it up and answer the phone."
+    },
+    {
+      "submission_id": "virtualhome_436_1_1764048415783",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.784247",
+      "dataset": "virtualhome",
+      "task_id": "436_1",
+      "natural_goal": "walk to living room, walk to the phone reach for the phone and pick up the phone."
+    },
+    {
+      "submission_id": "virtualhome_442_2_1764048415784",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.784882",
+      "dataset": "virtualhome",
+      "task_id": "442_2",
+      "natural_goal": "Find the phone and grab it."
+    },
+    {
+      "submission_id": "virtualhome_474_2_1764048415784",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.785554",
+      "dataset": "virtualhome",
+      "task_id": "474_2",
+      "natural_goal": "Find the phone and grab it."
+    },
+    {
+      "submission_id": "virtualhome_482_2_1764048415785",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.786381",
+      "dataset": "virtualhome",
+      "task_id": "482_2",
+      "natural_goal": "I walk to the kitchen and find the phone. I pick up the phone. I hold it to my ear."
+    },
+    {
+      "submission_id": "virtualhome_497_1_1764048415786",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.787802",
+      "dataset": "virtualhome",
+      "task_id": "497_1",
+      "natural_goal": "Walk to home office 1. Walk over to phone 1 on table 1.  Grab phone 1.  lift phone 1."
+    },
+    {
+      "submission_id": "virtualhome_553_1_1764048415787",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.788557",
+      "dataset": "virtualhome",
+      "task_id": "553_1",
+      "natural_goal": "Walk into the living room, walk over to phone, grab the phone, put it to your ear ."
+    },
+    {
+      "submission_id": "virtualhome_601_2_1764048415788",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.789284",
+      "dataset": "virtualhome",
+      "task_id": "601_2",
+      "natural_goal": "Listen for ring,lift  phone, click accept button to pick up, Begin talking."
+    },
+    {
+      "submission_id": "virtualhome_70_1_1764048415789",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.789993",
+      "dataset": "virtualhome",
+      "task_id": "70_1",
+      "natural_goal": "walk to living room. find desk. plug out phone. grab phone. touch phone."
+    },
+    {
+      "submission_id": "virtualhome_864_2_1764048415790",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.790845",
+      "dataset": "virtualhome",
+      "task_id": "864_2",
+      "natural_goal": "I'll enter the location containing the phone. Once there, I'll locate the phone, and move close to it. I'll then use my hand to pick up the phone such that I can then use it."
+    },
+    {
+      "submission_id": "virtualhome_963_2_1764048415790",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.791535",
+      "dataset": "virtualhome",
+      "task_id": "963_2",
+      "natural_goal": "walk to phone, grab phone, pick up phone, put to ear"
+    },
+    {
+      "submission_id": "virtualhome_974_1_1764048415791",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.792360",
+      "dataset": "virtualhome",
+      "task_id": "974_1",
+      "natural_goal": "Walk to the entrance hall. Find the telephone. Grab the telephone."
+    },
+    {
+      "submission_id": "virtualhome_976_2_1764048415792",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.793343",
+      "dataset": "virtualhome",
+      "task_id": "976_2",
+      "natural_goal": "I hear the phone ringing in the office, I go in the office and pick up the phone on the desk."
+    },
+    {
+      "submission_id": "virtualhome_99_2_1764048415793",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.794013",
+      "dataset": "virtualhome",
+      "task_id": "99_2",
+      "natural_goal": "Pick up phone"
+    },
+    {
+      "submission_id": "virtualhome_183_2_1764048415794",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.794887",
+      "dataset": "virtualhome",
+      "task_id": "183_2",
+      "natural_goal": "Walk to Kitchen and find coffee maker, find coffee filter and place it in coffee maker. Find ground coffee and water. put both in coffee maker. Close the coffee maker and switch it on."
+    },
+    {
+      "submission_id": "virtualhome_229_1_1764048415794",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.795659",
+      "dataset": "virtualhome",
+      "task_id": "229_1",
+      "natural_goal": "Open coffee maker. Put filter in main basket, put ground coffee in filter, fill reservoir with water, turn on coffee maker."
+    },
+    {
+      "submission_id": "virtualhome_310_2_1764048415795",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.796516",
+      "dataset": "virtualhome",
+      "task_id": "310_2",
+      "natural_goal": "I walk into the kitchen and find the coffee machine. I open and the coffee maker and add the coffee fitler. I grab the ground coffee and put it in the coffee maker. Then I add water to the coffee make,close it and turn it on."
+    },
+    {
+      "submission_id": "virtualhome_721_2_1764048415796",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.797285",
+      "dataset": "virtualhome",
+      "task_id": "721_2",
+      "natural_goal": "Find coffee maker, plug in coffee maker, open the coffee maker lid, pour water into coffee maker, put coffee filter, put Ground Coffee coffee maker, close the coffee maker, switch on the coffee maker"
+    },
+    {
+      "submission_id": "virtualhome_764_2_1764048415797",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.797988",
+      "dataset": "virtualhome",
+      "task_id": "764_2",
+      "natural_goal": "Open coffee maker. Put filter in main basket, put ground coffee in filter, fill reservoir with water, turn on coffee maker."
+    },
+    {
+      "submission_id": "virtualhome_419_2_1764048415798",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.798743",
+      "dataset": "virtualhome",
+      "task_id": "419_2",
+      "natural_goal": "Walk to dining room, walk to dining table, arrange chairs, set napkin, set plate, set knife, set fork and glass on table."
+    },
+    {
+      "submission_id": "virtualhome_446_2_1764048415798",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.799433",
+      "dataset": "virtualhome",
+      "task_id": "446_2",
+      "natural_goal": "Go to kitchen, go to cupboard with dishes, grab dishes, walk to dining room, find table, put dishes on table."
+    },
+    {
+      "submission_id": "virtualhome_710_2_1764048415799",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.800138",
+      "dataset": "virtualhome",
+      "task_id": "710_2",
+      "natural_goal": "Walk to the kitchen. Open the kitchen cabinet. Grab the plate and put it on the table."
+    },
+    {
+      "submission_id": "virtualhome_368_1_1764048415800",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.800872",
+      "dataset": "virtualhome",
+      "task_id": "368_1",
+      "natural_goal": "I pour water, take a cloth, go to the dining room, clean, take the cloth to the kitchen"
+    },
+    {
+      "submission_id": "virtualhome_729_2_1764048415800",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.801586",
+      "dataset": "virtualhome",
+      "task_id": "729_2",
+      "natural_goal": "walk to bathroom , find shower , take a shower"
+    },
+    {
+      "submission_id": "virtualhome_975_2_1764048415801",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.802315",
+      "dataset": "virtualhome",
+      "task_id": "975_2",
+      "natural_goal": "find the dresses, find the towel, walk to bathroom, find the shower, open the shower and take a shower"
+    },
+    {
+      "submission_id": "virtualhome_231_2_1764048415802",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.802981",
+      "dataset": "virtualhome",
+      "task_id": "231_2",
+      "natural_goal": "walk to kitchen, fins soap, arrange dishes, wash dishes"
+    },
+    {
+      "submission_id": "virtualhome_31_1_1764048415803",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.803871",
+      "dataset": "virtualhome",
+      "task_id": "31_1",
+      "natural_goal": "I go to the kitchen and turn on the faucet. I get dish soap and put it into the sink. I grab a sponge and a bowl and start cleaning it. I put the bowl into the dishrack. I find a plate and clean it as well. I put it into the dishrack, turn off the faucet and put the sponge back."
+    },
+    {
+      "submission_id": "virtualhome_349_1_1764048415803",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.804628",
+      "dataset": "virtualhome",
+      "task_id": "349_1",
+      "natural_goal": "i go to the kitchen, i find the faucet. I turn the faucet on, i grab the plate to wash , i then get the soap. I wash the dishes by hand"
+    },
+    {
+      "submission_id": "virtualhome_397_1_1764048415804",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.805284",
+      "dataset": "virtualhome",
+      "task_id": "397_1",
+      "natural_goal": "Pick up dish.  Put in soapy water.  Wash dish."
+    },
+    {
+      "submission_id": "virtualhome_429_2_1764048415805",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.806076",
+      "dataset": "virtualhome",
+      "task_id": "429_2",
+      "natural_goal": "I walk into the kitchen and see dishes in the sink. I go to the sink, fill the sink with soap and water, and wash the dishes. Then I rinse the dishes with clean water and put them in the drying rack."
+    },
+    {
+      "submission_id": "virtualhome_553_2_1764048415806",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.806825",
+      "dataset": "virtualhome",
+      "task_id": "553_2",
+      "natural_goal": "Walk into Kitchen, walk to sink, grab a plate,put soap on sponge,wash plate with sponge, rinse with water, put away plate in cupboard."
+    },
+    {
+      "submission_id": "virtualhome_594_2_1764048415806",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.807534",
+      "dataset": "virtualhome",
+      "task_id": "594_2",
+      "natural_goal": "Make some dish water, grab a dish rag, put dishes in dish water and wash."
+    },
+    {
+      "submission_id": "virtualhome_746_1_1764048415807",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.830813",
+      "dataset": "virtualhome",
+      "task_id": "746_1",
+      "natural_goal": "Wash the drinking glasses by hand"
+    },
+    {
+      "submission_id": "virtualhome_961_1_1764048415831",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.832194",
+      "dataset": "virtualhome",
+      "task_id": "961_1",
+      "natural_goal": "Walk to the kitchen and turn to the sink. Put the plate into the sink. Grab and squeeze the dish soap. Scrub the plate then rinse it. Put the plate into the dish rack."
+    },
+    {
+      "submission_id": "virtualhome_988_1_1764048415832",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.833073",
+      "dataset": "virtualhome",
+      "task_id": "988_1",
+      "natural_goal": "wash dish in sink, dry, put in cupboard"
+    },
+    {
+      "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764048415838",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.839837",
+      "dataset": "behavior",
+      "task_id": "assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37",
+      "natural_goal": "Put one candle, one cheese, one cookie, and one bow into each basket."
+    },
+    {
+      "submission_id": "behavior_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_1764048415840",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.841255",
+      "dataset": "behavior",
+      "task_id": "brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56",
+      "natural_goal": "Check every sweater for lint, make sure none of them are dusty, and put them on the bed."
+    },
+    {
+      "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764048415841",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.843465",
+      "dataset": "behavior",
+      "task_id": "boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47",
+      "natural_goal": "Place the books into the carton for storage."
+    },
+    {
+      "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764048415843",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.846067",
+      "dataset": "behavior",
+      "task_id": "collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28",
+      "natural_goal": "Collect all aluminum cans and place them into the bucket."
+    },
+    {
+      "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764048415846",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.848226",
+      "dataset": "behavior",
+      "task_id": "mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58",
+      "natural_goal": "Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink."
+    },
+    {
+      "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764048415848",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.850609",
+      "dataset": "behavior",
+      "task_id": "preserving_food_0_Rs_int_0_2021-08-25_15-53-33",
+      "natural_goal": "Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef."
+    },
+    {
+      "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764048415850",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.852589",
+      "dataset": "behavior",
+      "task_id": "re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26",
+      "natural_goal": "Place books 1 through 4 on the shelf, and place books 5 through 8 on the table."
+    },
+    {
+      "submission_id": "behavior_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_1764048415852",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.854919",
+      "dataset": "behavior",
+      "task_id": "polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15",
+      "natural_goal": "Polish all spoons and put them inside the cabinet."
+    },
+    {
+      "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764048415855",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.857186",
+      "dataset": "behavior",
+      "task_id": "packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19",
+      "natural_goal": "Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons."
+    },
+    {
+      "submission_id": "behavior_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_1764048415857",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.859084",
+      "dataset": "behavior",
+      "task_id": "cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25",
+      "natural_goal": "Clean the stained freezer and remove all food items from the freezer."
+    },
+    {
+      "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764048415859",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.860083",
+      "dataset": "behavior",
+      "task_id": "installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55",
+      "natural_goal": "Place the modem under the table and make sure it is turned on."
+    },
+    {
+      "submission_id": "behavior_cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24_1764048415860",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.861142",
+      "dataset": "behavior",
+      "task_id": "cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24",
+      "natural_goal": "Clean all the stained tableware, put all hamburgers into sack1 which is on the floor, and clean the stained floor, chair, and table."
+    },
+    {
+      "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764048415861",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.861952",
+      "dataset": "behavior",
+      "task_id": "putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25",
+      "natural_goal": "Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet."
+    },
+    {
+      "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764048415862",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.862914",
+      "dataset": "behavior",
+      "task_id": "setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51",
+      "natural_goal": "Place 3 candles on each table."
+    },
+    {
+      "submission_id": "behavior_cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22_1764048415863",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.863922",
+      "dataset": "behavior",
+      "task_id": "cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22",
+      "natural_goal": "Clean all the shoes, and leave the towel on the floor."
+    },
+    {
+      "submission_id": "behavior_cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08_1764048415864",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.865553",
+      "dataset": "behavior",
+      "task_id": "cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08",
+      "natural_goal": "Place the towel on the countertop, the brush next to the towel, and the soap into the sink. Clean the dusty and stained sneakers, place 2 sneakers next to the table and 2 other sneakers under the table."
+    },
+    {
+      "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764048415865",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.866529",
+      "dataset": "behavior",
+      "task_id": "locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10",
+      "natural_goal": "Close and lock all the windows."
+    },
+    {
+      "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764048415866",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.867466",
+      "dataset": "behavior",
+      "task_id": "washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10",
+      "natural_goal": "Wash all dust and stains from the car or vehicle."
+    },
+    {
+      "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764048415867",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.868360",
+      "dataset": "behavior",
+      "task_id": "washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48",
+      "natural_goal": "Wash all the stained plates, cups, and bowls."
+    },
+    {
+      "submission_id": "behavior_putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17_1764048415868",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.869544",
+      "dataset": "behavior",
+      "task_id": "putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17",
+      "natural_goal": "Place all pumpkins and candles into the cabinet, arrange the sheet either next to or on the table, and position the caldron next to the table."
+    },
+    {
+      "submission_id": "behavior_collect_misplaced_items_0_Wainscott_0_int_1_2021-10-26_18-48-11_1764048415869",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.870622",
+      "dataset": "behavior",
+      "task_id": "collect_misplaced_items_0_Wainscott_0_int_1_2021-10-26_18-48-11",
+      "natural_goal": "Collect all misplaced items including the gym shoe, necklace, notebook, and socks. Then place them on the table."
+    },
+    {
+      "submission_id": "behavior_cleaning_high_chair_0_Wainscott_0_int_0_2021-06-05_18-03-15_1764048415870",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.871559",
+      "dataset": "behavior",
+      "task_id": "cleaning_high_chair_0_Wainscott_0_int_0_2021-06-05_18-03-15",
+      "natural_goal": "Clean the high chair."
+    },
+    {
+      "submission_id": "behavior_washing_floor_0_Ihlen_1_int_1_2021-10-26_14-53-28_1764048415871",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.872436",
+      "dataset": "behavior",
+      "task_id": "washing_floor_0_Ihlen_1_int_1_2021-10-26_14-53-28",
+      "natural_goal": "Clean the dust and stain off the floor."
+    },
+    {
+      "submission_id": "behavior_sorting_mail_0_Wainscott_0_int_1_2021-10-26_14-38-16_1764048415872",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.873375",
+      "dataset": "behavior",
+      "task_id": "sorting_mail_0_Wainscott_0_int_1_2021-10-26_14-38-16",
+      "natural_goal": "Sort the envelopes and newspapers into two stacked piles."
+    },
+    {
+      "submission_id": "behavior_cleaning_bathrooms_0_Benevolence_0_int_1_2021-06-12_19-33-28_1764048415873",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.874753",
+      "dataset": "behavior",
+      "task_id": "cleaning_bathrooms_0_Benevolence_0_int_1_2021-06-12_19-33-28",
+      "natural_goal": "Use the rag and bucket to clean stains off the toilet, the bathtub, the sink, and the floor."
+    },
+    {
+      "submission_id": "behavior_cleaning_kitchen_cupboard_0_Pomaria_1_int_0_2021-10-26_13-05-36_1764048415874",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.876148",
+      "dataset": "behavior",
+      "task_id": "cleaning_kitchen_cupboard_0_Pomaria_1_int_0_2021-10-26_13-05-36",
+      "natural_goal": "Clean all dusty cabinets, put all bowls in one cabinet and all cups in another."
+    },
+    {
+      "submission_id": "behavior_preparing_salad_0_Pomaria_1_int_1_2021-10-26_14-17-24_1764048415876",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.877509",
+      "dataset": "behavior",
+      "task_id": "preparing_salad_0_Pomaria_1_int_1_2021-10-26_14-17-24",
+      "natural_goal": "Place a whole lettuce, a sliced apple, a sliced tomato, and a whole radish on separate plates."
+    },
+    {
+      "submission_id": "behavior_putting_leftovers_away_0_Ihlen_1_int_0_2021-06-08_13-42-57_1764048415877",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.878918",
+      "dataset": "behavior",
+      "task_id": "putting_leftovers_away_0_Ihlen_1_int_0_2021-06-08_13-42-57",
+      "natural_goal": "Put all pasta and sauce inside the fridge."
+    },
+    {
+      "submission_id": "behavior_preparing_a_shower_for_child_0_Ihlen_0_int_0_2021-10-25_21-36-25_1764048415879",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.880396",
+      "dataset": "behavior",
+      "task_id": "preparing_a_shower_for_child_0_Ihlen_0_int_0_2021-10-25_21-36-25",
+      "natural_goal": "Place the towel, shampoo, and soap on the floor near the sink for the child's shower."
+    },
+    {
+      "submission_id": "behavior_cleaning_stove_0_Wainscott_0_int_0_2021-09-11_12-51-07_1764048415880",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.881626",
+      "dataset": "behavior",
+      "task_id": "cleaning_stove_0_Wainscott_0_int_0_2021-09-11_12-51-07",
+      "natural_goal": "Use the rag and dishtowel to clean the dusty and stained stove, then leave them next to the sink."
+    },
+    {
+      "submission_id": "behavior_cleaning_carpets_0_Wainscott_1_int_0_2021-09-11_01-12-41_1764048415881",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.882608",
+      "dataset": "behavior",
+      "task_id": "cleaning_carpets_0_Wainscott_1_int_0_2021-09-11_01-12-41",
+      "natural_goal": "Clean the stained carpets."
+    },
+    {
+      "submission_id": "behavior_serving_a_meal_0_Merom_1_int_0_2021-10-26_00-34-17_1764048415882",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.884018",
+      "dataset": "behavior",
+      "task_id": "serving_a_meal_0_Merom_1_int_0_2021-10-26_00-34-17",
+      "natural_goal": "Serve the meal by placing all food and drinks on the table along with the appropriate utensils."
+    },
+    {
+      "submission_id": "behavior_polishing_shoes_0_Wainscott_0_int_0_2021-06-10_21-28-31_1764048415884",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.885311",
+      "dataset": "behavior",
+      "task_id": "polishing_shoes_0_Wainscott_0_int_0_2021-06-10_21-28-31",
+      "natural_goal": "Soak the rag, polish both shoes, and place the rag next to the sink."
+    },
+    {
+      "submission_id": "behavior_packing_picnics_0_Wainscott_0_int_0_2021-10-26_11-07-29_1764048415885",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.887246",
+      "dataset": "behavior",
+      "task_id": "packing_picnics_0_Wainscott_0_int_0_2021-10-26_11-07-29",
+      "natural_goal": "Pack all chips and sandwiches inside one carton. Pack all fruits inside one carton. Pack all drinks inside one carton."
+    },
+    {
+      "submission_id": "behavior_moving_boxes_to_storage_0_Merom_0_int_0_2021-06-11_20-04-35_1764048415887",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.888651",
+      "dataset": "behavior",
+      "task_id": "moving_boxes_to_storage_0_Merom_0_int_0_2021-06-11_20-04-35",
+      "natural_goal": "Move carton1 to floor2 and place carton2 on top of carton1."
+    },
+    {
+      "submission_id": "behavior_filling_a_Christmas_stocking_0_Rs_int_0_2021-06-04_18-47-42_1764048415888",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.889610",
+      "dataset": "behavior",
+      "task_id": "filling_a_Christmas_stocking_0_Rs_int_0_2021-06-04_18-47-42",
+      "natural_goal": "Fill each stocking with one cube, one candy, and one pen."
+    },
+    {
+      "submission_id": "behavior_cleaning_a_car_0_Ihlen_0_int_0_2021-09-11_16-37-11_1764048415889",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.890330",
+      "dataset": "behavior",
+      "task_id": "cleaning_a_car_0_Ihlen_0_int_0_2021-09-11_16-37-11",
+      "natural_goal": "Use the soap, rag and bucket to clean dust off the car."
+    },
+    {
+      "submission_id": "behavior_defrosting_freezer_0_Beechwood_0_int_0_2021-10-25_23-10-43_1764048415890",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.891535",
+      "dataset": "behavior",
+      "task_id": "defrosting_freezer_0_Beechwood_0_int_0_2021-10-25_23-10-43",
+      "natural_goal": "Place the receptacle next to the refrigerator, the bucket next to the countertop, the scraper on top of the refrigerator, the towel on the countertop, the soaked rag inside the sink, and all the food inside the bucket."
+    },
+    {
+      "submission_id": "behavior_packing_lunches_0_Beechwood_0_int_0_2021-10-26_11-03-14_1764048415891",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.892545",
+      "dataset": "behavior",
+      "task_id": "packing_lunches_0_Beechwood_0_int_0_2021-10-26_11-03-14",
+      "natural_goal": "Place chips, cookies, salad, juice, sandwich, and pop in separate cartons, ensuring the correct items are inside each carton. Additionally, put either an apple or a banana in each of carton1 and carton2."
+    },
+    {
+      "submission_id": "behavior_vacuuming_floors_0_Ihlen_1_int_0_2021-06-08_18-03-55_1764048415892",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.893577",
+      "dataset": "behavior",
+      "task_id": "vacuuming_floors_0_Ihlen_1_int_0_2021-06-08_18-03-55",
+      "natural_goal": "Vacuum the dusty floors."
+    },
+    {
+      "submission_id": "behavior_installing_a_scanner_0_Pomaria_0_int_0_2021-06-08_18-34-59_1764048415893",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.894562",
+      "dataset": "behavior",
+      "task_id": "installing_a_scanner_0_Pomaria_0_int_0_2021-06-08_18-34-59",
+      "natural_goal": "Turn on the scanner and place it under the table."
+    },
+    {
+      "submission_id": "behavior_installing_a_fax_machine_0_Beechwood_0_int_0_2021-10-25_20-22-22_1764048415894",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.895590",
+      "dataset": "behavior",
+      "task_id": "installing_a_fax_machine_0_Beechwood_0_int_0_2021-10-25_20-22-22",
+      "natural_goal": "Place the fax machine on the table and turn it on."
+    },
+    {
+      "submission_id": "behavior_bringing_in_wood_0_Benevolence_1_int_0_2021-09-15_18-42-25_1764048415895",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.896655",
+      "dataset": "behavior",
+      "task_id": "bringing_in_wood_0_Benevolence_1_int_0_2021-09-15_18-42-25",
+      "natural_goal": "Bring all plywood pieces inside and put them down."
+    },
+    {
+      "submission_id": "behavior_cleaning_oven_0_Benevolence_1_int_0_2021-09-11_12-20-40_1764048415896",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.897406",
+      "dataset": "behavior",
+      "task_id": "cleaning_oven_0_Benevolence_1_int_0_2021-09-11_12-20-40",
+      "natural_goal": "Clean the oven using wet rags and scrub brushes."
+    },
+    {
+      "submission_id": "behavior_cleaning_toilet_0_Merom_0_int_1_2021-06-23_17-35-48_1764048415897",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.899184",
+      "dataset": "behavior",
+      "task_id": "cleaning_toilet_0_Merom_0_int_1_2021-06-23_17-35-48",
+      "natural_goal": "Use the scrub brush and detergent to clean the stained toilet, and leave them on the floor when finished."
+    },
+    {
+      "submission_id": "behavior_unpacking_suitcase_0_Benevolence_1_int_0_2021-06-08_17-58-34_1764048415899",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.901352",
+      "dataset": "behavior",
+      "task_id": "unpacking_suitcase_0_Benevolence_1_int_0_2021-06-08_17-58-34",
+      "natural_goal": "Place the carton on the floor, then take everything from the carton and place them on the sofa."
+    },
+    {
+      "submission_id": "behavior_locking_every_door_0_Merom_1_int_0_2021-10-20_05-53-14_1764048415901",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.903512",
+      "dataset": "behavior",
+      "task_id": "locking_every_door_0_Merom_1_int_0_2021-10-20_05-53-14",
+      "natural_goal": "Close and lock all the doors."
+    },
+    {
+      "submission_id": "behavior_cleaning_table_after_clearing_0_Merom_1_int_0_2021-06-06_19-48-44_1764048415903",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.906211",
+      "dataset": "behavior",
+      "task_id": "cleaning_table_after_clearing_0_Merom_1_int_0_2021-06-06_19-48-44",
+      "natural_goal": "Clean the table after clearing it."
+    },
+    {
+      "submission_id": "behavior_sorting_books_0_Pomaria_1_int_0_2021-10-26_13-27-18_1764048415906",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.908374",
+      "dataset": "behavior",
+      "task_id": "sorting_books_0_Pomaria_1_int_0_2021-10-26_13-27-18",
+      "natural_goal": "Place all types of books on the shelf."
+    },
+    {
+      "submission_id": "behavior_cleaning_barbecue_grill_0_Ihlen_0_int_0_2021-09-10_16-02-39_1764048415908",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.909757",
+      "dataset": "behavior",
+      "task_id": "cleaning_barbecue_grill_0_Ihlen_0_int_0_2021-09-10_16-02-39",
+      "natural_goal": "Clean stains and dust off of the barbecue grill."
+    },
+    {
+      "submission_id": "behavior_cleaning_the_hot_tub_0_Ihlen_0_int_0_2021-08-24_22-19-07_1764048415909",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.910841",
+      "dataset": "behavior",
+      "task_id": "cleaning_the_hot_tub_0_Ihlen_0_int_0_2021-08-24_22-19-07",
+      "natural_goal": "Clean the stained hot tub located on floor1."
+    },
+    {
+      "submission_id": "behavior_serving_hors_d_oeuvres_0_Wainscott_0_int_0_2021-10-26_14-00-22_1764048415910",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.911923",
+      "dataset": "behavior",
+      "task_id": "serving_hors_d_oeuvres_0_Wainscott_0_int_0_2021-10-26_14-00-22",
+      "natural_goal": "Place the tray on the table, put the crackers on the table, place the salads next to the crackers, and put the parsley on top of the cheese."
+    },
+    {
+      "submission_id": "behavior_packing_adult_s_bags_0_Ihlen_1_int_0_2021-10-26_09-54-15_1764048415912",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.912719",
+      "dataset": "behavior",
+      "task_id": "packing_adult_s_bags_0_Ihlen_1_int_0_2021-10-26_09-54-15",
+      "natural_goal": "Pack all jewelry, makeup, toothbrush, and mouse inside the backpack, and place the backpack on the second floor."
+    },
+    {
+      "submission_id": "behavior_packing_car_for_trip_0_Ihlen_0_int_0_2021-10-26_10-27-23_1764048415912",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.913451",
+      "dataset": "behavior",
+      "task_id": "packing_car_for_trip_0_Ihlen_0_int_0_2021-10-26_10-27-23",
+      "natural_goal": "Pack the briefcase, pencil box, headset, and duffel bag inside the car for the trip."
+    },
+    {
+      "submission_id": "behavior_rearranging_furniture_0_Pomaria_2_int_1_2021-06-22_16-39-21_1764048415913",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.914247",
+      "dataset": "behavior",
+      "task_id": "rearranging_furniture_0_Pomaria_2_int_1_2021-06-22_16-39-21",
+      "natural_goal": "Place lamp1 next to the door, lamp2 next to the window, have seat1 touching the bed, and place seat2 next to the window."
+    },
+    {
+      "submission_id": "behavior_cleaning_bedroom_0_Benevolence_2_int_0_2021-06-06_18-10-59_1764048415914",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.915065",
+      "dataset": "behavior",
+      "task_id": "cleaning_bedroom_0_Benevolence_2_int_0_2021-06-06_18-10-59",
+      "natural_goal": "Put clothes inside the cabinets, put jewelry and perfume inside the cabinet, place the sheet on the bed and the painting on top, clean the cabinets of any dust, place the vacuum next to the bed."
+    },
+    {
+      "submission_id": "behavior_cleaning_floors_0_Merom_0_int_1_2021-06-23_16-12-28_1764048415915",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.915789",
+      "dataset": "behavior",
+      "task_id": "cleaning_floors_0_Merom_0_int_1_2021-06-23_16-12-28",
+      "natural_goal": "Clean dust and stains off the floors."
+    },
+    {
+      "submission_id": "behavior_opening_presents_0_Benevolence_2_int_0_2021-10-25_21-10-48_1764048415915",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.916531",
+      "dataset": "behavior",
+      "task_id": "opening_presents_0_Benevolence_2_int_0_2021-10-25_21-10-48",
+      "natural_goal": "Open all the gift packages."
+    },
+    {
+      "submission_id": "behavior_picking_up_take-out_food_0_Ihlen_1_int_0_2021-06-10_22-09-43_1764048415916",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.917253",
+      "dataset": "behavior",
+      "task_id": "picking_up_take-out_food_0_Ihlen_1_int_0_2021-06-10_22-09-43",
+      "natural_goal": "Place the sushi and hamburger inside separate cartons that are on the table."
+    },
+    {
+      "submission_id": "behavior_organizing_file_cabinet_0_Pomaria_0_int_0_2021-06-08_15-27-20_1764048415917",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.918008",
+      "dataset": "behavior",
+      "task_id": "organizing_file_cabinet_0_Pomaria_0_int_0_2021-06-08_15-27-20",
+      "natural_goal": "Place all documents and folders inside the cabinet, and put the marker on the table."
+    },
+    {
+      "submission_id": "behavior_laying_tile_floors_0_Beechwood_0_int_0_2021-10-26_17-26-23_1764048415918",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.918766",
+      "dataset": "behavior",
+      "task_id": "laying_tile_floors_0_Beechwood_0_int_0_2021-10-26_17-26-23",
+      "natural_goal": "Lay all the tiles on the floor."
+    },
+    {
+      "submission_id": "behavior_throwing_away_leftovers_0_Ihlen_1_int_0_2021-06-04_19-52-40_1764048415918",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.919450",
+      "dataset": "behavior",
+      "task_id": "throwing_away_leftovers_0_Ihlen_1_int_0_2021-06-04_19-52-40",
+      "natural_goal": "Throw away all leftover hamburgers into the trash."
+    },
+    {
+      "submission_id": "behavior_storing_food_0_Rs_int_0_2021-10-25_21-27-36_1764048415919",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.920717",
+      "dataset": "behavior",
+      "task_id": "storing_food_0_Rs_int_0_2021-10-25_21-27-36",
+      "natural_goal": "Store food into the cabinet."
+    },
+    {
+      "submission_id": "behavior_sorting_groceries_0_Wainscott_0_int_0_2021-10-26_13-36-01_1764048415920",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.922010",
+      "dataset": "behavior",
+      "task_id": "sorting_groceries_0_Wainscott_0_int_0_2021-10-26_13-36-01",
+      "natural_goal": "Sort the groceries into the fridge and the cabinet based on your common sense. Place groceries of the same type next to each other."
+    },
+    {
+      "submission_id": "behavior_cleaning_microwave_oven_0_Benevolence_1_int_0_2021-09-11_01-27-10_1764048415922",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.922705",
+      "dataset": "behavior",
+      "task_id": "cleaning_microwave_oven_0_Benevolence_1_int_0_2021-09-11_01-27-10",
+      "natural_goal": "Clean the microwave oven."
+    },
+    {
+      "submission_id": "behavior_chopping_vegetables_0_Rs_int_0_2021-05-25_22-01-16_1764048415922",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.923442",
+      "dataset": "behavior",
+      "task_id": "chopping_vegetables_0_Rs_int_0_2021-05-25_22-01-16",
+      "natural_goal": "Slice all the vegetables, and put all sliced vegetable into dishes."
+    },
+    {
+      "submission_id": "behavior_cleaning_closet_0_Beechwood_1_int_0_2021-10-25_19-50-32_1764048415923",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.924291",
+      "dataset": "behavior",
+      "task_id": "cleaning_closet_0_Beechwood_1_int_0_2021-10-25_19-50-32",
+      "natural_goal": "Organize all jewelry inside cabinet3, make sure umbrella1 is not inside cabinet3, place hat1 inside the cabinet or on top of shelf1, place all sandals next to shelf1 and on the floor, clean dust from cabinet3, shelf1, and floor1."
+    },
+    {
+      "submission_id": "behavior_cleaning_up_the_kitchen_only_0_Pomaria_1_int_0_2021-10-26_00-50-16_1764048415924",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.925209",
+      "dataset": "behavior",
+      "task_id": "cleaning_up_the_kitchen_only_0_Pomaria_1_int_0_2021-10-26_00-50-16",
+      "natural_goal": "Use the soap and rags to clean the plates, cabinets and floor, then leave the soap and rags near the sink. Place the blender on the countertop, store vegetable oil in one cabinet and plates in another cabinet, and put the fuits and vegetables in the fridge."
+    },
+    {
+      "submission_id": "behavior_waxing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_23-03-46_1764048415925",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.925987",
+      "dataset": "behavior",
+      "task_id": "waxing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_23-03-46",
+      "natural_goal": "Wax the dust off the vehicle."
+    },
+    {
+      "submission_id": "behavior_cleaning_out_drawers_0_Benevolence_1_int_0_2021-10-20_05-03-27_1764048415926",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.927104",
+      "dataset": "behavior",
+      "task_id": "cleaning_out_drawers_0_Benevolence_1_int_0_2021-10-20_05-03-27",
+      "natural_goal": "Remove the piece of cloth, two bowls, and two spoons from the drawers and put them near the sink."
+    },
+    {
+      "submission_id": "behavior_putting_dishes_away_after_cleaning_0_Ihlen_1_int_0_2021-10-25_22-54-09_1764048415927",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.927958",
+      "dataset": "behavior",
+      "task_id": "putting_dishes_away_after_cleaning_0_Ihlen_1_int_0_2021-10-25_22-54-09",
+      "natural_goal": "Put all plates inside the cabinet after cleaning."
+    },
+    {
+      "submission_id": "behavior_packing_child_s_bag_0_Beechwood_1_int_0_2021-10-26_10-33-11_1764048415928",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.928714",
+      "dataset": "behavior",
+      "task_id": "packing_child_s_bag_0_Beechwood_1_int_0_2021-10-26_10-33-11",
+      "natural_goal": "Place the sunglasses, notebook, bracelet, apple, and earphones inside the backpack next to the bed."
+    },
+    {
+      "submission_id": "behavior_cleaning_windows_0_Wainscott_0_int_0_2021-05-23_23-07-05_1764048415928",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.929397",
+      "dataset": "behavior",
+      "task_id": "cleaning_windows_0_Wainscott_0_int_0_2021-05-23_23-07-05",
+      "natural_goal": "Soak the rags and use them to clean the dusty windows."
+    },
+    {
+      "submission_id": "behavior_bottling_fruit_0_Wainscott_0_int_0_2021-05-24_19-46-46_1764048415929",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.930235",
+      "dataset": "behavior",
+      "task_id": "bottling_fruit_0_Wainscott_0_int_0_2021-05-24_19-46-46",
+      "natural_goal": "Slice the strawberry and the peach, put the sliced strawberry and peach in separate jars, and close the jars."
+    },
+    {
+      "submission_id": "behavior_thawing_frozen_food_0_Pomaria_1_int_0_2021-10-26_13-10-33_1764048415930",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.931245",
+      "dataset": "behavior",
+      "task_id": "thawing_frozen_food_0_Pomaria_1_int_0_2021-10-26_13-10-33",
+      "natural_goal": "Place the frozen food items next to the sink to thaw."
+    },
+    {
+      "submission_id": "behavior_setting_mousetraps_0_Beechwood_1_int_0_2021-10-26_13-53-26_1764048415931",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.932053",
+      "dataset": "behavior",
+      "task_id": "setting_mousetraps_0_Beechwood_1_int_0_2021-10-26_13-53-26",
+      "natural_goal": "Place mousetraps 1 and 2 on the floor, and mousetraps 3 and 4 next to the toilet."
+    },
+    {
+      "submission_id": "behavior_washing_pots_and_pans_0_Pomaria_1_int_0_2021-10-26_13-06-44_1764048415932",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.932984",
+      "dataset": "behavior",
+      "task_id": "washing_pots_and_pans_0_Pomaria_1_int_0_2021-10-26_13-06-44",
+      "natural_goal": "Clean all the stained pans, kettles, and teapots and place them inside a cabinet."
+    },
+    {
+      "submission_id": "behavior_laying_wood_floors_0_Pomaria_1_int_0_2021-10-25_20-46-59_1764048415933",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.934242",
+      "dataset": "behavior",
+      "task_id": "laying_wood_floors_0_Pomaria_1_int_0_2021-10-25_20-46-59",
+      "natural_goal": "Lay the plywoods on floor2 right next to each other."
+    },
+    {
+      "submission_id": "behavior_putting_away_toys_0_Ihlen_0_int_0_2021-10-25_22-47-44_1764048415934",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.935279",
+      "dataset": "behavior",
+      "task_id": "putting_away_toys_0_Ihlen_0_int_0_2021-10-25_22-47-44",
+      "natural_goal": "Put all the toys into cartons."
+    },
+    {
+      "submission_id": "behavior_cleaning_garage_0_Ihlen_0_int_0_2021-08-24_17-40-48_1764048415935",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.936396",
+      "dataset": "behavior",
+      "task_id": "cleaning_garage_0_Ihlen_0_int_0_2021-08-24_17-40-48",
+      "natural_goal": "Clean dust and stains off the floor and cabinet, put all newspapers into the bin or on the floor, and put all bottles on the table."
+    },
+    {
+      "submission_id": "behavior_watering_houseplants_0_Beechwood_0_int_0_2021-10-26_15-20-01_1764048415936",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.937911",
+      "dataset": "behavior",
+      "task_id": "watering_houseplants_0_Beechwood_0_int_0_2021-10-26_15-20-01",
+      "natural_goal": "Water each houseplant thoroughly."
+    },
+    {
+      "submission_id": "behavior_installing_alarms_0_Merom_1_int_0_2021-05-23_23-02-24_1764048415938",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.939001",
+      "dataset": "behavior",
+      "task_id": "installing_alarms_0_Merom_1_int_0_2021-05-23_23-02-24",
+      "natural_goal": "Place each alarm on a table and make sure they are turned on."
+    },
+    {
+      "submission_id": "behavior_organizing_boxes_in_garage_0_Ihlen_0_int_0_2021-08-24_22-59-54_1764048415939",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.940308",
+      "dataset": "behavior",
+      "task_id": "organizing_boxes_in_garage_0_Ihlen_0_int_0_2021-08-24_22-59-54",
+      "natural_goal": "Put all balls and plates inside separate cartons, put the saucepan inside one of the cartons, and place all cartons on the floor."
+    },
+    {
+      "submission_id": "behavior_putting_up_Christmas_decorations_inside_0_Ihlen_1_int_0_2021-06-03_14-27-09_1764048415940",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.941742",
+      "dataset": "behavior",
+      "task_id": "putting_up_Christmas_decorations_inside_0_Ihlen_1_int_0_2021-06-03_14-27-09",
+      "natural_goal": "Place all wrappings under or next to the Christmas tree, place all candles on the table, place one bow on the table, two bows on the sofa, and place the wreath on the table."
+    },
+    {
+      "submission_id": "behavior_cleaning_bathtub_0_Pomaria_0_int_0_2021-09-10_16-22-10_1764048415941",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.942693",
+      "dataset": "behavior",
+      "task_id": "cleaning_bathtub_0_Pomaria_0_int_0_2021-09-10_16-22-10",
+      "natural_goal": "Clean the stained bathtub."
+    },
+    {
+      "submission_id": "behavior_clearing_the_table_after_dinner_0_Ihlen_0_int_0_2021-10-25_23-01-51_1764048415942",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.943440",
+      "dataset": "behavior",
+      "task_id": "clearing_the_table_after_dinner_0_Ihlen_0_int_0_2021-10-25_23-01-51",
+      "natural_goal": "Put all cups, bowls, and catsup into buckets."
+    },
+    {
+      "submission_id": "behavior_loading_the_dishwasher_0_Benevolence_1_int_0_2021-10-20_06-10-42_1764048415943",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.944254",
+      "dataset": "behavior",
+      "task_id": "loading_the_dishwasher_0_Benevolence_1_int_0_2021-10-20_06-10-42",
+      "natural_goal": "Load all plates, bowls, and the mug into the dishwasher."
+    },
+    {
+      "submission_id": "behavior_filling_an_Easter_basket_0_Benevolence_1_int_1_2021-09-10_00-09-54_1764048415944",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.945179",
+      "dataset": "behavior",
+      "task_id": "filling_an_Easter_basket_0_Benevolence_1_int_1_2021-09-10_00-09-54",
+      "natural_goal": "Place eggs, candies, jewelry, balls, bows, and books in the baskets on the countertop."
+    },
+    {
+      "submission_id": "behavior_cleaning_the_pool_0_Ihlen_0_int_0_2021-06-01_15-30-31_1764048415945",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.946046",
+      "dataset": "behavior",
+      "task_id": "cleaning_the_pool_0_Ihlen_0_int_0_2021-06-01_15-30-31",
+      "natural_goal": "Clean the stained pool on the floor using the scrub brush and the detergent, when you are done leave the brush on top of the shelf, and the detergent on the floor."
+    },
+    {
+      "submission_id": "behavior_opening_packages_0_Benevolence_2_int_0_2021-10-25_21-06-42_1764048415946",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.946709",
+      "dataset": "behavior",
+      "task_id": "opening_packages_0_Benevolence_2_int_0_2021-10-25_21-06-42",
+      "natural_goal": "Open all packages."
+    },
+    {
+      "submission_id": "behavior_packing_bags_or_suitcase_0_Merom_1_int_0_2021-10-26_10-04-07_1764048415946",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.947527",
+      "dataset": "behavior",
+      "task_id": "packing_bags_or_suitcase_0_Merom_1_int_0_2021-10-26_10-04-07",
+      "natural_goal": "Pack the backpack with underwear, toothbrush, shampoo, hardback, and toothpaste. Place the backpack on the bed or on the floor."
+    },
+    {
+      "submission_id": "behavior_cleaning_up_refrigerator_0_Wainscott_0_int_1_2021-06-23_17-46-01_1764048415947",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.948378",
+      "dataset": "behavior",
+      "task_id": "cleaning_up_refrigerator_0_Wainscott_0_int_1_2021-06-23_17-46-01",
+      "natural_goal": "Use the rag and soap to clean the trays, the bowl, and the refrigerator. When you are done, leave the rag and bowl next to the sink, the soap in the sink, and the trays in the refrigerator."
+    },
+    {
+      "submission_id": "behavior_making_tea_0_Wainscott_0_int_0_2021-10-26_12-49-48_1764048415948",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.949589",
+      "dataset": "behavior",
+      "task_id": "making_tea_0_Wainscott_0_int_0_2021-10-26_12-49-48",
+      "natural_goal": "Slice the lemon, heat the tea on the stove."
+    },
+    {
+      "submission_id": "behavior_picking_up_trash_0_Beechwood_0_int_1_2021-10-26_14-06-49_1764048415949",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.951091",
+      "dataset": "behavior",
+      "task_id": "picking_up_trash_0_Beechwood_0_int_1_2021-10-26_14-06-49",
+      "natural_goal": "Pick up all pads and pops and put them inside the ashcan."
+    },
+    {
+      "submission_id": "behavior_polishing_furniture_0_Ihlen_0_int_0_2021-10-26_11-35-40_1764048415951",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.951934",
+      "dataset": "behavior",
+      "task_id": "polishing_furniture_0_Ihlen_0_int_0_2021-10-26_11-35-40",
+      "natural_goal": "Polish the table and the shelf, and place the rag under the table."
+    },
+    {
+      "submission_id": "behavior_organizing_school_stuff_0_Wainscott_1_int_0_2021-08-24_22-56-24_1764048415952",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.952732",
+      "dataset": "behavior",
+      "task_id": "organizing_school_stuff_0_Wainscott_1_int_0_2021-08-24_22-56-24",
+      "natural_goal": "Place the folder, highlighter, pencil, pen, and calculator into the backpack, then leave the backpack on the bed."
+    },
+    {
+      "submission_id": "behavior_cleaning_cupboards_0_Wainscott_1_int_1_2021-08-25_16-40-44_1764048415952",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.954080",
+      "dataset": "behavior",
+      "task_id": "cleaning_cupboards_0_Wainscott_1_int_1_2021-08-25_16-40-44",
+      "natural_goal": "Clean dusty cabinets, remove all books from the cabinets, put the screwdriver in the bin, put all markers and pens in the bucket."
+    },
+    {
+      "submission_id": "behavior_installing_a_printer_0_Pomaria_0_int_0_2021-06-08_18-33-07_1764048415954",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.955084",
+      "dataset": "behavior",
+      "task_id": "installing_a_printer_0_Pomaria_0_int_0_2021-06-08_18-33-07",
+      "natural_goal": "Place the printer on the table and turn it on."
+    },
+    {
+      "submission_id": "behavior_packing_food_for_work_0_Ihlen_1_int_0_2021-06-08_19-36-15_1764048415955",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:55.956184",
+      "dataset": "behavior",
+      "task_id": "packing_food_for_work_0_Ihlen_1_int_0_2021-06-08_19-36-15",
+      "natural_goal": "Pack a sandwich, an apple, a snack food, and a juice into a carton, and place the carton on the floor or on the countertop."
+    },
+    {
+      "submission_id": "behavior_storing_the_groceries_0_Beechwood_0_int_0_2021-10-26_13-13-47_1764048416090",
+      "status": "failed",
+      "error": "Processing failed: name 'logging' is not defined",
+      "timestamp": "2025-11-25T13:26:56.091377",
+      "dataset": "behavior",
+      "task_id": "storing_the_groceries_0_Beechwood_0_int_0_2021-10-26_13-13-47",
+      "natural_goal": "Store the groceries into the fridge and the cabinet based on your common sense. Place groceries of the same type next to each other."
+    }
+  ]
+}
