@@ -360,3 +360,504 @@
 2025-11-25 19:40:20,132 - debug_script - INFO - Failed tasks: 20
 2025-11-25 19:40:20,132 - debug_script - INFO - Summary saved to: /home/yeah/eai-interpretable-interface/debug_results/debug_summary_1764070820.json
 2025-11-25 19:40:20,132 - debug_script - INFO - Detailed logs saved to: debug_parquet_processing.log
+2025-11-25 19:48:47,929 - debug_script - INFO - Importing core modules...
+2025-11-25 19:48:47,933 - debug_script - INFO - ✓ GoalInterpreter imported successfully
+2025-11-25 19:48:47,937 - debug_script - INFO - ✓ SubgoalLTLIntegration imported successfully
+2025-11-25 19:48:47,944 - debug_script - INFO - ✓ TransitionModeler imported successfully
+2025-11-25 19:48:47,958 - action_sequencing - INFO - Action Sequencing Module v1.0.0 loaded successfully
+2025-11-25 19:48:47,959 - debug_script - INFO - ✓ ActionSequencer imported successfully
+2025-11-25 19:48:47,959 - debug_script - INFO - Starting debug script...
+2025-11-25 19:48:47,959 - debug_script - INFO - Processing dataset: behavior
+2025-11-25 19:48:47,959 - debug_script - INFO - Loading 10 samples from /home/yeah/eai-interpretable-interface/data/behavior-00000-of-00001.parquet
+2025-11-25 19:48:48,058 - debug_script - INFO - Total records in file: 100
+2025-11-25 19:48:48,060 - debug_script - INFO - Loaded 10 samples successfully
+2025-11-25 19:48:48,061 - debug_script - INFO - === Processing task assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37 from behavior: Put one candle, one cheese, one cookie, and one bo... ===
+2025-11-25 19:48:48,061 - debug_script - INFO - Initializing modules...
+2025-11-25 19:48:48,061 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:48:48,061 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:48:48,061 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:48:48,061 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:48:48,061 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:48:48,061 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:48:48,062 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:48:48,062 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:48:48,062 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:48:48,065 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:48:48,065 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:48:48,065 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Put one candle, one cheese, one cookie, and one bow into each basket.
+2025-11-25 19:48:48,065 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 19:48:48,068 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 19:48:48,068 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 19:48:48,068 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 19:48:48,068 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 19:48:48,068 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 19:48:48,068 - debug_script - DEBUG - Subgoal result: "IntegrationResult(original_goal='Put one candle, one cheese, one cookie, and one bow into each basket.', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe06b9160>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibility_analysis': {'dependency_cycles': [], 'unreachable_subgoals': [], 'missing_precondit...
+2025-11-25 19:48:48,068 - debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 19:48:48,068 - debug_script - ERROR - Transition modeling failed: 'IntegrationResult' object has no attribute 'get'
+2025-11-25 19:48:48,069 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/behavior_task_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_result.json
+2025-11-25 19:48:48,069 - debug_script - INFO - === Processing task brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56 from behavior: Check every sweater for lint, make sure none of th... ===
+2025-11-25 19:48:48,069 - debug_script - INFO - Initializing modules...
+2025-11-25 19:48:48,069 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:48:48,069 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:48:48,069 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:48:48,069 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:48:48,069 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:48:48,069 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:48:48,069 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:48:48,069 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:48:48,069 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:48:48,070 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:48:48,070 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:48:48,070 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Check every sweater for lint, make sure none of them are dusty, and put them on the bed.
+2025-11-25 19:48:48,070 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 19:48:48,070 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 19:48:48,070 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 19:48:48,070 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 19:48:48,070 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 19:48:48,070 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 19:48:48,070 - debug_script - DEBUG - Subgoal result: "IntegrationResult(original_goal='Check every sweater for lint, make sure none of them are dusty, and put them on the bed.', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe06d9b80>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibility_analysis': {'dependency_cycles': [], 'unreachable_subgoals': [],...
+2025-11-25 19:48:48,071 - debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 19:48:48,071 - debug_script - ERROR - Transition modeling failed: 'IntegrationResult' object has no attribute 'get'
+2025-11-25 19:48:48,071 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/behavior_task_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_result.json
+2025-11-25 19:48:48,071 - debug_script - INFO - === Processing task boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47 from behavior: Place the books into the carton for storage.... ===
+2025-11-25 19:48:48,071 - debug_script - INFO - Initializing modules...
+2025-11-25 19:48:48,071 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:48:48,072 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:48:48,072 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:48:48,072 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:48:48,072 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:48:48,072 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:48:48,072 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:48:48,072 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:48:48,072 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:48:48,072 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:48:48,072 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:48:48,072 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Place the books into the carton for storage.
+2025-11-25 19:48:48,072 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 19:48:48,072 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 19:48:48,072 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 19:48:48,072 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 19:48:48,072 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 19:48:48,072 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 19:48:48,073 - debug_script - DEBUG - Subgoal result: "IntegrationResult(original_goal='Place the books into the carton for storage.', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe0668cd0>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibility_analysis': {'dependency_cycles': [], 'unreachable_subgoals': [], 'missing_preconditions': [{'subgoal_id': 'a...
+2025-11-25 19:48:48,073 - debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 19:48:48,073 - debug_script - ERROR - Transition modeling failed: 'IntegrationResult' object has no attribute 'get'
+2025-11-25 19:48:48,073 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/behavior_task_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_result.json
+2025-11-25 19:48:48,073 - debug_script - INFO - === Processing task collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28 from behavior: Collect all aluminum cans and place them into the ... ===
+2025-11-25 19:48:48,073 - debug_script - INFO - Initializing modules...
+2025-11-25 19:48:48,073 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:48:48,073 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:48:48,073 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:48:48,073 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:48:48,073 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:48:48,073 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:48:48,073 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:48:48,073 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:48:48,073 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:48:48,074 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:48:48,074 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:48:48,074 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Collect all aluminum cans and place them into the bucket.
+2025-11-25 19:48:48,074 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 19:48:48,074 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 19:48:48,074 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 19:48:48,074 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 19:48:48,074 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 19:48:48,074 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 19:48:48,074 - debug_script - DEBUG - Subgoal result: "IntegrationResult(original_goal='Collect all aluminum cans and place them into the bucket.', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe06721f0>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibility_analysis': {'dependency_cycles': [], 'unreachable_subgoals': [], 'missing_preconditions': [{'su...
+2025-11-25 19:48:48,074 - debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 19:48:48,074 - debug_script - ERROR - Transition modeling failed: 'IntegrationResult' object has no attribute 'get'
+2025-11-25 19:48:48,075 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/behavior_task_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_result.json
+2025-11-25 19:48:48,075 - debug_script - INFO - === Processing task mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58 from behavior: Use the bucket, soap and broom to clean the staine... ===
+2025-11-25 19:48:48,075 - debug_script - INFO - Initializing modules...
+2025-11-25 19:48:48,075 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:48:48,075 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:48:48,075 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:48:48,075 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:48:48,075 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:48:48,075 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:48:48,076 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:48:48,076 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:48:48,076 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:48:48,076 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:48:48,076 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:48:48,076 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.
+2025-11-25 19:48:48,076 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 19:48:48,077 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 19:48:48,077 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 19:48:48,077 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 19:48:48,077 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 19:48:48,077 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 19:48:48,078 - debug_script - DEBUG - Subgoal result: "IntegrationResult(original_goal='Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe0675670>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibili...
+2025-11-25 19:48:48,078 - debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 19:48:48,078 - debug_script - ERROR - Transition modeling failed: 'IntegrationResult' object has no attribute 'get'
+2025-11-25 19:48:48,078 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/behavior_task_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_result.json
+2025-11-25 19:48:48,078 - debug_script - INFO - === Processing task preserving_food_0_Rs_int_0_2021-08-25_15-53-33 from behavior: Slice and cook all the strawberries, then seal the... ===
+2025-11-25 19:48:48,078 - debug_script - INFO - Initializing modules...
+2025-11-25 19:48:48,078 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:48:48,078 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:48:48,078 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:48:48,078 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:48:48,078 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:48:48,078 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:48:48,079 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:48:48,079 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:48:48,079 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:48:48,079 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:48:48,079 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:48:48,079 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.
+2025-11-25 19:48:48,079 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 19:48:48,079 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 19:48:48,079 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 19:48:48,079 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 19:48:48,079 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 19:48:48,079 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 19:48:48,079 - debug_script - DEBUG - Subgoal result: "IntegrationResult(original_goal='Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe066c520>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibility_analysis': {'dependency_cycles': [], 'unreachable_subgoa...
+2025-11-25 19:48:48,079 - debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 19:48:48,079 - debug_script - ERROR - Transition modeling failed: 'IntegrationResult' object has no attribute 'get'
+2025-11-25 19:48:48,080 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/behavior_task_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_result.json
+2025-11-25 19:48:48,080 - debug_script - INFO - === Processing task re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26 from behavior: Place books 1 through 4 on the shelf, and place bo... ===
+2025-11-25 19:48:48,080 - debug_script - INFO - Initializing modules...
+2025-11-25 19:48:48,080 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:48:48,080 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:48:48,080 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:48:48,080 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:48:48,080 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:48:48,080 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:48:48,080 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:48:48,080 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:48:48,080 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:48:48,080 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:48:48,080 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:48:48,080 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Place books 1 through 4 on the shelf, and place books 5 through 8 on the table.
+2025-11-25 19:48:48,081 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 19:48:48,081 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 19:48:48,081 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 19:48:48,081 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 19:48:48,081 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 19:48:48,081 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 19:48:48,081 - debug_script - DEBUG - Subgoal result: "IntegrationResult(original_goal='Place books 1 through 4 on the shelf, and place books 5 through 8 on the table.', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe06a9a60>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibility_analysis': {'dependency_cycles': [], 'unreachable_subgoals': [], 'missing...
+2025-11-25 19:48:48,081 - debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 19:48:48,081 - debug_script - ERROR - Transition modeling failed: 'IntegrationResult' object has no attribute 'get'
+2025-11-25 19:48:48,081 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/behavior_task_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_result.json
+2025-11-25 19:48:48,081 - debug_script - INFO - === Processing task polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15 from behavior: Polish all spoons and put them inside the cabinet.... ===
+2025-11-25 19:48:48,081 - debug_script - INFO - Initializing modules...
+2025-11-25 19:48:48,081 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:48:48,081 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:48:48,081 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:48:48,081 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:48:48,081 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:48:48,082 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:48:48,082 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:48:48,082 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:48:48,082 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:48:48,082 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:48:48,082 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:48:48,082 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Polish all spoons and put them inside the cabinet.
+2025-11-25 19:48:48,082 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 19:48:48,082 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 19:48:48,082 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 19:48:48,082 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 19:48:48,082 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 19:48:48,082 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 19:48:48,082 - debug_script - DEBUG - Subgoal result: "IntegrationResult(original_goal='Polish all spoons and put them inside the cabinet.', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe06752e0>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibility_analysis': {'dependency_cycles': [], 'unreachable_subgoals': [], 'missing_preconditions': [{'subgoal_i...
+2025-11-25 19:48:48,082 - debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 19:48:48,083 - debug_script - ERROR - Transition modeling failed: 'IntegrationResult' object has no attribute 'get'
+2025-11-25 19:48:48,083 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/behavior_task_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_result.json
+2025-11-25 19:48:48,083 - debug_script - INFO - === Processing task packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19 from behavior: Pack all plates, the dishtowel, books, shirts, and... ===
+2025-11-25 19:48:48,083 - debug_script - INFO - Initializing modules...
+2025-11-25 19:48:48,083 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:48:48,083 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:48:48,083 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:48:48,083 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:48:48,083 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:48:48,083 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:48:48,083 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:48:48,083 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:48:48,083 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:48:48,083 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:48:48,084 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:48:48,084 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.
+2025-11-25 19:48:48,084 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 19:48:48,084 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 19:48:48,084 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 19:48:48,084 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 19:48:48,084 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 19:48:48,084 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 19:48:48,084 - debug_script - DEBUG - Subgoal result: "IntegrationResult(original_goal='Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe2f84460>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibility_analysis': {'dependency_cycles': [], 'unreachable_subgoals': [], ...
+2025-11-25 19:48:48,084 - debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 19:48:48,084 - debug_script - ERROR - Transition modeling failed: 'IntegrationResult' object has no attribute 'get'
+2025-11-25 19:48:48,084 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/behavior_task_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_result.json
+2025-11-25 19:48:48,084 - debug_script - INFO - === Processing task cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25 from behavior: Clean the stained freezer and remove all food item... ===
+2025-11-25 19:48:48,084 - debug_script - INFO - Initializing modules...
+2025-11-25 19:48:48,084 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:48:48,085 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:48:48,085 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:48:48,085 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:48:48,085 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:48:48,085 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:48:48,085 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:48:48,085 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:48:48,085 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:48:48,085 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:48:48,085 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:48:48,085 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Clean the stained freezer and remove all food items from the freezer.
+2025-11-25 19:48:48,085 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 19:48:48,085 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 19:48:48,085 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 19:48:48,085 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 19:48:48,086 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 19:48:48,086 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 19:48:48,086 - debug_script - DEBUG - Subgoal result: "IntegrationResult(original_goal='Clean the stained freezer and remove all food items from the freezer.', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe066cf70>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibility_analysis': {'dependency_cycles': [], 'unreachable_subgoals': [], 'missing_precondit...
+2025-11-25 19:48:48,086 - debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 19:48:48,086 - debug_script - ERROR - Transition modeling failed: 'IntegrationResult' object has no attribute 'get'
+2025-11-25 19:48:48,086 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/behavior_task_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_result.json
+2025-11-25 19:48:48,086 - debug_script - INFO - Processing dataset: virtualhome
+2025-11-25 19:48:48,086 - debug_script - INFO - Loading 10 samples from /home/yeah/eai-interpretable-interface/data/virtualhome-00000-of-00001.parquet
+2025-11-25 19:48:48,090 - debug_script - INFO - Total records in file: 338
+2025-11-25 19:48:48,091 - debug_script - INFO - Loaded 10 samples successfully
+2025-11-25 19:48:48,091 - debug_script - INFO - === Processing task 27_2 from virtualhome: Walk to the kitchen and find the basket of clothes... ===
+2025-11-25 19:48:48,091 - debug_script - INFO - Initializing modules...
+2025-11-25 19:48:48,091 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:48:48,091 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:48:48,091 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:48:48,091 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:48:48,091 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:48:48,091 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:48:48,091 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:48:48,091 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:48:48,091 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:48:48,091 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:48:48,091 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:48:48,091 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine.
+2025-11-25 19:48:48,092 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 19:48:48,092 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 19:48:48,092 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 19:48:48,092 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 19:48:48,092 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 19:48:48,092 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 19:48:48,092 - debug_script - DEBUG - Subgoal result: "IntegrationResult(original_goal='Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine.', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe0675d60>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibility_analysis': {'dependen...
+2025-11-25 19:48:48,092 - debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 19:48:48,092 - debug_script - ERROR - Transition modeling failed: 'IntegrationResult' object has no attribute 'get'
+2025-11-25 19:48:48,092 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/virtualhome_task_27_2_result.json
+2025-11-25 19:48:48,092 - debug_script - INFO - === Processing task 417_1 from virtualhome: I will load the dirty clothes into the washing mac... ===
+2025-11-25 19:48:48,092 - debug_script - INFO - Initializing modules...
+2025-11-25 19:48:48,093 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:48:48,093 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:48:48,093 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:48:48,093 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:48:48,093 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:48:48,093 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:48:48,093 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:48:48,093 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:48:48,093 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:48:48,093 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:48:48,093 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:48:48,093 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: I will load the dirty clothes into the washing machine.
+2025-11-25 19:48:48,093 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 19:48:48,094 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 19:48:48,094 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 19:48:48,094 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 19:48:48,094 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 19:48:48,094 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 19:48:48,094 - debug_script - DEBUG - Subgoal result: "IntegrationResult(original_goal='I will load the dirty clothes into the washing machine.', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe0696cd0>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibility_analysis': {'dependency_cycles': [], 'unreachable_subgoals': [], 'missing_preconditions': [{'subg...
+2025-11-25 19:48:48,094 - debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 19:48:48,094 - debug_script - ERROR - Transition modeling failed: 'IntegrationResult' object has no attribute 'get'
+2025-11-25 19:48:48,094 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/virtualhome_task_417_1_result.json
+2025-11-25 19:48:48,094 - debug_script - INFO - === Processing task 850_1 from virtualhome: Walk into laundry room. Open washing machine door.... ===
+2025-11-25 19:48:48,094 - debug_script - INFO - Initializing modules...
+2025-11-25 19:48:48,094 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:48:48,094 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:48:48,095 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:48:48,095 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:48:48,095 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:48:48,095 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:48:48,095 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:48:48,095 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:48:48,095 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:48:48,095 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:48:48,095 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:48:48,095 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.
+2025-11-25 19:48:48,095 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 19:48:48,095 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 19:48:48,095 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 19:48:48,095 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 19:48:48,095 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 19:48:48,095 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 19:48:48,095 - debug_script - DEBUG - Subgoal result: "IntegrationResult(original_goal='Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe0675e50>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached':...
+2025-11-25 19:48:48,096 - debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 19:48:48,096 - debug_script - ERROR - Transition modeling failed: 'IntegrationResult' object has no attribute 'get'
+2025-11-25 19:48:48,096 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/virtualhome_task_850_1_result.json
+2025-11-25 19:48:48,096 - debug_script - INFO - === Processing task 954_2 from virtualhome: I need to get the dirty clothes basket.  Walk to b... ===
+2025-11-25 19:48:48,096 - debug_script - INFO - Initializing modules...
+2025-11-25 19:48:48,096 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:48:48,096 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:48:48,096 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:48:48,096 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:48:48,096 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:48:48,096 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:48:48,096 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:48:48,096 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:48:48,097 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:48:48,097 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:48:48,097 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:48:48,097 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.
+2025-11-25 19:48:48,097 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 19:48:48,097 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 19:48:48,097 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 19:48:48,097 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 19:48:48,097 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 19:48:48,097 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 19:48:48,097 - debug_script - DEBUG - Subgoal result: "IntegrationResult(original_goal='I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe066ca30>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibility_analysis': {'dependency_...
+2025-11-25 19:48:48,097 - debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 19:48:48,097 - debug_script - ERROR - Transition modeling failed: 'IntegrationResult' object has no attribute 'get'
+2025-11-25 19:48:48,098 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/virtualhome_task_954_2_result.json
+2025-11-25 19:48:48,098 - debug_script - INFO - === Processing task 11_1 from virtualhome: I go to bedroom and locate a lamp. This lamp can b... ===
+2025-11-25 19:48:48,098 - debug_script - INFO - Initializing modules...
+2025-11-25 19:48:48,098 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:48:48,098 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:48:48,098 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:48:48,098 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:48:48,098 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:48:48,098 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:48:48,098 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:48:48,098 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:48:48,098 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:48:48,098 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:48:48,098 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:48:48,098 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.
+2025-11-25 19:48:48,099 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 19:48:48,099 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 19:48:48,099 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 19:48:48,099 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 19:48:48,099 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 19:48:48,099 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 19:48:48,099 - debug_script - DEBUG - Subgoal result: "IntegrationResult(original_goal='I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe06d4940>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibility_analysis': {'dependency_cycles': [], 'u...
+2025-11-25 19:48:48,099 - debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 19:48:48,099 - debug_script - ERROR - Transition modeling failed: 'IntegrationResult' object has no attribute 'get'
+2025-11-25 19:48:48,099 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/virtualhome_task_11_1_result.json
+2025-11-25 19:48:48,100 - debug_script - INFO - === Processing task 120_1 from virtualhome: Go to the kitchen and living room and turn on the ... ===
+2025-11-25 19:48:48,100 - debug_script - INFO - Initializing modules...
+2025-11-25 19:48:48,100 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:48:48,100 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:48:48,100 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:48:48,100 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:48:48,100 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:48:48,100 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:48:48,100 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:48:48,100 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:48:48,100 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:48:48,100 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:48:48,100 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:48:48,100 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Go to the kitchen and living room and turn on the lights.
+2025-11-25 19:48:48,100 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 19:48:48,100 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 19:48:48,101 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 19:48:48,101 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 19:48:48,101 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 19:48:48,101 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 19:48:48,101 - debug_script - DEBUG - Subgoal result: "IntegrationResult(original_goal='Go to the kitchen and living room and turn on the lights.', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe06b9250>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibility_analysis': {'dependency_cycles': [], 'unreachable_subgoals': [], 'missing_preconditions': [{'su...
+2025-11-25 19:48:48,101 - debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 19:48:48,101 - debug_script - ERROR - Transition modeling failed: 'IntegrationResult' object has no attribute 'get'
+2025-11-25 19:48:48,101 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/virtualhome_task_120_1_result.json
+2025-11-25 19:48:48,101 - debug_script - INFO - === Processing task 125_2 from virtualhome: turn on the light for room... ===
+2025-11-25 19:48:48,101 - debug_script - INFO - Initializing modules...
+2025-11-25 19:48:48,101 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:48:48,101 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:48:48,101 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:48:48,101 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:48:48,101 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:48:48,101 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:48:48,101 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:48:48,102 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:48:48,102 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:48:48,102 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:48:48,102 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:48:48,102 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: turn on the light for room
+2025-11-25 19:48:48,102 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 19:48:48,102 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 19:48:48,102 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 19:48:48,102 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 19:48:48,102 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 19:48:48,102 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 19:48:48,102 - debug_script - DEBUG - Subgoal result: "IntegrationResult(original_goal='turn on the light for room', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe0672070>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibility_analysis': {'dependency_cycles': [], 'unreachable_subgoals': [], 'missing_preconditions': [{'subgoal_id': 'atomic_1', 'precond...
+2025-11-25 19:48:48,102 - debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 19:48:48,102 - debug_script - ERROR - Transition modeling failed: 'IntegrationResult' object has no attribute 'get'
+2025-11-25 19:48:48,103 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/virtualhome_task_125_2_result.json
+2025-11-25 19:48:48,103 - debug_script - INFO - === Processing task 150_2 from virtualhome: push any ligth button to turn it on, for example i... ===
+2025-11-25 19:48:48,103 - debug_script - INFO - Initializing modules...
+2025-11-25 19:48:48,103 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:48:48,103 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:48:48,103 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:48:48,103 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:48:48,103 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:48:48,103 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:48:48,103 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:48:48,103 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:48:48,103 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:48:48,103 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:48:48,103 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:48:48,103 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: push any ligth button to turn it on, for example in the living room
+2025-11-25 19:48:48,103 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 19:48:48,104 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 19:48:48,104 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 19:48:48,104 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 19:48:48,104 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 19:48:48,104 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 19:48:48,104 - debug_script - DEBUG - Subgoal result: "IntegrationResult(original_goal='push any ligth button to turn it on, for example in the living room', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe0696160>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibility_analysis': {'dependency_cycles': [], 'unreachable_subgoals': [], 'missing_preconditio...
+2025-11-25 19:48:48,104 - debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 19:48:48,104 - debug_script - ERROR - Transition modeling failed: 'IntegrationResult' object has no attribute 'get'
+2025-11-25 19:48:48,104 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/virtualhome_task_150_2_result.json
+2025-11-25 19:48:48,104 - debug_script - INFO - === Processing task 160_1 from virtualhome: Go to the living room, find the switches (buttons ... ===
+2025-11-25 19:48:48,104 - debug_script - INFO - Initializing modules...
+2025-11-25 19:48:48,104 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:48:48,104 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:48:48,105 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:48:48,105 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:48:48,105 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:48:48,105 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:48:48,105 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:48:48,105 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:48:48,105 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:48:48,105 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:48:48,105 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:48:48,105 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one.
+2025-11-25 19:48:48,105 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 19:48:48,105 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 19:48:48,106 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 19:48:48,106 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 19:48:48,106 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 19:48:48,106 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 19:48:48,106 - debug_script - DEBUG - Subgoal result: "IntegrationResult(original_goal='Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one.', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe0620220>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibility_analysis': {'dependen...
+2025-11-25 19:48:48,106 - debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 19:48:48,106 - debug_script - ERROR - Transition modeling failed: 'IntegrationResult' object has no attribute 'get'
+2025-11-25 19:48:48,106 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/virtualhome_task_160_1_result.json
+2025-11-25 19:48:48,106 - debug_script - INFO - === Processing task 180_2 from virtualhome: Find the light circuit breaker in the kitchen... ===
+2025-11-25 19:48:48,106 - debug_script - INFO - Initializing modules...
+2025-11-25 19:48:48,106 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:48:48,106 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:48:48,106 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:48:48,107 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:48:48,107 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:48:48,107 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:48:48,107 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:48:48,107 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:48:48,107 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:48:48,107 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:48:48,107 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:48:48,107 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Find the light circuit breaker in the kitchen
+2025-11-25 19:48:48,107 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 19:48:48,107 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 19:48:48,107 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 19:48:48,107 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 19:48:48,107 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 19:48:48,107 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 19:48:48,108 - debug_script - DEBUG - Subgoal result: "IntegrationResult(original_goal='Find the light circuit breaker in the kitchen', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe06205b0>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibility_analysis': {'dependency_cycles': [], 'unreachable_subgoals': [], 'missing_preconditions': [{'subgoal_id': '...
+2025-11-25 19:48:48,108 - debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 19:48:48,108 - debug_script - ERROR - Transition modeling failed: 'IntegrationResult' object has no attribute 'get'
+2025-11-25 19:48:48,108 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/virtualhome_task_180_2_result.json
+2025-11-25 19:48:48,110 - debug_script - INFO - === Debug processing complete ===
+2025-11-25 19:48:48,110 - debug_script - INFO - Total tasks: 20
+2025-11-25 19:48:48,110 - debug_script - INFO - Successful tasks: 0
+2025-11-25 19:48:48,110 - debug_script - INFO - Failed tasks: 20
+2025-11-25 19:48:48,110 - debug_script - INFO - Summary saved to: /home/yeah/eai-interpretable-interface/debug_results/debug_summary_1764071328.json
+2025-11-25 19:48:48,110 - debug_script - INFO - Detailed logs saved to: debug_parquet_processing.log

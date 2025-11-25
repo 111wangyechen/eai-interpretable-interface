@@ -1,23 +1,28 @@
 {
-  "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764070820100",
+  "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764071328078",
   "status": "failed",
-  "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+  "error": "Transition modeling failed: 'IntegrationResult' object has no attribute 'get'",
   "debug_info": {
-    "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764070820100",
+    "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764071328078",
     "task_id": "preserving_food_0_Rs_int_0_2021-08-25_15-53-33",
     "dataset": "behavior",
     "natural_goal": "Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.",
-    "start_time": "2025-11-25T19:40:20.100140",
+    "start_time": "2025-11-25T19:48:48.078669",
     "modules": {
       "goal_interpretation": {
         "status": "success",
         "result": "True",
-        "execution_time": 0.0004570484161376953
+        "execution_time": 0.0006716251373291016
       },
       "subgoal_decomposition": {
+        "status": "success",
+        "result": "IntegrationResult(original_goal='Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.', ltl_formula=<goal_interpretation.goal_interpreter.LTLFormula object at 0x789fe066c520>, decomposition_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibility_analysis': {'dependency_cycles': [], 'unreachable_subgoals': [], 'missing_preconditions': [{'subgoal_id': 'atomic_1', 'precondition': 'agent_available', 'suggestion': 'Ensure agent_available is established before executing Execute atomic action: perform_True'}], 'estimated_success_rate': 0.87584, 'is_feasible': True}, 'decomposition_quality': {'granularity_score': 0.65, 'balance_score': 1.0, 'dependency_clarity_score': 0.4, 'overall_score': 0.66}, 'optimized': True, 'original_subgoal_count': 1, 'optimized_subgoal_count': 1}), validation_issues=[ValidationIssue(severity='warning', message=\"无法验证子目标 atomic_1 的LTL公式: 'LTLValidator' object has no attribute 'validate_formula'\", subgoal_id='atomic_1', suggestion='检查LTL公式格式', metadata=None)], optimization_result=OptimizationResult(optimized_result=DecompositionResult(subgoals=[Subgoal(id='atomic_1', description='Execute atomic action: perform_True', ltl_formula='perform_True', subgoal_type=<SubgoalType.ATOMIC: 'atomic'>, dependencies=[], priority=0, estimated_cost=1.04, preconditions=['agent_available'], effects=['perform_True'], metadata={'depth': 0, 'type': 'atomic', 'original_formula': 'True', 'feasibility_score': 0.6, 'action_type': 'general'})], root_subgoal='atomic_1', execution_order=['atomic_1'], total_cost=1.04, decomposition_strategy=<DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, metadata={'decomposition_method': 'temporal_hierarchical', 'max_depth_reached': 0, 'original_formula': 'True', 'feasibility_analysis': {'dependency_cycles': [], 'unreachable_subgoals': [], 'missing_preconditions': [{'subgoal_id': 'atomic_1', 'precondition': 'agent_available', 'suggestion': 'Ensure agent_available is established before executing Execute atomic action: perform_True'}], 'estimated_success_rate': 0.87584, 'is_feasible': True}, 'decomposition_quality': {'granularity_score': 0.65, 'balance_score': 1.0, 'dependency_clarity_score': 0.4, 'overall_score': 0.66}, 'optimized': True, 'original_subgoal_count': 1, 'optimized_subgoal_count': 1}), improvements=[], performance_gain=0.0, validation_issues_resolved=0, metadata={'optimization_time': 'unknown', 'optimization_strategy': 'comprehensive'}), analysis_result={'overall_complexity': 'low', 'subgoal_count': 1, 'max_depth': 0, 'dependency_complexity': 0.0, 'type_distribution': {'atomic': 1}, 'cost_distribution': {'min': 1.04, 'max': 1.04, 'avg': 1.04, 'total': 1.04}, 'recommendations': ['原子子目标比例过高，考虑增加更高层次的抽象']}, metadata={'processed_at': 'unknown', 'validation_enabled': True, 'optimization_enabled': True, 'analysis_enabled': True, 'max_depth': 5, 'max_subgoals': 20})",
+        "execution_time": 0.0005559921264648438
+      },
+      "transition_modeling": {
         "status": "failed",
-        "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
-        "execution_time": 2.384185791015625e-05
+        "error": "'IntegrationResult' object has no attribute 'get'",
+        "execution_time": 2.574920654296875e-05
       }
     }
   }
