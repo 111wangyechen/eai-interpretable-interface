@@ -1,0 +1,488 @@
+{
+  "timestamp": "2025-11-25T19:40:20.131490",
+  "total_tasks": 20,
+  "successful_tasks": 0,
+  "failed_tasks": 20,
+  "results": [
+    {
+      "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764070820092",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+      "debug_info": {
+        "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764070820092",
+        "task_id": "assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37",
+        "dataset": "behavior",
+        "natural_goal": "Put one candle, one cheese, one cookie, and one bow into each basket.",
+        "start_time": "2025-11-25T19:40:20.092634",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "result": "True",
+            "execution_time": 0.00376129150390625
+          },
+          "subgoal_decomposition": {
+            "status": "failed",
+            "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+            "execution_time": 4.649162292480469e-05
+          }
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_1764070820096",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+      "debug_info": {
+        "submission_id": "behavior_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_1764070820096",
+        "task_id": "brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56",
+        "dataset": "behavior",
+        "natural_goal": "Check every sweater for lint, make sure none of them are dusty, and put them on the bed.",
+        "start_time": "2025-11-25T19:40:20.096776",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "result": "True",
+            "execution_time": 0.0007567405700683594
+          },
+          "subgoal_decomposition": {
+            "status": "failed",
+            "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+            "execution_time": 4.792213439941406e-05
+          }
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764070820097",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+      "debug_info": {
+        "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764070820097",
+        "task_id": "boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47",
+        "dataset": "behavior",
+        "natural_goal": "Place the books into the carton for storage.",
+        "start_time": "2025-11-25T19:40:20.097806",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "result": "True",
+            "execution_time": 0.0006623268127441406
+          },
+          "subgoal_decomposition": {
+            "status": "failed",
+            "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+            "execution_time": 2.574920654296875e-05
+          }
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764070820098",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+      "debug_info": {
+        "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764070820098",
+        "task_id": "collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28",
+        "dataset": "behavior",
+        "natural_goal": "Collect all aluminum cans and place them into the bucket.",
+        "start_time": "2025-11-25T19:40:20.098711",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "result": "True",
+            "execution_time": 0.0004887580871582031
+          },
+          "subgoal_decomposition": {
+            "status": "failed",
+            "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+            "execution_time": 2.4080276489257812e-05
+          }
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764070820099",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+      "debug_info": {
+        "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764070820099",
+        "task_id": "mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58",
+        "dataset": "behavior",
+        "natural_goal": "Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.",
+        "start_time": "2025-11-25T19:40:20.099359",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "result": "True",
+            "execution_time": 0.000606536865234375
+          },
+          "subgoal_decomposition": {
+            "status": "failed",
+            "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+            "execution_time": 2.5987625122070312e-05
+          }
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764070820100",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+      "debug_info": {
+        "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764070820100",
+        "task_id": "preserving_food_0_Rs_int_0_2021-08-25_15-53-33",
+        "dataset": "behavior",
+        "natural_goal": "Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.",
+        "start_time": "2025-11-25T19:40:20.100140",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "result": "True",
+            "execution_time": 0.0004570484161376953
+          },
+          "subgoal_decomposition": {
+            "status": "failed",
+            "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+            "execution_time": 2.384185791015625e-05
+          }
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764070820100",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+      "debug_info": {
+        "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764070820100",
+        "task_id": "re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26",
+        "dataset": "behavior",
+        "natural_goal": "Place books 1 through 4 on the shelf, and place books 5 through 8 on the table.",
+        "start_time": "2025-11-25T19:40:20.100753",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "result": "True",
+            "execution_time": 0.0004572868347167969
+          },
+          "subgoal_decomposition": {
+            "status": "failed",
+            "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+            "execution_time": 2.384185791015625e-05
+          }
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_1764070820101",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+      "debug_info": {
+        "submission_id": "behavior_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_1764070820101",
+        "task_id": "polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15",
+        "dataset": "behavior",
+        "natural_goal": "Polish all spoons and put them inside the cabinet.",
+        "start_time": "2025-11-25T19:40:20.101365",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "result": "True",
+            "execution_time": 0.0004677772521972656
+          },
+          "subgoal_decomposition": {
+            "status": "failed",
+            "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+            "execution_time": 2.5987625122070312e-05
+          }
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764070820101",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+      "debug_info": {
+        "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764070820101",
+        "task_id": "packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19",
+        "dataset": "behavior",
+        "natural_goal": "Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.",
+        "start_time": "2025-11-25T19:40:20.101991",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "result": "True",
+            "execution_time": 0.00044417381286621094
+          },
+          "subgoal_decomposition": {
+            "status": "failed",
+            "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+            "execution_time": 2.384185791015625e-05
+          }
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_1764070820102",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+      "debug_info": {
+        "submission_id": "behavior_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_1764070820102",
+        "task_id": "cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25",
+        "dataset": "behavior",
+        "natural_goal": "Clean the stained freezer and remove all food items from the freezer.",
+        "start_time": "2025-11-25T19:40:20.102590",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "result": "True",
+            "execution_time": 0.00044655799865722656
+          },
+          "subgoal_decomposition": {
+            "status": "failed",
+            "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+            "execution_time": 2.4557113647460938e-05
+          }
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_27_2_1764070820111",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+      "debug_info": {
+        "submission_id": "virtualhome_27_2_1764070820111",
+        "task_id": "27_2",
+        "dataset": "virtualhome",
+        "natural_goal": "Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine.",
+        "start_time": "2025-11-25T19:40:20.111272",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "result": "True",
+            "execution_time": 0.0020122528076171875
+          },
+          "subgoal_decomposition": {
+            "status": "failed",
+            "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+            "execution_time": 6.771087646484375e-05
+          }
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_417_1_1764070820113",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+      "debug_info": {
+        "submission_id": "virtualhome_417_1_1764070820113",
+        "task_id": "417_1",
+        "dataset": "virtualhome",
+        "natural_goal": "I will load the dirty clothes into the washing machine.",
+        "start_time": "2025-11-25T19:40:20.113747",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "result": "True",
+            "execution_time": 0.0014388561248779297
+          },
+          "subgoal_decomposition": {
+            "status": "failed",
+            "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+            "execution_time": 0.00015974044799804688
+          }
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_850_1_1764070820115",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+      "debug_info": {
+        "submission_id": "virtualhome_850_1_1764070820115",
+        "task_id": "850_1",
+        "dataset": "virtualhome",
+        "natural_goal": "Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.",
+        "start_time": "2025-11-25T19:40:20.115820",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "result": "True",
+            "execution_time": 0.0016427040100097656
+          },
+          "subgoal_decomposition": {
+            "status": "failed",
+            "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+            "execution_time": 0.00020694732666015625
+          }
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_954_2_1764070820118",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+      "debug_info": {
+        "submission_id": "virtualhome_954_2_1764070820118",
+        "task_id": "954_2",
+        "dataset": "virtualhome",
+        "natural_goal": "I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.",
+        "start_time": "2025-11-25T19:40:20.118047",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "result": "True",
+            "execution_time": 0.001661062240600586
+          },
+          "subgoal_decomposition": {
+            "status": "failed",
+            "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+            "execution_time": 0.00018310546875
+          }
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_11_1_1764070820120",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+      "debug_info": {
+        "submission_id": "virtualhome_11_1_1764070820120",
+        "task_id": "11_1",
+        "dataset": "virtualhome",
+        "natural_goal": "I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.",
+        "start_time": "2025-11-25T19:40:20.120285",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "result": "True",
+            "execution_time": 0.00167083740234375
+          },
+          "subgoal_decomposition": {
+            "status": "failed",
+            "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+            "execution_time": 0.00011968612670898438
+          }
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_120_1_1764070820122",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+      "debug_info": {
+        "submission_id": "virtualhome_120_1_1764070820122",
+        "task_id": "120_1",
+        "dataset": "virtualhome",
+        "natural_goal": "Go to the kitchen and living room and turn on the lights.",
+        "start_time": "2025-11-25T19:40:20.122448",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "result": "True",
+            "execution_time": 0.0012888908386230469
+          },
+          "subgoal_decomposition": {
+            "status": "failed",
+            "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+            "execution_time": 0.00010037422180175781
+          }
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_125_2_1764070820124",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+      "debug_info": {
+        "submission_id": "virtualhome_125_2_1764070820124",
+        "task_id": "125_2",
+        "dataset": "virtualhome",
+        "natural_goal": "turn on the light for room",
+        "start_time": "2025-11-25T19:40:20.124181",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "result": "True",
+            "execution_time": 0.0012981891632080078
+          },
+          "subgoal_decomposition": {
+            "status": "failed",
+            "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+            "execution_time": 0.00010800361633300781
+          }
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_150_2_1764070820126",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+      "debug_info": {
+        "submission_id": "virtualhome_150_2_1764070820126",
+        "task_id": "150_2",
+        "dataset": "virtualhome",
+        "natural_goal": "push any ligth button to turn it on, for example in the living room",
+        "start_time": "2025-11-25T19:40:20.126028",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "result": "True",
+            "execution_time": 0.001222848892211914
+          },
+          "subgoal_decomposition": {
+            "status": "failed",
+            "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+            "execution_time": 7.05718994140625e-05
+          }
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_160_1_1764070820127",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+      "debug_info": {
+        "submission_id": "virtualhome_160_1_1764070820127",
+        "task_id": "160_1",
+        "dataset": "virtualhome",
+        "natural_goal": "Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one.",
+        "start_time": "2025-11-25T19:40:20.127663",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "result": "True",
+            "execution_time": 0.001321554183959961
+          },
+          "subgoal_decomposition": {
+            "status": "failed",
+            "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+            "execution_time": 0.00010013580322265625
+          }
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_180_2_1764070820129",
+      "status": "failed",
+      "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+      "debug_info": {
+        "submission_id": "virtualhome_180_2_1764070820129",
+        "task_id": "180_2",
+        "dataset": "virtualhome",
+        "natural_goal": "Find the light circuit breaker in the kitchen",
+        "start_time": "2025-11-25T19:40:20.129414",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "result": "True",
+            "execution_time": 0.001806020736694336
+          },
+          "subgoal_decomposition": {
+            "status": "failed",
+            "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+            "execution_time": 3.4809112548828125e-05
+          }
+        }
+      }
+    }
+  ]
+}

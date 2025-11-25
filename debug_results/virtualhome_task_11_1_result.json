@@ -1,0 +1,24 @@
+{
+  "submission_id": "virtualhome_11_1_1764070820120",
+  "status": "failed",
+  "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+  "debug_info": {
+    "submission_id": "virtualhome_11_1_1764070820120",
+    "task_id": "11_1",
+    "dataset": "virtualhome",
+    "natural_goal": "I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.",
+    "start_time": "2025-11-25T19:40:20.120285",
+    "modules": {
+      "goal_interpretation": {
+        "status": "success",
+        "result": "True",
+        "execution_time": 0.00167083740234375
+      },
+      "subgoal_decomposition": {
+        "status": "failed",
+        "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+        "execution_time": 0.00011968612670898438
+      }
+    }
+  }
+}

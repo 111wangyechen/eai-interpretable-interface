@@ -39,3 +39,324 @@
 2025-11-25 19:27:18,206 - debug_script - INFO - Failed tasks: 0
 2025-11-25 19:27:18,206 - debug_script - INFO - Summary saved to: /home/yeah/eai-interpretable-interface/debug_results/debug_summary_1764070038.json
 2025-11-25 19:27:18,206 - debug_script - INFO - Detailed logs saved to: debug_parquet_processing.log
+2025-11-25 19:40:20,043 - debug_script - INFO - Importing core modules...
+2025-11-25 19:40:20,044 - debug_script - INFO - ✓ GoalInterpreter imported successfully
+2025-11-25 19:40:20,047 - debug_script - INFO - ✓ SubgoalLTLIntegration imported successfully
+2025-11-25 19:40:20,052 - debug_script - INFO - ✓ TransitionModeler imported successfully
+2025-11-25 19:40:20,062 - action_sequencing - INFO - Action Sequencing Module v1.0.0 loaded successfully
+2025-11-25 19:40:20,062 - debug_script - INFO - ✓ ActionSequencer imported successfully
+2025-11-25 19:40:20,062 - debug_script - INFO - Starting debug script...
+2025-11-25 19:40:20,062 - debug_script - INFO - Processing dataset: behavior
+2025-11-25 19:40:20,062 - debug_script - INFO - Loading 10 samples from /home/yeah/eai-interpretable-interface/data/behavior-00000-of-00001.parquet
+2025-11-25 19:40:20,091 - debug_script - INFO - Total records in file: 100
+2025-11-25 19:40:20,092 - debug_script - INFO - Loaded 10 samples successfully
+2025-11-25 19:40:20,092 - debug_script - INFO - === Processing task assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37 from behavior: Put one candle, one cheese, one cookie, and one bo... ===
+2025-11-25 19:40:20,092 - debug_script - INFO - Initializing modules...
+2025-11-25 19:40:20,092 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:40:20,093 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:40:20,093 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:40:20,093 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:40:20,093 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:40:20,093 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:40:20,093 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:40:20,093 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:40:20,093 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:40:20,096 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:40:20,096 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:40:20,096 - debug_script - ERROR - Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'
+2025-11-25 19:40:20,096 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/behavior_task_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_result.json
+2025-11-25 19:40:20,096 - debug_script - INFO - === Processing task brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56 from behavior: Check every sweater for lint, make sure none of th... ===
+2025-11-25 19:40:20,096 - debug_script - INFO - Initializing modules...
+2025-11-25 19:40:20,096 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:40:20,096 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:40:20,097 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:40:20,097 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:40:20,097 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:40:20,097 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:40:20,097 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:40:20,097 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:40:20,097 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:40:20,097 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:40:20,097 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:40:20,097 - debug_script - ERROR - Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'
+2025-11-25 19:40:20,097 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/behavior_task_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_result.json
+2025-11-25 19:40:20,097 - debug_script - INFO - === Processing task boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47 from behavior: Place the books into the carton for storage.... ===
+2025-11-25 19:40:20,097 - debug_script - INFO - Initializing modules...
+2025-11-25 19:40:20,097 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:40:20,097 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:40:20,097 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:40:20,098 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:40:20,098 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:40:20,098 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:40:20,098 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:40:20,098 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:40:20,098 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:40:20,098 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:40:20,098 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:40:20,098 - debug_script - ERROR - Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'
+2025-11-25 19:40:20,098 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/behavior_task_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_result.json
+2025-11-25 19:40:20,098 - debug_script - INFO - === Processing task collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28 from behavior: Collect all aluminum cans and place them into the ... ===
+2025-11-25 19:40:20,098 - debug_script - INFO - Initializing modules...
+2025-11-25 19:40:20,098 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:40:20,098 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:40:20,098 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:40:20,098 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:40:20,098 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:40:20,098 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:40:20,099 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:40:20,099 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:40:20,099 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:40:20,099 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:40:20,099 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:40:20,099 - debug_script - ERROR - Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'
+2025-11-25 19:40:20,099 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/behavior_task_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_result.json
+2025-11-25 19:40:20,099 - debug_script - INFO - === Processing task mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58 from behavior: Use the bucket, soap and broom to clean the staine... ===
+2025-11-25 19:40:20,099 - debug_script - INFO - Initializing modules...
+2025-11-25 19:40:20,099 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:40:20,099 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:40:20,099 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:40:20,099 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:40:20,099 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:40:20,099 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:40:20,099 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:40:20,099 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:40:20,099 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:40:20,099 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:40:20,099 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:40:20,099 - debug_script - ERROR - Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'
+2025-11-25 19:40:20,100 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/behavior_task_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_result.json
+2025-11-25 19:40:20,100 - debug_script - INFO - === Processing task preserving_food_0_Rs_int_0_2021-08-25_15-53-33 from behavior: Slice and cook all the strawberries, then seal the... ===
+2025-11-25 19:40:20,100 - debug_script - INFO - Initializing modules...
+2025-11-25 19:40:20,100 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:40:20,100 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:40:20,100 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:40:20,100 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:40:20,100 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:40:20,100 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:40:20,100 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:40:20,100 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:40:20,100 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:40:20,100 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:40:20,100 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:40:20,100 - debug_script - ERROR - Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'
+2025-11-25 19:40:20,100 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/behavior_task_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_result.json
+2025-11-25 19:40:20,100 - debug_script - INFO - === Processing task re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26 from behavior: Place books 1 through 4 on the shelf, and place bo... ===
+2025-11-25 19:40:20,100 - debug_script - INFO - Initializing modules...
+2025-11-25 19:40:20,100 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:40:20,100 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:40:20,100 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:40:20,100 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:40:20,100 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:40:20,100 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:40:20,101 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:40:20,101 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:40:20,101 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:40:20,101 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:40:20,101 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:40:20,101 - debug_script - ERROR - Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'
+2025-11-25 19:40:20,101 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/behavior_task_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_result.json
+2025-11-25 19:40:20,101 - debug_script - INFO - === Processing task polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15 from behavior: Polish all spoons and put them inside the cabinet.... ===
+2025-11-25 19:40:20,101 - debug_script - INFO - Initializing modules...
+2025-11-25 19:40:20,101 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:40:20,101 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:40:20,101 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:40:20,101 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:40:20,101 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:40:20,101 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:40:20,101 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:40:20,101 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:40:20,101 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:40:20,101 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:40:20,101 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:40:20,101 - debug_script - ERROR - Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'
+2025-11-25 19:40:20,101 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/behavior_task_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_result.json
+2025-11-25 19:40:20,101 - debug_script - INFO - === Processing task packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19 from behavior: Pack all plates, the dishtowel, books, shirts, and... ===
+2025-11-25 19:40:20,102 - debug_script - INFO - Initializing modules...
+2025-11-25 19:40:20,102 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:40:20,102 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:40:20,102 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:40:20,102 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:40:20,102 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:40:20,102 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:40:20,102 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:40:20,102 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:40:20,102 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:40:20,102 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:40:20,102 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:40:20,102 - debug_script - ERROR - Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'
+2025-11-25 19:40:20,102 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/behavior_task_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_result.json
+2025-11-25 19:40:20,102 - debug_script - INFO - === Processing task cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25 from behavior: Clean the stained freezer and remove all food item... ===
+2025-11-25 19:40:20,102 - debug_script - INFO - Initializing modules...
+2025-11-25 19:40:20,102 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:40:20,102 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:40:20,102 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:40:20,102 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:40:20,102 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:40:20,102 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:40:20,102 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:40:20,102 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:40:20,102 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:40:20,103 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:40:20,103 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:40:20,103 - debug_script - ERROR - Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'
+2025-11-25 19:40:20,103 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/behavior_task_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_result.json
+2025-11-25 19:40:20,103 - debug_script - INFO - Processing dataset: virtualhome
+2025-11-25 19:40:20,103 - debug_script - INFO - Loading 10 samples from /home/yeah/eai-interpretable-interface/data/virtualhome-00000-of-00001.parquet
+2025-11-25 19:40:20,109 - debug_script - INFO - Total records in file: 338
+2025-11-25 19:40:20,111 - debug_script - INFO - Loaded 10 samples successfully
+2025-11-25 19:40:20,111 - debug_script - INFO - === Processing task 27_2 from virtualhome: Walk to the kitchen and find the basket of clothes... ===
+2025-11-25 19:40:20,111 - debug_script - INFO - Initializing modules...
+2025-11-25 19:40:20,111 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:40:20,111 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:40:20,111 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:40:20,111 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:40:20,112 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:40:20,112 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:40:20,112 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:40:20,112 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:40:20,112 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:40:20,113 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:40:20,113 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:40:20,113 - debug_script - ERROR - Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'
+2025-11-25 19:40:20,113 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/virtualhome_task_27_2_result.json
+2025-11-25 19:40:20,113 - debug_script - INFO - === Processing task 417_1 from virtualhome: I will load the dirty clothes into the washing mac... ===
+2025-11-25 19:40:20,113 - debug_script - INFO - Initializing modules...
+2025-11-25 19:40:20,114 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:40:20,114 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:40:20,114 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:40:20,114 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:40:20,114 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:40:20,114 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:40:20,114 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:40:20,114 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:40:20,114 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:40:20,114 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:40:20,115 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:40:20,115 - debug_script - ERROR - Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'
+2025-11-25 19:40:20,115 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/virtualhome_task_417_1_result.json
+2025-11-25 19:40:20,115 - debug_script - INFO - === Processing task 850_1 from virtualhome: Walk into laundry room. Open washing machine door.... ===
+2025-11-25 19:40:20,116 - debug_script - INFO - Initializing modules...
+2025-11-25 19:40:20,116 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:40:20,116 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:40:20,116 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:40:20,116 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:40:20,116 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:40:20,116 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:40:20,116 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:40:20,117 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:40:20,117 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:40:20,117 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:40:20,117 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:40:20,117 - debug_script - ERROR - Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'
+2025-11-25 19:40:20,117 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/virtualhome_task_850_1_result.json
+2025-11-25 19:40:20,118 - debug_script - INFO - === Processing task 954_2 from virtualhome: I need to get the dirty clothes basket.  Walk to b... ===
+2025-11-25 19:40:20,118 - debug_script - INFO - Initializing modules...
+2025-11-25 19:40:20,118 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:40:20,118 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:40:20,118 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:40:20,118 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:40:20,118 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:40:20,118 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:40:20,119 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:40:20,119 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:40:20,119 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:40:20,119 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:40:20,119 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:40:20,119 - debug_script - ERROR - Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'
+2025-11-25 19:40:20,120 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/virtualhome_task_954_2_result.json
+2025-11-25 19:40:20,120 - debug_script - INFO - === Processing task 11_1 from virtualhome: I go to bedroom and locate a lamp. This lamp can b... ===
+2025-11-25 19:40:20,120 - debug_script - INFO - Initializing modules...
+2025-11-25 19:40:20,120 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:40:20,120 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:40:20,120 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:40:20,120 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:40:20,121 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:40:20,121 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:40:20,121 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:40:20,121 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:40:20,121 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:40:20,121 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:40:20,121 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:40:20,122 - debug_script - ERROR - Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'
+2025-11-25 19:40:20,122 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/virtualhome_task_11_1_result.json
+2025-11-25 19:40:20,122 - debug_script - INFO - === Processing task 120_1 from virtualhome: Go to the kitchen and living room and turn on the ... ===
+2025-11-25 19:40:20,122 - debug_script - INFO - Initializing modules...
+2025-11-25 19:40:20,122 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:40:20,122 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:40:20,122 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:40:20,122 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:40:20,123 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:40:20,123 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:40:20,123 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:40:20,123 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:40:20,123 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:40:20,123 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:40:20,123 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:40:20,123 - debug_script - ERROR - Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'
+2025-11-25 19:40:20,124 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/virtualhome_task_120_1_result.json
+2025-11-25 19:40:20,124 - debug_script - INFO - === Processing task 125_2 from virtualhome: turn on the light for room... ===
+2025-11-25 19:40:20,124 - debug_script - INFO - Initializing modules...
+2025-11-25 19:40:20,124 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:40:20,124 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:40:20,124 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:40:20,124 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:40:20,124 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:40:20,124 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:40:20,125 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:40:20,125 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:40:20,125 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:40:20,125 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:40:20,125 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:40:20,125 - debug_script - ERROR - Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'
+2025-11-25 19:40:20,125 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/virtualhome_task_125_2_result.json
+2025-11-25 19:40:20,126 - debug_script - INFO - === Processing task 150_2 from virtualhome: push any ligth button to turn it on, for example i... ===
+2025-11-25 19:40:20,126 - debug_script - INFO - Initializing modules...
+2025-11-25 19:40:20,126 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:40:20,126 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:40:20,126 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:40:20,126 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:40:20,126 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:40:20,126 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:40:20,126 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:40:20,126 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:40:20,126 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:40:20,127 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:40:20,127 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:40:20,127 - debug_script - ERROR - Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'
+2025-11-25 19:40:20,127 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/virtualhome_task_150_2_result.json
+2025-11-25 19:40:20,127 - debug_script - INFO - === Processing task 160_1 from virtualhome: Go to the living room, find the switches (buttons ... ===
+2025-11-25 19:40:20,127 - debug_script - INFO - Initializing modules...
+2025-11-25 19:40:20,127 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:40:20,128 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:40:20,128 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:40:20,128 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:40:20,128 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:40:20,128 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:40:20,128 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:40:20,128 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:40:20,128 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:40:20,128 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:40:20,128 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:40:20,129 - debug_script - ERROR - Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'
+2025-11-25 19:40:20,129 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/virtualhome_task_160_1_result.json
+2025-11-25 19:40:20,129 - debug_script - INFO - === Processing task 180_2 from virtualhome: Find the light circuit breaker in the kitchen... ===
+2025-11-25 19:40:20,129 - debug_script - INFO - Initializing modules...
+2025-11-25 19:40:20,129 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 19:40:20,129 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 19:40:20,130 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 19:40:20,130 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 19:40:20,130 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 19:40:20,130 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 19:40:20,130 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 19:40:20,130 - debug_script - INFO - All modules initialized successfully
+2025-11-25 19:40:20,130 - debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 19:40:20,130 - debug_script - DEBUG - Interpretation result: "True"...
+2025-11-25 19:40:20,131 - debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 19:40:20,131 - debug_script - ERROR - Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'
+2025-11-25 19:40:20,131 - debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/debug_results/virtualhome_task_180_2_result.json
+2025-11-25 19:40:20,132 - debug_script - INFO - === Debug processing complete ===
+2025-11-25 19:40:20,132 - debug_script - INFO - Total tasks: 20
+2025-11-25 19:40:20,132 - debug_script - INFO - Successful tasks: 0
+2025-11-25 19:40:20,132 - debug_script - INFO - Failed tasks: 20
+2025-11-25 19:40:20,132 - debug_script - INFO - Summary saved to: /home/yeah/eai-interpretable-interface/debug_results/debug_summary_1764070820.json
+2025-11-25 19:40:20,132 - debug_script - INFO - Detailed logs saved to: debug_parquet_processing.log

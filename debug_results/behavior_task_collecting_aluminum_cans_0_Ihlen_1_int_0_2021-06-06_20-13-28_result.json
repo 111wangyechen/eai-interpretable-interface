@@ -1,0 +1,24 @@
+{
+  "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764070820098",
+  "status": "failed",
+  "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+  "debug_info": {
+    "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764070820098",
+    "task_id": "collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28",
+    "dataset": "behavior",
+    "natural_goal": "Collect all aluminum cans and place them into the bucket.",
+    "start_time": "2025-11-25T19:40:20.098711",
+    "modules": {
+      "goal_interpretation": {
+        "status": "success",
+        "result": "True",
+        "execution_time": 0.0004887580871582031
+      },
+      "subgoal_decomposition": {
+        "status": "failed",
+        "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+        "execution_time": 2.4080276489257812e-05
+      }
+    }
+  }
+}

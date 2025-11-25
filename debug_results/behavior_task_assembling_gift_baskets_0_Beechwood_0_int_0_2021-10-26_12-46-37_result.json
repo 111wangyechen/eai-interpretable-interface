@@ -1,0 +1,24 @@
+{
+  "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764070820092",
+  "status": "failed",
+  "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+  "debug_info": {
+    "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764070820092",
+    "task_id": "assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37",
+    "dataset": "behavior",
+    "natural_goal": "Put one candle, one cheese, one cookie, and one bow into each basket.",
+    "start_time": "2025-11-25T19:40:20.092634",
+    "modules": {
+      "goal_interpretation": {
+        "status": "success",
+        "result": "True",
+        "execution_time": 0.00376129150390625
+      },
+      "subgoal_decomposition": {
+        "status": "failed",
+        "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+        "execution_time": 4.649162292480469e-05
+      }
+    }
+  }
+}

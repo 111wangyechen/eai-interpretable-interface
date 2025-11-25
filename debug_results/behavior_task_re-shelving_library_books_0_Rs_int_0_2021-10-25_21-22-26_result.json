@@ -1,0 +1,24 @@
+{
+  "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764070820100",
+  "status": "failed",
+  "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+  "debug_info": {
+    "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764070820100",
+    "task_id": "re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26",
+    "dataset": "behavior",
+    "natural_goal": "Place books 1 through 4 on the shelf, and place books 5 through 8 on the table.",
+    "start_time": "2025-11-25T19:40:20.100753",
+    "modules": {
+      "goal_interpretation": {
+        "status": "success",
+        "result": "True",
+        "execution_time": 0.0004572868347167969
+      },
+      "subgoal_decomposition": {
+        "status": "failed",
+        "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+        "execution_time": 2.384185791015625e-05
+      }
+    }
+  }
+}

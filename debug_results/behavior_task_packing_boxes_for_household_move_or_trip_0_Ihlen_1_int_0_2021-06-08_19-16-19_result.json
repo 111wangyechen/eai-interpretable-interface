@@ -1,0 +1,24 @@
+{
+  "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764070820101",
+  "status": "failed",
+  "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+  "debug_info": {
+    "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764070820101",
+    "task_id": "packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19",
+    "dataset": "behavior",
+    "natural_goal": "Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.",
+    "start_time": "2025-11-25T19:40:20.101991",
+    "modules": {
+      "goal_interpretation": {
+        "status": "success",
+        "result": "True",
+        "execution_time": 0.00044417381286621094
+      },
+      "subgoal_decomposition": {
+        "status": "failed",
+        "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+        "execution_time": 2.384185791015625e-05
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764070820097",
+  "status": "failed",
+  "error": "Subgoal decomposition failed: 'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+  "debug_info": {
+    "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764070820097",
+    "task_id": "boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47",
+    "dataset": "behavior",
+    "natural_goal": "Place the books into the carton for storage.",
+    "start_time": "2025-11-25T19:40:20.097806",
+    "modules": {
+      "goal_interpretation": {
+        "status": "success",
+        "result": "True",
+        "execution_time": 0.0006623268127441406
+      },
+      "subgoal_decomposition": {
+        "status": "failed",
+        "error": "'SubgoalLTLIntegration' object has no attribute 'generate_subgoal_plan'",
+        "execution_time": 2.574920654296875e-05
+      }
+    }
+  }
+}
