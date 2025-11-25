@@ -10,6 +10,7 @@ from dataclasses import dataclass, field
 from enum import Enum
 import json
 import time
+import logging
 
 
 class TransitionType(Enum):
