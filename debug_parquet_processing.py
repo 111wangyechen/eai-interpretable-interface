@@ -148,7 +148,7 @@ def process_goal_with_debug(natural_goal: str, task_id: str, dataset: str) -> Di
         logger.info("Step 2: Subgoal Decomposition")
         subgoal_start = time.time()
         try:
-            subgoal_result = subgoal_integration.generate_subgoal_plan(natural_goal, interpretation_result)
+            subgoal_result = subgoal_integration.process_goal(natural_goal)
             logger.debug(f"Subgoal result: {json.dumps(subgoal_result, indent=2, ensure_ascii=False, cls=CustomJSONEncoder)[:1000]}...")
             debug_info['modules']['subgoal_decomposition'] = {
                 'status': 'success',
