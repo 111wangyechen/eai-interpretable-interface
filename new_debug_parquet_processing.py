@@ -178,8 +178,13 @@ def process_goal_with_debug(natural_goal: str, task_id: str, dataset: str) -> Di
         try:
             # Prepare modeling request
             modeling_request = ModelingRequest(
-                goal=interpretation_result,
-                subgoals=subgoal_result.decomposition_result.subgoals if subgoal_result.decomposition_result else []
+                initial_state={"at_location_start": True, "task_completed": False},
+                goal_state={"at_location_target": True, "task_completed": True},
+                context={
+                    "goal_text": natural_goal,
+                    "goal_result": interpretation_result,
+                    "subgoals": subgoal_result.decomposition_result.subgoals if subgoal_result.decomposition_result else []
+                }
             )
             transition_result = transition_modeler.model_transitions(modeling_request)
             logger.debug(f"Transition modeling completed successfully")

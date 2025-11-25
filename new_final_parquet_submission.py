@@ -115,8 +115,13 @@ def process_goal(natural_goal: str, output_dir: str, task_id: str, dataset: str)
         print(f"   Step 3: Modeling transitions...")
         # Create modeling request with appropriate data from previous steps
         modeling_request = ModelingRequest(
-            goal=goal_result,
-            subgoals=subgoal_result.decomposition_result.subgoals if subgoal_result.decomposition_result else []
+            initial_state={"at_location_start": True, "task_completed": False},
+            goal_state={"at_location_target": True, "task_completed": True},
+            context={
+                "goal_text": natural_goal,
+                "goal_result": goal_result,
+                "subgoals": subgoal_result.decomposition_result.subgoals if subgoal_result.decomposition_result else []
+            }
         )
         modeling_response = transition_modeler.model_transitions(modeling_request)
         
