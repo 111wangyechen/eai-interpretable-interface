@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17_1764075130993",
+  "submission_id": "behavior_putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17_1764076114870",
   "status": "success",
-  "timestamp": "2025-11-25T20:52:10.994719",
+  "timestamp": "2025-11-25T21:08:34.872827",
   "goal": {
     "natural_language": "Place all pumpkins and candles into the cabinet, arrange the sheet either next to or on the table, and position the caldron next to the table.",
     "interpreted": "True"
@@ -9,19 +9,19 @@
   "subgoals": {
     "count": 1
   },
-  "execution_time": 0.0015952587127685547,
+  "execution_time": 0.0019028186798095703,
   "execution_times": {
-    "goal_interpretation": 0.0002567768096923828,
-    "subgoal_decomposition": 0.00048351287841796875,
-    "transition_modeling": 7.033348083496094e-05,
-    "action_sequencing": 0.00021648406982421875
+    "goal_interpretation": 0.00028133392333984375,
+    "subgoal_decomposition": 0.0006499290466308594,
+    "transition_modeling": 0.00010895729064941406,
+    "action_sequencing": 0.00030493736267089844
   },
   "debug_info": {
-    "submission_id": "behavior_putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17_1764075130993",
+    "submission_id": "behavior_putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17_1764076114870",
     "task_id": "putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17",
     "dataset": "behavior",
     "natural_goal": "Place all pumpkins and candles into the cabinet, arrange the sheet either next to or on the table, and position the caldron next to the table.",
-    "start_time": "2025-11-25T20:52:10.993129",
+    "start_time": "2025-11-25T21:08:34.870933",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -56,7 +56,7 @@
                 "subgoal_type": {
                   "_value_": "atomic",
                   "_name_": "ATOMIC",
-                  "__objclass__": "{'_generate_next_value_': <staticmethod(<function Enum._generate_next_value_ at 0x71dcaba5ac00>)>, '__module__': 'subgoal_decomposition.subgoal_decomposer', '__firstlineno__': 26, '__doc__': '子目标类型枚举', '__static_attributes__': (), '_new_member_': <built-in method __new__ of type object at 0x91a220>, '_use_args_': False, '_member_names_': ['SEQUENTIAL', 'PARALLEL', 'CONDITIONAL', 'ATOMIC', 'TEMPORAL'], '_member_map_': {'SEQUENTIAL': <SubgoalType.SEQUENTIAL: 'sequential'>, 'PARALLEL': <SubgoalType.PARALLEL: 'parallel'>, 'CONDITIONAL': <SubgoalType.CONDITIONAL: 'conditional'>, 'ATOMIC': <SubgoalType.ATOMIC: 'atomic'>, 'TEMPORAL': <SubgoalType.TEMPORAL: 'temporal'>}, '_value2member_map_': {'sequential': <SubgoalType.SEQUENTIAL: 'sequential'>, 'parallel': <SubgoalType.PARALLEL: 'parallel'>, 'conditional': <SubgoalType.CONDITIONAL: 'conditional'>, 'atomic': <SubgoalType.ATOMIC: 'atomic'>, 'temporal': <SubgoalType.TEMPORAL: 'temporal'>}, '_hashable_values_': ['sequential', 'parallel', 'conditional', 'atomic', 'temporal'], '_unhashable_values_': [], '_unhashable_values_map_': {}, '_member_type_': <class 'object'>, '_value_repr_': None, 'SEQUENTIAL': <SubgoalType.SEQUENTIAL: 'sequential'>, 'PARALLEL': <SubgoalType.PARALLEL: 'parallel'>, 'CONDITIONAL': <SubgoalType.CONDITIONAL: 'conditional'>, 'ATOMIC': <SubgoalType.ATOMIC: 'atomic'>, 'TEMPORAL': <SubgoalType.TEMPORAL: 'temporal'>, '__new__': <function Enum.__new__ at 0x71dcaba5a980>}",
+                  "__objclass__": "{'_generate_next_value_': <staticmethod(<function Enum._generate_next_value_ at 0x7a50cea02c00>)>, '__module__': 'subgoal_decomposition.subgoal_decomposer', '__firstlineno__': 26, '__doc__': '子目标类型枚举', '__static_attributes__': (), '_new_member_': <built-in method __new__ of type object at 0x91a220>, '_use_args_': False, '_member_names_': ['SEQUENTIAL', 'PARALLEL', 'CONDITIONAL', 'ATOMIC', 'TEMPORAL'], '_member_map_': {'SEQUENTIAL': <SubgoalType.SEQUENTIAL: 'sequential'>, 'PARALLEL': <SubgoalType.PARALLEL: 'parallel'>, 'CONDITIONAL': <SubgoalType.CONDITIONAL: 'conditional'>, 'ATOMIC': <SubgoalType.ATOMIC: 'atomic'>, 'TEMPORAL': <SubgoalType.TEMPORAL: 'temporal'>}, '_value2member_map_': {'sequential': <SubgoalType.SEQUENTIAL: 'sequential'>, 'parallel': <SubgoalType.PARALLEL: 'parallel'>, 'conditional': <SubgoalType.CONDITIONAL: 'conditional'>, 'atomic': <SubgoalType.ATOMIC: 'atomic'>, 'temporal': <SubgoalType.TEMPORAL: 'temporal'>}, '_hashable_values_': ['sequential', 'parallel', 'conditional', 'atomic', 'temporal'], '_unhashable_values_': [], '_unhashable_values_map_': {}, '_member_type_': <class 'object'>, '_value_repr_': None, 'SEQUENTIAL': <SubgoalType.SEQUENTIAL: 'sequential'>, 'PARALLEL': <SubgoalType.PARALLEL: 'parallel'>, 'CONDITIONAL': <SubgoalType.CONDITIONAL: 'conditional'>, 'ATOMIC': <SubgoalType.ATOMIC: 'atomic'>, 'TEMPORAL': <SubgoalType.TEMPORAL: 'temporal'>, '__new__': <function Enum.__new__ at 0x7a50cea02980>}",
                   "_sort_order_": 3
                 },
                 "dependencies": [],
@@ -85,7 +85,7 @@
             "decomposition_strategy": {
               "_value_": "temporal_hierarchical",
               "_name_": "TEMPORAL_HIERARCHICAL",
-              "__objclass__": "{'_generate_next_value_': <staticmethod(<function Enum._generate_next_value_ at 0x71dcaba5ac00>)>, '__module__': 'subgoal_decomposition.subgoal_decomposer', '__firstlineno__': 35, '__doc__': '分解策略枚举', '__static_attributes__': (), '_new_member_': <built-in method __new__ of type object at 0x91a220>, '_use_args_': False, '_member_names_': ['TEMPORAL_HIERARCHICAL', 'TASK_DEPENDENCY', 'SEMANTIC_CLUSTERING', 'HYBRID'], '_member_map_': {'TEMPORAL_HIERARCHICAL': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'TASK_DEPENDENCY': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'SEMANTIC_CLUSTERING': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'HYBRID': <DecompositionStrategy.HYBRID: 'hybrid'>}, '_value2member_map_': {'temporal_hierarchical': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'task_dependency': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'semantic_clustering': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'hybrid': <DecompositionStrategy.HYBRID: 'hybrid'>}, '_hashable_values_': ['temporal_hierarchical', 'task_dependency', 'semantic_clustering', 'hybrid'], '_unhashable_values_': [], '_unhashable_values_map_': {}, '_member_type_': <class 'object'>, '_value_repr_': None, 'TEMPORAL_HIERARCHICAL': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'TASK_DEPENDENCY': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'SEMANTIC_CLUSTERING': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'HYBRID': <DecompositionStrategy.HYBRID: 'hybrid'>, '__new__': <function Enum.__new__ at 0x71dcaba5a980>}",
+              "__objclass__": "{'_generate_next_value_': <staticmethod(<function Enum._generate_next_value_ at 0x7a50cea02c00>)>, '__module__': 'subgoal_decomposition.subgoal_decomposer', '__firstlineno__': 35, '__doc__': '分解策略枚举', '__static_attributes__': (), '_new_member_': <built-in method __new__ of type object at 0x91a220>, '_use_args_': False, '_member_names_': ['TEMPORAL_HIERARCHICAL', 'TASK_DEPENDENCY', 'SEMANTIC_CLUSTERING', 'HYBRID'], '_member_map_': {'TEMPORAL_HIERARCHICAL': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'TASK_DEPENDENCY': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'SEMANTIC_CLUSTERING': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'HYBRID': <DecompositionStrategy.HYBRID: 'hybrid'>}, '_value2member_map_': {'temporal_hierarchical': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'task_dependency': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'semantic_clustering': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'hybrid': <DecompositionStrategy.HYBRID: 'hybrid'>}, '_hashable_values_': ['temporal_hierarchical', 'task_dependency', 'semantic_clustering', 'hybrid'], '_unhashable_values_': [], '_unhashable_values_map_': {}, '_member_type_': <class 'object'>, '_value_repr_': None, 'TEMPORAL_HIERARCHICAL': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'TASK_DEPENDENCY': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'SEMANTIC_CLUSTERING': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'HYBRID': <DecompositionStrategy.HYBRID: 'hybrid'>, '__new__': <function Enum.__new__ at 0x7a50cea02980>}",
               "_sort_order_": 0
             },
             "metadata": {
@@ -135,7 +135,7 @@
                   "subgoal_type": {
                     "_value_": "atomic",
                     "_name_": "ATOMIC",
-                    "__objclass__": "{'_generate_next_value_': <staticmethod(<function Enum._generate_next_value_ at 0x71dcaba5ac00>)>, '__module__': 'subgoal_decomposition.subgoal_decomposer', '__firstlineno__': 26, '__doc__': '子目标类型枚举', '__static_attributes__': (), '_new_member_': <built-in method __new__ of type object at 0x91a220>, '_use_args_': False, '_member_names_': ['SEQUENTIAL', 'PARALLEL', 'CONDITIONAL', 'ATOMIC', 'TEMPORAL'], '_member_map_': {'SEQUENTIAL': <SubgoalType.SEQUENTIAL: 'sequential'>, 'PARALLEL': <SubgoalType.PARALLEL: 'parallel'>, 'CONDITIONAL': <SubgoalType.CONDITIONAL: 'conditional'>, 'ATOMIC': <SubgoalType.ATOMIC: 'atomic'>, 'TEMPORAL': <SubgoalType.TEMPORAL: 'temporal'>}, '_value2member_map_': {'sequential': <SubgoalType.SEQUENTIAL: 'sequential'>, 'parallel': <SubgoalType.PARALLEL: 'parallel'>, 'conditional': <SubgoalType.CONDITIONAL: 'conditional'>, 'atomic': <SubgoalType.ATOMIC: 'atomic'>, 'temporal': <SubgoalType.TEMPORAL: 'temporal'>}, '_hashable_values_': ['sequential', 'parallel', 'conditional', 'atomic', 'temporal'], '_unhashable_values_': [], '_unhashable_values_map_': {}, '_member_type_': <class 'object'>, '_value_repr_': None, 'SEQUENTIAL': <SubgoalType.SEQUENTIAL: 'sequential'>, 'PARALLEL': <SubgoalType.PARALLEL: 'parallel'>, 'CONDITIONAL': <SubgoalType.CONDITIONAL: 'conditional'>, 'ATOMIC': <SubgoalType.ATOMIC: 'atomic'>, 'TEMPORAL': <SubgoalType.TEMPORAL: 'temporal'>, '__new__': <function Enum.__new__ at 0x71dcaba5a980>}",
+                    "__objclass__": "{'_generate_next_value_': <staticmethod(<function Enum._generate_next_value_ at 0x7a50cea02c00>)>, '__module__': 'subgoal_decomposition.subgoal_decomposer', '__firstlineno__': 26, '__doc__': '子目标类型枚举', '__static_attributes__': (), '_new_member_': <built-in method __new__ of type object at 0x91a220>, '_use_args_': False, '_member_names_': ['SEQUENTIAL', 'PARALLEL', 'CONDITIONAL', 'ATOMIC', 'TEMPORAL'], '_member_map_': {'SEQUENTIAL': <SubgoalType.SEQUENTIAL: 'sequential'>, 'PARALLEL': <SubgoalType.PARALLEL: 'parallel'>, 'CONDITIONAL': <SubgoalType.CONDITIONAL: 'conditional'>, 'ATOMIC': <SubgoalType.ATOMIC: 'atomic'>, 'TEMPORAL': <SubgoalType.TEMPORAL: 'temporal'>}, '_value2member_map_': {'sequential': <SubgoalType.SEQUENTIAL: 'sequential'>, 'parallel': <SubgoalType.PARALLEL: 'parallel'>, 'conditional': <SubgoalType.CONDITIONAL: 'conditional'>, 'atomic': <SubgoalType.ATOMIC: 'atomic'>, 'temporal': <SubgoalType.TEMPORAL: 'temporal'>}, '_hashable_values_': ['sequential', 'parallel', 'conditional', 'atomic', 'temporal'], '_unhashable_values_': [], '_unhashable_values_map_': {}, '_member_type_': <class 'object'>, '_value_repr_': None, 'SEQUENTIAL': <SubgoalType.SEQUENTIAL: 'sequential'>, 'PARALLEL': <SubgoalType.PARALLEL: 'parallel'>, 'CONDITIONAL': <SubgoalType.CONDITIONAL: 'conditional'>, 'ATOMIC': <SubgoalType.ATOMIC: 'atomic'>, 'TEMPORAL': <SubgoalType.TEMPORAL: 'temporal'>, '__new__': <function Enum.__new__ at 0x7a50cea02980>}",
                     "_sort_order_": 3
                   },
                   "dependencies": [],
@@ -164,7 +164,7 @@
               "decomposition_strategy": {
                 "_value_": "temporal_hierarchical",
                 "_name_": "TEMPORAL_HIERARCHICAL",
-                "__objclass__": "{'_generate_next_value_': <staticmethod(<function Enum._generate_next_value_ at 0x71dcaba5ac00>)>, '__module__': 'subgoal_decomposition.subgoal_decomposer', '__firstlineno__': 35, '__doc__': '分解策略枚举', '__static_attributes__': (), '_new_member_': <built-in method __new__ of type object at 0x91a220>, '_use_args_': False, '_member_names_': ['TEMPORAL_HIERARCHICAL', 'TASK_DEPENDENCY', 'SEMANTIC_CLUSTERING', 'HYBRID'], '_member_map_': {'TEMPORAL_HIERARCHICAL': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'TASK_DEPENDENCY': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'SEMANTIC_CLUSTERING': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'HYBRID': <DecompositionStrategy.HYBRID: 'hybrid'>}, '_value2member_map_': {'temporal_hierarchical': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'task_dependency': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'semantic_clustering': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'hybrid': <DecompositionStrategy.HYBRID: 'hybrid'>}, '_hashable_values_': ['temporal_hierarchical', 'task_dependency', 'semantic_clustering', 'hybrid'], '_unhashable_values_': [], '_unhashable_values_map_': {}, '_member_type_': <class 'object'>, '_value_repr_': None, 'TEMPORAL_HIERARCHICAL': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'TASK_DEPENDENCY': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'SEMANTIC_CLUSTERING': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'HYBRID': <DecompositionStrategy.HYBRID: 'hybrid'>, '__new__': <function Enum.__new__ at 0x71dcaba5a980>}",
+                "__objclass__": "{'_generate_next_value_': <staticmethod(<function Enum._generate_next_value_ at 0x7a50cea02c00>)>, '__module__': 'subgoal_decomposition.subgoal_decomposer', '__firstlineno__': 35, '__doc__': '分解策略枚举', '__static_attributes__': (), '_new_member_': <built-in method __new__ of type object at 0x91a220>, '_use_args_': False, '_member_names_': ['TEMPORAL_HIERARCHICAL', 'TASK_DEPENDENCY', 'SEMANTIC_CLUSTERING', 'HYBRID'], '_member_map_': {'TEMPORAL_HIERARCHICAL': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'TASK_DEPENDENCY': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'SEMANTIC_CLUSTERING': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'HYBRID': <DecompositionStrategy.HYBRID: 'hybrid'>}, '_value2member_map_': {'temporal_hierarchical': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'task_dependency': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'semantic_clustering': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'hybrid': <DecompositionStrategy.HYBRID: 'hybrid'>}, '_hashable_values_': ['temporal_hierarchical', 'task_dependency', 'semantic_clustering', 'hybrid'], '_unhashable_values_': [], '_unhashable_values_map_': {}, '_member_type_': <class 'object'>, '_value_repr_': None, 'TEMPORAL_HIERARCHICAL': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'TASK_DEPENDENCY': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'SEMANTIC_CLUSTERING': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'HYBRID': <DecompositionStrategy.HYBRID: 'hybrid'>, '__new__': <function Enum.__new__ at 0x7a50cea02980>}",
                 "_sort_order_": 0
               },
               "metadata": {
@@ -235,13 +235,13 @@
       "transition_modeling": {
         "status": "success",
         "result": {
-          "request_id": "request_1764075130994415",
+          "request_id": "request_1764076114872387",
           "success": false,
           "message": "Modeling failed: name 'hashlib' is not defined",
           "predicted_sequences": [],
           "validation_results": [],
           "metadata": {},
-          "timestamp": 1764075130.9944587
+          "timestamp": 1764076114.87245
         }
       },
       "action_sequencing": {
@@ -250,7 +250,7 @@
           "success": false,
           "action_sequence": null,
           "planning_result": null,
-          "execution_time": 0.00017690658569335938,
+          "execution_time": 0.00025153160095214844,
           "error_message": "No valid BEHAVIOR actions available: [\"Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library\", \"Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library\"]",
           "metadata": {
             "warnings": [
@@ -262,10 +262,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0002567768096923828,
-      "subgoal_decomposition": 0.00048351287841796875,
-      "transition_modeling": 7.033348083496094e-05,
-      "action_sequencing": 0.00021648406982421875
+      "goal_interpretation": 0.00028133392333984375,
+      "subgoal_decomposition": 0.0006499290466308594,
+      "transition_modeling": 0.00010895729064941406,
+      "action_sequencing": 0.00030493736267089844
     }
   }
 }

@@ -2242,3 +2242,1265 @@
 2025-11-25 20:52:11,015 - new_debug_script - INFO - Failed tasks: 0
 2025-11-25 20:52:11,015 - new_debug_script - INFO - Summary saved to: /home/yeah/eai-interpretable-interface/new_debug_results/debug_summary_1764075130.json
 2025-11-25 20:52:11,015 - new_debug_script - INFO - Detailed logs saved to: new_debug_parquet_processing.log
+2025-11-25 21:08:34,689 - new_debug_script - INFO - Importing core modules...
+2025-11-25 21:08:34,690 - new_debug_script - INFO - ✓ GoalInterpreter imported successfully
+2025-11-25 21:08:34,693 - new_debug_script - INFO - ✓ SubgoalLTLIntegration imported successfully
+2025-11-25 21:08:34,698 - new_debug_script - INFO - ✓ TransitionModeler imported successfully
+2025-11-25 21:08:34,706 - action_sequencing - INFO - Action Sequencing Module v1.0.0 loaded successfully
+2025-11-25 21:08:34,706 - new_debug_script - INFO - ✓ ActionSequencer imported successfully
+2025-11-25 21:08:34,706 - new_debug_script - INFO - Starting new debug script...
+2025-11-25 21:08:34,706 - new_debug_script - INFO - Found 2 parquet files: ['virtualhome', 'behavior']
+2025-11-25 21:08:34,706 - new_debug_script - INFO - Processing dataset: virtualhome
+2025-11-25 21:08:34,706 - new_debug_script - INFO - Loading 20 samples from /home/yeah/eai-interpretable-interface/data/virtualhome-00000-of-00001.parquet
+2025-11-25 21:08:34,731 - new_debug_script - INFO - Total records in file: 338
+2025-11-25 21:08:34,732 - new_debug_script - INFO - Loaded 20 samples successfully
+2025-11-25 21:08:34,732 - new_debug_script - INFO - === Processing task 27_2 from virtualhome: Walk to the kitchen and find the basket of clothes... ===
+2025-11-25 21:08:34,732 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,732 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,732 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,733 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,733 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,733 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,733 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,733 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,733 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,733 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,755 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,756 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,756 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine.
+2025-11-25 21:08:34,756 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,758 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,758 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,758 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,758 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,758 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,758 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,758 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,758 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,758 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,758 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,759 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,759 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,759 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,759 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,759 - new_debug_script - INFO - Task 27_2 processed successfully in 0.03 seconds
+2025-11-25 21:08:34,760 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_27_2_result.json
+2025-11-25 21:08:34,760 - new_debug_script - INFO - === Processing task 417_1 from virtualhome: I will load the dirty clothes into the washing mac... ===
+2025-11-25 21:08:34,760 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,760 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,760 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,760 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,760 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,760 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,760 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,760 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,760 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,760 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,760 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,760 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,760 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: I will load the dirty clothes into the washing machine.
+2025-11-25 21:08:34,760 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,761 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,761 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,761 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,761 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,761 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,761 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,761 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,761 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,761 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,761 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,761 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,761 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,761 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,761 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,761 - new_debug_script - INFO - Task 417_1 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,762 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_417_1_result.json
+2025-11-25 21:08:34,762 - new_debug_script - INFO - === Processing task 850_1 from virtualhome: Walk into laundry room. Open washing machine door.... ===
+2025-11-25 21:08:34,762 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,762 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,762 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,762 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,762 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,762 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,762 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,762 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,762 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,762 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,763 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,763 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,763 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.
+2025-11-25 21:08:34,763 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,763 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,763 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,763 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,763 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,763 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,763 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,763 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,763 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,763 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,763 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,763 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,763 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,764 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,764 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,764 - new_debug_script - INFO - Task 850_1 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,764 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_850_1_result.json
+2025-11-25 21:08:34,764 - new_debug_script - INFO - === Processing task 954_2 from virtualhome: I need to get the dirty clothes basket.  Walk to b... ===
+2025-11-25 21:08:34,764 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,764 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,764 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,765 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,765 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,765 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,765 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,765 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,765 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,765 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,765 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,765 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,765 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.
+2025-11-25 21:08:34,765 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,766 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,766 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,766 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,766 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,766 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,766 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,766 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,766 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,766 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,766 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,766 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,766 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,766 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,766 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,766 - new_debug_script - INFO - Task 954_2 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,767 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_954_2_result.json
+2025-11-25 21:08:34,767 - new_debug_script - INFO - === Processing task 11_1 from virtualhome: I go to bedroom and locate a lamp. This lamp can b... ===
+2025-11-25 21:08:34,767 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,767 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,767 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,768 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,768 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,768 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,768 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,768 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,768 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,768 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,768 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,768 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,768 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.
+2025-11-25 21:08:34,768 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,768 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,768 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,768 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,769 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,769 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,769 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,769 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,769 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,769 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,769 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,769 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,769 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,769 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,769 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,769 - new_debug_script - INFO - Task 11_1 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,770 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_11_1_result.json
+2025-11-25 21:08:34,770 - new_debug_script - INFO - === Processing task 120_1 from virtualhome: Go to the kitchen and living room and turn on the ... ===
+2025-11-25 21:08:34,770 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,770 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,770 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,770 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,770 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,770 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,770 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,771 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,771 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,771 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,771 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,771 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,771 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Go to the kitchen and living room and turn on the lights.
+2025-11-25 21:08:34,771 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,771 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,771 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,771 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,771 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,771 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,771 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,771 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,771 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,771 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,771 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,772 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,772 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,772 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,772 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,772 - new_debug_script - INFO - Task 120_1 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,772 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_120_1_result.json
+2025-11-25 21:08:34,772 - new_debug_script - INFO - === Processing task 125_2 from virtualhome: turn on the light for room... ===
+2025-11-25 21:08:34,772 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,773 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,773 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,773 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,773 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,773 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,773 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,773 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,773 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,773 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,773 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,773 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,773 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: turn on the light for room
+2025-11-25 21:08:34,773 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,773 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,773 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,773 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,773 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,773 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,773 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,773 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,773 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,773 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,773 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,774 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,774 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,774 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,774 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,774 - new_debug_script - INFO - Task 125_2 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,774 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_125_2_result.json
+2025-11-25 21:08:34,774 - new_debug_script - INFO - === Processing task 150_2 from virtualhome: push any ligth button to turn it on, for example i... ===
+2025-11-25 21:08:34,774 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,774 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,774 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,774 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,774 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,774 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,775 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,775 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,775 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,775 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,775 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,775 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,775 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: push any ligth button to turn it on, for example in the living room
+2025-11-25 21:08:34,775 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,775 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,775 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,775 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,775 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,775 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,775 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,775 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,775 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,775 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,775 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,775 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,775 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,775 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,776 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,776 - new_debug_script - INFO - Task 150_2 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,776 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_150_2_result.json
+2025-11-25 21:08:34,776 - new_debug_script - INFO - === Processing task 160_1 from virtualhome: Go to the living room, find the switches (buttons ... ===
+2025-11-25 21:08:34,776 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,776 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,776 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,776 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,776 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,776 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,776 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,777 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,777 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,777 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,777 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,777 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,777 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one.
+2025-11-25 21:08:34,777 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,777 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,777 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,777 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,777 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,777 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,777 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,777 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,777 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,777 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,777 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,777 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,777 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,778 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,778 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,778 - new_debug_script - INFO - Task 160_1 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,778 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_160_1_result.json
+2025-11-25 21:08:34,778 - new_debug_script - INFO - === Processing task 180_2 from virtualhome: Find the light circuit breaker in the kitchen... ===
+2025-11-25 21:08:34,778 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,778 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,778 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,778 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,778 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,778 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,778 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,779 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,779 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,779 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,779 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,779 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,779 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Find the light circuit breaker in the kitchen
+2025-11-25 21:08:34,779 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,779 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,779 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,779 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,779 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,779 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,779 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,779 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,779 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,779 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,779 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,779 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,779 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,779 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,779 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,779 - new_debug_script - INFO - Task 180_2 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,780 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_180_2_result.json
+2025-11-25 21:08:34,780 - new_debug_script - INFO - === Processing task 205_1 from virtualhome: Walk into the bedroom and walk to the light switch... ===
+2025-11-25 21:08:34,780 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,780 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,780 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,780 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,780 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,780 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,780 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,780 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,780 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,780 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,780 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,781 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,781 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Walk into the bedroom and walk to the light switch. Flip the switch.
+2025-11-25 21:08:34,781 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,781 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,781 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,781 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,781 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,781 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,781 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,781 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,781 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,781 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,781 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,781 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,781 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,781 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,781 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,781 - new_debug_script - INFO - Task 205_1 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,782 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_205_1_result.json
+2025-11-25 21:08:34,782 - new_debug_script - INFO - === Processing task 222_1 from virtualhome: walk into living room, walk to light, turn on ligh... ===
+2025-11-25 21:08:34,782 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,782 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,782 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,782 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,782 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,782 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,782 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,782 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,782 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,782 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,783 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,783 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,783 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: walk into living room, walk to light, turn on light switch.
+2025-11-25 21:08:34,783 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,783 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,783 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,783 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,783 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,783 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,783 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,783 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,783 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,783 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,783 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,783 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,783 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,783 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,783 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,783 - new_debug_script - INFO - Task 222_1 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,784 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_222_1_result.json
+2025-11-25 21:08:34,784 - new_debug_script - INFO - === Processing task 232_2 from virtualhome: I need to turn on the lights in the kitchen so I c... ===
+2025-11-25 21:08:34,784 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,784 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,784 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,784 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,784 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,784 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,784 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,784 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,784 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,784 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,785 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,785 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,785 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: I need to turn on the lights in the kitchen so I can make dinner.
+2025-11-25 21:08:34,785 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,785 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,785 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,785 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,785 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,785 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,785 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,785 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,785 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,785 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,785 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,785 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,785 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,785 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,785 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,786 - new_debug_script - INFO - Task 232_2 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,786 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_232_2_result.json
+2025-11-25 21:08:34,786 - new_debug_script - INFO - === Processing task 310_1 from virtualhome: I enter the bedroom and find the light. Then I tur... ===
+2025-11-25 21:08:34,786 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,786 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,786 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,786 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,786 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,786 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,786 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,786 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,787 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,787 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,787 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,787 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,787 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: I enter the bedroom and find the light. Then I turn it on.
+2025-11-25 21:08:34,787 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,787 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,787 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,787 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,787 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,787 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,787 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,787 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,787 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,787 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,787 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,787 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,787 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,787 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,787 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,787 - new_debug_script - INFO - Task 310_1 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,788 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_310_1_result.json
+2025-11-25 21:08:34,788 - new_debug_script - INFO - === Processing task 311_1 from virtualhome: I go home and it's dark so I can not see anything... ===
+2025-11-25 21:08:34,788 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,788 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,788 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,788 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,788 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,788 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,788 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,788 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,788 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,788 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,789 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,789 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,789 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: I go home and it's dark so I can not see anything
+2025-11-25 21:08:34,789 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,789 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,789 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,789 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,789 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,789 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,789 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,789 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,789 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,789 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,789 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,790 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,790 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,790 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,790 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,790 - new_debug_script - INFO - Task 311_1 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,790 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_311_1_result.json
+2025-11-25 21:08:34,790 - new_debug_script - INFO - === Processing task 331_2 from virtualhome: switching on light in an area... ===
+2025-11-25 21:08:34,790 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,790 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,790 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,791 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,791 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,791 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,791 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,791 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,791 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,791 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,791 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,791 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,791 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: switching on light in an area
+2025-11-25 21:08:34,791 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,792 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,792 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,792 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,792 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,792 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,792 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,792 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,792 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,792 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,792 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,792 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,792 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,792 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,792 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,792 - new_debug_script - INFO - Task 331_2 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,793 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_331_2_result.json
+2025-11-25 21:08:34,793 - new_debug_script - INFO - === Processing task 345_1 from virtualhome: We enter into the Living room and walk towards lig... ===
+2025-11-25 21:08:34,793 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,793 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,793 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,793 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,793 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,793 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,793 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,793 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,793 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,793 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,793 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,793 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,793 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: We enter into the Living room and walk towards light switch. Then switch on the light.
+2025-11-25 21:08:34,794 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,794 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,794 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,794 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,794 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,794 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,794 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,794 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,794 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,794 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,794 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,794 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,794 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,794 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,794 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,794 - new_debug_script - INFO - Task 345_1 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,795 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_345_1_result.json
+2025-11-25 21:08:34,795 - new_debug_script - INFO - === Processing task 392_1 from virtualhome: find lightswitch. walk to light switch. turn on li... ===
+2025-11-25 21:08:34,795 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,795 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,795 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,795 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,795 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,795 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,795 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,795 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,795 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,795 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,797 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,798 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,798 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: find lightswitch. walk to light switch. turn on light.
+2025-11-25 21:08:34,798 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,798 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,798 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,798 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,798 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,798 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,798 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,798 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,798 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,798 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,798 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,799 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,799 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,799 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,799 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,799 - new_debug_script - INFO - Task 392_1 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,799 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_392_1_result.json
+2025-11-25 21:08:34,799 - new_debug_script - INFO - === Processing task 394_2 from virtualhome: Find light switch. switch on... ===
+2025-11-25 21:08:34,799 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,800 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,800 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,800 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,800 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,800 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,800 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,800 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,800 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,800 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,800 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,800 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,800 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Find light switch. switch on
+2025-11-25 21:08:34,800 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,800 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,800 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,800 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,801 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,801 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,801 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,801 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,801 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,801 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,801 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,801 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,801 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,801 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,801 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,801 - new_debug_script - INFO - Task 394_2 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,802 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_394_2_result.json
+2025-11-25 21:08:34,802 - new_debug_script - INFO - === Processing task 432_1 from virtualhome: Walk over to light switch, flip the switch to the ... ===
+2025-11-25 21:08:34,802 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,802 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,802 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,802 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,802 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,802 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,802 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,802 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,802 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,802 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,802 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,802 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,802 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Walk over to light switch, flip the switch to the on position
+2025-11-25 21:08:34,803 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,803 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,803 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,803 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,803 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,803 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,803 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,803 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,803 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,803 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,803 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,803 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,803 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,803 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,803 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,803 - new_debug_script - INFO - Task 432_1 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,804 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_432_1_result.json
+2025-11-25 21:08:34,804 - new_debug_script - INFO - Processing dataset: behavior
+2025-11-25 21:08:34,804 - new_debug_script - INFO - Loading 20 samples from /home/yeah/eai-interpretable-interface/data/behavior-00000-of-00001.parquet
+2025-11-25 21:08:34,807 - new_debug_script - INFO - Total records in file: 100
+2025-11-25 21:08:34,808 - new_debug_script - INFO - Loaded 20 samples successfully
+2025-11-25 21:08:34,808 - new_debug_script - INFO - === Processing task assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37 from behavior: Put one candle, one cheese, one cookie, and one bo... ===
+2025-11-25 21:08:34,808 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,808 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,808 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,808 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,808 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,808 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,808 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,808 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,808 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,808 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,808 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,808 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,808 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Put one candle, one cheese, one cookie, and one bow into each basket.
+2025-11-25 21:08:34,808 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,809 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,809 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,809 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,809 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,809 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,809 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,809 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,809 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,809 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,809 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,809 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,809 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,809 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,809 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,809 - new_debug_script - INFO - Task assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,810 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_result.json
+2025-11-25 21:08:34,810 - new_debug_script - INFO - === Processing task brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56 from behavior: Check every sweater for lint, make sure none of th... ===
+2025-11-25 21:08:34,810 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,810 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,810 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,810 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,810 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,810 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,810 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,810 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,810 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,810 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,810 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,810 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,810 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Check every sweater for lint, make sure none of them are dusty, and put them on the bed.
+2025-11-25 21:08:34,811 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,811 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,811 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,811 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,811 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,811 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,811 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,811 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,811 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,811 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,811 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,811 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,811 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,811 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,811 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,811 - new_debug_script - INFO - Task brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,812 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_result.json
+2025-11-25 21:08:34,812 - new_debug_script - INFO - === Processing task boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47 from behavior: Place the books into the carton for storage.... ===
+2025-11-25 21:08:34,812 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,812 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,812 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,812 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,812 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,812 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,812 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,812 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,812 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,812 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,812 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,812 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,813 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Place the books into the carton for storage.
+2025-11-25 21:08:34,813 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,813 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,813 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,813 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,813 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,813 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,813 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,813 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,813 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,813 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,813 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,813 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,813 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,813 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,814 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,814 - new_debug_script - INFO - Task boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,814 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_result.json
+2025-11-25 21:08:34,814 - new_debug_script - INFO - === Processing task collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28 from behavior: Collect all aluminum cans and place them into the ... ===
+2025-11-25 21:08:34,814 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,815 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,815 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,815 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,815 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,815 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,815 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,815 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,815 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,815 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,815 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,815 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,815 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Collect all aluminum cans and place them into the bucket.
+2025-11-25 21:08:34,815 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,816 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,816 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,816 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,816 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,816 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,816 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,816 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,816 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,816 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,816 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,816 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,816 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,816 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,816 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,816 - new_debug_script - INFO - Task collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,817 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_result.json
+2025-11-25 21:08:34,817 - new_debug_script - INFO - === Processing task mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58 from behavior: Use the bucket, soap and broom to clean the staine... ===
+2025-11-25 21:08:34,817 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,817 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,817 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,817 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,817 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,817 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,817 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,818 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,818 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,818 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,818 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,818 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,818 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.
+2025-11-25 21:08:34,818 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,818 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,818 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,818 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,818 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,818 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,818 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,818 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,818 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,818 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,818 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,819 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,819 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,819 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,819 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,819 - new_debug_script - INFO - Task mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,819 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_result.json
+2025-11-25 21:08:34,819 - new_debug_script - INFO - === Processing task preserving_food_0_Rs_int_0_2021-08-25_15-53-33 from behavior: Slice and cook all the strawberries, then seal the... ===
+2025-11-25 21:08:34,820 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,820 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,820 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,820 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,820 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,820 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,820 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,820 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,820 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,820 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,820 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,820 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,820 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.
+2025-11-25 21:08:34,820 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,820 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,820 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,820 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,821 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,821 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,821 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,821 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,821 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,821 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,821 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,821 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,821 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,821 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,821 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,821 - new_debug_script - INFO - Task preserving_food_0_Rs_int_0_2021-08-25_15-53-33 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,822 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_result.json
+2025-11-25 21:08:34,822 - new_debug_script - INFO - === Processing task re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26 from behavior: Place books 1 through 4 on the shelf, and place bo... ===
+2025-11-25 21:08:34,822 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,822 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,822 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,822 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,822 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,822 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,822 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,822 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,822 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,822 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,823 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,823 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,823 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Place books 1 through 4 on the shelf, and place books 5 through 8 on the table.
+2025-11-25 21:08:34,823 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,824 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,824 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,824 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,824 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,824 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,824 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,824 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,824 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,825 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,825 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,825 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,825 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,825 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,825 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,825 - new_debug_script - INFO - Task re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,827 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_result.json
+2025-11-25 21:08:34,827 - new_debug_script - INFO - === Processing task polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15 from behavior: Polish all spoons and put them inside the cabinet.... ===
+2025-11-25 21:08:34,827 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,827 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,827 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,827 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,827 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,827 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,828 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,828 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,828 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,828 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,829 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,829 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,829 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Polish all spoons and put them inside the cabinet.
+2025-11-25 21:08:34,829 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,829 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,832 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,833 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,833 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,833 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,833 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,833 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,833 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,833 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,833 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,834 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,834 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,834 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,834 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,834 - new_debug_script - INFO - Task polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15 processed successfully in 0.01 seconds
+2025-11-25 21:08:34,835 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_result.json
+2025-11-25 21:08:34,835 - new_debug_script - INFO - === Processing task packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19 from behavior: Pack all plates, the dishtowel, books, shirts, and... ===
+2025-11-25 21:08:34,835 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,835 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,835 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,835 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,835 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,835 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,835 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,836 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,836 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,836 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,836 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,836 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,836 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.
+2025-11-25 21:08:34,836 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,836 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,836 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,836 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,836 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,836 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,837 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,837 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,837 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,837 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,837 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,837 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,837 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,837 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,837 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,837 - new_debug_script - INFO - Task packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,838 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_result.json
+2025-11-25 21:08:34,838 - new_debug_script - INFO - === Processing task cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25 from behavior: Clean the stained freezer and remove all food item... ===
+2025-11-25 21:08:34,838 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,838 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,838 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,838 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,838 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,838 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,838 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,838 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,839 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,839 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,839 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,839 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,839 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Clean the stained freezer and remove all food items from the freezer.
+2025-11-25 21:08:34,839 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,839 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,839 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,839 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,839 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,839 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,839 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,839 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,839 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,840 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,840 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,840 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,840 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,840 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,840 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,840 - new_debug_script - INFO - Task cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,841 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_result.json
+2025-11-25 21:08:34,842 - new_debug_script - INFO - === Processing task installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55 from behavior: Place the modem under the table and make sure it i... ===
+2025-11-25 21:08:34,842 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,842 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,842 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,842 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,842 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,842 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,842 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,842 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,842 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,842 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,843 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,843 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,843 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Place the modem under the table and make sure it is turned on.
+2025-11-25 21:08:34,844 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,844 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,844 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,844 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,844 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,844 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,844 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,844 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,844 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,844 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,844 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,844 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,845 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,845 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,845 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,845 - new_debug_script - INFO - Task installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,846 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_result.json
+2025-11-25 21:08:34,846 - new_debug_script - INFO - === Processing task cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24 from behavior: Clean all the stained tableware, put all hamburger... ===
+2025-11-25 21:08:34,846 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,846 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,846 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,846 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,846 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,846 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,846 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,846 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,846 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,846 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,847 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,847 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,847 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Clean all the stained tableware, put all hamburgers into sack1 which is on the floor, and clean the stained floor, chair, and table.
+2025-11-25 21:08:34,847 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,847 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,847 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,847 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,847 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,847 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,847 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,847 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,848 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,848 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,848 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,848 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,848 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,848 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,848 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,848 - new_debug_script - INFO - Task cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,849 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24_result.json
+2025-11-25 21:08:34,849 - new_debug_script - INFO - === Processing task putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25 from behavior: Place all wreaths and bows next to the cabinet, an... ===
+2025-11-25 21:08:34,849 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,849 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,849 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,849 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,849 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,849 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,849 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,850 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,850 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,850 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,850 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,850 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,850 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.
+2025-11-25 21:08:34,850 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,850 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,850 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,850 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,851 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,851 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,851 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,851 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,851 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,851 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,851 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,851 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,851 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,851 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,851 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,851 - new_debug_script - INFO - Task putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,852 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_result.json
+2025-11-25 21:08:34,852 - new_debug_script - INFO - === Processing task setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51 from behavior: Place 3 candles on each table.... ===
+2025-11-25 21:08:34,852 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,852 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,852 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,852 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,853 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,853 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,853 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,853 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,853 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,853 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,853 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,853 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,853 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Place 3 candles on each table.
+2025-11-25 21:08:34,853 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,853 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,853 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,853 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,854 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,854 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,854 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,854 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,854 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,854 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,854 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,854 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,854 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,854 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,854 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,854 - new_debug_script - INFO - Task setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,855 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_result.json
+2025-11-25 21:08:34,855 - new_debug_script - INFO - === Processing task cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22 from behavior: Clean all the shoes, and leave the towel on the fl... ===
+2025-11-25 21:08:34,855 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,855 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,856 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,856 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,856 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,856 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,856 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,856 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,856 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,856 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,856 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,856 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,856 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Clean all the shoes, and leave the towel on the floor.
+2025-11-25 21:08:34,856 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,857 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,857 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,857 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,857 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,857 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,857 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,857 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,857 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,857 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,857 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,857 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,857 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,857 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,857 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,857 - new_debug_script - INFO - Task cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,858 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22_result.json
+2025-11-25 21:08:34,858 - new_debug_script - INFO - === Processing task cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08 from behavior: Place the towel on the countertop, the brush next ... ===
+2025-11-25 21:08:34,858 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,858 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,858 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,859 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,859 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,859 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,859 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,859 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,859 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,859 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,859 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,859 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,859 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Place the towel on the countertop, the brush next to the towel, and the soap into the sink. Clean the dusty and stained sneakers, place 2 sneakers next to the table and 2 other sneakers under the table.
+2025-11-25 21:08:34,860 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,860 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,860 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,860 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,860 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,860 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,860 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,860 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,860 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,860 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,860 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,860 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,860 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,860 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,860 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,861 - new_debug_script - INFO - Task cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,862 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08_result.json
+2025-11-25 21:08:34,862 - new_debug_script - INFO - === Processing task locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10 from behavior: Close and lock all the windows.... ===
+2025-11-25 21:08:34,862 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,862 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,862 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,862 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,862 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,862 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,862 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,862 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,862 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,862 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,862 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,862 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,863 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Close and lock all the windows.
+2025-11-25 21:08:34,863 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,863 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,863 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,863 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,863 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,863 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,863 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,863 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,863 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,863 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,863 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,863 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,863 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,864 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,864 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,864 - new_debug_script - INFO - Task locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,865 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_result.json
+2025-11-25 21:08:34,865 - new_debug_script - INFO - === Processing task washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10 from behavior: Wash all dust and stains from the car or vehicle.... ===
+2025-11-25 21:08:34,865 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,865 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,865 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,865 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,865 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,865 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,865 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,865 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,865 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,865 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,865 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,865 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,865 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Wash all dust and stains from the car or vehicle.
+2025-11-25 21:08:34,866 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,866 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,866 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,866 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,866 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,866 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,866 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,866 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,866 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,866 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,866 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,866 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,866 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,866 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,866 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,866 - new_debug_script - INFO - Task washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,867 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_result.json
+2025-11-25 21:08:34,868 - new_debug_script - INFO - === Processing task washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48 from behavior: Wash all the stained plates, cups, and bowls.... ===
+2025-11-25 21:08:34,868 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,868 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,868 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,868 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,868 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,868 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,868 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,868 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,868 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,868 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,868 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,868 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,868 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Wash all the stained plates, cups, and bowls.
+2025-11-25 21:08:34,869 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,869 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,869 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,869 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,869 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,869 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,869 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,869 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,869 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,869 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,869 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,869 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,869 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,869 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,869 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,869 - new_debug_script - INFO - Task washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,870 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_result.json
+2025-11-25 21:08:34,870 - new_debug_script - INFO - === Processing task putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17 from behavior: Place all pumpkins and candles into the cabinet, a... ===
+2025-11-25 21:08:34,870 - new_debug_script - INFO - Initializing modules...
+2025-11-25 21:08:34,871 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-25 21:08:34,871 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-25 21:08:34,871 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-25 21:08:34,871 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-25 21:08:34,871 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-25 21:08:34,871 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-25 21:08:34,871 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-25 21:08:34,871 - new_debug_script - INFO - All modules initialized successfully
+2025-11-25 21:08:34,871 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-25 21:08:34,871 - new_debug_script - DEBUG - Interpretation result: True
+2025-11-25 21:08:34,871 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-25 21:08:34,871 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Place all pumpkins and candles into the cabinet, arrange the sheet either next to or on the table, and position the caldron next to the table.
+2025-11-25 21:08:34,871 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: True
+2025-11-25 21:08:34,872 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-25 21:08:34,872 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-25 21:08:34,872 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-25 21:08:34,872 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-25 21:08:34,872 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-25 21:08:34,872 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-25 21:08:34,872 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-25 21:08:34,872 - transition_modeling.transition_modeler - ERROR - Modeling failed: name 'hashlib' is not defined
+2025-11-25 21:08:34,872 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-25 21:08:34,872 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-25 21:08:34,872 - action_sequencing.action_sequencer - WARNING - Invalid action MoveToLocation: ["Action 'MoveToLocation' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,872 - action_sequencing.action_sequencer - WARNING - Invalid action CompleteTask: ["Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,872 - action_sequencing.action_sequencer - ERROR - No valid BEHAVIOR actions available: ["Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library", "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"]
+2025-11-25 21:08:34,872 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-25 21:08:34,872 - new_debug_script - INFO - Task putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17 processed successfully in 0.00 seconds
+2025-11-25 21:08:34,874 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17_result.json
+2025-11-25 21:08:34,889 - new_debug_script - INFO - === Debug processing complete ===
+2025-11-25 21:08:34,889 - new_debug_script - INFO - Total tasks: 40
+2025-11-25 21:08:34,889 - new_debug_script - INFO - Successful tasks: 40
+2025-11-25 21:08:34,889 - new_debug_script - INFO - Failed tasks: 0
+2025-11-25 21:08:34,889 - new_debug_script - INFO - Summary saved to: /home/yeah/eai-interpretable-interface/new_debug_results/debug_summary_1764076114.json
+2025-11-25 21:08:34,889 - new_debug_script - INFO - Detailed logs saved to: new_debug_parquet_processing.log
