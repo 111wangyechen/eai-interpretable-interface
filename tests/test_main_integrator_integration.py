@@ -57,15 +57,12 @@ class TestMainIntegratorInterface:
         """
         Test that the MainIntegrator initializes correctly
         """
-        assert integrator is not None,
-        "MainIntegrator initialization failed"
+        assert integrator is not None, "MainIntegrator initialization failed"
         
         # Verify integration status
         status = integrator.validate_integration()
-        assert isinstance(status, Dict),
-        "Integration status should be a dictionary"
-        assert 'all_modules_available' in status,
-        "Integration status missing 'all_modules_available' key"
+        assert isinstance(status, Dict), "Integration status should be a dictionary"
+        assert 'all_modules_available' in status, "Integration status missing 'all_modules_available' key"
     
     def test_simple_goal_processing(self, integrator):
         """
@@ -79,13 +76,9 @@ class TestMainIntegratorInterface:
         }
         
         result = integrator.process_goal(goal_text, context)
-        
-        assert isinstance(result, IntegrationResult),
-        "Result should be an IntegrationResult object"
-        assert result.success is not None,
-        "Result success status should be set"
-        assert result.execution_time is not None,
-        "Result should include execution time"
+        assert isinstance(result, IntegrationResult), "Result should be an IntegrationResult object"
+        assert result.success is not None, "Result success status should be set"
+        assert result.execution_time is not None, "Result should include execution time"
         
     def test_complex_goal_processing(self, integrator):
         """
@@ -105,10 +98,8 @@ class TestMainIntegratorInterface:
         
         result = integrator.process_goal(goal_text, context)
         
-        assert isinstance(result, IntegrationResult),
-        "Result should be an IntegrationResult object"
-        assert result.success is not None,
-        "Result success status should be set"
+        assert isinstance(result, IntegrationResult), "Result should be an IntegrationResult object"
+        assert result.success is not None, "Result success status should be set"
     
     def test_empty_goal_input(self, integrator):
         """
@@ -123,8 +114,7 @@ class TestMainIntegratorInterface:
         
         result = integrator.process_goal(goal_text, context)
         
-        assert isinstance(result, IntegrationResult),
-        "Result should be an IntegrationResult object"
+        assert isinstance(result, IntegrationResult), "Result should be an IntegrationResult object"
     
     def test_invalid_context(self, integrator):
         """
@@ -135,7 +125,7 @@ class TestMainIntegratorInterface:
         
         result = integrator.process_goal(goal_text, context)
         
-        assert isinstance(result, IntegrationResult),
+        assert isinstance(result, IntegrationResult)
         "Result should be an IntegrationResult object"
     
     def test_multi_goal_processing(self, integrator):
@@ -156,8 +146,7 @@ class TestMainIntegratorInterface:
         
         for goal_text in goals:
             result = integrator.process_goal(goal_text, context)
-            assert isinstance(result, IntegrationResult),
-            f"Result for goal '{goal_text}' should be an IntegrationResult object"
+            assert isinstance(result, IntegrationResult), f"Result for goal '{goal_text}' should be an IntegrationResult object"
     
     def test_integration_performance(self, integrator):
         """
@@ -175,10 +164,8 @@ class TestMainIntegratorInterface:
         end_time = time.time()
         
         execution_time = end_time - start_time
-        assert isinstance(result, IntegrationResult),
-        "Result should be an IntegrationResult object"
-        assert execution_time < 10.0,
-        f"Integration should complete in under 10 seconds, took {execution_time:.2f} seconds"
+        assert isinstance(result, IntegrationResult), "Result should be an IntegrationResult object"
+        assert execution_time < 10.0, f"Integration should complete in under 10 seconds, took {execution_time:.2f} seconds"
 
 
 class TestIntegrationEdgeCases:
@@ -228,8 +215,7 @@ class TestIntegrationEdgeCases:
         }
         
         result = integrator.process_goal(long_goal, context)
-        assert isinstance(result, IntegrationResult),
-        "Result should be an IntegrationResult object"
+        assert isinstance(result, IntegrationResult), "Result should be an IntegrationResult object"
     
     def test_unsupported_goal(self, integrator):
         """
@@ -243,8 +229,7 @@ class TestIntegrationEdgeCases:
         }
         
         result = integrator.process_goal(goal_text, context)
-        assert isinstance(result, IntegrationResult),
-        "Result should be an IntegrationResult object"
+        assert isinstance(result, IntegrationResult), "Result should be an IntegrationResult object"
 
 
 def run_integration_tests():
