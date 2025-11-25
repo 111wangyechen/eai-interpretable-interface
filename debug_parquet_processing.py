@@ -290,8 +290,8 @@ def main():
         
         # Process each sample
         for sample in samples:
-            natural_goal = sample.get('natural_language_goal', '')
-            task_id = str(sample.get('id', f'unknown_{int(time.time())}'))
+            natural_goal = sample.get('natural_language_description', '')
+            task_id = str(sample.get('task_id', f'unknown_{int(time.time())}'))
             
             if not natural_goal:
                 logger.warning(f"Sample {task_id} has no natural language goal, skipping")
