@@ -1,0 +1,41 @@
+2025-11-25 19:27:18,022 - debug_script - INFO - Importing core modules...
+2025-11-25 19:27:18,025 - debug_script - INFO - ✓ GoalInterpreter imported successfully
+2025-11-25 19:27:18,029 - debug_script - INFO - ✓ SubgoalLTLIntegration imported successfully
+2025-11-25 19:27:18,044 - debug_script - INFO - ✓ TransitionModeler imported successfully
+2025-11-25 19:27:18,063 - action_sequencing - INFO - Action Sequencing Module v1.0.0 loaded successfully
+2025-11-25 19:27:18,063 - debug_script - INFO - ✓ ActionSequencer imported successfully
+2025-11-25 19:27:18,063 - debug_script - INFO - Starting debug script...
+2025-11-25 19:27:18,064 - debug_script - INFO - Processing dataset: behavior
+2025-11-25 19:27:18,064 - debug_script - INFO - Loading 10 samples from /home/yeah/eai-interpretable-interface/data/behavior-00000-of-00001.parquet
+2025-11-25 19:27:18,195 - debug_script - INFO - Total records in file: 100
+2025-11-25 19:27:18,199 - debug_script - INFO - Loaded 10 samples successfully
+2025-11-25 19:27:18,199 - debug_script - WARNING - Sample unknown_1764070038 has no natural language goal, skipping
+2025-11-25 19:27:18,199 - debug_script - WARNING - Sample unknown_1764070038 has no natural language goal, skipping
+2025-11-25 19:27:18,199 - debug_script - WARNING - Sample unknown_1764070038 has no natural language goal, skipping
+2025-11-25 19:27:18,199 - debug_script - WARNING - Sample unknown_1764070038 has no natural language goal, skipping
+2025-11-25 19:27:18,199 - debug_script - WARNING - Sample unknown_1764070038 has no natural language goal, skipping
+2025-11-25 19:27:18,199 - debug_script - WARNING - Sample unknown_1764070038 has no natural language goal, skipping
+2025-11-25 19:27:18,199 - debug_script - WARNING - Sample unknown_1764070038 has no natural language goal, skipping
+2025-11-25 19:27:18,199 - debug_script - WARNING - Sample unknown_1764070038 has no natural language goal, skipping
+2025-11-25 19:27:18,199 - debug_script - WARNING - Sample unknown_1764070038 has no natural language goal, skipping
+2025-11-25 19:27:18,199 - debug_script - WARNING - Sample unknown_1764070038 has no natural language goal, skipping
+2025-11-25 19:27:18,199 - debug_script - INFO - Processing dataset: virtualhome
+2025-11-25 19:27:18,199 - debug_script - INFO - Loading 10 samples from /home/yeah/eai-interpretable-interface/data/virtualhome-00000-of-00001.parquet
+2025-11-25 19:27:18,204 - debug_script - INFO - Total records in file: 338
+2025-11-25 19:27:18,205 - debug_script - INFO - Loaded 10 samples successfully
+2025-11-25 19:27:18,205 - debug_script - WARNING - Sample unknown_1764070038 has no natural language goal, skipping
+2025-11-25 19:27:18,205 - debug_script - WARNING - Sample unknown_1764070038 has no natural language goal, skipping
+2025-11-25 19:27:18,205 - debug_script - WARNING - Sample unknown_1764070038 has no natural language goal, skipping
+2025-11-25 19:27:18,205 - debug_script - WARNING - Sample unknown_1764070038 has no natural language goal, skipping
+2025-11-25 19:27:18,205 - debug_script - WARNING - Sample unknown_1764070038 has no natural language goal, skipping
+2025-11-25 19:27:18,205 - debug_script - WARNING - Sample unknown_1764070038 has no natural language goal, skipping
+2025-11-25 19:27:18,205 - debug_script - WARNING - Sample unknown_1764070038 has no natural language goal, skipping
+2025-11-25 19:27:18,205 - debug_script - WARNING - Sample unknown_1764070038 has no natural language goal, skipping
+2025-11-25 19:27:18,205 - debug_script - WARNING - Sample unknown_1764070038 has no natural language goal, skipping
+2025-11-25 19:27:18,205 - debug_script - WARNING - Sample unknown_1764070038 has no natural language goal, skipping
+2025-11-25 19:27:18,205 - debug_script - INFO - === Debug processing complete ===
+2025-11-25 19:27:18,206 - debug_script - INFO - Total tasks: 0
+2025-11-25 19:27:18,206 - debug_script - INFO - Successful tasks: 0
+2025-11-25 19:27:18,206 - debug_script - INFO - Failed tasks: 0
+2025-11-25 19:27:18,206 - debug_script - INFO - Summary saved to: /home/yeah/eai-interpretable-interface/debug_results/debug_summary_1764070038.json
+2025-11-25 19:27:18,206 - debug_script - INFO - Detailed logs saved to: debug_parquet_processing.log
