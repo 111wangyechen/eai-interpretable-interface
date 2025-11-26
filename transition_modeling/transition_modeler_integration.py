@@ -101,13 +101,13 @@ class TransitionModelerIntegration:
         # 初始化原始转换建模器
         try:
             # 动态导入原始转换建模模块
-            from transition_modeler import TransitionModeler
+            from transition_modeling.transition_modeler import TransitionModeler
             self.original_modeler = TransitionModeler(self.config)
             logger.info("Original TransitionModeler initialized")
         except ImportError:
             try:
                 # 尝试直接导入
-                import transition_modeler
+                import transition_modeling.transition_modeler as transition_modeler
                 if hasattr(transition_modeler, 'TransitionModeler'):
                     self.original_modeler = transition_modeler.TransitionModeler(self.config)
                     logger.info("Original TransitionModeler initialized")

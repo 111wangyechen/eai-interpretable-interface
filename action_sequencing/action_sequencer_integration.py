@@ -32,8 +32,8 @@ try:
 except ImportError as e:
     logging.warning(f"Failed to import action sequence evaluation components: {e}")
 
-from action_sequencing.action_sequencer import ActionSequencer, SequencingRequest, SequencingResponse
-from action_sequencing.models import ActionType, SequencingConfig
+from action_sequencing.action_sequencer import ActionSequencer, SequencingRequest, SequencingResponse, SequencingConfig
+from action_sequencing.action_data import ActionType
 
 # 设置日志
 logger = logging.getLogger(__name__)
