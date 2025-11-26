@@ -439,18 +439,22 @@ class ActionSequencer:
         """生成缓存键"""
         import hashlib
         
-        # 创建请求的字符串表示
-        request_str = json.dumps({
-            'initial_state': request.initial_state,
-            'goal_state': request.goal_state,
-            'available_actions': [action.to_dict() for action in request.available_actions],
-            'state_transitions': request.state_transitions,
-            'constraints': request.constraints,
-            'preferences': request.preferences
-        }, sort_keys=True, default=str)
-        
-        # 生成哈希
-        return hashlib.md5(request_str.encode()).hexdigest()
+        try:
+            # 创建请求的字符串表示
+            request_str = json.dumps({
+                'initial_state': request.initial_state,
+                'goal_state': request.goal_state,
+                'available_actions': [action.to_dict() for action in request.available_actions],
+                'state_transitions': request.state_transitions,
+                'constraints': request.constraints,
+                'preferences': request.preferences
+            }, sort_keys=True, default=str)
+            
+            # 生成哈希
+            return hashlib.md5(request_str.encode()).hexdigest()
+        except Exception as e:
+            # 如果生成缓存键失败，返回一个基于时间戳的唯一键
+            return hashlib.md5(f"cache_key_fallback_{time.time()}_{str(e)}".encode()).hexdigest()
     
     def _validate_sequence(self, sequence: ActionSequence, initial_state: Dict[str, Any], 
                           goal_state: Dict[str, Any]) -> Dict[str, Any]:

@@ -343,6 +343,10 @@ class ActionSequencerIntegration:
         """
         formatted = []
         
+        # 确保action_sequence不是None
+        if action_sequence is None:
+            return formatted
+        
         for i, action in enumerate(action_sequence):
             # 确保动作是字典格式
             if isinstance(action, dict):
