@@ -160,9 +160,20 @@ class HeuristicCalculator:
                            goal_state: Dict[str, Any], 
                            available_actions: List[Action]) -> float:
         """增强的组合启发式函数"""
+        # 处理状态中可能包含的不可哈希类型（如字典）
+        def make_hashable(value):
+            if isinstance(value, dict):
+                return tuple(sorted((k, make_hashable(v)) for k, v in value.items()))
+            elif isinstance(value, list):
+                return tuple(make_hashable(v) for v in value)
+            return value
+        
         # 计算缓存键
-        state_key = str(sorted(current_state.items()))
-        goal_key = str(sorted(goal_state.items()))
+        hashable_current = {k: make_hashable(v) for k, v in current_state.items()}
+        hashable_goal = {k: make_hashable(v) for k, v in goal_state.items()}
+        
+        state_key = str(sorted(hashable_current.items()))
+        goal_key = str(sorted(hashable_goal.items()))
         cache_key = (state_key, goal_key)
         
         # 检查缓存
