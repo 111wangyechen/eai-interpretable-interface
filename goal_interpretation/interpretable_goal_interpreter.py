@@ -23,15 +23,15 @@ if current_dir not in sys.path:
 
 try:
     from .goal_interpreter import GoalInterpreter, LTLFormula
-    from .nlp_parser import NLPParser
-    from .ltl_generator import LTLGenerator
+    from .enhanced_nlp_parser import EnhancedNLPParser
+    from .enhanced_ltl_generator import EnhancedLTLGenerator
     from .ltl_validator import LTLValidator
     from .data_loader import ParquetDataLoader
 except ImportError:
     # 如果相对导入失败，尝试绝对导入
     from goal_interpreter import GoalInterpreter, LTLFormula
-    from nlp_parser import NLPParser
-    from ltl_generator import LTLGenerator
+    from enhanced_nlp_parser import EnhancedNLPParser
+    from enhanced_ltl_generator import EnhancedLTLGenerator
     from ltl_validator import LTLValidator
     from data_loader import ParquetDataLoader
 

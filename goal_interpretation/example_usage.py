@@ -5,7 +5,7 @@
 演示如何使用目标解释器将自然语言转换为LTL公式
 """
 
-from goal_interpretation import GoalInterpreter
+from goal_interpreter import GoalInterpreter
 
 
 def main():

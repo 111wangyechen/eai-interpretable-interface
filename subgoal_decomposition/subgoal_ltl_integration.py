@@ -15,7 +15,7 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from goal_interpretation.goal_interpreter import GoalInterpreter, LTLFormula
-from goal_interpretation.ltl_generator import LTLGenerator
+from goal_interpretation.enhanced_ltl_generator import EnhancedLTLGenerator
 from .subgoal_decomposer import SubgoalDecomposer, DecompositionResult, Subgoal, SubgoalType
 from .subgoal_validator import SubgoalValidator, SubgoalOptimizer, SubgoalAnalyzer
 
@@ -44,7 +44,7 @@ class SubgoalLTLIntegration:
     
     def __init__(self, 
                  goal_interpreter: GoalInterpreter = None,
-                 ltl_generator: LTLGenerator = None,
+                 ltl_generator: EnhancedLTLGenerator = None,
                  subgoal_decomposer: SubgoalDecomposer = None,
                  validator: SubgoalValidator = None,
                  optimizer: SubgoalOptimizer = None,
@@ -61,7 +61,7 @@ class SubgoalLTLIntegration:
             analyzer: 分析器
         """
         self.goal_interpreter = goal_interpreter or GoalInterpreter()
-        self.ltl_generator = ltl_generator or LTLGenerator()
+        self.ltl_generator = ltl_generator or EnhancedLTLGenerator()
         self.subgoal_decomposer = subgoal_decomposer or SubgoalDecomposer()
         self.validator = validator or SubgoalValidator()
         self.optimizer = optimizer or SubgoalOptimizer()
