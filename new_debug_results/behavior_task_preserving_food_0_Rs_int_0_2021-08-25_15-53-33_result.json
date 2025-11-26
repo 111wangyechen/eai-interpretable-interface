@@ -1,13 +1,41 @@
 {
-  "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764124361625",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764124884252",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.254057",
+  "goal": {
+    "natural_language": "Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.",
+    "interpreted": "slice_and"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.",
+        "ltl_formula": "slice_and",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.001321554183959961,
+  "execution_times": {
+    "goal_interpretation": 0.0001709461212158203,
+    "subgoal_decomposition": 0.00010204315185546875,
+    "transition_modeling": 0.00010657310485839844,
+    "action_sequencing": 0.0002484321594238281
+  },
   "debug_info": {
-    "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764124361625",
+    "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764124884252",
     "task_id": "preserving_food_0_Rs_int_0_2021-08-25_15-53-33",
     "dataset": "behavior",
     "natural_goal": "Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.",
-    "start_time": "2025-11-26T10:32:41.625728",
+    "start_time": "2025-11-26T10:41:24.252740",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00024819374084472656,
-      "subgoal_decomposition": 0.000324249267578125,
-      "transition_modeling": 0.0002903938293457031,
-      "action_sequencing": 0.00040721893310546875
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.0001709461212158203,
+      "subgoal_decomposition": 0.00010204315185546875,
+      "transition_modeling": 0.00010657310485839844,
+      "action_sequencing": 0.0002484321594238281
+    }
   }
 }

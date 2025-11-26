@@ -1,13 +1,41 @@
 {
-  "submission_id": "virtualhome_954_2_1764124361568",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "virtualhome_954_2_1764124884189",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.192882",
+  "goal": {
+    "natural_language": "I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.",
+    "interpreted": "i_need"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.",
+        "ltl_formula": "i_need",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.002995014190673828,
+  "execution_times": {
+    "goal_interpretation": 0.0002663135528564453,
+    "subgoal_decomposition": 0.0003082752227783203,
+    "transition_modeling": 0.0003154277801513672,
+    "action_sequencing": 0.0006008148193359375
+  },
   "debug_info": {
-    "submission_id": "virtualhome_954_2_1764124361568",
+    "submission_id": "virtualhome_954_2_1764124884189",
     "task_id": "954_2",
     "dataset": "virtualhome",
     "natural_goal": "I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.",
-    "start_time": "2025-11-26T10:32:41.568452",
+    "start_time": "2025-11-26T10:41:24.189893",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0003407001495361328,
-      "subgoal_decomposition": 0.00023937225341796875,
-      "transition_modeling": 0.00021839141845703125,
-      "action_sequencing": 0.0002071857452392578
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.0002663135528564453,
+      "subgoal_decomposition": 0.0003082752227783203,
+      "transition_modeling": 0.0003154277801513672,
+      "action_sequencing": 0.0006008148193359375
+    }
   }
 }

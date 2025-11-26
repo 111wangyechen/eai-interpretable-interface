@@ -1,13 +1,41 @@
 {
-  "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764124361649",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764124884265",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.267254",
+  "goal": {
+    "natural_language": "Place 3 candles on each table.",
+    "interpreted": "place_3"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: Place 3 candles on each table.",
+        "ltl_formula": "place_3",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.00135040283203125,
+  "execution_times": {
+    "goal_interpretation": 0.00013065338134765625,
+    "subgoal_decomposition": 0.00011491775512695312,
+    "transition_modeling": 0.00011992454528808594,
+    "action_sequencing": 0.00030350685119628906
+  },
   "debug_info": {
-    "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764124361649",
+    "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764124884265",
     "task_id": "setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51",
     "dataset": "behavior",
     "natural_goal": "Place 3 candles on each table.",
-    "start_time": "2025-11-26T10:32:41.649617",
+    "start_time": "2025-11-26T10:41:24.265908",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001506805419921875,
-      "subgoal_decomposition": 0.00010633468627929688,
-      "transition_modeling": 0.0001373291015625,
-      "action_sequencing": 0.0001361370086669922
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.00013065338134765625,
+      "subgoal_decomposition": 0.00011491775512695312,
+      "transition_modeling": 0.00011992454528808594,
+      "action_sequencing": 0.00030350685119628906
+    }
   }
 }

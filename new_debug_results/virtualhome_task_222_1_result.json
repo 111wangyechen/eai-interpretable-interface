@@ -1,13 +1,41 @@
 {
-  "submission_id": "virtualhome_222_1_1764124361586",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "virtualhome_222_1_1764124884217",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.222323",
+  "goal": {
+    "natural_language": "walk into living room, walk to light, turn on light switch.",
+    "interpreted": "walk_into"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: walk into living room, walk to light, turn on light switch.",
+        "ltl_formula": "walk_into",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.005159616470336914,
+  "execution_times": {
+    "goal_interpretation": 0.0030317306518554688,
+    "subgoal_decomposition": 0.00014400482177734375,
+    "transition_modeling": 0.00014472007751464844,
+    "action_sequencing": 0.0003337860107421875
+  },
   "debug_info": {
-    "submission_id": "virtualhome_222_1_1764124361586",
+    "submission_id": "virtualhome_222_1_1764124884217",
     "task_id": "222_1",
     "dataset": "virtualhome",
     "natural_goal": "walk into living room, walk to light, turn on light switch.",
-    "start_time": "2025-11-26T10:32:41.586644",
+    "start_time": "2025-11-26T10:41:24.217173",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00015401840209960938,
-      "subgoal_decomposition": 0.00010538101196289062,
-      "transition_modeling": 0.0001201629638671875,
-      "action_sequencing": 0.00013828277587890625
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.0030317306518554688,
+      "subgoal_decomposition": 0.00014400482177734375,
+      "transition_modeling": 0.00014472007751464844,
+      "action_sequencing": 0.0003337860107421875
+    }
   }
 }

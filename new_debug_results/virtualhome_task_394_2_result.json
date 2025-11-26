@@ -1,13 +1,41 @@
 {
-  "submission_id": "virtualhome_394_2_1764124361602",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "virtualhome_394_2_1764124884236",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.237394",
+  "goal": {
+    "natural_language": "Find light switch. switch on",
+    "interpreted": "find_light"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: Find light switch. switch on",
+        "ltl_formula": "find_light",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.0013549327850341797,
+  "execution_times": {
+    "goal_interpretation": 0.00014710426330566406,
+    "subgoal_decomposition": 9.679794311523438e-05,
+    "transition_modeling": 0.00012063980102539062,
+    "action_sequencing": 0.00026106834411621094
+  },
   "debug_info": {
-    "submission_id": "virtualhome_394_2_1764124361602",
+    "submission_id": "virtualhome_394_2_1764124884236",
     "task_id": "394_2",
     "dataset": "virtualhome",
     "natural_goal": "Find light switch. switch on",
-    "start_time": "2025-11-26T10:32:41.602893",
+    "start_time": "2025-11-26T10:41:24.236043",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00028586387634277344,
-      "subgoal_decomposition": 0.00020885467529296875,
-      "transition_modeling": 0.0002644062042236328,
-      "action_sequencing": 0.0002906322479248047
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.00014710426330566406,
+      "subgoal_decomposition": 9.679794311523438e-05,
+      "transition_modeling": 0.00012063980102539062,
+      "action_sequencing": 0.00026106834411621094
+    }
   }
 }

@@ -1,13 +1,41 @@
 {
-  "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764124361642",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764124884261",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.262497",
+  "goal": {
+    "natural_language": "Place the modem under the table and make sure it is turned on.",
+    "interpreted": "place_the"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: Place the modem under the table and make sure it is turned on.",
+        "ltl_formula": "place_the",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.001211404800415039,
+  "execution_times": {
+    "goal_interpretation": 0.0001475811004638672,
+    "subgoal_decomposition": 9.918212890625e-05,
+    "transition_modeling": 0.0001049041748046875,
+    "action_sequencing": 0.0002512931823730469
+  },
   "debug_info": {
-    "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764124361642",
+    "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764124884261",
     "task_id": "installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55",
     "dataset": "behavior",
     "natural_goal": "Place the modem under the table and make sure it is turned on.",
-    "start_time": "2025-11-26T10:32:41.642511",
+    "start_time": "2025-11-26T10:41:24.261299",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00028061866760253906,
-      "subgoal_decomposition": 0.0004947185516357422,
-      "transition_modeling": 0.00018024444580078125,
-      "action_sequencing": 0.0001876354217529297
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.0001475811004638672,
+      "subgoal_decomposition": 9.918212890625e-05,
+      "transition_modeling": 0.0001049041748046875,
+      "action_sequencing": 0.0002512931823730469
+    }
   }
 }

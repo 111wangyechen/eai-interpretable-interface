@@ -1,13 +1,41 @@
 {
-  "submission_id": "virtualhome_150_2_1764124361579",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "virtualhome_150_2_1764124884203",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.206710",
+  "goal": {
+    "natural_language": "push any ligth button to turn it on, for example in the living room",
+    "interpreted": "push_any"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: push any ligth button to turn it on, for example in the living room",
+        "ltl_formula": "push_any",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.0036542415618896484,
+  "execution_times": {
+    "goal_interpretation": 0.0002884864807128906,
+    "subgoal_decomposition": 0.0004220008850097656,
+    "transition_modeling": 0.00040459632873535156,
+    "action_sequencing": 0.0008444786071777344
+  },
   "debug_info": {
-    "submission_id": "virtualhome_150_2_1764124361579",
+    "submission_id": "virtualhome_150_2_1764124884203",
     "task_id": "150_2",
     "dataset": "virtualhome",
     "natural_goal": "push any ligth button to turn it on, for example in the living room",
-    "start_time": "2025-11-26T10:32:41.579166",
+    "start_time": "2025-11-26T10:41:24.203063",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001919269561767578,
-      "subgoal_decomposition": 0.00016570091247558594,
-      "transition_modeling": 0.00013375282287597656,
-      "action_sequencing": 0.00013875961303710938
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.0002884864807128906,
+      "subgoal_decomposition": 0.0004220008850097656,
+      "transition_modeling": 0.00040459632873535156,
+      "action_sequencing": 0.0008444786071777344
+    }
   }
 }

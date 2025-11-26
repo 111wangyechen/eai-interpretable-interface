@@ -1,13 +1,41 @@
 {
-  "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764124361654",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764124884271",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.273155",
+  "goal": {
+    "natural_language": "Close and lock all the windows.",
+    "interpreted": "close_and"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: Close and lock all the windows.",
+        "ltl_formula": "close_and",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.0015523433685302734,
+  "execution_times": {
+    "goal_interpretation": 0.00012946128845214844,
+    "subgoal_decomposition": 0.00011491775512695312,
+    "transition_modeling": 0.00014829635620117188,
+    "action_sequencing": 0.0003228187561035156
+  },
   "debug_info": {
-    "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764124361654",
+    "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764124884271",
     "task_id": "locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10",
     "dataset": "behavior",
     "natural_goal": "Close and lock all the windows.",
-    "start_time": "2025-11-26T10:32:41.654366",
+    "start_time": "2025-11-26T10:41:24.271608",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.000171661376953125,
-      "subgoal_decomposition": 0.00013184547424316406,
-      "transition_modeling": 0.00016021728515625,
-      "action_sequencing": 0.00018167495727539062
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.00012946128845214844,
+      "subgoal_decomposition": 0.00011491775512695312,
+      "transition_modeling": 0.00014829635620117188,
+      "action_sequencing": 0.0003228187561035156
+    }
   }
 }

@@ -1,13 +1,41 @@
 {
-  "submission_id": "virtualhome_392_1_1764124361601",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "virtualhome_392_1_1764124884234",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.235726",
+  "goal": {
+    "natural_language": "find lightswitch. walk to light switch. turn on light.",
+    "interpreted": "find_lightswitch"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: find lightswitch. walk to light switch. turn on light.",
+        "ltl_formula": "find_lightswitch",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.0015625953674316406,
+  "execution_times": {
+    "goal_interpretation": 0.00016832351684570312,
+    "subgoal_decomposition": 0.0001575946807861328,
+    "transition_modeling": 0.0001685619354248047,
+    "action_sequencing": 0.00032258033752441406
+  },
   "debug_info": {
-    "submission_id": "virtualhome_392_1_1764124361601",
+    "submission_id": "virtualhome_392_1_1764124884234",
     "task_id": "392_1",
     "dataset": "virtualhome",
     "natural_goal": "find lightswitch. walk to light switch. turn on light.",
-    "start_time": "2025-11-26T10:32:41.601270",
+    "start_time": "2025-11-26T10:41:24.234168",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00014519691467285156,
-      "subgoal_decomposition": 0.000110626220703125,
-      "transition_modeling": 0.00015687942504882812,
-      "action_sequencing": 0.00015115737915039062
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.00016832351684570312,
+      "subgoal_decomposition": 0.0001575946807861328,
+      "transition_modeling": 0.0001685619354248047,
+      "action_sequencing": 0.00032258033752441406
+    }
   }
 }

@@ -1,13 +1,41 @@
 {
-  "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764124361617",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764124884247",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.249000",
+  "goal": {
+    "natural_language": "Place the books into the carton for storage.",
+    "interpreted": "place_the"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: Place the books into the carton for storage.",
+        "ltl_formula": "place_the",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.0012254714965820312,
+  "execution_times": {
+    "goal_interpretation": 0.00012183189392089844,
+    "subgoal_decomposition": 0.00010538101196289062,
+    "transition_modeling": 0.00010561943054199219,
+    "action_sequencing": 0.0002548694610595703
+  },
   "debug_info": {
-    "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764124361617",
+    "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764124884247",
     "task_id": "boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47",
     "dataset": "behavior",
     "natural_goal": "Place the books into the carton for storage.",
-    "start_time": "2025-11-26T10:32:41.617767",
+    "start_time": "2025-11-26T10:41:24.247779",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001399517059326172,
-      "subgoal_decomposition": 0.00010609626770019531,
-      "transition_modeling": 0.000110626220703125,
-      "action_sequencing": 0.0001289844512939453
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.00012183189392089844,
+      "subgoal_decomposition": 0.00010538101196289062,
+      "transition_modeling": 0.00010561943054199219,
+      "action_sequencing": 0.0002548694610595703
+    }
   }
 }

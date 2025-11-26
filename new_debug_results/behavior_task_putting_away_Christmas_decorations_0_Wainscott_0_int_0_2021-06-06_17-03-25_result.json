@@ -1,13 +1,41 @@
 {
-  "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764124361647",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764124884264",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.265635",
+  "goal": {
+    "natural_language": "Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.",
+    "interpreted": "place_all"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.",
+        "ltl_formula": "place_all",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.0012788772583007812,
+  "execution_times": {
+    "goal_interpretation": 0.000141143798828125,
+    "subgoal_decomposition": 0.00010418891906738281,
+    "transition_modeling": 0.0001327991485595703,
+    "action_sequencing": 0.0002541542053222656
+  },
   "debug_info": {
-    "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764124361647",
+    "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764124884264",
     "task_id": "putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25",
     "dataset": "behavior",
     "natural_goal": "Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.",
-    "start_time": "2025-11-26T10:32:41.647986",
+    "start_time": "2025-11-26T10:41:24.264360",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00018143653869628906,
-      "subgoal_decomposition": 0.0001163482666015625,
-      "transition_modeling": 0.0001399517059326172,
-      "action_sequencing": 0.00014591217041015625
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.000141143798828125,
+      "subgoal_decomposition": 0.00010418891906738281,
+      "transition_modeling": 0.0001327991485595703,
+      "action_sequencing": 0.0002541542053222656
+    }
   }
 }

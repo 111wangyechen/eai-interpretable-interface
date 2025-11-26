@@ -1,13 +1,41 @@
 {
-  "submission_id": "behavior_cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24_1764124361646",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "behavior_cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24_1764124884262",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.264079",
+  "goal": {
+    "natural_language": "Clean all the stained tableware, put all hamburgers into sack1 which is on the floor, and clean the stained floor, chair, and table.",
+    "interpreted": "clean_all"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: Clean all the stained tableware, put all hamburgers into sack1 which is on the floor, and clean the stained floor, chair, and table.",
+        "ltl_formula": "clean_all",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.0013153553009033203,
+  "execution_times": {
+    "goal_interpretation": 0.00018668174743652344,
+    "subgoal_decomposition": 0.00010991096496582031,
+    "transition_modeling": 0.00010561943054199219,
+    "action_sequencing": 0.0002491474151611328
+  },
   "debug_info": {
-    "submission_id": "behavior_cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24_1764124361646",
+    "submission_id": "behavior_cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24_1764124884262",
     "task_id": "cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24",
     "dataset": "behavior",
     "natural_goal": "Clean all the stained tableware, put all hamburgers into sack1 which is on the floor, and clean the stained floor, chair, and table.",
-    "start_time": "2025-11-26T10:32:41.646005",
+    "start_time": "2025-11-26T10:41:24.262769",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0002040863037109375,
-      "subgoal_decomposition": 0.0001423358917236328,
-      "transition_modeling": 0.0001552104949951172,
-      "action_sequencing": 0.0002713203430175781
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.00018668174743652344,
+      "subgoal_decomposition": 0.00010991096496582031,
+      "transition_modeling": 0.00010561943054199219,
+      "action_sequencing": 0.0002491474151611328
+    }
   }
 }

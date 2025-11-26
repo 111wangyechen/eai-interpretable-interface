@@ -1,13 +1,41 @@
 {
-  "submission_id": "virtualhome_310_1_1764124361590",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "virtualhome_310_1_1764124884224",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.226698",
+  "goal": {
+    "natural_language": "I enter the bedroom and find the light. Then I turn it on.",
+    "interpreted": "i_enter"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: I enter the bedroom and find the light. Then I turn it on.",
+        "ltl_formula": "i_enter",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.0018329620361328125,
+  "execution_times": {
+    "goal_interpretation": 0.00020384788513183594,
+    "subgoal_decomposition": 0.00012922286987304688,
+    "transition_modeling": 0.00015878677368164062,
+    "action_sequencing": 0.00037670135498046875
+  },
   "debug_info": {
-    "submission_id": "virtualhome_310_1_1764124361590",
+    "submission_id": "virtualhome_310_1_1764124884224",
     "task_id": "310_1",
     "dataset": "virtualhome",
     "natural_goal": "I enter the bedroom and find the light. Then I turn it on.",
-    "start_time": "2025-11-26T10:32:41.590284",
+    "start_time": "2025-11-26T10:41:24.224874",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001742839813232422,
-      "subgoal_decomposition": 0.000125885009765625,
-      "transition_modeling": 0.00013637542724609375,
-      "action_sequencing": 0.000171661376953125
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.00020384788513183594,
+      "subgoal_decomposition": 0.00012922286987304688,
+      "transition_modeling": 0.00015878677368164062,
+      "action_sequencing": 0.00037670135498046875
+    }
   }
 }

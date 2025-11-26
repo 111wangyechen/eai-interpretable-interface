@@ -1,13 +1,41 @@
 {
-  "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764124361622",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764124884251",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.252400",
+  "goal": {
+    "natural_language": "Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.",
+    "interpreted": "use_the"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.",
+        "ltl_formula": "use_the",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.0013453960418701172,
+  "execution_times": {
+    "goal_interpretation": 0.00018334388732910156,
+    "subgoal_decomposition": 0.00010561943054199219,
+    "transition_modeling": 0.00011348724365234375,
+    "action_sequencing": 0.0002684593200683594
+  },
   "debug_info": {
-    "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764124361622",
+    "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764124884251",
     "task_id": "mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58",
     "dataset": "behavior",
     "natural_goal": "Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.",
-    "start_time": "2025-11-26T10:32:41.622409",
+    "start_time": "2025-11-26T10:41:24.251060",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00027632713317871094,
-      "subgoal_decomposition": 0.00026702880859375,
-      "transition_modeling": 0.0003914833068847656,
-      "action_sequencing": 0.0003292560577392578
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.00018334388732910156,
+      "subgoal_decomposition": 0.00010561943054199219,
+      "transition_modeling": 0.00011348724365234375,
+      "action_sequencing": 0.0002684593200683594
+    }
   }
 }

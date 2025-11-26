@@ -1,13 +1,41 @@
 {
-  "submission_id": "virtualhome_850_1_1764124361566",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "virtualhome_850_1_1764124884186",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.189445",
+  "goal": {
+    "natural_language": "Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.",
+    "interpreted": "walk_into"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.",
+        "ltl_formula": "walk_into",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.002850770950317383,
+  "execution_times": {
+    "goal_interpretation": 0.00025391578674316406,
+    "subgoal_decomposition": 0.0002582073211669922,
+    "transition_modeling": 0.0002505779266357422,
+    "action_sequencing": 0.0006175041198730469
+  },
   "debug_info": {
-    "submission_id": "virtualhome_850_1_1764124361566",
+    "submission_id": "virtualhome_850_1_1764124884186",
     "task_id": "850_1",
     "dataset": "virtualhome",
     "natural_goal": "Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.",
-    "start_time": "2025-11-26T10:32:41.566010",
+    "start_time": "2025-11-26T10:41:24.186601",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00022983551025390625,
-      "subgoal_decomposition": 0.00033473968505859375,
-      "transition_modeling": 0.0002701282501220703,
-      "action_sequencing": 0.0002865791320800781
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.00025391578674316406,
+      "subgoal_decomposition": 0.0002582073211669922,
+      "transition_modeling": 0.0002505779266357422,
+      "action_sequencing": 0.0006175041198730469
+    }
   }
 }

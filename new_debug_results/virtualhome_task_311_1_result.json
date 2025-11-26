@@ -1,13 +1,41 @@
 {
-  "submission_id": "virtualhome_311_1_1764124361592",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "virtualhome_311_1_1764124884227",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.229483",
+  "goal": {
+    "natural_language": "I go home and it's dark so I can not see anything",
+    "interpreted": "i_go"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: I go home and it's dark so I can not see anything",
+        "ltl_formula": "i_go",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.0019512176513671875,
+  "execution_times": {
+    "goal_interpretation": 0.0002071857452392578,
+    "subgoal_decomposition": 0.00013446807861328125,
+    "transition_modeling": 0.00017714500427246094,
+    "action_sequencing": 0.0004000663757324219
+  },
   "debug_info": {
-    "submission_id": "virtualhome_311_1_1764124361592",
+    "submission_id": "virtualhome_311_1_1764124884227",
     "task_id": "311_1",
     "dataset": "virtualhome",
     "natural_goal": "I go home and it's dark so I can not see anything",
-    "start_time": "2025-11-26T10:32:41.592153",
+    "start_time": "2025-11-26T10:41:24.227540",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00024509429931640625,
-      "subgoal_decomposition": 0.00017213821411132812,
-      "transition_modeling": 0.0001678466796875,
-      "action_sequencing": 0.0003402233123779297
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.0002071857452392578,
+      "subgoal_decomposition": 0.00013446807861328125,
+      "transition_modeling": 0.00017714500427246094,
+      "action_sequencing": 0.0004000663757324219
+    }
   }
 }

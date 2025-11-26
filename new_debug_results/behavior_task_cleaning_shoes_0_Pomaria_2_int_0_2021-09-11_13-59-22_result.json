@@ -1,13 +1,41 @@
 {
-  "submission_id": "behavior_cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22_1764124361651",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "behavior_cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22_1764124884267",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.269167",
+  "goal": {
+    "natural_language": "Clean all the shoes, and leave the towel on the floor.",
+    "interpreted": "clean_all"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: Clean all the shoes, and leave the towel on the floor.",
+        "ltl_formula": "clean_all",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.0015752315521240234,
+  "execution_times": {
+    "goal_interpretation": 0.00015926361083984375,
+    "subgoal_decomposition": 0.0001354217529296875,
+    "transition_modeling": 0.0001437664031982422,
+    "action_sequencing": 0.0003104209899902344
+  },
   "debug_info": {
-    "submission_id": "behavior_cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22_1764124361651",
+    "submission_id": "behavior_cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22_1764124884267",
     "task_id": "cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22",
     "dataset": "behavior",
     "natural_goal": "Clean all the shoes, and leave the towel on the floor.",
-    "start_time": "2025-11-26T10:32:41.651086",
+    "start_time": "2025-11-26T10:41:24.267597",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00013899803161621094,
-      "subgoal_decomposition": 0.00010061264038085938,
-      "transition_modeling": 0.00011873245239257812,
-      "action_sequencing": 0.00012922286987304688
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.00015926361083984375,
+      "subgoal_decomposition": 0.0001354217529296875,
+      "transition_modeling": 0.0001437664031982422,
+      "action_sequencing": 0.0003104209899902344
+    }
   }
 }

@@ -1,13 +1,41 @@
 {
-  "submission_id": "virtualhome_345_1_1764124361598",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "virtualhome_345_1_1764124884232",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.233835",
+  "goal": {
+    "natural_language": "We enter into the Living room and walk towards light switch. Then switch on the light.",
+    "interpreted": "we_enter"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: We enter into the Living room and walk towards light switch. Then switch on the light.",
+        "ltl_formula": "we_enter",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.0015289783477783203,
+  "execution_times": {
+    "goal_interpretation": 0.0002002716064453125,
+    "subgoal_decomposition": 0.0001251697540283203,
+    "transition_modeling": 0.00012946128845214844,
+    "action_sequencing": 0.0003192424774169922
+  },
   "debug_info": {
-    "submission_id": "virtualhome_345_1_1764124361598",
+    "submission_id": "virtualhome_345_1_1764124884232",
     "task_id": "345_1",
     "dataset": "virtualhome",
     "natural_goal": "We enter into the Living room and walk towards light switch. Then switch on the light.",
-    "start_time": "2025-11-26T10:32:41.598891",
+    "start_time": "2025-11-26T10:41:24.232311",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00018739700317382812,
-      "subgoal_decomposition": 0.0002086162567138672,
-      "transition_modeling": 0.0004379749298095703,
-      "action_sequencing": 0.00024318695068359375
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.0002002716064453125,
+      "subgoal_decomposition": 0.0001251697540283203,
+      "transition_modeling": 0.00012946128845214844,
+      "action_sequencing": 0.0003192424774169922
+    }
   }
 }

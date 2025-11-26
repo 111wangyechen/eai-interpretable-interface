@@ -1,13 +1,41 @@
 {
-  "submission_id": "virtualhome_432_1_1764124361606",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "virtualhome_432_1_1764124884237",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.239344",
+  "goal": {
+    "natural_language": "Walk over to light switch, flip the switch to the on position",
+    "interpreted": "walk_over"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: Walk over to light switch, flip the switch to the on position",
+        "ltl_formula": "walk_over",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.0016553401947021484,
+  "execution_times": {
+    "goal_interpretation": 0.000335693359375,
+    "subgoal_decomposition": 0.00010538101196289062,
+    "transition_modeling": 0.0001983642578125,
+    "action_sequencing": 0.0002994537353515625
+  },
   "debug_info": {
-    "submission_id": "virtualhome_432_1_1764124361606",
+    "submission_id": "virtualhome_432_1_1764124884237",
     "task_id": "432_1",
     "dataset": "virtualhome",
     "natural_goal": "Walk over to light switch, flip the switch to the on position",
-    "start_time": "2025-11-26T10:32:41.606061",
+    "start_time": "2025-11-26T10:41:24.237694",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00019931793212890625,
-      "subgoal_decomposition": 0.0002586841583251953,
-      "transition_modeling": 0.00024509429931640625,
-      "action_sequencing": 0.00031065940856933594
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.000335693359375,
+      "subgoal_decomposition": 0.00010538101196289062,
+      "transition_modeling": 0.0001983642578125,
+      "action_sequencing": 0.0002994537353515625
+    }
   }
 }

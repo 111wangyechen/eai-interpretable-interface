@@ -1,13 +1,41 @@
 {
-  "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764124361612",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764124884244",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.245748",
+  "goal": {
+    "natural_language": "Put one candle, one cheese, one cookie, and one bow into each basket.",
+    "interpreted": "put_one"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: Put one candle, one cheese, one cookie, and one bow into each basket.",
+        "ltl_formula": "put_one",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.0014481544494628906,
+  "execution_times": {
+    "goal_interpretation": 0.00016546249389648438,
+    "subgoal_decomposition": 0.00014519691467285156,
+    "transition_modeling": 0.0001308917999267578,
+    "action_sequencing": 0.0002796649932861328
+  },
   "debug_info": {
-    "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764124361612",
+    "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764124884244",
     "task_id": "assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37",
     "dataset": "behavior",
     "natural_goal": "Put one candle, one cheese, one cookie, and one bow into each basket.",
-    "start_time": "2025-11-26T10:32:41.612602",
+    "start_time": "2025-11-26T10:41:24.244306",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00021076202392578125,
-      "subgoal_decomposition": 0.000286102294921875,
-      "transition_modeling": 0.0002741813659667969,
-      "action_sequencing": 0.0003261566162109375
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.00016546249389648438,
+      "subgoal_decomposition": 0.00014519691467285156,
+      "transition_modeling": 0.0001308917999267578,
+      "action_sequencing": 0.0002796649932861328
+    }
   }
 }

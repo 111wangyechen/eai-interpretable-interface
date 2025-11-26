@@ -1,13 +1,41 @@
 {
-  "submission_id": "virtualhome_417_1_1764124361562",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "virtualhome_417_1_1764124884183",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.186114",
+  "goal": {
+    "natural_language": "I will load the dirty clothes into the washing machine.",
+    "interpreted": "i_will"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: I will load the dirty clothes into the washing machine.",
+        "ltl_formula": "i_will",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.002858877182006836,
+  "execution_times": {
+    "goal_interpretation": 0.00020194053649902344,
+    "subgoal_decomposition": 0.00026345252990722656,
+    "transition_modeling": 0.0002818107604980469,
+    "action_sequencing": 0.0006062984466552734
+  },
   "debug_info": {
-    "submission_id": "virtualhome_417_1_1764124361562",
+    "submission_id": "virtualhome_417_1_1764124884183",
     "task_id": "417_1",
     "dataset": "virtualhome",
     "natural_goal": "I will load the dirty clothes into the washing machine.",
-    "start_time": "2025-11-26T10:32:41.562865",
+    "start_time": "2025-11-26T10:41:24.183262",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0002810955047607422,
-      "subgoal_decomposition": 0.00024247169494628906,
-      "transition_modeling": 0.0002684593200683594,
-      "action_sequencing": 0.00031304359436035156
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.00020194053649902344,
+      "subgoal_decomposition": 0.00026345252990722656,
+      "transition_modeling": 0.0002818107604980469,
+      "action_sequencing": 0.0006062984466552734
+    }
   }
 }

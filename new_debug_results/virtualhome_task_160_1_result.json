@@ -1,13 +1,41 @@
 {
-  "submission_id": "virtualhome_160_1_1764124361580",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "virtualhome_160_1_1764124884207",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.210344",
+  "goal": {
+    "natural_language": "Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one.",
+    "interpreted": "go_to"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one.",
+        "ltl_formula": "go_to",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.0030107498168945312,
+  "execution_times": {
+    "goal_interpretation": 0.00023674964904785156,
+    "subgoal_decomposition": 0.0002779960632324219,
+    "transition_modeling": 0.00022530555725097656,
+    "action_sequencing": 0.0005695819854736328
+  },
   "debug_info": {
-    "submission_id": "virtualhome_160_1_1764124361580",
+    "submission_id": "virtualhome_160_1_1764124884207",
     "task_id": "160_1",
     "dataset": "virtualhome",
     "natural_goal": "Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one.",
-    "start_time": "2025-11-26T10:32:41.580984",
+    "start_time": "2025-11-26T10:41:24.207355",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001971721649169922,
-      "subgoal_decomposition": 0.00012159347534179688,
-      "transition_modeling": 0.00014972686767578125,
-      "action_sequencing": 0.00016498565673828125
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.00023674964904785156,
+      "subgoal_decomposition": 0.0002779960632324219,
+      "transition_modeling": 0.00022530555725097656,
+      "action_sequencing": 0.0005695819854736328
+    }
   }
 }

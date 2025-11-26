@@ -1,13 +1,41 @@
 {
-  "submission_id": "virtualhome_205_1_1764124361584",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "virtualhome_205_1_1764124884213",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.216599",
+  "goal": {
+    "natural_language": "Walk into the bedroom and walk to the light switch. Flip the switch.",
+    "interpreted": "walk_into"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: Walk into the bedroom and walk to the light switch. Flip the switch.",
+        "ltl_formula": "walk_into",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.0027303695678710938,
+  "execution_times": {
+    "goal_interpretation": 0.00018858909606933594,
+    "subgoal_decomposition": 0.0002627372741699219,
+    "transition_modeling": 0.0002410411834716797,
+    "action_sequencing": 0.0006151199340820312
+  },
   "debug_info": {
-    "submission_id": "virtualhome_205_1_1764124361584",
+    "submission_id": "virtualhome_205_1_1764124884213",
     "task_id": "205_1",
     "dataset": "virtualhome",
     "natural_goal": "Walk into the bedroom and walk to the light switch. Flip the switch.",
-    "start_time": "2025-11-26T10:32:41.584901",
+    "start_time": "2025-11-26T10:41:24.213875",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001475811004638672,
-      "subgoal_decomposition": 0.00010776519775390625,
-      "transition_modeling": 0.00011873245239257812,
-      "action_sequencing": 0.00015544891357421875
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.00018858909606933594,
+      "subgoal_decomposition": 0.0002627372741699219,
+      "transition_modeling": 0.0002410411834716797,
+      "action_sequencing": 0.0006151199340820312
+    }
   }
 }

@@ -1,13 +1,41 @@
 {
-  "submission_id": "virtualhome_11_1_1764124361571",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "virtualhome_11_1_1764124884193",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.196115",
+  "goal": {
+    "natural_language": "I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.",
+    "interpreted": "i_go"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.",
+        "ltl_formula": "i_go",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.002752542495727539,
+  "execution_times": {
+    "goal_interpretation": 0.0002193450927734375,
+    "subgoal_decomposition": 0.0002498626708984375,
+    "transition_modeling": 0.00023865699768066406,
+    "action_sequencing": 0.0005681514739990234
+  },
   "debug_info": {
-    "submission_id": "virtualhome_11_1_1764124361571",
+    "submission_id": "virtualhome_11_1_1764124884193",
     "task_id": "11_1",
     "dataset": "virtualhome",
     "natural_goal": "I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.",
-    "start_time": "2025-11-26T10:32:41.571320",
+    "start_time": "2025-11-26T10:41:24.193368",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00029730796813964844,
-      "subgoal_decomposition": 0.00026869773864746094,
-      "transition_modeling": 0.00025534629821777344,
-      "action_sequencing": 0.0003325939178466797
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.0002193450927734375,
+      "subgoal_decomposition": 0.0002498626708984375,
+      "transition_modeling": 0.00023865699768066406,
+      "action_sequencing": 0.0005681514739990234
+    }
   }
 }

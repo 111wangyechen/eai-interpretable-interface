@@ -1,13 +1,41 @@
 {
-  "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764124361658",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764124884296",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.298115",
+  "goal": {
+    "natural_language": "Wash all the stained plates, cups, and bowls.",
+    "interpreted": "wash_all"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: Wash all the stained plates, cups, and bowls.",
+        "ltl_formula": "wash_all",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.0020024776458740234,
+  "execution_times": {
+    "goal_interpretation": 0.00017642974853515625,
+    "subgoal_decomposition": 0.00014829635620117188,
+    "transition_modeling": 0.00022125244140625,
+    "action_sequencing": 0.00048089027404785156
+  },
   "debug_info": {
-    "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764124361658",
+    "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764124884296",
     "task_id": "washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48",
     "dataset": "behavior",
     "natural_goal": "Wash all the stained plates, cups, and bowls.",
-    "start_time": "2025-11-26T10:32:41.658035",
+    "start_time": "2025-11-26T10:41:24.296121",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001518726348876953,
-      "subgoal_decomposition": 0.00010895729064941406,
-      "transition_modeling": 0.00013017654418945312,
-      "action_sequencing": 0.00014209747314453125
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.00017642974853515625,
+      "subgoal_decomposition": 0.00014829635620117188,
+      "transition_modeling": 0.00022125244140625,
+      "action_sequencing": 0.00048089027404785156
+    }
   }
 }

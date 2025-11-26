@@ -1,13 +1,41 @@
 {
-  "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764124361656",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764124884273",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.295559",
+  "goal": {
+    "natural_language": "Wash all dust and stains from the car or vehicle.",
+    "interpreted": "wash_all"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: Wash all dust and stains from the car or vehicle.",
+        "ltl_formula": "wash_all",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.02210068702697754,
+  "execution_times": {
+    "goal_interpretation": 0.0001556873321533203,
+    "subgoal_decomposition": 0.020423412322998047,
+    "transition_modeling": 0.00023055076599121094,
+    "action_sequencing": 0.0004885196685791016
+  },
   "debug_info": {
-    "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764124361656",
+    "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764124884273",
     "task_id": "washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10",
     "dataset": "behavior",
     "natural_goal": "Wash all dust and stains from the car or vehicle.",
-    "start_time": "2025-11-26T10:32:41.656268",
+    "start_time": "2025-11-26T10:41:24.273468",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001621246337890625,
-      "subgoal_decomposition": 0.00013709068298339844,
-      "transition_modeling": 0.000148773193359375,
-      "action_sequencing": 0.00017070770263671875
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.0001556873321533203,
+      "subgoal_decomposition": 0.020423412322998047,
+      "transition_modeling": 0.00023055076599121094,
+      "action_sequencing": 0.0004885196685791016
+    }
   }
 }

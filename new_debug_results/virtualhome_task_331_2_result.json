@@ -1,13 +1,41 @@
 {
-  "submission_id": "virtualhome_331_2_1764124361596",
-  "status": "failed",
-  "error": "Unexpected error: 'formula'",
+  "submission_id": "virtualhome_331_2_1764124884229",
+  "status": "success",
+  "timestamp": "2025-11-26T10:41:24.231838",
+  "goal": {
+    "natural_language": "switching on light in an area",
+    "interpreted": "switching_on"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "subgoal_0",
+        "description": "完成主要任务: switching on light in an area",
+        "ltl_formula": "switching_on",
+        "subgoal_type": "atomic",
+        "preconditions": [
+          "agent_available"
+        ],
+        "effects": [
+          "task_completed"
+        ]
+      }
+    ]
+  },
+  "execution_time": 0.0018990039825439453,
+  "execution_times": {
+    "goal_interpretation": 0.00017547607421875,
+    "subgoal_decomposition": 0.00013947486877441406,
+    "transition_modeling": 0.00018548965454101562,
+    "action_sequencing": 0.00034046173095703125
+  },
   "debug_info": {
-    "submission_id": "virtualhome_331_2_1764124361596",
+    "submission_id": "virtualhome_331_2_1764124884229",
     "task_id": "331_2",
     "dataset": "virtualhome",
     "natural_goal": "switching on light in an area",
-    "start_time": "2025-11-26T10:32:41.596526",
+    "start_time": "2025-11-26T10:41:24.229945",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,11 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0002486705780029297,
-      "subgoal_decomposition": 0.00014710426330566406,
-      "transition_modeling": 0.00014019012451171875,
-      "action_sequencing": 0.0001895427703857422
-    },
-    "error": "'formula'"
+      "goal_interpretation": 0.00017547607421875,
+      "subgoal_decomposition": 0.00013947486877441406,
+      "transition_modeling": 0.00018548965454101562,
+      "action_sequencing": 0.00034046173095703125
+    }
   }
 }

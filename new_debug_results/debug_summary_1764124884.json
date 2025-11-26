@@ -1,0 +1,3288 @@
+{
+  "timestamp": "2025-11-26T10:41:24.301588",
+  "total_tasks": 40,
+  "successful_tasks": 40,
+  "failed_tasks": 0,
+  "results": [
+    {
+      "submission_id": "virtualhome_27_2_1764124884173",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.182688",
+      "goal": {
+        "natural_language": "Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine.",
+        "interpreted": "walk_to"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine.",
+            "ltl_formula": "walk_to",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.009299039840698242,
+      "execution_times": {
+        "goal_interpretation": 0.0025517940521240234,
+        "subgoal_decomposition": 0.0003361701965332031,
+        "transition_modeling": 0.0003001689910888672,
+        "action_sequencing": 0.0018825531005859375
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_27_2_1764124884173",
+        "task_id": "27_2",
+        "dataset": "virtualhome",
+        "natural_goal": "Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine.",
+        "start_time": "2025-11-26T10:41:24.173399",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "walk_to",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine.",
+                "ltl_formula": "walk_to",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0025517940521240234,
+          "subgoal_decomposition": 0.0003361701965332031,
+          "transition_modeling": 0.0003001689910888672,
+          "action_sequencing": 0.0018825531005859375
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_417_1_1764124884183",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.186114",
+      "goal": {
+        "natural_language": "I will load the dirty clothes into the washing machine.",
+        "interpreted": "i_will"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: I will load the dirty clothes into the washing machine.",
+            "ltl_formula": "i_will",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.002858877182006836,
+      "execution_times": {
+        "goal_interpretation": 0.00020194053649902344,
+        "subgoal_decomposition": 0.00026345252990722656,
+        "transition_modeling": 0.0002818107604980469,
+        "action_sequencing": 0.0006062984466552734
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_417_1_1764124884183",
+        "task_id": "417_1",
+        "dataset": "virtualhome",
+        "natural_goal": "I will load the dirty clothes into the washing machine.",
+        "start_time": "2025-11-26T10:41:24.183262",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "i_will",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: I will load the dirty clothes into the washing machine.",
+                "ltl_formula": "i_will",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00020194053649902344,
+          "subgoal_decomposition": 0.00026345252990722656,
+          "transition_modeling": 0.0002818107604980469,
+          "action_sequencing": 0.0006062984466552734
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_850_1_1764124884186",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.189445",
+      "goal": {
+        "natural_language": "Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.",
+        "interpreted": "walk_into"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.",
+            "ltl_formula": "walk_into",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.002850770950317383,
+      "execution_times": {
+        "goal_interpretation": 0.00025391578674316406,
+        "subgoal_decomposition": 0.0002582073211669922,
+        "transition_modeling": 0.0002505779266357422,
+        "action_sequencing": 0.0006175041198730469
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_850_1_1764124884186",
+        "task_id": "850_1",
+        "dataset": "virtualhome",
+        "natural_goal": "Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.",
+        "start_time": "2025-11-26T10:41:24.186601",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "walk_into",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.",
+                "ltl_formula": "walk_into",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00025391578674316406,
+          "subgoal_decomposition": 0.0002582073211669922,
+          "transition_modeling": 0.0002505779266357422,
+          "action_sequencing": 0.0006175041198730469
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_954_2_1764124884189",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.192882",
+      "goal": {
+        "natural_language": "I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.",
+        "interpreted": "i_need"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.",
+            "ltl_formula": "i_need",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.002995014190673828,
+      "execution_times": {
+        "goal_interpretation": 0.0002663135528564453,
+        "subgoal_decomposition": 0.0003082752227783203,
+        "transition_modeling": 0.0003154277801513672,
+        "action_sequencing": 0.0006008148193359375
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_954_2_1764124884189",
+        "task_id": "954_2",
+        "dataset": "virtualhome",
+        "natural_goal": "I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.",
+        "start_time": "2025-11-26T10:41:24.189893",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "i_need",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.",
+                "ltl_formula": "i_need",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0002663135528564453,
+          "subgoal_decomposition": 0.0003082752227783203,
+          "transition_modeling": 0.0003154277801513672,
+          "action_sequencing": 0.0006008148193359375
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_11_1_1764124884193",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.196115",
+      "goal": {
+        "natural_language": "I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.",
+        "interpreted": "i_go"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.",
+            "ltl_formula": "i_go",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.002752542495727539,
+      "execution_times": {
+        "goal_interpretation": 0.0002193450927734375,
+        "subgoal_decomposition": 0.0002498626708984375,
+        "transition_modeling": 0.00023865699768066406,
+        "action_sequencing": 0.0005681514739990234
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_11_1_1764124884193",
+        "task_id": "11_1",
+        "dataset": "virtualhome",
+        "natural_goal": "I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.",
+        "start_time": "2025-11-26T10:41:24.193368",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "i_go",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.",
+                "ltl_formula": "i_go",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0002193450927734375,
+          "subgoal_decomposition": 0.0002498626708984375,
+          "transition_modeling": 0.00023865699768066406,
+          "action_sequencing": 0.0005681514739990234
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_120_1_1764124884196",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.199348",
+      "goal": {
+        "natural_language": "Go to the kitchen and living room and turn on the lights.",
+        "interpreted": "go_to"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Go to the kitchen and living room and turn on the lights.",
+            "ltl_formula": "go_to",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0027234554290771484,
+      "execution_times": {
+        "goal_interpretation": 0.0002014636993408203,
+        "subgoal_decomposition": 0.0002770423889160156,
+        "transition_modeling": 0.00026869773864746094,
+        "action_sequencing": 0.0005373954772949219
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_120_1_1764124884196",
+        "task_id": "120_1",
+        "dataset": "virtualhome",
+        "natural_goal": "Go to the kitchen and living room and turn on the lights.",
+        "start_time": "2025-11-26T10:41:24.196630",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "go_to",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Go to the kitchen and living room and turn on the lights.",
+                "ltl_formula": "go_to",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0002014636993408203,
+          "subgoal_decomposition": 0.0002770423889160156,
+          "transition_modeling": 0.00026869773864746094,
+          "action_sequencing": 0.0005373954772949219
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_125_2_1764124884199",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.202609",
+      "goal": {
+        "natural_language": "turn on the light for room",
+        "interpreted": "turn_on"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: turn on the light for room",
+            "ltl_formula": "turn_on",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0028433799743652344,
+      "execution_times": {
+        "goal_interpretation": 0.0001766681671142578,
+        "subgoal_decomposition": 0.00029277801513671875,
+        "transition_modeling": 0.00026988983154296875,
+        "action_sequencing": 0.0006258487701416016
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_125_2_1764124884199",
+        "task_id": "125_2",
+        "dataset": "virtualhome",
+        "natural_goal": "turn on the light for room",
+        "start_time": "2025-11-26T10:41:24.199772",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "turn_on",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: turn on the light for room",
+                "ltl_formula": "turn_on",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0001766681671142578,
+          "subgoal_decomposition": 0.00029277801513671875,
+          "transition_modeling": 0.00026988983154296875,
+          "action_sequencing": 0.0006258487701416016
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_150_2_1764124884203",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.206710",
+      "goal": {
+        "natural_language": "push any ligth button to turn it on, for example in the living room",
+        "interpreted": "push_any"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: push any ligth button to turn it on, for example in the living room",
+            "ltl_formula": "push_any",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0036542415618896484,
+      "execution_times": {
+        "goal_interpretation": 0.0002884864807128906,
+        "subgoal_decomposition": 0.0004220008850097656,
+        "transition_modeling": 0.00040459632873535156,
+        "action_sequencing": 0.0008444786071777344
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_150_2_1764124884203",
+        "task_id": "150_2",
+        "dataset": "virtualhome",
+        "natural_goal": "push any ligth button to turn it on, for example in the living room",
+        "start_time": "2025-11-26T10:41:24.203063",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "push_any",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: push any ligth button to turn it on, for example in the living room",
+                "ltl_formula": "push_any",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0002884864807128906,
+          "subgoal_decomposition": 0.0004220008850097656,
+          "transition_modeling": 0.00040459632873535156,
+          "action_sequencing": 0.0008444786071777344
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_160_1_1764124884207",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.210344",
+      "goal": {
+        "natural_language": "Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one.",
+        "interpreted": "go_to"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one.",
+            "ltl_formula": "go_to",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0030107498168945312,
+      "execution_times": {
+        "goal_interpretation": 0.00023674964904785156,
+        "subgoal_decomposition": 0.0002779960632324219,
+        "transition_modeling": 0.00022530555725097656,
+        "action_sequencing": 0.0005695819854736328
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_160_1_1764124884207",
+        "task_id": "160_1",
+        "dataset": "virtualhome",
+        "natural_goal": "Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one.",
+        "start_time": "2025-11-26T10:41:24.207355",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "go_to",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one.",
+                "ltl_formula": "go_to",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00023674964904785156,
+          "subgoal_decomposition": 0.0002779960632324219,
+          "transition_modeling": 0.00022530555725097656,
+          "action_sequencing": 0.0005695819854736328
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_180_2_1764124884210",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.213408",
+      "goal": {
+        "natural_language": "Find the light circuit breaker in the kitchen",
+        "interpreted": "find_the"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Find the light circuit breaker in the kitchen",
+            "ltl_formula": "find_the",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0026297569274902344,
+      "execution_times": {
+        "goal_interpretation": 0.00020956993103027344,
+        "subgoal_decomposition": 0.0002589225769042969,
+        "transition_modeling": 0.0002474784851074219,
+        "action_sequencing": 0.00047087669372558594
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_180_2_1764124884210",
+        "task_id": "180_2",
+        "dataset": "virtualhome",
+        "natural_goal": "Find the light circuit breaker in the kitchen",
+        "start_time": "2025-11-26T10:41:24.210783",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "find_the",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Find the light circuit breaker in the kitchen",
+                "ltl_formula": "find_the",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00020956993103027344,
+          "subgoal_decomposition": 0.0002589225769042969,
+          "transition_modeling": 0.0002474784851074219,
+          "action_sequencing": 0.00047087669372558594
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_205_1_1764124884213",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.216599",
+      "goal": {
+        "natural_language": "Walk into the bedroom and walk to the light switch. Flip the switch.",
+        "interpreted": "walk_into"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Walk into the bedroom and walk to the light switch. Flip the switch.",
+            "ltl_formula": "walk_into",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0027303695678710938,
+      "execution_times": {
+        "goal_interpretation": 0.00018858909606933594,
+        "subgoal_decomposition": 0.0002627372741699219,
+        "transition_modeling": 0.0002410411834716797,
+        "action_sequencing": 0.0006151199340820312
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_205_1_1764124884213",
+        "task_id": "205_1",
+        "dataset": "virtualhome",
+        "natural_goal": "Walk into the bedroom and walk to the light switch. Flip the switch.",
+        "start_time": "2025-11-26T10:41:24.213875",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "walk_into",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Walk into the bedroom and walk to the light switch. Flip the switch.",
+                "ltl_formula": "walk_into",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00018858909606933594,
+          "subgoal_decomposition": 0.0002627372741699219,
+          "transition_modeling": 0.0002410411834716797,
+          "action_sequencing": 0.0006151199340820312
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_222_1_1764124884217",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.222323",
+      "goal": {
+        "natural_language": "walk into living room, walk to light, turn on light switch.",
+        "interpreted": "walk_into"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: walk into living room, walk to light, turn on light switch.",
+            "ltl_formula": "walk_into",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.005159616470336914,
+      "execution_times": {
+        "goal_interpretation": 0.0030317306518554688,
+        "subgoal_decomposition": 0.00014400482177734375,
+        "transition_modeling": 0.00014472007751464844,
+        "action_sequencing": 0.0003337860107421875
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_222_1_1764124884217",
+        "task_id": "222_1",
+        "dataset": "virtualhome",
+        "natural_goal": "walk into living room, walk to light, turn on light switch.",
+        "start_time": "2025-11-26T10:41:24.217173",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "walk_into",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: walk into living room, walk to light, turn on light switch.",
+                "ltl_formula": "walk_into",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0030317306518554688,
+          "subgoal_decomposition": 0.00014400482177734375,
+          "transition_modeling": 0.00014472007751464844,
+          "action_sequencing": 0.0003337860107421875
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_232_2_1764124884222",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.224432",
+      "goal": {
+        "natural_language": "I need to turn on the lights in the kitchen so I can make dinner.",
+        "interpreted": "i_need"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: I need to turn on the lights in the kitchen so I can make dinner.",
+            "ltl_formula": "i_need",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.001638174057006836,
+      "execution_times": {
+        "goal_interpretation": 0.000194549560546875,
+        "subgoal_decomposition": 0.00012755393981933594,
+        "transition_modeling": 0.00014543533325195312,
+        "action_sequencing": 0.00040268898010253906
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_232_2_1764124884222",
+        "task_id": "232_2",
+        "dataset": "virtualhome",
+        "natural_goal": "I need to turn on the lights in the kitchen so I can make dinner.",
+        "start_time": "2025-11-26T10:41:24.222800",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "i_need",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: I need to turn on the lights in the kitchen so I can make dinner.",
+                "ltl_formula": "i_need",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.000194549560546875,
+          "subgoal_decomposition": 0.00012755393981933594,
+          "transition_modeling": 0.00014543533325195312,
+          "action_sequencing": 0.00040268898010253906
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_310_1_1764124884224",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.226698",
+      "goal": {
+        "natural_language": "I enter the bedroom and find the light. Then I turn it on.",
+        "interpreted": "i_enter"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: I enter the bedroom and find the light. Then I turn it on.",
+            "ltl_formula": "i_enter",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0018329620361328125,
+      "execution_times": {
+        "goal_interpretation": 0.00020384788513183594,
+        "subgoal_decomposition": 0.00012922286987304688,
+        "transition_modeling": 0.00015878677368164062,
+        "action_sequencing": 0.00037670135498046875
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_310_1_1764124884224",
+        "task_id": "310_1",
+        "dataset": "virtualhome",
+        "natural_goal": "I enter the bedroom and find the light. Then I turn it on.",
+        "start_time": "2025-11-26T10:41:24.224874",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "i_enter",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: I enter the bedroom and find the light. Then I turn it on.",
+                "ltl_formula": "i_enter",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00020384788513183594,
+          "subgoal_decomposition": 0.00012922286987304688,
+          "transition_modeling": 0.00015878677368164062,
+          "action_sequencing": 0.00037670135498046875
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_311_1_1764124884227",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.229483",
+      "goal": {
+        "natural_language": "I go home and it's dark so I can not see anything",
+        "interpreted": "i_go"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: I go home and it's dark so I can not see anything",
+            "ltl_formula": "i_go",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0019512176513671875,
+      "execution_times": {
+        "goal_interpretation": 0.0002071857452392578,
+        "subgoal_decomposition": 0.00013446807861328125,
+        "transition_modeling": 0.00017714500427246094,
+        "action_sequencing": 0.0004000663757324219
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_311_1_1764124884227",
+        "task_id": "311_1",
+        "dataset": "virtualhome",
+        "natural_goal": "I go home and it's dark so I can not see anything",
+        "start_time": "2025-11-26T10:41:24.227540",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "i_go",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: I go home and it's dark so I can not see anything",
+                "ltl_formula": "i_go",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0002071857452392578,
+          "subgoal_decomposition": 0.00013446807861328125,
+          "transition_modeling": 0.00017714500427246094,
+          "action_sequencing": 0.0004000663757324219
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_331_2_1764124884229",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.231838",
+      "goal": {
+        "natural_language": "switching on light in an area",
+        "interpreted": "switching_on"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: switching on light in an area",
+            "ltl_formula": "switching_on",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0018990039825439453,
+      "execution_times": {
+        "goal_interpretation": 0.00017547607421875,
+        "subgoal_decomposition": 0.00013947486877441406,
+        "transition_modeling": 0.00018548965454101562,
+        "action_sequencing": 0.00034046173095703125
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_331_2_1764124884229",
+        "task_id": "331_2",
+        "dataset": "virtualhome",
+        "natural_goal": "switching on light in an area",
+        "start_time": "2025-11-26T10:41:24.229945",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "switching_on",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: switching on light in an area",
+                "ltl_formula": "switching_on",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00017547607421875,
+          "subgoal_decomposition": 0.00013947486877441406,
+          "transition_modeling": 0.00018548965454101562,
+          "action_sequencing": 0.00034046173095703125
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_345_1_1764124884232",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.233835",
+      "goal": {
+        "natural_language": "We enter into the Living room and walk towards light switch. Then switch on the light.",
+        "interpreted": "we_enter"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: We enter into the Living room and walk towards light switch. Then switch on the light.",
+            "ltl_formula": "we_enter",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0015289783477783203,
+      "execution_times": {
+        "goal_interpretation": 0.0002002716064453125,
+        "subgoal_decomposition": 0.0001251697540283203,
+        "transition_modeling": 0.00012946128845214844,
+        "action_sequencing": 0.0003192424774169922
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_345_1_1764124884232",
+        "task_id": "345_1",
+        "dataset": "virtualhome",
+        "natural_goal": "We enter into the Living room and walk towards light switch. Then switch on the light.",
+        "start_time": "2025-11-26T10:41:24.232311",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "we_enter",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: We enter into the Living room and walk towards light switch. Then switch on the light.",
+                "ltl_formula": "we_enter",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0002002716064453125,
+          "subgoal_decomposition": 0.0001251697540283203,
+          "transition_modeling": 0.00012946128845214844,
+          "action_sequencing": 0.0003192424774169922
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_392_1_1764124884234",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.235726",
+      "goal": {
+        "natural_language": "find lightswitch. walk to light switch. turn on light.",
+        "interpreted": "find_lightswitch"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: find lightswitch. walk to light switch. turn on light.",
+            "ltl_formula": "find_lightswitch",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0015625953674316406,
+      "execution_times": {
+        "goal_interpretation": 0.00016832351684570312,
+        "subgoal_decomposition": 0.0001575946807861328,
+        "transition_modeling": 0.0001685619354248047,
+        "action_sequencing": 0.00032258033752441406
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_392_1_1764124884234",
+        "task_id": "392_1",
+        "dataset": "virtualhome",
+        "natural_goal": "find lightswitch. walk to light switch. turn on light.",
+        "start_time": "2025-11-26T10:41:24.234168",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "find_lightswitch",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: find lightswitch. walk to light switch. turn on light.",
+                "ltl_formula": "find_lightswitch",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00016832351684570312,
+          "subgoal_decomposition": 0.0001575946807861328,
+          "transition_modeling": 0.0001685619354248047,
+          "action_sequencing": 0.00032258033752441406
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_394_2_1764124884236",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.237394",
+      "goal": {
+        "natural_language": "Find light switch. switch on",
+        "interpreted": "find_light"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Find light switch. switch on",
+            "ltl_formula": "find_light",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0013549327850341797,
+      "execution_times": {
+        "goal_interpretation": 0.00014710426330566406,
+        "subgoal_decomposition": 9.679794311523438e-05,
+        "transition_modeling": 0.00012063980102539062,
+        "action_sequencing": 0.00026106834411621094
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_394_2_1764124884236",
+        "task_id": "394_2",
+        "dataset": "virtualhome",
+        "natural_goal": "Find light switch. switch on",
+        "start_time": "2025-11-26T10:41:24.236043",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "find_light",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Find light switch. switch on",
+                "ltl_formula": "find_light",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00014710426330566406,
+          "subgoal_decomposition": 9.679794311523438e-05,
+          "transition_modeling": 0.00012063980102539062,
+          "action_sequencing": 0.00026106834411621094
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_432_1_1764124884237",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.239344",
+      "goal": {
+        "natural_language": "Walk over to light switch, flip the switch to the on position",
+        "interpreted": "walk_over"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Walk over to light switch, flip the switch to the on position",
+            "ltl_formula": "walk_over",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0016553401947021484,
+      "execution_times": {
+        "goal_interpretation": 0.000335693359375,
+        "subgoal_decomposition": 0.00010538101196289062,
+        "transition_modeling": 0.0001983642578125,
+        "action_sequencing": 0.0002994537353515625
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_432_1_1764124884237",
+        "task_id": "432_1",
+        "dataset": "virtualhome",
+        "natural_goal": "Walk over to light switch, flip the switch to the on position",
+        "start_time": "2025-11-26T10:41:24.237694",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "walk_over",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Walk over to light switch, flip the switch to the on position",
+                "ltl_formula": "walk_over",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.000335693359375,
+          "subgoal_decomposition": 0.00010538101196289062,
+          "transition_modeling": 0.0001983642578125,
+          "action_sequencing": 0.0002994537353515625
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764124884244",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.245748",
+      "goal": {
+        "natural_language": "Put one candle, one cheese, one cookie, and one bow into each basket.",
+        "interpreted": "put_one"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Put one candle, one cheese, one cookie, and one bow into each basket.",
+            "ltl_formula": "put_one",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0014481544494628906,
+      "execution_times": {
+        "goal_interpretation": 0.00016546249389648438,
+        "subgoal_decomposition": 0.00014519691467285156,
+        "transition_modeling": 0.0001308917999267578,
+        "action_sequencing": 0.0002796649932861328
+      },
+      "debug_info": {
+        "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764124884244",
+        "task_id": "assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37",
+        "dataset": "behavior",
+        "natural_goal": "Put one candle, one cheese, one cookie, and one bow into each basket.",
+        "start_time": "2025-11-26T10:41:24.244306",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "put_one",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Put one candle, one cheese, one cookie, and one bow into each basket.",
+                "ltl_formula": "put_one",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00016546249389648438,
+          "subgoal_decomposition": 0.00014519691467285156,
+          "transition_modeling": 0.0001308917999267578,
+          "action_sequencing": 0.0002796649932861328
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_1764124884246",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.247481",
+      "goal": {
+        "natural_language": "Check every sweater for lint, make sure none of them are dusty, and put them on the bed.",
+        "interpreted": "check_every"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Check every sweater for lint, make sure none of them are dusty, and put them on the bed.",
+            "ltl_formula": "check_every",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0013685226440429688,
+      "execution_times": {
+        "goal_interpretation": 0.0001614093780517578,
+        "subgoal_decomposition": 0.00010442733764648438,
+        "transition_modeling": 0.00011968612670898438,
+        "action_sequencing": 0.00031113624572753906
+      },
+      "debug_info": {
+        "submission_id": "behavior_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_1764124884246",
+        "task_id": "brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56",
+        "dataset": "behavior",
+        "natural_goal": "Check every sweater for lint, make sure none of them are dusty, and put them on the bed.",
+        "start_time": "2025-11-26T10:41:24.246118",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "check_every",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Check every sweater for lint, make sure none of them are dusty, and put them on the bed.",
+                "ltl_formula": "check_every",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0001614093780517578,
+          "subgoal_decomposition": 0.00010442733764648438,
+          "transition_modeling": 0.00011968612670898438,
+          "action_sequencing": 0.00031113624572753906
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764124884247",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.249000",
+      "goal": {
+        "natural_language": "Place the books into the carton for storage.",
+        "interpreted": "place_the"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Place the books into the carton for storage.",
+            "ltl_formula": "place_the",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0012254714965820312,
+      "execution_times": {
+        "goal_interpretation": 0.00012183189392089844,
+        "subgoal_decomposition": 0.00010538101196289062,
+        "transition_modeling": 0.00010561943054199219,
+        "action_sequencing": 0.0002548694610595703
+      },
+      "debug_info": {
+        "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764124884247",
+        "task_id": "boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47",
+        "dataset": "behavior",
+        "natural_goal": "Place the books into the carton for storage.",
+        "start_time": "2025-11-26T10:41:24.247779",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "place_the",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Place the books into the carton for storage.",
+                "ltl_formula": "place_the",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00012183189392089844,
+          "subgoal_decomposition": 0.00010538101196289062,
+          "transition_modeling": 0.00010561943054199219,
+          "action_sequencing": 0.0002548694610595703
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764124884249",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.250716",
+      "goal": {
+        "natural_language": "Collect all aluminum cans and place them into the bucket.",
+        "interpreted": "collect_all"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Collect all aluminum cans and place them into the bucket.",
+            "ltl_formula": "collect_all",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0014481544494628906,
+      "execution_times": {
+        "goal_interpretation": 0.0001285076141357422,
+        "subgoal_decomposition": 0.00011754035949707031,
+        "transition_modeling": 0.00010728836059570312,
+        "action_sequencing": 0.00045561790466308594
+      },
+      "debug_info": {
+        "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764124884249",
+        "task_id": "collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28",
+        "dataset": "behavior",
+        "natural_goal": "Collect all aluminum cans and place them into the bucket.",
+        "start_time": "2025-11-26T10:41:24.249273",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "collect_all",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Collect all aluminum cans and place them into the bucket.",
+                "ltl_formula": "collect_all",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0001285076141357422,
+          "subgoal_decomposition": 0.00011754035949707031,
+          "transition_modeling": 0.00010728836059570312,
+          "action_sequencing": 0.00045561790466308594
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764124884251",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.252400",
+      "goal": {
+        "natural_language": "Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.",
+        "interpreted": "use_the"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.",
+            "ltl_formula": "use_the",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0013453960418701172,
+      "execution_times": {
+        "goal_interpretation": 0.00018334388732910156,
+        "subgoal_decomposition": 0.00010561943054199219,
+        "transition_modeling": 0.00011348724365234375,
+        "action_sequencing": 0.0002684593200683594
+      },
+      "debug_info": {
+        "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764124884251",
+        "task_id": "mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58",
+        "dataset": "behavior",
+        "natural_goal": "Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.",
+        "start_time": "2025-11-26T10:41:24.251060",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "use_the",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.",
+                "ltl_formula": "use_the",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00018334388732910156,
+          "subgoal_decomposition": 0.00010561943054199219,
+          "transition_modeling": 0.00011348724365234375,
+          "action_sequencing": 0.0002684593200683594
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764124884252",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.254057",
+      "goal": {
+        "natural_language": "Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.",
+        "interpreted": "slice_and"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.",
+            "ltl_formula": "slice_and",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.001321554183959961,
+      "execution_times": {
+        "goal_interpretation": 0.0001709461212158203,
+        "subgoal_decomposition": 0.00010204315185546875,
+        "transition_modeling": 0.00010657310485839844,
+        "action_sequencing": 0.0002484321594238281
+      },
+      "debug_info": {
+        "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764124884252",
+        "task_id": "preserving_food_0_Rs_int_0_2021-08-25_15-53-33",
+        "dataset": "behavior",
+        "natural_goal": "Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.",
+        "start_time": "2025-11-26T10:41:24.252740",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "slice_and",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.",
+                "ltl_formula": "slice_and",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0001709461212158203,
+          "subgoal_decomposition": 0.00010204315185546875,
+          "transition_modeling": 0.00010657310485839844,
+          "action_sequencing": 0.0002484321594238281
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764124884254",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.255895",
+      "goal": {
+        "natural_language": "Place books 1 through 4 on the shelf, and place books 5 through 8 on the table.",
+        "interpreted": "place_books"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Place books 1 through 4 on the shelf, and place books 5 through 8 on the table.",
+            "ltl_formula": "place_books",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0015599727630615234,
+      "execution_times": {
+        "goal_interpretation": 0.0001633167266845703,
+        "subgoal_decomposition": 0.0001614093780517578,
+        "transition_modeling": 0.0001423358917236328,
+        "action_sequencing": 0.0003190040588378906
+      },
+      "debug_info": {
+        "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764124884254",
+        "task_id": "re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26",
+        "dataset": "behavior",
+        "natural_goal": "Place books 1 through 4 on the shelf, and place books 5 through 8 on the table.",
+        "start_time": "2025-11-26T10:41:24.254341",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "place_books",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Place books 1 through 4 on the shelf, and place books 5 through 8 on the table.",
+                "ltl_formula": "place_books",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0001633167266845703,
+          "subgoal_decomposition": 0.0001614093780517578,
+          "transition_modeling": 0.0001423358917236328,
+          "action_sequencing": 0.0003190040588378906
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_1764124884256",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.257747",
+      "goal": {
+        "natural_language": "Polish all spoons and put them inside the cabinet.",
+        "interpreted": "polish_all"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Polish all spoons and put them inside the cabinet.",
+            "ltl_formula": "polish_all",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0015463829040527344,
+      "execution_times": {
+        "goal_interpretation": 0.0001404285430908203,
+        "subgoal_decomposition": 0.0001468658447265625,
+        "transition_modeling": 0.00015282630920410156,
+        "action_sequencing": 0.00030112266540527344
+      },
+      "debug_info": {
+        "submission_id": "behavior_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_1764124884256",
+        "task_id": "polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15",
+        "dataset": "behavior",
+        "natural_goal": "Polish all spoons and put them inside the cabinet.",
+        "start_time": "2025-11-26T10:41:24.256205",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "polish_all",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Polish all spoons and put them inside the cabinet.",
+                "ltl_formula": "polish_all",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0001404285430908203,
+          "subgoal_decomposition": 0.0001468658447265625,
+          "transition_modeling": 0.00015282630920410156,
+          "action_sequencing": 0.00030112266540527344
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764124884258",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.259486",
+      "goal": {
+        "natural_language": "Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.",
+        "interpreted": "pack_all"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.",
+            "ltl_formula": "pack_all",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0014388561248779297,
+      "execution_times": {
+        "goal_interpretation": 0.00015282630920410156,
+        "subgoal_decomposition": 0.0001270771026611328,
+        "transition_modeling": 0.00012731552124023438,
+        "action_sequencing": 0.0003058910369873047
+      },
+      "debug_info": {
+        "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764124884258",
+        "task_id": "packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19",
+        "dataset": "behavior",
+        "natural_goal": "Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.",
+        "start_time": "2025-11-26T10:41:24.258052",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "pack_all",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.",
+                "ltl_formula": "pack_all",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00015282630920410156,
+          "subgoal_decomposition": 0.0001270771026611328,
+          "transition_modeling": 0.00012731552124023438,
+          "action_sequencing": 0.0003058910369873047
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_1764124884259",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.261009",
+      "goal": {
+        "natural_language": "Clean the stained freezer and remove all food items from the freezer.",
+        "interpreted": "clean_the"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Clean the stained freezer and remove all food items from the freezer.",
+            "ltl_formula": "clean_the",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0012333393096923828,
+      "execution_times": {
+        "goal_interpretation": 0.00013589859008789062,
+        "subgoal_decomposition": 9.369850158691406e-05,
+        "transition_modeling": 0.00010633468627929688,
+        "action_sequencing": 0.00023317337036132812
+      },
+      "debug_info": {
+        "submission_id": "behavior_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_1764124884259",
+        "task_id": "cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25",
+        "dataset": "behavior",
+        "natural_goal": "Clean the stained freezer and remove all food items from the freezer.",
+        "start_time": "2025-11-26T10:41:24.259781",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "clean_the",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Clean the stained freezer and remove all food items from the freezer.",
+                "ltl_formula": "clean_the",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00013589859008789062,
+          "subgoal_decomposition": 9.369850158691406e-05,
+          "transition_modeling": 0.00010633468627929688,
+          "action_sequencing": 0.00023317337036132812
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764124884261",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.262497",
+      "goal": {
+        "natural_language": "Place the modem under the table and make sure it is turned on.",
+        "interpreted": "place_the"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Place the modem under the table and make sure it is turned on.",
+            "ltl_formula": "place_the",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.001211404800415039,
+      "execution_times": {
+        "goal_interpretation": 0.0001475811004638672,
+        "subgoal_decomposition": 9.918212890625e-05,
+        "transition_modeling": 0.0001049041748046875,
+        "action_sequencing": 0.0002512931823730469
+      },
+      "debug_info": {
+        "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764124884261",
+        "task_id": "installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55",
+        "dataset": "behavior",
+        "natural_goal": "Place the modem under the table and make sure it is turned on.",
+        "start_time": "2025-11-26T10:41:24.261299",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "place_the",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Place the modem under the table and make sure it is turned on.",
+                "ltl_formula": "place_the",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0001475811004638672,
+          "subgoal_decomposition": 9.918212890625e-05,
+          "transition_modeling": 0.0001049041748046875,
+          "action_sequencing": 0.0002512931823730469
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24_1764124884262",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.264079",
+      "goal": {
+        "natural_language": "Clean all the stained tableware, put all hamburgers into sack1 which is on the floor, and clean the stained floor, chair, and table.",
+        "interpreted": "clean_all"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Clean all the stained tableware, put all hamburgers into sack1 which is on the floor, and clean the stained floor, chair, and table.",
+            "ltl_formula": "clean_all",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0013153553009033203,
+      "execution_times": {
+        "goal_interpretation": 0.00018668174743652344,
+        "subgoal_decomposition": 0.00010991096496582031,
+        "transition_modeling": 0.00010561943054199219,
+        "action_sequencing": 0.0002491474151611328
+      },
+      "debug_info": {
+        "submission_id": "behavior_cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24_1764124884262",
+        "task_id": "cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24",
+        "dataset": "behavior",
+        "natural_goal": "Clean all the stained tableware, put all hamburgers into sack1 which is on the floor, and clean the stained floor, chair, and table.",
+        "start_time": "2025-11-26T10:41:24.262769",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "clean_all",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Clean all the stained tableware, put all hamburgers into sack1 which is on the floor, and clean the stained floor, chair, and table.",
+                "ltl_formula": "clean_all",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00018668174743652344,
+          "subgoal_decomposition": 0.00010991096496582031,
+          "transition_modeling": 0.00010561943054199219,
+          "action_sequencing": 0.0002491474151611328
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764124884264",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.265635",
+      "goal": {
+        "natural_language": "Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.",
+        "interpreted": "place_all"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.",
+            "ltl_formula": "place_all",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0012788772583007812,
+      "execution_times": {
+        "goal_interpretation": 0.000141143798828125,
+        "subgoal_decomposition": 0.00010418891906738281,
+        "transition_modeling": 0.0001327991485595703,
+        "action_sequencing": 0.0002541542053222656
+      },
+      "debug_info": {
+        "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764124884264",
+        "task_id": "putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25",
+        "dataset": "behavior",
+        "natural_goal": "Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.",
+        "start_time": "2025-11-26T10:41:24.264360",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "place_all",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.",
+                "ltl_formula": "place_all",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.000141143798828125,
+          "subgoal_decomposition": 0.00010418891906738281,
+          "transition_modeling": 0.0001327991485595703,
+          "action_sequencing": 0.0002541542053222656
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764124884265",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.267254",
+      "goal": {
+        "natural_language": "Place 3 candles on each table.",
+        "interpreted": "place_3"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Place 3 candles on each table.",
+            "ltl_formula": "place_3",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.00135040283203125,
+      "execution_times": {
+        "goal_interpretation": 0.00013065338134765625,
+        "subgoal_decomposition": 0.00011491775512695312,
+        "transition_modeling": 0.00011992454528808594,
+        "action_sequencing": 0.00030350685119628906
+      },
+      "debug_info": {
+        "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764124884265",
+        "task_id": "setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51",
+        "dataset": "behavior",
+        "natural_goal": "Place 3 candles on each table.",
+        "start_time": "2025-11-26T10:41:24.265908",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "place_3",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Place 3 candles on each table.",
+                "ltl_formula": "place_3",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00013065338134765625,
+          "subgoal_decomposition": 0.00011491775512695312,
+          "transition_modeling": 0.00011992454528808594,
+          "action_sequencing": 0.00030350685119628906
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22_1764124884267",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.269167",
+      "goal": {
+        "natural_language": "Clean all the shoes, and leave the towel on the floor.",
+        "interpreted": "clean_all"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Clean all the shoes, and leave the towel on the floor.",
+            "ltl_formula": "clean_all",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0015752315521240234,
+      "execution_times": {
+        "goal_interpretation": 0.00015926361083984375,
+        "subgoal_decomposition": 0.0001354217529296875,
+        "transition_modeling": 0.0001437664031982422,
+        "action_sequencing": 0.0003104209899902344
+      },
+      "debug_info": {
+        "submission_id": "behavior_cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22_1764124884267",
+        "task_id": "cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22",
+        "dataset": "behavior",
+        "natural_goal": "Clean all the shoes, and leave the towel on the floor.",
+        "start_time": "2025-11-26T10:41:24.267597",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "clean_all",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Clean all the shoes, and leave the towel on the floor.",
+                "ltl_formula": "clean_all",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00015926361083984375,
+          "subgoal_decomposition": 0.0001354217529296875,
+          "transition_modeling": 0.0001437664031982422,
+          "action_sequencing": 0.0003104209899902344
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08_1764124884269",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.271280",
+      "goal": {
+        "natural_language": "Place the towel on the countertop, the brush next to the towel, and the soap into the sink. Clean the dusty and stained sneakers, place 2 sneakers next to the table and 2 other sneakers under the table.",
+        "interpreted": "place_the"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Place the towel on the countertop, the brush next to the towel, and the soap into the sink. Clean the dusty and stained sneakers, place 2 sneakers next to the table and 2 other sneakers under the table.",
+            "ltl_formula": "place_the",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0017850399017333984,
+      "execution_times": {
+        "goal_interpretation": 0.00022673606872558594,
+        "subgoal_decomposition": 0.0001697540283203125,
+        "transition_modeling": 0.0001704692840576172,
+        "action_sequencing": 0.0003457069396972656
+      },
+      "debug_info": {
+        "submission_id": "behavior_cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08_1764124884269",
+        "task_id": "cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08",
+        "dataset": "behavior",
+        "natural_goal": "Place the towel on the countertop, the brush next to the towel, and the soap into the sink. Clean the dusty and stained sneakers, place 2 sneakers next to the table and 2 other sneakers under the table.",
+        "start_time": "2025-11-26T10:41:24.269500",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "place_the",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Place the towel on the countertop, the brush next to the towel, and the soap into the sink. Clean the dusty and stained sneakers, place 2 sneakers next to the table and 2 other sneakers under the table.",
+                "ltl_formula": "place_the",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00022673606872558594,
+          "subgoal_decomposition": 0.0001697540283203125,
+          "transition_modeling": 0.0001704692840576172,
+          "action_sequencing": 0.0003457069396972656
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764124884271",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.273155",
+      "goal": {
+        "natural_language": "Close and lock all the windows.",
+        "interpreted": "close_and"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Close and lock all the windows.",
+            "ltl_formula": "close_and",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0015523433685302734,
+      "execution_times": {
+        "goal_interpretation": 0.00012946128845214844,
+        "subgoal_decomposition": 0.00011491775512695312,
+        "transition_modeling": 0.00014829635620117188,
+        "action_sequencing": 0.0003228187561035156
+      },
+      "debug_info": {
+        "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764124884271",
+        "task_id": "locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10",
+        "dataset": "behavior",
+        "natural_goal": "Close and lock all the windows.",
+        "start_time": "2025-11-26T10:41:24.271608",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "close_and",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Close and lock all the windows.",
+                "ltl_formula": "close_and",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00012946128845214844,
+          "subgoal_decomposition": 0.00011491775512695312,
+          "transition_modeling": 0.00014829635620117188,
+          "action_sequencing": 0.0003228187561035156
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764124884273",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.295559",
+      "goal": {
+        "natural_language": "Wash all dust and stains from the car or vehicle.",
+        "interpreted": "wash_all"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Wash all dust and stains from the car or vehicle.",
+            "ltl_formula": "wash_all",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.02210068702697754,
+      "execution_times": {
+        "goal_interpretation": 0.0001556873321533203,
+        "subgoal_decomposition": 0.020423412322998047,
+        "transition_modeling": 0.00023055076599121094,
+        "action_sequencing": 0.0004885196685791016
+      },
+      "debug_info": {
+        "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764124884273",
+        "task_id": "washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10",
+        "dataset": "behavior",
+        "natural_goal": "Wash all dust and stains from the car or vehicle.",
+        "start_time": "2025-11-26T10:41:24.273468",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "wash_all",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Wash all dust and stains from the car or vehicle.",
+                "ltl_formula": "wash_all",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0001556873321533203,
+          "subgoal_decomposition": 0.020423412322998047,
+          "transition_modeling": 0.00023055076599121094,
+          "action_sequencing": 0.0004885196685791016
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764124884296",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.298115",
+      "goal": {
+        "natural_language": "Wash all the stained plates, cups, and bowls.",
+        "interpreted": "wash_all"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Wash all the stained plates, cups, and bowls.",
+            "ltl_formula": "wash_all",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0020024776458740234,
+      "execution_times": {
+        "goal_interpretation": 0.00017642974853515625,
+        "subgoal_decomposition": 0.00014829635620117188,
+        "transition_modeling": 0.00022125244140625,
+        "action_sequencing": 0.00048089027404785156
+      },
+      "debug_info": {
+        "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764124884296",
+        "task_id": "washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48",
+        "dataset": "behavior",
+        "natural_goal": "Wash all the stained plates, cups, and bowls.",
+        "start_time": "2025-11-26T10:41:24.296121",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "wash_all",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Wash all the stained plates, cups, and bowls.",
+                "ltl_formula": "wash_all",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00017642974853515625,
+          "subgoal_decomposition": 0.00014829635620117188,
+          "transition_modeling": 0.00022125244140625,
+          "action_sequencing": 0.00048089027404785156
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17_1764124884299",
+      "status": "success",
+      "timestamp": "2025-11-26T10:41:24.301220",
+      "goal": {
+        "natural_language": "Place all pumpkins and candles into the cabinet, arrange the sheet either next to or on the table, and position the caldron next to the table.",
+        "interpreted": "place_all"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "subgoal_0",
+            "description": "完成主要任务: Place all pumpkins and candles into the cabinet, arrange the sheet either next to or on the table, and position the caldron next to the table.",
+            "ltl_formula": "place_all",
+            "subgoal_type": "atomic",
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "task_completed"
+            ]
+          }
+        ]
+      },
+      "execution_time": 0.0021796226501464844,
+      "execution_times": {
+        "goal_interpretation": 0.00034332275390625,
+        "subgoal_decomposition": 0.0001347064971923828,
+        "transition_modeling": 0.0001366138458251953,
+        "action_sequencing": 0.0003314018249511719
+      },
+      "debug_info": {
+        "submission_id": "behavior_putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17_1764124884299",
+        "task_id": "putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17",
+        "dataset": "behavior",
+        "natural_goal": "Place all pumpkins and candles into the cabinet, arrange the sheet either next to or on the table, and position the caldron next to the table.",
+        "start_time": "2025-11-26T10:41:24.299047",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "type": "LTLFormula",
+            "ltl_formula": "place_all",
+            "is_valid": true
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "subgoal_0",
+                "description": "完成主要任务: Place all pumpkins and candles into the cabinet, arrange the sheet either next to or on the table, and position the caldron next to the table.",
+                "ltl_formula": "place_all",
+                "subgoal_type": "atomic",
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "task_completed"
+                ]
+              }
+            ],
+            "type": "IntegratedDecompositionResult",
+            "ltl_formula_used": ""
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "IntegratedModelingResult"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "IntegratedActionSequenceResult"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00034332275390625,
+          "subgoal_decomposition": 0.0001347064971923828,
+          "transition_modeling": 0.0001366138458251953,
+          "action_sequencing": 0.0003314018249511719
+        }
+      }
+    }
+  ]
+}
