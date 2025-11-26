@@ -213,38 +213,24 @@ class ActionSequencerIntegration:
         Returns:
             SequencingRequest: 序列请求
         """
-        # 从子目标数据中提取动作需求
-        action_requirements = subgoal_data.get('subgoal_action_requirements', [])
-        global_constraints = subgoal_data.get('global_action_constraints', [])
-        dependency_constraints = subgoal_data.get('dependency_constraints', [])
+        # 从子目标数据中提取必要信息
+        initial_state = subgoal_data.get('initial_state', {})
+        goal_state = subgoal_data.get('goal_state', {})
+        available_actions = subgoal_data.get('available_actions', [])
+        constraints = subgoal_data.get('global_action_constraints', {})
         
         # 从转换数据中提取信息（如果有）
-        transition_sequence = []
+        state_transitions = []
         if transition_data:
-            transition_sequence = transition_data.get('transition_sequence', [])
-        
-        # 检查是否有缓存的反馈
-        feedback_applied = False
-        goal_hash = hashlib.md5((goal_text + str(action_requirements)).encode()).hexdigest()
-        
-        if goal_hash in self.feedback_cache:
-            cached_feedback = self.feedback_cache[goal_hash]
-            logger.info(f"Applying cached feedback for sequencing: {goal_text[:30]}...")
-            self.stats['feedback_applied'] += 1
-            feedback_applied = True
+            state_transitions = transition_data.get('transition_sequence', [])
         
         # 创建序列请求
         request = SequencingRequest(
-            goal_text=goal_text,
-            action_requirements=action_requirements,
-            constraints=global_constraints + dependency_constraints,
-            transition_sequence=transition_sequence,
-            request_id=f"action_seq_{uuid.uuid4()}",
-            metadata={
-                'feedback_applied': feedback_applied,
-                'integration_mode': True,
-                'subgoal_count': len(action_requirements)
-            }
+            initial_state=initial_state,
+            goal_state=goal_state,
+            available_actions=available_actions,
+            state_transitions=state_transitions,
+            constraints=constraints
         )
         
         return request
