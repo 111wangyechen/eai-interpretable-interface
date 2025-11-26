@@ -3504,3 +3504,44 @@
 2025-11-25 21:08:34,889 - new_debug_script - INFO - Failed tasks: 0
 2025-11-25 21:08:34,889 - new_debug_script - INFO - Summary saved to: /home/yeah/eai-interpretable-interface/new_debug_results/debug_summary_1764076114.json
 2025-11-25 21:08:34,889 - new_debug_script - INFO - Detailed logs saved to: new_debug_parquet_processing.log
+2025-11-26 08:52:36,730 - new_debug_script - INFO - Importing core modules...
+2025-11-26 08:52:36,736 - new_debug_script - INFO - ✓ GoalInterpreter imported successfully
+2025-11-26 08:52:36,744 - new_debug_script - INFO - ✓ SubgoalLTLIntegration imported successfully
+2025-11-26 08:52:36,768 - new_debug_script - INFO - ✓ TransitionModeler imported successfully
+2025-11-26 08:52:36,791 - action_sequencing - INFO - Action Sequencing Module v1.0.0 loaded successfully
+2025-11-26 08:52:36,791 - new_debug_script - INFO - ✓ ActionSequencer imported successfully
+2025-11-26 08:52:36,791 - new_debug_script - INFO - Starting new debug script...
+2025-11-26 08:52:36,791 - new_debug_script - INFO - Found 2 parquet files: ['virtualhome', 'behavior']
+2025-11-26 08:52:36,792 - new_debug_script - INFO - Processing dataset: virtualhome
+2025-11-26 08:52:36,792 - new_debug_script - INFO - Loading 20 samples from /home/yeah/eai-interpretable-interface/data/virtualhome-00000-of-00001.parquet
+2025-11-26 08:52:36,924 - new_debug_script - INFO - Total records in file: 338
+2025-11-26 08:52:36,928 - new_debug_script - INFO - Loaded 20 samples successfully
+2025-11-26 08:52:36,929 - new_debug_script - INFO - === Processing task 27_2 from virtualhome: Walk to the kitchen and find the basket of clothes... ===
+2025-11-26 08:52:36,929 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:52:36,929 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:52:36,929 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:52:36,929 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:52:36,929 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:52:36,929 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:52:36,929 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:52:36,930 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:52:36,930 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:52:36,930 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:52:36,932 - new_debug_script - DEBUG - Interpretation result: walk_to
+2025-11-26 08:52:36,933 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:52:36,933 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine.
+2025-11-26 08:52:36,933 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: walk_to
+2025-11-26 08:52:36,936 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:52:36,936 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:52:36,937 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:52:36,937 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:52:36,937 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:52:36,937 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:52:36,937 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:52:36,937 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:52:36,937 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118356937354
+2025-11-26 08:52:36,937 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:52:36,937 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:52:36,937 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:52:36,937 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:52:36,937 - new_debug_script - ERROR - Action sequencing failed: SequencingRequest.__init__() got an unexpected keyword argument 'context'
