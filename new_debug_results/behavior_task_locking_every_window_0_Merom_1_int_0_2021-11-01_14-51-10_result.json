@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764123310135",
+  "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764124009801",
   "status": "failed",
-  "error": "Action sequencing failed: name 'Action' is not defined",
+  "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764123310135",
+    "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764124009801",
     "task_id": "locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10",
     "dataset": "behavior",
     "natural_goal": "Close and lock all the windows.",
-    "start_time": "2025-11-26T10:15:10.135967",
+    "start_time": "2025-11-26T10:26:49.801688",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,15 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'Action' is not defined"
+        "type": "IntegratedActionSequenceResult"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001423358917236328,
-      "subgoal_decomposition": 0.00011396408081054688,
-      "transition_modeling": 0.00013256072998046875,
-      "action_sequencing": 7.510185241699219e-05
-    }
+      "goal_interpretation": 0.00013875961303710938,
+      "subgoal_decomposition": 0.00010609626770019531,
+      "transition_modeling": 0.00013637542724609375,
+      "action_sequencing": 0.0001614093780517578
+    },
+    "error": "'formula'"
   }
 }

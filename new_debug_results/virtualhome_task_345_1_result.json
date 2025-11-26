@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_345_1_1764123310098",
+  "submission_id": "virtualhome_345_1_1764124009693",
   "status": "failed",
-  "error": "Action sequencing failed: name 'Action' is not defined",
+  "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_345_1_1764123310098",
+    "submission_id": "virtualhome_345_1_1764124009693",
     "task_id": "345_1",
     "dataset": "virtualhome",
     "natural_goal": "We enter into the Living room and walk towards light switch. Then switch on the light.",
-    "start_time": "2025-11-26T10:15:10.098097",
+    "start_time": "2025-11-26T10:26:49.693214",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,15 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'Action' is not defined"
+        "type": "IntegratedActionSequenceResult"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00017189979553222656,
-      "subgoal_decomposition": 0.00011229515075683594,
-      "transition_modeling": 0.00011301040649414062,
-      "action_sequencing": 5.7220458984375e-05
-    }
+      "goal_interpretation": 0.0001876354217529297,
+      "subgoal_decomposition": 0.0002422332763671875,
+      "transition_modeling": 0.0002446174621582031,
+      "action_sequencing": 0.00037026405334472656
+    },
+    "error": "'formula'"
   }
 }

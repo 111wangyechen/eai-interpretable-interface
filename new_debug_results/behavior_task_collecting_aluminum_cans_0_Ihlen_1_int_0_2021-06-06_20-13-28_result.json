@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764123310112",
+  "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764124009713",
   "status": "failed",
-  "error": "Action sequencing failed: name 'Action' is not defined",
+  "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764123310112",
+    "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764124009713",
     "task_id": "collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28",
     "dataset": "behavior",
     "natural_goal": "Collect all aluminum cans and place them into the bucket.",
-    "start_time": "2025-11-26T10:15:10.112873",
+    "start_time": "2025-11-26T10:26:49.713421",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,15 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'Action' is not defined"
+        "type": "IntegratedActionSequenceResult"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00016570091247558594,
-      "subgoal_decomposition": 0.00015997886657714844,
-      "transition_modeling": 0.00014281272888183594,
-      "action_sequencing": 6.29425048828125e-05
-    }
+      "goal_interpretation": 0.0001506805419921875,
+      "subgoal_decomposition": 0.0001347064971923828,
+      "transition_modeling": 0.00014662742614746094,
+      "action_sequencing": 0.00017023086547851562
+    },
+    "error": "'formula'"
   }
 }

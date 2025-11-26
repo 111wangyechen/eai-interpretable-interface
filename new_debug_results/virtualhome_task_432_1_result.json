@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_432_1_1764123310101",
+  "submission_id": "virtualhome_432_1_1764124009702",
   "status": "failed",
-  "error": "Action sequencing failed: name 'Action' is not defined",
+  "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_432_1_1764123310101",
+    "submission_id": "virtualhome_432_1_1764124009702",
     "task_id": "432_1",
     "dataset": "virtualhome",
     "natural_goal": "Walk over to light switch, flip the switch to the on position",
-    "start_time": "2025-11-26T10:15:10.101926",
+    "start_time": "2025-11-26T10:26:49.702096",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,15 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'Action' is not defined"
+        "type": "IntegratedActionSequenceResult"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00014662742614746094,
-      "subgoal_decomposition": 0.00010395050048828125,
-      "transition_modeling": 0.00013136863708496094,
-      "action_sequencing": 5.459785461425781e-05
-    }
+      "goal_interpretation": 0.00020956993103027344,
+      "subgoal_decomposition": 0.0001125335693359375,
+      "transition_modeling": 0.0001354217529296875,
+      "action_sequencing": 0.00016450881958007812
+    },
+    "error": "'formula'"
   }
 }

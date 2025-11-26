@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_180_2_1764123310089",
+  "submission_id": "virtualhome_180_2_1764124009671",
   "status": "failed",
-  "error": "Action sequencing failed: name 'Action' is not defined",
+  "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_180_2_1764123310089",
+    "submission_id": "virtualhome_180_2_1764124009671",
     "task_id": "180_2",
     "dataset": "virtualhome",
     "natural_goal": "Find the light circuit breaker in the kitchen",
-    "start_time": "2025-11-26T10:15:10.089268",
+    "start_time": "2025-11-26T10:26:49.671233",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,15 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'Action' is not defined"
+        "type": "IntegratedActionSequenceResult"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00012803077697753906,
-      "subgoal_decomposition": 0.00010395050048828125,
-      "transition_modeling": 0.00010919570922851562,
-      "action_sequencing": 5.14984130859375e-05
-    }
+      "goal_interpretation": 0.0001785755157470703,
+      "subgoal_decomposition": 0.0001266002655029297,
+      "transition_modeling": 0.00035834312438964844,
+      "action_sequencing": 0.00046515464782714844
+    },
+    "error": "'formula'"
   }
 }

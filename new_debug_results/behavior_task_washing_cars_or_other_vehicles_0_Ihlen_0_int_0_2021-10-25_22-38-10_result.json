@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764123310137",
+  "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764124009803",
   "status": "failed",
-  "error": "Action sequencing failed: name 'Action' is not defined",
+  "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764123310137",
+    "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764124009803",
     "task_id": "washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10",
     "dataset": "behavior",
     "natural_goal": "Wash all dust and stains from the car or vehicle.",
-    "start_time": "2025-11-26T10:15:10.137412",
+    "start_time": "2025-11-26T10:26:49.803316",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,15 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'Action' is not defined"
+        "type": "IntegratedActionSequenceResult"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001437664031982422,
-      "subgoal_decomposition": 0.0001304149627685547,
-      "transition_modeling": 0.00012683868408203125,
-      "action_sequencing": 6.508827209472656e-05
-    }
+      "goal_interpretation": 0.00015974044799804688,
+      "subgoal_decomposition": 0.0001285076141357422,
+      "transition_modeling": 0.00014638900756835938,
+      "action_sequencing": 0.00017333030700683594
+    },
+    "error": "'formula'"
   }
 }

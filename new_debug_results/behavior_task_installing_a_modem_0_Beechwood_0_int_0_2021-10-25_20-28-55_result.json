@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764123310123",
+  "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764124009791",
   "status": "failed",
-  "error": "Action sequencing failed: name 'Action' is not defined",
+  "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764123310123",
+    "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764124009791",
     "task_id": "installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55",
     "dataset": "behavior",
     "natural_goal": "Place the modem under the table and make sure it is turned on.",
-    "start_time": "2025-11-26T10:15:10.123986",
+    "start_time": "2025-11-26T10:26:49.791043",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,15 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'Action' is not defined"
+        "type": "IntegratedActionSequenceResult"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.000156402587890625,
-      "subgoal_decomposition": 0.001056671142578125,
-      "transition_modeling": 0.00017881393432617188,
-      "action_sequencing": 7.748603820800781e-05
-    }
+      "goal_interpretation": 0.00017452239990234375,
+      "subgoal_decomposition": 0.00012683868408203125,
+      "transition_modeling": 0.00019121170043945312,
+      "action_sequencing": 0.0002028942108154297
+    },
+    "error": "'formula'"
   }
 }

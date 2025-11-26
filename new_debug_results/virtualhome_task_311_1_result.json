@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_311_1_1764123310095",
+  "submission_id": "virtualhome_311_1_1764124009687",
   "status": "failed",
-  "error": "Action sequencing failed: name 'Action' is not defined",
+  "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_311_1_1764123310095",
+    "submission_id": "virtualhome_311_1_1764124009687",
     "task_id": "311_1",
     "dataset": "virtualhome",
     "natural_goal": "I go home and it's dark so I can not see anything",
-    "start_time": "2025-11-26T10:15:10.095604",
+    "start_time": "2025-11-26T10:26:49.687748",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,15 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'Action' is not defined"
+        "type": "IntegratedActionSequenceResult"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00013375282287597656,
-      "subgoal_decomposition": 0.00010085105895996094,
-      "transition_modeling": 0.00010895729064941406,
-      "action_sequencing": 5.364418029785156e-05
-    }
+      "goal_interpretation": 0.00017380714416503906,
+      "subgoal_decomposition": 0.0002779960632324219,
+      "transition_modeling": 0.0002346038818359375,
+      "action_sequencing": 0.00034308433532714844
+    },
+    "error": "'formula'"
   }
 }

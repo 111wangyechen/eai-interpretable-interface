@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_27_2_1764123310067",
+  "submission_id": "virtualhome_27_2_1764124009634",
   "status": "failed",
-  "error": "Action sequencing failed: name 'Action' is not defined",
+  "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_27_2_1764123310067",
+    "submission_id": "virtualhome_27_2_1764124009634",
     "task_id": "27_2",
     "dataset": "virtualhome",
     "natural_goal": "Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine.",
-    "start_time": "2025-11-26T10:15:10.067608",
+    "start_time": "2025-11-26T10:26:49.634673",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,15 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'Action' is not defined"
+        "type": "IntegratedActionSequenceResult"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.002696990966796875,
-      "subgoal_decomposition": 0.0001914501190185547,
-      "transition_modeling": 0.0001742839813232422,
-      "action_sequencing": 7.534027099609375e-05
-    }
+      "goal_interpretation": 0.002943754196166992,
+      "subgoal_decomposition": 0.00026488304138183594,
+      "transition_modeling": 0.00030159950256347656,
+      "action_sequencing": 0.00034499168395996094
+    },
+    "error": "'formula'"
   }
 }

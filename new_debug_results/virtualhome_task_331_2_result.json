@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_331_2_1764123310096",
+  "submission_id": "virtualhome_331_2_1764124009690",
   "status": "failed",
-  "error": "Action sequencing failed: name 'Action' is not defined",
+  "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_331_2_1764123310096",
+    "submission_id": "virtualhome_331_2_1764124009690",
     "task_id": "331_2",
     "dataset": "virtualhome",
     "natural_goal": "switching on light in an area",
-    "start_time": "2025-11-26T10:15:10.096845",
+    "start_time": "2025-11-26T10:26:49.690532",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,15 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'Action' is not defined"
+        "type": "IntegratedActionSequenceResult"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001227855682373047,
-      "subgoal_decomposition": 0.00010728836059570312,
-      "transition_modeling": 0.00010848045349121094,
-      "action_sequencing": 5.412101745605469e-05
-    }
+      "goal_interpretation": 0.00015401840209960938,
+      "subgoal_decomposition": 0.0002646446228027344,
+      "transition_modeling": 0.00023317337036132812,
+      "action_sequencing": 0.0003077983856201172
+    },
+    "error": "'formula'"
   }
 }

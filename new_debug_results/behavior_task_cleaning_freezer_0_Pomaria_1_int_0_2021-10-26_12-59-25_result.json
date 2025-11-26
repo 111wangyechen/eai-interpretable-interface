@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_1764123310122",
+  "submission_id": "behavior_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_1764124009789",
   "status": "failed",
-  "error": "Action sequencing failed: name 'Action' is not defined",
+  "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_1764123310122",
+    "submission_id": "behavior_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_1764124009789",
     "task_id": "cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25",
     "dataset": "behavior",
     "natural_goal": "Clean the stained freezer and remove all food items from the freezer.",
-    "start_time": "2025-11-26T10:15:10.122525",
+    "start_time": "2025-11-26T10:26:49.789130",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,15 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'Action' is not defined"
+        "type": "IntegratedActionSequenceResult"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001571178436279297,
-      "subgoal_decomposition": 0.00011491775512695312,
-      "transition_modeling": 0.00013971328735351562,
-      "action_sequencing": 5.91278076171875e-05
-    }
+      "goal_interpretation": 0.0001785755157470703,
+      "subgoal_decomposition": 0.00011348724365234375,
+      "transition_modeling": 0.00013947486877441406,
+      "action_sequencing": 0.00016617774963378906
+    },
+    "error": "'formula'"
   }
 }

@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_120_1_1764123310083",
+  "submission_id": "virtualhome_120_1_1764124009659",
   "status": "failed",
-  "error": "Action sequencing failed: name 'Action' is not defined",
+  "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_120_1_1764123310083",
+    "submission_id": "virtualhome_120_1_1764124009659",
     "task_id": "120_1",
     "dataset": "virtualhome",
     "natural_goal": "Go to the kitchen and living room and turn on the lights.",
-    "start_time": "2025-11-26T10:15:10.083084",
+    "start_time": "2025-11-26T10:26:49.659545",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,15 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'Action' is not defined"
+        "type": "IntegratedActionSequenceResult"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00019741058349609375,
-      "subgoal_decomposition": 0.00013446807861328125,
-      "transition_modeling": 0.00015020370483398438,
-      "action_sequencing": 6.937980651855469e-05
-    }
+      "goal_interpretation": 0.00017905235290527344,
+      "subgoal_decomposition": 0.0002627372741699219,
+      "transition_modeling": 0.0002701282501220703,
+      "action_sequencing": 0.00031685829162597656
+    },
+    "error": "'formula'"
   }
 }

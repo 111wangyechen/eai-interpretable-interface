@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764123310110",
+  "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764124009711",
   "status": "failed",
-  "error": "Action sequencing failed: name 'Action' is not defined",
+  "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764123310110",
+    "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764124009711",
     "task_id": "boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47",
     "dataset": "behavior",
     "natural_goal": "Place the books into the carton for storage.",
-    "start_time": "2025-11-26T10:15:10.110960",
+    "start_time": "2025-11-26T10:26:49.711819",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,15 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'Action' is not defined"
+        "type": "IntegratedActionSequenceResult"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00017571449279785156,
-      "subgoal_decomposition": 0.00016689300537109375,
-      "transition_modeling": 0.00020265579223632812,
-      "action_sequencing": 9.846687316894531e-05
-    }
+      "goal_interpretation": 0.00014138221740722656,
+      "subgoal_decomposition": 0.00010943412780761719,
+      "transition_modeling": 0.0001392364501953125,
+      "action_sequencing": 0.0001704692840576172
+    },
+    "error": "'formula'"
   }
 }

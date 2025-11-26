@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_1764123310119",
+  "submission_id": "behavior_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_1764124009721",
   "status": "failed",
-  "error": "Action sequencing failed: name 'Action' is not defined",
+  "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_1764123310119",
+    "submission_id": "behavior_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_1764124009721",
     "task_id": "polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15",
     "dataset": "behavior",
     "natural_goal": "Polish all spoons and put them inside the cabinet.",
-    "start_time": "2025-11-26T10:15:10.119462",
+    "start_time": "2025-11-26T10:26:49.721656",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,15 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'Action' is not defined"
+        "type": "IntegratedActionSequenceResult"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00013399124145507812,
-      "subgoal_decomposition": 0.00011110305786132812,
-      "transition_modeling": 0.00013327598571777344,
-      "action_sequencing": 7.581710815429688e-05
-    }
+      "goal_interpretation": 0.00017213821411132812,
+      "subgoal_decomposition": 0.00014519691467285156,
+      "transition_modeling": 0.00015473365783691406,
+      "action_sequencing": 0.00020694732666015625
+    },
+    "error": "'formula'"
   }
 }
