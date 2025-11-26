@@ -17,14 +17,14 @@ if current_dir not in sys.path:
     sys.path.insert(0, current_dir)
 
 try:
-    from .nlp_parser import NLPParser
-    from .ltl_generator import LTLGenerator
+    from .enhanced_nlp_parser import EnhancedNLPParser
+    from .enhanced_ltl_generator import EnhancedLTLGenerator
     from .ltl_validator import LTLValidator
     from .data_loader import ParquetDataLoader
 except ImportError:
     # 如果相对导入失败，尝试绝对导入
-    from nlp_parser import NLPParser
-    from ltl_generator import LTLGenerator
+    from enhanced_nlp_parser import EnhancedNLPParser
+    from enhanced_ltl_generator import EnhancedLTLGenerator
     from ltl_validator import LTLValidator
     from data_loader import ParquetDataLoader
 
@@ -96,10 +96,10 @@ class GoalInterpreter:
         Args:
             use_data_loader: 是否使用数据加载器处理parquet数据
         """
-        # 初始化组件
-        self.nlp_parser = NLPParser()
+        # 初始化增强版组件
+        self.nlp_parser = EnhancedNLPParser()
         self.semantic_mapper = None
-        self.ltl_generator = LTLGenerator()
+        self.ltl_generator = EnhancedLTLGenerator()
         self.ltl_validator = LTLValidator()
         
         # 如果需要使用数据加载器
