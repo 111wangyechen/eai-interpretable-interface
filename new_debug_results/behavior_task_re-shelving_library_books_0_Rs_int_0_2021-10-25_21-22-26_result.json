@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764125299253",
+  "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764125855788",
   "status": "success",
-  "timestamp": "2025-11-26T10:48:19.257007",
+  "timestamp": "2025-11-26T10:57:35.796158",
   "goal": {
     "natural_language": "Place books 1 through 4 on the shelf, and place books 5 through 8 on the table.",
     "interpreted": "place_books"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0031006336212158203,
+  "execution_time": 0.00792837142944336,
   "execution_times": {
-    "goal_interpretation": 0.00023937225341796875,
-    "subgoal_decomposition": 0.0003304481506347656,
-    "transition_modeling": 0.0003192424774169922,
-    "action_sequencing": 0.0005068778991699219
+    "goal_interpretation": 0.00015020370483398438,
+    "subgoal_decomposition": 0.0061893463134765625,
+    "transition_modeling": 0.00045228004455566406,
+    "action_sequencing": 0.0004355907440185547
   },
   "debug_info": {
-    "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764125299253",
+    "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764125855788",
     "task_id": "re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26",
     "dataset": "behavior",
     "natural_goal": "Place books 1 through 4 on the shelf, and place books 5 through 8 on the table.",
-    "start_time": "2025-11-26T10:48:19.253916",
+    "start_time": "2025-11-26T10:57:35.788242",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00023937225341796875,
-      "subgoal_decomposition": 0.0003304481506347656,
-      "transition_modeling": 0.0003192424774169922,
-      "action_sequencing": 0.0005068778991699219
+      "goal_interpretation": 0.00015020370483398438,
+      "subgoal_decomposition": 0.0061893463134765625,
+      "transition_modeling": 0.00045228004455566406,
+      "action_sequencing": 0.0004355907440185547
     }
   }
 }

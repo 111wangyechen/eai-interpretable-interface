@@ -1,7 +1,7 @@
 {
-  "submission_id": "virtualhome_432_1_1764125299226",
+  "submission_id": "virtualhome_432_1_1764125855769",
   "status": "success",
-  "timestamp": "2025-11-26T10:48:19.227868",
+  "timestamp": "2025-11-26T10:57:35.770437",
   "goal": {
     "natural_language": "Walk over to light switch, flip the switch to the on position",
     "interpreted": "walk_over"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.001314401626586914,
+  "execution_time": 0.0011897087097167969,
   "execution_times": {
-    "goal_interpretation": 0.0001590251922607422,
-    "subgoal_decomposition": 0.00010776519775390625,
-    "transition_modeling": 0.00012254714965820312,
-    "action_sequencing": 0.0002589225769042969
+    "goal_interpretation": 0.00013375282287597656,
+    "subgoal_decomposition": 0.00010132789611816406,
+    "transition_modeling": 0.00010943412780761719,
+    "action_sequencing": 0.00023055076599121094
   },
   "debug_info": {
-    "submission_id": "virtualhome_432_1_1764125299226",
+    "submission_id": "virtualhome_432_1_1764125855769",
     "task_id": "432_1",
     "dataset": "virtualhome",
     "natural_goal": "Walk over to light switch, flip the switch to the on position",
-    "start_time": "2025-11-26T10:48:19.226558",
+    "start_time": "2025-11-26T10:57:35.769251",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001590251922607422,
-      "subgoal_decomposition": 0.00010776519775390625,
-      "transition_modeling": 0.00012254714965820312,
-      "action_sequencing": 0.0002589225769042969
+      "goal_interpretation": 0.00013375282287597656,
+      "subgoal_decomposition": 0.00010132789611816406,
+      "transition_modeling": 0.00010943412780761719,
+      "action_sequencing": 0.00023055076599121094
     }
   }
 }

@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_1764125299257",
+  "submission_id": "behavior_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_1764125855797",
   "status": "success",
-  "timestamp": "2025-11-26T10:48:19.345878",
+  "timestamp": "2025-11-26T10:57:35.799644",
   "goal": {
     "natural_language": "Polish all spoons and put them inside the cabinet.",
     "interpreted": "polish_all"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.08820867538452148,
+  "execution_time": 0.002033710479736328,
   "execution_times": {
-    "goal_interpretation": 0.0002105236053466797,
-    "subgoal_decomposition": 0.00032067298889160156,
-    "transition_modeling": 0.08501482009887695,
-    "action_sequencing": 0.0009551048278808594
+    "goal_interpretation": 0.0001862049102783203,
+    "subgoal_decomposition": 0.0001785755157470703,
+    "transition_modeling": 0.00019121170043945312,
+    "action_sequencing": 0.0003986358642578125
   },
   "debug_info": {
-    "submission_id": "behavior_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_1764125299257",
+    "submission_id": "behavior_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_1764125855797",
     "task_id": "polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15",
     "dataset": "behavior",
     "natural_goal": "Polish all spoons and put them inside the cabinet.",
-    "start_time": "2025-11-26T10:48:19.257680",
+    "start_time": "2025-11-26T10:57:35.797618",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0002105236053466797,
-      "subgoal_decomposition": 0.00032067298889160156,
-      "transition_modeling": 0.08501482009887695,
-      "action_sequencing": 0.0009551048278808594
+      "goal_interpretation": 0.0001862049102783203,
+      "subgoal_decomposition": 0.0001785755157470703,
+      "transition_modeling": 0.00019121170043945312,
+      "action_sequencing": 0.0003986358642578125
     }
   }
 }

@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764125299239",
+  "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764125855780",
   "status": "success",
-  "timestamp": "2025-11-26T10:48:19.242349",
+  "timestamp": "2025-11-26T10:57:35.782199",
   "goal": {
     "natural_language": "Place the books into the carton for storage.",
     "interpreted": "place_the"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0024726390838623047,
+  "execution_time": 0.0015587806701660156,
   "execution_times": {
-    "goal_interpretation": 0.0001685619354248047,
-    "subgoal_decomposition": 0.0002772808074951172,
-    "transition_modeling": 0.0002181529998779297,
-    "action_sequencing": 0.0004215240478515625
+    "goal_interpretation": 0.00019121170043945312,
+    "subgoal_decomposition": 0.00012612342834472656,
+    "transition_modeling": 0.00013494491577148438,
+    "action_sequencing": 0.00027871131896972656
   },
   "debug_info": {
-    "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764125299239",
+    "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764125855780",
     "task_id": "boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47",
     "dataset": "behavior",
     "natural_goal": "Place the books into the carton for storage.",
-    "start_time": "2025-11-26T10:48:19.239881",
+    "start_time": "2025-11-26T10:57:35.780646",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001685619354248047,
-      "subgoal_decomposition": 0.0002772808074951172,
-      "transition_modeling": 0.0002181529998779297,
-      "action_sequencing": 0.0004215240478515625
+      "goal_interpretation": 0.00019121170043945312,
+      "subgoal_decomposition": 0.00012612342834472656,
+      "transition_modeling": 0.00013494491577148438,
+      "action_sequencing": 0.00027871131896972656
     }
   }
 }

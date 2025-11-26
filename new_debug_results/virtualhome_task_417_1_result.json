@@ -1,7 +1,7 @@
 {
-  "submission_id": "virtualhome_417_1_1764125299176",
+  "submission_id": "virtualhome_417_1_1764125855741",
   "status": "success",
-  "timestamp": "2025-11-26T10:48:19.181600",
+  "timestamp": "2025-11-26T10:57:35.742999",
   "goal": {
     "natural_language": "I will load the dirty clothes into the washing machine.",
     "interpreted": "i_will"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.005346775054931641,
+  "execution_time": 0.0014030933380126953,
   "execution_times": {
-    "goal_interpretation": 0.00030040740966796875,
-    "subgoal_decomposition": 0.0005948543548583984,
-    "transition_modeling": 0.0004925727844238281,
-    "action_sequencing": 0.0009169578552246094
+    "goal_interpretation": 0.00016307830810546875,
+    "subgoal_decomposition": 0.00011301040649414062,
+    "transition_modeling": 0.00013947486877441406,
+    "action_sequencing": 0.0002684593200683594
   },
   "debug_info": {
-    "submission_id": "virtualhome_417_1_1764125299176",
+    "submission_id": "virtualhome_417_1_1764125855741",
     "task_id": "417_1",
     "dataset": "virtualhome",
     "natural_goal": "I will load the dirty clothes into the washing machine.",
-    "start_time": "2025-11-26T10:48:19.176261",
+    "start_time": "2025-11-26T10:57:35.741601",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00030040740966796875,
-      "subgoal_decomposition": 0.0005948543548583984,
-      "transition_modeling": 0.0004925727844238281,
-      "action_sequencing": 0.0009169578552246094
+      "goal_interpretation": 0.00016307830810546875,
+      "subgoal_decomposition": 0.00011301040649414062,
+      "transition_modeling": 0.00013947486877441406,
+      "action_sequencing": 0.0002684593200683594
     }
   }
 }

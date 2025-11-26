@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764125299367",
+  "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764125855841",
   "status": "success",
-  "timestamp": "2025-11-26T10:48:19.368991",
+  "timestamp": "2025-11-26T10:57:35.845169",
   "goal": {
     "natural_language": "Close and lock all the windows.",
     "interpreted": "close_and"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0012943744659423828,
+  "execution_time": 0.003628253936767578,
   "execution_times": {
-    "goal_interpretation": 0.0001647472381591797,
-    "subgoal_decomposition": 0.00011944770812988281,
-    "transition_modeling": 0.00010609626770019531,
-    "action_sequencing": 0.0002484321594238281
+    "goal_interpretation": 0.00023174285888671875,
+    "subgoal_decomposition": 0.00032806396484375,
+    "transition_modeling": 0.000385284423828125,
+    "action_sequencing": 0.0006105899810791016
   },
   "debug_info": {
-    "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764125299367",
+    "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764125855841",
     "task_id": "locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10",
     "dataset": "behavior",
     "natural_goal": "Close and lock all the windows.",
-    "start_time": "2025-11-26T10:48:19.367702",
+    "start_time": "2025-11-26T10:57:35.841547",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001647472381591797,
-      "subgoal_decomposition": 0.00011944770812988281,
-      "transition_modeling": 0.00010609626770019531,
-      "action_sequencing": 0.0002484321594238281
+      "goal_interpretation": 0.00023174285888671875,
+      "subgoal_decomposition": 0.00032806396484375,
+      "transition_modeling": 0.000385284423828125,
+      "action_sequencing": 0.0006105899810791016
     }
   }
 }

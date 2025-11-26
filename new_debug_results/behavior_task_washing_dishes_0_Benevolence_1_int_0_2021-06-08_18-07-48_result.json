@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764125299371",
+  "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764125855850",
   "status": "success",
-  "timestamp": "2025-11-26T10:48:19.372880",
+  "timestamp": "2025-11-26T10:57:35.854849",
   "goal": {
     "natural_language": "Wash all the stained plates, cups, and bowls.",
     "interpreted": "wash_all"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0015010833740234375,
+  "execution_time": 0.0040683746337890625,
   "execution_times": {
-    "goal_interpretation": 0.0001537799835205078,
-    "subgoal_decomposition": 0.00010323524475097656,
-    "transition_modeling": 0.00011992454528808594,
-    "action_sequencing": 0.0002474784851074219
+    "goal_interpretation": 0.0001742839813232422,
+    "subgoal_decomposition": 0.000110626220703125,
+    "transition_modeling": 0.0003921985626220703,
+    "action_sequencing": 0.0011601448059082031
   },
   "debug_info": {
-    "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764125299371",
+    "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764125855850",
     "task_id": "washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48",
     "dataset": "behavior",
     "natural_goal": "Wash all the stained plates, cups, and bowls.",
-    "start_time": "2025-11-26T10:48:19.371384",
+    "start_time": "2025-11-26T10:57:35.850790",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001537799835205078,
-      "subgoal_decomposition": 0.00010323524475097656,
-      "transition_modeling": 0.00011992454528808594,
-      "action_sequencing": 0.0002474784851074219
+      "goal_interpretation": 0.0001742839813232422,
+      "subgoal_decomposition": 0.000110626220703125,
+      "transition_modeling": 0.0003921985626220703,
+      "action_sequencing": 0.0011601448059082031
     }
   }
 }

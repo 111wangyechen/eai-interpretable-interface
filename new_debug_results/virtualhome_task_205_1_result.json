@@ -1,7 +1,7 @@
 {
-  "submission_id": "virtualhome_205_1_1764125299212",
+  "submission_id": "virtualhome_205_1_1764125855755",
   "status": "success",
-  "timestamp": "2025-11-26T10:48:19.213436",
+  "timestamp": "2025-11-26T10:57:35.756837",
   "goal": {
     "natural_language": "Walk into the bedroom and walk to the light switch. Flip the switch.",
     "interpreted": "walk_into"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0012798309326171875,
+  "execution_time": 0.0012133121490478516,
   "execution_times": {
-    "goal_interpretation": 0.00014328956604003906,
-    "subgoal_decomposition": 0.00010800361633300781,
-    "transition_modeling": 0.00011348724365234375,
-    "action_sequencing": 0.00024509429931640625
+    "goal_interpretation": 0.000152587890625,
+    "subgoal_decomposition": 9.965896606445312e-05,
+    "transition_modeling": 0.00011157989501953125,
+    "action_sequencing": 0.00023508071899414062
   },
   "debug_info": {
-    "submission_id": "virtualhome_205_1_1764125299212",
+    "submission_id": "virtualhome_205_1_1764125855755",
     "task_id": "205_1",
     "dataset": "virtualhome",
     "natural_goal": "Walk into the bedroom and walk to the light switch. Flip the switch.",
-    "start_time": "2025-11-26T10:48:19.212160",
+    "start_time": "2025-11-26T10:57:35.755628",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00014328956604003906,
-      "subgoal_decomposition": 0.00010800361633300781,
-      "transition_modeling": 0.00011348724365234375,
-      "action_sequencing": 0.00024509429931640625
+      "goal_interpretation": 0.000152587890625,
+      "subgoal_decomposition": 9.965896606445312e-05,
+      "transition_modeling": 0.00011157989501953125,
+      "action_sequencing": 0.00023508071899414062
     }
   }
 }

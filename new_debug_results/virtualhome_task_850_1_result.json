@@ -1,7 +1,7 @@
 {
-  "submission_id": "virtualhome_850_1_1764125299182",
+  "submission_id": "virtualhome_850_1_1764125855743",
   "status": "success",
-  "timestamp": "2025-11-26T10:48:19.186720",
+  "timestamp": "2025-11-26T10:57:35.744617",
   "goal": {
     "natural_language": "Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.",
     "interpreted": "walk_into"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.004693031311035156,
+  "execution_time": 0.0012769699096679688,
   "execution_times": {
-    "goal_interpretation": 0.0003800392150878906,
-    "subgoal_decomposition": 0.0006594657897949219,
-    "transition_modeling": 0.00033402442932128906,
-    "action_sequencing": 0.0008215904235839844
+    "goal_interpretation": 0.00018739700317382812,
+    "subgoal_decomposition": 0.00010371208190917969,
+    "transition_modeling": 0.00012302398681640625,
+    "action_sequencing": 0.00022840499877929688
   },
   "debug_info": {
-    "submission_id": "virtualhome_850_1_1764125299182",
+    "submission_id": "virtualhome_850_1_1764125855743",
     "task_id": "850_1",
     "dataset": "virtualhome",
     "natural_goal": "Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.",
-    "start_time": "2025-11-26T10:48:19.182037",
+    "start_time": "2025-11-26T10:57:35.743344",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0003800392150878906,
-      "subgoal_decomposition": 0.0006594657897949219,
-      "transition_modeling": 0.00033402442932128906,
-      "action_sequencing": 0.0008215904235839844
+      "goal_interpretation": 0.00018739700317382812,
+      "subgoal_decomposition": 0.00010371208190917969,
+      "transition_modeling": 0.00012302398681640625,
+      "action_sequencing": 0.00022840499877929688
     }
   }
 }
