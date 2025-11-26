@@ -14,8 +14,7 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-from goal_interpretation.goal_interpreter import GoalInterpreter, LTLFormula
-from goal_interpretation.enhanced_ltl_generator import EnhancedLTLGenerator
+from goal_interpretation import GoalInterpreter, LTLFormula, EnhancedLTLGenerator
 from .subgoal_decomposer import SubgoalDecomposer, DecompositionResult, Subgoal, SubgoalType
 from .subgoal_validator import SubgoalValidator, SubgoalOptimizer, SubgoalAnalyzer
 

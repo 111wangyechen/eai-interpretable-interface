@@ -13,8 +13,7 @@ import uuid
 import hashlib
 import time
 
-from goal_interpretation.goal_interpreter import GoalInterpreter, InterpretationRequest, InterpretationResponse
-from goal_interpretation.models import GoalType, GoalState, ContextInfo
+from goal_interpretation import GoalInterpreter, InterpretationRequest, InterpretationResponse, GoalType, GoalState, ContextInfo
 
 # 尝试导入embodied-agent-interface中的目标解释评估器
 try:
