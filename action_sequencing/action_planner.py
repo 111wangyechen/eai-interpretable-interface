@@ -300,6 +300,18 @@ class ActionPlanner:
     def _bfs_planning(self, initial_state: Dict[str, Any], goal_state: Dict[str, Any],
                       available_actions: List[Action]) -> PlanningResult:
         """广度优先搜索规划"""
+        # 处理状态中可能包含的不可哈希类型（如字典）
+        def make_hashable(value):
+            if isinstance(value, dict):
+                return tuple(sorted((k, make_hashable(v)) for k, v in value.items()))
+            elif isinstance(value, list):
+                return tuple(make_hashable(v) for v in value)
+            return value
+        
+        def get_state_key(state):
+            hashable_state = {k: make_hashable(v) for k, v in state.items()}
+            return str(sorted(hashable_state.items()))
+        
         queue = deque([PlanningNode(
             state=initial_state,
             actions=[],
@@ -309,7 +321,7 @@ class ActionPlanner:
             depth=0
         )])
         
-        visited = {str(sorted(initial_state.items()))}
+        visited = {get_state_key(initial_state)}
         
         while queue and (time.time() - self.planning_start_time) < self.max_time:
             current_node = queue.popleft()
@@ -326,7 +338,7 @@ class ActionPlanner:
             # 扩展节点
             successors = self._get_successors(current_node, available_actions, goal_state)
             for successor in successors:
-                state_key = str(sorted(successor.state.items()))
+                state_key = get_state_key(successor.state)
                 if state_key not in visited:
                     visited.add(state_key)
                     queue.append(successor)
@@ -336,6 +348,18 @@ class ActionPlanner:
     def _dfs_planning(self, initial_state: Dict[str, Any], goal_state: Dict[str, Any],
                       available_actions: List[Action]) -> PlanningResult:
         """深度优先搜索规划"""
+        # 处理状态中可能包含的不可哈希类型（如字典）
+        def make_hashable(value):
+            if isinstance(value, dict):
+                return tuple(sorted((k, make_hashable(v)) for k, v in value.items()))
+            elif isinstance(value, list):
+                return tuple(make_hashable(v) for v in value)
+            return value
+        
+        def get_state_key(state):
+            hashable_state = {k: make_hashable(v) for k, v in state.items()}
+            return str(sorted(hashable_state.items()))
+        
         stack = [PlanningNode(
             state=initial_state,
             actions=[],
@@ -345,7 +369,7 @@ class ActionPlanner:
             depth=0
         )]
         
-        visited = {str(sorted(initial_state.items()))}
+        visited = {get_state_key(initial_state)}
         
         while stack and (time.time() - self.planning_start_time) < self.max_time:
             current_node = stack.pop()
@@ -362,7 +386,7 @@ class ActionPlanner:
             # 扩展节点
             successors = self._get_successors(current_node, available_actions, goal_state)
             for successor in reversed(successors):  # 反向添加以保持顺序
-                state_key = str(sorted(successor.state.items()))
+                state_key = get_state_key(successor.state)
                 if state_key not in visited:
                     visited.add(state_key)
                     stack.append(successor)
@@ -375,9 +399,18 @@ class ActionPlanner:
         open_list = []
         closed_set = set()
         
+        # 处理状态中可能包含的不可哈希类型（如字典）
+        def make_hashable(value):
+            if isinstance(value, dict):
+                return tuple(sorted((k, make_hashable(v)) for k, v in value.items()))
+            elif isinstance(value, list):
+                return tuple(make_hashable(v) for v in value)
+            return value
+        
         # 优化：状态哈希缓存
         def get_state_hash(state):
-            state_tuple = tuple(sorted(state.items()))
+            hashable_state = {k: make_hashable(v) for k, v in state.items()}
+            state_tuple = tuple(sorted(hashable_state.items()))
             if state_tuple not in self.state_hash_cache:
                 self.state_hash_cache[state_tuple] = hash(str(state_tuple))
             return self.state_hash_cache[state_tuple]
@@ -747,10 +780,21 @@ class ActionPlanner:
         """优化的后继节点生成"""
         successors = []
         
+        # 处理状态中可能包含的不可哈希类型（如字典）
+        def make_hashable(value):
+            if isinstance(value, dict):
+                return tuple(sorted((k, make_hashable(v)) for k, v in value.items()))
+            elif isinstance(value, list):
+                return tuple(make_hashable(v) for v in value)
+            return value
+        
         # 动作执行缓存键生成
         def get_execution_cache_key(state, action):
-            state_hash = hash(str(sorted(state.items())))
-            action_hash = hash(str(sorted(action.to_dict().items())))
+            hashable_state = {k: make_hashable(v) for k, v in state.items()}
+            hashable_action = {k: make_hashable(v) for k, v in action.to_dict().items()}
+            
+            state_hash = hash(str(sorted(hashable_state.items())))
+            action_hash = hash(str(sorted(hashable_action.items())))
             return (state_hash, action_hash)
         
         # 对动作进行智能排序 - 优先考虑与目标相关的动作
