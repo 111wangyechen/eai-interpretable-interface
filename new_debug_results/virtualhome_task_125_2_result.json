@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_125_2_1764122578852",
+  "submission_id": "virtualhome_125_2_1764123310084",
   "status": "failed",
-  "error": "Action sequencing failed: name 'ActionType' is not defined",
+  "error": "Action sequencing failed: name 'Action' is not defined",
   "debug_info": {
-    "submission_id": "virtualhome_125_2_1764122578852",
+    "submission_id": "virtualhome_125_2_1764123310084",
     "task_id": "125_2",
     "dataset": "virtualhome",
     "natural_goal": "turn on the light for room",
-    "start_time": "2025-11-26T10:02:58.852234",
+    "start_time": "2025-11-26T10:15:10.084703",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,14 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'ActionType' is not defined"
+        "error": "name 'Action' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001621246337890625,
-      "subgoal_decomposition": 0.00016546249389648438,
-      "transition_modeling": 0.00016880035400390625,
-      "action_sequencing": 6.079673767089844e-05
+      "goal_interpretation": 0.000164031982421875,
+      "subgoal_decomposition": 0.00013065338134765625,
+      "transition_modeling": 0.0001442432403564453,
+      "action_sequencing": 6.890296936035156e-05
     }
   }
 }

@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764122578933",
+  "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764123310130",
   "status": "failed",
-  "error": "Action sequencing failed: name 'ActionType' is not defined",
+  "error": "Action sequencing failed: name 'Action' is not defined",
   "debug_info": {
-    "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764122578933",
+    "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764123310130",
     "task_id": "setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51",
     "dataset": "behavior",
     "natural_goal": "Place 3 candles on each table.",
-    "start_time": "2025-11-26T10:02:58.933825",
+    "start_time": "2025-11-26T10:15:10.130661",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,14 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'ActionType' is not defined"
+        "error": "name 'Action' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00014209747314453125,
-      "subgoal_decomposition": 0.00011110305786132812,
-      "transition_modeling": 0.00015115737915039062,
-      "action_sequencing": 8.177757263183594e-05
+      "goal_interpretation": 0.0001811981201171875,
+      "subgoal_decomposition": 0.0001659393310546875,
+      "transition_modeling": 0.0001728534698486328,
+      "action_sequencing": 8.153915405273438e-05
     }
   }
 }

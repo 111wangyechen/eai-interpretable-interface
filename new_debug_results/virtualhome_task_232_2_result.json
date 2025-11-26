@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_232_2_1764122578863",
+  "submission_id": "virtualhome_232_2_1764123310093",
   "status": "failed",
-  "error": "Action sequencing failed: name 'ActionType' is not defined",
+  "error": "Action sequencing failed: name 'Action' is not defined",
   "debug_info": {
-    "submission_id": "virtualhome_232_2_1764122578863",
+    "submission_id": "virtualhome_232_2_1764123310093",
     "task_id": "232_2",
     "dataset": "virtualhome",
     "natural_goal": "I need to turn on the lights in the kitchen so I can make dinner.",
-    "start_time": "2025-11-26T10:02:58.863789",
+    "start_time": "2025-11-26T10:15:10.093062",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,14 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'ActionType' is not defined"
+        "error": "name 'Action' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001926422119140625,
-      "subgoal_decomposition": 0.0002486705780029297,
-      "transition_modeling": 0.00026798248291015625,
-      "action_sequencing": 0.00022220611572265625
+      "goal_interpretation": 0.0001442432403564453,
+      "subgoal_decomposition": 0.00010395050048828125,
+      "transition_modeling": 0.00010633468627929688,
+      "action_sequencing": 5.221366882324219e-05
     }
   }
 }

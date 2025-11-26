@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764122578956",
+  "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764123310138",
   "status": "failed",
-  "error": "Action sequencing failed: name 'ActionType' is not defined",
+  "error": "Action sequencing failed: name 'Action' is not defined",
   "debug_info": {
-    "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764122578956",
+    "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764123310138",
     "task_id": "washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48",
     "dataset": "behavior",
     "natural_goal": "Wash all the stained plates, cups, and bowls.",
-    "start_time": "2025-11-26T10:02:58.956648",
+    "start_time": "2025-11-26T10:15:10.138816",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,14 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'ActionType' is not defined"
+        "error": "name 'Action' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00020575523376464844,
-      "subgoal_decomposition": 0.0002758502960205078,
-      "transition_modeling": 0.0002474784851074219,
-      "action_sequencing": 0.0001933574676513672
+      "goal_interpretation": 0.0001380443572998047,
+      "subgoal_decomposition": 0.00014138221740722656,
+      "transition_modeling": 0.00014472007751464844,
+      "action_sequencing": 7.534027099609375e-05
     }
   }
 }

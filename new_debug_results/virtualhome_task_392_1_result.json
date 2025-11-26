@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_392_1_1764122578880",
+  "submission_id": "virtualhome_392_1_1764123310099",
   "status": "failed",
-  "error": "Action sequencing failed: name 'ActionType' is not defined",
+  "error": "Action sequencing failed: name 'Action' is not defined",
   "debug_info": {
-    "submission_id": "virtualhome_392_1_1764122578880",
+    "submission_id": "virtualhome_392_1_1764123310099",
     "task_id": "392_1",
     "dataset": "virtualhome",
     "natural_goal": "find lightswitch. walk to light switch. turn on light.",
-    "start_time": "2025-11-26T10:02:58.880760",
+    "start_time": "2025-11-26T10:15:10.099415",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,14 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'ActionType' is not defined"
+        "error": "name 'Action' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0002982616424560547,
-      "subgoal_decomposition": 0.0002608299255371094,
-      "transition_modeling": 0.00024318695068359375,
-      "action_sequencing": 0.00012826919555664062
+      "goal_interpretation": 0.00013947486877441406,
+      "subgoal_decomposition": 0.00010180473327636719,
+      "transition_modeling": 0.0001304149627685547,
+      "action_sequencing": 5.793571472167969e-05
     }
   }
 }

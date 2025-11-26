@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_954_2_1764122578846",
+  "submission_id": "virtualhome_954_2_1764123310079",
   "status": "failed",
-  "error": "Action sequencing failed: name 'ActionType' is not defined",
+  "error": "Action sequencing failed: name 'Action' is not defined",
   "debug_info": {
-    "submission_id": "virtualhome_954_2_1764122578846",
+    "submission_id": "virtualhome_954_2_1764123310079",
     "task_id": "954_2",
     "dataset": "virtualhome",
     "natural_goal": "I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.",
-    "start_time": "2025-11-26T10:02:58.846237",
+    "start_time": "2025-11-26T10:15:10.079597",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,14 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'ActionType' is not defined"
+        "error": "name 'Action' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001971721649169922,
-      "subgoal_decomposition": 0.0002434253692626953,
-      "transition_modeling": 0.0001697540283203125,
-      "action_sequencing": 5.125999450683594e-05
+      "goal_interpretation": 0.0002491474151611328,
+      "subgoal_decomposition": 0.00013875961303710938,
+      "transition_modeling": 0.00015854835510253906,
+      "action_sequencing": 7.033348083496094e-05
     }
   }
 }

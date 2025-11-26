@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_11_1_1764122578848",
+  "submission_id": "virtualhome_11_1_1764123310081",
   "status": "failed",
-  "error": "Action sequencing failed: name 'ActionType' is not defined",
+  "error": "Action sequencing failed: name 'Action' is not defined",
   "debug_info": {
-    "submission_id": "virtualhome_11_1_1764122578848",
+    "submission_id": "virtualhome_11_1_1764123310081",
     "task_id": "11_1",
     "dataset": "virtualhome",
     "natural_goal": "I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.",
-    "start_time": "2025-11-26T10:02:58.848042",
+    "start_time": "2025-11-26T10:15:10.081333",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,14 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'ActionType' is not defined"
+        "error": "name 'Action' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00018453598022460938,
-      "subgoal_decomposition": 0.00010800361633300781,
-      "transition_modeling": 0.0001087188720703125,
-      "action_sequencing": 4.982948303222656e-05
+      "goal_interpretation": 0.0002765655517578125,
+      "subgoal_decomposition": 0.00014400482177734375,
+      "transition_modeling": 0.0001399517059326172,
+      "action_sequencing": 7.104873657226562e-05
     }
   }
 }

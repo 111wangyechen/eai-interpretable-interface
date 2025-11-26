@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_417_1_1764122578842",
+  "submission_id": "virtualhome_417_1_1764123310074",
   "status": "failed",
-  "error": "Action sequencing failed: name 'ActionType' is not defined",
+  "error": "Action sequencing failed: name 'Action' is not defined",
   "debug_info": {
-    "submission_id": "virtualhome_417_1_1764122578842",
+    "submission_id": "virtualhome_417_1_1764123310074",
     "task_id": "417_1",
     "dataset": "virtualhome",
     "natural_goal": "I will load the dirty clothes into the washing machine.",
-    "start_time": "2025-11-26T10:02:58.842048",
+    "start_time": "2025-11-26T10:15:10.074976",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,14 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'ActionType' is not defined"
+        "error": "name 'Action' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0002014636993408203,
-      "subgoal_decomposition": 0.0001323223114013672,
-      "transition_modeling": 0.00018310546875,
-      "action_sequencing": 5.9604644775390625e-05
+      "goal_interpretation": 0.0002598762512207031,
+      "subgoal_decomposition": 0.00032806396484375,
+      "transition_modeling": 0.000171661376953125,
+      "action_sequencing": 0.0002589225769042969
     }
   }
 }

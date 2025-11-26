@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764122578913",
+  "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764123310114",
   "status": "failed",
-  "error": "Action sequencing failed: name 'ActionType' is not defined",
+  "error": "Action sequencing failed: name 'Action' is not defined",
   "debug_info": {
-    "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764122578913",
+    "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764123310114",
     "task_id": "mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58",
     "dataset": "behavior",
     "natural_goal": "Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.",
-    "start_time": "2025-11-26T10:02:58.913928",
+    "start_time": "2025-11-26T10:15:10.114731",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,14 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'ActionType' is not defined"
+        "error": "name 'Action' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00030922889709472656,
-      "subgoal_decomposition": 0.00028824806213378906,
-      "transition_modeling": 0.0004062652587890625,
-      "action_sequencing": 0.0001227855682373047
+      "goal_interpretation": 0.0002422332763671875,
+      "subgoal_decomposition": 0.00011682510375976562,
+      "transition_modeling": 0.0003228187561035156,
+      "action_sequencing": 6.031990051269531e-05
     }
   }
 }

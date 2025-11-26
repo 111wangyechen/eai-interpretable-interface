@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_205_1_1764122578859",
+  "submission_id": "virtualhome_205_1_1764123310090",
   "status": "failed",
-  "error": "Action sequencing failed: name 'ActionType' is not defined",
+  "error": "Action sequencing failed: name 'Action' is not defined",
   "debug_info": {
-    "submission_id": "virtualhome_205_1_1764122578859",
+    "submission_id": "virtualhome_205_1_1764123310090",
     "task_id": "205_1",
     "dataset": "virtualhome",
     "natural_goal": "Walk into the bedroom and walk to the light switch. Flip the switch.",
-    "start_time": "2025-11-26T10:02:58.859837",
+    "start_time": "2025-11-26T10:15:10.090507",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,14 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'ActionType' is not defined"
+        "error": "name 'Action' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00019025802612304688,
-      "subgoal_decomposition": 0.0002932548522949219,
-      "transition_modeling": 0.0002300739288330078,
-      "action_sequencing": 0.00012350082397460938
+      "goal_interpretation": 0.00013875961303710938,
+      "subgoal_decomposition": 0.00010967254638671875,
+      "transition_modeling": 0.00010418891906738281,
+      "action_sequencing": 5.7697296142578125e-05
     }
   }
 }

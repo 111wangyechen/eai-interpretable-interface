@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_150_2_1764122578854",
+  "submission_id": "virtualhome_150_2_1764123310086",
   "status": "failed",
-  "error": "Action sequencing failed: name 'ActionType' is not defined",
+  "error": "Action sequencing failed: name 'Action' is not defined",
   "debug_info": {
-    "submission_id": "virtualhome_150_2_1764122578854",
+    "submission_id": "virtualhome_150_2_1764123310086",
     "task_id": "150_2",
     "dataset": "virtualhome",
     "natural_goal": "push any ligth button to turn it on, for example in the living room",
-    "start_time": "2025-11-26T10:02:58.854231",
+    "start_time": "2025-11-26T10:15:10.086355",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,14 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'ActionType' is not defined"
+        "error": "name 'Action' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00022101402282714844,
-      "subgoal_decomposition": 0.00016617774963378906,
-      "transition_modeling": 0.0001590251922607422,
-      "action_sequencing": 5.5789947509765625e-05
+      "goal_interpretation": 0.00015354156494140625,
+      "subgoal_decomposition": 0.00013208389282226562,
+      "transition_modeling": 0.00011038780212402344,
+      "action_sequencing": 5.7220458984375e-05
     }
   }
 }

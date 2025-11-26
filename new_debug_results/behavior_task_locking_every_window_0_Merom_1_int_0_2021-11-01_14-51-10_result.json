@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764122578948",
+  "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764123310135",
   "status": "failed",
-  "error": "Action sequencing failed: name 'ActionType' is not defined",
+  "error": "Action sequencing failed: name 'Action' is not defined",
   "debug_info": {
-    "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764122578948",
+    "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764123310135",
     "task_id": "locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10",
     "dataset": "behavior",
     "natural_goal": "Close and lock all the windows.",
-    "start_time": "2025-11-26T10:02:58.948868",
+    "start_time": "2025-11-26T10:15:10.135967",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,14 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'ActionType' is not defined"
+        "error": "name 'Action' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00021457672119140625,
-      "subgoal_decomposition": 0.0001614093780517578,
-      "transition_modeling": 0.00033473968505859375,
-      "action_sequencing": 0.0001533031463623047
+      "goal_interpretation": 0.0001423358917236328,
+      "subgoal_decomposition": 0.00011396408081054688,
+      "transition_modeling": 0.00013256072998046875,
+      "action_sequencing": 7.510185241699219e-05
     }
   }
 }

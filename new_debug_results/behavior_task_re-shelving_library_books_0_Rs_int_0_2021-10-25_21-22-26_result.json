@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764122578920",
+  "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764123310118",
   "status": "failed",
-  "error": "Action sequencing failed: name 'ActionType' is not defined",
+  "error": "Action sequencing failed: name 'Action' is not defined",
   "debug_info": {
-    "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764122578920",
+    "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764123310118",
     "task_id": "re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26",
     "dataset": "behavior",
     "natural_goal": "Place books 1 through 4 on the shelf, and place books 5 through 8 on the table.",
-    "start_time": "2025-11-26T10:02:58.920208",
+    "start_time": "2025-11-26T10:15:10.118098",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,14 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'ActionType' is not defined"
+        "error": "name 'Action' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00023174285888671875,
-      "subgoal_decomposition": 0.00029277801513671875,
-      "transition_modeling": 0.00012540817260742188,
-      "action_sequencing": 5.078315734863281e-05
+      "goal_interpretation": 0.00015544891357421875,
+      "subgoal_decomposition": 0.00010013580322265625,
+      "transition_modeling": 0.00012373924255371094,
+      "action_sequencing": 5.173683166503906e-05
     }
   }
 }

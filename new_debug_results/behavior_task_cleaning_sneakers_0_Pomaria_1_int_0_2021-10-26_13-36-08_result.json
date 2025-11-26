@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08_1764122578944",
+  "submission_id": "behavior_cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08_1764123310134",
   "status": "failed",
-  "error": "Action sequencing failed: name 'ActionType' is not defined",
+  "error": "Action sequencing failed: name 'Action' is not defined",
   "debug_info": {
-    "submission_id": "behavior_cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08_1764122578944",
+    "submission_id": "behavior_cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08_1764123310134",
     "task_id": "cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08",
     "dataset": "behavior",
     "natural_goal": "Place the towel on the countertop, the brush next to the towel, and the soap into the sink. Clean the dusty and stained sneakers, place 2 sneakers next to the table and 2 other sneakers under the table.",
-    "start_time": "2025-11-26T10:02:58.944146",
+    "start_time": "2025-11-26T10:15:10.134339",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,14 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'ActionType' is not defined"
+        "error": "name 'Action' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00034332275390625,
-      "subgoal_decomposition": 0.0003018379211425781,
-      "transition_modeling": 0.0009856224060058594,
-      "action_sequencing": 0.0003094673156738281
+      "goal_interpretation": 0.0002205371856689453,
+      "subgoal_decomposition": 0.00015497207641601562,
+      "transition_modeling": 0.00016260147094726562,
+      "action_sequencing": 7.557868957519531e-05
     }
   }
 }

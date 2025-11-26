@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_311_1_1764122578870",
+  "submission_id": "virtualhome_311_1_1764123310095",
   "status": "failed",
-  "error": "Action sequencing failed: name 'ActionType' is not defined",
+  "error": "Action sequencing failed: name 'Action' is not defined",
   "debug_info": {
-    "submission_id": "virtualhome_311_1_1764122578870",
+    "submission_id": "virtualhome_311_1_1764123310095",
     "task_id": "311_1",
     "dataset": "virtualhome",
     "natural_goal": "I go home and it's dark so I can not see anything",
-    "start_time": "2025-11-26T10:02:58.870225",
+    "start_time": "2025-11-26T10:15:10.095604",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,14 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'ActionType' is not defined"
+        "error": "name 'Action' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00022602081298828125,
-      "subgoal_decomposition": 0.00018739700317382812,
-      "transition_modeling": 0.00018739700317382812,
-      "action_sequencing": 8.702278137207031e-05
+      "goal_interpretation": 0.00013375282287597656,
+      "subgoal_decomposition": 0.00010085105895996094,
+      "transition_modeling": 0.00010895729064941406,
+      "action_sequencing": 5.364418029785156e-05
     }
   }
 }

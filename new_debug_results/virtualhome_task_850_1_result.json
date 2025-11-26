@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_850_1_1764122578844",
+  "submission_id": "virtualhome_850_1_1764123310077",
   "status": "failed",
-  "error": "Action sequencing failed: name 'ActionType' is not defined",
+  "error": "Action sequencing failed: name 'Action' is not defined",
   "debug_info": {
-    "submission_id": "virtualhome_850_1_1764122578844",
+    "submission_id": "virtualhome_850_1_1764123310077",
     "task_id": "850_1",
     "dataset": "virtualhome",
     "natural_goal": "Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.",
-    "start_time": "2025-11-26T10:02:58.844016",
+    "start_time": "2025-11-26T10:15:10.077711",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,14 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'ActionType' is not defined"
+        "error": "name 'Action' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0002346038818359375,
-      "subgoal_decomposition": 0.0001773834228515625,
-      "transition_modeling": 0.0001697540283203125,
-      "action_sequencing": 5.602836608886719e-05
+      "goal_interpretation": 0.0002830028533935547,
+      "subgoal_decomposition": 0.0001735687255859375,
+      "transition_modeling": 0.0001628398895263672,
+      "action_sequencing": 7.224082946777344e-05
     }
   }
 }

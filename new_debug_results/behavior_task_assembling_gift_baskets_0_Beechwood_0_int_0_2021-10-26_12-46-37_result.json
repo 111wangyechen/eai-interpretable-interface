@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764122578893",
+  "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764123310107",
   "status": "failed",
-  "error": "Action sequencing failed: name 'ActionType' is not defined",
+  "error": "Action sequencing failed: name 'Action' is not defined",
   "debug_info": {
-    "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764122578893",
+    "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764123310107",
     "task_id": "assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37",
     "dataset": "behavior",
     "natural_goal": "Put one candle, one cheese, one cookie, and one bow into each basket.",
-    "start_time": "2025-11-26T10:02:58.893652",
+    "start_time": "2025-11-26T10:15:10.107440",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,14 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'ActionType' is not defined"
+        "error": "name 'Action' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.000339508056640625,
-      "subgoal_decomposition": 0.0005693435668945312,
-      "transition_modeling": 0.0005097389221191406,
-      "action_sequencing": 0.00026917457580566406
+      "goal_interpretation": 0.00016546249389648438,
+      "subgoal_decomposition": 0.00014925003051757812,
+      "transition_modeling": 0.00016951560974121094,
+      "action_sequencing": 5.602836608886719e-05
     }
   }
 }

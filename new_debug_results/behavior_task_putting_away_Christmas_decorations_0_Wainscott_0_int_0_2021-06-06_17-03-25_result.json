@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764122578932",
+  "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764123310128",
   "status": "failed",
-  "error": "Action sequencing failed: name 'ActionType' is not defined",
+  "error": "Action sequencing failed: name 'Action' is not defined",
   "debug_info": {
-    "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764122578932",
+    "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764123310128",
     "task_id": "putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25",
     "dataset": "behavior",
     "natural_goal": "Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.",
-    "start_time": "2025-11-26T10:02:58.932256",
+    "start_time": "2025-11-26T10:15:10.128777",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -41,14 +41,14 @@
       },
       "action_sequencing": {
         "status": "failed",
-        "error": "name 'ActionType' is not defined"
+        "error": "name 'Action' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001609325408935547,
-      "subgoal_decomposition": 0.0001246929168701172,
-      "transition_modeling": 0.00018906593322753906,
-      "action_sequencing": 5.364418029785156e-05
+      "goal_interpretation": 0.00018978118896484375,
+      "subgoal_decomposition": 0.0001850128173828125,
+      "transition_modeling": 0.00016236305236816406,
+      "action_sequencing": 6.890296936035156e-05
     }
   }
 }
