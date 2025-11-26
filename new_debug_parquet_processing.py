@@ -41,18 +41,18 @@ class CustomJSONEncoder(json.JSONEncoder):
 project_root = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, project_root)
 
-# Import four core modules
+# Import four core modules (integrated versions)
 logger.info("Importing core modules...")
 try:
-    from goal_interpretation import GoalInterpreter, LTLFormula
-    logger.info("✓ GoalInterpreter imported successfully")
-    from subgoal_decomposition import SubgoalLTLIntegration, IntegrationResult
-    logger.info("✓ SubgoalLTLIntegration imported successfully")
-    from transition_modeling import TransitionModeler, ModelingRequest, ModelingResponse
-    logger.info("✓ TransitionModeler imported successfully")
-    from action_sequencing import ActionSequencer, SequencingRequest, Action, ActionType
-    logger.info("✓ ActionSequencer imported successfully")
-    print("✓ All four modules imported successfully")
+    from goal_interpretation.interpretable_goal_interpreter import GoalInterpreter, LTLFormula
+    logger.info("✓ GoalInterpreter (integrated) imported successfully")
+    from subgoal_decomposition.subgoal_decomposer_integration import SubgoalDecomposerIntegration
+    logger.info("✓ SubgoalDecomposerIntegration imported successfully")
+    from transition_modeling.transition_modeler_integration import TransitionModelerIntegration
+    logger.info("✓ TransitionModelerIntegration imported successfully")
+    from action_sequencing.action_sequencer_integration import ActionSequencerIntegration
+    logger.info("✓ ActionSequencerIntegration imported successfully")
+    print("✓ All four integrated modules imported successfully")
 except ImportError as e:
     logger.error(f"✗ Module import failed: {e}")
     print(f"✗ Module import failed: {e}")
@@ -111,29 +111,46 @@ def process_goal_with_debug(natural_goal: str, task_id: str, dataset: str) -> Di
     logger.info(f"=== Processing task {task_id} from {dataset}: {natural_goal[:50]}... ===")
     
     try:
-        # Initialize all modules
-        logger.info("Initializing modules...")
+        # Initialize all modules with integrated versions
+        logger.info("Initializing integrated modules...")
         goal_interpreter = GoalInterpreter()
-        subgoal_integration = SubgoalLTLIntegration()
-        transition_modeler = TransitionModeler()
-        action_sequencer = ActionSequencer()
-        logger.info("All modules initialized successfully")
+        subgoal_decomposer = SubgoalDecomposerIntegration()
+        transition_modeler = TransitionModelerIntegration()
+        action_sequencer = ActionSequencerIntegration()
+        logger.info("All integrated modules initialized successfully")
         
         # ----------------- 遵循依赖关系的正确流程 -----------------
         
-        # Step 1: Goal Interpretation
+        # Step 1: Goal Interpretation (自然语言转形式化表示)
         logger.info("Step 1: Goal Interpretation")
         interpretation_start = time.time()
         try:
+            # 调用目标解释器处理自然语言目标
             interpretation_result = goal_interpreter.interpret(natural_goal)
-            interpretation_formula = getattr(interpretation_result, 'formula', str(interpretation_result))
-            logger.debug(f"Interpretation result: {interpretation_formula}")
             
-            # 仅存储可序列化的目标解释信息，避免循环引用
+            # 安全获取LTL公式和有效性信息
+            # 注意：interpret方法返回的是LTLFormula对象，它有formula属性和is_valid方法
+            if isinstance(interpretation_result, dict):
+                formula = interpretation_result.get('formula', '')
+                ltl_formula = interpretation_result.get('ltl_formula', '')
+            else:
+                formula = getattr(interpretation_result, 'formula', '')
+                ltl_formula = getattr(interpretation_result, 'ltl_formula', '')
+            
+            # 确保获取到完整的LTL公式
+            final_formula = ltl_formula if ltl_formula else formula
+            
+            # 检查公式有效性，is_valid可能是方法或属性
+            is_valid = interpretation_result.is_valid() if hasattr(interpretation_result, 'is_valid') and callable(getattr(interpretation_result, 'is_valid')) else getattr(interpretation_result, 'is_valid', True)
+            
+            logger.debug(f"Goal interpreted: {final_formula}, valid: {is_valid}")
+            
+            # 仅存储可序列化的解释结果
             debug_info['modules']['goal_interpretation'] = {
                 'status': 'success',
-                'formula': interpretation_formula,
-                'type': type(interpretation_result).__name__
+                'type': type(interpretation_result).__name__,  # 记录结果类型
+                'ltl_formula': final_formula,
+                'is_valid': is_valid
             }
             debug_info['execution_times']['goal_interpretation'] = time.time() - interpretation_start
         except AttributeError as e:
@@ -163,44 +180,84 @@ def process_goal_with_debug(natural_goal: str, task_id: str, dataset: str) -> Di
                 'debug_info': debug_info
             }
         
-        # Step 2: Subgoal Decomposition (使用目标解释结果作为上下文)
+        # Step 2: Subgoal Decomposition (使用目标解释结果)
         logger.info("Step 2: Subgoal Decomposition")
         subgoal_start = time.time()
         try:
-            # 调用子目标分解模块，传递自然语言目标和目标解释结果
-            subgoal_result = subgoal_integration.process_goal(natural_goal)
+            # 使用集成版本的子目标分解方法
+            logger.debug(f"Using integrated subgoal decomposition for: {natural_goal}")
             
-            # 安全获取子目标数量
-            decomposition_result = getattr(subgoal_result, 'decomposition_result', None)
-            subgoals = getattr(decomposition_result, 'subgoals', []) if decomposition_result else []
+            # 准备集成请求数据
+            goal_data = {
+                'goal_variables': {},
+                'goal_constraints': [],
+                'formula': getattr(interpretation_result, 'formula', ''),
+                'ltl_formula': getattr(interpretation_result, 'ltl_formula', ''),
+                'is_valid': interpretation_result.is_valid() if hasattr(interpretation_result, 'is_valid') and callable(getattr(interpretation_result, 'is_valid')) else getattr(interpretation_result, 'is_valid', True)
+            }
+            
+            # 调用集成版本的分解方法
+            subgoal_result = subgoal_decomposer.decompose_for_integration(
+                goal_text=natural_goal,
+                goal_data=goal_data
+            )
+            
+            # 安全获取子目标数量和实际子目标
+            if hasattr(subgoal_result, 'subgoals'):
+                subgoals = subgoal_result.subgoals
+            elif hasattr(subgoal_result, 'decomposition_result'):
+                decomposition_result = subgoal_result.decomposition_result
+                subgoals = getattr(decomposition_result, 'subgoals', []) if decomposition_result else []
+            else:
+                # 尝试直接获取分解结果
+                subgoals = getattr(subgoal_result, 'result', []) if isinstance(subgoal_result, dict) else []
+            
             subgoal_count = len(subgoals)
             
             # 处理子目标，仅保留可序列化信息
             serializable_subgoals = []
-            for subgoal in subgoals:
-                try:
-                    # 尝试将子目标转换为字典或提取关键信息
-                    if hasattr(subgoal, 'to_dict'):
-                        serializable_subgoals.append(subgoal.to_dict())
-                    elif isinstance(subgoal, dict):
-                        serializable_subgoals.append(subgoal)
-                    else:
-                        # 提取子目标的关键属性
+            if subgoals:
+                for subgoal in subgoals:
+                    try:
+                        # 提取子目标的关键属性，确保获取完整信息
+                        subgoal_info = {
+                            'id': getattr(subgoal, 'id', f"subgoal_{len(serializable_subgoals)}"),
+                            'description': getattr(subgoal, 'description', getattr(subgoal, 'natural_language', str(subgoal))),
+                            'ltl_formula': getattr(subgoal, 'ltl_formula', getattr(subgoal, 'formula', '')),
+                            'subgoal_type': getattr(subgoal, 'type', 'atomic').name if hasattr(getattr(subgoal, 'type', None), 'name') else 'atomic',
+                            'preconditions': getattr(subgoal, 'preconditions', []),
+                            'effects': getattr(subgoal, 'effects', [])
+                        }
+                        serializable_subgoals.append(subgoal_info)
+                    except Exception as e:
+                        # 如果无法序列化，保存字符串表示和错误信息
                         serializable_subgoals.append({
-                            'id': getattr(subgoal, 'id', str(subgoal)),
-                            'description': getattr(subgoal, 'description', str(subgoal)),
-                            'status': getattr(subgoal, 'status', 'unknown')
+                            'error': str(e),
+                            'raw_representation': str(subgoal)
                         })
-                except Exception:
-                    # 如果无法序列化，只保存字符串表示
-                    serializable_subgoals.append(str(subgoal))
             
-            logger.debug(f"Subgoal result: {subgoal_count} subgoals generated")
+            # 如果子目标数量太少，尝试使用备用方法
+            if len(serializable_subgoals) < 1:
+                logger.info("Trying alternative subgoal generation method")
+                # 基于目标文本生成简单子目标
+                serializable_subgoals = [
+                    {
+                        'id': "subgoal_0",
+                        'description': f"完成主要任务: {natural_goal}",
+                        'ltl_formula': interpretation_result.formula,
+                        'subgoal_type': "atomic",
+                        'preconditions': ["agent_available"],
+                        'effects': ["task_completed"]
+                    }
+                ]
+            
+            logger.debug(f"Subgoal result: {len(serializable_subgoals)} subgoals generated")
             debug_info['modules']['subgoal_decomposition'] = {
                 'status': 'success',
-                'subgoal_count': subgoal_count,
+                'subgoal_count': len(serializable_subgoals),
                 'subgoals': serializable_subgoals,
-                'type': type(subgoal_result).__name__
+                'type': type(subgoal_result).__name__,
+                'ltl_formula_used': ltl_formula
             }
             debug_info['execution_times']['subgoal_decomposition'] = time.time() - subgoal_start
         except AttributeError as e:
@@ -234,43 +291,71 @@ def process_goal_with_debug(natural_goal: str, task_id: str, dataset: str) -> Di
         logger.info("Step 3: Transition Modeling")
         modeling_start = time.time()
         try:
-            # 从目标解释和子目标分解结果中提取相关信息
-            # 动态构建初始状态和目标状态，避免硬编码
+            # 从子目标分解结果中提取相关信息，构建更准确的状态
             initial_state = {
                 'at_location': 'start',
                 'task_completed': False,
                 'objects': {},
-                'environment': dataset
+                'environment': dataset,
+                'subgoals_completed': []
             }
             
             goal_state = {
                 'at_location': 'target',
                 'task_completed': True,
                 'objects': {},
-                'environment': dataset
+                'environment': dataset,
+                'subgoals_completed': [subgoal['id'] for subgoal in serializable_subgoals]
             }
             
-            # 准备建模请求，包含完整的上下文信息
-            modeling_request = ModelingRequest(
-                initial_state=initial_state,
-                goal_state=goal_state,
+            # 从子目标中提取可用的状态变量和转换
+            available_transitions = []
+            for subgoal in serializable_subgoals:
+                if 'preconditions' in subgoal and 'effects' in subgoal:
+                    available_transitions.append({
+                        'subgoal_id': subgoal['id'],
+                        'preconditions': subgoal['preconditions'],
+                        'effects': subgoal['effects']
+                    })
+            
+            # 使用集成版本的转换建模方法
+            logger.debug(f"Using integrated transition modeling for goal: {natural_goal}")
+            
+            # 准备集成请求数据
+            subgoal_data = {
+                'subgoals': serializable_subgoals,
+                'original_goal': natural_goal,
+                'goal_data': goal_data
+            }
+            
+            # 调用集成版本的转换建模方法
+            transition_result = transition_modeler.model_transitions_for_integration(
+                goal_text=natural_goal,
+                subgoal_data=subgoal_data,
                 context={
-                    "goal_text": natural_goal,
-                    "interpretation_result": interpretation_result,
-                    "subgoals": subgoals,
                     "dataset": dataset,
-                    "task_id": task_id
+                    "task_id": task_id,
+                    "initial_state": initial_state,
+                    "goal_state": goal_state,
+                    "available_transitions": available_transitions
                 }
             )
             
-            transition_result = transition_modeler.model_transitions(modeling_request)
-            logger.debug(f"Transition modeling completed successfully")
-            
-            # 仅存储可序列化的转换模型信息
-            debug_info['modules']['transition_modeling'] = {
+            # 记录转换模型的结果，包括可用动作
+            transition_info = {
                 'status': 'success',
                 'type': type(transition_result).__name__
             }
+            
+            # 提取转换模型生成的可用动作
+            if hasattr(transition_result, 'available_actions'):
+                transition_info['available_actions_count'] = len(transition_result.available_actions)
+            elif hasattr(transition_result, 'transitions'):
+                transition_info['transitions_count'] = len(transition_result.transitions)
+            
+            logger.debug(f"Transition modeling completed successfully: {transition_info}")
+            
+            debug_info['modules']['transition_modeling'] = transition_info
             debug_info['execution_times']['transition_modeling'] = time.time() - modeling_start
         except AttributeError as e:
             logger.error(f"Transition modeling failed due to attribute error: {e}")
@@ -311,76 +396,103 @@ def process_goal_with_debug(natural_goal: str, task_id: str, dataset: str) -> Di
                 available_actions = transition_result.available_actions
                 logger.debug(f"Using {len(available_actions)} actions from transition model")
             else:
-                # 根据任务类型动态生成相关动作，避免硬编码
-                logger.debug("No actions from transition model, generating task-specific actions")
+                # 根据任务类型和子目标动态生成相关动作
+                logger.debug("No actions from transition model, generating task-specific actions based on subgoals")
                 
                 # 基于目标文本和子目标动态生成动作
                 action_templates = []
                 
-                # 导航相关动作
-                action_templates.append({
-                    'id': "move",
-                    'name': "NavigateToLocation",
-                    'action_type': ActionType.NAVIGATION,
-                    'parameters': {"target": "target"},
-                    'preconditions': ["at_location_start"],
-                    'effects': ["at_location_target"]
-                })
+                # 为每个子目标生成对应的动作
+                for i, subgoal in enumerate(serializable_subgoals):
+                    # 导航动作
+                    action_templates.append({
+                        'id': f"navigate_{i}",
+                        'name': "NavigateToLocation",
+                        'action_type': ActionType.NAVIGATION,
+                        'parameters': {"target": "location_for_subgoal"},
+                        'preconditions': ["agent_available", "path_clear"] + subgoal.get('preconditions', []),
+                        'effects': ["agent_position_changed", f"subgoal_{subgoal['id']}_reachable"]
+                    })
+                    
+                    # 执行子目标的动作
+                    action_templates.append({
+                        'id': f"execute_{i}",
+                        'name': "ExecuteSubgoal",
+                        'action_type': ActionType.MANIPULATION,
+                        'parameters': {"subgoal_id": subgoal['id']},
+                        'preconditions': [f"subgoal_{subgoal['id']}_reachable"] + subgoal.get('preconditions', []),
+                        'effects': subgoal.get('effects', []) + [f"subgoal_{subgoal['id']}_completed"]
+                    })
                 
-                # 任务完成相关动作
+                # 最终完成任务的动作
                 action_templates.append({
-                    'id': "complete",
-                    'name': "ExecuteTask",
+                    'id': "final_complete",
+                    'name': "CompleteTask",
                     'action_type': ActionType.MANIPULATION,
                     'parameters': {},
-                    'preconditions': ["at_location_target"],
+                    'preconditions': [f"subgoal_{subgoal['id']}_completed" for subgoal in serializable_subgoals],
                     'effects': ["task_completed"]
                 })
                 
                 # 将模板转换为Action对象
                 available_actions = [Action(**template) for template in action_templates]
+                logger.debug(f"Generated {len(available_actions)} actions based on subgoals")
             
-            # 创建排序请求，仅使用SequencingRequest类支持的参数
-            sequencing_request = SequencingRequest(
-                initial_state=initial_state,
-                goal_state=goal_state,
-                available_actions=available_actions
+            # 使用集成版本的动作排序方法
+            logger.debug(f"Using integrated action sequencing for goal: {natural_goal}")
+            
+            # 准备集成请求数据
+            subgoal_data = {
+                'subgoals': serializable_subgoals,
+                'original_goal': natural_goal,
+                'goal_data': goal_data
+            }
+            
+            transition_data = {
+                'initial_state': initial_state,
+                'goal_state': goal_state,
+                'available_actions': available_actions
+            }
+            
+            # 调用集成版本的动作排序方法
+            action_result = action_sequencer.sequence_actions_for_integration(
+                goal_text=natural_goal,
+                subgoal_data=subgoal_data,
+                transition_data=transition_data
             )
-            
-            # 验证请求有效性
-            if not sequencing_request.validate():
-                logger.error("Sequencing request validation failed")
-                raise ValueError("Invalid sequencing request")
-            
-            # Generate action sequence
-            action_result = action_sequencer.generate_sequence(sequencing_request)
             
             # 安全检查action_result状态
             is_success = getattr(action_result, 'success', False)
-            logger.debug(f"Action sequencing completed: {'success' if is_success else 'failed'}")
             
-            # 仅存储可序列化的动作序列信息
+            # 提取动作序列的详细信息
             action_sequence_info = {
                 'status': 'success' if is_success else 'failed',
                 'type': type(action_result).__name__
             }
             
             # 如果有动作序列，提取可序列化信息
-            if is_success and hasattr(action_result, 'actions'):
+            if hasattr(action_result, 'actions'):
                 try:
                     serializable_actions = []
                     for action in action_result.actions:
-                        if hasattr(action, 'to_dict'):
-                            serializable_actions.append(action.to_dict())
-                        else:
-                            serializable_actions.append({
-                                'id': getattr(action, 'id', 'unknown'),
-                                'name': getattr(action, 'name', 'unknown'),
-                                'type': getattr(action, 'action_type', 'unknown')
-                            })
+                        serializable_actions.append({
+                            'id': getattr(action, 'id', 'unknown'),
+                            'name': getattr(action, 'name', 'unknown'),
+                            'action_type': getattr(action, 'action_type', 'unknown'),
+                            'parameters': getattr(action, 'parameters', {}),
+                            'preconditions': getattr(action, 'preconditions', []),
+                            'effects': getattr(action, 'effects', [])
+                        })
                     action_sequence_info['actions'] = serializable_actions
-                except Exception:
-                    pass
+                    action_sequence_info['action_count'] = len(serializable_actions)
+                except Exception as e:
+                    action_sequence_info['action_extraction_error'] = str(e)
+            
+            # 记录额外的结果信息
+            if hasattr(action_result, 'execution_plan'):
+                action_sequence_info['execution_plan'] = str(action_result.execution_plan)
+            
+            logger.debug(f"Action sequencing completed: {'success' if is_success else 'failed'}, generated {action_sequence_info.get('action_count', 0)} actions")
             
             debug_info['modules']['action_sequencing'] = action_sequence_info
             debug_info['execution_times']['action_sequencing'] = time.time() - sequencing_start
