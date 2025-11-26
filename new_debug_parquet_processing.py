@@ -128,10 +128,12 @@ def process_goal_with_debug(natural_goal: str, task_id: str, dataset: str) -> Di
             interpretation_result = goal_interpreter.interpret(natural_goal)
             interpretation_formula = getattr(interpretation_result, 'formula', str(interpretation_result))
             logger.debug(f"Interpretation result: {interpretation_formula}")
+            
+            # 仅存储可序列化的目标解释信息，避免循环引用
             debug_info['modules']['goal_interpretation'] = {
                 'status': 'success',
-                'result': interpretation_result,
-                'formula': interpretation_formula
+                'formula': interpretation_formula,
+                'type': type(interpretation_result).__name__
             }
             debug_info['execution_times']['goal_interpretation'] = time.time() - interpretation_start
         except AttributeError as e:
@@ -173,12 +175,32 @@ def process_goal_with_debug(natural_goal: str, task_id: str, dataset: str) -> Di
             subgoals = getattr(decomposition_result, 'subgoals', []) if decomposition_result else []
             subgoal_count = len(subgoals)
             
+            # 处理子目标，仅保留可序列化信息
+            serializable_subgoals = []
+            for subgoal in subgoals:
+                try:
+                    # 尝试将子目标转换为字典或提取关键信息
+                    if hasattr(subgoal, 'to_dict'):
+                        serializable_subgoals.append(subgoal.to_dict())
+                    elif isinstance(subgoal, dict):
+                        serializable_subgoals.append(subgoal)
+                    else:
+                        # 提取子目标的关键属性
+                        serializable_subgoals.append({
+                            'id': getattr(subgoal, 'id', str(subgoal)),
+                            'description': getattr(subgoal, 'description', str(subgoal)),
+                            'status': getattr(subgoal, 'status', 'unknown')
+                        })
+                except Exception:
+                    # 如果无法序列化，只保存字符串表示
+                    serializable_subgoals.append(str(subgoal))
+            
             logger.debug(f"Subgoal result: {subgoal_count} subgoals generated")
             debug_info['modules']['subgoal_decomposition'] = {
                 'status': 'success',
-                'result': subgoal_result,
                 'subgoal_count': subgoal_count,
-                'subgoals': subgoals
+                'subgoals': serializable_subgoals,
+                'type': type(subgoal_result).__name__
             }
             debug_info['execution_times']['subgoal_decomposition'] = time.time() - subgoal_start
         except AttributeError as e:
@@ -243,9 +265,11 @@ def process_goal_with_debug(natural_goal: str, task_id: str, dataset: str) -> Di
             
             transition_result = transition_modeler.model_transitions(modeling_request)
             logger.debug(f"Transition modeling completed successfully")
+            
+            # 仅存储可序列化的转换模型信息
             debug_info['modules']['transition_modeling'] = {
                 'status': 'success',
-                'result': transition_result
+                'type': type(transition_result).__name__
             }
             debug_info['execution_times']['transition_modeling'] = time.time() - modeling_start
         except AttributeError as e:
@@ -316,19 +340,11 @@ def process_goal_with_debug(natural_goal: str, task_id: str, dataset: str) -> Di
                 # 将模板转换为Action对象
                 available_actions = [Action(**template) for template in action_templates]
             
-            # 创建包含完整上下文的排序请求
+            # 创建排序请求，仅使用SequencingRequest类支持的参数
             sequencing_request = SequencingRequest(
                 initial_state=initial_state,
                 goal_state=goal_state,
-                available_actions=available_actions,
-                subgoals=subgoals,
-                transition_modeling_result=transition_result,
-                context={
-                    "goal_text": natural_goal,
-                    "interpretation_result": interpretation_result,
-                    "dataset": dataset,
-                    "task_id": task_id
-                }
+                available_actions=available_actions
             )
             
             # 验证请求有效性
@@ -342,10 +358,31 @@ def process_goal_with_debug(natural_goal: str, task_id: str, dataset: str) -> Di
             # 安全检查action_result状态
             is_success = getattr(action_result, 'success', False)
             logger.debug(f"Action sequencing completed: {'success' if is_success else 'failed'}")
-            debug_info['modules']['action_sequencing'] = {
+            
+            # 仅存储可序列化的动作序列信息
+            action_sequence_info = {
                 'status': 'success' if is_success else 'failed',
-                'result': action_result
+                'type': type(action_result).__name__
             }
+            
+            # 如果有动作序列，提取可序列化信息
+            if is_success and hasattr(action_result, 'actions'):
+                try:
+                    serializable_actions = []
+                    for action in action_result.actions:
+                        if hasattr(action, 'to_dict'):
+                            serializable_actions.append(action.to_dict())
+                        else:
+                            serializable_actions.append({
+                                'id': getattr(action, 'id', 'unknown'),
+                                'name': getattr(action, 'name', 'unknown'),
+                                'type': getattr(action, 'action_type', 'unknown')
+                            })
+                    action_sequence_info['actions'] = serializable_actions
+                except Exception:
+                    pass
+            
+            debug_info['modules']['action_sequencing'] = action_sequence_info
             debug_info['execution_times']['action_sequencing'] = time.time() - sequencing_start
         except AttributeError as e:
             logger.error(f"Action sequencing failed due to attribute error: {e}")
