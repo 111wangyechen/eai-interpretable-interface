@@ -1,479 +1,68 @@
 {
-  "submission_id": "virtualhome_27_2_1764118356929",
-  "status": "failed",
-  "error": "Action sequencing failed: SequencingRequest.__init__() got an unexpected keyword argument 'context'",
+  "submission_id": "virtualhome_27_2_1764118641140",
+  "status": "success",
+  "timestamp": "2025-11-26T08:57:21.147368",
+  "goal": {
+    "natural_language": "Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine.",
+    "interpreted": "walk_to"
+  },
+  "subgoals": {
+    "count": 1,
+    "list": [
+      {
+        "id": "atomic_1",
+        "description": "Execute atomic action: walk_to",
+        "ltl_formula": "walk_to",
+        "subgoal_type": "ATOMIC",
+        "dependencies": [],
+        "priority": 0,
+        "estimated_cost": 0.94,
+        "preconditions": [
+          "agent_available",
+          "path_clear"
+        ],
+        "effects": [
+          "walk_to",
+          "agent_position_changed"
+        ],
+        "metadata": {
+          "depth": 0,
+          "type": "atomic",
+          "original_formula": "walk_to",
+          "feasibility_score": 0.9,
+          "action_type": "movement"
+        }
+      }
+    ]
+  },
+  "execution_time": 0.007007122039794922,
+  "execution_times": {
+    "goal_interpretation": 0.002490520477294922,
+    "subgoal_decomposition": 0.0028009414672851562,
+    "transition_modeling": 0.00031566619873046875,
+    "action_sequencing": 0.0003371238708496094
+  },
   "debug_info": {
-    "submission_id": "virtualhome_27_2_1764118356929",
+    "submission_id": "virtualhome_27_2_1764118641140",
     "task_id": "27_2",
     "dataset": "virtualhome",
     "natural_goal": "Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine.",
-    "start_time": "2025-11-26T08:52:36.929015",
+    "start_time": "2025-11-26T08:57:21.140387",
     "modules": {
       "goal_interpretation": {
         "status": "success",
-        "result": {
-          "formula": "walk_to",
-          "semantics": {
-            "original_text": "walk to the kitchen and find the basket of clothes. put the soap and clothes into the washing machine. turn on the washing machine.",
-            "task_type": "简单任务",
-            "actions": [
-              {
-                "type": "未知",
-                "verb": "walk",
-                "object": "to",
-                "structure": "动宾结构"
-              },
-              {
-                "type": "未知",
-                "verb": "the",
-                "object": "kitchen",
-                "structure": "动宾结构"
-              },
-              {
-                "type": "未知",
-                "verb": "and",
-                "object": "find",
-                "structure": "动宾结构"
-              },
-              {
-                "type": "未知",
-                "verb": "of",
-                "object": "clothes",
-                "structure": "动宾结构"
-              },
-              {
-                "type": "未知",
-                "verb": "put",
-                "object": "the",
-                "structure": "动宾结构"
-              },
-              {
-                "type": "未知",
-                "verb": "soap",
-                "object": "and",
-                "structure": "动宾结构"
-              },
-              {
-                "type": "未知",
-                "verb": "clothes",
-                "object": "into",
-                "structure": "动宾结构"
-              },
-              {
-                "type": "未知",
-                "verb": "turn",
-                "object": "on",
-                "structure": "动宾结构"
-              }
-            ],
-            "objects": [
-              {
-                "name": "to",
-                "category": "未知",
-                "position": 5
-              },
-              {
-                "name": "the",
-                "category": "未知",
-                "position": 8
-              },
-              {
-                "name": "kitchen",
-                "category": "未知",
-                "position": 12
-              },
-              {
-                "name": "and",
-                "category": "未知",
-                "position": 20
-              },
-              {
-                "name": "find",
-                "category": "未知",
-                "position": 24
-              },
-              {
-                "name": "basket",
-                "category": "未知",
-                "position": 33
-              },
-              {
-                "name": "clothes",
-                "category": "未知",
-                "position": 43
-              },
-              {
-                "name": "into",
-                "category": "未知",
-                "position": 77
-              },
-              {
-                "name": "washing",
-                "category": "未知",
-                "position": 86
-              },
-              {
-                "name": "on",
-                "category": "未知",
-                "position": 108
-              }
-            ],
-            "temporal_info": [],
-            "conditions": [],
-            "constraints": [],
-            "propositions": [
-              "walk_to",
-              "the_kitchen",
-              "and_find",
-              "of_clothes",
-              "put_the",
-              "soap_and",
-              "clothes_into",
-              "turn_on"
-            ],
-            "structure": "simple"
-          },
-          "valid": true
-        },
-        "formula": "walk_to"
+        "formula": "walk_to",
+        "type": "LTLFormula"
       },
       "subgoal_decomposition": {
         "status": "success",
-        "result": {
-          "original_goal": "Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine.",
-          "ltl_formula": {
-            "formula": "walk_to",
-            "semantics": {
-              "original_text": "walk to the kitchen and find the basket of clothes. put the soap and clothes into the washing machine. turn on the washing machine.",
-              "task_type": "简单任务",
-              "actions": [
-                {
-                  "type": "未知",
-                  "verb": "walk",
-                  "object": "to",
-                  "structure": "动宾结构"
-                },
-                {
-                  "type": "未知",
-                  "verb": "the",
-                  "object": "kitchen",
-                  "structure": "动宾结构"
-                },
-                {
-                  "type": "未知",
-                  "verb": "and",
-                  "object": "find",
-                  "structure": "动宾结构"
-                },
-                {
-                  "type": "未知",
-                  "verb": "of",
-                  "object": "clothes",
-                  "structure": "动宾结构"
-                },
-                {
-                  "type": "未知",
-                  "verb": "put",
-                  "object": "the",
-                  "structure": "动宾结构"
-                },
-                {
-                  "type": "未知",
-                  "verb": "soap",
-                  "object": "and",
-                  "structure": "动宾结构"
-                },
-                {
-                  "type": "未知",
-                  "verb": "clothes",
-                  "object": "into",
-                  "structure": "动宾结构"
-                },
-                {
-                  "type": "未知",
-                  "verb": "turn",
-                  "object": "on",
-                  "structure": "动宾结构"
-                }
-              ],
-              "objects": [
-                {
-                  "name": "to",
-                  "category": "未知",
-                  "position": 5
-                },
-                {
-                  "name": "the",
-                  "category": "未知",
-                  "position": 8
-                },
-                {
-                  "name": "kitchen",
-                  "category": "未知",
-                  "position": 12
-                },
-                {
-                  "name": "and",
-                  "category": "未知",
-                  "position": 20
-                },
-                {
-                  "name": "find",
-                  "category": "未知",
-                  "position": 24
-                },
-                {
-                  "name": "basket",
-                  "category": "未知",
-                  "position": 33
-                },
-                {
-                  "name": "clothes",
-                  "category": "未知",
-                  "position": 43
-                },
-                {
-                  "name": "into",
-                  "category": "未知",
-                  "position": 77
-                },
-                {
-                  "name": "washing",
-                  "category": "未知",
-                  "position": 86
-                },
-                {
-                  "name": "on",
-                  "category": "未知",
-                  "position": 108
-                }
-              ],
-              "temporal_info": [],
-              "conditions": [],
-              "constraints": [],
-              "propositions": [
-                "walk_to",
-                "the_kitchen",
-                "and_find",
-                "of_clothes",
-                "put_the",
-                "soap_and",
-                "clothes_into",
-                "turn_on"
-              ],
-              "structure": "simple"
-            },
-            "valid": true
-          },
-          "decomposition_result": {
-            "subgoals": [
-              {
-                "id": "atomic_1",
-                "description": "Execute atomic action: walk_to",
-                "ltl_formula": "walk_to",
-                "subgoal_type": {
-                  "_value_": "atomic",
-                  "_name_": "ATOMIC",
-                  "__objclass__": "{'_generate_next_value_': <staticmethod(<function Enum._generate_next_value_ at 0x74a14fe02c00>)>, '__module__': 'subgoal_decomposition.subgoal_decomposer', '__firstlineno__': 26, '__doc__': '子目标类型枚举', '__static_attributes__': (), '_new_member_': <built-in method __new__ of type object at 0x91a220>, '_use_args_': False, '_member_names_': ['SEQUENTIAL', 'PARALLEL', 'CONDITIONAL', 'ATOMIC', 'TEMPORAL'], '_member_map_': {'SEQUENTIAL': <SubgoalType.SEQUENTIAL: 'sequential'>, 'PARALLEL': <SubgoalType.PARALLEL: 'parallel'>, 'CONDITIONAL': <SubgoalType.CONDITIONAL: 'conditional'>, 'ATOMIC': <SubgoalType.ATOMIC: 'atomic'>, 'TEMPORAL': <SubgoalType.TEMPORAL: 'temporal'>}, '_value2member_map_': {'sequential': <SubgoalType.SEQUENTIAL: 'sequential'>, 'parallel': <SubgoalType.PARALLEL: 'parallel'>, 'conditional': <SubgoalType.CONDITIONAL: 'conditional'>, 'atomic': <SubgoalType.ATOMIC: 'atomic'>, 'temporal': <SubgoalType.TEMPORAL: 'temporal'>}, '_hashable_values_': ['sequential', 'parallel', 'conditional', 'atomic', 'temporal'], '_unhashable_values_': [], '_unhashable_values_map_': {}, '_member_type_': <class 'object'>, '_value_repr_': None, 'SEQUENTIAL': <SubgoalType.SEQUENTIAL: 'sequential'>, 'PARALLEL': <SubgoalType.PARALLEL: 'parallel'>, 'CONDITIONAL': <SubgoalType.CONDITIONAL: 'conditional'>, 'ATOMIC': <SubgoalType.ATOMIC: 'atomic'>, 'TEMPORAL': <SubgoalType.TEMPORAL: 'temporal'>, '__new__': <function Enum.__new__ at 0x74a14fe02980>}",
-                  "_sort_order_": 3
-                },
-                "dependencies": [],
-                "priority": 0,
-                "estimated_cost": 0.94,
-                "preconditions": [
-                  "agent_available",
-                  "path_clear"
-                ],
-                "effects": [
-                  "walk_to",
-                  "agent_position_changed"
-                ],
-                "metadata": {
-                  "depth": 0,
-                  "type": "atomic",
-                  "original_formula": "walk_to",
-                  "feasibility_score": 0.9,
-                  "action_type": "movement"
-                }
-              }
-            ],
-            "root_subgoal": "atomic_1",
-            "execution_order": [
-              "atomic_1"
-            ],
-            "total_cost": 0.94,
-            "decomposition_strategy": {
-              "_value_": "temporal_hierarchical",
-              "_name_": "TEMPORAL_HIERARCHICAL",
-              "__objclass__": "{'_generate_next_value_': <staticmethod(<function Enum._generate_next_value_ at 0x74a14fe02c00>)>, '__module__': 'subgoal_decomposition.subgoal_decomposer', '__firstlineno__': 35, '__doc__': '分解策略枚举', '__static_attributes__': (), '_new_member_': <built-in method __new__ of type object at 0x91a220>, '_use_args_': False, '_member_names_': ['TEMPORAL_HIERARCHICAL', 'TASK_DEPENDENCY', 'SEMANTIC_CLUSTERING', 'HYBRID'], '_member_map_': {'TEMPORAL_HIERARCHICAL': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'TASK_DEPENDENCY': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'SEMANTIC_CLUSTERING': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'HYBRID': <DecompositionStrategy.HYBRID: 'hybrid'>}, '_value2member_map_': {'temporal_hierarchical': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'task_dependency': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'semantic_clustering': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'hybrid': <DecompositionStrategy.HYBRID: 'hybrid'>}, '_hashable_values_': ['temporal_hierarchical', 'task_dependency', 'semantic_clustering', 'hybrid'], '_unhashable_values_': [], '_unhashable_values_map_': {}, '_member_type_': <class 'object'>, '_value_repr_': None, 'TEMPORAL_HIERARCHICAL': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'TASK_DEPENDENCY': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'SEMANTIC_CLUSTERING': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'HYBRID': <DecompositionStrategy.HYBRID: 'hybrid'>, '__new__': <function Enum.__new__ at 0x74a14fe02980>}",
-              "_sort_order_": 0
-            },
-            "metadata": {
-              "decomposition_method": "temporal_hierarchical",
-              "max_depth_reached": 0,
-              "original_formula": "walk_to",
-              "feasibility_analysis": {
-                "dependency_cycles": [],
-                "unreachable_subgoals": [],
-                "missing_preconditions": [
-                  {
-                    "subgoal_id": "atomic_1",
-                    "precondition": "agent_available",
-                    "suggestion": "Ensure agent_available is established before executing Execute atomic action: walk_to"
-                  },
-                  {
-                    "subgoal_id": "atomic_1",
-                    "precondition": "path_clear",
-                    "suggestion": "Ensure path_clear is established before executing Execute atomic action: walk_to"
-                  }
-                ],
-                "estimated_success_rate": 0.87624,
-                "is_feasible": true
-              },
-              "decomposition_quality": {
-                "granularity_score": 0.65,
-                "balance_score": 1.0,
-                "dependency_clarity_score": 0.4,
-                "overall_score": 0.66
-              },
-              "optimized": true,
-              "original_subgoal_count": 1,
-              "optimized_subgoal_count": 1
-            }
-          },
-          "validation_issues": [
-            {
-              "severity": "warning",
-              "message": "无法验证子目标 atomic_1 的LTL公式: 'LTLValidator' object has no attribute 'validate_formula'",
-              "subgoal_id": "atomic_1",
-              "suggestion": "检查LTL公式格式",
-              "metadata": null
-            }
-          ],
-          "optimization_result": {
-            "optimized_result": {
-              "subgoals": [
-                {
-                  "id": "atomic_1",
-                  "description": "Execute atomic action: walk_to",
-                  "ltl_formula": "walk_to",
-                  "subgoal_type": {
-                    "_value_": "atomic",
-                    "_name_": "ATOMIC",
-                    "__objclass__": "{'_generate_next_value_': <staticmethod(<function Enum._generate_next_value_ at 0x74a14fe02c00>)>, '__module__': 'subgoal_decomposition.subgoal_decomposer', '__firstlineno__': 26, '__doc__': '子目标类型枚举', '__static_attributes__': (), '_new_member_': <built-in method __new__ of type object at 0x91a220>, '_use_args_': False, '_member_names_': ['SEQUENTIAL', 'PARALLEL', 'CONDITIONAL', 'ATOMIC', 'TEMPORAL'], '_member_map_': {'SEQUENTIAL': <SubgoalType.SEQUENTIAL: 'sequential'>, 'PARALLEL': <SubgoalType.PARALLEL: 'parallel'>, 'CONDITIONAL': <SubgoalType.CONDITIONAL: 'conditional'>, 'ATOMIC': <SubgoalType.ATOMIC: 'atomic'>, 'TEMPORAL': <SubgoalType.TEMPORAL: 'temporal'>}, '_value2member_map_': {'sequential': <SubgoalType.SEQUENTIAL: 'sequential'>, 'parallel': <SubgoalType.PARALLEL: 'parallel'>, 'conditional': <SubgoalType.CONDITIONAL: 'conditional'>, 'atomic': <SubgoalType.ATOMIC: 'atomic'>, 'temporal': <SubgoalType.TEMPORAL: 'temporal'>}, '_hashable_values_': ['sequential', 'parallel', 'conditional', 'atomic', 'temporal'], '_unhashable_values_': [], '_unhashable_values_map_': {}, '_member_type_': <class 'object'>, '_value_repr_': None, 'SEQUENTIAL': <SubgoalType.SEQUENTIAL: 'sequential'>, 'PARALLEL': <SubgoalType.PARALLEL: 'parallel'>, 'CONDITIONAL': <SubgoalType.CONDITIONAL: 'conditional'>, 'ATOMIC': <SubgoalType.ATOMIC: 'atomic'>, 'TEMPORAL': <SubgoalType.TEMPORAL: 'temporal'>, '__new__': <function Enum.__new__ at 0x74a14fe02980>}",
-                    "_sort_order_": 3
-                  },
-                  "dependencies": [],
-                  "priority": 0,
-                  "estimated_cost": 0.94,
-                  "preconditions": [
-                    "agent_available",
-                    "path_clear"
-                  ],
-                  "effects": [
-                    "walk_to",
-                    "agent_position_changed"
-                  ],
-                  "metadata": {
-                    "depth": 0,
-                    "type": "atomic",
-                    "original_formula": "walk_to",
-                    "feasibility_score": 0.9,
-                    "action_type": "movement"
-                  }
-                }
-              ],
-              "root_subgoal": "atomic_1",
-              "execution_order": [
-                "atomic_1"
-              ],
-              "total_cost": 0.94,
-              "decomposition_strategy": {
-                "_value_": "temporal_hierarchical",
-                "_name_": "TEMPORAL_HIERARCHICAL",
-                "__objclass__": "{'_generate_next_value_': <staticmethod(<function Enum._generate_next_value_ at 0x74a14fe02c00>)>, '__module__': 'subgoal_decomposition.subgoal_decomposer', '__firstlineno__': 35, '__doc__': '分解策略枚举', '__static_attributes__': (), '_new_member_': <built-in method __new__ of type object at 0x91a220>, '_use_args_': False, '_member_names_': ['TEMPORAL_HIERARCHICAL', 'TASK_DEPENDENCY', 'SEMANTIC_CLUSTERING', 'HYBRID'], '_member_map_': {'TEMPORAL_HIERARCHICAL': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'TASK_DEPENDENCY': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'SEMANTIC_CLUSTERING': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'HYBRID': <DecompositionStrategy.HYBRID: 'hybrid'>}, '_value2member_map_': {'temporal_hierarchical': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'task_dependency': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'semantic_clustering': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'hybrid': <DecompositionStrategy.HYBRID: 'hybrid'>}, '_hashable_values_': ['temporal_hierarchical', 'task_dependency', 'semantic_clustering', 'hybrid'], '_unhashable_values_': [], '_unhashable_values_map_': {}, '_member_type_': <class 'object'>, '_value_repr_': None, 'TEMPORAL_HIERARCHICAL': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'TASK_DEPENDENCY': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'SEMANTIC_CLUSTERING': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'HYBRID': <DecompositionStrategy.HYBRID: 'hybrid'>, '__new__': <function Enum.__new__ at 0x74a14fe02980>}",
-                "_sort_order_": 0
-              },
-              "metadata": {
-                "decomposition_method": "temporal_hierarchical",
-                "max_depth_reached": 0,
-                "original_formula": "walk_to",
-                "feasibility_analysis": {
-                  "dependency_cycles": [],
-                  "unreachable_subgoals": [],
-                  "missing_preconditions": [
-                    {
-                      "subgoal_id": "atomic_1",
-                      "precondition": "agent_available",
-                      "suggestion": "Ensure agent_available is established before executing Execute atomic action: walk_to"
-                    },
-                    {
-                      "subgoal_id": "atomic_1",
-                      "precondition": "path_clear",
-                      "suggestion": "Ensure path_clear is established before executing Execute atomic action: walk_to"
-                    }
-                  ],
-                  "estimated_success_rate": 0.87624,
-                  "is_feasible": true
-                },
-                "decomposition_quality": {
-                  "granularity_score": 0.65,
-                  "balance_score": 1.0,
-                  "dependency_clarity_score": 0.4,
-                  "overall_score": 0.66
-                },
-                "optimized": true,
-                "original_subgoal_count": 1,
-                "optimized_subgoal_count": 1
-              }
-            },
-            "improvements": [],
-            "performance_gain": 0.0,
-            "validation_issues_resolved": 0,
-            "metadata": {
-              "optimization_time": "unknown",
-              "optimization_strategy": "comprehensive"
-            }
-          },
-          "analysis_result": {
-            "overall_complexity": "low",
-            "subgoal_count": 1,
-            "max_depth": 0,
-            "dependency_complexity": 0.0,
-            "type_distribution": {
-              "atomic": 1
-            },
-            "cost_distribution": {
-              "min": 0.94,
-              "max": 0.94,
-              "avg": 0.94,
-              "total": 0.94
-            },
-            "recommendations": [
-              "原子子目标比例过高，考虑增加更高层次的抽象"
-            ]
-          },
-          "metadata": {
-            "processed_at": "unknown",
-            "validation_enabled": true,
-            "optimization_enabled": true,
-            "analysis_enabled": true,
-            "max_depth": 5,
-            "max_subgoals": 20
-          }
-        },
         "subgoal_count": 1,
         "subgoals": [
           {
             "id": "atomic_1",
             "description": "Execute atomic action: walk_to",
             "ltl_formula": "walk_to",
-            "subgoal_type": {
-              "_value_": "atomic",
-              "_name_": "ATOMIC",
-              "__objclass__": "{'_generate_next_value_': <staticmethod(<function Enum._generate_next_value_ at 0x74a14fe02c00>)>, '__module__': 'subgoal_decomposition.subgoal_decomposer', '__firstlineno__': 26, '__doc__': '子目标类型枚举', '__static_attributes__': (), '_new_member_': <built-in method __new__ of type object at 0x91a220>, '_use_args_': False, '_member_names_': ['SEQUENTIAL', 'PARALLEL', 'CONDITIONAL', 'ATOMIC', 'TEMPORAL'], '_member_map_': {'SEQUENTIAL': <SubgoalType.SEQUENTIAL: 'sequential'>, 'PARALLEL': <SubgoalType.PARALLEL: 'parallel'>, 'CONDITIONAL': <SubgoalType.CONDITIONAL: 'conditional'>, 'ATOMIC': <SubgoalType.ATOMIC: 'atomic'>, 'TEMPORAL': <SubgoalType.TEMPORAL: 'temporal'>}, '_value2member_map_': {'sequential': <SubgoalType.SEQUENTIAL: 'sequential'>, 'parallel': <SubgoalType.PARALLEL: 'parallel'>, 'conditional': <SubgoalType.CONDITIONAL: 'conditional'>, 'atomic': <SubgoalType.ATOMIC: 'atomic'>, 'temporal': <SubgoalType.TEMPORAL: 'temporal'>}, '_hashable_values_': ['sequential', 'parallel', 'conditional', 'atomic', 'temporal'], '_unhashable_values_': [], '_unhashable_values_map_': {}, '_member_type_': <class 'object'>, '_value_repr_': None, 'SEQUENTIAL': <SubgoalType.SEQUENTIAL: 'sequential'>, 'PARALLEL': <SubgoalType.PARALLEL: 'parallel'>, 'CONDITIONAL': <SubgoalType.CONDITIONAL: 'conditional'>, 'ATOMIC': <SubgoalType.ATOMIC: 'atomic'>, 'TEMPORAL': <SubgoalType.TEMPORAL: 'temporal'>, '__new__': <function Enum.__new__ at 0x74a14fe02980>}",
-              "_sort_order_": 3
-            },
+            "subgoal_type": "ATOMIC",
             "dependencies": [],
             "priority": 0,
             "estimated_cost": 0.94,
@@ -493,240 +82,23 @@
               "action_type": "movement"
             }
           }
-        ]
+        ],
+        "type": "IntegrationResult"
       },
       "transition_modeling": {
         "status": "success",
-        "result": {
-          "request_id": "request_1764118356937354",
-          "success": true,
-          "message": "Generated 1 valid sequences",
-          "predicted_sequences": [
-            {
-              "id": "empty_sequence_request_1764118356937354",
-              "transitions": [],
-              "initial_state": {
-                "at_location": "start",
-                "task_completed": false,
-                "objects": {},
-                "environment": "virtualhome"
-              },
-              "final_state": {
-                "at_location": "start",
-                "task_completed": false,
-                "objects": {},
-                "environment": "virtualhome"
-              },
-              "goal_state": {},
-              "metadata": {},
-              "created_at": 1764118356.9375083,
-              "updated_at": 1764118356.9375088
-            }
-          ],
-          "validation_results": [
-            {
-              "is_valid": true,
-              "message": "Sequence validation passed: 0 transitions",
-              "details": {
-                "transition_validations": [],
-                "state_evolution": [
-                  {
-                    "at_location": "start",
-                    "task_completed": false,
-                    "objects": {},
-                    "environment": "virtualhome"
-                  }
-                ]
-              },
-              "timestamp": 1764118356.9375548
-            }
-          ],
-          "metadata": {
-            "total_sequences_generated": 1,
-            "valid_sequences_count": 1,
-            "final_sequences_count": 1,
-            "modeling_time": 0.0001900196075439453,
-            "ltl_validated": {
-              "config": {},
-              "logger": {
-                "filters": [],
-                "name": "transition_modeling.logic_guard",
-                "level": 0,
-                "parent": {
-                  "filters": [],
-                  "name": "root",
-                  "level": 10,
-                  "parent": null,
-                  "propagate": true,
-                  "handlers": [
-                    {
-                      "baseFilename": "/home/yeah/eai-interpretable-interface/new_debug_parquet_processing.log",
-                      "mode": "a",
-                      "encoding": "locale",
-                      "errors": null,
-                      "delay": false,
-                      "_builtin_open": "<built-in function open>",
-                      "filters": [],
-                      "_name": null,
-                      "level": 0,
-                      "formatter": {
-                        "_style": {
-                          "_fmt": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-                          "_defaults": null
-                        },
-                        "_fmt": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-                        "datefmt": null
-                      },
-                      "_closed": false,
-                      "lock": "<unlocked _thread.RLock object owner=0 count=0 at 0x74a13181c7c0>",
-                      "stream": {
-                        "mode": "a"
-                      }
-                    },
-                    {
-                      "filters": [],
-                      "_name": null,
-                      "level": 0,
-                      "formatter": {
-                        "_style": {
-                          "_fmt": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-                          "_defaults": null
-                        },
-                        "_fmt": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-                        "datefmt": null
-                      },
-                      "_closed": false,
-                      "lock": "<unlocked _thread.RLock object owner=0 count=0 at 0x74a14a118580>",
-                      "stream": {
-                        "mode": "w"
-                      }
-                    }
-                  ],
-                  "disabled": false,
-                  "_cache": {}
-                },
-                "propagate": true,
-                "handlers": [],
-                "disabled": false,
-                "_cache": {
-                  "20": true
-                },
-                "manager": {
-                  "root": {
-                    "filters": [],
-                    "name": "root",
-                    "level": 10,
-                    "parent": null,
-                    "propagate": true,
-                    "handlers": [
-                      {
-                        "baseFilename": "/home/yeah/eai-interpretable-interface/new_debug_parquet_processing.log",
-                        "mode": "a",
-                        "encoding": "locale",
-                        "errors": null,
-                        "delay": false,
-                        "_builtin_open": "<built-in function open>",
-                        "filters": [],
-                        "_name": null,
-                        "level": 0,
-                        "formatter": {
-                          "_style": {
-                            "_fmt": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-                            "_defaults": null
-                          },
-                          "_fmt": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-                          "datefmt": null
-                        },
-                        "_closed": false,
-                        "lock": "<unlocked _thread.RLock object owner=0 count=0 at 0x74a13181c7c0>",
-                        "stream": {
-                          "mode": "a"
-                        }
-                      },
-                      {
-                        "filters": [],
-                        "_name": null,
-                        "level": 0,
-                        "formatter": {
-                          "_style": {
-                            "_fmt": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-                            "_defaults": null
-                          },
-                          "_fmt": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-                          "datefmt": null
-                        },
-                        "_closed": false,
-                        "lock": "<unlocked _thread.RLock object owner=0 count=0 at 0x74a14a118580>",
-                        "stream": {
-                          "mode": "w"
-                        }
-                      }
-                    ],
-                    "disabled": false,
-                    "_cache": {}
-                  },
-                  "_disable": 0,
-                  "emittedNoHandlerWarning": false,
-                  "loggerDict": {
-                    "numexpr.utils": {
-                      "filters": [],
-                      "name": "numexpr.utils",
-                      "level": 0,
-                      "parent": {
-                        "filters": [],
-                        "name": "root",
-                        "level": 10,
-                        "parent": null,
-                        "propagate": true,
-                        "handlers": [
-                          {
-                            "baseFilename": "/home/yeah/eai-interpretable-interface/new_debug_parquet_processing.log",
-                            "mode": "a",
-                            "encoding": "locale",
-                            "errors": null,
-                            "delay": false,
-                            "_builtin_open": "<built-in function open>",
-                            "filters": [],
-                            "_name": null,
-                            "level": 0,
-                            "formatter": {
-                              "_style": {
-                                "_fmt": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-                                "_defaults": null
-                              },
-                              "_fmt": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-                              "datefmt": null
-                            },
-                            "_closed": false,
-                            "lock": "<unlocked _thread.RLock object owner=0 count=0 at 0x74a13181c7c0>",
-                            "stream": {
-                              "mode": "a"
-                            }
-                          },
-                          {
-                            "filters": [],
-                            "_name": null,
-                            "level": 0,
-                            "formatter": {
-                              "_style": {
-                                "_fmt": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-                                "_defaults": null
-                              },
-                              "_fmt": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-                              "datefmt": null
-                            },
-                            "_closed": false,
-                            "lock": "<unlocked _thread.RLock object owner=0 count=0 at 0x74a14a118580>",
-                            "stream": {
-                              "mode": "w"
-                            }
-                          }
-                        ],
-                        "disabled": false,
-                        "_cache": {}
-                      },
-                      "propagate": true,
-                      "handlers": [],
-                      "disabled": false,
-                      "_cache": {},
-                      "manager": 
+        "type": "ModelingResponse"
+      },
+      "action_sequencing": {
+        "status": "failed",
+        "type": "SequencingResponse"
+      }
+    },
+    "execution_times": {
+      "goal_interpretation": 0.002490520477294922,
+      "subgoal_decomposition": 0.0028009414672851562,
+      "transition_modeling": 0.00031566619873046875,
+      "action_sequencing": 0.0003371238708496094
+    }
+  }
+}

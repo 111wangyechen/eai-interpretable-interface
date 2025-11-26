@@ -1,0 +1,4122 @@
+{
+  "timestamp": "2025-11-26T08:57:21.280233",
+  "total_tasks": 40,
+  "successful_tasks": 40,
+  "failed_tasks": 0,
+  "results": [
+    {
+      "submission_id": "virtualhome_27_2_1764118641140",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.147368",
+      "goal": {
+        "natural_language": "Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine.",
+        "interpreted": "walk_to"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: walk_to",
+            "ltl_formula": "walk_to",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.94,
+            "preconditions": [
+              "agent_available",
+              "path_clear"
+            ],
+            "effects": [
+              "walk_to",
+              "agent_position_changed"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "walk_to",
+              "feasibility_score": 0.9,
+              "action_type": "movement"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.007007122039794922,
+      "execution_times": {
+        "goal_interpretation": 0.002490520477294922,
+        "subgoal_decomposition": 0.0028009414672851562,
+        "transition_modeling": 0.00031566619873046875,
+        "action_sequencing": 0.0003371238708496094
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_27_2_1764118641140",
+        "task_id": "27_2",
+        "dataset": "virtualhome",
+        "natural_goal": "Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine.",
+        "start_time": "2025-11-26T08:57:21.140387",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "walk_to",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: walk_to",
+                "ltl_formula": "walk_to",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.94,
+                "preconditions": [
+                  "agent_available",
+                  "path_clear"
+                ],
+                "effects": [
+                  "walk_to",
+                  "agent_position_changed"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "walk_to",
+                  "feasibility_score": 0.9,
+                  "action_type": "movement"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.002490520477294922,
+          "subgoal_decomposition": 0.0028009414672851562,
+          "transition_modeling": 0.00031566619873046875,
+          "action_sequencing": 0.0003371238708496094
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_417_1_1764118641147",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.149641",
+      "goal": {
+        "natural_language": "I will load the dirty clothes into the washing machine.",
+        "interpreted": "i_will"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: i_will",
+            "ltl_formula": "i_will",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.92,
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "i_will"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "i_will",
+              "feasibility_score": 0.6,
+              "action_type": "general"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0017113685607910156,
+      "execution_times": {
+        "goal_interpretation": 0.0001709461212158203,
+        "subgoal_decomposition": 0.0005242824554443359,
+        "transition_modeling": 0.00021076202392578125,
+        "action_sequencing": 0.0002446174621582031
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_417_1_1764118641147",
+        "task_id": "417_1",
+        "dataset": "virtualhome",
+        "natural_goal": "I will load the dirty clothes into the washing machine.",
+        "start_time": "2025-11-26T08:57:21.147937",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "i_will",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: i_will",
+                "ltl_formula": "i_will",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.92,
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "i_will"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "i_will",
+                  "feasibility_score": 0.6,
+                  "action_type": "general"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0001709461212158203,
+          "subgoal_decomposition": 0.0005242824554443359,
+          "transition_modeling": 0.00021076202392578125,
+          "action_sequencing": 0.0002446174621582031
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_850_1_1764118641150",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.151643",
+      "goal": {
+        "natural_language": "Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.",
+        "interpreted": "walk_into"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: walk_into",
+            "ltl_formula": "walk_into",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.98,
+            "preconditions": [
+              "agent_available",
+              "path_clear"
+            ],
+            "effects": [
+              "walk_into",
+              "agent_position_changed"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "walk_into",
+              "feasibility_score": 0.9,
+              "action_type": "movement"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0015714168548583984,
+      "execution_times": {
+        "goal_interpretation": 0.00021505355834960938,
+        "subgoal_decomposition": 0.00047659873962402344,
+        "transition_modeling": 0.00017309188842773438,
+        "action_sequencing": 0.00018906593322753906
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_850_1_1764118641150",
+        "task_id": "850_1",
+        "dataset": "virtualhome",
+        "natural_goal": "Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.",
+        "start_time": "2025-11-26T08:57:21.150077",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "walk_into",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: walk_into",
+                "ltl_formula": "walk_into",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.98,
+                "preconditions": [
+                  "agent_available",
+                  "path_clear"
+                ],
+                "effects": [
+                  "walk_into",
+                  "agent_position_changed"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "walk_into",
+                  "feasibility_score": 0.9,
+                  "action_type": "movement"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00021505355834960938,
+          "subgoal_decomposition": 0.00047659873962402344,
+          "transition_modeling": 0.00017309188842773438,
+          "action_sequencing": 0.00018906593322753906
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_954_2_1764118641152",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.153645",
+      "goal": {
+        "natural_language": "I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.",
+        "interpreted": "i_need"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: i_need",
+            "ltl_formula": "i_need",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.92,
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "i_need"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "i_need",
+              "feasibility_score": 0.6,
+              "action_type": "general"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0016210079193115234,
+      "execution_times": {
+        "goal_interpretation": 0.00018262863159179688,
+        "subgoal_decomposition": 0.0006322860717773438,
+        "transition_modeling": 0.0001480579376220703,
+        "action_sequencing": 0.0001723766326904297
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_954_2_1764118641152",
+        "task_id": "954_2",
+        "dataset": "virtualhome",
+        "natural_goal": "I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.",
+        "start_time": "2025-11-26T08:57:21.152029",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "i_need",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: i_need",
+                "ltl_formula": "i_need",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.92,
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "i_need"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "i_need",
+                  "feasibility_score": 0.6,
+                  "action_type": "general"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00018262863159179688,
+          "subgoal_decomposition": 0.0006322860717773438,
+          "transition_modeling": 0.0001480579376220703,
+          "action_sequencing": 0.0001723766326904297
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_11_1_1764118641154",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.156589",
+      "goal": {
+        "natural_language": "I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.",
+        "interpreted": "i_go"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: i_go",
+            "ltl_formula": "i_go",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.88,
+            "preconditions": [
+              "agent_available",
+              "path_clear"
+            ],
+            "effects": [
+              "i_go",
+              "agent_position_changed"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "i_go",
+              "feasibility_score": 0.6,
+              "action_type": "movement"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0025365352630615234,
+      "execution_times": {
+        "goal_interpretation": 0.00048613548278808594,
+        "subgoal_decomposition": 0.0008425712585449219,
+        "transition_modeling": 0.0003113746643066406,
+        "action_sequencing": 0.0002624988555908203
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_11_1_1764118641154",
+        "task_id": "11_1",
+        "dataset": "virtualhome",
+        "natural_goal": "I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.",
+        "start_time": "2025-11-26T08:57:21.154059",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "i_go",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: i_go",
+                "ltl_formula": "i_go",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.88,
+                "preconditions": [
+                  "agent_available",
+                  "path_clear"
+                ],
+                "effects": [
+                  "i_go",
+                  "agent_position_changed"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "i_go",
+                  "feasibility_score": 0.6,
+                  "action_type": "movement"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00048613548278808594,
+          "subgoal_decomposition": 0.0008425712585449219,
+          "transition_modeling": 0.0003113746643066406,
+          "action_sequencing": 0.0002624988555908203
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_120_1_1764118641157",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.159262",
+      "goal": {
+        "natural_language": "Go to the kitchen and living room and turn on the lights.",
+        "interpreted": "go_to"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: go_to",
+            "ltl_formula": "go_to",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.9,
+            "preconditions": [
+              "agent_available",
+              "path_clear"
+            ],
+            "effects": [
+              "go_to",
+              "agent_position_changed"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "go_to",
+              "feasibility_score": 0.6,
+              "action_type": "movement"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0019989013671875,
+      "execution_times": {
+        "goal_interpretation": 0.0001361370086669922,
+        "subgoal_decomposition": 0.00036597251892089844,
+        "transition_modeling": 0.0006020069122314453,
+        "action_sequencing": 0.00039005279541015625
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_120_1_1764118641157",
+        "task_id": "120_1",
+        "dataset": "virtualhome",
+        "natural_goal": "Go to the kitchen and living room and turn on the lights.",
+        "start_time": "2025-11-26T08:57:21.157268",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "go_to",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: go_to",
+                "ltl_formula": "go_to",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.9,
+                "preconditions": [
+                  "agent_available",
+                  "path_clear"
+                ],
+                "effects": [
+                  "go_to",
+                  "agent_position_changed"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "go_to",
+                  "feasibility_score": 0.6,
+                  "action_type": "movement"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0001361370086669922,
+          "subgoal_decomposition": 0.00036597251892089844,
+          "transition_modeling": 0.0006020069122314453,
+          "action_sequencing": 0.00039005279541015625
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_125_2_1764118641159",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.162218",
+      "goal": {
+        "natural_language": "turn on the light for room",
+        "interpreted": "turn_on"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: turn_on",
+            "ltl_formula": "turn_on",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.94,
+            "preconditions": [
+              "agent_available",
+              "object_visible",
+              "object_reachable"
+            ],
+            "effects": [
+              "turn_on"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "turn_on",
+              "feasibility_score": 0.7,
+              "action_type": "operation"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.002446413040161133,
+      "execution_times": {
+        "goal_interpretation": 0.00016260147094726562,
+        "subgoal_decomposition": 0.0006663799285888672,
+        "transition_modeling": 0.0003037452697753906,
+        "action_sequencing": 0.00028896331787109375
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_125_2_1764118641159",
+        "task_id": "125_2",
+        "dataset": "virtualhome",
+        "natural_goal": "turn on the light for room",
+        "start_time": "2025-11-26T08:57:21.159778",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "turn_on",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: turn_on",
+                "ltl_formula": "turn_on",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.94,
+                "preconditions": [
+                  "agent_available",
+                  "object_visible",
+                  "object_reachable"
+                ],
+                "effects": [
+                  "turn_on"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "turn_on",
+                  "feasibility_score": 0.7,
+                  "action_type": "operation"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00016260147094726562,
+          "subgoal_decomposition": 0.0006663799285888672,
+          "transition_modeling": 0.0003037452697753906,
+          "action_sequencing": 0.00028896331787109375
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_150_2_1764118641162",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.165356",
+      "goal": {
+        "natural_language": "push any ligth button to turn it on, for example in the living room",
+        "interpreted": "push_any"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: push_any",
+            "ltl_formula": "push_any",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.96,
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "push_any"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "push_any",
+              "feasibility_score": 0.6,
+              "action_type": "general"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.002397775650024414,
+      "execution_times": {
+        "goal_interpretation": 0.000186920166015625,
+        "subgoal_decomposition": 0.0007054805755615234,
+        "transition_modeling": 0.0004317760467529297,
+        "action_sequencing": 0.00018858909606933594
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_150_2_1764118641162",
+        "task_id": "150_2",
+        "dataset": "virtualhome",
+        "natural_goal": "push any ligth button to turn it on, for example in the living room",
+        "start_time": "2025-11-26T08:57:21.162964",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "push_any",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: push_any",
+                "ltl_formula": "push_any",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.96,
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "push_any"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "push_any",
+                  "feasibility_score": 0.6,
+                  "action_type": "general"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.000186920166015625,
+          "subgoal_decomposition": 0.0007054805755615234,
+          "transition_modeling": 0.0004317760467529297,
+          "action_sequencing": 0.00018858909606933594
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_160_1_1764118641165",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.167593",
+      "goal": {
+        "natural_language": "Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one.",
+        "interpreted": "go_to"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: go_to",
+            "ltl_formula": "go_to",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.9,
+            "preconditions": [
+              "agent_available",
+              "path_clear"
+            ],
+            "effects": [
+              "go_to",
+              "agent_position_changed"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "go_to",
+              "feasibility_score": 0.6,
+              "action_type": "movement"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0018320083618164062,
+      "execution_times": {
+        "goal_interpretation": 0.00019168853759765625,
+        "subgoal_decomposition": 0.0004930496215820312,
+        "transition_modeling": 0.00036716461181640625,
+        "action_sequencing": 0.00037360191345214844
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_160_1_1764118641165",
+        "task_id": "160_1",
+        "dataset": "virtualhome",
+        "natural_goal": "Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one.",
+        "start_time": "2025-11-26T08:57:21.165766",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "go_to",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: go_to",
+                "ltl_formula": "go_to",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.9,
+                "preconditions": [
+                  "agent_available",
+                  "path_clear"
+                ],
+                "effects": [
+                  "go_to",
+                  "agent_position_changed"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "go_to",
+                  "feasibility_score": 0.6,
+                  "action_type": "movement"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00019168853759765625,
+          "subgoal_decomposition": 0.0004930496215820312,
+          "transition_modeling": 0.00036716461181640625,
+          "action_sequencing": 0.00037360191345214844
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_180_2_1764118641168",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.170659",
+      "goal": {
+        "natural_language": "Find the light circuit breaker in the kitchen",
+        "interpreted": "find_the"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: perform_find",
+            "ltl_formula": "perform_find",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 1.04,
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "perform_find"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "find_the",
+              "feasibility_score": 0.6,
+              "action_type": "general"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0023746490478515625,
+      "execution_times": {
+        "goal_interpretation": 0.00016808509826660156,
+        "subgoal_decomposition": 0.0006921291351318359,
+        "transition_modeling": 0.00030922889709472656,
+        "action_sequencing": 0.0002770423889160156
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_180_2_1764118641168",
+        "task_id": "180_2",
+        "dataset": "virtualhome",
+        "natural_goal": "Find the light circuit breaker in the kitchen",
+        "start_time": "2025-11-26T08:57:21.168290",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "find_the",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: perform_find",
+                "ltl_formula": "perform_find",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 1.04,
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "perform_find"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "find_the",
+                  "feasibility_score": 0.6,
+                  "action_type": "general"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00016808509826660156,
+          "subgoal_decomposition": 0.0006921291351318359,
+          "transition_modeling": 0.00030922889709472656,
+          "action_sequencing": 0.0002770423889160156
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_205_1_1764118641171",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.174613",
+      "goal": {
+        "natural_language": "Walk into the bedroom and walk to the light switch. Flip the switch.",
+        "interpreted": "walk_into"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: walk_into",
+            "ltl_formula": "walk_into",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.98,
+            "preconditions": [
+              "agent_available",
+              "path_clear"
+            ],
+            "effects": [
+              "walk_into",
+              "agent_position_changed"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "walk_into",
+              "feasibility_score": 0.9,
+              "action_type": "movement"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0034897327423095703,
+      "execution_times": {
+        "goal_interpretation": 0.00018477439880371094,
+        "subgoal_decomposition": 0.0011289119720458984,
+        "transition_modeling": 0.0006690025329589844,
+        "action_sequencing": 0.0005047321319580078
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_205_1_1764118641171",
+        "task_id": "205_1",
+        "dataset": "virtualhome",
+        "natural_goal": "Walk into the bedroom and walk to the light switch. Flip the switch.",
+        "start_time": "2025-11-26T08:57:21.171130",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "walk_into",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: walk_into",
+                "ltl_formula": "walk_into",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.98,
+                "preconditions": [
+                  "agent_available",
+                  "path_clear"
+                ],
+                "effects": [
+                  "walk_into",
+                  "agent_position_changed"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "walk_into",
+                  "feasibility_score": 0.9,
+                  "action_type": "movement"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00018477439880371094,
+          "subgoal_decomposition": 0.0011289119720458984,
+          "transition_modeling": 0.0006690025329589844,
+          "action_sequencing": 0.0005047321319580078
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_222_1_1764118641175",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.180162",
+      "goal": {
+        "natural_language": "walk into living room, walk to light, turn on light switch.",
+        "interpreted": "walk_into"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: walk_into",
+            "ltl_formula": "walk_into",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.98,
+            "preconditions": [
+              "agent_available",
+              "path_clear"
+            ],
+            "effects": [
+              "walk_into",
+              "agent_position_changed"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "walk_into",
+              "feasibility_score": 0.9,
+              "action_type": "movement"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.004679441452026367,
+      "execution_times": {
+        "goal_interpretation": 0.00034117698669433594,
+        "subgoal_decomposition": 0.0012600421905517578,
+        "transition_modeling": 0.0006275177001953125,
+        "action_sequencing": 0.0006535053253173828
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_222_1_1764118641175",
+        "task_id": "222_1",
+        "dataset": "virtualhome",
+        "natural_goal": "walk into living room, walk to light, turn on light switch.",
+        "start_time": "2025-11-26T08:57:21.175489",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "walk_into",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: walk_into",
+                "ltl_formula": "walk_into",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.98,
+                "preconditions": [
+                  "agent_available",
+                  "path_clear"
+                ],
+                "effects": [
+                  "walk_into",
+                  "agent_position_changed"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "walk_into",
+                  "feasibility_score": 0.9,
+                  "action_type": "movement"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00034117698669433594,
+          "subgoal_decomposition": 0.0012600421905517578,
+          "transition_modeling": 0.0006275177001953125,
+          "action_sequencing": 0.0006535053253173828
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_232_2_1764118641180",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.183238",
+      "goal": {
+        "natural_language": "I need to turn on the lights in the kitchen so I can make dinner.",
+        "interpreted": "i_need"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: i_need",
+            "ltl_formula": "i_need",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.92,
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "i_need"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "i_need",
+              "feasibility_score": 0.6,
+              "action_type": "general"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.002469301223754883,
+      "execution_times": {
+        "goal_interpretation": 0.0002186298370361328,
+        "subgoal_decomposition": 0.0008833408355712891,
+        "transition_modeling": 0.000217437744140625,
+        "action_sequencing": 0.00021147727966308594
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_232_2_1764118641180",
+        "task_id": "232_2",
+        "dataset": "virtualhome",
+        "natural_goal": "I need to turn on the lights in the kitchen so I can make dinner.",
+        "start_time": "2025-11-26T08:57:21.180775",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "i_need",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: i_need",
+                "ltl_formula": "i_need",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.92,
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "i_need"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "i_need",
+                  "feasibility_score": 0.6,
+                  "action_type": "general"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0002186298370361328,
+          "subgoal_decomposition": 0.0008833408355712891,
+          "transition_modeling": 0.000217437744140625,
+          "action_sequencing": 0.00021147727966308594
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_310_1_1764118641183",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.185310",
+      "goal": {
+        "natural_language": "I enter the bedroom and find the light. Then I turn it on.",
+        "interpreted": "i_enter"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: i_enter",
+            "ltl_formula": "i_enter",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.94,
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "i_enter"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "i_enter",
+              "feasibility_score": 0.6,
+              "action_type": "general"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0014989376068115234,
+      "execution_times": {
+        "goal_interpretation": 0.00020384788513183594,
+        "subgoal_decomposition": 0.0004315376281738281,
+        "transition_modeling": 0.0001571178436279297,
+        "action_sequencing": 0.00018453598022460938
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_310_1_1764118641183",
+        "task_id": "310_1",
+        "dataset": "virtualhome",
+        "natural_goal": "I enter the bedroom and find the light. Then I turn it on.",
+        "start_time": "2025-11-26T08:57:21.183819",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "i_enter",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: i_enter",
+                "ltl_formula": "i_enter",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.94,
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "i_enter"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "i_enter",
+                  "feasibility_score": 0.6,
+                  "action_type": "general"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00020384788513183594,
+          "subgoal_decomposition": 0.0004315376281738281,
+          "transition_modeling": 0.0001571178436279297,
+          "action_sequencing": 0.00018453598022460938
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_311_1_1764118641185",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.187262",
+      "goal": {
+        "natural_language": "I go home and it's dark so I can not see anything",
+        "interpreted": "i_go"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: i_go",
+            "ltl_formula": "i_go",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.88,
+            "preconditions": [
+              "agent_available",
+              "path_clear"
+            ],
+            "effects": [
+              "i_go",
+              "agent_position_changed"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "i_go",
+              "feasibility_score": 0.6,
+              "action_type": "movement"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0014331340789794922,
+      "execution_times": {
+        "goal_interpretation": 0.0001888275146484375,
+        "subgoal_decomposition": 0.0004067420959472656,
+        "transition_modeling": 0.00017690658569335938,
+        "action_sequencing": 0.0002110004425048828
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_311_1_1764118641185",
+        "task_id": "311_1",
+        "dataset": "virtualhome",
+        "natural_goal": "I go home and it's dark so I can not see anything",
+        "start_time": "2025-11-26T08:57:21.185835",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "i_go",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: i_go",
+                "ltl_formula": "i_go",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.88,
+                "preconditions": [
+                  "agent_available",
+                  "path_clear"
+                ],
+                "effects": [
+                  "i_go",
+                  "agent_position_changed"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "i_go",
+                  "feasibility_score": 0.6,
+                  "action_type": "movement"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0001888275146484375,
+          "subgoal_decomposition": 0.0004067420959472656,
+          "transition_modeling": 0.00017690658569335938,
+          "action_sequencing": 0.0002110004425048828
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_331_2_1764118641187",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.189071",
+      "goal": {
+        "natural_language": "switching on light in an area",
+        "interpreted": "switching_on"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: switching_on",
+            "ltl_formula": "switching_on",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 1.04,
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "switching_on"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "switching_on",
+              "feasibility_score": 0.6,
+              "action_type": "general"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0014145374298095703,
+      "execution_times": {
+        "goal_interpretation": 0.00014472007751464844,
+        "subgoal_decomposition": 0.0004489421844482422,
+        "transition_modeling": 0.000156402587890625,
+        "action_sequencing": 0.00018644332885742188
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_331_2_1764118641187",
+        "task_id": "331_2",
+        "dataset": "virtualhome",
+        "natural_goal": "switching on light in an area",
+        "start_time": "2025-11-26T08:57:21.187662",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "switching_on",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: switching_on",
+                "ltl_formula": "switching_on",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 1.04,
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "switching_on"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "switching_on",
+                  "feasibility_score": 0.6,
+                  "action_type": "general"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00014472007751464844,
+          "subgoal_decomposition": 0.0004489421844482422,
+          "transition_modeling": 0.000156402587890625,
+          "action_sequencing": 0.00018644332885742188
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_345_1_1764118641189",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.190824",
+      "goal": {
+        "natural_language": "We enter into the Living room and walk towards light switch. Then switch on the light.",
+        "interpreted": "we_enter"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: we_enter",
+            "ltl_formula": "we_enter",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.96,
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "we_enter"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "we_enter",
+              "feasibility_score": 0.6,
+              "action_type": "general"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0013709068298339844,
+      "execution_times": {
+        "goal_interpretation": 0.00019049644470214844,
+        "subgoal_decomposition": 0.0004096031188964844,
+        "transition_modeling": 0.00013828277587890625,
+        "action_sequencing": 0.00018548965454101562
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_345_1_1764118641189",
+        "task_id": "345_1",
+        "dataset": "virtualhome",
+        "natural_goal": "We enter into the Living room and walk towards light switch. Then switch on the light.",
+        "start_time": "2025-11-26T08:57:21.189458",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "we_enter",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: we_enter",
+                "ltl_formula": "we_enter",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.96,
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "we_enter"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "we_enter",
+                  "feasibility_score": 0.6,
+                  "action_type": "general"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00019049644470214844,
+          "subgoal_decomposition": 0.0004096031188964844,
+          "transition_modeling": 0.00013828277587890625,
+          "action_sequencing": 0.00018548965454101562
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_392_1_1764118641191",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.192543",
+      "goal": {
+        "natural_language": "find lightswitch. walk to light switch. turn on light.",
+        "interpreted": "find_lightswitch"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: find_lightswitch",
+            "ltl_formula": "find_lightswitch",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 1.12,
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "find_lightswitch"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "find_lightswitch",
+              "feasibility_score": 0.6,
+              "action_type": "general"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0013687610626220703,
+      "execution_times": {
+        "goal_interpretation": 0.00014257431030273438,
+        "subgoal_decomposition": 0.0004286766052246094,
+        "transition_modeling": 0.00016069412231445312,
+        "action_sequencing": 0.00018835067749023438
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_392_1_1764118641191",
+        "task_id": "392_1",
+        "dataset": "virtualhome",
+        "natural_goal": "find lightswitch. walk to light switch. turn on light.",
+        "start_time": "2025-11-26T08:57:21.191179",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "find_lightswitch",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: find_lightswitch",
+                "ltl_formula": "find_lightswitch",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 1.12,
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "find_lightswitch"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "find_lightswitch",
+                  "feasibility_score": 0.6,
+                  "action_type": "general"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00014257431030273438,
+          "subgoal_decomposition": 0.0004286766052246094,
+          "transition_modeling": 0.00016069412231445312,
+          "action_sequencing": 0.00018835067749023438
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_394_2_1764118641192",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.194299",
+      "goal": {
+        "natural_language": "Find light switch. switch on",
+        "interpreted": "find_light"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: find_light",
+            "ltl_formula": "find_light",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 1.0,
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "find_light"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "find_light",
+              "feasibility_score": 0.6,
+              "action_type": "general"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0013701915740966797,
+      "execution_times": {
+        "goal_interpretation": 0.0001246929168701172,
+        "subgoal_decomposition": 0.0004143714904785156,
+        "transition_modeling": 0.0001533031463623047,
+        "action_sequencing": 0.0001976490020751953
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_394_2_1764118641192",
+        "task_id": "394_2",
+        "dataset": "virtualhome",
+        "natural_goal": "Find light switch. switch on",
+        "start_time": "2025-11-26T08:57:21.192934",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "find_light",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: find_light",
+                "ltl_formula": "find_light",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 1.0,
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "find_light"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "find_light",
+                  "feasibility_score": 0.6,
+                  "action_type": "general"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0001246929168701172,
+          "subgoal_decomposition": 0.0004143714904785156,
+          "transition_modeling": 0.0001533031463623047,
+          "action_sequencing": 0.0001976490020751953
+        }
+      }
+    },
+    {
+      "submission_id": "virtualhome_432_1_1764118641194",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.196188",
+      "goal": {
+        "natural_language": "Walk over to light switch, flip the switch to the on position",
+        "interpreted": "walk_over"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: walk_over",
+            "ltl_formula": "walk_over",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.98,
+            "preconditions": [
+              "agent_available",
+              "path_clear"
+            ],
+            "effects": [
+              "walk_over",
+              "agent_position_changed"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "walk_over",
+              "feasibility_score": 0.9,
+              "action_type": "movement"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0014982223510742188,
+      "execution_times": {
+        "goal_interpretation": 0.00019240379333496094,
+        "subgoal_decomposition": 0.00043392181396484375,
+        "transition_modeling": 0.00021529197692871094,
+        "action_sequencing": 0.00023245811462402344
+      },
+      "debug_info": {
+        "submission_id": "virtualhome_432_1_1764118641194",
+        "task_id": "432_1",
+        "dataset": "virtualhome",
+        "natural_goal": "Walk over to light switch, flip the switch to the on position",
+        "start_time": "2025-11-26T08:57:21.194698",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "walk_over",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: walk_over",
+                "ltl_formula": "walk_over",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.98,
+                "preconditions": [
+                  "agent_available",
+                  "path_clear"
+                ],
+                "effects": [
+                  "walk_over",
+                  "agent_position_changed"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "walk_over",
+                  "feasibility_score": 0.9,
+                  "action_type": "movement"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00019240379333496094,
+          "subgoal_decomposition": 0.00043392181396484375,
+          "transition_modeling": 0.00021529197692871094,
+          "action_sequencing": 0.00023245811462402344
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764118641238",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.242832",
+      "goal": {
+        "natural_language": "Put one candle, one cheese, one cookie, and one bow into each basket.",
+        "interpreted": "put_one"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: put_one",
+            "ltl_formula": "put_one",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 1.41,
+            "preconditions": [
+              "agent_available",
+              "object_in_hand",
+              "target_location_clear"
+            ],
+            "effects": [
+              "put_one",
+              "object_placed",
+              "hand_empty"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "put_one",
+              "feasibility_score": 0.7,
+              "action_type": "manipulation"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.004117727279663086,
+      "execution_times": {
+        "goal_interpretation": 0.00017523765563964844,
+        "subgoal_decomposition": 0.00043201446533203125,
+        "transition_modeling": 0.0002014636993408203,
+        "action_sequencing": 0.0027666091918945312
+      },
+      "debug_info": {
+        "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764118641238",
+        "task_id": "assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37",
+        "dataset": "behavior",
+        "natural_goal": "Put one candle, one cheese, one cookie, and one bow into each basket.",
+        "start_time": "2025-11-26T08:57:21.238727",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "put_one",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: put_one",
+                "ltl_formula": "put_one",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 1.41,
+                "preconditions": [
+                  "agent_available",
+                  "object_in_hand",
+                  "target_location_clear"
+                ],
+                "effects": [
+                  "put_one",
+                  "object_placed",
+                  "hand_empty"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "put_one",
+                  "feasibility_score": 0.7,
+                  "action_type": "manipulation"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00017523765563964844,
+          "subgoal_decomposition": 0.00043201446533203125,
+          "transition_modeling": 0.0002014636993408203,
+          "action_sequencing": 0.0027666091918945312
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_1764118641243",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.244749",
+      "goal": {
+        "natural_language": "Check every sweater for lint, make sure none of them are dusty, and put them on the bed.",
+        "interpreted": "check_every"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: check_every",
+            "ltl_formula": "check_every",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.71,
+            "preconditions": [
+              "agent_available",
+              "object_visible"
+            ],
+            "effects": [
+              "check_every",
+              "information_obtained"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "check_every",
+              "feasibility_score": 0.9,
+              "action_type": "perception"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0014259815216064453,
+      "execution_times": {
+        "goal_interpretation": 0.0001678466796875,
+        "subgoal_decomposition": 0.0004730224609375,
+        "transition_modeling": 0.00016117095947265625,
+        "action_sequencing": 0.00019121170043945312
+      },
+      "debug_info": {
+        "submission_id": "behavior_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_1764118641243",
+        "task_id": "brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56",
+        "dataset": "behavior",
+        "natural_goal": "Check every sweater for lint, make sure none of them are dusty, and put them on the bed.",
+        "start_time": "2025-11-26T08:57:21.243329",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "check_every",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: check_every",
+                "ltl_formula": "check_every",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.71,
+                "preconditions": [
+                  "agent_available",
+                  "object_visible"
+                ],
+                "effects": [
+                  "check_every",
+                  "information_obtained"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "check_every",
+                  "feasibility_score": 0.9,
+                  "action_type": "perception"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0001678466796875,
+          "subgoal_decomposition": 0.0004730224609375,
+          "transition_modeling": 0.00016117095947265625,
+          "action_sequencing": 0.00019121170043945312
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764118641245",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.246537",
+      "goal": {
+        "natural_language": "Place the books into the carton for storage.",
+        "interpreted": "place_the"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: perform_place",
+            "ltl_formula": "perform_place",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 1.59,
+            "preconditions": [
+              "agent_available",
+              "object_in_hand",
+              "target_location_clear"
+            ],
+            "effects": [
+              "perform_place",
+              "object_placed",
+              "hand_empty"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "place_the",
+              "feasibility_score": 0.7,
+              "action_type": "manipulation"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0014007091522216797,
+      "execution_times": {
+        "goal_interpretation": 0.00013947486877441406,
+        "subgoal_decomposition": 0.00039386749267578125,
+        "transition_modeling": 0.00016307830810546875,
+        "action_sequencing": 0.00017642974853515625
+      },
+      "debug_info": {
+        "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764118641245",
+        "task_id": "boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47",
+        "dataset": "behavior",
+        "natural_goal": "Place the books into the carton for storage.",
+        "start_time": "2025-11-26T08:57:21.245141",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "place_the",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: perform_place",
+                "ltl_formula": "perform_place",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 1.59,
+                "preconditions": [
+                  "agent_available",
+                  "object_in_hand",
+                  "target_location_clear"
+                ],
+                "effects": [
+                  "perform_place",
+                  "object_placed",
+                  "hand_empty"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "place_the",
+                  "feasibility_score": 0.7,
+                  "action_type": "manipulation"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00013947486877441406,
+          "subgoal_decomposition": 0.00039386749267578125,
+          "transition_modeling": 0.00016307830810546875,
+          "action_sequencing": 0.00017642974853515625
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764118641246",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.248231",
+      "goal": {
+        "natural_language": "Collect all aluminum cans and place them into the bucket.",
+        "interpreted": "collect_all"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: collect_all",
+            "ltl_formula": "collect_all",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 1.02,
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "collect_all"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "collect_all",
+              "feasibility_score": 0.6,
+              "action_type": "general"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0013306140899658203,
+      "execution_times": {
+        "goal_interpretation": 0.0001575946807861328,
+        "subgoal_decomposition": 0.0003871917724609375,
+        "transition_modeling": 0.00016951560974121094,
+        "action_sequencing": 0.0001723766326904297
+      },
+      "debug_info": {
+        "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764118641246",
+        "task_id": "collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28",
+        "dataset": "behavior",
+        "natural_goal": "Collect all aluminum cans and place them into the bucket.",
+        "start_time": "2025-11-26T08:57:21.246905",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "collect_all",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: collect_all",
+                "ltl_formula": "collect_all",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 1.02,
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "collect_all"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "collect_all",
+                  "feasibility_score": 0.6,
+                  "action_type": "general"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0001575946807861328,
+          "subgoal_decomposition": 0.0003871917724609375,
+          "transition_modeling": 0.00016951560974121094,
+          "action_sequencing": 0.0001723766326904297
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764118641248",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.250074",
+      "goal": {
+        "natural_language": "Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.",
+        "interpreted": "use_the"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: perform_use",
+            "ltl_formula": "perform_use",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 1.02,
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "perform_use"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "use_the",
+              "feasibility_score": 0.6,
+              "action_type": "general"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0014581680297851562,
+      "execution_times": {
+        "goal_interpretation": 0.0001983642578125,
+        "subgoal_decomposition": 0.0004906654357910156,
+        "transition_modeling": 0.00015664100646972656,
+        "action_sequencing": 0.0001838207244873047
+      },
+      "debug_info": {
+        "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764118641248",
+        "task_id": "mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58",
+        "dataset": "behavior",
+        "natural_goal": "Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.",
+        "start_time": "2025-11-26T08:57:21.248621",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "use_the",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: perform_use",
+                "ltl_formula": "perform_use",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 1.02,
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "perform_use"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "use_the",
+                  "feasibility_score": 0.6,
+                  "action_type": "general"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0001983642578125,
+          "subgoal_decomposition": 0.0004906654357910156,
+          "transition_modeling": 0.00015664100646972656,
+          "action_sequencing": 0.0001838207244873047
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764118641250",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.251916",
+      "goal": {
+        "natural_language": "Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.",
+        "interpreted": "slice_and"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: slice_and",
+            "ltl_formula": "slice_and",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.98,
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "slice_and"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "slice_and",
+              "feasibility_score": 0.6,
+              "action_type": "general"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0014431476593017578,
+      "execution_times": {
+        "goal_interpretation": 0.00017261505126953125,
+        "subgoal_decomposition": 0.00045371055603027344,
+        "transition_modeling": 0.00016736984252929688,
+        "action_sequencing": 0.000186920166015625
+      },
+      "debug_info": {
+        "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764118641250",
+        "task_id": "preserving_food_0_Rs_int_0_2021-08-25_15-53-33",
+        "dataset": "behavior",
+        "natural_goal": "Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.",
+        "start_time": "2025-11-26T08:57:21.250479",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "slice_and",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: slice_and",
+                "ltl_formula": "slice_and",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.98,
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "slice_and"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "slice_and",
+                  "feasibility_score": 0.6,
+                  "action_type": "general"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00017261505126953125,
+          "subgoal_decomposition": 0.00045371055603027344,
+          "transition_modeling": 0.00016736984252929688,
+          "action_sequencing": 0.000186920166015625
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764118641252",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.254019",
+      "goal": {
+        "natural_language": "Place books 1 through 4 on the shelf, and place books 5 through 8 on the table.",
+        "interpreted": "place_books"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: place_books",
+            "ltl_formula": "place_books",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 1.53,
+            "preconditions": [
+              "agent_available",
+              "object_in_hand",
+              "target_location_clear"
+            ],
+            "effects": [
+              "place_books",
+              "object_placed",
+              "hand_empty"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "place_books",
+              "feasibility_score": 0.7,
+              "action_type": "manipulation"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0015788078308105469,
+      "execution_times": {
+        "goal_interpretation": 0.0001862049102783203,
+        "subgoal_decomposition": 0.0005018711090087891,
+        "transition_modeling": 0.00018906593322753906,
+        "action_sequencing": 0.00022459030151367188
+      },
+      "debug_info": {
+        "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764118641252",
+        "task_id": "re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26",
+        "dataset": "behavior",
+        "natural_goal": "Place books 1 through 4 on the shelf, and place books 5 through 8 on the table.",
+        "start_time": "2025-11-26T08:57:21.252448",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "place_books",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: place_books",
+                "ltl_formula": "place_books",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 1.53,
+                "preconditions": [
+                  "agent_available",
+                  "object_in_hand",
+                  "target_location_clear"
+                ],
+                "effects": [
+                  "place_books",
+                  "object_placed",
+                  "hand_empty"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "place_books",
+                  "feasibility_score": 0.7,
+                  "action_type": "manipulation"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0001862049102783203,
+          "subgoal_decomposition": 0.0005018711090087891,
+          "transition_modeling": 0.00018906593322753906,
+          "action_sequencing": 0.00022459030151367188
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_1764118641254",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.256074",
+      "goal": {
+        "natural_language": "Polish all spoons and put them inside the cabinet.",
+        "interpreted": "polish_all"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: polish_all",
+            "ltl_formula": "polish_all",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 1.0,
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "polish_all"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "polish_all",
+              "feasibility_score": 0.6,
+              "action_type": "general"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.001420736312866211,
+      "execution_times": {
+        "goal_interpretation": 0.00016570091247558594,
+        "subgoal_decomposition": 0.00041103363037109375,
+        "transition_modeling": 0.0001430511474609375,
+        "action_sequencing": 0.00017523765563964844
+      },
+      "debug_info": {
+        "submission_id": "behavior_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_1764118641254",
+        "task_id": "polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15",
+        "dataset": "behavior",
+        "natural_goal": "Polish all spoons and put them inside the cabinet.",
+        "start_time": "2025-11-26T08:57:21.254658",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "polish_all",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: polish_all",
+                "ltl_formula": "polish_all",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 1.0,
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "polish_all"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "polish_all",
+                  "feasibility_score": 0.6,
+                  "action_type": "general"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00016570091247558594,
+          "subgoal_decomposition": 0.00041103363037109375,
+          "transition_modeling": 0.0001430511474609375,
+          "action_sequencing": 0.00017523765563964844
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764118641256",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.257722",
+      "goal": {
+        "natural_language": "Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.",
+        "interpreted": "pack_all"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: pack_all",
+            "ltl_formula": "pack_all",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.96,
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "pack_all"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "pack_all",
+              "feasibility_score": 0.6,
+              "action_type": "general"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0012600421905517578,
+      "execution_times": {
+        "goal_interpretation": 0.00014543533325195312,
+        "subgoal_decomposition": 0.000396728515625,
+        "transition_modeling": 0.0001430511474609375,
+        "action_sequencing": 0.00016999244689941406
+      },
+      "debug_info": {
+        "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764118641256",
+        "task_id": "packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19",
+        "dataset": "behavior",
+        "natural_goal": "Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.",
+        "start_time": "2025-11-26T08:57:21.256467",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "pack_all",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: pack_all",
+                "ltl_formula": "pack_all",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.96,
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "pack_all"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "pack_all",
+                  "feasibility_score": 0.6,
+                  "action_type": "general"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00014543533325195312,
+          "subgoal_decomposition": 0.000396728515625,
+          "transition_modeling": 0.0001430511474609375,
+          "action_sequencing": 0.00016999244689941406
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_1764118641258",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.259261",
+      "goal": {
+        "natural_language": "Clean the stained freezer and remove all food items from the freezer.",
+        "interpreted": "clean_the"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: perform_clean",
+            "ltl_formula": "perform_clean",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 1.06,
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "perform_clean"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "clean_the",
+              "feasibility_score": 0.6,
+              "action_type": "general"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0012297630310058594,
+      "execution_times": {
+        "goal_interpretation": 0.00013494491577148438,
+        "subgoal_decomposition": 0.0003764629364013672,
+        "transition_modeling": 0.00012969970703125,
+        "action_sequencing": 0.00015473365783691406
+      },
+      "debug_info": {
+        "submission_id": "behavior_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_1764118641258",
+        "task_id": "cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25",
+        "dataset": "behavior",
+        "natural_goal": "Clean the stained freezer and remove all food items from the freezer.",
+        "start_time": "2025-11-26T08:57:21.258036",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "clean_the",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: perform_clean",
+                "ltl_formula": "perform_clean",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 1.06,
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "perform_clean"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "clean_the",
+                  "feasibility_score": 0.6,
+                  "action_type": "general"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00013494491577148438,
+          "subgoal_decomposition": 0.0003764629364013672,
+          "transition_modeling": 0.00012969970703125,
+          "action_sequencing": 0.00015473365783691406
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764118641259",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.260828",
+      "goal": {
+        "natural_language": "Place the modem under the table and make sure it is turned on.",
+        "interpreted": "place_the"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: perform_place",
+            "ltl_formula": "perform_place",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 1.59,
+            "preconditions": [
+              "agent_available",
+              "object_in_hand",
+              "target_location_clear"
+            ],
+            "effects": [
+              "perform_place",
+              "object_placed",
+              "hand_empty"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "place_the",
+              "feasibility_score": 0.7,
+              "action_type": "manipulation"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0012519359588623047,
+      "execution_times": {
+        "goal_interpretation": 0.00016808509826660156,
+        "subgoal_decomposition": 0.00040602684020996094,
+        "transition_modeling": 0.00013685226440429688,
+        "action_sequencing": 0.00015926361083984375
+      },
+      "debug_info": {
+        "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764118641259",
+        "task_id": "installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55",
+        "dataset": "behavior",
+        "natural_goal": "Place the modem under the table and make sure it is turned on.",
+        "start_time": "2025-11-26T08:57:21.259581",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "place_the",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: perform_place",
+                "ltl_formula": "perform_place",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 1.59,
+                "preconditions": [
+                  "agent_available",
+                  "object_in_hand",
+                  "target_location_clear"
+                ],
+                "effects": [
+                  "perform_place",
+                  "object_placed",
+                  "hand_empty"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "place_the",
+                  "feasibility_score": 0.7,
+                  "action_type": "manipulation"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00016808509826660156,
+          "subgoal_decomposition": 0.00040602684020996094,
+          "transition_modeling": 0.00013685226440429688,
+          "action_sequencing": 0.00015926361083984375
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24_1764118641261",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.262431",
+      "goal": {
+        "natural_language": "Clean all the stained tableware, put all hamburgers into sack1 which is on the floor, and clean the stained floor, chair, and table.",
+        "interpreted": "clean_all"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: clean_all",
+            "ltl_formula": "clean_all",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.98,
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "clean_all"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "clean_all",
+              "feasibility_score": 0.6,
+              "action_type": "general"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0012922286987304688,
+      "execution_times": {
+        "goal_interpretation": 0.00018143653869628906,
+        "subgoal_decomposition": 0.0003955364227294922,
+        "transition_modeling": 0.00013113021850585938,
+        "action_sequencing": 0.0001785755157470703
+      },
+      "debug_info": {
+        "submission_id": "behavior_cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24_1764118641261",
+        "task_id": "cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24",
+        "dataset": "behavior",
+        "natural_goal": "Clean all the stained tableware, put all hamburgers into sack1 which is on the floor, and clean the stained floor, chair, and table.",
+        "start_time": "2025-11-26T08:57:21.261143",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "clean_all",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: clean_all",
+                "ltl_formula": "clean_all",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.98,
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "clean_all"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "clean_all",
+                  "feasibility_score": 0.6,
+                  "action_type": "general"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00018143653869628906,
+          "subgoal_decomposition": 0.0003955364227294922,
+          "transition_modeling": 0.00013113021850585938,
+          "action_sequencing": 0.0001785755157470703
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764118641262",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.264009",
+      "goal": {
+        "natural_language": "Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.",
+        "interpreted": "place_all"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: place_all",
+            "ltl_formula": "place_all",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 1.47,
+            "preconditions": [
+              "agent_available",
+              "object_in_hand",
+              "target_location_clear"
+            ],
+            "effects": [
+              "place_all",
+              "object_placed",
+              "hand_empty"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "place_all",
+              "feasibility_score": 0.7,
+              "action_type": "manipulation"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0012929439544677734,
+      "execution_times": {
+        "goal_interpretation": 0.00014591217041015625,
+        "subgoal_decomposition": 0.0004506111145019531,
+        "transition_modeling": 0.0001442432403564453,
+        "action_sequencing": 0.0001652240753173828
+      },
+      "debug_info": {
+        "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764118641262",
+        "task_id": "putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25",
+        "dataset": "behavior",
+        "natural_goal": "Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.",
+        "start_time": "2025-11-26T08:57:21.262720",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "place_all",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: place_all",
+                "ltl_formula": "place_all",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 1.47,
+                "preconditions": [
+                  "agent_available",
+                  "object_in_hand",
+                  "target_location_clear"
+                ],
+                "effects": [
+                  "place_all",
+                  "object_placed",
+                  "hand_empty"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "place_all",
+                  "feasibility_score": 0.7,
+                  "action_type": "manipulation"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00014591217041015625,
+          "subgoal_decomposition": 0.0004506111145019531,
+          "transition_modeling": 0.0001442432403564453,
+          "action_sequencing": 0.0001652240753173828
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764118641264",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.265511",
+      "goal": {
+        "natural_language": "Place 3 candles on each table.",
+        "interpreted": "place_3"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: place_3",
+            "ltl_formula": "place_3",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 1.41,
+            "preconditions": [
+              "agent_available",
+              "object_in_hand",
+              "target_location_clear"
+            ],
+            "effects": [
+              "place_3",
+              "object_placed",
+              "hand_empty"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "place_3",
+              "feasibility_score": 0.7,
+              "action_type": "manipulation"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0011897087097167969,
+      "execution_times": {
+        "goal_interpretation": 0.00013399124145507812,
+        "subgoal_decomposition": 0.00034546852111816406,
+        "transition_modeling": 0.0001399517059326172,
+        "action_sequencing": 0.00016355514526367188
+      },
+      "debug_info": {
+        "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764118641264",
+        "task_id": "setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51",
+        "dataset": "behavior",
+        "natural_goal": "Place 3 candles on each table.",
+        "start_time": "2025-11-26T08:57:21.264326",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "place_3",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: place_3",
+                "ltl_formula": "place_3",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 1.41,
+                "preconditions": [
+                  "agent_available",
+                  "object_in_hand",
+                  "target_location_clear"
+                ],
+                "effects": [
+                  "place_3",
+                  "object_placed",
+                  "hand_empty"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "place_3",
+                  "feasibility_score": 0.7,
+                  "action_type": "manipulation"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00013399124145507812,
+          "subgoal_decomposition": 0.00034546852111816406,
+          "transition_modeling": 0.0001399517059326172,
+          "action_sequencing": 0.00016355514526367188
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22_1764118641265",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.267111",
+      "goal": {
+        "natural_language": "Clean all the shoes, and leave the towel on the floor.",
+        "interpreted": "clean_all"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: clean_all",
+            "ltl_formula": "clean_all",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.98,
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "clean_all"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "clean_all",
+              "feasibility_score": 0.6,
+              "action_type": "general"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0012919902801513672,
+      "execution_times": {
+        "goal_interpretation": 0.00015592575073242188,
+        "subgoal_decomposition": 0.0004010200500488281,
+        "transition_modeling": 0.00014090538024902344,
+        "action_sequencing": 0.0001709461212158203
+      },
+      "debug_info": {
+        "submission_id": "behavior_cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22_1764118641265",
+        "task_id": "cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22",
+        "dataset": "behavior",
+        "natural_goal": "Clean all the shoes, and leave the towel on the floor.",
+        "start_time": "2025-11-26T08:57:21.265823",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "clean_all",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: clean_all",
+                "ltl_formula": "clean_all",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.98,
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "clean_all"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "clean_all",
+                  "feasibility_score": 0.6,
+                  "action_type": "general"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00015592575073242188,
+          "subgoal_decomposition": 0.0004010200500488281,
+          "transition_modeling": 0.00014090538024902344,
+          "action_sequencing": 0.0001709461212158203
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08_1764118641267",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.269014",
+      "goal": {
+        "natural_language": "Place the towel on the countertop, the brush next to the towel, and the soap into the sink. Clean the dusty and stained sneakers, place 2 sneakers next to the table and 2 other sneakers under the table.",
+        "interpreted": "place_the"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: perform_place",
+            "ltl_formula": "perform_place",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 1.59,
+            "preconditions": [
+              "agent_available",
+              "object_in_hand",
+              "target_location_clear"
+            ],
+            "effects": [
+              "perform_place",
+              "object_placed",
+              "hand_empty"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "place_the",
+              "feasibility_score": 0.7,
+              "action_type": "manipulation"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0015876293182373047,
+      "execution_times": {
+        "goal_interpretation": 0.00021767616271972656,
+        "subgoal_decomposition": 0.0005605220794677734,
+        "transition_modeling": 0.0001800060272216797,
+        "action_sequencing": 0.0002162456512451172
+      },
+      "debug_info": {
+        "submission_id": "behavior_cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08_1764118641267",
+        "task_id": "cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08",
+        "dataset": "behavior",
+        "natural_goal": "Place the towel on the countertop, the brush next to the towel, and the soap into the sink. Clean the dusty and stained sneakers, place 2 sneakers next to the table and 2 other sneakers under the table.",
+        "start_time": "2025-11-26T08:57:21.267433",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "place_the",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: perform_place",
+                "ltl_formula": "perform_place",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 1.59,
+                "preconditions": [
+                  "agent_available",
+                  "object_in_hand",
+                  "target_location_clear"
+                ],
+                "effects": [
+                  "perform_place",
+                  "object_placed",
+                  "hand_empty"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "place_the",
+                  "feasibility_score": 0.7,
+                  "action_type": "manipulation"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00021767616271972656,
+          "subgoal_decomposition": 0.0005605220794677734,
+          "transition_modeling": 0.0001800060272216797,
+          "action_sequencing": 0.0002162456512451172
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764118641269",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.271273",
+      "goal": {
+        "natural_language": "Close and lock all the windows.",
+        "interpreted": "close_and"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: close_and",
+            "ltl_formula": "close_and",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.98,
+            "preconditions": [
+              "agent_available",
+              "object_visible",
+              "object_reachable"
+            ],
+            "effects": [
+              "close_and",
+              "object_closed"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "close_and",
+              "feasibility_score": 0.7,
+              "action_type": "operation"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.001859903335571289,
+      "execution_times": {
+        "goal_interpretation": 0.00018453598022460938,
+        "subgoal_decomposition": 0.0005118846893310547,
+        "transition_modeling": 0.000423431396484375,
+        "action_sequencing": 0.00021576881408691406
+      },
+      "debug_info": {
+        "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764118641269",
+        "task_id": "locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10",
+        "dataset": "behavior",
+        "natural_goal": "Close and lock all the windows.",
+        "start_time": "2025-11-26T08:57:21.269419",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "close_and",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: close_and",
+                "ltl_formula": "close_and",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.98,
+                "preconditions": [
+                  "agent_available",
+                  "object_visible",
+                  "object_reachable"
+                ],
+                "effects": [
+                  "close_and",
+                  "object_closed"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "close_and",
+                  "feasibility_score": 0.7,
+                  "action_type": "operation"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00018453598022460938,
+          "subgoal_decomposition": 0.0005118846893310547,
+          "transition_modeling": 0.000423431396484375,
+          "action_sequencing": 0.00021576881408691406
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764118641271",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.273552",
+      "goal": {
+        "natural_language": "Wash all dust and stains from the car or vehicle.",
+        "interpreted": "wash_all"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: wash_all",
+            "ltl_formula": "wash_all",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.96,
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "wash_all"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "wash_all",
+              "feasibility_score": 0.6,
+              "action_type": "general"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0018906593322753906,
+      "execution_times": {
+        "goal_interpretation": 0.0003428459167480469,
+        "subgoal_decomposition": 0.0005440711975097656,
+        "transition_modeling": 0.00021123886108398438,
+        "action_sequencing": 0.00022268295288085938
+      },
+      "debug_info": {
+        "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764118641271",
+        "task_id": "washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10",
+        "dataset": "behavior",
+        "natural_goal": "Wash all dust and stains from the car or vehicle.",
+        "start_time": "2025-11-26T08:57:21.271667",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "wash_all",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: wash_all",
+                "ltl_formula": "wash_all",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.96,
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "wash_all"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "wash_all",
+                  "feasibility_score": 0.6,
+                  "action_type": "general"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0003428459167480469,
+          "subgoal_decomposition": 0.0005440711975097656,
+          "transition_modeling": 0.00021123886108398438,
+          "action_sequencing": 0.00022268295288085938
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764118641273",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.276865",
+      "goal": {
+        "natural_language": "Wash all the stained plates, cups, and bowls.",
+        "interpreted": "wash_all"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: wash_all",
+            "ltl_formula": "wash_all",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.96,
+            "preconditions": [
+              "agent_available"
+            ],
+            "effects": [
+              "wash_all"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "wash_all",
+              "feasibility_score": 0.6,
+              "action_type": "general"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.0029370784759521484,
+      "execution_times": {
+        "goal_interpretation": 0.0002541542053222656,
+        "subgoal_decomposition": 0.0008296966552734375,
+        "transition_modeling": 0.00040149688720703125,
+        "action_sequencing": 0.00036215782165527344
+      },
+      "debug_info": {
+        "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764118641273",
+        "task_id": "washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48",
+        "dataset": "behavior",
+        "natural_goal": "Wash all the stained plates, cups, and bowls.",
+        "start_time": "2025-11-26T08:57:21.273936",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "wash_all",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: wash_all",
+                "ltl_formula": "wash_all",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 0.96,
+                "preconditions": [
+                  "agent_available"
+                ],
+                "effects": [
+                  "wash_all"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "wash_all",
+                  "feasibility_score": 0.6,
+                  "action_type": "general"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.0002541542053222656,
+          "subgoal_decomposition": 0.0008296966552734375,
+          "transition_modeling": 0.00040149688720703125,
+          "action_sequencing": 0.00036215782165527344
+        }
+      }
+    },
+    {
+      "submission_id": "behavior_putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17_1764118641277",
+      "status": "success",
+      "timestamp": "2025-11-26T08:57:21.279929",
+      "goal": {
+        "natural_language": "Place all pumpkins and candles into the cabinet, arrange the sheet either next to or on the table, and position the caldron next to the table.",
+        "interpreted": "place_all"
+      },
+      "subgoals": {
+        "count": 1,
+        "list": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: place_all",
+            "ltl_formula": "place_all",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 1.47,
+            "preconditions": [
+              "agent_available",
+              "object_in_hand",
+              "target_location_clear"
+            ],
+            "effects": [
+              "place_all",
+              "object_placed",
+              "hand_empty"
+            ],
+            "metadata": {
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "place_all",
+              "feasibility_score": 0.7,
+              "action_type": "manipulation"
+            }
+          }
+        ]
+      },
+      "execution_time": 0.002486705780029297,
+      "execution_times": {
+        "goal_interpretation": 0.00030422210693359375,
+        "subgoal_decomposition": 0.0007805824279785156,
+        "transition_modeling": 0.00015783309936523438,
+        "action_sequencing": 0.00017023086547851562
+      },
+      "debug_info": {
+        "submission_id": "behavior_putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17_1764118641277",
+        "task_id": "putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17",
+        "dataset": "behavior",
+        "natural_goal": "Place all pumpkins and candles into the cabinet, arrange the sheet either next to or on the table, and position the caldron next to the table.",
+        "start_time": "2025-11-26T08:57:21.277448",
+        "modules": {
+          "goal_interpretation": {
+            "status": "success",
+            "formula": "place_all",
+            "type": "LTLFormula"
+          },
+          "subgoal_decomposition": {
+            "status": "success",
+            "subgoal_count": 1,
+            "subgoals": [
+              {
+                "id": "atomic_1",
+                "description": "Execute atomic action: place_all",
+                "ltl_formula": "place_all",
+                "subgoal_type": "ATOMIC",
+                "dependencies": [],
+                "priority": 0,
+                "estimated_cost": 1.47,
+                "preconditions": [
+                  "agent_available",
+                  "object_in_hand",
+                  "target_location_clear"
+                ],
+                "effects": [
+                  "place_all",
+                  "object_placed",
+                  "hand_empty"
+                ],
+                "metadata": {
+                  "depth": 0,
+                  "type": "atomic",
+                  "original_formula": "place_all",
+                  "feasibility_score": 0.7,
+                  "action_type": "manipulation"
+                }
+              }
+            ],
+            "type": "IntegrationResult"
+          },
+          "transition_modeling": {
+            "status": "success",
+            "type": "ModelingResponse"
+          },
+          "action_sequencing": {
+            "status": "failed",
+            "type": "SequencingResponse"
+          }
+        },
+        "execution_times": {
+          "goal_interpretation": 0.00030422210693359375,
+          "subgoal_decomposition": 0.0007805824279785156,
+          "transition_modeling": 0.00015783309936523438,
+          "action_sequencing": 0.00017023086547851562
+        }
+      }
+    }
+  ]
+}

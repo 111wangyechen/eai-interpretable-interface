@@ -1,271 +1,104 @@
 {
-  "submission_id": "virtualhome_125_2_1764076114772",
+  "submission_id": "virtualhome_125_2_1764118641159",
   "status": "success",
-  "timestamp": "2025-11-25T21:08:34.774133",
+  "timestamp": "2025-11-26T08:57:21.162218",
   "goal": {
     "natural_language": "turn on the light for room",
-    "interpreted": "True"
+    "interpreted": "turn_on"
   },
   "subgoals": {
-    "count": 1
+    "count": 1,
+    "list": [
+      {
+        "id": "atomic_1",
+        "description": "Execute atomic action: turn_on",
+        "ltl_formula": "turn_on",
+        "subgoal_type": "ATOMIC",
+        "dependencies": [],
+        "priority": 0,
+        "estimated_cost": 0.94,
+        "preconditions": [
+          "agent_available",
+          "object_visible",
+          "object_reachable"
+        ],
+        "effects": [
+          "turn_on"
+        ],
+        "metadata": {
+          "depth": 0,
+          "type": "atomic",
+          "original_formula": "turn_on",
+          "feasibility_score": 0.7,
+          "action_type": "operation"
+        }
+      }
+    ]
   },
-  "execution_time": 0.0012252330780029297,
+  "execution_time": 0.002446413040161133,
   "execution_times": {
-    "goal_interpretation": 0.00015687942504882812,
-    "subgoal_decomposition": 0.0003752708435058594,
-    "transition_modeling": 6.437301635742188e-05,
-    "action_sequencing": 0.0001842975616455078
+    "goal_interpretation": 0.00016260147094726562,
+    "subgoal_decomposition": 0.0006663799285888672,
+    "transition_modeling": 0.0003037452697753906,
+    "action_sequencing": 0.00028896331787109375
   },
   "debug_info": {
-    "submission_id": "virtualhome_125_2_1764076114772",
+    "submission_id": "virtualhome_125_2_1764118641159",
     "task_id": "125_2",
     "dataset": "virtualhome",
     "natural_goal": "turn on the light for room",
-    "start_time": "2025-11-25T21:08:34.772913",
+    "start_time": "2025-11-26T08:57:21.159778",
     "modules": {
       "goal_interpretation": {
         "status": "success",
-        "result": {
-          "formula": "True",
-          "semantics": {
-            "error": "name 're' is not defined",
-            "original_text": "turn on the light for room"
-          },
-          "valid": false
-        },
-        "formula": "True"
+        "formula": "turn_on",
+        "type": "LTLFormula"
       },
       "subgoal_decomposition": {
         "status": "success",
-        "result": {
-          "original_goal": "turn on the light for room",
-          "ltl_formula": {
-            "formula": "True",
-            "semantics": {
-              "error": "name 're' is not defined",
-              "original_text": "turn on the light for room"
-            },
-            "valid": false
-          },
-          "decomposition_result": {
-            "subgoals": [
-              {
-                "id": "atomic_1",
-                "description": "Execute atomic action: perform_True",
-                "ltl_formula": "perform_True",
-                "subgoal_type": {
-                  "_value_": "atomic",
-                  "_name_": "ATOMIC",
-                  "__objclass__": "{'_generate_next_value_': <staticmethod(<function Enum._generate_next_value_ at 0x7a50cea02c00>)>, '__module__': 'subgoal_decomposition.subgoal_decomposer', '__firstlineno__': 26, '__doc__': '子目标类型枚举', '__static_attributes__': (), '_new_member_': <built-in method __new__ of type object at 0x91a220>, '_use_args_': False, '_member_names_': ['SEQUENTIAL', 'PARALLEL', 'CONDITIONAL', 'ATOMIC', 'TEMPORAL'], '_member_map_': {'SEQUENTIAL': <SubgoalType.SEQUENTIAL: 'sequential'>, 'PARALLEL': <SubgoalType.PARALLEL: 'parallel'>, 'CONDITIONAL': <SubgoalType.CONDITIONAL: 'conditional'>, 'ATOMIC': <SubgoalType.ATOMIC: 'atomic'>, 'TEMPORAL': <SubgoalType.TEMPORAL: 'temporal'>}, '_value2member_map_': {'sequential': <SubgoalType.SEQUENTIAL: 'sequential'>, 'parallel': <SubgoalType.PARALLEL: 'parallel'>, 'conditional': <SubgoalType.CONDITIONAL: 'conditional'>, 'atomic': <SubgoalType.ATOMIC: 'atomic'>, 'temporal': <SubgoalType.TEMPORAL: 'temporal'>}, '_hashable_values_': ['sequential', 'parallel', 'conditional', 'atomic', 'temporal'], '_unhashable_values_': [], '_unhashable_values_map_': {}, '_member_type_': <class 'object'>, '_value_repr_': None, 'SEQUENTIAL': <SubgoalType.SEQUENTIAL: 'sequential'>, 'PARALLEL': <SubgoalType.PARALLEL: 'parallel'>, 'CONDITIONAL': <SubgoalType.CONDITIONAL: 'conditional'>, 'ATOMIC': <SubgoalType.ATOMIC: 'atomic'>, 'TEMPORAL': <SubgoalType.TEMPORAL: 'temporal'>, '__new__': <function Enum.__new__ at 0x7a50cea02980>}",
-                  "_sort_order_": 3
-                },
-                "dependencies": [],
-                "priority": 0,
-                "estimated_cost": 1.04,
-                "preconditions": [
-                  "agent_available"
-                ],
-                "effects": [
-                  "perform_True"
-                ],
-                "metadata": {
-                  "depth": 0,
-                  "type": "atomic",
-                  "original_formula": "True",
-                  "feasibility_score": 0.6,
-                  "action_type": "general"
-                }
-              }
+        "subgoal_count": 1,
+        "subgoals": [
+          {
+            "id": "atomic_1",
+            "description": "Execute atomic action: turn_on",
+            "ltl_formula": "turn_on",
+            "subgoal_type": "ATOMIC",
+            "dependencies": [],
+            "priority": 0,
+            "estimated_cost": 0.94,
+            "preconditions": [
+              "agent_available",
+              "object_visible",
+              "object_reachable"
             ],
-            "root_subgoal": "atomic_1",
-            "execution_order": [
-              "atomic_1"
+            "effects": [
+              "turn_on"
             ],
-            "total_cost": 1.04,
-            "decomposition_strategy": {
-              "_value_": "temporal_hierarchical",
-              "_name_": "TEMPORAL_HIERARCHICAL",
-              "__objclass__": "{'_generate_next_value_': <staticmethod(<function Enum._generate_next_value_ at 0x7a50cea02c00>)>, '__module__': 'subgoal_decomposition.subgoal_decomposer', '__firstlineno__': 35, '__doc__': '分解策略枚举', '__static_attributes__': (), '_new_member_': <built-in method __new__ of type object at 0x91a220>, '_use_args_': False, '_member_names_': ['TEMPORAL_HIERARCHICAL', 'TASK_DEPENDENCY', 'SEMANTIC_CLUSTERING', 'HYBRID'], '_member_map_': {'TEMPORAL_HIERARCHICAL': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'TASK_DEPENDENCY': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'SEMANTIC_CLUSTERING': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'HYBRID': <DecompositionStrategy.HYBRID: 'hybrid'>}, '_value2member_map_': {'temporal_hierarchical': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'task_dependency': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'semantic_clustering': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'hybrid': <DecompositionStrategy.HYBRID: 'hybrid'>}, '_hashable_values_': ['temporal_hierarchical', 'task_dependency', 'semantic_clustering', 'hybrid'], '_unhashable_values_': [], '_unhashable_values_map_': {}, '_member_type_': <class 'object'>, '_value_repr_': None, 'TEMPORAL_HIERARCHICAL': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'TASK_DEPENDENCY': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'SEMANTIC_CLUSTERING': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'HYBRID': <DecompositionStrategy.HYBRID: 'hybrid'>, '__new__': <function Enum.__new__ at 0x7a50cea02980>}",
-              "_sort_order_": 0
-            },
             "metadata": {
-              "decomposition_method": "temporal_hierarchical",
-              "max_depth_reached": 0,
-              "original_formula": "True",
-              "feasibility_analysis": {
-                "dependency_cycles": [],
-                "unreachable_subgoals": [],
-                "missing_preconditions": [
-                  {
-                    "subgoal_id": "atomic_1",
-                    "precondition": "agent_available",
-                    "suggestion": "Ensure agent_available is established before executing Execute atomic action: perform_True"
-                  }
-                ],
-                "estimated_success_rate": 0.87584,
-                "is_feasible": true
-              },
-              "decomposition_quality": {
-                "granularity_score": 0.65,
-                "balance_score": 1.0,
-                "dependency_clarity_score": 0.4,
-                "overall_score": 0.66
-              },
-              "optimized": true,
-              "original_subgoal_count": 1,
-              "optimized_subgoal_count": 1
+              "depth": 0,
+              "type": "atomic",
+              "original_formula": "turn_on",
+              "feasibility_score": 0.7,
+              "action_type": "operation"
             }
-          },
-          "validation_issues": [
-            {
-              "severity": "warning",
-              "message": "无法验证子目标 atomic_1 的LTL公式: 'LTLValidator' object has no attribute 'validate_formula'",
-              "subgoal_id": "atomic_1",
-              "suggestion": "检查LTL公式格式",
-              "metadata": null
-            }
-          ],
-          "optimization_result": {
-            "optimized_result": {
-              "subgoals": [
-                {
-                  "id": "atomic_1",
-                  "description": "Execute atomic action: perform_True",
-                  "ltl_formula": "perform_True",
-                  "subgoal_type": {
-                    "_value_": "atomic",
-                    "_name_": "ATOMIC",
-                    "__objclass__": "{'_generate_next_value_': <staticmethod(<function Enum._generate_next_value_ at 0x7a50cea02c00>)>, '__module__': 'subgoal_decomposition.subgoal_decomposer', '__firstlineno__': 26, '__doc__': '子目标类型枚举', '__static_attributes__': (), '_new_member_': <built-in method __new__ of type object at 0x91a220>, '_use_args_': False, '_member_names_': ['SEQUENTIAL', 'PARALLEL', 'CONDITIONAL', 'ATOMIC', 'TEMPORAL'], '_member_map_': {'SEQUENTIAL': <SubgoalType.SEQUENTIAL: 'sequential'>, 'PARALLEL': <SubgoalType.PARALLEL: 'parallel'>, 'CONDITIONAL': <SubgoalType.CONDITIONAL: 'conditional'>, 'ATOMIC': <SubgoalType.ATOMIC: 'atomic'>, 'TEMPORAL': <SubgoalType.TEMPORAL: 'temporal'>}, '_value2member_map_': {'sequential': <SubgoalType.SEQUENTIAL: 'sequential'>, 'parallel': <SubgoalType.PARALLEL: 'parallel'>, 'conditional': <SubgoalType.CONDITIONAL: 'conditional'>, 'atomic': <SubgoalType.ATOMIC: 'atomic'>, 'temporal': <SubgoalType.TEMPORAL: 'temporal'>}, '_hashable_values_': ['sequential', 'parallel', 'conditional', 'atomic', 'temporal'], '_unhashable_values_': [], '_unhashable_values_map_': {}, '_member_type_': <class 'object'>, '_value_repr_': None, 'SEQUENTIAL': <SubgoalType.SEQUENTIAL: 'sequential'>, 'PARALLEL': <SubgoalType.PARALLEL: 'parallel'>, 'CONDITIONAL': <SubgoalType.CONDITIONAL: 'conditional'>, 'ATOMIC': <SubgoalType.ATOMIC: 'atomic'>, 'TEMPORAL': <SubgoalType.TEMPORAL: 'temporal'>, '__new__': <function Enum.__new__ at 0x7a50cea02980>}",
-                    "_sort_order_": 3
-                  },
-                  "dependencies": [],
-                  "priority": 0,
-                  "estimated_cost": 1.04,
-                  "preconditions": [
-                    "agent_available"
-                  ],
-                  "effects": [
-                    "perform_True"
-                  ],
-                  "metadata": {
-                    "depth": 0,
-                    "type": "atomic",
-                    "original_formula": "True",
-                    "feasibility_score": 0.6,
-                    "action_type": "general"
-                  }
-                }
-              ],
-              "root_subgoal": "atomic_1",
-              "execution_order": [
-                "atomic_1"
-              ],
-              "total_cost": 1.04,
-              "decomposition_strategy": {
-                "_value_": "temporal_hierarchical",
-                "_name_": "TEMPORAL_HIERARCHICAL",
-                "__objclass__": "{'_generate_next_value_': <staticmethod(<function Enum._generate_next_value_ at 0x7a50cea02c00>)>, '__module__': 'subgoal_decomposition.subgoal_decomposer', '__firstlineno__': 35, '__doc__': '分解策略枚举', '__static_attributes__': (), '_new_member_': <built-in method __new__ of type object at 0x91a220>, '_use_args_': False, '_member_names_': ['TEMPORAL_HIERARCHICAL', 'TASK_DEPENDENCY', 'SEMANTIC_CLUSTERING', 'HYBRID'], '_member_map_': {'TEMPORAL_HIERARCHICAL': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'TASK_DEPENDENCY': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'SEMANTIC_CLUSTERING': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'HYBRID': <DecompositionStrategy.HYBRID: 'hybrid'>}, '_value2member_map_': {'temporal_hierarchical': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'task_dependency': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'semantic_clustering': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'hybrid': <DecompositionStrategy.HYBRID: 'hybrid'>}, '_hashable_values_': ['temporal_hierarchical', 'task_dependency', 'semantic_clustering', 'hybrid'], '_unhashable_values_': [], '_unhashable_values_map_': {}, '_member_type_': <class 'object'>, '_value_repr_': None, 'TEMPORAL_HIERARCHICAL': <DecompositionStrategy.TEMPORAL_HIERARCHICAL: 'temporal_hierarchical'>, 'TASK_DEPENDENCY': <DecompositionStrategy.TASK_DEPENDENCY: 'task_dependency'>, 'SEMANTIC_CLUSTERING': <DecompositionStrategy.SEMANTIC_CLUSTERING: 'semantic_clustering'>, 'HYBRID': <DecompositionStrategy.HYBRID: 'hybrid'>, '__new__': <function Enum.__new__ at 0x7a50cea02980>}",
-                "_sort_order_": 0
-              },
-              "metadata": {
-                "decomposition_method": "temporal_hierarchical",
-                "max_depth_reached": 0,
-                "original_formula": "True",
-                "feasibility_analysis": {
-                  "dependency_cycles": [],
-                  "unreachable_subgoals": [],
-                  "missing_preconditions": [
-                    {
-                      "subgoal_id": "atomic_1",
-                      "precondition": "agent_available",
-                      "suggestion": "Ensure agent_available is established before executing Execute atomic action: perform_True"
-                    }
-                  ],
-                  "estimated_success_rate": 0.87584,
-                  "is_feasible": true
-                },
-                "decomposition_quality": {
-                  "granularity_score": 0.65,
-                  "balance_score": 1.0,
-                  "dependency_clarity_score": 0.4,
-                  "overall_score": 0.66
-                },
-                "optimized": true,
-                "original_subgoal_count": 1,
-                "optimized_subgoal_count": 1
-              }
-            },
-            "improvements": [],
-            "performance_gain": 0.0,
-            "validation_issues_resolved": 0,
-            "metadata": {
-              "optimization_time": "unknown",
-              "optimization_strategy": "comprehensive"
-            }
-          },
-          "analysis_result": {
-            "overall_complexity": "low",
-            "subgoal_count": 1,
-            "max_depth": 0,
-            "dependency_complexity": 0.0,
-            "type_distribution": {
-              "atomic": 1
-            },
-            "cost_distribution": {
-              "min": 1.04,
-              "max": 1.04,
-              "avg": 1.04,
-              "total": 1.04
-            },
-            "recommendations": [
-              "原子子目标比例过高，考虑增加更高层次的抽象"
-            ]
-          },
-          "metadata": {
-            "processed_at": "unknown",
-            "validation_enabled": true,
-            "optimization_enabled": true,
-            "analysis_enabled": true,
-            "max_depth": 5,
-            "max_subgoals": 20
           }
-        },
-        "subgoal_count": 1
+        ],
+        "type": "IntegrationResult"
       },
       "transition_modeling": {
         "status": "success",
-        "result": {
-          "request_id": "request_1764076114773864",
-          "success": false,
-          "message": "Modeling failed: name 'hashlib' is not defined",
-          "predicted_sequences": [],
-          "validation_results": [],
-          "metadata": {},
-          "timestamp": 1764076114.7739027
-        }
+        "type": "ModelingResponse"
       },
       "action_sequencing": {
         "status": "failed",
-        "result": {
-          "success": false,
-          "action_sequence": null,
-          "planning_result": null,
-          "execution_time": 0.00014257431030273438,
-          "error_message": "No valid BEHAVIOR actions available: [\"Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library\", \"Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library\"]",
-          "metadata": {
-            "warnings": [
-              "Action MoveToLocation: Action 'MoveToLocation' not found in BEHAVIOR official library",
-              "Action CompleteTask: Action 'CompleteTask' not found in BEHAVIOR official library"
-            ]
-          }
-        }
+        "type": "SequencingResponse"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00015687942504882812,
-      "subgoal_decomposition": 0.0003752708435058594,
-      "transition_modeling": 6.437301635742188e-05,
-      "action_sequencing": 0.0001842975616455078
+      "goal_interpretation": 0.00016260147094726562,
+      "subgoal_decomposition": 0.0006663799285888672,
+      "transition_modeling": 0.0003037452697753906,
+      "action_sequencing": 0.00028896331787109375
     }
   }
 }

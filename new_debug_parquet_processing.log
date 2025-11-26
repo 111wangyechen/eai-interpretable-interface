@@ -3545,3 +3545,1305 @@
 2025-11-26 08:52:36,937 - new_debug_script - INFO - Step 4: Action Sequencing
 2025-11-26 08:52:36,937 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
 2025-11-26 08:52:36,937 - new_debug_script - ERROR - Action sequencing failed: SequencingRequest.__init__() got an unexpected keyword argument 'context'
+2025-11-26 08:57:21,090 - new_debug_script - INFO - Importing core modules...
+2025-11-26 08:57:21,091 - new_debug_script - INFO - ✓ GoalInterpreter imported successfully
+2025-11-26 08:57:21,095 - new_debug_script - INFO - ✓ SubgoalLTLIntegration imported successfully
+2025-11-26 08:57:21,099 - new_debug_script - INFO - ✓ TransitionModeler imported successfully
+2025-11-26 08:57:21,108 - action_sequencing - INFO - Action Sequencing Module v1.0.0 loaded successfully
+2025-11-26 08:57:21,108 - new_debug_script - INFO - ✓ ActionSequencer imported successfully
+2025-11-26 08:57:21,108 - new_debug_script - INFO - Starting new debug script...
+2025-11-26 08:57:21,108 - new_debug_script - INFO - Found 2 parquet files: ['virtualhome', 'behavior']
+2025-11-26 08:57:21,108 - new_debug_script - INFO - Processing dataset: virtualhome
+2025-11-26 08:57:21,108 - new_debug_script - INFO - Loading 20 samples from /home/yeah/eai-interpretable-interface/data/virtualhome-00000-of-00001.parquet
+2025-11-26 08:57:21,138 - new_debug_script - INFO - Total records in file: 338
+2025-11-26 08:57:21,140 - new_debug_script - INFO - Loaded 20 samples successfully
+2025-11-26 08:57:21,140 - new_debug_script - INFO - === Processing task 27_2 from virtualhome: Walk to the kitchen and find the basket of clothes... ===
+2025-11-26 08:57:21,140 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,140 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,140 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,140 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,141 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,141 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,141 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,141 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,141 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,141 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,143 - new_debug_script - DEBUG - Interpretation result: walk_to
+2025-11-26 08:57:21,143 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,143 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine.
+2025-11-26 08:57:21,144 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: walk_to
+2025-11-26 08:57:21,146 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,146 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,146 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,146 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,146 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,146 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,146 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,146 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,146 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641146702
+2025-11-26 08:57:21,146 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,146 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,147 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,147 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,147 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,147 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,147 - new_debug_script - INFO - Task 27_2 processed successfully in 0.01 seconds
+2025-11-26 08:57:21,147 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_27_2_result.json
+2025-11-26 08:57:21,147 - new_debug_script - INFO - === Processing task 417_1 from virtualhome: I will load the dirty clothes into the washing mac... ===
+2025-11-26 08:57:21,147 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,148 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,148 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,148 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,148 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,148 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,148 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,148 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,148 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,148 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,148 - new_debug_script - DEBUG - Interpretation result: i_will
+2025-11-26 08:57:21,148 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,148 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: I will load the dirty clothes into the washing machine.
+2025-11-26 08:57:21,148 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: i_will
+2025-11-26 08:57:21,148 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,148 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,149 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,149 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,149 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,149 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,149 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,149 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,149 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641149165
+2025-11-26 08:57:21,149 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,149 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,149 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,149 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,149 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,149 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,149 - new_debug_script - INFO - Task 417_1 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,150 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_417_1_result.json
+2025-11-26 08:57:21,150 - new_debug_script - INFO - === Processing task 850_1 from virtualhome: Walk into laundry room. Open washing machine door.... ===
+2025-11-26 08:57:21,150 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,150 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,150 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,150 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,150 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,150 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,150 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,150 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,150 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,150 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,150 - new_debug_script - DEBUG - Interpretation result: walk_into
+2025-11-26 08:57:21,150 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,150 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.
+2025-11-26 08:57:21,150 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: walk_into
+2025-11-26 08:57:21,151 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,151 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,151 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,151 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,151 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,151 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,151 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,151 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,151 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641151261
+2025-11-26 08:57:21,151 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,151 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,151 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,151 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,151 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,151 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,151 - new_debug_script - INFO - Task 850_1 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,151 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_850_1_result.json
+2025-11-26 08:57:21,152 - new_debug_script - INFO - === Processing task 954_2 from virtualhome: I need to get the dirty clothes basket.  Walk to b... ===
+2025-11-26 08:57:21,152 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,152 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,152 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,152 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,152 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,152 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,152 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,152 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,152 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,152 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,152 - new_debug_script - DEBUG - Interpretation result: i_need
+2025-11-26 08:57:21,152 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,152 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.
+2025-11-26 08:57:21,152 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: i_need
+2025-11-26 08:57:21,152 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,153 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,153 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,153 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,153 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,153 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,153 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,153 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,153 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641153305
+2025-11-26 08:57:21,153 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,153 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,153 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,153 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,153 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,153 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,153 - new_debug_script - INFO - Task 954_2 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,153 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_954_2_result.json
+2025-11-26 08:57:21,154 - new_debug_script - INFO - === Processing task 11_1 from virtualhome: I go to bedroom and locate a lamp. This lamp can b... ===
+2025-11-26 08:57:21,154 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,154 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,154 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,154 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,154 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,154 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,154 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,154 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,154 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,154 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,154 - new_debug_script - DEBUG - Interpretation result: i_go
+2025-11-26 08:57:21,155 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,155 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.
+2025-11-26 08:57:21,155 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: i_go
+2025-11-26 08:57:21,155 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,155 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,155 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,155 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,155 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,155 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,155 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,155 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,156 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641155949
+2025-11-26 08:57:21,156 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,156 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,156 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,156 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,156 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,156 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,156 - new_debug_script - INFO - Task 11_1 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,157 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_11_1_result.json
+2025-11-26 08:57:21,157 - new_debug_script - INFO - === Processing task 120_1 from virtualhome: Go to the kitchen and living room and turn on the ... ===
+2025-11-26 08:57:21,157 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,157 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,157 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,157 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,157 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,157 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,157 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,157 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,157 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,157 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,157 - new_debug_script - DEBUG - Interpretation result: go_to
+2025-11-26 08:57:21,157 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,157 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Go to the kitchen and living room and turn on the lights.
+2025-11-26 08:57:21,157 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: go_to
+2025-11-26 08:57:21,158 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,158 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,158 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,158 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,158 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,158 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,158 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,158 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,158 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641158216
+2025-11-26 08:57:21,158 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,158 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,158 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,158 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,159 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,159 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,159 - new_debug_script - INFO - Task 120_1 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,159 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_120_1_result.json
+2025-11-26 08:57:21,159 - new_debug_script - INFO - === Processing task 125_2 from virtualhome: turn on the light for room... ===
+2025-11-26 08:57:21,159 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,159 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,159 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,160 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,160 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,160 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,160 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,160 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,160 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,160 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,160 - new_debug_script - DEBUG - Interpretation result: turn_on
+2025-11-26 08:57:21,160 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,160 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: turn on the light for room
+2025-11-26 08:57:21,160 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: turn_on
+2025-11-26 08:57:21,161 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,161 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,161 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,161 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,161 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,161 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,161 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,161 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,161 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641161570
+2025-11-26 08:57:21,161 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,161 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,161 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,161 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,162 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,162 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,162 - new_debug_script - INFO - Task 125_2 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,162 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_125_2_result.json
+2025-11-26 08:57:21,162 - new_debug_script - INFO - === Processing task 150_2 from virtualhome: push any ligth button to turn it on, for example i... ===
+2025-11-26 08:57:21,163 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,163 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,163 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,163 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,163 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,163 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,163 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,163 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,163 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,163 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,163 - new_debug_script - DEBUG - Interpretation result: push_any
+2025-11-26 08:57:21,163 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,163 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: push any ligth button to turn it on, for example in the living room
+2025-11-26 08:57:21,164 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: push_any
+2025-11-26 08:57:21,164 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,164 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,164 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,164 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,164 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,164 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,164 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,164 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,164 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641164705
+2025-11-26 08:57:21,164 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,164 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,165 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,165 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,165 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,165 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,165 - new_debug_script - INFO - Task 150_2 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,165 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_150_2_result.json
+2025-11-26 08:57:21,165 - new_debug_script - INFO - === Processing task 160_1 from virtualhome: Go to the living room, find the switches (buttons ... ===
+2025-11-26 08:57:21,165 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,165 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,165 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,165 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,165 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,165 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,165 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,166 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,166 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,166 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,166 - new_debug_script - DEBUG - Interpretation result: go_to
+2025-11-26 08:57:21,166 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,166 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one.
+2025-11-26 08:57:21,166 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: go_to
+2025-11-26 08:57:21,166 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,166 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,166 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,166 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,166 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,166 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,166 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,166 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,166 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641166831
+2025-11-26 08:57:21,167 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,167 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,167 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,167 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,167 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,167 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,167 - new_debug_script - INFO - Task 160_1 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,168 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_160_1_result.json
+2025-11-26 08:57:21,168 - new_debug_script - INFO - === Processing task 180_2 from virtualhome: Find the light circuit breaker in the kitchen... ===
+2025-11-26 08:57:21,168 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,168 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,168 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,168 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,168 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,168 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,168 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,168 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,168 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,168 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,169 - new_debug_script - DEBUG - Interpretation result: find_the
+2025-11-26 08:57:21,169 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,169 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Find the light circuit breaker in the kitchen
+2025-11-26 08:57:21,169 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: find_the
+2025-11-26 08:57:21,169 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,169 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,169 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,169 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,169 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,169 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,169 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,170 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,170 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641170013
+2025-11-26 08:57:21,170 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,170 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,170 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,170 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,170 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,170 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,170 - new_debug_script - INFO - Task 180_2 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,171 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_180_2_result.json
+2025-11-26 08:57:21,171 - new_debug_script - INFO - === Processing task 205_1 from virtualhome: Walk into the bedroom and walk to the light switch... ===
+2025-11-26 08:57:21,171 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,171 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,171 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,171 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,171 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,171 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,171 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,171 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,171 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,171 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,171 - new_debug_script - DEBUG - Interpretation result: walk_into
+2025-11-26 08:57:21,172 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,172 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Walk into the bedroom and walk to the light switch. Flip the switch.
+2025-11-26 08:57:21,172 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: walk_into
+2025-11-26 08:57:21,172 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,172 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,172 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,173 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,173 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,173 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,173 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,173 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,173 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641173314
+2025-11-26 08:57:21,173 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,173 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,173 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,174 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,174 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,174 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,174 - new_debug_script - INFO - Task 205_1 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,175 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_205_1_result.json
+2025-11-26 08:57:21,175 - new_debug_script - INFO - === Processing task 222_1 from virtualhome: walk into living room, walk to light, turn on ligh... ===
+2025-11-26 08:57:21,175 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,175 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,175 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,176 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,176 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,176 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,176 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,176 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,176 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,176 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,177 - new_debug_script - DEBUG - Interpretation result: walk_into
+2025-11-26 08:57:21,177 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,177 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: walk into living room, walk to light, turn on light switch.
+2025-11-26 08:57:21,177 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: walk_into
+2025-11-26 08:57:21,177 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,178 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,178 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,178 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,178 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,178 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,178 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,178 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,178 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641178765
+2025-11-26 08:57:21,179 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,179 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,179 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,179 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,179 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,179 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,180 - new_debug_script - INFO - Task 222_1 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,180 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_222_1_result.json
+2025-11-26 08:57:21,180 - new_debug_script - INFO - === Processing task 232_2 from virtualhome: I need to turn on the lights in the kitchen so I c... ===
+2025-11-26 08:57:21,180 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,180 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,180 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,181 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,181 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,181 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,181 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,181 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,181 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,181 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,181 - new_debug_script - DEBUG - Interpretation result: i_need
+2025-11-26 08:57:21,181 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,181 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: I need to turn on the lights in the kitchen so I can make dinner.
+2025-11-26 08:57:21,182 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: i_need
+2025-11-26 08:57:21,182 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,182 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,182 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,182 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,182 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,182 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,182 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,182 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,182 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641182787
+2025-11-26 08:57:21,182 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,182 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,183 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,183 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,183 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,183 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,183 - new_debug_script - INFO - Task 232_2 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,183 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_232_2_result.json
+2025-11-26 08:57:21,183 - new_debug_script - INFO - === Processing task 310_1 from virtualhome: I enter the bedroom and find the light. Then I tur... ===
+2025-11-26 08:57:21,183 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,183 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,183 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,183 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,184 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,184 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,184 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,184 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,184 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,184 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,184 - new_debug_script - DEBUG - Interpretation result: i_enter
+2025-11-26 08:57:21,184 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,184 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: I enter the bedroom and find the light. Then I turn it on.
+2025-11-26 08:57:21,184 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: i_enter
+2025-11-26 08:57:21,184 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,184 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,184 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,184 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,184 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,184 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,184 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,184 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,184 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641184930
+2025-11-26 08:57:21,185 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,185 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,185 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,185 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,185 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,185 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,185 - new_debug_script - INFO - Task 310_1 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,185 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_310_1_result.json
+2025-11-26 08:57:21,185 - new_debug_script - INFO - === Processing task 311_1 from virtualhome: I go home and it's dark so I can not see anything... ===
+2025-11-26 08:57:21,185 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,185 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,185 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,185 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,186 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,186 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,186 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,186 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,186 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,186 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,186 - new_debug_script - DEBUG - Interpretation result: i_go
+2025-11-26 08:57:21,186 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,186 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: I go home and it's dark so I can not see anything
+2025-11-26 08:57:21,186 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: i_go
+2025-11-26 08:57:21,186 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,186 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,186 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,186 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,186 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,186 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,186 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,186 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,186 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641186852
+2025-11-26 08:57:21,186 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,186 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,187 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,187 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,187 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,187 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,187 - new_debug_script - INFO - Task 311_1 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,187 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_311_1_result.json
+2025-11-26 08:57:21,187 - new_debug_script - INFO - === Processing task 331_2 from virtualhome: switching on light in an area... ===
+2025-11-26 08:57:21,187 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,187 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,187 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,187 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,187 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,187 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,187 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,187 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,187 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,188 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,188 - new_debug_script - DEBUG - Interpretation result: switching_on
+2025-11-26 08:57:21,188 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,188 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: switching on light in an area
+2025-11-26 08:57:21,188 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: switching_on
+2025-11-26 08:57:21,188 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,188 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,188 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,188 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,188 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,188 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,188 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,188 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,188 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641188697
+2025-11-26 08:57:21,188 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,188 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,188 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,188 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,188 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,189 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,189 - new_debug_script - INFO - Task 331_2 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,189 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_331_2_result.json
+2025-11-26 08:57:21,189 - new_debug_script - INFO - === Processing task 345_1 from virtualhome: We enter into the Living room and walk towards lig... ===
+2025-11-26 08:57:21,189 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,189 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,189 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,189 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,189 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,189 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,189 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,189 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,189 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,189 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,189 - new_debug_script - DEBUG - Interpretation result: we_enter
+2025-11-26 08:57:21,190 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,190 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: We enter into the Living room and walk towards light switch. Then switch on the light.
+2025-11-26 08:57:21,190 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: we_enter
+2025-11-26 08:57:21,190 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,190 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,190 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,190 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,190 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,190 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,190 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,190 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,190 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641190481
+2025-11-26 08:57:21,190 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,190 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,190 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,190 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,190 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,190 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,190 - new_debug_script - INFO - Task 345_1 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,191 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_345_1_result.json
+2025-11-26 08:57:21,191 - new_debug_script - INFO - === Processing task 392_1 from virtualhome: find lightswitch. walk to light switch. turn on li... ===
+2025-11-26 08:57:21,191 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,191 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,191 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,191 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,191 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,191 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,191 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,191 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,191 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,191 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,191 - new_debug_script - DEBUG - Interpretation result: find_lightswitch
+2025-11-26 08:57:21,191 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,191 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: find lightswitch. walk to light switch. turn on light.
+2025-11-26 08:57:21,191 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: find_lightswitch
+2025-11-26 08:57:21,191 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,191 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,192 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,192 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,192 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,192 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,192 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,192 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,192 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641192172
+2025-11-26 08:57:21,192 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,192 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,192 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,192 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,192 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,192 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,192 - new_debug_script - INFO - Task 392_1 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,192 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_392_1_result.json
+2025-11-26 08:57:21,192 - new_debug_script - INFO - === Processing task 394_2 from virtualhome: Find light switch. switch on... ===
+2025-11-26 08:57:21,192 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,193 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,193 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,193 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,193 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,193 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,193 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,193 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,193 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,193 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,193 - new_debug_script - DEBUG - Interpretation result: find_light
+2025-11-26 08:57:21,193 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,193 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Find light switch. switch on
+2025-11-26 08:57:21,193 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: find_light
+2025-11-26 08:57:21,193 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,193 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,193 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,193 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,193 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,193 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,193 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,193 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,193 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641193918
+2025-11-26 08:57:21,194 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,194 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,194 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,194 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,194 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,194 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,194 - new_debug_script - INFO - Task 394_2 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,194 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_394_2_result.json
+2025-11-26 08:57:21,194 - new_debug_script - INFO - === Processing task 432_1 from virtualhome: Walk over to light switch, flip the switch to the ... ===
+2025-11-26 08:57:21,194 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,194 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,194 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,194 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,194 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,194 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,194 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,194 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,194 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,195 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,195 - new_debug_script - DEBUG - Interpretation result: walk_over
+2025-11-26 08:57:21,195 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,195 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Walk over to light switch, flip the switch to the on position
+2025-11-26 08:57:21,195 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: walk_over
+2025-11-26 08:57:21,195 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,195 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,195 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,195 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,195 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,195 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,195 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,195 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,195 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641195720
+2025-11-26 08:57:21,195 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,195 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,195 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,195 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,196 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,196 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,196 - new_debug_script - INFO - Task 432_1 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,196 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_432_1_result.json
+2025-11-26 08:57:21,196 - new_debug_script - INFO - Processing dataset: behavior
+2025-11-26 08:57:21,196 - new_debug_script - INFO - Loading 20 samples from /home/yeah/eai-interpretable-interface/data/behavior-00000-of-00001.parquet
+2025-11-26 08:57:21,237 - new_debug_script - INFO - Total records in file: 100
+2025-11-26 08:57:21,238 - new_debug_script - INFO - Loaded 20 samples successfully
+2025-11-26 08:57:21,238 - new_debug_script - INFO - === Processing task assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37 from behavior: Put one candle, one cheese, one cookie, and one bo... ===
+2025-11-26 08:57:21,238 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,238 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,238 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,238 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,238 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,238 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,238 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,239 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,239 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,239 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,239 - new_debug_script - DEBUG - Interpretation result: put_one
+2025-11-26 08:57:21,239 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,239 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Put one candle, one cheese, one cookie, and one bow into each basket.
+2025-11-26 08:57:21,239 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: put_one
+2025-11-26 08:57:21,239 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,239 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,239 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,239 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,239 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,239 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,239 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,239 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,239 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641239839
+2025-11-26 08:57:21,239 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,240 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,240 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,240 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,242 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,242 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,242 - new_debug_script - INFO - Task assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,243 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_result.json
+2025-11-26 08:57:21,243 - new_debug_script - INFO - === Processing task brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56 from behavior: Check every sweater for lint, make sure none of th... ===
+2025-11-26 08:57:21,243 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,243 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,243 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,243 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,243 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,243 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,243 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,243 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,243 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,243 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,243 - new_debug_script - DEBUG - Interpretation result: check_every
+2025-11-26 08:57:21,243 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,243 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Check every sweater for lint, make sure none of them are dusty, and put them on the bed.
+2025-11-26 08:57:21,244 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: check_every
+2025-11-26 08:57:21,244 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,244 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,244 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,244 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,244 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,244 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,244 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,244 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,244 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641244375
+2025-11-26 08:57:21,244 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,244 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,244 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,244 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,244 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,244 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,244 - new_debug_script - INFO - Task brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,245 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_result.json
+2025-11-26 08:57:21,245 - new_debug_script - INFO - === Processing task boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47 from behavior: Place the books into the carton for storage.... ===
+2025-11-26 08:57:21,245 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,245 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,245 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,245 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,245 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,245 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,245 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,245 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,245 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,245 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,245 - new_debug_script - DEBUG - Interpretation result: place_the
+2025-11-26 08:57:21,245 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,245 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Place the books into the carton for storage.
+2025-11-26 08:57:21,245 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: place_the
+2025-11-26 08:57:21,245 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,246 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,246 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,246 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,246 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,246 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,246 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,246 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,246 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641246176
+2025-11-26 08:57:21,246 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,246 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,246 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,246 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,246 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,246 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,246 - new_debug_script - INFO - Task boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,246 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_result.json
+2025-11-26 08:57:21,246 - new_debug_script - INFO - === Processing task collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28 from behavior: Collect all aluminum cans and place them into the ... ===
+2025-11-26 08:57:21,246 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,246 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,247 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,247 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,247 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,247 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,247 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,247 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,247 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,247 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,247 - new_debug_script - DEBUG - Interpretation result: collect_all
+2025-11-26 08:57:21,247 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,247 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Collect all aluminum cans and place them into the bucket.
+2025-11-26 08:57:21,247 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: collect_all
+2025-11-26 08:57:21,247 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,247 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,247 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,247 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,247 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,247 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,247 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,247 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,247 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641247866
+2025-11-26 08:57:21,247 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,248 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,248 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,248 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,248 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,248 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,248 - new_debug_script - INFO - Task collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,248 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_result.json
+2025-11-26 08:57:21,248 - new_debug_script - INFO - === Processing task mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58 from behavior: Use the bucket, soap and broom to clean the staine... ===
+2025-11-26 08:57:21,248 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,248 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,248 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,248 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,248 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,248 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,248 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,248 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,248 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,248 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,249 - new_debug_script - DEBUG - Interpretation result: use_the
+2025-11-26 08:57:21,249 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,249 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.
+2025-11-26 08:57:21,249 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: use_the
+2025-11-26 08:57:21,249 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,249 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,249 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,249 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,249 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,249 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,249 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,249 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,249 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641249709
+2025-11-26 08:57:21,249 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,249 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,249 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,249 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,250 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,250 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,250 - new_debug_script - INFO - Task mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,250 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_result.json
+2025-11-26 08:57:21,250 - new_debug_script - INFO - === Processing task preserving_food_0_Rs_int_0_2021-08-25_15-53-33 from behavior: Slice and cook all the strawberries, then seal the... ===
+2025-11-26 08:57:21,250 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,250 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,250 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,250 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,250 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,250 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,250 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,250 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,250 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,250 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,251 - new_debug_script - DEBUG - Interpretation result: slice_and
+2025-11-26 08:57:21,251 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,251 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.
+2025-11-26 08:57:21,251 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: slice_and
+2025-11-26 08:57:21,251 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,251 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,251 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,251 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,251 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,251 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,251 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,251 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,251 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641251539
+2025-11-26 08:57:21,251 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,251 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,251 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,251 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,251 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,251 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,251 - new_debug_script - INFO - Task preserving_food_0_Rs_int_0_2021-08-25_15-53-33 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,252 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_result.json
+2025-11-26 08:57:21,252 - new_debug_script - INFO - === Processing task re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26 from behavior: Place books 1 through 4 on the shelf, and place bo... ===
+2025-11-26 08:57:21,252 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,252 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,252 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,252 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,252 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,252 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,252 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,252 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,252 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,252 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,252 - new_debug_script - DEBUG - Interpretation result: place_books
+2025-11-26 08:57:21,253 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,253 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Place books 1 through 4 on the shelf, and place books 5 through 8 on the table.
+2025-11-26 08:57:21,253 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: place_books
+2025-11-26 08:57:21,253 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,253 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,253 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,253 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,253 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,253 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,253 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,253 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,253 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641253582
+2025-11-26 08:57:21,253 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,253 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,253 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,253 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,253 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,253 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,254 - new_debug_script - INFO - Task re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,254 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_result.json
+2025-11-26 08:57:21,254 - new_debug_script - INFO - === Processing task polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15 from behavior: Polish all spoons and put them inside the cabinet.... ===
+2025-11-26 08:57:21,254 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,254 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,254 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,254 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,254 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,254 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,254 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,255 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,255 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,255 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,255 - new_debug_script - DEBUG - Interpretation result: polish_all
+2025-11-26 08:57:21,255 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,255 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Polish all spoons and put them inside the cabinet.
+2025-11-26 08:57:21,255 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: polish_all
+2025-11-26 08:57:21,255 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,255 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,255 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,255 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,255 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,255 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,255 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,255 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,255 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641255736
+2025-11-26 08:57:21,255 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,255 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,255 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,255 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,256 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,256 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,256 - new_debug_script - INFO - Task polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,256 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_result.json
+2025-11-26 08:57:21,256 - new_debug_script - INFO - === Processing task packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19 from behavior: Pack all plates, the dishtowel, books, shirts, and... ===
+2025-11-26 08:57:21,256 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,256 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,256 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,256 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,256 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,256 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,256 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,256 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,256 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,256 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,256 - new_debug_script - DEBUG - Interpretation result: pack_all
+2025-11-26 08:57:21,256 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,256 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.
+2025-11-26 08:57:21,257 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: pack_all
+2025-11-26 08:57:21,257 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,257 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,257 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,257 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,257 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,257 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,257 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,257 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,257 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641257389
+2025-11-26 08:57:21,257 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,257 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,257 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,257 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,257 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,257 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,257 - new_debug_script - INFO - Task packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,257 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_result.json
+2025-11-26 08:57:21,258 - new_debug_script - INFO - === Processing task cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25 from behavior: Clean the stained freezer and remove all food item... ===
+2025-11-26 08:57:21,258 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,258 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,258 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,258 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,258 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,258 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,258 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,258 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,258 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,258 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,258 - new_debug_script - DEBUG - Interpretation result: clean_the
+2025-11-26 08:57:21,258 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,258 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Clean the stained freezer and remove all food items from the freezer.
+2025-11-26 08:57:21,258 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: clean_the
+2025-11-26 08:57:21,258 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,258 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,258 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,258 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,258 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,258 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,258 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,258 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,258 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641258957
+2025-11-26 08:57:21,259 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,259 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,259 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,259 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,259 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,259 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,259 - new_debug_script - INFO - Task cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,259 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_result.json
+2025-11-26 08:57:21,259 - new_debug_script - INFO - === Processing task installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55 from behavior: Place the modem under the table and make sure it i... ===
+2025-11-26 08:57:21,259 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,259 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,259 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,259 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,259 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,259 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,259 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,259 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,259 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,259 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,260 - new_debug_script - DEBUG - Interpretation result: place_the
+2025-11-26 08:57:21,260 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,260 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Place the modem under the table and make sure it is turned on.
+2025-11-26 08:57:21,260 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: place_the
+2025-11-26 08:57:21,260 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,260 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,260 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,260 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,260 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,260 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,260 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,260 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,260 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641260512
+2025-11-26 08:57:21,260 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,260 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,260 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,260 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,260 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,260 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,260 - new_debug_script - INFO - Task installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,261 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_result.json
+2025-11-26 08:57:21,261 - new_debug_script - INFO - === Processing task cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24 from behavior: Clean all the stained tableware, put all hamburger... ===
+2025-11-26 08:57:21,261 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,261 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,261 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,261 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,261 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,261 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,261 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,261 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,261 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,261 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,261 - new_debug_script - DEBUG - Interpretation result: clean_all
+2025-11-26 08:57:21,261 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,261 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Clean all the stained tableware, put all hamburgers into sack1 which is on the floor, and clean the stained floor, chair, and table.
+2025-11-26 08:57:21,261 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: clean_all
+2025-11-26 08:57:21,261 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,261 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,261 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,262 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,262 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,262 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,262 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,262 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,262 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641262102
+2025-11-26 08:57:21,262 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,262 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,262 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,262 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,262 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,262 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,262 - new_debug_script - INFO - Task cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,262 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24_result.json
+2025-11-26 08:57:21,262 - new_debug_script - INFO - === Processing task putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25 from behavior: Place all wreaths and bows next to the cabinet, an... ===
+2025-11-26 08:57:21,262 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,262 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,262 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,262 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,262 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,262 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,262 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,262 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,262 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,263 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,263 - new_debug_script - DEBUG - Interpretation result: place_all
+2025-11-26 08:57:21,263 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,263 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.
+2025-11-26 08:57:21,263 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: place_all
+2025-11-26 08:57:21,263 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,263 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,263 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,263 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,263 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,263 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,263 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,263 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,263 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641263678
+2025-11-26 08:57:21,263 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,263 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,263 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,263 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,263 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,263 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,264 - new_debug_script - INFO - Task putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,264 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_result.json
+2025-11-26 08:57:21,264 - new_debug_script - INFO - === Processing task setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51 from behavior: Place 3 candles on each table.... ===
+2025-11-26 08:57:21,264 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,264 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,264 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,264 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,264 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,264 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,264 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,264 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,264 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,264 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,264 - new_debug_script - DEBUG - Interpretation result: place_3
+2025-11-26 08:57:21,264 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,264 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Place 3 candles on each table.
+2025-11-26 08:57:21,264 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: place_3
+2025-11-26 08:57:21,265 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,265 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,265 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,265 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,265 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,265 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,265 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,265 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,265 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641265186
+2025-11-26 08:57:21,265 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,265 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,265 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,265 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,265 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,265 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,265 - new_debug_script - INFO - Task setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,265 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_result.json
+2025-11-26 08:57:21,265 - new_debug_script - INFO - === Processing task cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22 from behavior: Clean all the shoes, and leave the towel on the fl... ===
+2025-11-26 08:57:21,265 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,265 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,265 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,265 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,265 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,265 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,266 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,266 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,266 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,266 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,266 - new_debug_script - DEBUG - Interpretation result: clean_all
+2025-11-26 08:57:21,266 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,266 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Clean all the shoes, and leave the towel on the floor.
+2025-11-26 08:57:21,266 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: clean_all
+2025-11-26 08:57:21,266 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,266 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,266 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,266 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,266 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,266 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,266 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,266 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,266 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641266777
+2025-11-26 08:57:21,266 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,266 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,266 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,266 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,267 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,267 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,267 - new_debug_script - INFO - Task cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,267 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22_result.json
+2025-11-26 08:57:21,267 - new_debug_script - INFO - === Processing task cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08 from behavior: Place the towel on the countertop, the brush next ... ===
+2025-11-26 08:57:21,267 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,267 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,267 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,267 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,267 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,267 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,267 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,267 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,267 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,267 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,267 - new_debug_script - DEBUG - Interpretation result: place_the
+2025-11-26 08:57:21,267 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,268 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Place the towel on the countertop, the brush next to the towel, and the soap into the sink. Clean the dusty and stained sneakers, place 2 sneakers next to the table and 2 other sneakers under the table.
+2025-11-26 08:57:21,268 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: place_the
+2025-11-26 08:57:21,268 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,268 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,268 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,268 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,268 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,268 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,268 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,268 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,268 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641268591
+2025-11-26 08:57:21,268 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,268 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,268 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,268 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,268 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,268 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,269 - new_debug_script - INFO - Task cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,269 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08_result.json
+2025-11-26 08:57:21,269 - new_debug_script - INFO - === Processing task locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10 from behavior: Close and lock all the windows.... ===
+2025-11-26 08:57:21,269 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,269 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,269 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,269 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,269 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,269 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,269 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,269 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,269 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,269 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,269 - new_debug_script - DEBUG - Interpretation result: close_and
+2025-11-26 08:57:21,270 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,270 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Close and lock all the windows.
+2025-11-26 08:57:21,270 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: close_and
+2025-11-26 08:57:21,270 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,270 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,270 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,270 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,270 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,270 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,270 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,270 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,270 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641270609
+2025-11-26 08:57:21,270 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,271 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,271 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,271 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,271 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,271 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,271 - new_debug_script - INFO - Task locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,271 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_result.json
+2025-11-26 08:57:21,271 - new_debug_script - INFO - === Processing task washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10 from behavior: Wash all dust and stains from the car or vehicle.... ===
+2025-11-26 08:57:21,271 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,271 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,271 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,271 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,271 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,271 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,271 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,272 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,272 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,272 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,272 - new_debug_script - DEBUG - Interpretation result: wash_all
+2025-11-26 08:57:21,272 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,272 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Wash all dust and stains from the car or vehicle.
+2025-11-26 08:57:21,272 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: wash_all
+2025-11-26 08:57:21,272 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,272 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,272 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,272 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,272 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,273 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,273 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,273 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,273 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641273072
+2025-11-26 08:57:21,273 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,273 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,273 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,273 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,273 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,273 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,273 - new_debug_script - INFO - Task washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,273 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_result.json
+2025-11-26 08:57:21,273 - new_debug_script - INFO - === Processing task washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48 from behavior: Wash all the stained plates, cups, and bowls.... ===
+2025-11-26 08:57:21,274 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,274 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,274 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,274 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,274 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,274 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,274 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,274 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,274 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,274 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,274 - new_debug_script - DEBUG - Interpretation result: wash_all
+2025-11-26 08:57:21,275 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,275 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Wash all the stained plates, cups, and bowls.
+2025-11-26 08:57:21,275 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: wash_all
+2025-11-26 08:57:21,275 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,275 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,275 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,275 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,275 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,275 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,275 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,276 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,276 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641276025
+2025-11-26 08:57:21,276 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,276 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,276 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,276 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,276 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,276 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,276 - new_debug_script - INFO - Task washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,277 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_result.json
+2025-11-26 08:57:21,277 - new_debug_script - INFO - === Processing task putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17 from behavior: Place all pumpkins and candles into the cabinet, a... ===
+2025-11-26 08:57:21,277 - new_debug_script - INFO - Initializing modules...
+2025-11-26 08:57:21,277 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 08:57:21,277 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 08:57:21,277 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 08:57:21,277 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 08:57:21,277 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 08:57:21,277 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 08:57:21,278 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 08:57:21,278 - new_debug_script - INFO - All modules initialized successfully
+2025-11-26 08:57:21,278 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 08:57:21,278 - new_debug_script - DEBUG - Interpretation result: place_all
+2025-11-26 08:57:21,278 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 08:57:21,278 - subgoal_decomposition.subgoal_ltl_integration - INFO - 开始处理目标: Place all pumpkins and candles into the cabinet, arrange the sheet either next to or on the table, and position the caldron next to the table.
+2025-11-26 08:57:21,279 - subgoal_decomposition.subgoal_ltl_integration - INFO - 生成的LTL公式: place_all
+2025-11-26 08:57:21,279 - subgoal_decomposition.subgoal_ltl_integration - INFO - 分解得到 1 个子目标
+2025-11-26 08:57:21,279 - subgoal_decomposition.subgoal_ltl_integration - INFO - 验证发现 1 个问题
+2025-11-26 08:57:21,279 - subgoal_decomposition.subgoal_ltl_integration - INFO - 优化完成，性能提升: 0.0%
+2025-11-26 08:57:21,279 - subgoal_decomposition.subgoal_ltl_integration - INFO - 复杂度分析完成: low
+2025-11-26 08:57:21,279 - subgoal_decomposition.subgoal_ltl_integration - INFO - 目标处理完成
+2025-11-26 08:57:21,279 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 08:57:21,279 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 08:57:21,279 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-26 08:57:21,279 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764118641279580
+2025-11-26 08:57:21,279 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-26 08:57:21,279 - new_debug_script - DEBUG - Transition modeling completed successfully
+2025-11-26 08:57:21,279 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 08:57:21,279 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions
+2025-11-26 08:57:21,279 - action_sequencing.action_sequencer - ERROR - Error generating action sequence: unhashable type: 'dict'
+2025-11-26 08:57:21,279 - new_debug_script - DEBUG - Action sequencing completed: failed
+2025-11-26 08:57:21,279 - new_debug_script - INFO - Task putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17 processed successfully in 0.00 seconds
+2025-11-26 08:57:21,280 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17_result.json
+2025-11-26 08:57:21,283 - new_debug_script - INFO - === Debug processing complete ===
+2025-11-26 08:57:21,283 - new_debug_script - INFO - Total tasks: 40
+2025-11-26 08:57:21,283 - new_debug_script - INFO - Successful tasks: 40
+2025-11-26 08:57:21,283 - new_debug_script - INFO - Failed tasks: 0
+2025-11-26 08:57:21,283 - new_debug_script - INFO - Summary saved to: /home/yeah/eai-interpretable-interface/new_debug_results/debug_summary_1764118641.json
+2025-11-26 08:57:21,283 - new_debug_script - INFO - Detailed logs saved to: new_debug_parquet_processing.log
