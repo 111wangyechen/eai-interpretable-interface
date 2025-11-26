@@ -4860,3 +4860,20 @@
 2025-11-26 09:50:23,308 - src.behavior_eval - DEBUG - Action Sequence Resource Path: evaluation/action_sequencing/resources
 2025-11-26 09:50:23,312 - root - WARNING - Failed to import subgoal decomposition evaluator modules: No module named 'fire'
 2025-11-26 09:50:23,312 - new_debug_script - ERROR - ✗ Module import failed: No module named 'subgoal_decomposition.models'
+2025-11-26 09:56:41,214 - new_debug_script - INFO - Importing core modules...
+2025-11-26 09:56:41,216 - new_debug_script - INFO - ✓ GoalInterpreter (integrated) imported successfully
+2025-11-26 09:56:41,236 - src.behavior_eval - DEBUG - Loading configuration from /home/yeah/eai-interpretable-interface/embodied-agent-interface/src/behavior_eval/global_config.yaml
+2025-11-26 09:56:41,237 - src.behavior_eval - DEBUG - Loaded global configuration: {'demo_name_path': 'data/demo_names.json', 'demo_stats_path': 'data/demo_stats.json', 'action_seq_resources_path': 'evaluation/action_sequencing/resources', 'goal_int_resources_path': 'evaluation/goal_interpretation/resources', 'trans_model_resources_path': 'evaluation/transition_modeling/resources', 'subgoal_dec_resources_path': 'evaluation/subgoal_decomposition/resources', 'subgoal_vocab_path': 'evaluation/subgoal_decomposition/resources/base_vocabulary.json'}
+2025-11-26 09:56:41,237 - src.behavior_eval - DEBUG - Demo Name Path: data/demo_names.json
+2025-11-26 09:56:41,237 - src.behavior_eval - DEBUG - Demo Name Path: data/demo_stats.json
+2025-11-26 09:56:41,237 - src.behavior_eval - DEBUG - Goal Intention Resource Path: evaluation/goal_interpretation/resources
+2025-11-26 09:56:41,237 - src.behavior_eval - DEBUG - Subgoal Decomposition Resource Path: evaluation/subgoal_decomposition/resources
+2025-11-26 09:56:41,237 - src.behavior_eval - DEBUG - Subgoal Vocabulary Path: evaluation/subgoal_decomposition/resources/base_vocabulary.json
+2025-11-26 09:56:41,237 - src.behavior_eval - DEBUG - Transition Model Resource Path: evaluation/transition_modeling/resources
+2025-11-26 09:56:41,237 - src.behavior_eval - DEBUG - Action Sequence Resource Path: evaluation/action_sequencing/resources
+2025-11-26 09:56:41,238 - root - WARNING - Failed to import subgoal decomposition evaluator modules: No module named 'fire'
+2025-11-26 09:56:41,239 - new_debug_script - INFO - ✓ SubgoalDecomposerIntegration imported successfully
+2025-11-26 09:56:41,251 - new_debug_script - INFO - ✓ TransitionModelerIntegration imported successfully
+2025-11-26 09:56:41,260 - action_sequencing - INFO - Action Sequencing Module v1.0.0 loaded successfully
+2025-11-26 09:56:41,265 - root - WARNING - Failed to import action sequence evaluation components: No module named 'src.embodied_agent'
+2025-11-26 09:56:41,265 - new_debug_script - ERROR - ✗ Module import failed: No module named 'action_sequencing.models'
