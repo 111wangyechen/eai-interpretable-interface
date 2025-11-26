@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764124009796",
+  "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764124361649",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764124009796",
+    "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764124361649",
     "task_id": "setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51",
     "dataset": "behavior",
     "natural_goal": "Place 3 candles on each table.",
-    "start_time": "2025-11-26T10:26:49.796761",
+    "start_time": "2025-11-26T10:32:41.649617",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00013518333435058594,
-      "subgoal_decomposition": 0.00010180473327636719,
-      "transition_modeling": 0.00014162063598632812,
-      "action_sequencing": 0.00015807151794433594
+      "goal_interpretation": 0.0001506805419921875,
+      "subgoal_decomposition": 0.00010633468627929688,
+      "transition_modeling": 0.0001373291015625,
+      "action_sequencing": 0.0001361370086669922
     },
     "error": "'formula'"
   }

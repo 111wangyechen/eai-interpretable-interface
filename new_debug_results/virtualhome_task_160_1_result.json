@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_160_1_1764124009668",
+  "submission_id": "virtualhome_160_1_1764124361580",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_160_1_1764124009668",
+    "submission_id": "virtualhome_160_1_1764124361580",
     "task_id": "160_1",
     "dataset": "virtualhome",
     "natural_goal": "Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one.",
-    "start_time": "2025-11-26T10:26:49.668073",
+    "start_time": "2025-11-26T10:32:41.580984",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00024771690368652344,
-      "subgoal_decomposition": 0.00023674964904785156,
-      "transition_modeling": 0.0003192424774169922,
-      "action_sequencing": 0.00045037269592285156
+      "goal_interpretation": 0.0001971721649169922,
+      "subgoal_decomposition": 0.00012159347534179688,
+      "transition_modeling": 0.00014972686767578125,
+      "action_sequencing": 0.00016498565673828125
     },
     "error": "'formula'"
   }

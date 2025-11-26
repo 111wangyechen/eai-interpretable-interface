@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_850_1_1764124009647",
+  "submission_id": "virtualhome_850_1_1764124361566",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_850_1_1764124009647",
+    "submission_id": "virtualhome_850_1_1764124361566",
     "task_id": "850_1",
     "dataset": "virtualhome",
     "natural_goal": "Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.",
-    "start_time": "2025-11-26T10:26:49.647183",
+    "start_time": "2025-11-26T10:32:41.566010",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0004305839538574219,
-      "subgoal_decomposition": 0.0006544589996337891,
-      "transition_modeling": 0.0005090236663818359,
-      "action_sequencing": 0.00077056884765625
+      "goal_interpretation": 0.00022983551025390625,
+      "subgoal_decomposition": 0.00033473968505859375,
+      "transition_modeling": 0.0002701282501220703,
+      "action_sequencing": 0.0002865791320800781
     },
     "error": "'formula'"
   }

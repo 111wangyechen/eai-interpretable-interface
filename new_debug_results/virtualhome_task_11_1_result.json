@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_11_1_1764124009656",
+  "submission_id": "virtualhome_11_1_1764124361571",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_11_1_1764124009656",
+    "submission_id": "virtualhome_11_1_1764124361571",
     "task_id": "11_1",
     "dataset": "virtualhome",
     "natural_goal": "I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.",
-    "start_time": "2025-11-26T10:26:49.656662",
+    "start_time": "2025-11-26T10:32:41.571320",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0002238750457763672,
-      "subgoal_decomposition": 0.00026226043701171875,
-      "transition_modeling": 0.00021648406982421875,
-      "action_sequencing": 0.0003521442413330078
+      "goal_interpretation": 0.00029730796813964844,
+      "subgoal_decomposition": 0.00026869773864746094,
+      "transition_modeling": 0.00025534629821777344,
+      "action_sequencing": 0.0003325939178466797
     },
     "error": "'formula'"
   }

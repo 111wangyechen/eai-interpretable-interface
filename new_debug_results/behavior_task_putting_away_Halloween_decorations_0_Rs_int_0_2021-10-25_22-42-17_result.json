@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17_1764124009806",
+  "submission_id": "behavior_putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17_1764124361659",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17_1764124009806",
+    "submission_id": "behavior_putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17_1764124361659",
     "task_id": "putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17",
     "dataset": "behavior",
     "natural_goal": "Place all pumpkins and candles into the cabinet, arrange the sheet either next to or on the table, and position the caldron next to the table.",
-    "start_time": "2025-11-26T10:26:49.806530",
+    "start_time": "2025-11-26T10:32:41.659642",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0002086162567138672,
-      "subgoal_decomposition": 0.00010752677917480469,
-      "transition_modeling": 0.00011205673217773438,
-      "action_sequencing": 0.00013446807861328125
+      "goal_interpretation": 0.0002231597900390625,
+      "subgoal_decomposition": 0.00010895729064941406,
+      "transition_modeling": 0.00013017654418945312,
+      "action_sequencing": 0.00013875961303710938
     },
     "error": "'formula'"
   }

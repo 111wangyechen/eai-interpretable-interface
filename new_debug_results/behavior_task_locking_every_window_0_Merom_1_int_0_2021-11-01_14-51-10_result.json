@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764124009801",
+  "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764124361654",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764124009801",
+    "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764124361654",
     "task_id": "locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10",
     "dataset": "behavior",
     "natural_goal": "Close and lock all the windows.",
-    "start_time": "2025-11-26T10:26:49.801688",
+    "start_time": "2025-11-26T10:32:41.654366",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00013875961303710938,
-      "subgoal_decomposition": 0.00010609626770019531,
-      "transition_modeling": 0.00013637542724609375,
-      "action_sequencing": 0.0001614093780517578
+      "goal_interpretation": 0.000171661376953125,
+      "subgoal_decomposition": 0.00013184547424316406,
+      "transition_modeling": 0.00016021728515625,
+      "action_sequencing": 0.00018167495727539062
     },
     "error": "'formula'"
   }

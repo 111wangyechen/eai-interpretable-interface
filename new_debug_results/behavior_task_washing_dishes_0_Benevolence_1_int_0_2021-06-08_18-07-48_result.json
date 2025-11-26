@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764124009804",
+  "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764124361658",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764124009804",
+    "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764124361658",
     "task_id": "washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48",
     "dataset": "behavior",
     "natural_goal": "Wash all the stained plates, cups, and bowls.",
-    "start_time": "2025-11-26T10:26:49.804992",
+    "start_time": "2025-11-26T10:32:41.658035",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001494884490966797,
-      "subgoal_decomposition": 0.00011563301086425781,
-      "transition_modeling": 0.00012969970703125,
-      "action_sequencing": 0.00013780593872070312
+      "goal_interpretation": 0.0001518726348876953,
+      "subgoal_decomposition": 0.00010895729064941406,
+      "transition_modeling": 0.00013017654418945312,
+      "action_sequencing": 0.00014209747314453125
     },
     "error": "'formula'"
   }

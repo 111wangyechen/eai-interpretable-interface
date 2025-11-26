@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_180_2_1764124009671",
+  "submission_id": "virtualhome_180_2_1764124361582",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_180_2_1764124009671",
+    "submission_id": "virtualhome_180_2_1764124361582",
     "task_id": "180_2",
     "dataset": "virtualhome",
     "natural_goal": "Find the light circuit breaker in the kitchen",
-    "start_time": "2025-11-26T10:26:49.671233",
+    "start_time": "2025-11-26T10:32:41.582849",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001785755157470703,
-      "subgoal_decomposition": 0.0001266002655029297,
-      "transition_modeling": 0.00035834312438964844,
-      "action_sequencing": 0.00046515464782714844
+      "goal_interpretation": 0.000133514404296875,
+      "subgoal_decomposition": 0.00010704994201660156,
+      "transition_modeling": 0.00014781951904296875,
+      "action_sequencing": 0.0001392364501953125
     },
     "error": "'formula'"
   }

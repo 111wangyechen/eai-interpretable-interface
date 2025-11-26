@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764124009717",
+  "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764124361625",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764124009717",
+    "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764124361625",
     "task_id": "preserving_food_0_Rs_int_0_2021-08-25_15-53-33",
     "dataset": "behavior",
     "natural_goal": "Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.",
-    "start_time": "2025-11-26T10:26:49.717029",
+    "start_time": "2025-11-26T10:32:41.625728",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001819133758544922,
-      "subgoal_decomposition": 0.000133514404296875,
-      "transition_modeling": 0.00017690658569335938,
-      "action_sequencing": 0.0001766681671142578
+      "goal_interpretation": 0.00024819374084472656,
+      "subgoal_decomposition": 0.000324249267578125,
+      "transition_modeling": 0.0002903938293457031,
+      "action_sequencing": 0.00040721893310546875
     },
     "error": "'formula'"
   }

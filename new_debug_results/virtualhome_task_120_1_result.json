@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_120_1_1764124009659",
+  "submission_id": "virtualhome_120_1_1764124361574",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_120_1_1764124009659",
+    "submission_id": "virtualhome_120_1_1764124361574",
     "task_id": "120_1",
     "dataset": "virtualhome",
     "natural_goal": "Go to the kitchen and living room and turn on the lights.",
-    "start_time": "2025-11-26T10:26:49.659545",
+    "start_time": "2025-11-26T10:32:41.574324",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00017905235290527344,
-      "subgoal_decomposition": 0.0002627372741699219,
-      "transition_modeling": 0.0002701282501220703,
-      "action_sequencing": 0.00031685829162597656
+      "goal_interpretation": 0.000240325927734375,
+      "subgoal_decomposition": 0.0002377033233642578,
+      "transition_modeling": 0.00025391578674316406,
+      "action_sequencing": 0.0003170967102050781
     },
     "error": "'formula'"
   }

@@ -8738,3 +8738,1397 @@
 2025-11-26 10:26:49,809 - new_debug_script - INFO - Failed tasks: 40
 2025-11-26 10:26:49,809 - new_debug_script - INFO - Summary saved to: /home/yeah/eai-interpretable-interface/new_debug_results/debug_summary_1764124009.json
 2025-11-26 10:26:49,809 - new_debug_script - INFO - Detailed logs saved to: new_debug_parquet_processing.log
+2025-11-26 10:32:41,481 - new_debug_script - INFO - Importing core modules...
+2025-11-26 10:32:41,484 - new_debug_script - INFO - ✓ GoalInterpreter (integrated) imported successfully
+2025-11-26 10:32:41,496 - src.behavior_eval - DEBUG - Loading configuration from /home/yeah/eai-interpretable-interface/embodied-agent-interface/src/behavior_eval/global_config.yaml
+2025-11-26 10:32:41,497 - src.behavior_eval - DEBUG - Loaded global configuration: {'demo_name_path': 'data/demo_names.json', 'demo_stats_path': 'data/demo_stats.json', 'action_seq_resources_path': 'evaluation/action_sequencing/resources', 'goal_int_resources_path': 'evaluation/goal_interpretation/resources', 'trans_model_resources_path': 'evaluation/transition_modeling/resources', 'subgoal_dec_resources_path': 'evaluation/subgoal_decomposition/resources', 'subgoal_vocab_path': 'evaluation/subgoal_decomposition/resources/base_vocabulary.json'}
+2025-11-26 10:32:41,497 - src.behavior_eval - DEBUG - Demo Name Path: data/demo_names.json
+2025-11-26 10:32:41,497 - src.behavior_eval - DEBUG - Demo Name Path: data/demo_stats.json
+2025-11-26 10:32:41,497 - src.behavior_eval - DEBUG - Goal Intention Resource Path: evaluation/goal_interpretation/resources
+2025-11-26 10:32:41,497 - src.behavior_eval - DEBUG - Subgoal Decomposition Resource Path: evaluation/subgoal_decomposition/resources
+2025-11-26 10:32:41,497 - src.behavior_eval - DEBUG - Subgoal Vocabulary Path: evaluation/subgoal_decomposition/resources/base_vocabulary.json
+2025-11-26 10:32:41,497 - src.behavior_eval - DEBUG - Transition Model Resource Path: evaluation/transition_modeling/resources
+2025-11-26 10:32:41,497 - src.behavior_eval - DEBUG - Action Sequence Resource Path: evaluation/action_sequencing/resources
+2025-11-26 10:32:41,498 - root - WARNING - Failed to import subgoal decomposition evaluator modules: No module named 'fire'
+2025-11-26 10:32:41,499 - new_debug_script - INFO - ✓ SubgoalDecomposerIntegration imported successfully
+2025-11-26 10:32:41,504 - new_debug_script - INFO - ✓ TransitionModelerIntegration imported successfully
+2025-11-26 10:32:41,513 - action_sequencing - INFO - Action Sequencing Module v1.0.0 loaded successfully
+2025-11-26 10:32:41,516 - root - WARNING - Failed to import action sequence evaluation components: No module named 'src.embodied_agent'
+2025-11-26 10:32:41,517 - new_debug_script - INFO - ✓ ActionSequencerIntegration imported successfully
+2025-11-26 10:32:41,517 - new_debug_script - INFO - ✓ ActionType and Action imported successfully
+2025-11-26 10:32:41,517 - new_debug_script - INFO - Starting new debug script...
+2025-11-26 10:32:41,517 - new_debug_script - INFO - Found 2 parquet files: ['virtualhome', 'behavior']
+2025-11-26 10:32:41,517 - new_debug_script - INFO - Processing dataset: virtualhome
+2025-11-26 10:32:41,517 - new_debug_script - INFO - Loading 20 samples from /home/yeah/eai-interpretable-interface/data/virtualhome-00000-of-00001.parquet
+2025-11-26 10:32:41,548 - new_debug_script - INFO - Total records in file: 338
+2025-11-26 10:32:41,550 - new_debug_script - INFO - Loaded 20 samples successfully
+2025-11-26 10:32:41,550 - new_debug_script - INFO - === Processing task 27_2 from virtualhome: Walk to the kitchen and find the basket of clothes... ===
+2025-11-26 10:32:41,550 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,551 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,551 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,551 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,551 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,551 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,551 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,552 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,555 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,555 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,555 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,555 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,555 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,555 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,556 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,560 - new_debug_script - DEBUG - Goal interpreted: walk_to, valid: True
+2025-11-26 10:32:41,560 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,560 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine.
+2025-11-26 10:32:41,560 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,560 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,560 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,560 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,561 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine.
+2025-11-26 10:32:41,561 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,561 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,561 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,561 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,561 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,561 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Walk to the kitchen and find the basket of clothes. Put the soap and clothes into the washing machine. Turn on the washing machine.
+2025-11-26 10:32:41,561 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,561 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,562 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,562 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_27_2_result.json
+2025-11-26 10:32:41,562 - new_debug_script - INFO - === Processing task 417_1 from virtualhome: I will load the dirty clothes into the washing mac... ===
+2025-11-26 10:32:41,562 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,563 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,563 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,563 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,563 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,563 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,563 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,563 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,563 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,563 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,563 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,564 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,564 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,564 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,564 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,564 - new_debug_script - DEBUG - Goal interpreted: i_will, valid: True
+2025-11-26 10:32:41,564 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,564 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: I will load the dirty clothes into the washing machine.
+2025-11-26 10:32:41,564 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,564 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,564 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,564 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,565 - new_debug_script - DEBUG - Using integrated transition modeling for goal: I will load the dirty clothes into the washing machine.
+2025-11-26 10:32:41,565 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,565 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,565 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,565 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,565 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,565 - new_debug_script - DEBUG - Using integrated action sequencing for goal: I will load the dirty clothes into the washing machine.
+2025-11-26 10:32:41,565 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,565 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,565 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,565 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_417_1_result.json
+2025-11-26 10:32:41,566 - new_debug_script - INFO - === Processing task 850_1 from virtualhome: Walk into laundry room. Open washing machine door.... ===
+2025-11-26 10:32:41,566 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,566 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,566 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,566 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,566 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,566 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,566 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,566 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,566 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,566 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,566 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,566 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,566 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,566 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,566 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,566 - new_debug_script - DEBUG - Goal interpreted: walk_into, valid: True
+2025-11-26 10:32:41,566 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,566 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.
+2025-11-26 10:32:41,567 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,567 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,567 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,567 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,567 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.
+2025-11-26 10:32:41,567 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,567 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,567 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,567 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,567 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,567 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Walk into laundry room. Open washing machine door. Put dirty clothes into washing machine. Measure laundry detergent and place into washing machine. Turn dial to appropriate wash setting. Power on.
+2025-11-26 10:32:41,567 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,567 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,567 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,568 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_850_1_result.json
+2025-11-26 10:32:41,568 - new_debug_script - INFO - === Processing task 954_2 from virtualhome: I need to get the dirty clothes basket.  Walk to b... ===
+2025-11-26 10:32:41,568 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,568 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,568 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,568 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,568 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,568 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,568 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,569 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,569 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,569 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,569 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,569 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,569 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,569 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,569 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,569 - new_debug_script - DEBUG - Goal interpreted: i_need, valid: True
+2025-11-26 10:32:41,570 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,570 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.
+2025-11-26 10:32:41,570 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,570 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,570 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,570 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,570 - new_debug_script - DEBUG - Using integrated transition modeling for goal: I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.
+2025-11-26 10:32:41,570 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,570 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,570 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,570 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,570 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,570 - new_debug_script - DEBUG - Using integrated action sequencing for goal: I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.
+2025-11-26 10:32:41,570 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,570 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,570 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,571 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_954_2_result.json
+2025-11-26 10:32:41,571 - new_debug_script - INFO - === Processing task 11_1 from virtualhome: I go to bedroom and locate a lamp. This lamp can b... ===
+2025-11-26 10:32:41,571 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,571 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,571 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,571 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,571 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,571 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,571 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,571 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,572 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,572 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,572 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,572 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,572 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,572 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,572 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,572 - new_debug_script - DEBUG - Goal interpreted: i_go, valid: True
+2025-11-26 10:32:41,572 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,572 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.
+2025-11-26 10:32:41,572 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,573 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,573 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,573 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,573 - new_debug_script - DEBUG - Using integrated transition modeling for goal: I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.
+2025-11-26 10:32:41,573 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,573 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,573 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,573 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,573 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,573 - new_debug_script - DEBUG - Using integrated action sequencing for goal: I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.
+2025-11-26 10:32:41,573 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,573 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,573 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,574 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_11_1_result.json
+2025-11-26 10:32:41,574 - new_debug_script - INFO - === Processing task 120_1 from virtualhome: Go to the kitchen and living room and turn on the ... ===
+2025-11-26 10:32:41,574 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,574 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,574 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,574 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,574 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,574 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,574 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,574 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,574 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,575 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,575 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,575 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,575 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,575 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,575 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,575 - new_debug_script - DEBUG - Goal interpreted: go_to, valid: True
+2025-11-26 10:32:41,575 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,575 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Go to the kitchen and living room and turn on the lights.
+2025-11-26 10:32:41,575 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,575 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,575 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,575 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,576 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Go to the kitchen and living room and turn on the lights.
+2025-11-26 10:32:41,576 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,576 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,576 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,576 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,576 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,576 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Go to the kitchen and living room and turn on the lights.
+2025-11-26 10:32:41,576 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,576 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,576 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,577 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_120_1_result.json
+2025-11-26 10:32:41,577 - new_debug_script - INFO - === Processing task 125_2 from virtualhome: turn on the light for room... ===
+2025-11-26 10:32:41,577 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,577 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,577 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,577 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,577 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,577 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,577 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,577 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,577 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,577 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,577 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,577 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,578 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,578 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,578 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,578 - new_debug_script - DEBUG - Goal interpreted: turn_on, valid: True
+2025-11-26 10:32:41,578 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,578 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: turn on the light for room
+2025-11-26 10:32:41,578 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,578 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,578 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,578 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,578 - new_debug_script - DEBUG - Using integrated transition modeling for goal: turn on the light for room
+2025-11-26 10:32:41,578 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,578 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,578 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,578 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,578 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,578 - new_debug_script - DEBUG - Using integrated action sequencing for goal: turn on the light for room
+2025-11-26 10:32:41,578 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,578 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,578 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,579 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_125_2_result.json
+2025-11-26 10:32:41,579 - new_debug_script - INFO - === Processing task 150_2 from virtualhome: push any ligth button to turn it on, for example i... ===
+2025-11-26 10:32:41,579 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,579 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,579 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,579 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,579 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,579 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,579 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,579 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,579 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,579 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,579 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,579 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,579 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,579 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,579 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,580 - new_debug_script - DEBUG - Goal interpreted: push_any, valid: True
+2025-11-26 10:32:41,580 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,580 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: push any ligth button to turn it on, for example in the living room
+2025-11-26 10:32:41,580 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,580 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,580 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,580 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,580 - new_debug_script - DEBUG - Using integrated transition modeling for goal: push any ligth button to turn it on, for example in the living room
+2025-11-26 10:32:41,580 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,580 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,580 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,580 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,580 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,580 - new_debug_script - DEBUG - Using integrated action sequencing for goal: push any ligth button to turn it on, for example in the living room
+2025-11-26 10:32:41,580 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,580 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,580 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,580 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_150_2_result.json
+2025-11-26 10:32:41,580 - new_debug_script - INFO - === Processing task 160_1 from virtualhome: Go to the living room, find the switches (buttons ... ===
+2025-11-26 10:32:41,581 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,581 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,581 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,581 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,581 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,581 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,581 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,581 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,581 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,581 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,581 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,581 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,581 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,581 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,581 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,581 - new_debug_script - DEBUG - Goal interpreted: go_to, valid: True
+2025-11-26 10:32:41,581 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,581 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one.
+2025-11-26 10:32:41,581 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,581 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,582 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,582 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,582 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one.
+2025-11-26 10:32:41,582 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,582 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,582 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,582 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,582 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,582 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one.
+2025-11-26 10:32:41,582 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,582 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,582 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,582 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_160_1_result.json
+2025-11-26 10:32:41,582 - new_debug_script - INFO - === Processing task 180_2 from virtualhome: Find the light circuit breaker in the kitchen... ===
+2025-11-26 10:32:41,582 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,582 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,582 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,582 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,583 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,583 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,583 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,583 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,583 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,583 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,583 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,583 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,583 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,583 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,583 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,583 - new_debug_script - DEBUG - Goal interpreted: find_the, valid: True
+2025-11-26 10:32:41,583 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,583 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Find the light circuit breaker in the kitchen
+2025-11-26 10:32:41,583 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,583 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,583 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,583 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,583 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Find the light circuit breaker in the kitchen
+2025-11-26 10:32:41,583 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,584 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,584 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,584 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,584 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,584 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Find the light circuit breaker in the kitchen
+2025-11-26 10:32:41,584 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,584 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,584 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,584 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_180_2_result.json
+2025-11-26 10:32:41,584 - new_debug_script - INFO - === Processing task 205_1 from virtualhome: Walk into the bedroom and walk to the light switch... ===
+2025-11-26 10:32:41,584 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,585 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,585 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,585 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,585 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,585 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,585 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,585 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,585 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,585 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,585 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,585 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,585 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,585 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,585 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,585 - new_debug_script - DEBUG - Goal interpreted: walk_into, valid: True
+2025-11-26 10:32:41,585 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,585 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Walk into the bedroom and walk to the light switch. Flip the switch.
+2025-11-26 10:32:41,585 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,585 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,585 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,585 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,585 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Walk into the bedroom and walk to the light switch. Flip the switch.
+2025-11-26 10:32:41,586 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,586 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,586 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,586 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,586 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,586 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Walk into the bedroom and walk to the light switch. Flip the switch.
+2025-11-26 10:32:41,586 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,586 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,586 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,586 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_205_1_result.json
+2025-11-26 10:32:41,586 - new_debug_script - INFO - === Processing task 222_1 from virtualhome: walk into living room, walk to light, turn on ligh... ===
+2025-11-26 10:32:41,586 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,586 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,586 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,586 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,586 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,586 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,586 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,586 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,587 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,587 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,587 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,587 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,587 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,587 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,587 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,587 - new_debug_script - DEBUG - Goal interpreted: walk_into, valid: True
+2025-11-26 10:32:41,587 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,587 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: walk into living room, walk to light, turn on light switch.
+2025-11-26 10:32:41,587 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,587 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,587 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,587 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,587 - new_debug_script - DEBUG - Using integrated transition modeling for goal: walk into living room, walk to light, turn on light switch.
+2025-11-26 10:32:41,587 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,587 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,587 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,587 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,587 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,587 - new_debug_script - DEBUG - Using integrated action sequencing for goal: walk into living room, walk to light, turn on light switch.
+2025-11-26 10:32:41,587 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,588 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,588 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,588 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_222_1_result.json
+2025-11-26 10:32:41,588 - new_debug_script - INFO - === Processing task 232_2 from virtualhome: I need to turn on the lights in the kitchen so I c... ===
+2025-11-26 10:32:41,588 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,588 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,588 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,588 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,588 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,588 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,588 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,588 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,588 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,589 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,589 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,589 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,589 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,589 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,589 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,589 - new_debug_script - DEBUG - Goal interpreted: i_need, valid: True
+2025-11-26 10:32:41,589 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,589 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: I need to turn on the lights in the kitchen so I can make dinner.
+2025-11-26 10:32:41,589 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,589 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,589 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,589 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,589 - new_debug_script - DEBUG - Using integrated transition modeling for goal: I need to turn on the lights in the kitchen so I can make dinner.
+2025-11-26 10:32:41,589 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,589 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,589 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,589 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,589 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,589 - new_debug_script - DEBUG - Using integrated action sequencing for goal: I need to turn on the lights in the kitchen so I can make dinner.
+2025-11-26 10:32:41,589 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,589 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,589 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,590 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_232_2_result.json
+2025-11-26 10:32:41,590 - new_debug_script - INFO - === Processing task 310_1 from virtualhome: I enter the bedroom and find the light. Then I tur... ===
+2025-11-26 10:32:41,590 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,590 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,590 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,590 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,590 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,590 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,590 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,590 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,590 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,590 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,590 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,590 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,590 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,590 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,590 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,591 - new_debug_script - DEBUG - Goal interpreted: i_enter, valid: True
+2025-11-26 10:32:41,591 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,591 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: I enter the bedroom and find the light. Then I turn it on.
+2025-11-26 10:32:41,591 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,591 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,591 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,591 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,591 - new_debug_script - DEBUG - Using integrated transition modeling for goal: I enter the bedroom and find the light. Then I turn it on.
+2025-11-26 10:32:41,591 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,591 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,591 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,591 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,591 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,591 - new_debug_script - DEBUG - Using integrated action sequencing for goal: I enter the bedroom and find the light. Then I turn it on.
+2025-11-26 10:32:41,591 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,591 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,591 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,592 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_310_1_result.json
+2025-11-26 10:32:41,592 - new_debug_script - INFO - === Processing task 311_1 from virtualhome: I go home and it's dark so I can not see anything... ===
+2025-11-26 10:32:41,592 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,592 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,592 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,593 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,593 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,593 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,593 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,593 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,593 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,594 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,594 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,594 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,594 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,594 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,594 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,595 - new_debug_script - DEBUG - Goal interpreted: i_go, valid: True
+2025-11-26 10:32:41,595 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,595 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: I go home and it's dark so I can not see anything
+2025-11-26 10:32:41,595 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,595 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,595 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,595 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,595 - new_debug_script - DEBUG - Using integrated transition modeling for goal: I go home and it's dark so I can not see anything
+2025-11-26 10:32:41,595 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,595 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,595 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,595 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,595 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,595 - new_debug_script - DEBUG - Using integrated action sequencing for goal: I go home and it's dark so I can not see anything
+2025-11-26 10:32:41,595 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,595 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,596 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,596 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_311_1_result.json
+2025-11-26 10:32:41,596 - new_debug_script - INFO - === Processing task 331_2 from virtualhome: switching on light in an area... ===
+2025-11-26 10:32:41,596 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,596 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,596 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,596 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,596 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,596 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,596 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,596 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,597 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,597 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,597 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,597 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,597 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,597 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,597 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,597 - new_debug_script - DEBUG - Goal interpreted: switching_on, valid: True
+2025-11-26 10:32:41,597 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,597 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: switching on light in an area
+2025-11-26 10:32:41,597 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,597 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,597 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,597 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,597 - new_debug_script - DEBUG - Using integrated transition modeling for goal: switching on light in an area
+2025-11-26 10:32:41,597 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,597 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,598 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,598 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,598 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,598 - new_debug_script - DEBUG - Using integrated action sequencing for goal: switching on light in an area
+2025-11-26 10:32:41,598 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,598 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,598 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,598 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_331_2_result.json
+2025-11-26 10:32:41,598 - new_debug_script - INFO - === Processing task 345_1 from virtualhome: We enter into the Living room and walk towards lig... ===
+2025-11-26 10:32:41,598 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,598 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,599 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,599 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,599 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,599 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,599 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,599 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,599 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,599 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,599 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,599 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,599 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,599 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,599 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,599 - new_debug_script - DEBUG - Goal interpreted: we_enter, valid: True
+2025-11-26 10:32:41,599 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,599 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: We enter into the Living room and walk towards light switch. Then switch on the light.
+2025-11-26 10:32:41,599 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,600 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,600 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,600 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,600 - new_debug_script - DEBUG - Using integrated transition modeling for goal: We enter into the Living room and walk towards light switch. Then switch on the light.
+2025-11-26 10:32:41,600 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,600 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,600 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,600 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,600 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,600 - new_debug_script - DEBUG - Using integrated action sequencing for goal: We enter into the Living room and walk towards light switch. Then switch on the light.
+2025-11-26 10:32:41,600 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,600 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,600 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,601 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_345_1_result.json
+2025-11-26 10:32:41,601 - new_debug_script - INFO - === Processing task 392_1 from virtualhome: find lightswitch. walk to light switch. turn on li... ===
+2025-11-26 10:32:41,601 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,601 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,601 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,601 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,601 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,601 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,601 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,601 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,601 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,601 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,601 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,601 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,601 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,601 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,601 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,602 - new_debug_script - DEBUG - Goal interpreted: find_lightswitch, valid: True
+2025-11-26 10:32:41,602 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,602 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: find lightswitch. walk to light switch. turn on light.
+2025-11-26 10:32:41,602 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,602 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,602 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,602 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,602 - new_debug_script - DEBUG - Using integrated transition modeling for goal: find lightswitch. walk to light switch. turn on light.
+2025-11-26 10:32:41,602 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,602 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,602 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,602 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,602 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,602 - new_debug_script - DEBUG - Using integrated action sequencing for goal: find lightswitch. walk to light switch. turn on light.
+2025-11-26 10:32:41,602 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,602 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,602 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,602 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_392_1_result.json
+2025-11-26 10:32:41,602 - new_debug_script - INFO - === Processing task 394_2 from virtualhome: Find light switch. switch on... ===
+2025-11-26 10:32:41,602 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,603 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,603 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,603 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,603 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,603 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,603 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,603 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,603 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,603 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,603 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,604 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,604 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,604 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,604 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,604 - new_debug_script - DEBUG - Goal interpreted: find_light, valid: True
+2025-11-26 10:32:41,604 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,604 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Find light switch. switch on
+2025-11-26 10:32:41,604 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,604 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,604 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,604 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,604 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Find light switch. switch on
+2025-11-26 10:32:41,604 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,605 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,605 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,605 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,605 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,605 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Find light switch. switch on
+2025-11-26 10:32:41,605 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,605 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,605 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,605 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_394_2_result.json
+2025-11-26 10:32:41,606 - new_debug_script - INFO - === Processing task 432_1 from virtualhome: Walk over to light switch, flip the switch to the ... ===
+2025-11-26 10:32:41,606 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,606 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,606 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,606 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,606 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,606 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,606 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,606 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,606 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,606 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,606 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,606 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,606 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,606 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,606 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,607 - new_debug_script - DEBUG - Goal interpreted: walk_over, valid: True
+2025-11-26 10:32:41,607 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,607 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Walk over to light switch, flip the switch to the on position
+2025-11-26 10:32:41,607 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,607 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,607 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,607 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,607 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Walk over to light switch, flip the switch to the on position
+2025-11-26 10:32:41,607 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,607 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,607 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,607 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,607 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,608 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Walk over to light switch, flip the switch to the on position
+2025-11-26 10:32:41,608 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,608 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,608 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,608 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/virtualhome_task_432_1_result.json
+2025-11-26 10:32:41,608 - new_debug_script - INFO - Processing dataset: behavior
+2025-11-26 10:32:41,608 - new_debug_script - INFO - Loading 20 samples from /home/yeah/eai-interpretable-interface/data/behavior-00000-of-00001.parquet
+2025-11-26 10:32:41,611 - new_debug_script - INFO - Total records in file: 100
+2025-11-26 10:32:41,612 - new_debug_script - INFO - Loaded 20 samples successfully
+2025-11-26 10:32:41,612 - new_debug_script - INFO - === Processing task assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37 from behavior: Put one candle, one cheese, one cookie, and one bo... ===
+2025-11-26 10:32:41,612 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,612 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,612 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,612 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,612 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,613 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,613 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,613 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,613 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,613 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,613 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,613 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,613 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,613 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,613 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,614 - new_debug_script - DEBUG - Goal interpreted: put_one, valid: True
+2025-11-26 10:32:41,614 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,614 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Put one candle, one cheese, one cookie, and one bow into each basket.
+2025-11-26 10:32:41,614 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,614 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,614 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,614 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,614 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Put one candle, one cheese, one cookie, and one bow into each basket.
+2025-11-26 10:32:41,614 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,614 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,614 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,614 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,614 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,614 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Put one candle, one cheese, one cookie, and one bow into each basket.
+2025-11-26 10:32:41,615 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,615 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,615 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,615 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_result.json
+2025-11-26 10:32:41,615 - new_debug_script - INFO - === Processing task brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56 from behavior: Check every sweater for lint, make sure none of th... ===
+2025-11-26 10:32:41,615 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,616 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,616 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,616 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,616 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,616 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,616 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,616 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,616 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,616 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,616 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,616 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,616 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,616 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,616 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,616 - new_debug_script - DEBUG - Goal interpreted: check_every, valid: True
+2025-11-26 10:32:41,616 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,616 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Check every sweater for lint, make sure none of them are dusty, and put them on the bed.
+2025-11-26 10:32:41,616 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,617 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,617 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,617 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,617 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Check every sweater for lint, make sure none of them are dusty, and put them on the bed.
+2025-11-26 10:32:41,617 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,617 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,617 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,617 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,617 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,617 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Check every sweater for lint, make sure none of them are dusty, and put them on the bed.
+2025-11-26 10:32:41,617 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,617 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,617 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,617 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_result.json
+2025-11-26 10:32:41,617 - new_debug_script - INFO - === Processing task boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47 from behavior: Place the books into the carton for storage.... ===
+2025-11-26 10:32:41,617 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,617 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,617 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,617 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,617 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,617 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,617 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,617 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,618 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,618 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,618 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,618 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,618 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,618 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,618 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,618 - new_debug_script - DEBUG - Goal interpreted: place_the, valid: True
+2025-11-26 10:32:41,618 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,618 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Place the books into the carton for storage.
+2025-11-26 10:32:41,618 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,618 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,618 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,618 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,618 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Place the books into the carton for storage.
+2025-11-26 10:32:41,618 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,618 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,618 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,618 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,618 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,618 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Place the books into the carton for storage.
+2025-11-26 10:32:41,618 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,618 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,618 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,619 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_result.json
+2025-11-26 10:32:41,619 - new_debug_script - INFO - === Processing task collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28 from behavior: Collect all aluminum cans and place them into the ... ===
+2025-11-26 10:32:41,619 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,619 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,619 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,619 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,619 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,619 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,619 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,619 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,620 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,620 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,620 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,620 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,620 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,620 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,620 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,620 - new_debug_script - DEBUG - Goal interpreted: collect_all, valid: True
+2025-11-26 10:32:41,620 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,620 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Collect all aluminum cans and place them into the bucket.
+2025-11-26 10:32:41,620 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,620 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,621 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,621 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,621 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Collect all aluminum cans and place them into the bucket.
+2025-11-26 10:32:41,621 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,621 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,621 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,621 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,621 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,621 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Collect all aluminum cans and place them into the bucket.
+2025-11-26 10:32:41,621 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,621 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,621 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,622 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_result.json
+2025-11-26 10:32:41,622 - new_debug_script - INFO - === Processing task mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58 from behavior: Use the bucket, soap and broom to clean the staine... ===
+2025-11-26 10:32:41,622 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,622 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,622 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,622 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,622 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,622 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,622 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,622 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,623 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,623 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,623 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,623 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,623 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,623 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,623 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,623 - new_debug_script - DEBUG - Goal interpreted: use_the, valid: True
+2025-11-26 10:32:41,623 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,623 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.
+2025-11-26 10:32:41,624 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,624 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,624 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,624 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,624 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.
+2025-11-26 10:32:41,624 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,624 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,624 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,624 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,624 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,624 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.
+2025-11-26 10:32:41,624 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,625 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,625 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,625 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_result.json
+2025-11-26 10:32:41,625 - new_debug_script - INFO - === Processing task preserving_food_0_Rs_int_0_2021-08-25_15-53-33 from behavior: Slice and cook all the strawberries, then seal the... ===
+2025-11-26 10:32:41,625 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,625 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,625 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,626 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,626 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,626 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,626 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,626 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,626 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,626 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,626 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,626 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,626 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,626 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,627 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,627 - new_debug_script - DEBUG - Goal interpreted: slice_and, valid: True
+2025-11-26 10:32:41,627 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,627 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.
+2025-11-26 10:32:41,627 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,627 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,627 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,627 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,627 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.
+2025-11-26 10:32:41,627 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,628 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,628 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,628 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,628 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,628 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.
+2025-11-26 10:32:41,628 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,628 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,628 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,629 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_result.json
+2025-11-26 10:32:41,629 - new_debug_script - INFO - === Processing task re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26 from behavior: Place books 1 through 4 on the shelf, and place bo... ===
+2025-11-26 10:32:41,629 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,629 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,629 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,629 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,629 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,629 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,629 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,629 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,630 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,630 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,630 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,630 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,630 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,630 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,630 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,630 - new_debug_script - DEBUG - Goal interpreted: place_books, valid: True
+2025-11-26 10:32:41,630 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,631 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Place books 1 through 4 on the shelf, and place books 5 through 8 on the table.
+2025-11-26 10:32:41,631 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,631 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,631 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,631 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,631 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Place books 1 through 4 on the shelf, and place books 5 through 8 on the table.
+2025-11-26 10:32:41,631 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,631 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,631 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,631 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,631 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,631 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Place books 1 through 4 on the shelf, and place books 5 through 8 on the table.
+2025-11-26 10:32:41,632 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,632 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,632 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,632 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_result.json
+2025-11-26 10:32:41,632 - new_debug_script - INFO - === Processing task polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15 from behavior: Polish all spoons and put them inside the cabinet.... ===
+2025-11-26 10:32:41,632 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,632 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,633 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,633 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,633 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,633 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,633 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,633 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,633 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,633 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,633 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,633 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,633 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,633 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,634 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,634 - new_debug_script - DEBUG - Goal interpreted: polish_all, valid: True
+2025-11-26 10:32:41,634 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,634 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Polish all spoons and put them inside the cabinet.
+2025-11-26 10:32:41,634 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,634 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,634 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,634 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,634 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Polish all spoons and put them inside the cabinet.
+2025-11-26 10:32:41,634 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,634 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,634 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,634 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,635 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,635 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Polish all spoons and put them inside the cabinet.
+2025-11-26 10:32:41,635 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,635 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,635 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,635 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_result.json
+2025-11-26 10:32:41,635 - new_debug_script - INFO - === Processing task packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19 from behavior: Pack all plates, the dishtowel, books, shirts, and... ===
+2025-11-26 10:32:41,636 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,636 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,636 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,636 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,636 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,636 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,636 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,636 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,636 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,636 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,636 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,637 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,637 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,637 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,637 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,637 - new_debug_script - DEBUG - Goal interpreted: pack_all, valid: True
+2025-11-26 10:32:41,637 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,637 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.
+2025-11-26 10:32:41,637 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,637 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,637 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,637 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,638 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.
+2025-11-26 10:32:41,638 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,638 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,638 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,638 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,638 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,638 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.
+2025-11-26 10:32:41,638 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,638 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,638 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,639 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_result.json
+2025-11-26 10:32:41,639 - new_debug_script - INFO - === Processing task cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25 from behavior: Clean the stained freezer and remove all food item... ===
+2025-11-26 10:32:41,639 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,639 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,639 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,639 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,639 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,639 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,639 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,639 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,640 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,640 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,640 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,640 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,640 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,640 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,640 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,640 - new_debug_script - DEBUG - Goal interpreted: clean_the, valid: True
+2025-11-26 10:32:41,640 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,640 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Clean the stained freezer and remove all food items from the freezer.
+2025-11-26 10:32:41,640 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,641 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,641 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,641 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,641 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Clean the stained freezer and remove all food items from the freezer.
+2025-11-26 10:32:41,641 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,641 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,641 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,641 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,641 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,641 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Clean the stained freezer and remove all food items from the freezer.
+2025-11-26 10:32:41,641 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,641 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,641 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,642 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_result.json
+2025-11-26 10:32:41,642 - new_debug_script - INFO - === Processing task installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55 from behavior: Place the modem under the table and make sure it i... ===
+2025-11-26 10:32:41,642 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,642 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,642 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,642 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,642 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,643 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,643 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,643 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,643 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,643 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,643 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,643 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,643 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,643 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,644 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,644 - new_debug_script - DEBUG - Goal interpreted: place_the, valid: True
+2025-11-26 10:32:41,644 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,644 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Place the modem under the table and make sure it is turned on.
+2025-11-26 10:32:41,644 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,644 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,644 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,645 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,645 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Place the modem under the table and make sure it is turned on.
+2025-11-26 10:32:41,645 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,645 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,645 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,645 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,645 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,645 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Place the modem under the table and make sure it is turned on.
+2025-11-26 10:32:41,645 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,645 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,645 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,645 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_result.json
+2025-11-26 10:32:41,646 - new_debug_script - INFO - === Processing task cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24 from behavior: Clean all the stained tableware, put all hamburger... ===
+2025-11-26 10:32:41,646 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,646 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,646 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,646 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,646 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,646 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,646 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,646 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,646 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,646 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,646 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,646 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,646 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,646 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,646 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,646 - new_debug_script - DEBUG - Goal interpreted: clean_all, valid: True
+2025-11-26 10:32:41,646 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,646 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Clean all the stained tableware, put all hamburgers into sack1 which is on the floor, and clean the stained floor, chair, and table.
+2025-11-26 10:32:41,646 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,647 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,647 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,647 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,647 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Clean all the stained tableware, put all hamburgers into sack1 which is on the floor, and clean the stained floor, chair, and table.
+2025-11-26 10:32:41,647 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,647 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,647 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,647 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,647 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,647 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Clean all the stained tableware, put all hamburgers into sack1 which is on the floor, and clean the stained floor, chair, and table.
+2025-11-26 10:32:41,647 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,647 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,647 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,647 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24_result.json
+2025-11-26 10:32:41,647 - new_debug_script - INFO - === Processing task putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25 from behavior: Place all wreaths and bows next to the cabinet, an... ===
+2025-11-26 10:32:41,648 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,648 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,648 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,648 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,648 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,648 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,648 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,648 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,648 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,648 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,648 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,648 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,648 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,648 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,648 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,648 - new_debug_script - DEBUG - Goal interpreted: place_all, valid: True
+2025-11-26 10:32:41,648 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,648 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.
+2025-11-26 10:32:41,648 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,648 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,648 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,648 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,648 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.
+2025-11-26 10:32:41,649 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,649 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,649 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,649 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,649 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,649 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.
+2025-11-26 10:32:41,649 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,649 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,649 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,649 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_result.json
+2025-11-26 10:32:41,649 - new_debug_script - INFO - === Processing task setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51 from behavior: Place 3 candles on each table.... ===
+2025-11-26 10:32:41,649 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,649 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,649 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,649 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,649 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,649 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,649 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,649 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,649 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,650 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,650 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,650 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,650 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,650 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,650 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,650 - new_debug_script - DEBUG - Goal interpreted: place_3, valid: True
+2025-11-26 10:32:41,650 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,650 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Place 3 candles on each table.
+2025-11-26 10:32:41,650 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,650 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,650 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,650 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,650 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Place 3 candles on each table.
+2025-11-26 10:32:41,650 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,650 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,650 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,650 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,650 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,650 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Place 3 candles on each table.
+2025-11-26 10:32:41,650 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,650 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,650 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,651 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_result.json
+2025-11-26 10:32:41,651 - new_debug_script - INFO - === Processing task cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22 from behavior: Clean all the shoes, and leave the towel on the fl... ===
+2025-11-26 10:32:41,651 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,651 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,651 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,651 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,651 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,651 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,651 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,651 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,651 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,651 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,651 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,651 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,651 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,651 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,651 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,651 - new_debug_script - DEBUG - Goal interpreted: clean_all, valid: True
+2025-11-26 10:32:41,651 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,651 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Clean all the shoes, and leave the towel on the floor.
+2025-11-26 10:32:41,651 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,651 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,651 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,651 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,651 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Clean all the shoes, and leave the towel on the floor.
+2025-11-26 10:32:41,652 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,652 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,652 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,652 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,652 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,652 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Clean all the shoes, and leave the towel on the floor.
+2025-11-26 10:32:41,652 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,652 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,652 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,652 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22_result.json
+2025-11-26 10:32:41,652 - new_debug_script - INFO - === Processing task cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08 from behavior: Place the towel on the countertop, the brush next ... ===
+2025-11-26 10:32:41,652 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,652 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,652 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,652 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,652 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,652 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,652 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,652 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,652 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,653 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,653 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,653 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,653 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,653 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,653 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,653 - new_debug_script - DEBUG - Goal interpreted: place_the, valid: True
+2025-11-26 10:32:41,653 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,653 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Place the towel on the countertop, the brush next to the towel, and the soap into the sink. Clean the dusty and stained sneakers, place 2 sneakers next to the table and 2 other sneakers under the table.
+2025-11-26 10:32:41,653 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,653 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,653 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,653 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,653 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Place the towel on the countertop, the brush next to the towel, and the soap into the sink. Clean the dusty and stained sneakers, place 2 sneakers next to the table and 2 other sneakers under the table.
+2025-11-26 10:32:41,653 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,653 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,653 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,653 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,653 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,653 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Place the towel on the countertop, the brush next to the towel, and the soap into the sink. Clean the dusty and stained sneakers, place 2 sneakers next to the table and 2 other sneakers under the table.
+2025-11-26 10:32:41,653 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,653 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,653 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,654 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08_result.json
+2025-11-26 10:32:41,654 - new_debug_script - INFO - === Processing task locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10 from behavior: Close and lock all the windows.... ===
+2025-11-26 10:32:41,654 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,654 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,654 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,654 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,654 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,654 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,654 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,654 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,654 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,654 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,654 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,654 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,655 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,655 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,655 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,655 - new_debug_script - DEBUG - Goal interpreted: close_and, valid: True
+2025-11-26 10:32:41,655 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,655 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Close and lock all the windows.
+2025-11-26 10:32:41,655 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,655 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,655 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,655 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,655 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Close and lock all the windows.
+2025-11-26 10:32:41,655 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,655 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,655 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,655 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,655 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,655 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Close and lock all the windows.
+2025-11-26 10:32:41,655 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,655 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,655 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,656 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_result.json
+2025-11-26 10:32:41,656 - new_debug_script - INFO - === Processing task washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10 from behavior: Wash all dust and stains from the car or vehicle.... ===
+2025-11-26 10:32:41,656 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,656 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,656 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,656 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,656 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,656 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,656 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,656 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,656 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,656 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,656 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,656 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,656 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,656 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,656 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,657 - new_debug_script - DEBUG - Goal interpreted: wash_all, valid: True
+2025-11-26 10:32:41,657 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,657 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Wash all dust and stains from the car or vehicle.
+2025-11-26 10:32:41,657 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,657 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,657 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,657 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,657 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Wash all dust and stains from the car or vehicle.
+2025-11-26 10:32:41,657 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,657 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,657 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,657 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,657 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,657 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Wash all dust and stains from the car or vehicle.
+2025-11-26 10:32:41,657 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,657 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,657 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,657 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_result.json
+2025-11-26 10:32:41,658 - new_debug_script - INFO - === Processing task washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48 from behavior: Wash all the stained plates, cups, and bowls.... ===
+2025-11-26 10:32:41,658 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,658 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,658 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,658 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,658 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,658 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,658 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,658 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,658 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,658 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,658 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,658 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,658 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,658 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,658 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,658 - new_debug_script - DEBUG - Goal interpreted: wash_all, valid: True
+2025-11-26 10:32:41,658 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,658 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Wash all the stained plates, cups, and bowls.
+2025-11-26 10:32:41,658 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,658 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,658 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,658 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,659 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Wash all the stained plates, cups, and bowls.
+2025-11-26 10:32:41,659 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,659 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,659 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,659 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,659 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,659 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Wash all the stained plates, cups, and bowls.
+2025-11-26 10:32:41,659 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,659 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,659 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,659 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_result.json
+2025-11-26 10:32:41,659 - new_debug_script - INFO - === Processing task putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17 from behavior: Place all pumpkins and candles into the cabinet, a... ===
+2025-11-26 10:32:41,659 - new_debug_script - INFO - Initializing integrated modules...
+2025-11-26 10:32:41,659 - subgoal_decomposition.subgoal_decomposer_integration - INFO - Subgoal Decomposer Integration initialized
+2025-11-26 10:32:41,659 - transition_modeling.transition_predictor - INFO - Transition Predictor initialized
+2025-11-26 10:32:41,659 - transition_modeling.transition_validator - INFO - Transition Validator initialized with PDDL validation support
+2025-11-26 10:32:41,659 - transition_modeling.logic_guard - INFO - LogicGuard initialized
+2025-11-26 10:32:41,659 - transition_modeling.transition_modeler - INFO - LogicGuard module initialized successfully
+2025-11-26 10:32:41,659 - transition_modeling.transition_modeler - INFO - Transition Modeler initialized with enhanced module integration support
+2025-11-26 10:32:41,659 - transition_modeling.transition_modeler_integration - INFO - Original TransitionModeler initialized
+2025-11-26 10:32:41,660 - transition_modeling.transition_modeler_integration - WARNING - Failed to import TransitionModelingEvaluator: No module named 'embodied_agent_interface'
+2025-11-26 10:32:41,660 - transition_modeling.transition_modeler_integration - INFO - TransitionModelerIntegration initialized
+2025-11-26 10:32:41,660 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-26 10:32:41,660 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-26 10:32:41,660 - action_sequencing.action_sequencer_integration - INFO - Action Sequencer Integration initialized
+2025-11-26 10:32:41,660 - new_debug_script - INFO - All integrated modules initialized successfully
+2025-11-26 10:32:41,660 - new_debug_script - INFO - Step 1: Goal Interpretation
+2025-11-26 10:32:41,660 - new_debug_script - DEBUG - Goal interpreted: place_all, valid: True
+2025-11-26 10:32:41,660 - new_debug_script - INFO - Step 2: Subgoal Decomposition
+2025-11-26 10:32:41,660 - new_debug_script - DEBUG - Using integrated subgoal decomposition for: Place all pumpkins and candles into the cabinet, arrange the sheet either next to or on the table, and position the caldron next to the table.
+2025-11-26 10:32:41,660 - subgoal_decomposition.subgoal_decomposer_integration - ERROR - Error in subgoal decomposition for integration: SubgoalDecomposer.decompose() got an unexpected keyword argument 'goal'
+2025-11-26 10:32:41,660 - new_debug_script - INFO - Trying alternative subgoal generation method
+2025-11-26 10:32:41,660 - new_debug_script - DEBUG - Subgoal result: 1 subgoals generated
+2025-11-26 10:32:41,660 - new_debug_script - INFO - Step 3: Transition Modeling
+2025-11-26 10:32:41,660 - new_debug_script - DEBUG - Using integrated transition modeling for goal: Place all pumpkins and candles into the cabinet, arrange the sheet either next to or on the table, and position the caldron next to the table.
+2025-11-26 10:32:41,660 - transition_modeling.transition_modeler_integration - ERROR - Error calling original modeler: TransitionModeler.model_transitions() got an unexpected keyword argument 'goal_state'
+2025-11-26 10:32:41,660 - new_debug_script - DEBUG - Transition modeling completed successfully: {'status': 'success', 'type': 'IntegratedModelingResult'}
+2025-11-26 10:32:41,660 - new_debug_script - INFO - Step 4: Action Sequencing
+2025-11-26 10:32:41,660 - new_debug_script - DEBUG - No actions from transition model, generating task-specific actions based on subgoals
+2025-11-26 10:32:41,660 - new_debug_script - DEBUG - Generated 3 actions based on subgoals
+2025-11-26 10:32:41,660 - new_debug_script - DEBUG - Using integrated action sequencing for goal: Place all pumpkins and candles into the cabinet, arrange the sheet either next to or on the table, and position the caldron next to the table.
+2025-11-26 10:32:41,660 - action_sequencing.action_sequencer_integration - ERROR - Error in action sequencing for integration: 'NoneType' object is not iterable
+2025-11-26 10:32:41,660 - new_debug_script - DEBUG - Action sequencing completed: failed, generated 0 actions
+2025-11-26 10:32:41,660 - new_debug_script - ERROR - Unexpected error during processing: 'formula'
+2025-11-26 10:32:41,661 - new_debug_script - INFO - Intermediate result saved to /home/yeah/eai-interpretable-interface/new_debug_results/behavior_task_putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17_result.json
+2025-11-26 10:32:41,663 - new_debug_script - INFO - === Debug processing complete ===
+2025-11-26 10:32:41,663 - new_debug_script - INFO - Total tasks: 40
+2025-11-26 10:32:41,663 - new_debug_script - INFO - Successful tasks: 0
+2025-11-26 10:32:41,663 - new_debug_script - INFO - Failed tasks: 40
+2025-11-26 10:32:41,663 - new_debug_script - INFO - Summary saved to: /home/yeah/eai-interpretable-interface/new_debug_results/debug_summary_1764124361.json
+2025-11-26 10:32:41,663 - new_debug_script - INFO - Detailed logs saved to: new_debug_parquet_processing.log

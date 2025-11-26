@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_150_2_1764124009665",
+  "submission_id": "virtualhome_150_2_1764124361579",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_150_2_1764124009665",
+    "submission_id": "virtualhome_150_2_1764124361579",
     "task_id": "150_2",
     "dataset": "virtualhome",
     "natural_goal": "push any ligth button to turn it on, for example in the living room",
-    "start_time": "2025-11-26T10:26:49.665142",
+    "start_time": "2025-11-26T10:32:41.579166",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00019931793212890625,
-      "subgoal_decomposition": 0.0002827644348144531,
-      "transition_modeling": 0.000232696533203125,
-      "action_sequencing": 0.0003554821014404297
+      "goal_interpretation": 0.0001919269561767578,
+      "subgoal_decomposition": 0.00016570091247558594,
+      "transition_modeling": 0.00013375282287597656,
+      "action_sequencing": 0.00013875961303710938
     },
     "error": "'formula'"
   }

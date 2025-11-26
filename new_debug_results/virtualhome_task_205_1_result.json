@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_205_1_1764124009674",
+  "submission_id": "virtualhome_205_1_1764124361584",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_205_1_1764124009674",
+    "submission_id": "virtualhome_205_1_1764124361584",
     "task_id": "205_1",
     "dataset": "virtualhome",
     "natural_goal": "Walk into the bedroom and walk to the light switch. Flip the switch.",
-    "start_time": "2025-11-26T10:26:49.674702",
+    "start_time": "2025-11-26T10:32:41.584901",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0002655982971191406,
-      "subgoal_decomposition": 0.0003440380096435547,
-      "transition_modeling": 0.0002913475036621094,
-      "action_sequencing": 0.00048804283142089844
+      "goal_interpretation": 0.0001475811004638672,
+      "subgoal_decomposition": 0.00010776519775390625,
+      "transition_modeling": 0.00011873245239257812,
+      "action_sequencing": 0.00015544891357421875
     },
     "error": "'formula'"
   }

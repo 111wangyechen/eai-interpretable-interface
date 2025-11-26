@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_125_2_1764124009662",
+  "submission_id": "virtualhome_125_2_1764124361577",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_125_2_1764124009662",
+    "submission_id": "virtualhome_125_2_1764124361577",
     "task_id": "125_2",
     "dataset": "virtualhome",
     "natural_goal": "turn on the light for room",
-    "start_time": "2025-11-26T10:26:49.662321",
+    "start_time": "2025-11-26T10:32:41.577124",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00017261505126953125,
-      "subgoal_decomposition": 0.0002770423889160156,
-      "transition_modeling": 0.0002353191375732422,
-      "action_sequencing": 0.0003161430358886719
+      "goal_interpretation": 0.00015664100646972656,
+      "subgoal_decomposition": 0.0001404285430908203,
+      "transition_modeling": 0.0001399517059326172,
+      "action_sequencing": 0.00014352798461914062
     },
     "error": "'formula'"
   }

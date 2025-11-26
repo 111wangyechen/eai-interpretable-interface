@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24_1764124009793",
+  "submission_id": "behavior_cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24_1764124361646",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24_1764124009793",
+    "submission_id": "behavior_cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24_1764124361646",
     "task_id": "cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24",
     "dataset": "behavior",
     "natural_goal": "Clean all the stained tableware, put all hamburgers into sack1 which is on the floor, and clean the stained floor, chair, and table.",
-    "start_time": "2025-11-26T10:26:49.793108",
+    "start_time": "2025-11-26T10:32:41.646005",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00019931793212890625,
-      "subgoal_decomposition": 0.00011754035949707031,
-      "transition_modeling": 0.00016570091247558594,
-      "action_sequencing": 0.0001811981201171875
+      "goal_interpretation": 0.0002040863037109375,
+      "subgoal_decomposition": 0.0001423358917236328,
+      "transition_modeling": 0.0001552104949951172,
+      "action_sequencing": 0.0002713203430175781
     },
     "error": "'formula'"
   }

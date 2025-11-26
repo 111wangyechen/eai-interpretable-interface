@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08_1764124009800",
+  "submission_id": "behavior_cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08_1764124361652",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08_1764124009800",
+    "submission_id": "behavior_cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08_1764124361652",
     "task_id": "cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08",
     "dataset": "behavior",
     "natural_goal": "Place the towel on the countertop, the brush next to the towel, and the soap into the sink. Clean the dusty and stained sneakers, place 2 sneakers next to the table and 2 other sneakers under the table.",
-    "start_time": "2025-11-26T10:26:49.800056",
+    "start_time": "2025-11-26T10:32:41.652553",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0002167224884033203,
-      "subgoal_decomposition": 0.00010013580322265625,
-      "transition_modeling": 0.00012993812561035156,
-      "action_sequencing": 0.00016045570373535156
+      "goal_interpretation": 0.00023746490478515625,
+      "subgoal_decomposition": 0.00012111663818359375,
+      "transition_modeling": 0.00014209747314453125,
+      "action_sequencing": 0.00014400482177734375
     },
     "error": "'formula'"
   }

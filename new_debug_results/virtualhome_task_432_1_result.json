@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_432_1_1764124009702",
+  "submission_id": "virtualhome_432_1_1764124361606",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_432_1_1764124009702",
+    "submission_id": "virtualhome_432_1_1764124361606",
     "task_id": "432_1",
     "dataset": "virtualhome",
     "natural_goal": "Walk over to light switch, flip the switch to the on position",
-    "start_time": "2025-11-26T10:26:49.702096",
+    "start_time": "2025-11-26T10:32:41.606061",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00020956993103027344,
-      "subgoal_decomposition": 0.0001125335693359375,
-      "transition_modeling": 0.0001354217529296875,
-      "action_sequencing": 0.00016450881958007812
+      "goal_interpretation": 0.00019931793212890625,
+      "subgoal_decomposition": 0.0002586841583251953,
+      "transition_modeling": 0.00024509429931640625,
+      "action_sequencing": 0.00031065940856933594
     },
     "error": "'formula'"
   }

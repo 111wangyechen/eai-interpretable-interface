@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764124009718",
+  "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764124361629",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764124009718",
+    "submission_id": "behavior_re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26_1764124361629",
     "task_id": "re-shelving_library_books_0_Rs_int_0_2021-10-25_21-22-26",
     "dataset": "behavior",
     "natural_goal": "Place books 1 through 4 on the shelf, and place books 5 through 8 on the table.",
-    "start_time": "2025-11-26T10:26:49.718910",
+    "start_time": "2025-11-26T10:32:41.629278",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00021505355834960938,
-      "subgoal_decomposition": 0.0002474784851074219,
-      "transition_modeling": 0.0002560615539550781,
-      "action_sequencing": 0.0002529621124267578
+      "goal_interpretation": 0.00021886825561523438,
+      "subgoal_decomposition": 0.000278472900390625,
+      "transition_modeling": 0.0004303455352783203,
+      "action_sequencing": 0.0003368854522705078
     },
     "error": "'formula'"
   }

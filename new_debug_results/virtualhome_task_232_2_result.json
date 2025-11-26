@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_232_2_1764124009681",
+  "submission_id": "virtualhome_232_2_1764124361588",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_232_2_1764124009681",
+    "submission_id": "virtualhome_232_2_1764124361588",
     "task_id": "232_2",
     "dataset": "virtualhome",
     "natural_goal": "I need to turn on the lights in the kitchen so I can make dinner.",
-    "start_time": "2025-11-26T10:26:49.681951",
+    "start_time": "2025-11-26T10:32:41.588493",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001876354217529297,
-      "subgoal_decomposition": 0.0002493858337402344,
-      "transition_modeling": 0.0002181529998779297,
-      "action_sequencing": 0.0003285408020019531
+      "goal_interpretation": 0.00017309188842773438,
+      "subgoal_decomposition": 0.00010919570922851562,
+      "transition_modeling": 0.00012373924255371094,
+      "action_sequencing": 0.00017070770263671875
     },
     "error": "'formula'"
   }

@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_394_2_1764124009698",
+  "submission_id": "virtualhome_394_2_1764124361602",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_394_2_1764124009698",
+    "submission_id": "virtualhome_394_2_1764124361602",
     "task_id": "394_2",
     "dataset": "virtualhome",
     "natural_goal": "Find light switch. switch on",
-    "start_time": "2025-11-26T10:26:49.698890",
+    "start_time": "2025-11-26T10:32:41.602893",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00016427040100097656,
-      "subgoal_decomposition": 0.0002827644348144531,
-      "transition_modeling": 0.0002455711364746094,
-      "action_sequencing": 0.0003345012664794922
+      "goal_interpretation": 0.00028586387634277344,
+      "subgoal_decomposition": 0.00020885467529296875,
+      "transition_modeling": 0.0002644062042236328,
+      "action_sequencing": 0.0002906322479248047
     },
     "error": "'formula'"
   }

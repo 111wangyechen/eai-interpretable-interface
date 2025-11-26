@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764124009711",
+  "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764124361617",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764124009711",
+    "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764124361617",
     "task_id": "boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47",
     "dataset": "behavior",
     "natural_goal": "Place the books into the carton for storage.",
-    "start_time": "2025-11-26T10:26:49.711819",
+    "start_time": "2025-11-26T10:32:41.617767",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00014138221740722656,
-      "subgoal_decomposition": 0.00010943412780761719,
-      "transition_modeling": 0.0001392364501953125,
-      "action_sequencing": 0.0001704692840576172
+      "goal_interpretation": 0.0001399517059326172,
+      "subgoal_decomposition": 0.00010609626770019531,
+      "transition_modeling": 0.000110626220703125,
+      "action_sequencing": 0.0001289844512939453
     },
     "error": "'formula'"
   }

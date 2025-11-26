@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764124009713",
+  "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764124361619",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764124009713",
+    "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764124361619",
     "task_id": "collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28",
     "dataset": "behavior",
     "natural_goal": "Collect all aluminum cans and place them into the bucket.",
-    "start_time": "2025-11-26T10:26:49.713421",
+    "start_time": "2025-11-26T10:32:41.619195",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001506805419921875,
-      "subgoal_decomposition": 0.0001347064971923828,
-      "transition_modeling": 0.00014662742614746094,
-      "action_sequencing": 0.00017023086547851562
+      "goal_interpretation": 0.00018787384033203125,
+      "subgoal_decomposition": 0.00028204917907714844,
+      "transition_modeling": 0.0002722740173339844,
+      "action_sequencing": 0.0003142356872558594
     },
     "error": "'formula'"
   }

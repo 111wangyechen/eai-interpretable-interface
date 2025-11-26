@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764124009715",
+  "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764124361622",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764124009715",
+    "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764124361622",
     "task_id": "mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58",
     "dataset": "behavior",
     "natural_goal": "Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.",
-    "start_time": "2025-11-26T10:26:49.715061",
+    "start_time": "2025-11-26T10:32:41.622409",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00019359588623046875,
-      "subgoal_decomposition": 0.0001270771026611328,
-      "transition_modeling": 0.00030922889709472656,
-      "action_sequencing": 0.000186920166015625
+      "goal_interpretation": 0.00027632713317871094,
+      "subgoal_decomposition": 0.00026702880859375,
+      "transition_modeling": 0.0003914833068847656,
+      "action_sequencing": 0.0003292560577392578
     },
     "error": "'formula'"
   }

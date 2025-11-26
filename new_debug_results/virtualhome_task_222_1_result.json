@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_222_1_1764124009678",
+  "submission_id": "virtualhome_222_1_1764124361586",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_222_1_1764124009678",
+    "submission_id": "virtualhome_222_1_1764124361586",
     "task_id": "222_1",
     "dataset": "virtualhome",
     "natural_goal": "walk into living room, walk to light, turn on light switch.",
-    "start_time": "2025-11-26T10:26:49.678351",
+    "start_time": "2025-11-26T10:32:41.586644",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0002338886260986328,
-      "subgoal_decomposition": 0.00033593177795410156,
-      "transition_modeling": 0.0003228187561035156,
-      "action_sequencing": 0.00048661231994628906
+      "goal_interpretation": 0.00015401840209960938,
+      "subgoal_decomposition": 0.00010538101196289062,
+      "transition_modeling": 0.0001201629638671875,
+      "action_sequencing": 0.00013828277587890625
     },
     "error": "'formula'"
   }

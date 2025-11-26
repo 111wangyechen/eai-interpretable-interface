@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_331_2_1764124009690",
+  "submission_id": "virtualhome_331_2_1764124361596",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_331_2_1764124009690",
+    "submission_id": "virtualhome_331_2_1764124361596",
     "task_id": "331_2",
     "dataset": "virtualhome",
     "natural_goal": "switching on light in an area",
-    "start_time": "2025-11-26T10:26:49.690532",
+    "start_time": "2025-11-26T10:32:41.596526",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00015401840209960938,
-      "subgoal_decomposition": 0.0002646446228027344,
-      "transition_modeling": 0.00023317337036132812,
-      "action_sequencing": 0.0003077983856201172
+      "goal_interpretation": 0.0002486705780029297,
+      "subgoal_decomposition": 0.00014710426330566406,
+      "transition_modeling": 0.00014019012451171875,
+      "action_sequencing": 0.0001895427703857422
     },
     "error": "'formula'"
   }

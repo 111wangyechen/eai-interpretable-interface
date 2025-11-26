@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764124009708",
+  "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764124361612",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764124009708",
+    "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764124361612",
     "task_id": "assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37",
     "dataset": "behavior",
     "natural_goal": "Put one candle, one cheese, one cookie, and one bow into each basket.",
-    "start_time": "2025-11-26T10:26:49.708191",
+    "start_time": "2025-11-26T10:32:41.612602",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00019311904907226562,
-      "subgoal_decomposition": 0.00011801719665527344,
-      "transition_modeling": 0.00012373924255371094,
-      "action_sequencing": 0.0001480579376220703
+      "goal_interpretation": 0.00021076202392578125,
+      "subgoal_decomposition": 0.000286102294921875,
+      "transition_modeling": 0.0002741813659667969,
+      "action_sequencing": 0.0003261566162109375
     },
     "error": "'formula'"
   }

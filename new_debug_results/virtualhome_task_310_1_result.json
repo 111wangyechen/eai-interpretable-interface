@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_310_1_1764124009684",
+  "submission_id": "virtualhome_310_1_1764124361590",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_310_1_1764124009684",
+    "submission_id": "virtualhome_310_1_1764124361590",
     "task_id": "310_1",
     "dataset": "virtualhome",
     "natural_goal": "I enter the bedroom and find the light. Then I turn it on.",
-    "start_time": "2025-11-26T10:26:49.684965",
+    "start_time": "2025-11-26T10:32:41.590284",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00020122528076171875,
-      "subgoal_decomposition": 0.0002601146697998047,
-      "transition_modeling": 0.0002598762512207031,
-      "action_sequencing": 0.00033545494079589844
+      "goal_interpretation": 0.0001742839813232422,
+      "subgoal_decomposition": 0.000125885009765625,
+      "transition_modeling": 0.00013637542724609375,
+      "action_sequencing": 0.000171661376953125
     },
     "error": "'formula'"
   }

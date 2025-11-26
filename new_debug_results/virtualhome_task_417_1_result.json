@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_417_1_1764124009643",
+  "submission_id": "virtualhome_417_1_1764124361562",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_417_1_1764124009643",
+    "submission_id": "virtualhome_417_1_1764124361562",
     "task_id": "417_1",
     "dataset": "virtualhome",
     "natural_goal": "I will load the dirty clothes into the washing machine.",
-    "start_time": "2025-11-26T10:26:49.643830",
+    "start_time": "2025-11-26T10:32:41.562865",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0002110004425048828,
-      "subgoal_decomposition": 0.00029015541076660156,
-      "transition_modeling": 0.00024819374084472656,
-      "action_sequencing": 0.00035953521728515625
+      "goal_interpretation": 0.0002810955047607422,
+      "subgoal_decomposition": 0.00024247169494628906,
+      "transition_modeling": 0.0002684593200683594,
+      "action_sequencing": 0.00031304359436035156
     },
     "error": "'formula'"
   }

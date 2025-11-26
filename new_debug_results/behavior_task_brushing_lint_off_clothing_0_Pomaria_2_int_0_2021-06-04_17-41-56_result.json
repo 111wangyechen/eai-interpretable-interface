@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_1764124009710",
+  "submission_id": "behavior_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_1764124361615",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_1764124009710",
+    "submission_id": "behavior_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_1764124361615",
     "task_id": "brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56",
     "dataset": "behavior",
     "natural_goal": "Check every sweater for lint, make sure none of them are dusty, and put them on the bed.",
-    "start_time": "2025-11-26T10:26:49.710032",
+    "start_time": "2025-11-26T10:32:41.615848",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00017690658569335938,
-      "subgoal_decomposition": 0.0001327991485595703,
-      "transition_modeling": 0.00011920928955078125,
-      "action_sequencing": 0.00015544891357421875
+      "goal_interpretation": 0.00017642974853515625,
+      "subgoal_decomposition": 0.00011801719665527344,
+      "transition_modeling": 0.00011849403381347656,
+      "action_sequencing": 0.0001709461212158203
     },
     "error": "'formula'"
   }

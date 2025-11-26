@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764124009723",
+  "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764124361635",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764124009723",
+    "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764124361635",
     "task_id": "packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19",
     "dataset": "behavior",
     "natural_goal": "Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.",
-    "start_time": "2025-11-26T10:26:49.723677",
+    "start_time": "2025-11-26T10:32:41.635981",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00017833709716796875,
-      "subgoal_decomposition": 0.00011515617370605469,
-      "transition_modeling": 0.06359410285949707,
-      "action_sequencing": 0.0002238750457763672
+      "goal_interpretation": 0.00021648406982421875,
+      "subgoal_decomposition": 0.0002574920654296875,
+      "transition_modeling": 0.00033593177795410156,
+      "action_sequencing": 0.00036835670471191406
     },
     "error": "'formula'"
   }

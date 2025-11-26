@@ -1,13 +1,13 @@
 {
-  "submission_id": "virtualhome_954_2_1764124009653",
+  "submission_id": "virtualhome_954_2_1764124361568",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "virtualhome_954_2_1764124009653",
+    "submission_id": "virtualhome_954_2_1764124361568",
     "task_id": "954_2",
     "dataset": "virtualhome",
     "natural_goal": "I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.",
-    "start_time": "2025-11-26T10:26:49.653527",
+    "start_time": "2025-11-26T10:32:41.568452",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00022840499877929688,
-      "subgoal_decomposition": 0.0002956390380859375,
-      "transition_modeling": 0.0002887248992919922,
-      "action_sequencing": 0.00037097930908203125
+      "goal_interpretation": 0.0003407001495361328,
+      "subgoal_decomposition": 0.00023937225341796875,
+      "transition_modeling": 0.00021839141845703125,
+      "action_sequencing": 0.0002071857452392578
     },
     "error": "'formula'"
   }

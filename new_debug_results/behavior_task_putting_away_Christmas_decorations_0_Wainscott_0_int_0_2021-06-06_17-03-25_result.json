@@ -1,13 +1,13 @@
 {
-  "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764124009794",
+  "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764124361647",
   "status": "failed",
   "error": "Unexpected error: 'formula'",
   "debug_info": {
-    "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764124009794",
+    "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764124361647",
     "task_id": "putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25",
     "dataset": "behavior",
     "natural_goal": "Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.",
-    "start_time": "2025-11-26T10:26:49.794919",
+    "start_time": "2025-11-26T10:32:41.647986",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -45,10 +45,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00017023086547851562,
-      "subgoal_decomposition": 0.00010824203491210938,
-      "transition_modeling": 0.0002760887145996094,
-      "action_sequencing": 0.00020813941955566406
+      "goal_interpretation": 0.00018143653869628906,
+      "subgoal_decomposition": 0.0001163482666015625,
+      "transition_modeling": 0.0001399517059326172,
+      "action_sequencing": 0.00014591217041015625
     },
     "error": "'formula'"
   }
