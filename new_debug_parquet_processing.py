@@ -52,6 +52,8 @@ try:
     logger.info("✓ TransitionModelerIntegration imported successfully")
     from action_sequencing.action_sequencer_integration import ActionSequencerIntegration
     logger.info("✓ ActionSequencerIntegration imported successfully")
+    from action_sequencing.action_data import ActionType
+    logger.info("✓ ActionType imported successfully")
     print("✓ All four integrated modules imported successfully")
 except ImportError as e:
     logger.error(f"✗ Module import failed: {e}")
