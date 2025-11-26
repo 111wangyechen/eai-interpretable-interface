@@ -89,7 +89,7 @@ class FourModuleIntegrationTester:
             
             # 测试子目标分解模块初始化
             try:
-                from goal_interpretation.goal_interpreter import LTLFormula
+                from goal_interpretation import LTLFormula
                 ltl_formula = LTLFormula("F(object_at_location)")
                 subgoal_result = self.subgoal_decomposer.decompose(ltl_formula)
                 initialization_results['subgoal_decomposition'] = subgoal_result is not None

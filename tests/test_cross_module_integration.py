@@ -14,21 +14,14 @@ import time
 from typing import Dict, List, Any, Optional
 from dataclasses import asdict
 
-# Add module paths
-current_dir = os.path.dirname(os.path.abspath(__file__))
-goal_interpretation_dir = os.path.join(current_dir, 'goal_interpretation')
-subgoal_decomposition_dir = os.path.join(current_dir, 'subgoal_decomposition')
-action_sequencing_dir = os.path.join(current_dir, 'action_sequencing')
-
-sys.path.insert(0, goal_interpretation_dir)
-sys.path.insert(0, subgoal_decomposition_dir)
-sys.path.insert(0, action_sequencing_dir)
+# Add project root to path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 try:
-    from enhanced_goal_interpreter import EnhancedGoalInterpreter
-    from subgoal_decomposer import SubgoalDecomposer, DecompositionStrategy
-    from action_sequencer import ActionSequencer, SequencingConfig, SequencingRequest
-    from action_data import Action, ActionType, ActionStatus
+    from goal_interpretation import EnhancedGoalInterpreter
+    from subgoal_decomposition import SubgoalDecomposer
+    from action_sequencing import ActionSequencer, SequencingConfig, SequencingRequest, Action, ActionType, ActionStatus
+    from subgoal_decomposition.subgoal_decomposer import DecompositionStrategy
 except ImportError as e:
     print(f"Import Error: {e}")
     print("Please ensure all module dependencies are available")
