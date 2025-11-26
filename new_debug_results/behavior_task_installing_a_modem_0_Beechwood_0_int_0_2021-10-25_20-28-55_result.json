@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764126380181",
+  "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764126916217",
   "status": "success",
-  "timestamp": "2025-11-26T11:06:20.182810",
+  "timestamp": "2025-11-26T11:15:16.220305",
   "goal": {
     "natural_language": "Place the modem under the table and make sure it is turned on.",
     "interpreted": "place_the"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0012960433959960938,
+  "execution_time": 0.003023862838745117,
   "execution_times": {
-    "goal_interpretation": 0.00015354156494140625,
-    "subgoal_decomposition": 0.00011610984802246094,
-    "transition_modeling": 0.00012874603271484375,
-    "action_sequencing": 0.00026679039001464844
+    "goal_interpretation": 0.00017380714416503906,
+    "subgoal_decomposition": 0.00013113021850585938,
+    "transition_modeling": 0.0003135204315185547,
+    "action_sequencing": 0.0015933513641357422
   },
   "debug_info": {
-    "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764126380181",
+    "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764126916217",
     "task_id": "installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55",
     "dataset": "behavior",
     "natural_goal": "Place the modem under the table and make sure it is turned on.",
-    "start_time": "2025-11-26T11:06:20.181519",
+    "start_time": "2025-11-26T11:15:16.217287",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00015354156494140625,
-      "subgoal_decomposition": 0.00011610984802246094,
-      "transition_modeling": 0.00012874603271484375,
-      "action_sequencing": 0.00026679039001464844
+      "goal_interpretation": 0.00017380714416503906,
+      "subgoal_decomposition": 0.00013113021850585938,
+      "transition_modeling": 0.0003135204315185547,
+      "action_sequencing": 0.0015933513641357422
     }
   }
 }

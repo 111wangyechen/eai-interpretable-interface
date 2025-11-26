@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764126380178",
+  "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764126916210",
   "status": "success",
-  "timestamp": "2025-11-26T11:06:20.179622",
+  "timestamp": "2025-11-26T11:15:16.213288",
   "goal": {
     "natural_language": "Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.",
     "interpreted": "pack_all"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0013210773468017578,
+  "execution_time": 0.002972126007080078,
   "execution_times": {
-    "goal_interpretation": 0.000156402587890625,
-    "subgoal_decomposition": 0.00012826919555664062,
-    "transition_modeling": 0.00013971328735351562,
-    "action_sequencing": 0.00024390220642089844
+    "goal_interpretation": 0.0002040863037109375,
+    "subgoal_decomposition": 0.00014853477478027344,
+    "transition_modeling": 0.00020599365234375,
+    "action_sequencing": 0.0016362667083740234
   },
   "debug_info": {
-    "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764126380178",
+    "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764126916210",
     "task_id": "packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19",
     "dataset": "behavior",
     "natural_goal": "Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.",
-    "start_time": "2025-11-26T11:06:20.178306",
+    "start_time": "2025-11-26T11:15:16.210328",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.000156402587890625,
-      "subgoal_decomposition": 0.00012826919555664062,
-      "transition_modeling": 0.00013971328735351562,
-      "action_sequencing": 0.00024390220642089844
+      "goal_interpretation": 0.0002040863037109375,
+      "subgoal_decomposition": 0.00014853477478027344,
+      "transition_modeling": 0.00020599365234375,
+      "action_sequencing": 0.0016362667083740234
     }
   }
 }

@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764126380191",
+  "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764126916236",
   "status": "success",
-  "timestamp": "2025-11-26T11:06:20.192748",
+  "timestamp": "2025-11-26T11:15:16.239027",
   "goal": {
     "natural_language": "Close and lock all the windows.",
     "interpreted": "close_and"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0012972354888916016,
+  "execution_time": 0.0026006698608398438,
   "execution_times": {
-    "goal_interpretation": 0.00014448165893554688,
-    "subgoal_decomposition": 0.00012445449829101562,
-    "transition_modeling": 0.0001289844512939453,
-    "action_sequencing": 0.0002570152282714844
+    "goal_interpretation": 0.0001628398895263672,
+    "subgoal_decomposition": 0.00012135505676269531,
+    "transition_modeling": 0.0001533031463623047,
+    "action_sequencing": 0.0013592243194580078
   },
   "debug_info": {
-    "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764126380191",
+    "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764126916236",
     "task_id": "locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10",
     "dataset": "behavior",
     "natural_goal": "Close and lock all the windows.",
-    "start_time": "2025-11-26T11:06:20.191456",
+    "start_time": "2025-11-26T11:15:16.236431",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00014448165893554688,
-      "subgoal_decomposition": 0.00012445449829101562,
-      "transition_modeling": 0.0001289844512939453,
-      "action_sequencing": 0.0002570152282714844
+      "goal_interpretation": 0.0001628398895263672,
+      "subgoal_decomposition": 0.00012135505676269531,
+      "transition_modeling": 0.0001533031463623047,
+      "action_sequencing": 0.0013592243194580078
     }
   }
 }

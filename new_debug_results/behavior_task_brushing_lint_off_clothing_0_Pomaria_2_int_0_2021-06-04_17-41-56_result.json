@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_1764126380164",
+  "submission_id": "behavior_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_1764126916178",
   "status": "success",
-  "timestamp": "2025-11-26T11:06:20.165890",
+  "timestamp": "2025-11-26T11:15:16.181881",
   "goal": {
     "natural_language": "Check every sweater for lint, make sure none of them are dusty, and put them on the bed.",
     "interpreted": "check_every"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0016176700592041016,
+  "execution_time": 0.003175020217895508,
   "execution_times": {
-    "goal_interpretation": 0.00019860267639160156,
-    "subgoal_decomposition": 0.0001475811004638672,
-    "transition_modeling": 0.0001575946807861328,
-    "action_sequencing": 0.0002837181091308594
+    "goal_interpretation": 0.00023484230041503906,
+    "subgoal_decomposition": 0.0001392364501953125,
+    "transition_modeling": 0.00015044212341308594,
+    "action_sequencing": 0.0014963150024414062
   },
   "debug_info": {
-    "submission_id": "behavior_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_1764126380164",
+    "submission_id": "behavior_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_1764126916178",
     "task_id": "brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56",
     "dataset": "behavior",
     "natural_goal": "Check every sweater for lint, make sure none of them are dusty, and put them on the bed.",
-    "start_time": "2025-11-26T11:06:20.164278",
+    "start_time": "2025-11-26T11:15:16.178726",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00019860267639160156,
-      "subgoal_decomposition": 0.0001475811004638672,
-      "transition_modeling": 0.0001575946807861328,
-      "action_sequencing": 0.0002837181091308594
+      "goal_interpretation": 0.00023484230041503906,
+      "subgoal_decomposition": 0.0001392364501953125,
+      "transition_modeling": 0.00015044212341308594,
+      "action_sequencing": 0.0014963150024414062
     }
   }
 }

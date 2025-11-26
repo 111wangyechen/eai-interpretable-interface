@@ -1,7 +1,7 @@
 {
-  "submission_id": "virtualhome_180_2_1764126380133",
+  "submission_id": "virtualhome_180_2_1764126916133",
   "status": "success",
-  "timestamp": "2025-11-26T11:06:20.134703",
+  "timestamp": "2025-11-26T11:15:16.137826",
   "goal": {
     "natural_language": "Find the light circuit breaker in the kitchen",
     "interpreted": "find_the"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0013530254364013672,
+  "execution_time": 0.004657745361328125,
   "execution_times": {
-    "goal_interpretation": 0.00012826919555664062,
-    "subgoal_decomposition": 0.00011301040649414062,
-    "transition_modeling": 0.00012183189392089844,
-    "action_sequencing": 0.00023746490478515625
+    "goal_interpretation": 0.0002048015594482422,
+    "subgoal_decomposition": 0.00021219253540039062,
+    "transition_modeling": 0.0001862049102783203,
+    "action_sequencing": 0.001474618911743164
   },
   "debug_info": {
-    "submission_id": "virtualhome_180_2_1764126380133",
+    "submission_id": "virtualhome_180_2_1764126916133",
     "task_id": "180_2",
     "dataset": "virtualhome",
     "natural_goal": "Find the light circuit breaker in the kitchen",
-    "start_time": "2025-11-26T11:06:20.133355",
+    "start_time": "2025-11-26T11:15:16.133175",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00012826919555664062,
-      "subgoal_decomposition": 0.00011301040649414062,
-      "transition_modeling": 0.00012183189392089844,
-      "action_sequencing": 0.00023746490478515625
+      "goal_interpretation": 0.0002048015594482422,
+      "subgoal_decomposition": 0.00021219253540039062,
+      "transition_modeling": 0.0001862049102783203,
+      "action_sequencing": 0.001474618911743164
     }
   }
 }

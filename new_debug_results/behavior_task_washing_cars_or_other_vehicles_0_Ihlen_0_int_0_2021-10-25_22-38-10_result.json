@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764126380193",
+  "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764126916239",
   "status": "success",
-  "timestamp": "2025-11-26T11:06:20.194344",
+  "timestamp": "2025-11-26T11:15:16.242384",
   "goal": {
     "natural_language": "Wash all dust and stains from the car or vehicle.",
     "interpreted": "wash_all"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0013108253479003906,
+  "execution_time": 0.0030031204223632812,
   "execution_times": {
-    "goal_interpretation": 0.00014281272888183594,
-    "subgoal_decomposition": 0.00010442733764648438,
-    "transition_modeling": 0.00012445449829101562,
-    "action_sequencing": 0.0002560615539550781
+    "goal_interpretation": 0.00015282630920410156,
+    "subgoal_decomposition": 0.0004742145538330078,
+    "transition_modeling": 0.0001506805419921875,
+    "action_sequencing": 0.0013535022735595703
   },
   "debug_info": {
-    "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764126380193",
+    "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764126916239",
     "task_id": "washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10",
     "dataset": "behavior",
     "natural_goal": "Wash all dust and stains from the car or vehicle.",
-    "start_time": "2025-11-26T11:06:20.193038",
+    "start_time": "2025-11-26T11:15:16.239387",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00014281272888183594,
-      "subgoal_decomposition": 0.00010442733764648438,
-      "transition_modeling": 0.00012445449829101562,
-      "action_sequencing": 0.0002560615539550781
+      "goal_interpretation": 0.00015282630920410156,
+      "subgoal_decomposition": 0.0004742145538330078,
+      "transition_modeling": 0.0001506805419921875,
+      "action_sequencing": 0.0013535022735595703
     }
   }
 }

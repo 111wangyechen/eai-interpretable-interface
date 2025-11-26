@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_1764126380179",
+  "submission_id": "behavior_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_1764126916213",
   "status": "success",
-  "timestamp": "2025-11-26T11:06:20.181222",
+  "timestamp": "2025-11-26T11:15:16.216910",
   "goal": {
     "natural_language": "Clean the stained freezer and remove all food items from the freezer.",
     "interpreted": "clean_the"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0013053417205810547,
+  "execution_time": 0.003253936767578125,
   "execution_times": {
-    "goal_interpretation": 0.00018024444580078125,
-    "subgoal_decomposition": 0.00010251998901367188,
-    "transition_modeling": 0.00010919570922851562,
-    "action_sequencing": 0.00025272369384765625
+    "goal_interpretation": 0.0001914501190185547,
+    "subgoal_decomposition": 0.00020122528076171875,
+    "transition_modeling": 0.0002124309539794922,
+    "action_sequencing": 0.0016775131225585938
   },
   "debug_info": {
-    "submission_id": "behavior_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_1764126380179",
+    "submission_id": "behavior_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_1764126916213",
     "task_id": "cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25",
     "dataset": "behavior",
     "natural_goal": "Clean the stained freezer and remove all food items from the freezer.",
-    "start_time": "2025-11-26T11:06:20.179922",
+    "start_time": "2025-11-26T11:15:16.213661",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00018024444580078125,
-      "subgoal_decomposition": 0.00010251998901367188,
-      "transition_modeling": 0.00010919570922851562,
-      "action_sequencing": 0.00025272369384765625
+      "goal_interpretation": 0.0001914501190185547,
+      "subgoal_decomposition": 0.00020122528076171875,
+      "transition_modeling": 0.0002124309539794922,
+      "action_sequencing": 0.0016775131225585938
     }
   }
 }

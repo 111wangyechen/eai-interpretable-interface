@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764126380194",
+  "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764126916242",
   "status": "success",
-  "timestamp": "2025-11-26T11:06:20.195842",
+  "timestamp": "2025-11-26T11:15:16.245425",
   "goal": {
     "natural_language": "Wash all the stained plates, cups, and bowls.",
     "interpreted": "wash_all"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.001226186752319336,
+  "execution_time": 0.0026597976684570312,
   "execution_times": {
-    "goal_interpretation": 0.0001671314239501953,
-    "subgoal_decomposition": 9.489059448242188e-05,
-    "transition_modeling": 0.00010776519775390625,
-    "action_sequencing": 0.00022649765014648438
+    "goal_interpretation": 0.0001456737518310547,
+    "subgoal_decomposition": 0.0001373291015625,
+    "transition_modeling": 0.0001461505889892578,
+    "action_sequencing": 0.0014407634735107422
   },
   "debug_info": {
-    "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764126380194",
+    "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764126916242",
     "task_id": "washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48",
     "dataset": "behavior",
     "natural_goal": "Wash all the stained plates, cups, and bowls.",
-    "start_time": "2025-11-26T11:06:20.194620",
+    "start_time": "2025-11-26T11:15:16.242770",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001671314239501953,
-      "subgoal_decomposition": 9.489059448242188e-05,
-      "transition_modeling": 0.00010776519775390625,
-      "action_sequencing": 0.00022649765014648438
+      "goal_interpretation": 0.0001456737518310547,
+      "subgoal_decomposition": 0.0001373291015625,
+      "transition_modeling": 0.0001461505889892578,
+      "action_sequencing": 0.0014407634735107422
     }
   }
 }

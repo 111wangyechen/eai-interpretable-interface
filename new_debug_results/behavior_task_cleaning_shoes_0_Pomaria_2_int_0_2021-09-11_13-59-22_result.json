@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22_1764126380188",
+  "submission_id": "behavior_cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22_1764126916230",
   "status": "success",
-  "timestamp": "2025-11-26T11:06:20.189407",
+  "timestamp": "2025-11-26T11:15:16.232807",
   "goal": {
     "natural_language": "Clean all the shoes, and leave the towel on the floor.",
     "interpreted": "clean_all"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0013561248779296875,
+  "execution_time": 0.002714395523071289,
   "execution_times": {
-    "goal_interpretation": 0.00014662742614746094,
-    "subgoal_decomposition": 0.0001201629638671875,
-    "transition_modeling": 0.0001308917999267578,
-    "action_sequencing": 0.0002727508544921875
+    "goal_interpretation": 0.0001633167266845703,
+    "subgoal_decomposition": 0.00011920928955078125,
+    "transition_modeling": 0.0001838207244873047,
+    "action_sequencing": 0.0014164447784423828
   },
   "debug_info": {
-    "submission_id": "behavior_cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22_1764126380188",
+    "submission_id": "behavior_cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22_1764126916230",
     "task_id": "cleaning_shoes_0_Pomaria_2_int_0_2021-09-11_13-59-22",
     "dataset": "behavior",
     "natural_goal": "Clean all the shoes, and leave the towel on the floor.",
-    "start_time": "2025-11-26T11:06:20.188056",
+    "start_time": "2025-11-26T11:15:16.230098",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00014662742614746094,
-      "subgoal_decomposition": 0.0001201629638671875,
-      "transition_modeling": 0.0001308917999267578,
-      "action_sequencing": 0.0002727508544921875
+      "goal_interpretation": 0.0001633167266845703,
+      "subgoal_decomposition": 0.00011920928955078125,
+      "transition_modeling": 0.0001838207244873047,
+      "action_sequencing": 0.0014164447784423828
     }
   }
 }

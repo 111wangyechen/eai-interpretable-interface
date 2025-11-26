@@ -1,7 +1,7 @@
 {
-  "submission_id": "virtualhome_954_2_1764126380123",
+  "submission_id": "virtualhome_954_2_1764126916104",
   "status": "success",
-  "timestamp": "2025-11-26T11:06:20.124757",
+  "timestamp": "2025-11-26T11:15:16.107976",
   "goal": {
     "natural_language": "I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.",
     "interpreted": "i_need"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0013916492462158203,
+  "execution_time": 0.0038230419158935547,
   "execution_times": {
-    "goal_interpretation": 0.0002067089080810547,
-    "subgoal_decomposition": 0.0001227855682373047,
-    "transition_modeling": 0.00011658668518066406,
-    "action_sequencing": 0.00024199485778808594
+    "goal_interpretation": 0.000263214111328125,
+    "subgoal_decomposition": 0.00022459030151367188,
+    "transition_modeling": 0.00026226043701171875,
+    "action_sequencing": 0.0018627643585205078
   },
   "debug_info": {
-    "submission_id": "virtualhome_954_2_1764126380123",
+    "submission_id": "virtualhome_954_2_1764126916104",
     "task_id": "954_2",
     "dataset": "virtualhome",
     "natural_goal": "I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.",
-    "start_time": "2025-11-26T11:06:20.123370",
+    "start_time": "2025-11-26T11:15:16.104163",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0002067089080810547,
-      "subgoal_decomposition": 0.0001227855682373047,
-      "transition_modeling": 0.00011658668518066406,
-      "action_sequencing": 0.00024199485778808594
+      "goal_interpretation": 0.000263214111328125,
+      "subgoal_decomposition": 0.00022459030151367188,
+      "transition_modeling": 0.00026226043701171875,
+      "action_sequencing": 0.0018627643585205078
     }
   }
 }

@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764126380171",
+  "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764126916191",
   "status": "success",
-  "timestamp": "2025-11-26T11:06:20.172514",
+  "timestamp": "2025-11-26T11:15:16.198592",
   "goal": {
     "natural_language": "Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.",
     "interpreted": "use_the"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.001432180404663086,
+  "execution_time": 0.006913900375366211,
   "execution_times": {
-    "goal_interpretation": 0.00020742416381835938,
-    "subgoal_decomposition": 0.00010085105895996094,
-    "transition_modeling": 0.00010752677917480469,
-    "action_sequencing": 0.00022840499877929688
+    "goal_interpretation": 0.0003330707550048828,
+    "subgoal_decomposition": 0.0002446174621582031,
+    "transition_modeling": 0.00024771690368652344,
+    "action_sequencing": 0.002849102020263672
   },
   "debug_info": {
-    "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764126380171",
+    "submission_id": "behavior_mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58_1764126916191",
     "task_id": "mopping_floors_0_Benevolence_2_int_0_2021-10-25_21-01-58",
     "dataset": "behavior",
     "natural_goal": "Use the bucket, soap and broom to clean the stained floor, when you are done, leave the soap in the bucket and place the bucket and broom next to the sink.",
-    "start_time": "2025-11-26T11:06:20.171088",
+    "start_time": "2025-11-26T11:15:16.191686",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00020742416381835938,
-      "subgoal_decomposition": 0.00010085105895996094,
-      "transition_modeling": 0.00010752677917480469,
-      "action_sequencing": 0.00022840499877929688
+      "goal_interpretation": 0.0003330707550048828,
+      "subgoal_decomposition": 0.0002446174621582031,
+      "transition_modeling": 0.00024771690368652344,
+      "action_sequencing": 0.002849102020263672
     }
   }
 }

@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764126380186",
+  "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764126916226",
   "status": "success",
-  "timestamp": "2025-11-26T11:06:20.187776",
+  "timestamp": "2025-11-26T11:15:16.229762",
   "goal": {
     "natural_language": "Place 3 candles on each table.",
     "interpreted": "place_3"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.001262664794921875,
+  "execution_time": 0.0027894973754882812,
   "execution_times": {
-    "goal_interpretation": 0.00014328956604003906,
-    "subgoal_decomposition": 0.0001266002655029297,
-    "transition_modeling": 0.00010848045349121094,
-    "action_sequencing": 0.00024390220642089844
+    "goal_interpretation": 0.00015282630920410156,
+    "subgoal_decomposition": 0.0001513957977294922,
+    "transition_modeling": 0.0001595020294189453,
+    "action_sequencing": 0.001497507095336914
   },
   "debug_info": {
-    "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764126380186",
+    "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764126916226",
     "task_id": "setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51",
     "dataset": "behavior",
     "natural_goal": "Place 3 candles on each table.",
-    "start_time": "2025-11-26T11:06:20.186518",
+    "start_time": "2025-11-26T11:15:16.226978",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00014328956604003906,
-      "subgoal_decomposition": 0.0001266002655029297,
-      "transition_modeling": 0.00010848045349121094,
-      "action_sequencing": 0.00024390220642089844
+      "goal_interpretation": 0.00015282630920410156,
+      "subgoal_decomposition": 0.0001513957977294922,
+      "transition_modeling": 0.0001595020294189453,
+      "action_sequencing": 0.001497507095336914
     }
   }
 }

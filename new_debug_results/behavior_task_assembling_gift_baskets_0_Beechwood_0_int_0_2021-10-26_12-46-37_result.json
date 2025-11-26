@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764126380162",
+  "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764126916174",
   "status": "success",
-  "timestamp": "2025-11-26T11:06:20.163768",
+  "timestamp": "2025-11-26T11:15:16.178067",
   "goal": {
     "natural_language": "Put one candle, one cheese, one cookie, and one bow into each basket.",
     "interpreted": "put_one"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0017311573028564453,
+  "execution_time": 0.003984928131103516,
   "execution_times": {
-    "goal_interpretation": 0.0002162456512451172,
-    "subgoal_decomposition": 0.00012755393981933594,
-    "transition_modeling": 0.0001697540283203125,
-    "action_sequencing": 0.00032401084899902344
+    "goal_interpretation": 0.0002548694610595703,
+    "subgoal_decomposition": 0.0002498626708984375,
+    "transition_modeling": 0.00016951560974121094,
+    "action_sequencing": 0.0018897056579589844
   },
   "debug_info": {
-    "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764126380162",
+    "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764126916174",
     "task_id": "assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37",
     "dataset": "behavior",
     "natural_goal": "Put one candle, one cheese, one cookie, and one bow into each basket.",
-    "start_time": "2025-11-26T11:06:20.162046",
+    "start_time": "2025-11-26T11:15:16.174093",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0002162456512451172,
-      "subgoal_decomposition": 0.00012755393981933594,
-      "transition_modeling": 0.0001697540283203125,
-      "action_sequencing": 0.00032401084899902344
+      "goal_interpretation": 0.0002548694610595703,
+      "subgoal_decomposition": 0.0002498626708984375,
+      "transition_modeling": 0.00016951560974121094,
+      "action_sequencing": 0.0018897056579589844
     }
   }
 }
