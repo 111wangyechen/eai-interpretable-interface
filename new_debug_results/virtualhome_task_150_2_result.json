@@ -1,7 +1,7 @@
 {
-  "submission_id": "virtualhome_150_2_1764125855751",
+  "submission_id": "virtualhome_150_2_1764126380130",
   "status": "success",
-  "timestamp": "2025-11-26T10:57:35.752360",
+  "timestamp": "2025-11-26T11:06:20.131375",
   "goal": {
     "natural_language": "push any ligth button to turn it on, for example in the living room",
     "interpreted": "push_any"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0011699199676513672,
+  "execution_time": 0.0013611316680908203,
   "execution_times": {
-    "goal_interpretation": 0.0001308917999267578,
-    "subgoal_decomposition": 9.942054748535156e-05,
-    "transition_modeling": 0.00010848045349121094,
-    "action_sequencing": 0.0002338886260986328
+    "goal_interpretation": 0.0001418590545654297,
+    "subgoal_decomposition": 0.00011038780212402344,
+    "transition_modeling": 0.000118255615234375,
+    "action_sequencing": 0.0002512931823730469
   },
   "debug_info": {
-    "submission_id": "virtualhome_150_2_1764125855751",
+    "submission_id": "virtualhome_150_2_1764126380130",
     "task_id": "150_2",
     "dataset": "virtualhome",
     "natural_goal": "push any ligth button to turn it on, for example in the living room",
-    "start_time": "2025-11-26T10:57:35.751195",
+    "start_time": "2025-11-26T11:06:20.130019",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001308917999267578,
-      "subgoal_decomposition": 9.942054748535156e-05,
-      "transition_modeling": 0.00010848045349121094,
-      "action_sequencing": 0.0002338886260986328
+      "goal_interpretation": 0.0001418590545654297,
+      "subgoal_decomposition": 0.00011038780212402344,
+      "transition_modeling": 0.000118255615234375,
+      "action_sequencing": 0.0002512931823730469
     }
   }
 }

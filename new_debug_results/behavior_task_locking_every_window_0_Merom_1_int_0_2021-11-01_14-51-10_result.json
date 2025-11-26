@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764125855841",
+  "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764126380191",
   "status": "success",
-  "timestamp": "2025-11-26T10:57:35.845169",
+  "timestamp": "2025-11-26T11:06:20.192748",
   "goal": {
     "natural_language": "Close and lock all the windows.",
     "interpreted": "close_and"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.003628253936767578,
+  "execution_time": 0.0012972354888916016,
   "execution_times": {
-    "goal_interpretation": 0.00023174285888671875,
-    "subgoal_decomposition": 0.00032806396484375,
-    "transition_modeling": 0.000385284423828125,
-    "action_sequencing": 0.0006105899810791016
+    "goal_interpretation": 0.00014448165893554688,
+    "subgoal_decomposition": 0.00012445449829101562,
+    "transition_modeling": 0.0001289844512939453,
+    "action_sequencing": 0.0002570152282714844
   },
   "debug_info": {
-    "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764125855841",
+    "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764126380191",
     "task_id": "locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10",
     "dataset": "behavior",
     "natural_goal": "Close and lock all the windows.",
-    "start_time": "2025-11-26T10:57:35.841547",
+    "start_time": "2025-11-26T11:06:20.191456",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00023174285888671875,
-      "subgoal_decomposition": 0.00032806396484375,
-      "transition_modeling": 0.000385284423828125,
-      "action_sequencing": 0.0006105899810791016
+      "goal_interpretation": 0.00014448165893554688,
+      "subgoal_decomposition": 0.00012445449829101562,
+      "transition_modeling": 0.0001289844512939453,
+      "action_sequencing": 0.0002570152282714844
     }
   }
 }

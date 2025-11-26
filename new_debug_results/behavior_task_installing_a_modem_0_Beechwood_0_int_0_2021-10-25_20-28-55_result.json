@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764125855806",
+  "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764126380181",
   "status": "success",
-  "timestamp": "2025-11-26T10:57:35.813215",
+  "timestamp": "2025-11-26T11:06:20.182810",
   "goal": {
     "natural_language": "Place the modem under the table and make sure it is turned on.",
     "interpreted": "place_the"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.006809234619140625,
+  "execution_time": 0.0012960433959960938,
   "execution_times": {
-    "goal_interpretation": 0.0004470348358154297,
-    "subgoal_decomposition": 0.0005285739898681641,
-    "transition_modeling": 0.00037860870361328125,
-    "action_sequencing": 0.000949859619140625
+    "goal_interpretation": 0.00015354156494140625,
+    "subgoal_decomposition": 0.00011610984802246094,
+    "transition_modeling": 0.00012874603271484375,
+    "action_sequencing": 0.00026679039001464844
   },
   "debug_info": {
-    "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764125855806",
+    "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764126380181",
     "task_id": "installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55",
     "dataset": "behavior",
     "natural_goal": "Place the modem under the table and make sure it is turned on.",
-    "start_time": "2025-11-26T10:57:35.806417",
+    "start_time": "2025-11-26T11:06:20.181519",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0004470348358154297,
-      "subgoal_decomposition": 0.0005285739898681641,
-      "transition_modeling": 0.00037860870361328125,
-      "action_sequencing": 0.000949859619140625
+      "goal_interpretation": 0.00015354156494140625,
+      "subgoal_decomposition": 0.00011610984802246094,
+      "transition_modeling": 0.00012874603271484375,
+      "action_sequencing": 0.00026679039001464844
     }
   }
 }

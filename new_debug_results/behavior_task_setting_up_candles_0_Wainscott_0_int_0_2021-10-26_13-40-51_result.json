@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764125855822",
+  "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764126380186",
   "status": "success",
-  "timestamp": "2025-11-26T10:57:35.829255",
+  "timestamp": "2025-11-26T11:06:20.187776",
   "goal": {
     "natural_language": "Place 3 candles on each table.",
     "interpreted": "place_3"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.006296396255493164,
+  "execution_time": 0.001262664794921875,
   "execution_times": {
-    "goal_interpretation": 0.0004382133483886719,
-    "subgoal_decomposition": 0.0004634857177734375,
-    "transition_modeling": 0.000438690185546875,
-    "action_sequencing": 0.0009205341339111328
+    "goal_interpretation": 0.00014328956604003906,
+    "subgoal_decomposition": 0.0001266002655029297,
+    "transition_modeling": 0.00010848045349121094,
+    "action_sequencing": 0.00024390220642089844
   },
   "debug_info": {
-    "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764125855822",
+    "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764126380186",
     "task_id": "setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51",
     "dataset": "behavior",
     "natural_goal": "Place 3 candles on each table.",
-    "start_time": "2025-11-26T10:57:35.822967",
+    "start_time": "2025-11-26T11:06:20.186518",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0004382133483886719,
-      "subgoal_decomposition": 0.0004634857177734375,
-      "transition_modeling": 0.000438690185546875,
-      "action_sequencing": 0.0009205341339111328
+      "goal_interpretation": 0.00014328956604003906,
+      "subgoal_decomposition": 0.0001266002655029297,
+      "transition_modeling": 0.00010848045349121094,
+      "action_sequencing": 0.00024390220642089844
     }
   }
 }

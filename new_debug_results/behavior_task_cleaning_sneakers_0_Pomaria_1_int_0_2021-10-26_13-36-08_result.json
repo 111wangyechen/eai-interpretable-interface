@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08_1764125855836",
+  "submission_id": "behavior_cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08_1764126380189",
   "status": "success",
-  "timestamp": "2025-11-26T10:57:35.841007",
+  "timestamp": "2025-11-26T11:06:20.191071",
   "goal": {
     "natural_language": "Place the towel on the countertop, the brush next to the towel, and the soap into the sink. Clean the dusty and stained sneakers, place 2 sneakers next to the table and 2 other sneakers under the table.",
     "interpreted": "place_the"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.004833698272705078,
+  "execution_time": 0.0013790130615234375,
   "execution_times": {
-    "goal_interpretation": 0.0006756782531738281,
-    "subgoal_decomposition": 0.0005331039428710938,
-    "transition_modeling": 0.0003600120544433594,
-    "action_sequencing": 0.0005824565887451172
+    "goal_interpretation": 0.00022149085998535156,
+    "subgoal_decomposition": 0.00010633468627929688,
+    "transition_modeling": 0.00011134147644042969,
+    "action_sequencing": 0.0002455711364746094
   },
   "debug_info": {
-    "submission_id": "behavior_cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08_1764125855836",
+    "submission_id": "behavior_cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08_1764126380189",
     "task_id": "cleaning_sneakers_0_Pomaria_1_int_0_2021-10-26_13-36-08",
     "dataset": "behavior",
     "natural_goal": "Place the towel on the countertop, the brush next to the towel, and the soap into the sink. Clean the dusty and stained sneakers, place 2 sneakers next to the table and 2 other sneakers under the table.",
-    "start_time": "2025-11-26T10:57:35.836180",
+    "start_time": "2025-11-26T11:06:20.189698",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0006756782531738281,
-      "subgoal_decomposition": 0.0005331039428710938,
-      "transition_modeling": 0.0003600120544433594,
-      "action_sequencing": 0.0005824565887451172
+      "goal_interpretation": 0.00022149085998535156,
+      "subgoal_decomposition": 0.00010633468627929688,
+      "transition_modeling": 0.00011134147644042969,
+      "action_sequencing": 0.0002455711364746094
     }
   }
 }

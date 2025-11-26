@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764125855782",
+  "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764126380168",
   "status": "success",
-  "timestamp": "2025-11-26T10:57:35.784221",
+  "timestamp": "2025-11-26T11:06:20.170547",
   "goal": {
     "natural_language": "Collect all aluminum cans and place them into the bucket.",
     "interpreted": "collect_all"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0016858577728271484,
+  "execution_time": 0.002165555953979492,
   "execution_times": {
-    "goal_interpretation": 0.00018334388732910156,
-    "subgoal_decomposition": 0.00012993812561035156,
-    "transition_modeling": 0.00015282630920410156,
-    "action_sequencing": 0.0004520416259765625
+    "goal_interpretation": 0.0001494884490966797,
+    "subgoal_decomposition": 0.00011038780212402344,
+    "transition_modeling": 0.0002903938293457031,
+    "action_sequencing": 0.0007596015930175781
   },
   "debug_info": {
-    "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764125855782",
+    "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764126380168",
     "task_id": "collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28",
     "dataset": "behavior",
     "natural_goal": "Collect all aluminum cans and place them into the bucket.",
-    "start_time": "2025-11-26T10:57:35.782540",
+    "start_time": "2025-11-26T11:06:20.168390",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00018334388732910156,
-      "subgoal_decomposition": 0.00012993812561035156,
-      "transition_modeling": 0.00015282630920410156,
-      "action_sequencing": 0.0004520416259765625
+      "goal_interpretation": 0.0001494884490966797,
+      "subgoal_decomposition": 0.00011038780212402344,
+      "transition_modeling": 0.0002903938293457031,
+      "action_sequencing": 0.0007596015930175781
     }
   }
 }

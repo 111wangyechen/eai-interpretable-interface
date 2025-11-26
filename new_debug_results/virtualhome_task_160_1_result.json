@@ -1,7 +1,7 @@
 {
-  "submission_id": "virtualhome_160_1_1764125855752",
+  "submission_id": "virtualhome_160_1_1764126380131",
   "status": "success",
-  "timestamp": "2025-11-26T10:57:35.753883",
+  "timestamp": "2025-11-26T11:06:20.133046",
   "goal": {
     "natural_language": "Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one.",
     "interpreted": "go_to"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0012514591217041016,
+  "execution_time": 0.0013899803161621094,
   "execution_times": {
-    "goal_interpretation": 0.0001983642578125,
-    "subgoal_decomposition": 0.00010585784912109375,
-    "transition_modeling": 0.00010800361633300781,
-    "action_sequencing": 0.00024700164794921875
+    "goal_interpretation": 0.00018215179443359375,
+    "subgoal_decomposition": 0.00011205673217773438,
+    "transition_modeling": 0.0001239776611328125,
+    "action_sequencing": 0.0002448558807373047
   },
   "debug_info": {
-    "submission_id": "virtualhome_160_1_1764125855752",
+    "submission_id": "virtualhome_160_1_1764126380131",
     "task_id": "160_1",
     "dataset": "virtualhome",
     "natural_goal": "Go to the living room, find the switches (buttons or controllers) for light 1 and light 2 and switch on both the lights one by one.",
-    "start_time": "2025-11-26T10:57:35.752636",
+    "start_time": "2025-11-26T11:06:20.131661",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001983642578125,
-      "subgoal_decomposition": 0.00010585784912109375,
-      "transition_modeling": 0.00010800361633300781,
-      "action_sequencing": 0.00024700164794921875
+      "goal_interpretation": 0.00018215179443359375,
+      "subgoal_decomposition": 0.00011205673217773438,
+      "transition_modeling": 0.0001239776611328125,
+      "action_sequencing": 0.0002448558807373047
     }
   }
 }

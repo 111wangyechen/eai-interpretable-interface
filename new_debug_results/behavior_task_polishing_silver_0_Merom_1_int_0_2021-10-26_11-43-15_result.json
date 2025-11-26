@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_1764125855797",
+  "submission_id": "behavior_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_1764126380176",
   "status": "success",
-  "timestamp": "2025-11-26T10:57:35.799644",
+  "timestamp": "2025-11-26T11:06:20.177940",
   "goal": {
     "natural_language": "Polish all spoons and put them inside the cabinet.",
     "interpreted": "polish_all"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.002033710479736328,
+  "execution_time": 0.0015115737915039062,
   "execution_times": {
-    "goal_interpretation": 0.0001862049102783203,
-    "subgoal_decomposition": 0.0001785755157470703,
-    "transition_modeling": 0.00019121170043945312,
-    "action_sequencing": 0.0003986358642578125
+    "goal_interpretation": 0.00017523765563964844,
+    "subgoal_decomposition": 0.0001277923583984375,
+    "transition_modeling": 0.0001373291015625,
+    "action_sequencing": 0.00034046173095703125
   },
   "debug_info": {
-    "submission_id": "behavior_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_1764125855797",
+    "submission_id": "behavior_polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15_1764126380176",
     "task_id": "polishing_silver_0_Merom_1_int_0_2021-10-26_11-43-15",
     "dataset": "behavior",
     "natural_goal": "Polish all spoons and put them inside the cabinet.",
-    "start_time": "2025-11-26T10:57:35.797618",
+    "start_time": "2025-11-26T11:06:20.176435",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001862049102783203,
-      "subgoal_decomposition": 0.0001785755157470703,
-      "transition_modeling": 0.00019121170043945312,
-      "action_sequencing": 0.0003986358642578125
+      "goal_interpretation": 0.00017523765563964844,
+      "subgoal_decomposition": 0.0001277923583984375,
+      "transition_modeling": 0.0001373291015625,
+      "action_sequencing": 0.00034046173095703125
     }
   }
 }

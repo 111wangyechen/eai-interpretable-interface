@@ -1,7 +1,7 @@
 {
-  "submission_id": "virtualhome_394_2_1764125855767",
+  "submission_id": "virtualhome_394_2_1764126380149",
   "status": "success",
-  "timestamp": "2025-11-26T10:57:35.768970",
+  "timestamp": "2025-11-26T11:06:20.151713",
   "goal": {
     "natural_language": "Find light switch. switch on",
     "interpreted": "find_light"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.001169443130493164,
+  "execution_time": 0.0017905235290527344,
   "execution_times": {
-    "goal_interpretation": 0.00011587142944335938,
-    "subgoal_decomposition": 0.00010013580322265625,
-    "transition_modeling": 0.0001125335693359375,
-    "action_sequencing": 0.00022363662719726562
+    "goal_interpretation": 0.00016427040100097656,
+    "subgoal_decomposition": 0.00013756752014160156,
+    "transition_modeling": 0.00020599365234375,
+    "action_sequencing": 0.0003256797790527344
   },
   "debug_info": {
-    "submission_id": "virtualhome_394_2_1764125855767",
+    "submission_id": "virtualhome_394_2_1764126380149",
     "task_id": "394_2",
     "dataset": "virtualhome",
     "natural_goal": "Find light switch. switch on",
-    "start_time": "2025-11-26T10:57:35.767806",
+    "start_time": "2025-11-26T11:06:20.149931",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00011587142944335938,
-      "subgoal_decomposition": 0.00010013580322265625,
-      "transition_modeling": 0.0001125335693359375,
-      "action_sequencing": 0.00022363662719726562
+      "goal_interpretation": 0.00016427040100097656,
+      "subgoal_decomposition": 0.00013756752014160156,
+      "transition_modeling": 0.00020599365234375,
+      "action_sequencing": 0.0003256797790527344
     }
   }
 }

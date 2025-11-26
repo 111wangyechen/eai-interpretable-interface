@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764125855786",
+  "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764126380172",
   "status": "success",
-  "timestamp": "2025-11-26T10:57:35.787912",
+  "timestamp": "2025-11-26T11:06:20.174248",
   "goal": {
     "natural_language": "Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.",
     "interpreted": "slice_and"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0014646053314208984,
+  "execution_time": 0.001401662826538086,
   "execution_times": {
-    "goal_interpretation": 0.00016951560974121094,
-    "subgoal_decomposition": 0.00013184547424316406,
-    "transition_modeling": 0.000133514404296875,
-    "action_sequencing": 0.00031113624572753906
+    "goal_interpretation": 0.00016498565673828125,
+    "subgoal_decomposition": 0.00011777877807617188,
+    "transition_modeling": 0.00012874603271484375,
+    "action_sequencing": 0.0002548694610595703
   },
   "debug_info": {
-    "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764125855786",
+    "submission_id": "behavior_preserving_food_0_Rs_int_0_2021-08-25_15-53-33_1764126380172",
     "task_id": "preserving_food_0_Rs_int_0_2021-08-25_15-53-33",
     "dataset": "behavior",
     "natural_goal": "Slice and cook all the strawberries, then seal them inside the jar, remember to freeze the beef.",
-    "start_time": "2025-11-26T10:57:35.786452",
+    "start_time": "2025-11-26T11:06:20.172851",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00016951560974121094,
-      "subgoal_decomposition": 0.00013184547424316406,
-      "transition_modeling": 0.000133514404296875,
-      "action_sequencing": 0.00031113624572753906
+      "goal_interpretation": 0.00016498565673828125,
+      "subgoal_decomposition": 0.00011777877807617188,
+      "transition_modeling": 0.00012874603271484375,
+      "action_sequencing": 0.0002548694610595703
     }
   }
 }
