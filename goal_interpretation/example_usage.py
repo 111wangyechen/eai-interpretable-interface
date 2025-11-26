@@ -10,134 +10,134 @@ from goal_interpreter import GoalInterpreter
 
 def main():
     """
-    主函数，演示目标解释模块的使用
+    Main function, demonstrating the use of the goal interpretation module
     """
-    # 创建目标解释器实例
+    # Create goal interpreter instance
     interpreter = GoalInterpreter()
     
-    print("=== 目标解释模块使用示例 ===")
-    print("该模块可以将自然语言目标描述转换为LTL公式")
+    print("=== Goal Interpretation Module Usage Example ===")
+    print("This module can convert natural language goal descriptions into LTL formulas")
     print("\n")
     
-    # 测试用例列表
+    # List of test cases
     test_cases = [
-        "到达厨房",
-        "先打开门，然后进入房间",
-        "如果看到红灯，就停止前进",
-        "同时打开窗户和关闭门",
-        "最终到达目的地",
-        "总是保持安全",
-        "先检查环境是否安全，如果安全就前进到桌子，然后拿起钥匙",
+        "Reach the kitchen",
+        "First open the door, then enter the room",
+        "If you see a red light, stop moving forward",
+        "Open the window and close the door at the same time",
+        "Eventually reach the destination",
+        "Always stay safe",
+        "First check if the environment is safe, if safe then proceed to the table, then pick up the key",
     ]
     
-    # 处理每个测试用例
+    # Process each test case
     for i, text in enumerate(test_cases, 1):
-        print(f"\n--- 示例 {i} ---")
-        print(f"自然语言: {text}")
+        print(f"\n--- Example {i} ---")
+        print(f"Natural Language: {text}")
         
         try:
-            # 解释自然语言，生成LTL公式
+            # Interpret natural language to generate LTL formula
             ltl_formula = interpreter.interpret(text)
             
-            # 打印生成的LTL公式
-            print(f"LTL公式: {ltl_formula.formula}")
+            # Print generated LTL formula
+            print(f"LTL Formula: {ltl_formula.formula}")
             
-            # 打印语义解析结果
-            print("语义结构:")
-            print(f"  - 任务类型: {ltl_formula.semantics.get('task_type', '未知')}")
-            print(f"  - 动作: {ltl_formula.semantics.get('actions', [])}")
-            print(f"  - 对象: {ltl_formula.semantics.get('objects', [])}")
-            print(f"  - 条件: {ltl_formula.semantics.get('conditions', [])}")
+            # Print semantic parsing results
+            print("Semantic Structure:")
+            print(f"  - Task Type: {ltl_formula.semantics.get('task_type', 'unknown')}")
+            print(f"  - Actions: {ltl_formula.semantics.get('actions', [])}")
+            print(f"  - Objects: {ltl_formula.semantics.get('objects', [])}")
+            print(f"  - Conditions: {ltl_formula.semantics.get('conditions', [])}")
             
-            # 验证LTL公式
-            print("验证结果: 公式有效")
+            # Validate LTL formula
+            print("Validation Result: Valid Formula")
             
         except Exception as e:
-            print(f"错误: {str(e)}")
+            print(f"Error: {str(e)}")
     
     print("\n")
-    print("=== 自定义输入示例 ===")
-    print("尝试输入自定义的自然语言目标描述:")
+    print("=== Custom Input Example ===")
+    print("Try entering a custom natural language goal description:")
     
-    # 允许用户输入自定义文本
+    # Allow user to input custom text
     while True:
         try:
-            user_input = input("\n请输入自然语言目标描述（输入'q'退出）: ")
+            user_input = input("\nPlease enter a natural language goal description (enter 'q' to exit): ")
             
             if user_input.lower() == 'q':
                 break
             
-            # 解释用户输入
+            # Interpret user input
             ltl_formula = interpreter.interpret(user_input)
             
-            # 显示结果
-            print(f"LTL公式: {ltl_formula.formula}")
-            print(f"任务类型: {ltl_formula.semantics.get('task_type', '未知')}")
+            # Display results
+            print(f"LTL Formula: {ltl_formula.formula}")
+            print(f"Task Type: {ltl_formula.semantics.get('task_type', 'unknown')}")
             
         except Exception as e:
-            print(f"处理失败: {str(e)}")
+            print(f"Processing Failed: {str(e)}")
     
-    print("\n感谢使用目标解释模块！")
+    print("\nThank you for using the Goal Interpretation Module!")
 
 
 def batch_processing():
     """
-    批处理示例，处理多个自然语言目标
+    Batch processing example, handling multiple natural language goals
     """
     interpreter = GoalInterpreter()
     
-    # 要处理的自然语言目标列表
+    # List of natural language goals to process
     goals = [
-        "收集所有物品然后返回起点",
-        "在不碰到障碍物的情况下到达终点",
-        "先关灯，然后锁门，最后离开房间",
-        "如果检测到危险，立即撤离",
-        "保持环境清洁并定期检查设备"
+        "Collect all items and return to the starting point",
+        "Reach the end without hitting any obstacles",
+        "First turn off the lights, then lock the door, and finally leave the room",
+        "If danger is detected, evacuate immediately",
+        "Keep the environment clean and check equipment regularly"
     ]
     
-    print("=== 批处理示例 ===")
+    print("=== Batch Processing Example ===")
     
     results = []
     
-    # 批量处理所有目标
+    # Batch process all goals
     for i, goal in enumerate(goals, 1):
         ltl_formula = interpreter.interpret(goal)
         results.append({
             "id": i,
             "natural_language": goal,
             "ltl_formula": ltl_formula.formula,
-            "task_type": ltl_formula.semantics.get('task_type', '未知')
+            "task_type": ltl_formula.semantics.get('task_type', 'unknown')
         })
     
-    # 显示批处理结果
+    # Display batch processing results
     for result in results:
-        print(f"\n目标 {result['id']}:")
-        print(f"  自然语言: {result['natural_language']}")
-        print(f"  LTL公式: {result['ltl_formula']}")
-        print(f"  任务类型: {result['task_type']}")
+        print(f"\nGoal {result['id']}:")
+        print(f"  Natural Language: {result['natural_language']}")
+        print(f"  LTL Formula: {result['ltl_formula']}")
+        print(f"  Task Type: {result['task_type']}")
 
 
 def custom_configuration():
     """
-    自定义配置示例
-    演示如何根据特定需求使用目标解释模块
+    Custom configuration example
+    Demonstrating how to use the goal interpretation module for specific needs
     """
     interpreter = GoalInterpreter()
     
-    print("\n=== 自定义配置示例 ===")
-    print("根据特定领域的需求使用目标解释模块")
+    print("\n=== Custom Configuration Example ===")
+    print("Using the goal interpretation module for specific domain requirements")
     
-    # 特定领域的目标描述
+    # Domain-specific goal descriptions
     domain_goals = [
-        "机器人需要先移动到货架A，然后拿起盒子，最后放到传送带上",
-        "智能家居系统在检测到室内温度高于26度时打开空调",
-        "自动驾驶汽车保持在车道内并与前车保持安全距离"
+        "The robot needs to first move to shelf A, then pick up the box, and finally place it on the conveyor belt",
+        "The smart home system turns on the air conditioner when it detects the indoor temperature is above 26 degrees",
+        "The autonomous vehicle stays in the lane and maintains a safe distance from the vehicle ahead"
     ]
     
     for goal in domain_goals:
         ltl_formula = interpreter.interpret(goal)
-        print(f"\n领域目标: {goal}")
-        print(f"LTL公式: {ltl_formula.formula}")
+        print(f"\nDomain Goal: {goal}")
+        print(f"LTL Formula: {ltl_formula.formula}")
 
 
 if __name__ == "__main__":

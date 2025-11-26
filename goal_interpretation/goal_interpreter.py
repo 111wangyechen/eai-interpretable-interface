@@ -370,46 +370,34 @@ class GoalInterpreter:
         # 使用NLP解析器进行详细解析
         if self.nlp_parser:
             semantics = self.nlp_parser.parse(text)
-            
-            # 检查解析结果是否有效（特别是对于中文输入）
-            # 如果解析器返回的动作、对象等为空，使用中文特定解析
-            if not semantics.get("actions") and not semantics.get("objects"):
-                # 检查是否包含中文字符
-                if any(ord(c) > 127 for c in text):
-                    # 使用中文特定解析
-                    semantics = self._parse_chinese_semantics(text)
         else:
             # 回退到简单解析
-            # 检查是否包含中文字符
-            if any(ord(c) > 127 for c in text):
-                semantics = self._parse_chinese_semantics(text)
-            else:
-                semantics = {
-                    "original_text": text,
-                    "propositions": [],
-                    "temporal_operators": [],
-                    "logical_operators": [],
-                    "structure": "simple",
-                    "actions": [],
-                    "objects": [],
-                    "temporal_info": [],
-                    "conditions": [],
-                    "constraints": [],
-                    "task_type": "简单任务"
-                }
-                
-                # 提取命题（简化处理）
-                for keyword, pattern in self.keyword_patterns.items():
-                    if re.search(pattern, text):
-                        semantics["temporal_operators"].append(keyword)
-                
-                proposition_patterns = [
-                    r'(\w+)\s+(\w+)',  # 简单动宾结构
-                ]
-                
-                for pattern in proposition_patterns:
-                    matches = re.findall(pattern, text)
-                    for match in matches:
+            semantics = {
+                "original_text": text,
+                "propositions": [],
+                "temporal_operators": [],
+                "logical_operators": [],
+                "structure": "simple",
+                "actions": [],
+                "objects": [],
+                "temporal_info": [],
+                "conditions": [],
+                "constraints": [],
+                "task_type": "简单任务"
+            }
+            
+            # 提取命题（简化处理）
+            for keyword, pattern in self.keyword_patterns.items():
+                if re.search(pattern, text):
+                    semantics["temporal_operators"].append(keyword)
+            
+            proposition_patterns = [
+                r'(\w+)\s+(\w+)',  # 简单动宾结构
+            ]
+            
+            for pattern in proposition_patterns:
+                matches = re.findall(pattern, text)
+                for match in matches:
                         proposition = "_".join(match)
                         semantics["propositions"].append(proposition)
         
@@ -462,107 +450,6 @@ class GoalInterpreter:
             ltl_formula = "True"
         
         return ltl_formula
-    
-    def _parse_chinese_semantics(self, text: str) -> Dict:
-        """
-        解析中文自然语言的语义结构
-        
-        Args:
-            text: 预处理后的中文文本
-            
-        Returns:
-            Dict: 语义结构字典
-        """
-        # 中文动作词汇
-        chinese_actions = {
-            "移动": ["到达", "进入", "移动", "走到", "走到", "前往", "离开", "返回"],
-            "操作": ["打开", "关闭", "按下", "拉动", "推动", "转动", "调整", "设置", "启动", "停止"],
-            "获取": ["拿起", "获取", "抓取", "捡起", "取下", "拿到"],
-            "放置": ["放下", "放置", "摆放", "安放"],
-            "观察": ["看到", "观察", "检查", "监视", "注意", "检测"],
-            "等待": ["等待", "停留", "保持", "暂停"],
-            "完成": ["完成", "结束", "达成", "实现"]
-        }
-        
-        # 中文对象词汇
-        chinese_objects = {
-            "房间": ["厨房", "客厅", "卧室", "浴室", "阳台"],
-            "家具": ["桌子", "椅子", "沙发", "床", "柜子"],
-            "设施": ["门", "窗户", "灯", "空调", "电视"],
-            "物品": ["盒子", "钥匙", "杯子", "书", "手机"]
-        }
-        
-        # 初始化语义结构
-        semantics = {
-            "original_text": text,
-            "propositions": [],
-            "temporal_operators": [],
-            "logical_operators": [],
-            "structure": "simple",
-            "actions": [],
-            "objects": [],
-            "temporal_info": [],
-            "conditions": [],
-            "constraints": [],
-            "task_type": "简单任务"
-        }
-        
-        # 提取时间操作符
-        for keyword, pattern in self.keyword_patterns.items():
-            if re.search(pattern, text):
-                semantics["temporal_operators"].append(keyword)
-        
-        # 提取动作
-        for action_type, actions in chinese_actions.items():
-            for action in actions:
-                if action in text:
-                    semantics["actions"].append(action)
-        
-        # 提取对象
-        for obj_type, objects in chinese_objects.items():
-            for obj in objects:
-                if obj in text:
-                    semantics["objects"].append(obj)
-        
-        # 提取条件
-        if "如果" in text or "当" in text or "在" in text:
-            semantics["structure"] = "conditional"
-            semantics["conditions"].append(text)
-        
-        # 提取顺序结构
-        if "先" in text or "然后" in text or "最后" in text:
-            semantics["structure"] = "sequential"
-        
-        # 生成命题
-        if semantics["actions"] and semantics["objects"]:
-            # 动宾结构命题
-            for action in semantics["actions"]:
-                for obj in semantics["objects"]:
-                    if f"{action}{obj}" in text or f"{action} {obj}" in text:
-                        semantics["propositions"].append(f"task_{action}{obj}")
-        elif semantics["actions"]:
-            # 只有动作的命题
-            for action in semantics["actions"]:
-                semantics["propositions"].append(f"task_{action}")
-        elif semantics["objects"]:
-            # 只有对象的命题
-            for obj in semantics["objects"]:
-                semantics["propositions"].append(f"task_{obj}")
-        else:
-            # 整个文本作为命题
-            semantics["propositions"].append(f"task_{text}")
-        
-        # 确定任务类型
-        if semantics["structure"] == "conditional":
-            semantics["task_type"] = "条件任务"
-        elif semantics["structure"] == "sequential":
-            semantics["task_type"] = "顺序任务"
-        elif len(semantics["actions"]) > 1:
-            semantics["task_type"] = "复合任务"
-        else:
-            semantics["task_type"] = "简单任务"
-        
-        return semantics
     
     def validate_ltl(self, ltl_formula: LTLFormula) -> bool:
         """
