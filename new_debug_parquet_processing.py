@@ -473,10 +473,10 @@ def process_goal_with_debug(natural_goal: str, task_id: str, dataset: str) -> Di
             }
             
             # 如果有动作序列，提取可序列化信息
-            if hasattr(action_result, 'actions'):
+            if hasattr(action_result, 'action_sequence') and action_result.action_sequence:
                 try:
                     serializable_actions = []
-                    for action in action_result.actions:
+                    for action in action_result.action_sequence:
                         serializable_actions.append({
                             'id': getattr(action, 'id', 'unknown'),
                             'name': getattr(action, 'name', 'unknown'),
@@ -534,11 +534,11 @@ def process_goal_with_debug(natural_goal: str, task_id: str, dataset: str) -> Di
             'timestamp': datetime.now().isoformat(),
             'goal': {
                 'natural_language': natural_goal,
-                'interpreted': debug_info['modules']['goal_interpretation']['formula']
+                'interpreted': debug_info['modules']['goal_interpretation'].get('ltl_formula', '')
             },
             'subgoals': {
-                'count': debug_info['modules']['subgoal_decomposition']['subgoal_count'],
-                'list': debug_info['modules']['subgoal_decomposition']['subgoals']
+                'count': debug_info['modules']['subgoal_decomposition'].get('subgoal_count', 0),
+                'list': debug_info['modules']['subgoal_decomposition'].get('subgoals', [])
             },
             'execution_time': time.time() - start_time,
             'execution_times': debug_info['execution_times'],

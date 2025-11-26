@@ -213,16 +213,20 @@ class ActionSequencerIntegration:
         Returns:
             SequencingRequest: 序列请求
         """
-        # 从子目标数据中提取必要信息
-        initial_state = subgoal_data.get('initial_state', {})
-        goal_state = subgoal_data.get('goal_state', {})
-        available_actions = subgoal_data.get('available_actions', [])
-        constraints = subgoal_data.get('global_action_constraints', {})
-        
-        # 从转换数据中提取信息（如果有）
+        # 从转换数据中提取必要信息
+        initial_state = {}
+        goal_state = {}
+        available_actions = []
         state_transitions = []
+        
         if transition_data:
+            initial_state = transition_data.get('initial_state', {})
+            goal_state = transition_data.get('goal_state', {})
+            available_actions = transition_data.get('available_actions', [])
             state_transitions = transition_data.get('transition_sequence', [])
+        
+        # 从子目标数据中提取约束
+        constraints = subgoal_data.get('global_action_constraints', {})
         
         # 创建序列请求
         request = SequencingRequest(
