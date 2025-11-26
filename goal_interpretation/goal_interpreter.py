@@ -370,6 +370,27 @@ class GoalInterpreter:
         # 使用NLP解析器进行详细解析
         if self.nlp_parser:
             semantics = self.nlp_parser.parse(text)
+            
+            # 设置任务类型
+            if 'task_type' not in semantics:
+                structure = semantics.get('structure', 'simple')
+                task_complexity = semantics.get('task_complexity', 'simple')
+                actions = semantics.get('actions', [])
+                conditions = semantics.get('conditions', [])
+                
+                # 根据结构和复杂度确定任务类型
+                if structure == 'sequential':
+                    semantics['task_type'] = 'sequential_task'
+                elif structure == 'conditional':
+                    semantics['task_type'] = 'conditional_task'
+                elif len(conditions) > 0:
+                    semantics['task_type'] = 'conditional_task'
+                elif len(actions) > 1:
+                    semantics['task_type'] = 'complex_task'
+                elif task_complexity == 'complex':
+                    semantics['task_type'] = 'complex_task'
+                else:
+                    semantics['task_type'] = 'simple_task'
         else:
             # 回退到简单解析
             semantics = {
@@ -383,7 +404,7 @@ class GoalInterpreter:
                 "temporal_info": [],
                 "conditions": [],
                 "constraints": [],
-                "task_type": "简单任务"
+                "task_type": "simple_task"
             }
             
             # 提取命题（简化处理）
