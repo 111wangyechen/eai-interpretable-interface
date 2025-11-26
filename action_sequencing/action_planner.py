@@ -56,7 +56,16 @@ class PlanningNode:
     
     def __hash__(self):
         """节点哈希"""
-        return hash(str(sorted(self.state.items())))
+        # 处理状态中可能包含的不可哈希类型（如字典）
+        def make_hashable(value):
+            if isinstance(value, dict):
+                return tuple(sorted((k, make_hashable(v)) for k, v in value.items()))
+            elif isinstance(value, list):
+                return tuple(make_hashable(v) for v in value)
+            return value
+        
+        hashable_state = tuple(sorted((k, make_hashable(v)) for k, v in self.state.items()))
+        return hash(hashable_state)
 
 
 @dataclass
