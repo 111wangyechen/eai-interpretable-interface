@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764124884261",
+  "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764125299352",
   "status": "success",
-  "timestamp": "2025-11-26T10:41:24.262497",
+  "timestamp": "2025-11-26T10:48:19.356266",
   "goal": {
     "natural_language": "Place the modem under the table and make sure it is turned on.",
     "interpreted": "place_the"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.001211404800415039,
+  "execution_time": 0.003536701202392578,
   "execution_times": {
-    "goal_interpretation": 0.0001475811004638672,
-    "subgoal_decomposition": 9.918212890625e-05,
-    "transition_modeling": 0.0001049041748046875,
-    "action_sequencing": 0.0002512931823730469
+    "goal_interpretation": 0.0005168914794921875,
+    "subgoal_decomposition": 0.00014734268188476562,
+    "transition_modeling": 0.0001246929168701172,
+    "action_sequencing": 0.00025773048400878906
   },
   "debug_info": {
-    "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764124884261",
+    "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764125299352",
     "task_id": "installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55",
     "dataset": "behavior",
     "natural_goal": "Place the modem under the table and make sure it is turned on.",
-    "start_time": "2025-11-26T10:41:24.261299",
+    "start_time": "2025-11-26T10:48:19.352736",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001475811004638672,
-      "subgoal_decomposition": 9.918212890625e-05,
-      "transition_modeling": 0.0001049041748046875,
-      "action_sequencing": 0.0002512931823730469
+      "goal_interpretation": 0.0005168914794921875,
+      "subgoal_decomposition": 0.00014734268188476562,
+      "transition_modeling": 0.0001246929168701172,
+      "action_sequencing": 0.00025773048400878906
     }
   }
 }

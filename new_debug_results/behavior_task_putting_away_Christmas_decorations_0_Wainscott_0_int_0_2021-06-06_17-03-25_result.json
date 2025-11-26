@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764124884264",
+  "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764125299359",
   "status": "success",
-  "timestamp": "2025-11-26T10:41:24.265635",
+  "timestamp": "2025-11-26T10:48:19.361560",
   "goal": {
     "natural_language": "Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.",
     "interpreted": "place_all"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0012788772583007812,
+  "execution_time": 0.0022084712982177734,
   "execution_times": {
-    "goal_interpretation": 0.000141143798828125,
-    "subgoal_decomposition": 0.00010418891906738281,
-    "transition_modeling": 0.0001327991485595703,
-    "action_sequencing": 0.0002541542053222656
+    "goal_interpretation": 0.00036263465881347656,
+    "subgoal_decomposition": 0.0001087188720703125,
+    "transition_modeling": 0.00010538101196289062,
+    "action_sequencing": 0.0003037452697753906
   },
   "debug_info": {
-    "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764124884264",
+    "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764125299359",
     "task_id": "putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25",
     "dataset": "behavior",
     "natural_goal": "Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.",
-    "start_time": "2025-11-26T10:41:24.264360",
+    "start_time": "2025-11-26T10:48:19.359357",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.000141143798828125,
-      "subgoal_decomposition": 0.00010418891906738281,
-      "transition_modeling": 0.0001327991485595703,
-      "action_sequencing": 0.0002541542053222656
+      "goal_interpretation": 0.00036263465881347656,
+      "subgoal_decomposition": 0.0001087188720703125,
+      "transition_modeling": 0.00010538101196289062,
+      "action_sequencing": 0.0003037452697753906
     }
   }
 }

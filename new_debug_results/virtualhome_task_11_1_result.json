@@ -1,7 +1,7 @@
 {
-  "submission_id": "virtualhome_11_1_1764124884193",
+  "submission_id": "virtualhome_11_1_1764125299192",
   "status": "success",
-  "timestamp": "2025-11-26T10:41:24.196115",
+  "timestamp": "2025-11-26T10:48:19.200268",
   "goal": {
     "natural_language": "I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.",
     "interpreted": "i_go"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.002752542495727539,
+  "execution_time": 0.0076274871826171875,
   "execution_times": {
-    "goal_interpretation": 0.0002193450927734375,
-    "subgoal_decomposition": 0.0002498626708984375,
-    "transition_modeling": 0.00023865699768066406,
-    "action_sequencing": 0.0005681514739990234
+    "goal_interpretation": 0.0008139610290527344,
+    "subgoal_decomposition": 0.001041412353515625,
+    "transition_modeling": 0.0007650852203369141,
+    "action_sequencing": 0.0009403228759765625
   },
   "debug_info": {
-    "submission_id": "virtualhome_11_1_1764124884193",
+    "submission_id": "virtualhome_11_1_1764125299192",
     "task_id": "11_1",
     "dataset": "virtualhome",
     "natural_goal": "I go to bedroom and locate a lamp. This lamp can be turned on by touch, as it has capacitive sensing. So I do it.",
-    "start_time": "2025-11-26T10:41:24.193368",
+    "start_time": "2025-11-26T10:48:19.192657",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0002193450927734375,
-      "subgoal_decomposition": 0.0002498626708984375,
-      "transition_modeling": 0.00023865699768066406,
-      "action_sequencing": 0.0005681514739990234
+      "goal_interpretation": 0.0008139610290527344,
+      "subgoal_decomposition": 0.001041412353515625,
+      "transition_modeling": 0.0007650852203369141,
+      "action_sequencing": 0.0009403228759765625
     }
   }
 }

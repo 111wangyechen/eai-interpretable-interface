@@ -1,7 +1,7 @@
 {
-  "submission_id": "virtualhome_232_2_1764124884222",
+  "submission_id": "virtualhome_232_2_1764125299215",
   "status": "success",
-  "timestamp": "2025-11-26T10:41:24.224432",
+  "timestamp": "2025-11-26T10:48:19.216767",
   "goal": {
     "natural_language": "I need to turn on the lights in the kitchen so I can make dinner.",
     "interpreted": "i_need"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.001638174057006836,
+  "execution_time": 0.0013327598571777344,
   "execution_times": {
-    "goal_interpretation": 0.000194549560546875,
-    "subgoal_decomposition": 0.00012755393981933594,
-    "transition_modeling": 0.00014543533325195312,
-    "action_sequencing": 0.00040268898010253906
+    "goal_interpretation": 0.00015425682067871094,
+    "subgoal_decomposition": 0.00011491775512695312,
+    "transition_modeling": 0.00010991096496582031,
+    "action_sequencing": 0.00025582313537597656
   },
   "debug_info": {
-    "submission_id": "virtualhome_232_2_1764124884222",
+    "submission_id": "virtualhome_232_2_1764125299215",
     "task_id": "232_2",
     "dataset": "virtualhome",
     "natural_goal": "I need to turn on the lights in the kitchen so I can make dinner.",
-    "start_time": "2025-11-26T10:41:24.222800",
+    "start_time": "2025-11-26T10:48:19.215439",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.000194549560546875,
-      "subgoal_decomposition": 0.00012755393981933594,
-      "transition_modeling": 0.00014543533325195312,
-      "action_sequencing": 0.00040268898010253906
+      "goal_interpretation": 0.00015425682067871094,
+      "subgoal_decomposition": 0.00011491775512695312,
+      "transition_modeling": 0.00010991096496582031,
+      "action_sequencing": 0.00025582313537597656
     }
   }
 }

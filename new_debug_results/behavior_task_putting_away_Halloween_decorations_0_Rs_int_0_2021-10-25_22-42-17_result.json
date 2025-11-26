@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17_1764124884299",
+  "submission_id": "behavior_putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17_1764125299373",
   "status": "success",
-  "timestamp": "2025-11-26T10:41:24.301220",
+  "timestamp": "2025-11-26T10:48:19.374610",
   "goal": {
     "natural_language": "Place all pumpkins and candles into the cabinet, arrange the sheet either next to or on the table, and position the caldron next to the table.",
     "interpreted": "place_all"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0021796226501464844,
+  "execution_time": 0.0013957023620605469,
   "execution_times": {
-    "goal_interpretation": 0.00034332275390625,
-    "subgoal_decomposition": 0.0001347064971923828,
-    "transition_modeling": 0.0001366138458251953,
-    "action_sequencing": 0.0003314018249511719
+    "goal_interpretation": 0.00021219253540039062,
+    "subgoal_decomposition": 0.00010561943054199219,
+    "transition_modeling": 0.00013637542724609375,
+    "action_sequencing": 0.00025725364685058594
   },
   "debug_info": {
-    "submission_id": "behavior_putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17_1764124884299",
+    "submission_id": "behavior_putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17_1764125299373",
     "task_id": "putting_away_Halloween_decorations_0_Rs_int_0_2021-10-25_22-42-17",
     "dataset": "behavior",
     "natural_goal": "Place all pumpkins and candles into the cabinet, arrange the sheet either next to or on the table, and position the caldron next to the table.",
-    "start_time": "2025-11-26T10:41:24.299047",
+    "start_time": "2025-11-26T10:48:19.373219",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00034332275390625,
-      "subgoal_decomposition": 0.0001347064971923828,
-      "transition_modeling": 0.0001366138458251953,
-      "action_sequencing": 0.0003314018249511719
+      "goal_interpretation": 0.00021219253540039062,
+      "subgoal_decomposition": 0.00010561943054199219,
+      "transition_modeling": 0.00013637542724609375,
+      "action_sequencing": 0.00025725364685058594
     }
   }
 }

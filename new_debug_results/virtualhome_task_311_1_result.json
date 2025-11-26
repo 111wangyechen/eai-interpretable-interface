@@ -1,7 +1,7 @@
 {
-  "submission_id": "virtualhome_311_1_1764124884227",
+  "submission_id": "virtualhome_311_1_1764125299218",
   "status": "success",
-  "timestamp": "2025-11-26T10:41:24.229483",
+  "timestamp": "2025-11-26T10:48:19.219972",
   "goal": {
     "natural_language": "I go home and it's dark so I can not see anything",
     "interpreted": "i_go"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0019512176513671875,
+  "execution_time": 0.0013060569763183594,
   "execution_times": {
-    "goal_interpretation": 0.0002071857452392578,
-    "subgoal_decomposition": 0.00013446807861328125,
-    "transition_modeling": 0.00017714500427246094,
-    "action_sequencing": 0.0004000663757324219
+    "goal_interpretation": 0.00015401840209960938,
+    "subgoal_decomposition": 0.00013017654418945312,
+    "transition_modeling": 0.00011348724365234375,
+    "action_sequencing": 0.0002295970916748047
   },
   "debug_info": {
-    "submission_id": "virtualhome_311_1_1764124884227",
+    "submission_id": "virtualhome_311_1_1764125299218",
     "task_id": "311_1",
     "dataset": "virtualhome",
     "natural_goal": "I go home and it's dark so I can not see anything",
-    "start_time": "2025-11-26T10:41:24.227540",
+    "start_time": "2025-11-26T10:48:19.218671",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0002071857452392578,
-      "subgoal_decomposition": 0.00013446807861328125,
-      "transition_modeling": 0.00017714500427246094,
-      "action_sequencing": 0.0004000663757324219
+      "goal_interpretation": 0.00015401840209960938,
+      "subgoal_decomposition": 0.00013017654418945312,
+      "transition_modeling": 0.00011348724365234375,
+      "action_sequencing": 0.0002295970916748047
     }
   }
 }

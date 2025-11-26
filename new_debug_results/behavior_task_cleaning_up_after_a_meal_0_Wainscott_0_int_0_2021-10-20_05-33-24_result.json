@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24_1764124884262",
+  "submission_id": "behavior_cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24_1764125299356",
   "status": "success",
-  "timestamp": "2025-11-26T10:41:24.264079",
+  "timestamp": "2025-11-26T10:48:19.358793",
   "goal": {
     "natural_language": "Clean all the stained tableware, put all hamburgers into sack1 which is on the floor, and clean the stained floor, chair, and table.",
     "interpreted": "clean_all"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.0013153553009033203,
+  "execution_time": 0.0021381378173828125,
   "execution_times": {
-    "goal_interpretation": 0.00018668174743652344,
-    "subgoal_decomposition": 0.00010991096496582031,
-    "transition_modeling": 0.00010561943054199219,
-    "action_sequencing": 0.0002491474151611328
+    "goal_interpretation": 0.0003733634948730469,
+    "subgoal_decomposition": 0.0002536773681640625,
+    "transition_modeling": 0.00024271011352539062,
+    "action_sequencing": 0.0004856586456298828
   },
   "debug_info": {
-    "submission_id": "behavior_cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24_1764124884262",
+    "submission_id": "behavior_cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24_1764125299356",
     "task_id": "cleaning_up_after_a_meal_0_Wainscott_0_int_0_2021-10-20_05-33-24",
     "dataset": "behavior",
     "natural_goal": "Clean all the stained tableware, put all hamburgers into sack1 which is on the floor, and clean the stained floor, chair, and table.",
-    "start_time": "2025-11-26T10:41:24.262769",
+    "start_time": "2025-11-26T10:48:19.356661",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00018668174743652344,
-      "subgoal_decomposition": 0.00010991096496582031,
-      "transition_modeling": 0.00010561943054199219,
-      "action_sequencing": 0.0002491474151611328
+      "goal_interpretation": 0.0003733634948730469,
+      "subgoal_decomposition": 0.0002536773681640625,
+      "transition_modeling": 0.00024271011352539062,
+      "action_sequencing": 0.0004856586456298828
     }
   }
 }

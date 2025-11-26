@@ -1,7 +1,7 @@
 {
-  "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764124884265",
+  "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764125299361",
   "status": "success",
-  "timestamp": "2025-11-26T10:41:24.267254",
+  "timestamp": "2025-11-26T10:48:19.363511",
   "goal": {
     "natural_language": "Place 3 candles on each table.",
     "interpreted": "place_3"
@@ -23,19 +23,19 @@
       }
     ]
   },
-  "execution_time": 0.00135040283203125,
+  "execution_time": 0.0016429424285888672,
   "execution_times": {
-    "goal_interpretation": 0.00013065338134765625,
-    "subgoal_decomposition": 0.00011491775512695312,
-    "transition_modeling": 0.00011992454528808594,
-    "action_sequencing": 0.00030350685119628906
+    "goal_interpretation": 0.00014781951904296875,
+    "subgoal_decomposition": 0.00010156631469726562,
+    "transition_modeling": 0.00011110305786132812,
+    "action_sequencing": 0.00038123130798339844
   },
   "debug_info": {
-    "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764124884265",
+    "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764125299361",
     "task_id": "setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51",
     "dataset": "behavior",
     "natural_goal": "Place 3 candles on each table.",
-    "start_time": "2025-11-26T10:41:24.265908",
+    "start_time": "2025-11-26T10:48:19.361873",
     "modules": {
       "goal_interpretation": {
         "status": "success",
@@ -73,10 +73,10 @@
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00013065338134765625,
-      "subgoal_decomposition": 0.00011491775512695312,
-      "transition_modeling": 0.00011992454528808594,
-      "action_sequencing": 0.00030350685119628906
+      "goal_interpretation": 0.00014781951904296875,
+      "subgoal_decomposition": 0.00010156631469726562,
+      "transition_modeling": 0.00011110305786132812,
+      "action_sequencing": 0.00038123130798339844
     }
   }
 }
