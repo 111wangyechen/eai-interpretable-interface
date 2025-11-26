@@ -35,8 +35,7 @@ except ImportError as e:
     logging.warning(f"Failed to import subgoal decomposition evaluator modules: {e}")
     EVALUATOR_AVAILABLE = False
 
-from subgoal_decomposition.subgoal_decomposer import SubgoalDecomposer, DecompositionResult, SubgoalType
-from subgoal_decomposition.models import Subgoal, DecompositionStrategy
+from subgoal_decomposition.subgoal_decomposer import SubgoalDecomposer, DecompositionResult, SubgoalType, Subgoal, DecompositionStrategy
 
 # 设置日志
 logger = logging.getLogger(__name__)
