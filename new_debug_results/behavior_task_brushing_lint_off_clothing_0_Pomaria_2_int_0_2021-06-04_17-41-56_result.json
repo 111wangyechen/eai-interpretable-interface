@@ -1,104 +1,54 @@
 {
-  "submission_id": "behavior_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_1764118641243",
-  "status": "success",
-  "timestamp": "2025-11-26T08:57:21.244749",
-  "goal": {
-    "natural_language": "Check every sweater for lint, make sure none of them are dusty, and put them on the bed.",
-    "interpreted": "check_every"
-  },
-  "subgoals": {
-    "count": 1,
-    "list": [
-      {
-        "id": "atomic_1",
-        "description": "Execute atomic action: check_every",
-        "ltl_formula": "check_every",
-        "subgoal_type": "ATOMIC",
-        "dependencies": [],
-        "priority": 0,
-        "estimated_cost": 0.71,
-        "preconditions": [
-          "agent_available",
-          "object_visible"
-        ],
-        "effects": [
-          "check_every",
-          "information_obtained"
-        ],
-        "metadata": {
-          "depth": 0,
-          "type": "atomic",
-          "original_formula": "check_every",
-          "feasibility_score": 0.9,
-          "action_type": "perception"
-        }
-      }
-    ]
-  },
-  "execution_time": 0.0014259815216064453,
-  "execution_times": {
-    "goal_interpretation": 0.0001678466796875,
-    "subgoal_decomposition": 0.0004730224609375,
-    "transition_modeling": 0.00016117095947265625,
-    "action_sequencing": 0.00019121170043945312
-  },
+  "submission_id": "behavior_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_1764122578899",
+  "status": "failed",
+  "error": "Action sequencing failed: name 'ActionType' is not defined",
   "debug_info": {
-    "submission_id": "behavior_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_1764118641243",
+    "submission_id": "behavior_brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56_1764122578899",
     "task_id": "brushing_lint_off_clothing_0_Pomaria_2_int_0_2021-06-04_17-41-56",
     "dataset": "behavior",
     "natural_goal": "Check every sweater for lint, make sure none of them are dusty, and put them on the bed.",
-    "start_time": "2025-11-26T08:57:21.243329",
+    "start_time": "2025-11-26T10:02:58.899469",
     "modules": {
       "goal_interpretation": {
         "status": "success",
-        "formula": "check_every",
-        "type": "LTLFormula"
+        "type": "LTLFormula",
+        "ltl_formula": "check_every",
+        "is_valid": true
       },
       "subgoal_decomposition": {
         "status": "success",
         "subgoal_count": 1,
         "subgoals": [
           {
-            "id": "atomic_1",
-            "description": "Execute atomic action: check_every",
+            "id": "subgoal_0",
+            "description": "完成主要任务: Check every sweater for lint, make sure none of them are dusty, and put them on the bed.",
             "ltl_formula": "check_every",
-            "subgoal_type": "ATOMIC",
-            "dependencies": [],
-            "priority": 0,
-            "estimated_cost": 0.71,
+            "subgoal_type": "atomic",
             "preconditions": [
-              "agent_available",
-              "object_visible"
+              "agent_available"
             ],
             "effects": [
-              "check_every",
-              "information_obtained"
-            ],
-            "metadata": {
-              "depth": 0,
-              "type": "atomic",
-              "original_formula": "check_every",
-              "feasibility_score": 0.9,
-              "action_type": "perception"
-            }
+              "task_completed"
+            ]
           }
         ],
-        "type": "IntegrationResult"
+        "type": "IntegratedDecompositionResult",
+        "ltl_formula_used": ""
       },
       "transition_modeling": {
         "status": "success",
-        "type": "ModelingResponse"
+        "type": "IntegratedModelingResult"
       },
       "action_sequencing": {
         "status": "failed",
-        "type": "SequencingResponse"
+        "error": "name 'ActionType' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001678466796875,
-      "subgoal_decomposition": 0.0004730224609375,
-      "transition_modeling": 0.00016117095947265625,
-      "action_sequencing": 0.00019121170043945312
+      "goal_interpretation": 0.0003724098205566406,
+      "subgoal_decomposition": 0.0005712509155273438,
+      "transition_modeling": 0.0005135536193847656,
+      "action_sequencing": 0.0003159046173095703
     }
   }
 }

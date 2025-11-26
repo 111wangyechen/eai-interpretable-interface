@@ -1,108 +1,54 @@
 {
-  "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764118641259",
-  "status": "success",
-  "timestamp": "2025-11-26T08:57:21.260828",
-  "goal": {
-    "natural_language": "Place the modem under the table and make sure it is turned on.",
-    "interpreted": "place_the"
-  },
-  "subgoals": {
-    "count": 1,
-    "list": [
-      {
-        "id": "atomic_1",
-        "description": "Execute atomic action: perform_place",
-        "ltl_formula": "perform_place",
-        "subgoal_type": "ATOMIC",
-        "dependencies": [],
-        "priority": 0,
-        "estimated_cost": 1.59,
-        "preconditions": [
-          "agent_available",
-          "object_in_hand",
-          "target_location_clear"
-        ],
-        "effects": [
-          "perform_place",
-          "object_placed",
-          "hand_empty"
-        ],
-        "metadata": {
-          "depth": 0,
-          "type": "atomic",
-          "original_formula": "place_the",
-          "feasibility_score": 0.7,
-          "action_type": "manipulation"
-        }
-      }
-    ]
-  },
-  "execution_time": 0.0012519359588623047,
-  "execution_times": {
-    "goal_interpretation": 0.00016808509826660156,
-    "subgoal_decomposition": 0.00040602684020996094,
-    "transition_modeling": 0.00013685226440429688,
-    "action_sequencing": 0.00015926361083984375
-  },
+  "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764122578928",
+  "status": "failed",
+  "error": "Action sequencing failed: name 'ActionType' is not defined",
   "debug_info": {
-    "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764118641259",
+    "submission_id": "behavior_installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55_1764122578928",
     "task_id": "installing_a_modem_0_Beechwood_0_int_0_2021-10-25_20-28-55",
     "dataset": "behavior",
     "natural_goal": "Place the modem under the table and make sure it is turned on.",
-    "start_time": "2025-11-26T08:57:21.259581",
+    "start_time": "2025-11-26T10:02:58.928474",
     "modules": {
       "goal_interpretation": {
         "status": "success",
-        "formula": "place_the",
-        "type": "LTLFormula"
+        "type": "LTLFormula",
+        "ltl_formula": "place_the",
+        "is_valid": true
       },
       "subgoal_decomposition": {
         "status": "success",
         "subgoal_count": 1,
         "subgoals": [
           {
-            "id": "atomic_1",
-            "description": "Execute atomic action: perform_place",
-            "ltl_formula": "perform_place",
-            "subgoal_type": "ATOMIC",
-            "dependencies": [],
-            "priority": 0,
-            "estimated_cost": 1.59,
+            "id": "subgoal_0",
+            "description": "完成主要任务: Place the modem under the table and make sure it is turned on.",
+            "ltl_formula": "place_the",
+            "subgoal_type": "atomic",
             "preconditions": [
-              "agent_available",
-              "object_in_hand",
-              "target_location_clear"
+              "agent_available"
             ],
             "effects": [
-              "perform_place",
-              "object_placed",
-              "hand_empty"
-            ],
-            "metadata": {
-              "depth": 0,
-              "type": "atomic",
-              "original_formula": "place_the",
-              "feasibility_score": 0.7,
-              "action_type": "manipulation"
-            }
+              "task_completed"
+            ]
           }
         ],
-        "type": "IntegrationResult"
+        "type": "IntegratedDecompositionResult",
+        "ltl_formula_used": ""
       },
       "transition_modeling": {
         "status": "success",
-        "type": "ModelingResponse"
+        "type": "IntegratedModelingResult"
       },
       "action_sequencing": {
         "status": "failed",
-        "type": "SequencingResponse"
+        "error": "name 'ActionType' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00016808509826660156,
-      "subgoal_decomposition": 0.00040602684020996094,
-      "transition_modeling": 0.00013685226440429688,
-      "action_sequencing": 0.00015926361083984375
+      "goal_interpretation": 0.00018715858459472656,
+      "subgoal_decomposition": 0.00019359588623046875,
+      "transition_modeling": 0.00015687942504882812,
+      "action_sequencing": 8.0108642578125e-05
     }
   }
 }

@@ -1,108 +1,54 @@
 {
-  "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764118641238",
-  "status": "success",
-  "timestamp": "2025-11-26T08:57:21.242832",
-  "goal": {
-    "natural_language": "Put one candle, one cheese, one cookie, and one bow into each basket.",
-    "interpreted": "put_one"
-  },
-  "subgoals": {
-    "count": 1,
-    "list": [
-      {
-        "id": "atomic_1",
-        "description": "Execute atomic action: put_one",
-        "ltl_formula": "put_one",
-        "subgoal_type": "ATOMIC",
-        "dependencies": [],
-        "priority": 0,
-        "estimated_cost": 1.41,
-        "preconditions": [
-          "agent_available",
-          "object_in_hand",
-          "target_location_clear"
-        ],
-        "effects": [
-          "put_one",
-          "object_placed",
-          "hand_empty"
-        ],
-        "metadata": {
-          "depth": 0,
-          "type": "atomic",
-          "original_formula": "put_one",
-          "feasibility_score": 0.7,
-          "action_type": "manipulation"
-        }
-      }
-    ]
-  },
-  "execution_time": 0.004117727279663086,
-  "execution_times": {
-    "goal_interpretation": 0.00017523765563964844,
-    "subgoal_decomposition": 0.00043201446533203125,
-    "transition_modeling": 0.0002014636993408203,
-    "action_sequencing": 0.0027666091918945312
-  },
+  "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764122578893",
+  "status": "failed",
+  "error": "Action sequencing failed: name 'ActionType' is not defined",
   "debug_info": {
-    "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764118641238",
+    "submission_id": "behavior_assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37_1764122578893",
     "task_id": "assembling_gift_baskets_0_Beechwood_0_int_0_2021-10-26_12-46-37",
     "dataset": "behavior",
     "natural_goal": "Put one candle, one cheese, one cookie, and one bow into each basket.",
-    "start_time": "2025-11-26T08:57:21.238727",
+    "start_time": "2025-11-26T10:02:58.893652",
     "modules": {
       "goal_interpretation": {
         "status": "success",
-        "formula": "put_one",
-        "type": "LTLFormula"
+        "type": "LTLFormula",
+        "ltl_formula": "put_one",
+        "is_valid": true
       },
       "subgoal_decomposition": {
         "status": "success",
         "subgoal_count": 1,
         "subgoals": [
           {
-            "id": "atomic_1",
-            "description": "Execute atomic action: put_one",
+            "id": "subgoal_0",
+            "description": "完成主要任务: Put one candle, one cheese, one cookie, and one bow into each basket.",
             "ltl_formula": "put_one",
-            "subgoal_type": "ATOMIC",
-            "dependencies": [],
-            "priority": 0,
-            "estimated_cost": 1.41,
+            "subgoal_type": "atomic",
             "preconditions": [
-              "agent_available",
-              "object_in_hand",
-              "target_location_clear"
+              "agent_available"
             ],
             "effects": [
-              "put_one",
-              "object_placed",
-              "hand_empty"
-            ],
-            "metadata": {
-              "depth": 0,
-              "type": "atomic",
-              "original_formula": "put_one",
-              "feasibility_score": 0.7,
-              "action_type": "manipulation"
-            }
+              "task_completed"
+            ]
           }
         ],
-        "type": "IntegrationResult"
+        "type": "IntegratedDecompositionResult",
+        "ltl_formula_used": ""
       },
       "transition_modeling": {
         "status": "success",
-        "type": "ModelingResponse"
+        "type": "IntegratedModelingResult"
       },
       "action_sequencing": {
         "status": "failed",
-        "type": "SequencingResponse"
+        "error": "name 'ActionType' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00017523765563964844,
-      "subgoal_decomposition": 0.00043201446533203125,
-      "transition_modeling": 0.0002014636993408203,
-      "action_sequencing": 0.0027666091918945312
+      "goal_interpretation": 0.000339508056640625,
+      "subgoal_decomposition": 0.0005693435668945312,
+      "transition_modeling": 0.0005097389221191406,
+      "action_sequencing": 0.00026917457580566406
     }
   }
 }

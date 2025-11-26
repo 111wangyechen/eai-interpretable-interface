@@ -1,108 +1,54 @@
 {
-  "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764118641262",
-  "status": "success",
-  "timestamp": "2025-11-26T08:57:21.264009",
-  "goal": {
-    "natural_language": "Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.",
-    "interpreted": "place_all"
-  },
-  "subgoals": {
-    "count": 1,
-    "list": [
-      {
-        "id": "atomic_1",
-        "description": "Execute atomic action: place_all",
-        "ltl_formula": "place_all",
-        "subgoal_type": "ATOMIC",
-        "dependencies": [],
-        "priority": 0,
-        "estimated_cost": 1.47,
-        "preconditions": [
-          "agent_available",
-          "object_in_hand",
-          "target_location_clear"
-        ],
-        "effects": [
-          "place_all",
-          "object_placed",
-          "hand_empty"
-        ],
-        "metadata": {
-          "depth": 0,
-          "type": "atomic",
-          "original_formula": "place_all",
-          "feasibility_score": 0.7,
-          "action_type": "manipulation"
-        }
-      }
-    ]
-  },
-  "execution_time": 0.0012929439544677734,
-  "execution_times": {
-    "goal_interpretation": 0.00014591217041015625,
-    "subgoal_decomposition": 0.0004506111145019531,
-    "transition_modeling": 0.0001442432403564453,
-    "action_sequencing": 0.0001652240753173828
-  },
+  "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764122578932",
+  "status": "failed",
+  "error": "Action sequencing failed: name 'ActionType' is not defined",
   "debug_info": {
-    "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764118641262",
+    "submission_id": "behavior_putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25_1764122578932",
     "task_id": "putting_away_Christmas_decorations_0_Wainscott_0_int_0_2021-06-06_17-03-25",
     "dataset": "behavior",
     "natural_goal": "Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.",
-    "start_time": "2025-11-26T08:57:21.262720",
+    "start_time": "2025-11-26T10:02:58.932256",
     "modules": {
       "goal_interpretation": {
         "status": "success",
-        "formula": "place_all",
-        "type": "LTLFormula"
+        "type": "LTLFormula",
+        "ltl_formula": "place_all",
+        "is_valid": true
       },
       "subgoal_decomposition": {
         "status": "success",
         "subgoal_count": 1,
         "subgoals": [
           {
-            "id": "atomic_1",
-            "description": "Execute atomic action: place_all",
+            "id": "subgoal_0",
+            "description": "完成主要任务: Place all wreaths and bows next to the cabinet, and put all ribbons inside the cabinet.",
             "ltl_formula": "place_all",
-            "subgoal_type": "ATOMIC",
-            "dependencies": [],
-            "priority": 0,
-            "estimated_cost": 1.47,
+            "subgoal_type": "atomic",
             "preconditions": [
-              "agent_available",
-              "object_in_hand",
-              "target_location_clear"
+              "agent_available"
             ],
             "effects": [
-              "place_all",
-              "object_placed",
-              "hand_empty"
-            ],
-            "metadata": {
-              "depth": 0,
-              "type": "atomic",
-              "original_formula": "place_all",
-              "feasibility_score": 0.7,
-              "action_type": "manipulation"
-            }
+              "task_completed"
+            ]
           }
         ],
-        "type": "IntegrationResult"
+        "type": "IntegratedDecompositionResult",
+        "ltl_formula_used": ""
       },
       "transition_modeling": {
         "status": "success",
-        "type": "ModelingResponse"
+        "type": "IntegratedModelingResult"
       },
       "action_sequencing": {
         "status": "failed",
-        "type": "SequencingResponse"
+        "error": "name 'ActionType' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00014591217041015625,
-      "subgoal_decomposition": 0.0004506111145019531,
-      "transition_modeling": 0.0001442432403564453,
-      "action_sequencing": 0.0001652240753173828
+      "goal_interpretation": 0.0001609325408935547,
+      "subgoal_decomposition": 0.0001246929168701172,
+      "transition_modeling": 0.00018906593322753906,
+      "action_sequencing": 5.364418029785156e-05
     }
   }
 }

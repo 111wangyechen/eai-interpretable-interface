@@ -1,108 +1,54 @@
 {
-  "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764118641264",
-  "status": "success",
-  "timestamp": "2025-11-26T08:57:21.265511",
-  "goal": {
-    "natural_language": "Place 3 candles on each table.",
-    "interpreted": "place_3"
-  },
-  "subgoals": {
-    "count": 1,
-    "list": [
-      {
-        "id": "atomic_1",
-        "description": "Execute atomic action: place_3",
-        "ltl_formula": "place_3",
-        "subgoal_type": "ATOMIC",
-        "dependencies": [],
-        "priority": 0,
-        "estimated_cost": 1.41,
-        "preconditions": [
-          "agent_available",
-          "object_in_hand",
-          "target_location_clear"
-        ],
-        "effects": [
-          "place_3",
-          "object_placed",
-          "hand_empty"
-        ],
-        "metadata": {
-          "depth": 0,
-          "type": "atomic",
-          "original_formula": "place_3",
-          "feasibility_score": 0.7,
-          "action_type": "manipulation"
-        }
-      }
-    ]
-  },
-  "execution_time": 0.0011897087097167969,
-  "execution_times": {
-    "goal_interpretation": 0.00013399124145507812,
-    "subgoal_decomposition": 0.00034546852111816406,
-    "transition_modeling": 0.0001399517059326172,
-    "action_sequencing": 0.00016355514526367188
-  },
+  "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764122578933",
+  "status": "failed",
+  "error": "Action sequencing failed: name 'ActionType' is not defined",
   "debug_info": {
-    "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764118641264",
+    "submission_id": "behavior_setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51_1764122578933",
     "task_id": "setting_up_candles_0_Wainscott_0_int_0_2021-10-26_13-40-51",
     "dataset": "behavior",
     "natural_goal": "Place 3 candles on each table.",
-    "start_time": "2025-11-26T08:57:21.264326",
+    "start_time": "2025-11-26T10:02:58.933825",
     "modules": {
       "goal_interpretation": {
         "status": "success",
-        "formula": "place_3",
-        "type": "LTLFormula"
+        "type": "LTLFormula",
+        "ltl_formula": "place_3",
+        "is_valid": true
       },
       "subgoal_decomposition": {
         "status": "success",
         "subgoal_count": 1,
         "subgoals": [
           {
-            "id": "atomic_1",
-            "description": "Execute atomic action: place_3",
+            "id": "subgoal_0",
+            "description": "完成主要任务: Place 3 candles on each table.",
             "ltl_formula": "place_3",
-            "subgoal_type": "ATOMIC",
-            "dependencies": [],
-            "priority": 0,
-            "estimated_cost": 1.41,
+            "subgoal_type": "atomic",
             "preconditions": [
-              "agent_available",
-              "object_in_hand",
-              "target_location_clear"
+              "agent_available"
             ],
             "effects": [
-              "place_3",
-              "object_placed",
-              "hand_empty"
-            ],
-            "metadata": {
-              "depth": 0,
-              "type": "atomic",
-              "original_formula": "place_3",
-              "feasibility_score": 0.7,
-              "action_type": "manipulation"
-            }
+              "task_completed"
+            ]
           }
         ],
-        "type": "IntegrationResult"
+        "type": "IntegratedDecompositionResult",
+        "ltl_formula_used": ""
       },
       "transition_modeling": {
         "status": "success",
-        "type": "ModelingResponse"
+        "type": "IntegratedModelingResult"
       },
       "action_sequencing": {
         "status": "failed",
-        "type": "SequencingResponse"
+        "error": "name 'ActionType' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00013399124145507812,
-      "subgoal_decomposition": 0.00034546852111816406,
-      "transition_modeling": 0.0001399517059326172,
-      "action_sequencing": 0.00016355514526367188
+      "goal_interpretation": 0.00014209747314453125,
+      "subgoal_decomposition": 0.00011110305786132812,
+      "transition_modeling": 0.00015115737915039062,
+      "action_sequencing": 8.177757263183594e-05
     }
   }
 }

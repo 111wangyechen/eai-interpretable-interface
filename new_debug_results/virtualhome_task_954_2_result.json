@@ -1,100 +1,54 @@
 {
-  "submission_id": "virtualhome_954_2_1764118641152",
-  "status": "success",
-  "timestamp": "2025-11-26T08:57:21.153645",
-  "goal": {
-    "natural_language": "I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.",
-    "interpreted": "i_need"
-  },
-  "subgoals": {
-    "count": 1,
-    "list": [
-      {
-        "id": "atomic_1",
-        "description": "Execute atomic action: i_need",
-        "ltl_formula": "i_need",
-        "subgoal_type": "ATOMIC",
-        "dependencies": [],
-        "priority": 0,
-        "estimated_cost": 0.92,
-        "preconditions": [
-          "agent_available"
-        ],
-        "effects": [
-          "i_need"
-        ],
-        "metadata": {
-          "depth": 0,
-          "type": "atomic",
-          "original_formula": "i_need",
-          "feasibility_score": 0.6,
-          "action_type": "general"
-        }
-      }
-    ]
-  },
-  "execution_time": 0.0016210079193115234,
-  "execution_times": {
-    "goal_interpretation": 0.00018262863159179688,
-    "subgoal_decomposition": 0.0006322860717773438,
-    "transition_modeling": 0.0001480579376220703,
-    "action_sequencing": 0.0001723766326904297
-  },
+  "submission_id": "virtualhome_954_2_1764122578846",
+  "status": "failed",
+  "error": "Action sequencing failed: name 'ActionType' is not defined",
   "debug_info": {
-    "submission_id": "virtualhome_954_2_1764118641152",
+    "submission_id": "virtualhome_954_2_1764122578846",
     "task_id": "954_2",
     "dataset": "virtualhome",
     "natural_goal": "I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.",
-    "start_time": "2025-11-26T08:57:21.152029",
+    "start_time": "2025-11-26T10:02:58.846237",
     "modules": {
       "goal_interpretation": {
         "status": "success",
-        "formula": "i_need",
-        "type": "LTLFormula"
+        "type": "LTLFormula",
+        "ltl_formula": "i_need",
+        "is_valid": true
       },
       "subgoal_decomposition": {
         "status": "success",
         "subgoal_count": 1,
         "subgoals": [
           {
-            "id": "atomic_1",
-            "description": "Execute atomic action: i_need",
+            "id": "subgoal_0",
+            "description": "完成主要任务: I need to get the dirty clothes basket.  Walk to bathroom.  Put all the clothes in washing machine.  Add soap.  Turn on machine.",
             "ltl_formula": "i_need",
-            "subgoal_type": "ATOMIC",
-            "dependencies": [],
-            "priority": 0,
-            "estimated_cost": 0.92,
+            "subgoal_type": "atomic",
             "preconditions": [
               "agent_available"
             ],
             "effects": [
-              "i_need"
-            ],
-            "metadata": {
-              "depth": 0,
-              "type": "atomic",
-              "original_formula": "i_need",
-              "feasibility_score": 0.6,
-              "action_type": "general"
-            }
+              "task_completed"
+            ]
           }
         ],
-        "type": "IntegrationResult"
+        "type": "IntegratedDecompositionResult",
+        "ltl_formula_used": ""
       },
       "transition_modeling": {
         "status": "success",
-        "type": "ModelingResponse"
+        "type": "IntegratedModelingResult"
       },
       "action_sequencing": {
         "status": "failed",
-        "type": "SequencingResponse"
+        "error": "name 'ActionType' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00018262863159179688,
-      "subgoal_decomposition": 0.0006322860717773438,
-      "transition_modeling": 0.0001480579376220703,
-      "action_sequencing": 0.0001723766326904297
+      "goal_interpretation": 0.0001971721649169922,
+      "subgoal_decomposition": 0.0002434253692626953,
+      "transition_modeling": 0.0001697540283203125,
+      "action_sequencing": 5.125999450683594e-05
     }
   }
 }

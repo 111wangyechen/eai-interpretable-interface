@@ -1,100 +1,54 @@
 {
-  "submission_id": "virtualhome_417_1_1764118641147",
-  "status": "success",
-  "timestamp": "2025-11-26T08:57:21.149641",
-  "goal": {
-    "natural_language": "I will load the dirty clothes into the washing machine.",
-    "interpreted": "i_will"
-  },
-  "subgoals": {
-    "count": 1,
-    "list": [
-      {
-        "id": "atomic_1",
-        "description": "Execute atomic action: i_will",
-        "ltl_formula": "i_will",
-        "subgoal_type": "ATOMIC",
-        "dependencies": [],
-        "priority": 0,
-        "estimated_cost": 0.92,
-        "preconditions": [
-          "agent_available"
-        ],
-        "effects": [
-          "i_will"
-        ],
-        "metadata": {
-          "depth": 0,
-          "type": "atomic",
-          "original_formula": "i_will",
-          "feasibility_score": 0.6,
-          "action_type": "general"
-        }
-      }
-    ]
-  },
-  "execution_time": 0.0017113685607910156,
-  "execution_times": {
-    "goal_interpretation": 0.0001709461212158203,
-    "subgoal_decomposition": 0.0005242824554443359,
-    "transition_modeling": 0.00021076202392578125,
-    "action_sequencing": 0.0002446174621582031
-  },
+  "submission_id": "virtualhome_417_1_1764122578842",
+  "status": "failed",
+  "error": "Action sequencing failed: name 'ActionType' is not defined",
   "debug_info": {
-    "submission_id": "virtualhome_417_1_1764118641147",
+    "submission_id": "virtualhome_417_1_1764122578842",
     "task_id": "417_1",
     "dataset": "virtualhome",
     "natural_goal": "I will load the dirty clothes into the washing machine.",
-    "start_time": "2025-11-26T08:57:21.147937",
+    "start_time": "2025-11-26T10:02:58.842048",
     "modules": {
       "goal_interpretation": {
         "status": "success",
-        "formula": "i_will",
-        "type": "LTLFormula"
+        "type": "LTLFormula",
+        "ltl_formula": "i_will",
+        "is_valid": true
       },
       "subgoal_decomposition": {
         "status": "success",
         "subgoal_count": 1,
         "subgoals": [
           {
-            "id": "atomic_1",
-            "description": "Execute atomic action: i_will",
+            "id": "subgoal_0",
+            "description": "完成主要任务: I will load the dirty clothes into the washing machine.",
             "ltl_formula": "i_will",
-            "subgoal_type": "ATOMIC",
-            "dependencies": [],
-            "priority": 0,
-            "estimated_cost": 0.92,
+            "subgoal_type": "atomic",
             "preconditions": [
               "agent_available"
             ],
             "effects": [
-              "i_will"
-            ],
-            "metadata": {
-              "depth": 0,
-              "type": "atomic",
-              "original_formula": "i_will",
-              "feasibility_score": 0.6,
-              "action_type": "general"
-            }
+              "task_completed"
+            ]
           }
         ],
-        "type": "IntegrationResult"
+        "type": "IntegratedDecompositionResult",
+        "ltl_formula_used": ""
       },
       "transition_modeling": {
         "status": "success",
-        "type": "ModelingResponse"
+        "type": "IntegratedModelingResult"
       },
       "action_sequencing": {
         "status": "failed",
-        "type": "SequencingResponse"
+        "error": "name 'ActionType' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001709461212158203,
-      "subgoal_decomposition": 0.0005242824554443359,
-      "transition_modeling": 0.00021076202392578125,
-      "action_sequencing": 0.0002446174621582031
+      "goal_interpretation": 0.0002014636993408203,
+      "subgoal_decomposition": 0.0001323223114013672,
+      "transition_modeling": 0.00018310546875,
+      "action_sequencing": 5.9604644775390625e-05
     }
   }
 }

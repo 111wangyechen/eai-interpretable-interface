@@ -1,100 +1,54 @@
 {
-  "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764118641256",
-  "status": "success",
-  "timestamp": "2025-11-26T08:57:21.257722",
-  "goal": {
-    "natural_language": "Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.",
-    "interpreted": "pack_all"
-  },
-  "subgoals": {
-    "count": 1,
-    "list": [
-      {
-        "id": "atomic_1",
-        "description": "Execute atomic action: pack_all",
-        "ltl_formula": "pack_all",
-        "subgoal_type": "ATOMIC",
-        "dependencies": [],
-        "priority": 0,
-        "estimated_cost": 0.96,
-        "preconditions": [
-          "agent_available"
-        ],
-        "effects": [
-          "pack_all"
-        ],
-        "metadata": {
-          "depth": 0,
-          "type": "atomic",
-          "original_formula": "pack_all",
-          "feasibility_score": 0.6,
-          "action_type": "general"
-        }
-      }
-    ]
-  },
-  "execution_time": 0.0012600421905517578,
-  "execution_times": {
-    "goal_interpretation": 0.00014543533325195312,
-    "subgoal_decomposition": 0.000396728515625,
-    "transition_modeling": 0.0001430511474609375,
-    "action_sequencing": 0.00016999244689941406
-  },
+  "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764122578924",
+  "status": "failed",
+  "error": "Action sequencing failed: name 'ActionType' is not defined",
   "debug_info": {
-    "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764118641256",
+    "submission_id": "behavior_packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19_1764122578924",
     "task_id": "packing_boxes_for_household_move_or_trip_0_Ihlen_1_int_0_2021-06-08_19-16-19",
     "dataset": "behavior",
     "natural_goal": "Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.",
-    "start_time": "2025-11-26T08:57:21.256467",
+    "start_time": "2025-11-26T10:02:58.924630",
     "modules": {
       "goal_interpretation": {
         "status": "success",
-        "formula": "pack_all",
-        "type": "LTLFormula"
+        "type": "LTLFormula",
+        "ltl_formula": "pack_all",
+        "is_valid": true
       },
       "subgoal_decomposition": {
         "status": "success",
         "subgoal_count": 1,
         "subgoals": [
           {
-            "id": "atomic_1",
-            "description": "Execute atomic action: pack_all",
+            "id": "subgoal_0",
+            "description": "完成主要任务: Pack all plates, the dishtowel, books, shirts, and the sweater inside separate cartons.",
             "ltl_formula": "pack_all",
-            "subgoal_type": "ATOMIC",
-            "dependencies": [],
-            "priority": 0,
-            "estimated_cost": 0.96,
+            "subgoal_type": "atomic",
             "preconditions": [
               "agent_available"
             ],
             "effects": [
-              "pack_all"
-            ],
-            "metadata": {
-              "depth": 0,
-              "type": "atomic",
-              "original_formula": "pack_all",
-              "feasibility_score": 0.6,
-              "action_type": "general"
-            }
+              "task_completed"
+            ]
           }
         ],
-        "type": "IntegrationResult"
+        "type": "IntegratedDecompositionResult",
+        "ltl_formula_used": ""
       },
       "transition_modeling": {
         "status": "success",
-        "type": "ModelingResponse"
+        "type": "IntegratedModelingResult"
       },
       "action_sequencing": {
         "status": "failed",
-        "type": "SequencingResponse"
+        "error": "name 'ActionType' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00014543533325195312,
-      "subgoal_decomposition": 0.000396728515625,
-      "transition_modeling": 0.0001430511474609375,
-      "action_sequencing": 0.00016999244689941406
+      "goal_interpretation": 0.0001895427703857422,
+      "subgoal_decomposition": 0.00011515617370605469,
+      "transition_modeling": 0.00012373924255371094,
+      "action_sequencing": 5.269050598144531e-05
     }
   }
 }

@@ -1,104 +1,54 @@
 {
-  "submission_id": "virtualhome_311_1_1764118641185",
-  "status": "success",
-  "timestamp": "2025-11-26T08:57:21.187262",
-  "goal": {
-    "natural_language": "I go home and it's dark so I can not see anything",
-    "interpreted": "i_go"
-  },
-  "subgoals": {
-    "count": 1,
-    "list": [
-      {
-        "id": "atomic_1",
-        "description": "Execute atomic action: i_go",
-        "ltl_formula": "i_go",
-        "subgoal_type": "ATOMIC",
-        "dependencies": [],
-        "priority": 0,
-        "estimated_cost": 0.88,
-        "preconditions": [
-          "agent_available",
-          "path_clear"
-        ],
-        "effects": [
-          "i_go",
-          "agent_position_changed"
-        ],
-        "metadata": {
-          "depth": 0,
-          "type": "atomic",
-          "original_formula": "i_go",
-          "feasibility_score": 0.6,
-          "action_type": "movement"
-        }
-      }
-    ]
-  },
-  "execution_time": 0.0014331340789794922,
-  "execution_times": {
-    "goal_interpretation": 0.0001888275146484375,
-    "subgoal_decomposition": 0.0004067420959472656,
-    "transition_modeling": 0.00017690658569335938,
-    "action_sequencing": 0.0002110004425048828
-  },
+  "submission_id": "virtualhome_311_1_1764122578870",
+  "status": "failed",
+  "error": "Action sequencing failed: name 'ActionType' is not defined",
   "debug_info": {
-    "submission_id": "virtualhome_311_1_1764118641185",
+    "submission_id": "virtualhome_311_1_1764122578870",
     "task_id": "311_1",
     "dataset": "virtualhome",
     "natural_goal": "I go home and it's dark so I can not see anything",
-    "start_time": "2025-11-26T08:57:21.185835",
+    "start_time": "2025-11-26T10:02:58.870225",
     "modules": {
       "goal_interpretation": {
         "status": "success",
-        "formula": "i_go",
-        "type": "LTLFormula"
+        "type": "LTLFormula",
+        "ltl_formula": "i_go",
+        "is_valid": true
       },
       "subgoal_decomposition": {
         "status": "success",
         "subgoal_count": 1,
         "subgoals": [
           {
-            "id": "atomic_1",
-            "description": "Execute atomic action: i_go",
+            "id": "subgoal_0",
+            "description": "完成主要任务: I go home and it's dark so I can not see anything",
             "ltl_formula": "i_go",
-            "subgoal_type": "ATOMIC",
-            "dependencies": [],
-            "priority": 0,
-            "estimated_cost": 0.88,
+            "subgoal_type": "atomic",
             "preconditions": [
-              "agent_available",
-              "path_clear"
+              "agent_available"
             ],
             "effects": [
-              "i_go",
-              "agent_position_changed"
-            ],
-            "metadata": {
-              "depth": 0,
-              "type": "atomic",
-              "original_formula": "i_go",
-              "feasibility_score": 0.6,
-              "action_type": "movement"
-            }
+              "task_completed"
+            ]
           }
         ],
-        "type": "IntegrationResult"
+        "type": "IntegratedDecompositionResult",
+        "ltl_formula_used": ""
       },
       "transition_modeling": {
         "status": "success",
-        "type": "ModelingResponse"
+        "type": "IntegratedModelingResult"
       },
       "action_sequencing": {
         "status": "failed",
-        "type": "SequencingResponse"
+        "error": "name 'ActionType' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001888275146484375,
-      "subgoal_decomposition": 0.0004067420959472656,
-      "transition_modeling": 0.00017690658569335938,
-      "action_sequencing": 0.0002110004425048828
+      "goal_interpretation": 0.00022602081298828125,
+      "subgoal_decomposition": 0.00018739700317382812,
+      "transition_modeling": 0.00018739700317382812,
+      "action_sequencing": 8.702278137207031e-05
     }
   }
 }

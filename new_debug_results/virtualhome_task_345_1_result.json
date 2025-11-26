@@ -1,100 +1,54 @@
 {
-  "submission_id": "virtualhome_345_1_1764118641189",
-  "status": "success",
-  "timestamp": "2025-11-26T08:57:21.190824",
-  "goal": {
-    "natural_language": "We enter into the Living room and walk towards light switch. Then switch on the light.",
-    "interpreted": "we_enter"
-  },
-  "subgoals": {
-    "count": 1,
-    "list": [
-      {
-        "id": "atomic_1",
-        "description": "Execute atomic action: we_enter",
-        "ltl_formula": "we_enter",
-        "subgoal_type": "ATOMIC",
-        "dependencies": [],
-        "priority": 0,
-        "estimated_cost": 0.96,
-        "preconditions": [
-          "agent_available"
-        ],
-        "effects": [
-          "we_enter"
-        ],
-        "metadata": {
-          "depth": 0,
-          "type": "atomic",
-          "original_formula": "we_enter",
-          "feasibility_score": 0.6,
-          "action_type": "general"
-        }
-      }
-    ]
-  },
-  "execution_time": 0.0013709068298339844,
-  "execution_times": {
-    "goal_interpretation": 0.00019049644470214844,
-    "subgoal_decomposition": 0.0004096031188964844,
-    "transition_modeling": 0.00013828277587890625,
-    "action_sequencing": 0.00018548965454101562
-  },
+  "submission_id": "virtualhome_345_1_1764122578877",
+  "status": "failed",
+  "error": "Action sequencing failed: name 'ActionType' is not defined",
   "debug_info": {
-    "submission_id": "virtualhome_345_1_1764118641189",
+    "submission_id": "virtualhome_345_1_1764122578877",
     "task_id": "345_1",
     "dataset": "virtualhome",
     "natural_goal": "We enter into the Living room and walk towards light switch. Then switch on the light.",
-    "start_time": "2025-11-26T08:57:21.189458",
+    "start_time": "2025-11-26T10:02:58.877810",
     "modules": {
       "goal_interpretation": {
         "status": "success",
-        "formula": "we_enter",
-        "type": "LTLFormula"
+        "type": "LTLFormula",
+        "ltl_formula": "we_enter",
+        "is_valid": true
       },
       "subgoal_decomposition": {
         "status": "success",
         "subgoal_count": 1,
         "subgoals": [
           {
-            "id": "atomic_1",
-            "description": "Execute atomic action: we_enter",
+            "id": "subgoal_0",
+            "description": "完成主要任务: We enter into the Living room and walk towards light switch. Then switch on the light.",
             "ltl_formula": "we_enter",
-            "subgoal_type": "ATOMIC",
-            "dependencies": [],
-            "priority": 0,
-            "estimated_cost": 0.96,
+            "subgoal_type": "atomic",
             "preconditions": [
               "agent_available"
             ],
             "effects": [
-              "we_enter"
-            ],
-            "metadata": {
-              "depth": 0,
-              "type": "atomic",
-              "original_formula": "we_enter",
-              "feasibility_score": 0.6,
-              "action_type": "general"
-            }
+              "task_completed"
+            ]
           }
         ],
-        "type": "IntegrationResult"
+        "type": "IntegratedDecompositionResult",
+        "ltl_formula_used": ""
       },
       "transition_modeling": {
         "status": "success",
-        "type": "ModelingResponse"
+        "type": "IntegratedModelingResult"
       },
       "action_sequencing": {
         "status": "failed",
-        "type": "SequencingResponse"
+        "error": "name 'ActionType' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00019049644470214844,
-      "subgoal_decomposition": 0.0004096031188964844,
-      "transition_modeling": 0.00013828277587890625,
-      "action_sequencing": 0.00018548965454101562
+      "goal_interpretation": 0.00026988983154296875,
+      "subgoal_decomposition": 0.0002079010009765625,
+      "transition_modeling": 0.00020122528076171875,
+      "action_sequencing": 0.00010585784912109375
     }
   }
 }

@@ -1,100 +1,54 @@
 {
-  "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764118641271",
-  "status": "success",
-  "timestamp": "2025-11-26T08:57:21.273552",
-  "goal": {
-    "natural_language": "Wash all dust and stains from the car or vehicle.",
-    "interpreted": "wash_all"
-  },
-  "subgoals": {
-    "count": 1,
-    "list": [
-      {
-        "id": "atomic_1",
-        "description": "Execute atomic action: wash_all",
-        "ltl_formula": "wash_all",
-        "subgoal_type": "ATOMIC",
-        "dependencies": [],
-        "priority": 0,
-        "estimated_cost": 0.96,
-        "preconditions": [
-          "agent_available"
-        ],
-        "effects": [
-          "wash_all"
-        ],
-        "metadata": {
-          "depth": 0,
-          "type": "atomic",
-          "original_formula": "wash_all",
-          "feasibility_score": 0.6,
-          "action_type": "general"
-        }
-      }
-    ]
-  },
-  "execution_time": 0.0018906593322753906,
-  "execution_times": {
-    "goal_interpretation": 0.0003428459167480469,
-    "subgoal_decomposition": 0.0005440711975097656,
-    "transition_modeling": 0.00021123886108398438,
-    "action_sequencing": 0.00022268295288085938
-  },
+  "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764122578952",
+  "status": "failed",
+  "error": "Action sequencing failed: name 'ActionType' is not defined",
   "debug_info": {
-    "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764118641271",
+    "submission_id": "behavior_washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10_1764122578952",
     "task_id": "washing_cars_or_other_vehicles_0_Ihlen_0_int_0_2021-10-25_22-38-10",
     "dataset": "behavior",
     "natural_goal": "Wash all dust and stains from the car or vehicle.",
-    "start_time": "2025-11-26T08:57:21.271667",
+    "start_time": "2025-11-26T10:02:58.952787",
     "modules": {
       "goal_interpretation": {
         "status": "success",
-        "formula": "wash_all",
-        "type": "LTLFormula"
+        "type": "LTLFormula",
+        "ltl_formula": "wash_all",
+        "is_valid": true
       },
       "subgoal_decomposition": {
         "status": "success",
         "subgoal_count": 1,
         "subgoals": [
           {
-            "id": "atomic_1",
-            "description": "Execute atomic action: wash_all",
+            "id": "subgoal_0",
+            "description": "完成主要任务: Wash all dust and stains from the car or vehicle.",
             "ltl_formula": "wash_all",
-            "subgoal_type": "ATOMIC",
-            "dependencies": [],
-            "priority": 0,
-            "estimated_cost": 0.96,
+            "subgoal_type": "atomic",
             "preconditions": [
               "agent_available"
             ],
             "effects": [
-              "wash_all"
-            ],
-            "metadata": {
-              "depth": 0,
-              "type": "atomic",
-              "original_formula": "wash_all",
-              "feasibility_score": 0.6,
-              "action_type": "general"
-            }
+              "task_completed"
+            ]
           }
         ],
-        "type": "IntegrationResult"
+        "type": "IntegratedDecompositionResult",
+        "ltl_formula_used": ""
       },
       "transition_modeling": {
         "status": "success",
-        "type": "ModelingResponse"
+        "type": "IntegratedModelingResult"
       },
       "action_sequencing": {
         "status": "failed",
-        "type": "SequencingResponse"
+        "error": "name 'ActionType' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0003428459167480469,
-      "subgoal_decomposition": 0.0005440711975097656,
-      "transition_modeling": 0.00021123886108398438,
-      "action_sequencing": 0.00022268295288085938
+      "goal_interpretation": 0.0003056526184082031,
+      "subgoal_decomposition": 0.0003876686096191406,
+      "transition_modeling": 0.0002732276916503906,
+      "action_sequencing": 0.0001266002655029297
     }
   }
 }

@@ -1,106 +1,54 @@
 {
-  "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764118641269",
-  "status": "success",
-  "timestamp": "2025-11-26T08:57:21.271273",
-  "goal": {
-    "natural_language": "Close and lock all the windows.",
-    "interpreted": "close_and"
-  },
-  "subgoals": {
-    "count": 1,
-    "list": [
-      {
-        "id": "atomic_1",
-        "description": "Execute atomic action: close_and",
-        "ltl_formula": "close_and",
-        "subgoal_type": "ATOMIC",
-        "dependencies": [],
-        "priority": 0,
-        "estimated_cost": 0.98,
-        "preconditions": [
-          "agent_available",
-          "object_visible",
-          "object_reachable"
-        ],
-        "effects": [
-          "close_and",
-          "object_closed"
-        ],
-        "metadata": {
-          "depth": 0,
-          "type": "atomic",
-          "original_formula": "close_and",
-          "feasibility_score": 0.7,
-          "action_type": "operation"
-        }
-      }
-    ]
-  },
-  "execution_time": 0.001859903335571289,
-  "execution_times": {
-    "goal_interpretation": 0.00018453598022460938,
-    "subgoal_decomposition": 0.0005118846893310547,
-    "transition_modeling": 0.000423431396484375,
-    "action_sequencing": 0.00021576881408691406
-  },
+  "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764122578948",
+  "status": "failed",
+  "error": "Action sequencing failed: name 'ActionType' is not defined",
   "debug_info": {
-    "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764118641269",
+    "submission_id": "behavior_locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10_1764122578948",
     "task_id": "locking_every_window_0_Merom_1_int_0_2021-11-01_14-51-10",
     "dataset": "behavior",
     "natural_goal": "Close and lock all the windows.",
-    "start_time": "2025-11-26T08:57:21.269419",
+    "start_time": "2025-11-26T10:02:58.948868",
     "modules": {
       "goal_interpretation": {
         "status": "success",
-        "formula": "close_and",
-        "type": "LTLFormula"
+        "type": "LTLFormula",
+        "ltl_formula": "close_and",
+        "is_valid": true
       },
       "subgoal_decomposition": {
         "status": "success",
         "subgoal_count": 1,
         "subgoals": [
           {
-            "id": "atomic_1",
-            "description": "Execute atomic action: close_and",
+            "id": "subgoal_0",
+            "description": "完成主要任务: Close and lock all the windows.",
             "ltl_formula": "close_and",
-            "subgoal_type": "ATOMIC",
-            "dependencies": [],
-            "priority": 0,
-            "estimated_cost": 0.98,
+            "subgoal_type": "atomic",
             "preconditions": [
-              "agent_available",
-              "object_visible",
-              "object_reachable"
+              "agent_available"
             ],
             "effects": [
-              "close_and",
-              "object_closed"
-            ],
-            "metadata": {
-              "depth": 0,
-              "type": "atomic",
-              "original_formula": "close_and",
-              "feasibility_score": 0.7,
-              "action_type": "operation"
-            }
+              "task_completed"
+            ]
           }
         ],
-        "type": "IntegrationResult"
+        "type": "IntegratedDecompositionResult",
+        "ltl_formula_used": ""
       },
       "transition_modeling": {
         "status": "success",
-        "type": "ModelingResponse"
+        "type": "IntegratedModelingResult"
       },
       "action_sequencing": {
         "status": "failed",
-        "type": "SequencingResponse"
+        "error": "name 'ActionType' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00018453598022460938,
-      "subgoal_decomposition": 0.0005118846893310547,
-      "transition_modeling": 0.000423431396484375,
-      "action_sequencing": 0.00021576881408691406
+      "goal_interpretation": 0.00021457672119140625,
+      "subgoal_decomposition": 0.0001614093780517578,
+      "transition_modeling": 0.00033473968505859375,
+      "action_sequencing": 0.0001533031463623047
     }
   }
 }

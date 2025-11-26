@@ -1,108 +1,54 @@
 {
-  "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764118641245",
-  "status": "success",
-  "timestamp": "2025-11-26T08:57:21.246537",
-  "goal": {
-    "natural_language": "Place the books into the carton for storage.",
-    "interpreted": "place_the"
-  },
-  "subgoals": {
-    "count": 1,
-    "list": [
-      {
-        "id": "atomic_1",
-        "description": "Execute atomic action: perform_place",
-        "ltl_formula": "perform_place",
-        "subgoal_type": "ATOMIC",
-        "dependencies": [],
-        "priority": 0,
-        "estimated_cost": 1.59,
-        "preconditions": [
-          "agent_available",
-          "object_in_hand",
-          "target_location_clear"
-        ],
-        "effects": [
-          "perform_place",
-          "object_placed",
-          "hand_empty"
-        ],
-        "metadata": {
-          "depth": 0,
-          "type": "atomic",
-          "original_formula": "place_the",
-          "feasibility_score": 0.7,
-          "action_type": "manipulation"
-        }
-      }
-    ]
-  },
-  "execution_time": 0.0014007091522216797,
-  "execution_times": {
-    "goal_interpretation": 0.00013947486877441406,
-    "subgoal_decomposition": 0.00039386749267578125,
-    "transition_modeling": 0.00016307830810546875,
-    "action_sequencing": 0.00017642974853515625
-  },
+  "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764122578905",
+  "status": "failed",
+  "error": "Action sequencing failed: name 'ActionType' is not defined",
   "debug_info": {
-    "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764118641245",
+    "submission_id": "behavior_boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47_1764122578905",
     "task_id": "boxing_books_up_for_storage_0_Benevolence_1_int_0_2021-09-10_15-35-47",
     "dataset": "behavior",
     "natural_goal": "Place the books into the carton for storage.",
-    "start_time": "2025-11-26T08:57:21.245141",
+    "start_time": "2025-11-26T10:02:58.905140",
     "modules": {
       "goal_interpretation": {
         "status": "success",
-        "formula": "place_the",
-        "type": "LTLFormula"
+        "type": "LTLFormula",
+        "ltl_formula": "place_the",
+        "is_valid": true
       },
       "subgoal_decomposition": {
         "status": "success",
         "subgoal_count": 1,
         "subgoals": [
           {
-            "id": "atomic_1",
-            "description": "Execute atomic action: perform_place",
-            "ltl_formula": "perform_place",
-            "subgoal_type": "ATOMIC",
-            "dependencies": [],
-            "priority": 0,
-            "estimated_cost": 1.59,
+            "id": "subgoal_0",
+            "description": "完成主要任务: Place the books into the carton for storage.",
+            "ltl_formula": "place_the",
+            "subgoal_type": "atomic",
             "preconditions": [
-              "agent_available",
-              "object_in_hand",
-              "target_location_clear"
+              "agent_available"
             ],
             "effects": [
-              "perform_place",
-              "object_placed",
-              "hand_empty"
-            ],
-            "metadata": {
-              "depth": 0,
-              "type": "atomic",
-              "original_formula": "place_the",
-              "feasibility_score": 0.7,
-              "action_type": "manipulation"
-            }
+              "task_completed"
+            ]
           }
         ],
-        "type": "IntegrationResult"
+        "type": "IntegratedDecompositionResult",
+        "ltl_formula_used": ""
       },
       "transition_modeling": {
         "status": "success",
-        "type": "ModelingResponse"
+        "type": "IntegratedModelingResult"
       },
       "action_sequencing": {
         "status": "failed",
-        "type": "SequencingResponse"
+        "error": "name 'ActionType' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00013947486877441406,
-      "subgoal_decomposition": 0.00039386749267578125,
-      "transition_modeling": 0.00016307830810546875,
-      "action_sequencing": 0.00017642974853515625
+      "goal_interpretation": 0.0003440380096435547,
+      "subgoal_decomposition": 0.0006492137908935547,
+      "transition_modeling": 0.0004899501800537109,
+      "action_sequencing": 0.00030922889709472656
     }
   }
 }

@@ -1,100 +1,54 @@
 {
-  "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764118641273",
-  "status": "success",
-  "timestamp": "2025-11-26T08:57:21.276865",
-  "goal": {
-    "natural_language": "Wash all the stained plates, cups, and bowls.",
-    "interpreted": "wash_all"
-  },
-  "subgoals": {
-    "count": 1,
-    "list": [
-      {
-        "id": "atomic_1",
-        "description": "Execute atomic action: wash_all",
-        "ltl_formula": "wash_all",
-        "subgoal_type": "ATOMIC",
-        "dependencies": [],
-        "priority": 0,
-        "estimated_cost": 0.96,
-        "preconditions": [
-          "agent_available"
-        ],
-        "effects": [
-          "wash_all"
-        ],
-        "metadata": {
-          "depth": 0,
-          "type": "atomic",
-          "original_formula": "wash_all",
-          "feasibility_score": 0.6,
-          "action_type": "general"
-        }
-      }
-    ]
-  },
-  "execution_time": 0.0029370784759521484,
-  "execution_times": {
-    "goal_interpretation": 0.0002541542053222656,
-    "subgoal_decomposition": 0.0008296966552734375,
-    "transition_modeling": 0.00040149688720703125,
-    "action_sequencing": 0.00036215782165527344
-  },
+  "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764122578956",
+  "status": "failed",
+  "error": "Action sequencing failed: name 'ActionType' is not defined",
   "debug_info": {
-    "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764118641273",
+    "submission_id": "behavior_washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48_1764122578956",
     "task_id": "washing_dishes_0_Benevolence_1_int_0_2021-06-08_18-07-48",
     "dataset": "behavior",
     "natural_goal": "Wash all the stained plates, cups, and bowls.",
-    "start_time": "2025-11-26T08:57:21.273936",
+    "start_time": "2025-11-26T10:02:58.956648",
     "modules": {
       "goal_interpretation": {
         "status": "success",
-        "formula": "wash_all",
-        "type": "LTLFormula"
+        "type": "LTLFormula",
+        "ltl_formula": "wash_all",
+        "is_valid": true
       },
       "subgoal_decomposition": {
         "status": "success",
         "subgoal_count": 1,
         "subgoals": [
           {
-            "id": "atomic_1",
-            "description": "Execute atomic action: wash_all",
+            "id": "subgoal_0",
+            "description": "完成主要任务: Wash all the stained plates, cups, and bowls.",
             "ltl_formula": "wash_all",
-            "subgoal_type": "ATOMIC",
-            "dependencies": [],
-            "priority": 0,
-            "estimated_cost": 0.96,
+            "subgoal_type": "atomic",
             "preconditions": [
               "agent_available"
             ],
             "effects": [
-              "wash_all"
-            ],
-            "metadata": {
-              "depth": 0,
-              "type": "atomic",
-              "original_formula": "wash_all",
-              "feasibility_score": 0.6,
-              "action_type": "general"
-            }
+              "task_completed"
+            ]
           }
         ],
-        "type": "IntegrationResult"
+        "type": "IntegratedDecompositionResult",
+        "ltl_formula_used": ""
       },
       "transition_modeling": {
         "status": "success",
-        "type": "ModelingResponse"
+        "type": "IntegratedModelingResult"
       },
       "action_sequencing": {
         "status": "failed",
-        "type": "SequencingResponse"
+        "error": "name 'ActionType' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0002541542053222656,
-      "subgoal_decomposition": 0.0008296966552734375,
-      "transition_modeling": 0.00040149688720703125,
-      "action_sequencing": 0.00036215782165527344
+      "goal_interpretation": 0.00020575523376464844,
+      "subgoal_decomposition": 0.0002758502960205078,
+      "transition_modeling": 0.0002474784851074219,
+      "action_sequencing": 0.0001933574676513672
     }
   }
 }

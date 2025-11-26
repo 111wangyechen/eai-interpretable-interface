@@ -1,100 +1,54 @@
 {
-  "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764118641246",
-  "status": "success",
-  "timestamp": "2025-11-26T08:57:21.248231",
-  "goal": {
-    "natural_language": "Collect all aluminum cans and place them into the bucket.",
-    "interpreted": "collect_all"
-  },
-  "subgoals": {
-    "count": 1,
-    "list": [
-      {
-        "id": "atomic_1",
-        "description": "Execute atomic action: collect_all",
-        "ltl_formula": "collect_all",
-        "subgoal_type": "ATOMIC",
-        "dependencies": [],
-        "priority": 0,
-        "estimated_cost": 1.02,
-        "preconditions": [
-          "agent_available"
-        ],
-        "effects": [
-          "collect_all"
-        ],
-        "metadata": {
-          "depth": 0,
-          "type": "atomic",
-          "original_formula": "collect_all",
-          "feasibility_score": 0.6,
-          "action_type": "general"
-        }
-      }
-    ]
-  },
-  "execution_time": 0.0013306140899658203,
-  "execution_times": {
-    "goal_interpretation": 0.0001575946807861328,
-    "subgoal_decomposition": 0.0003871917724609375,
-    "transition_modeling": 0.00016951560974121094,
-    "action_sequencing": 0.0001723766326904297
-  },
+  "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764122578910",
+  "status": "failed",
+  "error": "Action sequencing failed: name 'ActionType' is not defined",
   "debug_info": {
-    "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764118641246",
+    "submission_id": "behavior_collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28_1764122578910",
     "task_id": "collecting_aluminum_cans_0_Ihlen_1_int_0_2021-06-06_20-13-28",
     "dataset": "behavior",
     "natural_goal": "Collect all aluminum cans and place them into the bucket.",
-    "start_time": "2025-11-26T08:57:21.246905",
+    "start_time": "2025-11-26T10:02:58.910543",
     "modules": {
       "goal_interpretation": {
         "status": "success",
-        "formula": "collect_all",
-        "type": "LTLFormula"
+        "type": "LTLFormula",
+        "ltl_formula": "collect_all",
+        "is_valid": true
       },
       "subgoal_decomposition": {
         "status": "success",
         "subgoal_count": 1,
         "subgoals": [
           {
-            "id": "atomic_1",
-            "description": "Execute atomic action: collect_all",
+            "id": "subgoal_0",
+            "description": "完成主要任务: Collect all aluminum cans and place them into the bucket.",
             "ltl_formula": "collect_all",
-            "subgoal_type": "ATOMIC",
-            "dependencies": [],
-            "priority": 0,
-            "estimated_cost": 1.02,
+            "subgoal_type": "atomic",
             "preconditions": [
               "agent_available"
             ],
             "effects": [
-              "collect_all"
-            ],
-            "metadata": {
-              "depth": 0,
-              "type": "atomic",
-              "original_formula": "collect_all",
-              "feasibility_score": 0.6,
-              "action_type": "general"
-            }
+              "task_completed"
+            ]
           }
         ],
-        "type": "IntegrationResult"
+        "type": "IntegratedDecompositionResult",
+        "ltl_formula_used": ""
       },
       "transition_modeling": {
         "status": "success",
-        "type": "ModelingResponse"
+        "type": "IntegratedModelingResult"
       },
       "action_sequencing": {
         "status": "failed",
-        "type": "SequencingResponse"
+        "error": "name 'ActionType' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.0001575946807861328,
-      "subgoal_decomposition": 0.0003871917724609375,
-      "transition_modeling": 0.00016951560974121094,
-      "action_sequencing": 0.0001723766326904297
+      "goal_interpretation": 0.0002474784851074219,
+      "subgoal_decomposition": 0.00028204917907714844,
+      "transition_modeling": 0.00033092498779296875,
+      "action_sequencing": 0.0002033710479736328
     }
   }
 }

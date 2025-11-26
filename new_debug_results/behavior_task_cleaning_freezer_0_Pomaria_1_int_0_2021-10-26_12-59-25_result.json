@@ -1,100 +1,54 @@
 {
-  "submission_id": "behavior_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_1764118641258",
-  "status": "success",
-  "timestamp": "2025-11-26T08:57:21.259261",
-  "goal": {
-    "natural_language": "Clean the stained freezer and remove all food items from the freezer.",
-    "interpreted": "clean_the"
-  },
-  "subgoals": {
-    "count": 1,
-    "list": [
-      {
-        "id": "atomic_1",
-        "description": "Execute atomic action: perform_clean",
-        "ltl_formula": "perform_clean",
-        "subgoal_type": "ATOMIC",
-        "dependencies": [],
-        "priority": 0,
-        "estimated_cost": 1.06,
-        "preconditions": [
-          "agent_available"
-        ],
-        "effects": [
-          "perform_clean"
-        ],
-        "metadata": {
-          "depth": 0,
-          "type": "atomic",
-          "original_formula": "clean_the",
-          "feasibility_score": 0.6,
-          "action_type": "general"
-        }
-      }
-    ]
-  },
-  "execution_time": 0.0012297630310058594,
-  "execution_times": {
-    "goal_interpretation": 0.00013494491577148438,
-    "subgoal_decomposition": 0.0003764629364013672,
-    "transition_modeling": 0.00012969970703125,
-    "action_sequencing": 0.00015473365783691406
-  },
+  "submission_id": "behavior_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_1764122578926",
+  "status": "failed",
+  "error": "Action sequencing failed: name 'ActionType' is not defined",
   "debug_info": {
-    "submission_id": "behavior_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_1764118641258",
+    "submission_id": "behavior_cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25_1764122578926",
     "task_id": "cleaning_freezer_0_Pomaria_1_int_0_2021-10-26_12-59-25",
     "dataset": "behavior",
     "natural_goal": "Clean the stained freezer and remove all food items from the freezer.",
-    "start_time": "2025-11-26T08:57:21.258036",
+    "start_time": "2025-11-26T10:02:58.926192",
     "modules": {
       "goal_interpretation": {
         "status": "success",
-        "formula": "clean_the",
-        "type": "LTLFormula"
+        "type": "LTLFormula",
+        "ltl_formula": "clean_the",
+        "is_valid": true
       },
       "subgoal_decomposition": {
         "status": "success",
         "subgoal_count": 1,
         "subgoals": [
           {
-            "id": "atomic_1",
-            "description": "Execute atomic action: perform_clean",
-            "ltl_formula": "perform_clean",
-            "subgoal_type": "ATOMIC",
-            "dependencies": [],
-            "priority": 0,
-            "estimated_cost": 1.06,
+            "id": "subgoal_0",
+            "description": "完成主要任务: Clean the stained freezer and remove all food items from the freezer.",
+            "ltl_formula": "clean_the",
+            "subgoal_type": "atomic",
             "preconditions": [
               "agent_available"
             ],
             "effects": [
-              "perform_clean"
-            ],
-            "metadata": {
-              "depth": 0,
-              "type": "atomic",
-              "original_formula": "clean_the",
-              "feasibility_score": 0.6,
-              "action_type": "general"
-            }
+              "task_completed"
+            ]
           }
         ],
-        "type": "IntegrationResult"
+        "type": "IntegratedDecompositionResult",
+        "ltl_formula_used": ""
       },
       "transition_modeling": {
         "status": "success",
-        "type": "ModelingResponse"
+        "type": "IntegratedModelingResult"
       },
       "action_sequencing": {
         "status": "failed",
-        "type": "SequencingResponse"
+        "error": "name 'ActionType' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00013494491577148438,
-      "subgoal_decomposition": 0.0003764629364013672,
-      "transition_modeling": 0.00012969970703125,
-      "action_sequencing": 0.00015473365783691406
+      "goal_interpretation": 0.0001804828643798828,
+      "subgoal_decomposition": 0.0001316070556640625,
+      "transition_modeling": 0.0001354217529296875,
+      "action_sequencing": 5.173683166503906e-05
     }
   }
 }

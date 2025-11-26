@@ -1,104 +1,54 @@
 {
-  "submission_id": "virtualhome_222_1_1764118641175",
-  "status": "success",
-  "timestamp": "2025-11-26T08:57:21.180162",
-  "goal": {
-    "natural_language": "walk into living room, walk to light, turn on light switch.",
-    "interpreted": "walk_into"
-  },
-  "subgoals": {
-    "count": 1,
-    "list": [
-      {
-        "id": "atomic_1",
-        "description": "Execute atomic action: walk_into",
-        "ltl_formula": "walk_into",
-        "subgoal_type": "ATOMIC",
-        "dependencies": [],
-        "priority": 0,
-        "estimated_cost": 0.98,
-        "preconditions": [
-          "agent_available",
-          "path_clear"
-        ],
-        "effects": [
-          "walk_into",
-          "agent_position_changed"
-        ],
-        "metadata": {
-          "depth": 0,
-          "type": "atomic",
-          "original_formula": "walk_into",
-          "feasibility_score": 0.9,
-          "action_type": "movement"
-        }
-      }
-    ]
-  },
-  "execution_time": 0.004679441452026367,
-  "execution_times": {
-    "goal_interpretation": 0.00034117698669433594,
-    "subgoal_decomposition": 0.0012600421905517578,
-    "transition_modeling": 0.0006275177001953125,
-    "action_sequencing": 0.0006535053253173828
-  },
+  "submission_id": "virtualhome_222_1_1764122578862",
+  "status": "failed",
+  "error": "Action sequencing failed: name 'ActionType' is not defined",
   "debug_info": {
-    "submission_id": "virtualhome_222_1_1764118641175",
+    "submission_id": "virtualhome_222_1_1764122578862",
     "task_id": "222_1",
     "dataset": "virtualhome",
     "natural_goal": "walk into living room, walk to light, turn on light switch.",
-    "start_time": "2025-11-26T08:57:21.175489",
+    "start_time": "2025-11-26T10:02:58.862344",
     "modules": {
       "goal_interpretation": {
         "status": "success",
-        "formula": "walk_into",
-        "type": "LTLFormula"
+        "type": "LTLFormula",
+        "ltl_formula": "walk_into",
+        "is_valid": true
       },
       "subgoal_decomposition": {
         "status": "success",
         "subgoal_count": 1,
         "subgoals": [
           {
-            "id": "atomic_1",
-            "description": "Execute atomic action: walk_into",
+            "id": "subgoal_0",
+            "description": "完成主要任务: walk into living room, walk to light, turn on light switch.",
             "ltl_formula": "walk_into",
-            "subgoal_type": "ATOMIC",
-            "dependencies": [],
-            "priority": 0,
-            "estimated_cost": 0.98,
+            "subgoal_type": "atomic",
             "preconditions": [
-              "agent_available",
-              "path_clear"
+              "agent_available"
             ],
             "effects": [
-              "walk_into",
-              "agent_position_changed"
-            ],
-            "metadata": {
-              "depth": 0,
-              "type": "atomic",
-              "original_formula": "walk_into",
-              "feasibility_score": 0.9,
-              "action_type": "movement"
-            }
+              "task_completed"
+            ]
           }
         ],
-        "type": "IntegrationResult"
+        "type": "IntegratedDecompositionResult",
+        "ltl_formula_used": ""
       },
       "transition_modeling": {
         "status": "success",
-        "type": "ModelingResponse"
+        "type": "IntegratedModelingResult"
       },
       "action_sequencing": {
         "status": "failed",
-        "type": "SequencingResponse"
+        "error": "name 'ActionType' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00034117698669433594,
-      "subgoal_decomposition": 0.0012600421905517578,
-      "transition_modeling": 0.0006275177001953125,
-      "action_sequencing": 0.0006535053253173828
+      "goal_interpretation": 0.0001392364501953125,
+      "subgoal_decomposition": 0.00011968612670898438,
+      "transition_modeling": 0.00015473365783691406,
+      "action_sequencing": 5.53131103515625e-05
     }
   }
 }

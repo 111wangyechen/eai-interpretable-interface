@@ -1,104 +1,54 @@
 {
-  "submission_id": "virtualhome_432_1_1764118641194",
-  "status": "success",
-  "timestamp": "2025-11-26T08:57:21.196188",
-  "goal": {
-    "natural_language": "Walk over to light switch, flip the switch to the on position",
-    "interpreted": "walk_over"
-  },
-  "subgoals": {
-    "count": 1,
-    "list": [
-      {
-        "id": "atomic_1",
-        "description": "Execute atomic action: walk_over",
-        "ltl_formula": "walk_over",
-        "subgoal_type": "ATOMIC",
-        "dependencies": [],
-        "priority": 0,
-        "estimated_cost": 0.98,
-        "preconditions": [
-          "agent_available",
-          "path_clear"
-        ],
-        "effects": [
-          "walk_over",
-          "agent_position_changed"
-        ],
-        "metadata": {
-          "depth": 0,
-          "type": "atomic",
-          "original_formula": "walk_over",
-          "feasibility_score": 0.9,
-          "action_type": "movement"
-        }
-      }
-    ]
-  },
-  "execution_time": 0.0014982223510742188,
-  "execution_times": {
-    "goal_interpretation": 0.00019240379333496094,
-    "subgoal_decomposition": 0.00043392181396484375,
-    "transition_modeling": 0.00021529197692871094,
-    "action_sequencing": 0.00023245811462402344
-  },
+  "submission_id": "virtualhome_432_1_1764122578885",
+  "status": "failed",
+  "error": "Action sequencing failed: name 'ActionType' is not defined",
   "debug_info": {
-    "submission_id": "virtualhome_432_1_1764118641194",
+    "submission_id": "virtualhome_432_1_1764122578885",
     "task_id": "432_1",
     "dataset": "virtualhome",
     "natural_goal": "Walk over to light switch, flip the switch to the on position",
-    "start_time": "2025-11-26T08:57:21.194698",
+    "start_time": "2025-11-26T10:02:58.885670",
     "modules": {
       "goal_interpretation": {
         "status": "success",
-        "formula": "walk_over",
-        "type": "LTLFormula"
+        "type": "LTLFormula",
+        "ltl_formula": "walk_over",
+        "is_valid": true
       },
       "subgoal_decomposition": {
         "status": "success",
         "subgoal_count": 1,
         "subgoals": [
           {
-            "id": "atomic_1",
-            "description": "Execute atomic action: walk_over",
+            "id": "subgoal_0",
+            "description": "完成主要任务: Walk over to light switch, flip the switch to the on position",
             "ltl_formula": "walk_over",
-            "subgoal_type": "ATOMIC",
-            "dependencies": [],
-            "priority": 0,
-            "estimated_cost": 0.98,
+            "subgoal_type": "atomic",
             "preconditions": [
-              "agent_available",
-              "path_clear"
+              "agent_available"
             ],
             "effects": [
-              "walk_over",
-              "agent_position_changed"
-            ],
-            "metadata": {
-              "depth": 0,
-              "type": "atomic",
-              "original_formula": "walk_over",
-              "feasibility_score": 0.9,
-              "action_type": "movement"
-            }
+              "task_completed"
+            ]
           }
         ],
-        "type": "IntegrationResult"
+        "type": "IntegratedDecompositionResult",
+        "ltl_formula_used": ""
       },
       "transition_modeling": {
         "status": "success",
-        "type": "ModelingResponse"
+        "type": "IntegratedModelingResult"
       },
       "action_sequencing": {
         "status": "failed",
-        "type": "SequencingResponse"
+        "error": "name 'ActionType' is not defined"
       }
     },
     "execution_times": {
-      "goal_interpretation": 0.00019240379333496094,
-      "subgoal_decomposition": 0.00043392181396484375,
-      "transition_modeling": 0.00021529197692871094,
-      "action_sequencing": 0.00023245811462402344
+      "goal_interpretation": 0.00018787384033203125,
+      "subgoal_decomposition": 0.0002582073211669922,
+      "transition_modeling": 0.0003802776336669922,
+      "action_sequencing": 0.00019049644470214844
     }
   }
 }
