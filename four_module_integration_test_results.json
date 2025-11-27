@@ -1,0 +1,97 @@
+{
+  "test_summary": {
+    "total_tests": 7,
+    "successful_tests": 2,
+    "success_rate": 28.57142857142857,
+    "total_time": 0.10113191604614258,
+    "timestamp": "2025-11-27 09:09:31"
+  },
+  "module_status": {
+    "Goal Interpretation": "✓ Working",
+    "Subgoal Decomposition": "✓ Working",
+    "Transition Modeling": "✓ Working",
+    "Action Sequencing": "✓ Working"
+  },
+  "test_results": [
+    {
+      "test": "module_initialization",
+      "success": false,
+      "message": "Module initialization: 3/4 modules ready",
+      "details": {
+        "goal_interpretation": true,
+        "subgoal_decomposition": true,
+        "transition_modeling": false,
+        "action_sequencing": true
+      }
+    },
+    {
+      "test": "goal_to_transition_flow",
+      "success": false,
+      "message": "Goal→Transition flow error: name 'defaultdict' is not defined",
+      "details": {
+        "error": "name 'defaultdict' is not defined",
+        "exception_type": "NameError"
+      }
+    },
+    {
+      "test": "subgoal_to_action_flow",
+      "success": true,
+      "message": "Subgoal→Action flow: 7 subgoals → 7 action sequences",
+      "details": {
+        "subgoals_count": 7,
+        "action_sequences_count": 7,
+        "subgoals": [
+          "Execute atomic action: ball_move",
+          "Eventually: ball_move",
+          "Execute atomic action: locations_kitchen",
+          "Eventually: locations_kitchen",
+          "Execute atomic action: furniture_table",
+          "Eventually: furniture_table",
+          "Parallel: F(ball_move) & F(locations_kitchen) & F(furniture_table)"
+        ],
+        "action_sequences": [
+          [],
+          [],
+          []
+        ]
+      }
+    },
+    {
+      "test": "end_to_end_workflow",
+      "success": false,
+      "message": "End-to-End workflow: 0/2 scenarios successful (0.0%) in 0.00s",
+      "details": {
+        "total_scenarios": 2,
+        "successful_scenarios": 0,
+        "success_rate": 0.0,
+        "workflow_time": 0.003895282745361328,
+        "scenario_results": [
+          {
+            "name": "Basic Operation Scenario",
+            "goal": "Put the red ball on the table",
+            "initial_state": {
+              "at_location": "start",
+              "has_ball": false
+            },
+            "goal_state": {
+              "at_location": "table",
+              "has_ball": true
+            },
+            "steps": {
+              "goal_interpretation": {
+                "success": true,
+                "time": 0.0019185543060302734,
+                "result": "(red_put -> F(furniture_table))"
+              },
+              "subgoal_decomposition": {
+                "success": true,
+                "time": 0.0001785755157470703
+              }
+            },
+            "subgoals_count": 4,
+            "subgoals_details": [
+              {
+                "id": "atomic_2",
+                "description": "Execute atomic action: (red_put",
+                "ltl_formula": "(red_put",
+                "type": 
