@@ -402,7 +402,11 @@ class FourModuleIntegrationTester:
                     # 2. 子目标分解
                     print("     Step 2: Subgoal Decomposition")
                     subgoal_start = time.time()
-                    subgoal_result = self.subgoal_decomposer.decompose(ltl_formula=goal_result)
+                    # Extract LTL formula from goal_result dictionary
+                    ltl_formula = goal_result.get('ltl_formula')
+                    if not ltl_formula:
+                        raise ValueError(f"Failed to extract LTL formula from goal result: {goal_result}")
+                    subgoal_result = self.subgoal_decomposer.decompose(ltl_formula=ltl_formula)
                     subgoal_time = time.time() - subgoal_start
                     
                     scenario_details['steps']['subgoal_decomposition'] = {
@@ -635,7 +639,11 @@ class FourModuleIntegrationTester:
                     
                     # 2. 子目标分解
                     subgoal_start = time.time()
-                    subgoal_result = self.subgoal_decomposer.decompose(ltl_formula=goal_result)
+                    # Extract LTL formula from goal_result dictionary
+                    ltl_formula = goal_result.get('ltl_formula')
+                    if not ltl_formula:
+                        raise ValueError(f"Failed to extract LTL formula from goal result: {goal_result}")
+                    subgoal_result = self.subgoal_decomposer.decompose(ltl_formula=ltl_formula)
                     subgoal_time = time.time() - subgoal_start
                     scenario_details['steps']['subgoal_decomposition'] = {
                         'success': subgoal_result is not None,
