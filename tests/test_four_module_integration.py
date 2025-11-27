@@ -32,7 +32,8 @@ class FourModuleIntegrationTester:
     """Four-Module Integration Tester"""
     
     def __init__(self):
-        self.goal_interpreter = GoalInterpreter()
+        from goal_interpretation import EnhancedGoalInterpreter
+        self.goal_interpreter = EnhancedGoalInterpreter()
         self.subgoal_decomposer = SubgoalDecomposer()
         self.transition_modeler = TransitionModeler()
         self.action_sequencer = ActionSequencer()

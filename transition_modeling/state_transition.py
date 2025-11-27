@@ -8,6 +8,7 @@ State Transition Data Structures
 from typing import Dict, List, Any, Optional, Tuple
 from dataclasses import dataclass, field
 from enum import Enum
+from collections import defaultdict
 import json
 import time
 import logging
