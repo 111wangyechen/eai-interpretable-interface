@@ -299,6 +299,57 @@ class SubgoalLTLIntegration:
             max_subgoals: 最大子目标数量
             
         Returns:
+            Dict[str, IntegrationResult]: 不同策略的分解结果
+        """
+        if strategies is None:
+            strategies = ['default', 'hierarchical', 'sequential']
+        
+        results = {}
+        
+        for strategy in strategies:
+            # 保存原始策略
+            original_strategy = self.subgoal_decomposer.strategy
+            
+            try:
+                # 设置当前策略
+                self.subgoal_decomposer.strategy = strategy
+                
+                # 处理LTL公式
+                result = self.process_ltl_formula(
+                    ltl_formula, max_depth=max_depth, max_subgoals=max_subgoals
+                )
+                results[strategy] = result
+            except Exception as e:
+                self.logger.error(f"使用策略 '{strategy}' 时发生错误: {str(e)}")
+            finally:
+                # 恢复原始策略
+                self.subgoal_decomposer.strategy = original_strategy
+        
+        return results
+    
+    def generate_subgoal_plan(self, goal_text: str, **kwargs) -> IntegrationResult:
+        """
+        生成子目标计划，兼容旧版接口
+        
+        Args:
+            goal_text: 目标文本
+            **kwargs: 其他参数
+            
+        Returns:
+            IntegrationResult: 子目标计划结果
+        """
+        self.logger.info(f"生成子目标计划: {goal_text}")
+        
+        # 调用现有的process_goal方法实现相同功能
+        return self.process_goal(
+            natural_goal=goal_text,
+            validate=kwargs.get('validate', True),
+            optimize=kwargs.get('optimize', True),
+            analyze=kwargs.get('analyze', True),
+            max_depth=kwargs.get('max_depth', 5),
+            max_subgoals=kwargs.get('max_subgoals', 20)
+        )
+        Returns:
             Dict[str, IntegrationResult]: 各策略的结果
         """
         if strategies is None:

@@ -284,8 +284,20 @@ class MainIntegrator:
             
             # 调用转换建模模块
             # 这里使用原始的model_transitions方法，但传递集成格式的数据
+            # 处理不同类型的transition_data（可能是字典或IntegrationResult对象）
+            subgoal_transitions = []
+            if hasattr(transition_data, 'get'):
+                # 如果是字典类型，使用get方法
+                subgoal_transitions = transition_data.get('subgoal_transitions', [])
+            elif hasattr(transition_data, 'subgoal_transitions'):
+                # 如果是对象类型，直接访问属性
+                subgoal_transitions = transition_data.subgoal_transitions
+            elif hasattr(transition_data, 'subgoals'):
+                # 如果是子目标结果对象，提取子目标
+                subgoal_transitions = transition_data.subgoals
+            
             modeling_request = {
-                'goal_state': transition_data.get('subgoal_transitions', []),
+                'goal_state': subgoal_transitions,
                 'context': context or {},
                 'request_id': f"trans_model_{uuid.uuid4()}",
                 'integration_mode': True

@@ -204,6 +204,45 @@ class ActionSequencer:
         self.logger = logging.getLogger(__name__)
     
     @cache_result
+    def sequence_actions_for_integration(self, goal_text: str, subgoal_data: Dict[str, Any], transition_data: Optional[Dict[str, Any]] = None, module_feedback: Optional[Dict[str, Any]] = None, evaluate: Optional[bool] = None) -> Any:
+        """
+        为模块集成生成动作序列（兼容方法）
+        
+        Args:
+            goal_text: 目标文本
+            subgoal_data: 来自子目标分解模块的数据
+            transition_data: 来自转换建模模块的数据
+            module_feedback: 来自其他模块的反馈
+            evaluate: 是否执行评估
+            
+        Returns:
+            IntegratedActionSequenceResult: 集成动作序列结果
+        """
+        from .action_sequencer_integration import IntegratedActionSequenceResult
+        
+        try:
+            # 准备序列请求
+            from .action_sequencer_integration import ActionSequencerIntegration
+            
+            # 创建临时的集成对象来处理请求
+            temp_integrator = ActionSequencerIntegration()
+            return temp_integrator.sequence_actions_for_integration(
+                goal_text=goal_text,
+                subgoal_data=subgoal_data,
+                transition_data=transition_data,
+                module_feedback=module_feedback,
+                evaluate=evaluate
+            )
+        except Exception as e:
+            # 如果创建集成对象失败，返回基本结果
+            return IntegratedActionSequenceResult(
+                original_goal=goal_text,
+                action_sequence=[],
+                confidence_score=0.0,
+                compatibility_flags={'error_occurred': True, 'execution_compatible': False},
+                validation_metadata={'error_message': str(e)}
+            )
+    
     def generate_sequence(self, request: SequencingRequest) -> SequencingResponse:
         """
         生成动作序列
