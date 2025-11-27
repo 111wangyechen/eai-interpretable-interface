@@ -1376,20 +1376,26 @@ class SubgoalDecomposer:
         if operator == '&':
             subgoal_type = SubgoalType.PARALLEL
             desc = f"Parallel: {' & '.join(operands)}"
+            # 重新构建正确的LTL公式，确保括号正确
+            ltl_formula = f"({' & '.join(operands)})"
         elif operator == '|':
             subgoal_type = SubgoalType.CONDITIONAL
             desc = f"Choice: {' | '.join(operands)}"
+            ltl_formula = f"({' | '.join(operands)})"
         elif operator == '->':
             subgoal_type = SubgoalType.CONDITIONAL
             desc = f"Conditional: {' -> '.join(operands)}"
+            # 为蕴含式添加括号，确保语法正确
+            ltl_formula = f"({' -> '.join(operands)})"
         else:
             subgoal_type = SubgoalType.ATOMIC
             desc = f"Logical {operator}: {' '.join(operands)}"
+            ltl_formula = structure['raw']
         
         subgoal = Subgoal(
             id=subgoal_id,
             description=desc,
-            ltl_formula=structure['raw'],
+            ltl_formula=ltl_formula,
             subgoal_type=subgoal_type,
             dependencies=child_ids if operator == '->' else [],
             priority=depth,
