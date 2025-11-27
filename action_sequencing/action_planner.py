@@ -803,13 +803,17 @@ class ActionPlanner:
                 # 计算动作与目标的相关性
                 relevance = 0
                 # 检查动作效果是否与目标匹配
-                # 注意：effects是List[str]类型，需要特殊处理
                 for effect in action.effects:
                     # 简单解析效果字符串，寻找可能与目标相关的部分
-                    # 假设效果字符串格式可能包含目标相关信息
                     effect_lower = effect.lower()
                     # 检查效果字符串是否包含任何目标键相关内容
-                    for goal_key in goal:
+                    for goal_key, goal_value in goal.items():
+                        # 处理目标值为字符串的情况
+                        if isinstance(goal_value, str):
+                            # 检查效果是否包含目标值
+                            if goal_value.lower() in effect_lower:
+                                relevance += 1.5  # 效果包含目标值给予权重
+                        # 检查效果是否包含目标键
                         if goal_key.lower() in effect_lower:
                             relevance += 1.5  # 效果包含目标键给予权重
                 # 优先考虑成功率高的动作

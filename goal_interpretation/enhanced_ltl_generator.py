@@ -45,9 +45,20 @@ class EnhancedLTLGenerator:
             # 常见动作映射
             "open": ["open_door", "open_window", "open_drawer", "open_fridge"],
             "close": ["close_door", "close_window", "close_drawer", "close_fridge"],
-            "move": ["move_to", "walk_to", "go_to", "navigate_to"],
-            "pick": ["pick_up", "grasp", "take", "grab"],
-            "place": ["place", "put_down", "release", "set_down"]
+            "move": ["move", "move_to", "walk_to", "go_to", "navigate_to"],
+            "pick": ["pickup", "pick_up", "grasp", "take", "grab"],
+            "place": ["place", "put_down", "release", "set_down"],
+            # 颜色和物品映射
+            "red": ["red_ball", "red_object"],
+            "ball": ["ball", "red_ball"],
+            # 复合命题映射
+            "place_red": ["place"],
+            "move_ball": ["move"],
+            "furniture_table": ["table"],
+            "locations_kitchen": ["kitchen"],
+            "locations_door": ["door"],
+            "appliances_refrigerator": ["open_fridge"],
+            "relative_time_then": ["eventually"]
         }
         
     def _init_disambiguation_rules(self):
@@ -731,8 +742,22 @@ class EnhancedLTLGenerator:
             # 排除操作符和关键字
             if prop in ['true', 'false', 'G', 'F', 'X', 'U', 'R', '&', '|', '!', '^']:
                 continue
-            # 检查是否存在于实体映射中
-            if prop not in self.entity_mapping and not any(prop in mappings for mappings in self.entity_mapping.values()):
+            
+            # 检查是否存在于实体映射中或可以分解为已知动作
+            is_mapped = False
+            
+            # 1. 检查直接映射
+            if prop in self.entity_mapping or any(prop in mappings for mappings in self.entity_mapping.values()):
+                is_mapped = True
+            # 2. 检查是否为复合命题，尝试分解为动作和对象
+            else:
+                # 尝试分解为动作和对象（如 place_red -> place）
+                for action in self.entity_mapping.keys():
+                    if prop.startswith(action + '_') or action in prop:
+                        is_mapped = True
+                        break
+            
+            if not is_mapped:
                 result["entity_issues"].append(f"未映射的实体: {prop}")
         
         if result["entity_issues"]:
@@ -769,9 +794,50 @@ class EnhancedLTLGenerator:
                 continue
                 
             # 检查是否存在直接映射
+            mapped_entity = None
+            
+            # 1. 检查直接映射
             if prop in self.entity_mapping and self.entity_mapping[prop]:
-                # 选择第一个映射作为默认值
                 mapped_entity = self.entity_mapping[prop][0]
+            # 2. 检查是否为复合命题，尝试分解处理
+            else:
+                # 尝试处理复合命题，如 furniture_table -> table，从右到左匹配
+                parts = prop.split('_')
+                if len(parts) > 1:
+                    # 从右到左检查每个部分
+                    for i in range(len(parts), 0, -1):
+                        current_part = '_'.join(parts[-i:])
+                        if current_part in self.entity_mapping and self.entity_mapping[current_part]:
+                            mapped_entity = self.entity_mapping[current_part][0]
+                            break
+                    # 如果没有匹配，尝试直接使用最后一个部分
+                    if not mapped_entity:
+                        last_part = parts[-1]
+                        if last_part in self.entity_mapping and self.entity_mapping[last_part]:
+                            mapped_entity = self.entity_mapping[last_part][0]
+                        elif any(last_part in mappings for mappings in self.entity_mapping.values()):
+                            # 检查是否在映射值中
+                            for key, mappings in self.entity_mapping.items():
+                                if last_part in mappings:
+                                    mapped_entity = last_part
+                                    break
+                # 3. 尝试分解为动作和对象（如 place_red -> place）
+                if not mapped_entity:
+                    action_found = False
+                    for action in self.entity_mapping.keys():
+                        if prop.startswith(action + '_'):
+                            mapped_entity = action
+                            action_found = True
+                            break
+                    # 4. 检查是否包含动作作为子字符串
+                    if not action_found:
+                        for action, mappings in self.entity_mapping.items():
+                            if action in prop:
+                                mapped_entity = mappings[0] if mappings else action
+                                break
+            
+            # 如果找到映射
+            if mapped_entity:
                 # 如果有场景上下文，尝试使用场景特定规则
                 if scene_context and scene_context in self.disambiguation_rules["scene_rules"]:
                     for rule in self.disambiguation_rules["scene_rules"][scene_context]:
@@ -787,7 +853,7 @@ class EnhancedLTLGenerator:
                     mapping_result["mappings"].append({
                         "original": prop,
                         "mapped": mapped_entity,
-                        "reason": "基于实体映射字典"
+                        "reason": "基于实体映射字典或分解规则"
                     })
             elif not any(prop in mappings for mappings in self.entity_mapping.values()):
                 # 未映射的实体
