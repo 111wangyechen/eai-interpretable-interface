@@ -844,19 +844,23 @@ class SubgoalDecomposer:
         # 移除多余空格
         formula = re.sub(r'\s+', '', formula)
         
+        # 首先检查并修复明显的括号不匹配问题
+        formula = self._fix_bracket_mismatch(formula)
+        
         # 移除外层括号
         while formula.startswith('(') and formula.endswith(')'):
             # 验证括号是否匹配
             depth = 0
+            valid = True
             for i, char in enumerate(formula):
                 if char == '(':
                     depth += 1
                 elif char == ')':
                     depth -= 1
-                    if depth == 0 and i < len(formula) - 1:
+                    if depth < 0:
+                        valid = False
                         break
-            # 如果是完整的外层括号，移除
-            if depth == 0:
+            if depth == 0 and valid:
                 formula = formula[1:-1]
             else:
                 break
@@ -869,34 +873,9 @@ class SubgoalDecomposer:
             'raw': formula
         }
         
-        # 检查时序操作符
-        for op in ['F', 'G', 'X']:
-            if formula.startswith(op):
-                structure['type'] = 'temporal'
-                structure['operator'] = op
-                # 提取操作数
-                if len(formula) > 1:
-                    if formula[1] == '(':
-                        # 找到匹配的括号
-                        depth = 1
-                        end_pos = 2
-                        for i, char in enumerate(formula[2:], 2):
-                            if char == '(':
-                                depth += 1
-                            elif char == ')':
-                                depth -= 1
-                                if depth == 0:
-                                    end_pos = i
-                                    break
-                        operand = formula[2:end_pos]
-                    else:
-                        # 处理没有括号的情况，如Fp
-                        operand = formula[1:]
-                    structure['operands'].append(operand)
-                break
-        
-        # 检查逻辑操作符，考虑括号嵌套
-        for op in ['<->', '->', '&', '|']:  # 按优先级从高到低检查
+        # 首先检查逻辑操作符（优先级更高），因为时序操作符通常是单目操作符
+        # 按优先级从高到低检查：等价<->, 蕴含->, 合取&, 析取|
+        for op in ['<->', '->', '&', '|']:
             if op in formula:
                 # 找到括号外的操作符位置
                 depth = 0
@@ -920,7 +899,40 @@ class SubgoalDecomposer:
                     left = formula[:op_pos]
                     right = formula[op_pos+len(op):]
                     structure['operands'] = [left, right]
-                    break
+                    return structure
+        
+        # 检查时序操作符（单目操作符）
+        for op in ['F', 'G', 'X']:
+            if formula.startswith(op):
+                structure['type'] = 'temporal'
+                structure['operator'] = op
+                # 提取操作数
+                if len(formula) > 1:
+                    if formula[1] == '(':
+                        # 找到匹配的括号
+                        depth = 1
+                        end_pos = len(formula)  # 默认到字符串结尾
+                        for i, char in enumerate(formula[2:], 2):
+                            if char == '(':
+                                depth += 1
+                            elif char == ')':
+                                depth -= 1
+                                if depth == 0:
+                                    end_pos = i
+                                    break
+                        # 确保括号匹配
+                        if depth == 0:
+                            operand = formula[2:end_pos]
+                        else:
+                            # 如果括号不匹配，尝试修复
+                            operand = formula[2:]
+                            # 移除多余的右括号
+                            operand = operand.rstrip(')')
+                    else:
+                        # 处理没有括号的情况，如Fp
+                        operand = formula[1:]
+                    structure['operands'].append(operand)
+                break
         
         # 如果没有找到操作符，认为是原子命题
         if structure['type'] == 'unknown':
@@ -928,6 +940,46 @@ class SubgoalDecomposer:
             structure['operands'] = [formula]
         
         return structure
+        
+    def _fix_bracket_mismatch(self, formula: str) -> str:
+        """
+        修复LTL公式中的括号不匹配问题
+        
+        Args:
+            formula: LTL公式
+            
+        Returns:
+            str: 修复后的公式
+        """
+        # 计算括号数量
+        open_brackets = formula.count('(')
+        close_brackets = formula.count(')')
+        
+        # 修复括号不匹配
+        if open_brackets > close_brackets:
+            # 添加缺失的右括号
+            formula += ')' * (open_brackets - close_brackets)
+        elif close_brackets > open_brackets:
+            # 移除多余的右括号
+            result = []
+            depth = 0
+            for char in formula:
+                if char == ')':
+                    if depth > 0:
+                        result.append(char)
+                        depth -= 1
+                    # 否则跳过这个右括号
+                else:
+                    result.append(char)
+                    if char == '(':
+                        depth += 1
+            formula = ''.join(result)
+            # 如果还有多余的右括号，直接移除末尾的
+            remaining_close = formula.count(')') - formula.count('(')
+            if remaining_close > 0:
+                formula = formula.rstrip(')')[:-remaining_close]
+        
+        return formula
     
     def _recursive_decompose(self, structure: Dict, subgoals: List[Subgoal], 
                            depth: int, max_depth: int, max_subgoals: int) -> str:

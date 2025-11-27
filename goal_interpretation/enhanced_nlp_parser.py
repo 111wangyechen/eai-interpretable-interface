@@ -665,33 +665,40 @@ class EnhancedNLPParser:
         """
         propositions = []
         
+        # 标准动作映射，确保生成的命题与动作库匹配
+        standard_actions = {
+            "walk": "move",
+            "go": "move",
+            "move": "move",
+            "put": "place",
+            "take": "pickup",
+            "get": "pickup",
+            "wash": "clean",
+            "clean": "clean"
+        }
+        
         # Generate action-object propositions with improved format
         for action in parse_result["actions"]:
             verb = action.get("verb", "").lower()
             obj = action.get("object", "").lower()
-            action_type = action.get("type", "unknown").lower()
             
             # Clean and normalize the components
             verb = verb.strip().replace(" ", "_")
             obj = obj.strip().replace(" ", "_")
             
             if verb and obj and verb != "the" and obj != "the":
-                # Create meaningful proposition: verb_object or object_verb
-                if verb in ["walk", "go", "move"]:
-                    # For movement actions, use destination_verb format
-                    propositions.append(f"{obj}_{verb}")
-                elif verb in ["wash", "clean", "put", "take", "get"]:
-                    # For manipulation actions, use object_verb format
-                    propositions.append(f"{obj}_{verb}")
-                else:
-                    # Default format
-                    propositions.append(f"{verb}_{obj}")
+                # 将动词映射到标准动作
+                standard_verb = standard_actions.get(verb, verb)
+                
+                # 统一使用标准格式: verb_object
+                propositions.append(f"{standard_verb}_{obj}")
             elif verb and verb not in ["the", "a", "an"]:
-                # Create verb proposition if meaningful
-                propositions.append(f"{verb}")
+                # 将动词映射到标准动作
+                standard_verb = standard_actions.get(verb, verb)
+                propositions.append(f"{standard_verb}")
             elif obj and obj not in ["the", "a", "an"]:
                 # Create object proposition if meaningful
-                propositions.append(f"{obj}")
+                propositions.append(f"object_{obj}")
         
         # Generate propositions from objects and their relationships
         objects = parse_result.get("objects", [])

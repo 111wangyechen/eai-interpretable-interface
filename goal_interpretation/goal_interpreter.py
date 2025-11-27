@@ -367,6 +367,15 @@ class GoalInterpreter:
         Returns:
             Dict: 语义结构字典
         """
+        # 基本动作映射，确保生成的原子命题与动作库匹配
+        action_mapping = {
+            'move': ['move', 'go', 'walk', 'navigate'],
+            'pickup': ['pick', 'take', 'grab', 'grasp'],
+            'place': ['place', 'put', 'set', 'release'],
+            'open': ['open'],
+            'close': ['close']
+        }
+        
         # 使用NLP解析器进行详细解析
         if self.nlp_parser:
             semantics = self.nlp_parser.parse(text)
@@ -412,15 +421,21 @@ class GoalInterpreter:
                 if re.search(pattern, text):
                     semantics["temporal_operators"].append(keyword)
             
-            proposition_patterns = [
-                r'(\w+)\s+(\w+)',  # 简单动宾结构
-            ]
-            
-            for pattern in proposition_patterns:
-                matches = re.findall(pattern, text)
-                for match in matches:
-                        proposition = "_".join(match)
-                        semantics["propositions"].append(proposition)
+            # 提取动词-名词组合，并映射到标准动作
+            words = text.lower().split()
+            for i, word in enumerate(words):
+                # 检查是否为动作词
+                for action, synonyms in action_mapping.items():
+                    if word in synonyms:
+                        # 提取动作对象
+                        if i + 1 < len(words):
+                            obj = words[i+1]
+                            # 生成标准命题格式
+                            proposition = f"{action}_{obj}"
+                            semantics["propositions"].append(proposition)
+                            # 记录动作和对象
+                            semantics["actions"].append(action)
+                            semantics["objects"].append(obj)
         
         return semantics
     
