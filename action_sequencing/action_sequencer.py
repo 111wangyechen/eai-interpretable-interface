@@ -318,7 +318,7 @@ class ActionSequencer:
             invalid_actions = []
             warnings = []
             
-            for action in request.available_actions:
+            for action in enhanced_request.available_actions:
                 validation_result = validate_action_against_behavior_library(action)
                 if validation_result['is_valid']:
                     validated_actions.append(action)
