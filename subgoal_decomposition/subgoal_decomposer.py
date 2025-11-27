@@ -874,14 +874,32 @@ class SubgoalDecomposer:
                     structure['operands'].append(operand)
                 break
         
-        # 检查逻辑操作符
-        for op in ['&', '|', '->', '<->']:
+        # 检查逻辑操作符，考虑括号嵌套
+        for op in ['<->', '->', '&', '|']:  # 按优先级从高到低检查
             if op in formula:
-                structure['type'] = 'logical'
-                structure['operator'] = op
-                parts = formula.split(op)
-                structure['operands'] = [p.strip() for p in parts if p.strip()]
-                break
+                # 找到括号外的操作符位置
+                depth = 0
+                op_pos = -1
+                for i in range(len(formula) - len(op) + 1):
+                    # 检查括号深度
+                    if formula[i] == '(':
+                        depth += 1
+                    elif formula[i] == ')':
+                        depth -= 1
+                    
+                    # 只有当括号深度为0时，才是有效的操作符位置
+                    if depth == 0 and formula[i:i+len(op)] == op:
+                        op_pos = i
+                        break
+                
+                if op_pos != -1:
+                    structure['type'] = 'logical'
+                    structure['operator'] = op
+                    # 正确分割操作数
+                    left = formula[:op_pos]
+                    right = formula[op_pos+len(op):]
+                    structure['operands'] = [left, right]
+                    break
         
         # 如果没有找到操作符，认为是原子命题
         if structure['type'] == 'unknown':
