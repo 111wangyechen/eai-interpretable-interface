@@ -349,6 +349,17 @@ class SubgoalLTLIntegration:
             max_depth=kwargs.get('max_depth', 5),
             max_subgoals=kwargs.get('max_subgoals', 20)
         )
+    
+    def test_all_strategies(self, ltl_formula: str, max_depth: int = 5, max_subgoals: int = 20, strategies: list = None) -> Dict[str, IntegrationResult]:
+        """
+        测试所有可用策略
+        
+        Args:
+            ltl_formula: LTL公式
+            max_depth: 最大分解深度
+            max_subgoals: 最大子目标数量
+            strategies: 要测试的策略列表，None表示测试所有策略
+            
         Returns:
             Dict[str, IntegrationResult]: 各策略的结果
         """
