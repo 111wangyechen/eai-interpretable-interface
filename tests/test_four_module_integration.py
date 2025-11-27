@@ -1192,12 +1192,6 @@ def test_four_module_integration():
     
     # 检查是否至少有50%的测试通过
     assert success, "四模块集成测试未达到预期成功率"
-            
-    except Exception as e:
-        print(f"\n❌ Integration test failed with exception: {e}")
-        import traceback
-        traceback.print_exc()
-        return 1
 
 
 if __name__ == "__main__":
