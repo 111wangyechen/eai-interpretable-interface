@@ -69,8 +69,8 @@ def test_goal_interpretation():
         traceback.print_exc()
         return None, False
 
-def test_subgoal_decomposition(ltl_formula):
-    """Test Subgoal Decomposition Module"""
+def run_subgoal_decomposition(ltl_formula):
+    """Run Subgoal Decomposition Module Test"""
     print_separator("SUBGOAL DECOMPOSITION MODULE TEST")
     
     try:
@@ -118,8 +118,8 @@ def test_subgoal_decomposition(ltl_formula):
         traceback.print_exc()
         return None, False
 
-def test_action_sequencing(subgoals):
-    """Test Action Sequencing Module"""
+def run_action_sequencing(subgoals):
+    """Run Action Sequencing Module Test"""
     print_separator("ACTION SEQUENCING MODULE TEST")
     
     try:
@@ -229,7 +229,7 @@ def test_complete_pipeline():
         
         # Test subgoal decomposition
         print("\n2. Testing Subgoal Decomposition...")
-        subgoal_result, subgoal_success = test_subgoal_decomposition(ltl_formula)
+        subgoal_result, subgoal_success = run_subgoal_decomposition(ltl_formula)
         
         if not subgoal_success:
             print_test_result("Complete Pipeline", False, "Subgoal decomposition failed")
@@ -237,7 +237,7 @@ def test_complete_pipeline():
         
         # Test action sequencing
         print("\n3. Testing Action Sequencing...")
-        action_result, action_success = test_action_sequencing(subgoal_result)
+        action_result, action_success = run_action_sequencing(subgoal_result)
         
         if not action_success:
             print_test_result("Complete Pipeline", False, "Action sequencing failed")
