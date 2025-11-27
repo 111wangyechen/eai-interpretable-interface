@@ -19,9 +19,6 @@ if project_root not in sys.path:
 
 # Debug: Print paths to verify
 print(f"Project root: {project_root}")
-print(f"Goal interpretation path: {goal_interpretation_path}")
-print(f"Subgoal decomposition path: {subgoal_decomposition_path}")
-print(f"Action sequencing path: {action_sequencing_path}")
 print(f"Python path: {sys.path[:5]}...")  # Show first 5 paths
 
 def print_separator(title):
