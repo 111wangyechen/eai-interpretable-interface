@@ -161,10 +161,16 @@ class FourModuleIntegrationTester:
             
             goal_interpretation_time = time.time() - start_time
             print(f"   ✓ Goal interpretation completed in {goal_interpretation_time:.3f}s")
+            print(f"   Generated LTL formula: {goal_result.get('ltl_formula', 'N/A')}")
             
-            # 步骤2: 使用真实的子目标分解器
+            # 步骤2: 使用真实的子目标分解器 - 从结果字典中提取LTL公式
             start_time = time.time()
-            subgoal_result = self.subgoal_decomposer.decompose(ltl_formula=goal_result)
+            ltl_formula = goal_result.get('ltl_formula')
+            if not ltl_formula:
+                print("   ✗ No LTL formula generated")
+                raise Exception("No LTL formula in goal interpretation result")
+            
+            subgoal_result = self.subgoal_decomposer.decompose(ltl_formula=ltl_formula)
             
             if not subgoal_result:
                 print("   ✗ Failed to decompose into subgoals")
@@ -244,8 +250,12 @@ class FourModuleIntegrationTester:
             if not goal_result:
                 raise Exception("Failed to interpret goal for subgoal decomposition")
             
+            ltl_formula = goal_result.get('ltl_formula')
+            if not ltl_formula:
+                raise Exception("No LTL formula in goal interpretation result")
+            
             subgoal_result = self.subgoal_decomposer.decompose(
-                ltl_formula=goal_result
+                ltl_formula=ltl_formula
             )
             
             if not subgoal_result:

@@ -1,7 +1,7 @@
 python tests/test_four_module_integration.py
 ✓ All four modules imported successfully
-2025-11-27 09:09:31,333 - AuDeRe - INFO - AuDeRe engine initialized
-2025-11-27 09:09:31,333 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
+2025-11-27 09:36:30,660 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-27 09:36:30,660 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
 ================================================================================
 Complete Four-Module Integration Test
 Goal Interpretation + Subgoal Decomposition + Transition Modeling + Action Sequencing
@@ -10,41 +10,18 @@ Goal Interpretation + Subgoal Decomposition + Transition Modeling + Action Seque
 1. Testing Module Initialization...
    ✓ Goal Interpretation module initialized
    ✓ Subgoal Decomposition module initialized
-   ✗ Transition Modeling module failed: name 'defaultdict' is not defined
-2025-11-27 09:09:31,387 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
+   ✓ Transition Modeling module initialized
+2025-11-27 09:36:30,677 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
    ✓ Action Sequencing module initialized
-   ✓ Module initialization: 3/4 modules ready
+   ✓ Module initialization: 4/4 modules ready
 
 2. Testing Goal Interpretation to Transition Modeling Flow...
    Processing goal: Put the red ball on the table
    ✓ Goal interpretation completed in 0.001s
-   ✓ 4 subgoals generated: ['Execute atomic action: (red_put', 'Execute atomic action: furniture_table', 'Eventually: furniture_table', 'Conditional: (red_put -> F(furniture_table))']
-   ✗ Goal to transition flow test failed: name 'defaultdict' is not defined
+   ✗ Goal to transition flow test failed: expected string or bytes-like object, got 'dict'
 
 3. Testing Subgoal Decomposition to Action Sequencing Flow...
-   ✓ 7 subgoals generated: ['Execute atomic action: ball_move', 'Eventually: ball_move', 'Execute atomic action: locations_kitchen', 'Eventually: locations_kitchen', 'Execute atomic action: furniture_table', 'Eventually: furniture_table', 'Parallel: F(ball_move) 
-& F(locations_kitchen) & F(furniture_table)']                                                                                                                                                                                                                             Debug: Processing subgoal 1: Execute atomic action: ball_move
-2025-11-27 09:09:31,393 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
-   Debug: Failed to generate action sequence for subgoal 1
-   Debug: Processing subgoal 2: Eventually: ball_move
-2025-11-27 09:09:31,397 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
-   Debug: Failed to generate action sequence for subgoal 2
-   Debug: Processing subgoal 3: Execute atomic action: locations_kitchen
-2025-11-27 09:09:31,400 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
-   Debug: Failed to generate action sequence for subgoal 3
-   Debug: Processing subgoal 4: Eventually: locations_kitchen
-2025-11-27 09:09:31,404 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
-   Debug: Failed to generate action sequence for subgoal 4
-   Debug: Processing subgoal 5: Execute atomic action: furniture_table
-2025-11-27 09:09:31,408 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
-   Debug: Failed to generate action sequence for subgoal 5
-   Debug: Processing subgoal 6: Eventually: furniture_table
-2025-11-27 09:09:31,412 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
-   Debug: Failed to generate action sequence for subgoal 6
-   Debug: Processing subgoal 7: Parallel: F(ball_move) & F(locations_kitchen) & F(furniture_table)
-2025-11-27 09:09:31,416 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
-   Debug: Failed to generate action sequence for subgoal 7
-   ✓ Subgoal→Action flow: 7 subgoals → 7 action sequences
+   ✗ Subgoal to action flow test failed: expected string or bytes-like object, got 'dict'
 
 4. Testing End-to-End Workflow...
 
@@ -52,151 +29,96 @@ Goal Interpretation + Subgoal Decomposition + Transition Modeling + Action Seque
      Step 1: Goal Interpretation
        ✓ Goal interpretation successful
      Step 2: Subgoal Decomposition
-       ✓ Subgoal decomposition successful, created 4 subgoals
-         Subgoal 1: Execute atomic action: (red_put
-           - ID: atomic_2
-           - LTL: (red_put
-           - Type: SubgoalType.ATOMIC
-         Subgoal 2: Execute atomic action: furniture_table
-           - ID: atomic_5
-           - LTL: furniture_table
-           - Type: SubgoalType.ATOMIC
-         Subgoal 3: Eventually: furniture_table
-           - ID: temporal_6
-           - LTL: F(furniture_table))
-           - Type: SubgoalType.TEMPORAL
-         Subgoal 4: Conditional: (red_put -> F(furniture_table))
-           - ID: logical_7
-           - LTL: (red_put->F(furniture_table))
-           - Type: SubgoalType.CONDITIONAL
-     Step 3: Transition Modeling
-       ✗ Error in scenario Basic Operation Scenario: name 'defaultdict' is not defined
+       ✗ Error in scenario Basic Operation Scenario: expected string or bytes-like object, got 'dict'
 
    Processing scenario: Multi-step Scenario
      Step 1: Goal Interpretation
        ✓ Goal interpretation successful
      Step 2: Subgoal Decomposition
-       ✓ Subgoal decomposition successful, created 8 subgoals
-         Subgoal 1: Execute atomic action: perform_(((open
-           - ID: atomic_2
-           - LTL: perform_(((open
-           - Type: SubgoalType.ATOMIC
-         Subgoal 2: Execute atomic action: appliances_refrigerator
-           - ID: atomic_5
-           - LTL: appliances_refrigerator
-           - Type: SubgoalType.ATOMIC
-         Subgoal 3: Eventually: appliances_refrigerator
-           - ID: temporal_6
-           - LTL: F(appliances_refrigerator))
-           - Type: SubgoalType.TEMPORAL
-         Subgoal 4: Execute atomic action: locations_door
-           - ID: atomic_9
-           - LTL: locations_door
-           - Type: SubgoalType.ATOMIC
-         Subgoal 5: Eventually: locations_door
-           - ID: temporal_10
-           - LTL: F(locations_door))
-           - Type: SubgoalType.TEMPORAL
-         Subgoal 6: Execute atomic action: relative_time_then
-           - ID: atomic_13
-           - LTL: relative_time_then
-           - Type: SubgoalType.ATOMIC
-         Subgoal 7: Eventually: relative_time_then
-           - ID: temporal_14
-           - LTL: F(relative_time_then))
-           - Type: SubgoalType.TEMPORAL
-         Subgoal 8: Conditional: (((open -> F(appliances_refrigerator)) -> F(locations_door)) -> F(relative_time_then))
-           - ID: logical_15
-           - LTL: (((open->F(appliances_refrigerator))->F(locations_door))->F(relative_time_then))
-           - Type: SubgoalType.CONDITIONAL
-     Step 3: Transition Modeling
-       ✗ Error in scenario Multi-step Scenario: name 'defaultdict' is not defined
+       ✗ Error in scenario Multi-step Scenario: expected string or bytes-like object, got 'dict'
 
    ✗ End-to-End workflow test FAIL: 0/2 scenarios successful (0.0%)
 
 5. Testing Complex Scenarios...
    Processing scenario: Multi-Goal Scenario
      ✓ Goal interpretation completed (0.001s)
-     ✓ Subgoal decomposition completed, generated 4 subgoals (0.000s)
-     ✗ Multi-Goal Scenario: Failed - name 'defaultdict' is not defined
+     ✗ Multi-Goal Scenario: Failed - expected string or bytes-like object, got 'dict'
    Processing scenario: Conditional Constraint Scenario
      ✓ Goal interpretation completed (0.001s)
-     ✓ Subgoal decomposition completed, generated 8 subgoals (0.000s)
-     ✗ Conditional Constraint Scenario: Failed - name 'defaultdict' is not defined
+     ✗ Conditional Constraint Scenario: Failed - expected string or bytes-like object, got 'dict'
    Processing scenario: Sequential Constraint Scenario
      ✓ Goal interpretation completed (0.001s)
-     ✓ Subgoal decomposition completed, generated 14 subgoals (0.000s)
-     ✗ Sequential Constraint Scenario: Failed - name 'defaultdict' is not defined
+     ✗ Sequential Constraint Scenario: Failed - expected string or bytes-like object, got 'dict'
    ✗ Complex scenarios: 0/3 successful
 
 6. Testing Performance and Stability...
    Preheating system...
    Running 10 performance test iterations...
      Iteration 1/10: Testing low complexity goal
-       Error in iteration 1: name 'defaultdict' is not defined
+       Error in iteration 1: expected string or bytes-like object, got 'dict'
        Iteration 1 metrics:
-         - Total time: 0.001s
-         - Response time: 0.001s
+         - Total time: 0.000s
+         - Response time: 0.000s
          - Success rate: 100.0%
          - Estimated cache hit rate: 20.0%
      Iteration 2/10: Testing medium complexity goal
-       Error in iteration 2: name 'defaultdict' is not defined
+       Error in iteration 2: expected string or bytes-like object, got 'dict'
        Iteration 2 metrics:
          - Total time: 0.001s
          - Response time: 0.001s
          - Success rate: 100.0%
          - Estimated cache hit rate: 30.0%
      Iteration 3/10: Testing low complexity goal
-       Error in iteration 3: name 'defaultdict' is not defined
+       Error in iteration 3: expected string or bytes-like object, got 'dict'
        Iteration 3 metrics:
-         - Total time: 0.001s
-         - Response time: 0.001s
+         - Total time: 0.000s
+         - Response time: 0.000s
          - Success rate: 100.0%
          - Estimated cache hit rate: 40.0%
      Iteration 4/10: Testing medium complexity goal
-       Error in iteration 4: name 'defaultdict' is not defined
+       Error in iteration 4: expected string or bytes-like object, got 'dict'
        Iteration 4 metrics:
          - Total time: 0.001s
          - Response time: 0.001s
          - Success rate: 100.0%
          - Estimated cache hit rate: 65.0%
      Iteration 5/10: Testing low complexity goal
-       Error in iteration 5: name 'defaultdict' is not defined
+       Error in iteration 5: expected string or bytes-like object, got 'dict'
        Iteration 5 metrics:
          - Total time: 0.001s
          - Response time: 0.001s
          - Success rate: 100.0%
          - Estimated cache hit rate: 70.0%
      Iteration 6/10: Testing medium complexity goal
-       Error in iteration 6: name 'defaultdict' is not defined
+       Error in iteration 6: expected string or bytes-like object, got 'dict'
        Iteration 6 metrics:
          - Total time: 0.001s
          - Response time: 0.001s
          - Success rate: 100.0%
          - Estimated cache hit rate: 75.0%
      Iteration 7/10: Testing low complexity goal
-       Error in iteration 7: name 'defaultdict' is not defined
+       Error in iteration 7: expected string or bytes-like object, got 'dict'
        Iteration 7 metrics:
-         - Total time: 0.001s
-         - Response time: 0.001s
+         - Total time: 0.000s
+         - Response time: 0.000s
          - Success rate: 100.0%
          - Estimated cache hit rate: 80.0%
      Iteration 8/10: Testing medium complexity goal
-       Error in iteration 8: name 'defaultdict' is not defined
+       Error in iteration 8: expected string or bytes-like object, got 'dict'
        Iteration 8 metrics:
          - Total time: 0.001s
          - Response time: 0.001s
          - Success rate: 100.0%
          - Estimated cache hit rate: 85.0%
      Iteration 9/10: Testing low complexity goal
-       Error in iteration 9: name 'defaultdict' is not defined
+       Error in iteration 9: expected string or bytes-like object, got 'dict'
        Iteration 9 metrics:
-         - Total time: 0.001s
-         - Response time: 0.001s
+         - Total time: 0.000s
+         - Response time: 0.000s
          - Success rate: 100.0%
          - Estimated cache hit rate: 90.0%
      Iteration 10/10: Testing medium complexity goal
-       Error in iteration 10: name 'defaultdict' is not defined
+       Error in iteration 10: expected string or bytes-like object, got 'dict'
        Iteration 10 metrics:
          - Total time: 0.001s
          - Response time: 0.001s
@@ -210,9 +132,9 @@ Goal Interpretation + Subgoal Decomposition + Transition Modeling + Action Seque
      - Cache hit rate: ✓ (> 50%)
 
 7. Testing Error Handling and Recovery...
-2025-11-27 09:09:31,434 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
-2025-11-27 09:09:31,434 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764205771434395
-2025-11-27 09:09:31,434 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-27 09:36:30,690 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-27 09:36:30,690 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764207390690687
+2025-11-27 09:36:30,690 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
    ✓ Error handling: 4 error cases tested
 
 ================================================================================
@@ -221,44 +143,26 @@ INTEGRATION TEST REPORT
 Total Tests: 7
 Successful Tests: 2
 Success Rate: 28.6%
-Total Time: 0.10 seconds
+Total Time: 0.03 seconds
 
-1. module_initialization: ✗ FAIL
-   Message: Module initialization: 3/4 modules ready
+1. module_initialization: ✓ PASS
+   Message: Module initialization: 4/4 modules ready
    Details: {
   "goal_interpretation": true,
   "subgoal_decomposition": true,
-  "transition_modeling": false,
+  "transition_modeling": true,
   "action_sequencing": true
 }
 
 2. goal_to_transition_flow: ✗ FAIL
-   Message: Goal→Transition flow error: name 'defaultdict' is not defined
+   Message: Goal→Transition flow error: expected string or bytes-like object, got 'dict'
    Details: {
-  "error": "name 'defaultdict' is not defined",
-  "exception_type": "NameError"
+  "error": "expected string or bytes-like object, got 'dict'",
+  "exception_type": "TypeError"
 }
 
-3. subgoal_to_action_flow: ✓ PASS
-   Message: Subgoal→Action flow: 7 subgoals → 7 action sequences
-   Details: {
-  "subgoals_count": 7,
-  "action_sequences_count": 7,
-  "subgoals": [
-    "Execute atomic action: ball_move",
-    "Eventually: ball_move",
-    "Execute atomic action: locations_kitchen",
-    "Eventually: locations_kitchen",
-    "Execute atomic action: furniture_table",
-    "Eventually: furniture_table",
-    "Parallel: F(ball_move) & F(locations_kitchen) & F(furniture_table)"
-  ],
-  "action_sequences": [
-    [],
-    [],
-    []
-  ]
-}
+3. subgoal_to_action_flow: ✗ FAIL
+   Message: expected string or bytes-like object, got 'dict'
 
 4. end_to_end_workflow: ✗ FAIL
    Message: End-to-End workflow: 0/2 scenarios successful (0.0%) in 0.00s
@@ -266,7 +170,7 @@ Total Time: 0.10 seconds
   "total_scenarios": 2,
   "successful_scenarios": 0,
   "success_rate": 0.0,
-  "workflow_time": 0.003895282745361328,
+  "workflow_time": 0.0015554428100585938,
   "scenario_results": [
     {
       "name": "Basic Operation Scenario",
@@ -282,53 +186,13 @@ Total Time: 0.10 seconds
       "steps": {
         "goal_interpretation": {
           "success": true,
-          "time": 0.0019185543060302734,
-          "result": "(red_put -> F(furniture_table))"
-        },
-        "subgoal_decomposition": {
-          "success": true,
-          "time": 0.0001785755157470703
-        }
+          "time": 0.0007007122039794922,
+          "result": "{'original_text': 'Put the red ball on the table', 'parse_result': {'original_text': 'put the red ball on the table', 'language': 'en', 'task_complexity': 'simple', 'semantic_structure': {'main_clause': '', 'subordinate_clauses': [], 'connect
+ors': [], 'modifiers': []}, 'actions': [{'type': 'place', 'verb': 'put', 'object': 'red', 'position': 0, 'context': 'put the red b'}], 'objects': [{'name': 'table', 'category': 'furniture', 'modifier': 'the ', 'position': 20, 'context': 'd ball on the table'}], 'temporal_info': [], 'conditions': [], 'constraints': [], 'propositions': ['red_put', 'furniture_table'], 'structure': 'simple', 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'destination': [], 'source': [], 'time': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'purpose': [], 'condition': []}, 'dependencies': [], 'modifiers': [{'type': 'adjective', 'modifier': 'put', 'modified': 'the', 'position': 0}, {'type': 'adjective', 'modifier': 'ball', 'modified': 'on', 'position': 12}]}, 'ltl_formula': '(red_put -> F(furniture_table))', 'optimized_formula': '(red_put ->Ffurniture_table)', 'validation_result': {'is_valid': True, 'errors': [], 'warnings': ['发现 2 个未映射实体'], 'suggestions': [], 'entity_issues': ['未映射的实体: red_put', '未映射的实体: furniture_table'], 'temporal_checks': {'operators_used': [' ', 'F'], 'has_f_operator': True}}, 'structure': 'simple', 'task_complexity': 'simple', 'language': 'en', 'actions': [{'type': 'place', 'verb': 'put', 'object': 'red', 'position': 0, 'context': 'put the red b'}], 'objects': [{'name': 'table', 'category': 'furniture', 'modifier': 'the ', 'position': 20, 'context': 'd ball on the table'}], 'conditions': [], 'constraints': [], 'temporal_info': [], 'propositions': ['red_put', 'furniture_table'], 'dependencies': [], 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'destination': [], 'source': [], 'time': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'purpose': [], 'condition': []}, 'interpretation_metadata': {'timestamp': '2025-11-27T09:36:30.680034', 'proposition_count': 2, 'condition_count': 0, 'constraint_count': 0, 'dependency_count': 0}}"                                  }
       },
-      "subgoals_count": 4,
-      "subgoals_details": [
-        {
-          "id": "atomic_2",
-          "description": "Execute atomic action: (red_put",
-          "ltl_formula": "(red_put",
-          "type": "ATOMIC",
-          "dependencies": []
-        },
-        {
-          "id": "atomic_5",
-          "description": "Execute atomic action: furniture_table",
-          "ltl_formula": "furniture_table",
-          "type": "ATOMIC",
-          "dependencies": []
-        },
-        {
-          "id": "temporal_6",
-          "description": "Eventually: furniture_table",
-          "ltl_formula": "F(furniture_table))",
-          "type": "TEMPORAL",
-          "dependencies": [
-            "atomic_5"
-          ]
-        },
-        {
-          "id": "logical_7",
-          "description": "Conditional: (red_put -> F(furniture_table))",
-          "ltl_formula": "(red_put->F(furniture_table))",
-          "type": "CONDITIONAL",
-          "dependencies": [
-            "atomic_2",
-            "temporal_6"
-          ]
-        }
-      ],
       "success": false,
-      "error": "name 'defaultdict' is not defined",
-      "exception_type": "NameError"
+      "error": "expected string or bytes-like object, got 'dict'",
+      "exception_type": "TypeError"
     },
     {
       "name": "Multi-step Scenario",
@@ -344,87 +208,13 @@ Total Time: 0.10 seconds
       "steps": {
         "goal_interpretation": {
           "success": true,
-          "time": 0.0007913112640380859,
-          "result": "(((open -> F(appliances_refrigerator)) -> F(locations_door)) -> F(relative_time_then))"
-        },
-        "subgoal_decomposition": {
-          "success": true,
-          "time": 0.00024127960205078125
-        }
+          "time": 0.0007388591766357422,
+          "result": "{'original_text': 'Walk to the refrigerator first, then open the refrigerator door', 'parse_result': {'original_text': 'walk to the refrigerator first ,  then open the refrigerator door', 'language': 'en', 'task_complexity': 'complex', 'seman
+tic_structure': {'main_clause': '', 'subordinate_clauses': [], 'connectors': [], 'modifiers': []}, 'actions': [{'type': 'operation', 'verb': 'open', 'object': 'the', 'position': 39, 'context': 'rigerator first ,  then open the refri', 'sequential_order': 2, 'sequential_pattern': True}], 'objects': [{'name': 'refrigerator', 'category': 'appliances', 'modifier': 'the ', 'position': 8, 'context': 'walk to the refrigerator first ,  '}, {'name': 'refrigerator', 'category': 'appliances', 'modifier': 'the ', 'position': 44, 'context': 'then open the refrigerator door'}, {'name': 'door', 'category': 'locations', 'modifier': 'refrigerator ', 'position': 48, 'context': ' open the refrigerator door'}], 'temporal_info': [{'type': 'relative_time', 'expression': 'then', 'position': 34, 'end_position': 38}], 'conditions': [], 'constraints': [], 'propositions': ['open', 'appliances_refrigerator', 'locations_door', 'relative_time_then'], 'structure': 'sequential', 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'destination': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'source': [], 'time': [], 'purpose': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'condition': []}, 'dependencies': [], 'modifiers': [{'type': 'adjective', 'modifier': 'walk', 'modified': 'to', 'position': 0}, {'type': 'adjective', 'modifier': 'then', 'modified': 'open', 'position': 34}]}, 'ltl_formula': '(((open -> F(appliances_refrigerator)) -> F(locations_door)) -> F(relative_time_then))', 'optimized_formula': '(((open ->Fappliances_refrigerator)->Flocations_door)->Frelative_time_then)', 'validation_result': {'is_valid': True, 'errors': [], 'warnings': ['发现 3 个未映射实体'], 'suggestions': [], 'entity_issues': ['未映射的实体: appliances_refrigerator', '未映射的实体: locations_door', '未映射的实体: relative_time_then'], 'temporal_checks': {'operators_used': [' ', 'F'], 'has_f_operator': True}}, 'structure': 'sequential', 'task_complexity': 'complex', 'language': 'en', 'actions': [{'type': 'operation', 'verb': 'open', 'object': 'the', 'position': 39, 'context': 'rigerator first ,  then open the refri', 'sequential_order': 2, 'sequential_pattern': True}], 'objects': [{'name': 'refrigerator', 'category': 'appliances', 'modifier': 'the ', 'position': 8, 'context': 'walk to the refrigerator first ,  '}, {'name': 'refrigerator', 'category': 'appliances', 'modifier': 'the ', 'position': 44, 'context': 'then open the refrigerator door'}, {'name': 'door', 'category': 'locations', 'modifier': 'refrigerator ', 'position': 48, 'context': ' open the refrigerator door'}], 'conditions': [], 'constraints': [], 'temporal_info': [{'type': 'relative_time', 'expression': 'then', 'position': 34, 'end_position': 38}], 'propositions': ['open', 'appliances_refrigerator', 'locations_door', 'relative_time_then'], 'dependencies': [], 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'destination': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'source': [], 'time': [], 'purpose': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'condition': []}, 'interpretation_metadata': {'timestamp': '2025-11-27T09:36:30.680819', 'proposition_count': 4, 'condition_count': 0, 'constraint_count': 0, 'dependency_count': 0}}"                                                                                                                                                                                                           }
       },
-      "subgoals_count": 8,
-      "subgoals_details": [
-        {
-          "id": "atomic_2",
-          "description": "Execute atomic action: perform_(((open",
-          "ltl_formula": "perform_(((open",
-          "type": "ATOMIC",
-          "dependencies": []
-        },
-        {
-          "id": "atomic_5",
-          "description": "Execute atomic action: appliances_refrigerator",
-          "ltl_formula": "appliances_refrigerator",
-          "type": "ATOMIC",
-          "dependencies": []
-        },
-        {
-          "id": "temporal_6",
-          "description": "Eventually: appliances_refrigerator",
-          "ltl_formula": "F(appliances_refrigerator))",
-          "type": "TEMPORAL",
-          "dependencies": [
-            "atomic_5"
-          ]
-        },
-        {
-          "id": "atomic_9",
-          "description": "Execute atomic action: locations_door",
-          "ltl_formula": "locations_door",
-          "type": "ATOMIC",
-          "dependencies": []
-        },
-        {
-          "id": "temporal_10",
-          "description": "Eventually: locations_door",
-          "ltl_formula": "F(locations_door))",
-          "type": "TEMPORAL",
-          "dependencies": [
-            "atomic_9"
-          ]
-        },
-        {
-          "id": "atomic_13",
-          "description": "Execute atomic action: relative_time_then",
-          "ltl_formula": "relative_time_then",
-          "type": "ATOMIC",
-          "dependencies": []
-        },
-        {
-          "id": "temporal_14",
-          "description": "Eventually: relative_time_then",
-          "ltl_formula": "F(relative_time_then))",
-          "type": "TEMPORAL",
-          "dependencies": [
-            "atomic_13"
-          ]
-        },
-        {
-          "id": "logical_15",
-          "description": "Conditional: (((open -> F(appliances_refrigerator)) -> F(locations_door)) -> F(relative_time_then))",
-          "ltl_formula": "(((open->F(appliances_refrigerator))->F(locations_door))->F(relative_time_then))",
-          "type": "CONDITIONAL",
-          "dependencies": [
-            "atomic_2",
-            "temporal_6",
-            "temporal_10",
-            "temporal_14"
-          ]
-        }
-      ],
       "success": false,
-      "error": "name 'defaultdict' is not defined",
-      "exception_type": "NameError"
+      "error": "expected string or bytes-like object, got 'dict'",
+      "exception_type": "TypeError"
     }
   ]
 }
@@ -441,16 +231,12 @@ Total Time: 0.10 seconds
       "steps": {
         "goal_interpretation": {
           "success": true,
-          "time": 0.0008976459503173828
-        },
-        "subgoal_decomposition": {
-          "success": true,
-          "time": 0.00012135505676269531
+          "time": 0.0009322166442871094
         }
       },
       "success": false,
-      "error": "name 'defaultdict' is not defined",
-      "exception_type": "NameError"
+      "error": "expected string or bytes-like object, got 'dict'",
+      "exception_type": "TypeError"
     },
     {
       "name": "Conditional Constraint Scenario",
@@ -458,16 +244,12 @@ Total Time: 0.10 seconds
       "steps": {
         "goal_interpretation": {
           "success": true,
-          "time": 0.000957489013671875
-        },
-        "subgoal_decomposition": {
-          "success": true,
-          "time": 0.00024199485778808594
+          "time": 0.0008988380432128906
         }
       },
       "success": false,
-      "error": "name 'defaultdict' is not defined",
-      "exception_type": "NameError"
+      "error": "expected string or bytes-like object, got 'dict'",
+      "exception_type": "TypeError"
     },
     {
       "name": "Sequential Constraint Scenario",
@@ -475,16 +257,12 @@ Total Time: 0.10 seconds
       "steps": {
         "goal_interpretation": {
           "success": true,
-          "time": 0.0006875991821289062
-        },
-        "subgoal_decomposition": {
-          "success": true,
-          "time": 0.0004229545593261719
+          "time": 0.0007033348083496094
         }
       },
       "success": false,
-      "error": "name 'defaultdict' is not defined",
-      "exception_type": "NameError"
+      "error": "expected string or bytes-like object, got 'dict'",
+      "exception_type": "TypeError"
     }
   ]
 }
@@ -494,12 +272,12 @@ Total Time: 0.10 seconds
    Details: {
   "iterations": 10,
   "average_times": {
-    "goal_interpretation": 0.0006111860275268555,
-    "subgoal_decomposition": 0.00011067390441894531,
+    "goal_interpretation": 0.0005359888076782226,
+    "subgoal_decomposition": 0,
     "transition_modeling": 0,
     "action_sequencing": 0,
-    "total_workflow": 0.0007642030715942383,
-    "p95_response_time": 0.0009911060333251953
+    "total_workflow": 0.0005457878112792968,
+    "p95_response_time": 0.0006303787231445312
   },
   "performance_criteria": {
     "time_criteria": true,
@@ -549,6 +327,6 @@ Action Sequencing        : ✓ Working
 INTEGRATION STATUS:
 ❌ POOR: Significant integration issues need to be resolved
 
-⚠️  Could not save report file: Object of type SubgoalType is not JSON serializable
+📄 Detailed report saved to: four_module_integration_test_results.json
 
 ⚠️  Four-module integration test completed with issues.
