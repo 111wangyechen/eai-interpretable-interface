@@ -834,7 +834,9 @@ class FourModuleIntegrationTester:
                     # 2. 子目标分解性能测试
                     start_time = time.time()
                     if goal_result:
-                        subgoal_result = self.subgoal_decomposer.decompose(ltl_formula=goal_result)
+                        # 从goal_result中提取ltl_formula字段，而不是直接传递字典
+                        ltl_formula = goal_result.get('ltl_formula', '')
+                        subgoal_result = self.subgoal_decomposer.decompose(ltl_formula=ltl_formula)
                     else:
                         subgoal_result = None
                     subgoal_time = time.time() - start_time
@@ -1019,8 +1021,10 @@ class FourModuleIntegrationTester:
             try:
                 # 获取goal_result对象用于测试
                 invalid_goal_result = self.goal_interpreter.interpret("invalid_context_test")
+                # 从goal_result中提取ltl_formula字段，而不是直接传递字典
+                ltl_formula = invalid_goal_result.get('ltl_formula', '') if invalid_goal_result else ''
                 subgoal_result = self.subgoal_decomposer.decompose(
-                    ltl_formula=invalid_goal_result
+                    ltl_formula=ltl_formula
                 )
                 error_cases.append(('invalid_context', subgoal_result is not None))
             except:
