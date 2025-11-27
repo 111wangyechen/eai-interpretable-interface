@@ -3,8 +3,8 @@
     "total_tests": 7,
     "successful_tests": 4,
     "success_rate": 57.14285714285714,
-    "total_time": 0.07106232643127441,
-    "timestamp": "2025-11-27 10:29:35"
+    "total_time": 0.10197138786315918,
+    "timestamp": "2025-11-27 10:36:19"
   },
   "module_status": {
     "Goal Interpretation": "✓ Working",
@@ -27,16 +27,16 @@
     {
       "test": "goal_to_transition_flow",
       "success": true,
-      "message": "Goal→Transition flow: 1 sequences generated in 0.001s",
+      "message": "Goal→Transition flow: 1 sequences generated in 0.000s",
       "details": {
         "goal_interpretation_success": true,
         "subgoal_decomposition_success": true,
         "transition_modeling_success": true,
         "sequences_generated": 1,
-        "goal_interpretation_time": 0.0020799636840820312,
-        "subgoal_decomposition_time": 0.00021982192993164062,
-        "modeling_time": 0.0005540847778320312,
-        "total_time": 0.002853870391845703
+        "goal_interpretation_time": 0.0009648799896240234,
+        "subgoal_decomposition_time": 0.0001571178436279297,
+        "modeling_time": 0.00030803680419921875,
+        "total_time": 0.0014300346374511719
       }
     },
     {
@@ -65,12 +65,12 @@
     {
       "test": "end_to_end_workflow",
       "success": false,
-      "message": "End-to-End workflow: 0/2 scenarios successful (0.0%) in 0.00s",
+      "message": "End-to-End workflow: 0/2 scenarios successful (0.0%) in 0.01s",
       "details": {
         "total_scenarios": 2,
         "successful_scenarios": 0,
         "success_rate": 0.0,
-        "workflow_time": 0.001771688461303711,
+        "workflow_time": 0.014283418655395508,
         "scenario_results": [
           {
             "name": "Basic Operation Scenario",
@@ -86,142 +86,26 @@
             "steps": {
               "goal_interpretation": {
                 "success": true,
-                "time": 0.0008678436279296875,
-                "result": "{'original_text': 'Put the red ball on the table', 'parse_result': {'original_text': 'put the red ball on the table', 'language': 'en', 'task_complexity': 'simple', 'semantic_structure': {'main_clause': '', 'subordinate_clauses': [], 'connectors': [], 'modifiers': []}, 'actions': [{'type': 'place', 'verb': 'put', 'object': 'red', 'position': 0, 'context': 'put the red b'}], 'objects': [{'name': 'table', 'category': 'furniture', 'modifier': 'the ', 'position': 20, 'context': 'd ball on the table'}], 'temporal_info': [], 'conditions': [], 'constraints': [], 'propositions': ['red_put', 'furniture_table'], 'structure': 'simple', 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'destination': [], 'source': [], 'time': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'purpose': [], 'condition': []}, 'dependencies': [], 'modifiers': [{'type': 'adjective', 'modifier': 'put', 'modified': 'the', 'position': 0}, {'type': 'adjective', 'modifier': 'ball', 'modified': 'on', 'position': 12}]}, 'ltl_formula': '(red_put -> F(furniture_table))', 'optimized_formula': '(red_put ->Ffurniture_table)', 'validation_result': {'is_valid': True, 'errors': [], 'warnings': ['发现 2 个未映射实体'], 'suggestions': [], 'entity_issues': ['未映射的实体: red_put', '未映射的实体: furniture_table'], 'temporal_checks': {'operators_used': [' ', 'F'], 'has_f_operator': True}}, 'structure': 'simple', 'task_complexity': 'simple', 'language': 'en', 'actions': [{'type': 'place', 'verb': 'put', 'object': 'red', 'position': 0, 'context': 'put the red b'}], 'objects': [{'name': 'table', 'category': 'furniture', 'modifier': 'the ', 'position': 20, 'context': 'd ball on the table'}], 'conditions': [], 'constraints': [], 'temporal_info': [], 'propositions': ['red_put', 'furniture_table'], 'dependencies': [], 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'destination': [], 'source': [], 'time': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'purpose': [], 'condition': []}, 'interpretation_metadata': {'timestamp': '2025-11-27T10:29:35.940851', 'proposition_count': 2, 'condition_count': 0, 'constraint_count': 0, 'dependency_count': 0}}"
-              }
-            },
-            "success": false,
-            "error": "expected string or bytes-like object, got 'dict'",
-            "exception_type": "TypeError"
-          },
-          {
-            "name": "Multi-step Scenario",
-            "goal": "Walk to the refrigerator first, then open the refrigerator door",
-            "initial_state": {
-              "at_location": "living_room",
-              "fridge_door_open": false
-            },
-            "goal_state": {
-              "at_location": "fridge",
-              "fridge_door_open": true
-            },
-            "steps": {
-              "goal_interpretation": {
+                "time": 0.0012216567993164062,
+                "result": "{'original_text': 'Put the red ball on the table', 'parse_result': {'original_text': 'put the red ball on the table', 'language': 'en', 'task_complexity': 'simple', 'semantic_structure': {'main_clause': '', 'subordinate_clauses': [], 'connectors': [], 'modifiers': []}, 'actions': [{'type': 'place', 'verb': 'put', 'object': 'red', 'position': 0, 'context': 'put the red b'}], 'objects': [{'name': 'table', 'category': 'furniture', 'modifier': 'the ', 'position': 20, 'context': 'd ball on the table'}], 'temporal_info': [], 'conditions': [], 'constraints': [], 'propositions': ['red_put', 'furniture_table'], 'structure': 'simple', 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'destination': [], 'source': [], 'time': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'purpose': [], 'condition': []}, 'dependencies': [], 'modifiers': [{'type': 'adjective', 'modifier': 'put', 'modified': 'the', 'position': 0}, {'type': 'adjective', 'modifier': 'ball', 'modified': 'on', 'position': 12}]}, 'ltl_formula': '(red_put -> F(furniture_table))', 'optimized_formula': '(red_put ->Ffurniture_table)', 'validation_result': {'is_valid': True, 'errors': [], 'warnings': ['发现 2 个未映射实体'], 'suggestions': [], 'entity_issues': ['未映射的实体: red_put', '未映射的实体: furniture_table'], 'temporal_checks': {'operators_used': [' ', 'F'], 'has_f_operator': True}}, 'structure': 'simple', 'task_complexity': 'simple', 'language': 'en', 'actions': [{'type': 'place', 'verb': 'put', 'object': 'red', 'position': 0, 'context': 'put the red b'}], 'objects': [{'name': 'table', 'category': 'furniture', 'modifier': 'the ', 'position': 20, 'context': 'd ball on the table'}], 'conditions': [], 'constraints': [], 'temporal_info': [], 'propositions': ['red_put', 'furniture_table'], 'dependencies': [], 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'destination': [], 'source': [], 'time': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'purpose': [], 'condition': []}, 'interpretation_metadata': {'timestamp': '2025-11-27T10:36:19.737426', 'proposition_count': 2, 'condition_count': 0, 'constraint_count': 0, 'dependency_count': 0}}"
+              },
+              "subgoal_decomposition": {
                 "success": true,
-                "time": 0.0007548332214355469,
-                "result": "{'original_text': 'Walk to the refrigerator first, then open the refrigerator door', 'parse_result': {'original_text': 'walk to the refrigerator first ,  then open the refrigerator door', 'language': 'en', 'task_complexity': 'complex', 'semantic_structure': {'main_clause': '', 'subordinate_clauses': [], 'connectors': [], 'modifiers': []}, 'actions': [{'type': 'operation', 'verb': 'open', 'object': 'the', 'position': 39, 'context': 'rigerator first ,  then open the refri', 'sequential_order': 2, 'sequential_pattern': True}], 'objects': [{'name': 'refrigerator', 'category': 'appliances', 'modifier': 'the ', 'position': 8, 'context': 'walk to the refrigerator first ,  '}, {'name': 'refrigerator', 'category': 'appliances', 'modifier': 'the ', 'position': 44, 'context': 'then open the refrigerator door'}, {'name': 'door', 'category': 'locations', 'modifier': 'refrigerator ', 'position': 48, 'context': ' open the refrigerator door'}], 'temporal_info': [{'type': 'relative_time', 'expression': 'then', 'position': 34, 'end_position': 38}], 'conditions': [], 'constraints': [], 'propositions': ['open', 'appliances_refrigerator', 'locations_door', 'relative_time_then'], 'structure': 'sequential', 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'destination': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'source': [], 'time': [], 'purpose': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'condition': []}, 'dependencies': [], 'modifiers': [{'type': 'adjective', 'modifier': 'walk', 'modified': 'to', 'position': 0}, {'type': 'adjective', 'modifier': 'then', 'modified': 'open', 'position': 34}]}, 'ltl_formula': '(((open -> F(appliances_refrigerator)) -> F(locations_door)) -> F(relative_time_then))', 'optimized_formula': '(((open ->Fappliances_refrigerator)->Flocations_door)->Frelative_time_then)', 'validation_result': {'is_valid': True, 'errors': [], 'warnings': ['发现 3 个未映射实体'], 'suggestions': [], 'entity_issues': ['未映射的实体: appliances_refrigerator', '未映射的实体: locations_door', '未映射的实体: relative_time_then'], 'temporal_checks': {'operators_used': [' ', 'F'], 'has_f_operator': True}}, 'structure': 'sequential', 'task_complexity': 'complex', 'language': 'en', 'actions': [{'type': 'operation', 'verb': 'open', 'object': 'the', 'position': 39, 'context': 'rigerator first ,  then open the refri', 'sequential_order': 2, 'sequential_pattern': True}], 'objects': [{'name': 'refrigerator', 'category': 'appliances', 'modifier': 'the ', 'position': 8, 'context': 'walk to the refrigerator first ,  '}, {'name': 'refrigerator', 'category': 'appliances', 'modifier': 'the ', 'position': 44, 'context': 'then open the refrigerator door'}, {'name': 'door', 'category': 'locations', 'modifier': 'refrigerator ', 'position': 48, 'context': ' open the refrigerator door'}], 'conditions': [], 'constraints': [], 'temporal_info': [{'type': 'relative_time', 'expression': 'then', 'position': 34, 'end_position': 38}], 'propositions': ['open', 'appliances_refrigerator', 'locations_door', 'relative_time_then'], 'dependencies': [], 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'destination': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'source': [], 'time': [], 'purpose': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'condition': []}, 'interpretation_metadata': {'timestamp': '2025-11-27T10:29:35.941681', 'proposition_count': 4, 'condition_count': 0, 'constraint_count': 0, 'dependency_count': 0}}"
-              }
-            },
-            "success": false,
-            "error": "expected string or bytes-like object, got 'dict'",
-            "exception_type": "TypeError"
-          }
-        ]
-      }
-    },
-    {
-      "test": "complex_scenarios",
-      "success": false,
-      "message": "Complex scenarios: 0/3 successful",
-      "details": {
-        "total_scenarios": 3,
-        "successful_scenarios": 0,
-        "scenario_results": [
-          {
-            "name": "Multi-Goal Scenario",
-            "goal": "Put both the red ball and blue ball on the table",
-            "steps": {
-              "goal_interpretation": {
+                "time": 0.00026726722717285156
+              },
+              "transition_modeling": {
                 "success": true,
-                "time": 0.0008597373962402344
+                "time": 0.00035858154296875
+              },
+              "action_sequencing": {
+                "success": false,
+                "time": 0.0035843849182128906
               }
             },
-            "success": false,
-            "error": "expected string or bytes-like object, got 'dict'",
-            "exception_type": "TypeError"
-          },
-          {
-            "name": "Conditional Constraint Scenario",
-            "goal": "If the room has light, pick up the red ball; otherwise, turn on the light first, then pick up the ball",
-            "steps": {
-              "goal_interpretation": {
-                "success": true,
-                "time": 0.0008752346038818359
-              }
-            },
-            "success": false,
-            "error": "expected string or bytes-like object, got 'dict'",
-            "exception_type": "TypeError"
-          },
-          {
-            "name": "Sequential Constraint Scenario",
-            "goal": "First open the computer, then check email, finally close the computer",
-            "steps": {
-              "goal_interpretation": {
-                "success": true,
-                "time": 0.0006732940673828125
-              }
-            },
-            "success": false,
-            "error": "expected string or bytes-like object, got 'dict'",
-            "exception_type": "TypeError"
-          }
-        ]
-      }
-    },
-    {
-      "test": "performance_and_stability",
-      "success": true,
-      "message": "Performance: avg workflow time 0.00s, p95 response time 0.00s, success rate 100.0%, cache hit rate 64.5%",
-      "details": {
-        "iterations": 10,
-        "average_times": {
-          "goal_interpretation": 0.0005381822586059571,
-          "subgoal_decomposition": 0,
-          "transition_modeling": 0,
-          "action_sequencing": 0,
-          "total_workflow": 0.0005559444427490235,
-          "p95_response_time": 0.0006263256072998047
-        },
-        "performance_criteria": {
-          "time_criteria": true,
-          "p95_criteria": true,
-          "success_criteria": true,
-          "cache_criteria": true,
-          "criteria_met": 4
-        },
-        "cache_performance": {
-          "avg_hit_rate": 0.645
-        },
-        "stability": {
-          "avg_success_rate": 1.0
-        }
-      }
-    },
-    {
-      "test": "error_handling_and_recovery",
-      "success": false,
-      "message": "Error handling: 4 error cases tested",
-      "details": {
-        "error_cases": [
-          [
-            "empty_goal",
-            true
-          ],
-          [
-            "invalid_context",
-            true
-          ],
-          [
-            "invalid_states",
-            false
-          ],
-          [
-            "invalid_actions",
-            true
-          ]
-        ]
-      }
-    }
-  ]
-}
+            "subgoals_count": 4,
+            "subgoals_details": [
+              {
+                "id": "atomic_2",
+                "description": "Execute atomic action: (red_put",
+                "ltl_formula": "(red_put",
+                "type": 
