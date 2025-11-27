@@ -3,8 +3,8 @@
     "total_tests": 7,
     "successful_tests": 4,
     "success_rate": 57.14285714285714,
-    "total_time": 0.15137910842895508,
-    "timestamp": "2025-11-27 15:44:51"
+    "total_time": 0.1356217861175537,
+    "timestamp": "2025-11-27 15:49:20"
   },
   "module_status": {
     "Goal Interpretation": "✓ Working",
@@ -33,10 +33,10 @@
         "subgoal_decomposition_success": true,
         "transition_modeling_success": true,
         "sequences_generated": 1,
-        "goal_interpretation_time": 0.000762939453125,
-        "subgoal_decomposition_time": 7.510185241699219e-05,
-        "modeling_time": 0.00021505355834960938,
-        "total_time": 0.0010530948638916016
+        "goal_interpretation_time": 0.000774383544921875,
+        "subgoal_decomposition_time": 0.00017070770263671875,
+        "modeling_time": 0.00022602081298828125,
+        "total_time": 0.001171112060546875
       }
     },
     {
@@ -71,7 +71,7 @@
         "total_scenarios": 2,
         "successful_scenarios": 0,
         "success_rate": 0.0,
-        "workflow_time": 0.009335517883300781,
+        "workflow_time": 0.010163545608520508,
         "scenario_results": [
           {
             "name": "Basic Operation Scenario",
@@ -87,26 +87,26 @@
             "steps": {
               "goal_interpretation": {
                 "success": true,
-                "time": 0.0006759166717529297,
-                "result": "{'original_text': 'Put the red ball on the table', 'parse_result': {'original_text': 'put the red ball on the table', 'language': 'en', 'task_complexity': 'simple', 'semantic_structure': {'main_clause': '', 'subordinate_clauses': [], 'connectors': [], 'modifiers': []}, 'actions': [{'type': 'place', 'verb': 'put', 'object': 'red', 'position': 0, 'context': 'put the red b'}], 'objects': [{'name': 'table', 'category': 'furniture', 'modifier': 'the ', 'position': 20, 'context': 'd ball on the table'}], 'temporal_info': [], 'conditions': [], 'constraints': [], 'propositions': ['red_put', 'furniture_table'], 'structure': 'simple', 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'destination': [], 'source': [], 'time': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'purpose': [], 'condition': []}, 'dependencies': [], 'modifiers': [{'type': 'adjective', 'modifier': 'put', 'modified': 'the', 'position': 0}, {'type': 'adjective', 'modifier': 'ball', 'modified': 'on', 'position': 12}]}, 'ltl_formula': '(red_put -> F(furniture_table))', 'optimized_formula': '(red_put ->Ffurniture_table)', 'validation_result': {'is_valid': True, 'errors': [], 'warnings': ['发现 2 个未映射实体'], 'suggestions': [], 'entity_issues': ['未映射的实体: red_put', '未映射的实体: furniture_table'], 'temporal_checks': {'operators_used': ['F', ' '], 'has_f_operator': True}}, 'structure': 'simple', 'task_complexity': 'simple', 'language': 'en', 'actions': [{'type': 'place', 'verb': 'put', 'object': 'red', 'position': 0, 'context': 'put the red b'}], 'objects': [{'name': 'table', 'category': 'furniture', 'modifier': 'the ', 'position': 20, 'context': 'd ball on the table'}], 'conditions': [], 'constraints': [], 'temporal_info': [], 'propositions': ['red_put', 'furniture_table'], 'dependencies': [], 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'destination': [], 'source': [], 'time': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'purpose': [], 'condition': []}, 'interpretation_metadata': {'timestamp': '2025-11-27T15:44:51.007973', 'proposition_count': 2, 'condition_count': 0, 'constraint_count': 0, 'dependency_count': 0}}"
+                "time": 0.0007865428924560547,
+                "result": "{'original_text': 'Put the red ball on the table', 'parse_result': {'original_text': 'put the red ball on the table', 'language': 'en', 'task_complexity': 'simple', 'semantic_structure': {'main_clause': '', 'subordinate_clauses': [], 'connectors': [], 'modifiers': []}, 'actions': [{'type': 'place', 'verb': 'put', 'object': 'red', 'position': 0, 'context': 'put the red b'}], 'objects': [{'name': 'table', 'category': 'furniture', 'modifier': 'the ', 'position': 20, 'context': 'd ball on the table'}], 'temporal_info': [], 'conditions': [], 'constraints': [], 'propositions': ['red_put', 'furniture_table'], 'structure': 'simple', 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'destination': [], 'source': [], 'time': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'purpose': [], 'condition': []}, 'dependencies': [], 'modifiers': [{'type': 'adjective', 'modifier': 'put', 'modified': 'the', 'position': 0}, {'type': 'adjective', 'modifier': 'ball', 'modified': 'on', 'position': 12}]}, 'ltl_formula': '(red_put -> F(furniture_table))', 'optimized_formula': '(red_put ->Ffurniture_table)', 'validation_result': {'is_valid': True, 'errors': [], 'warnings': ['发现 2 个未映射实体'], 'suggestions': [], 'entity_issues': ['未映射的实体: red_put', '未映射的实体: furniture_table'], 'temporal_checks': {'operators_used': [' ', 'F'], 'has_f_operator': True}}, 'structure': 'simple', 'task_complexity': 'simple', 'language': 'en', 'actions': [{'type': 'place', 'verb': 'put', 'object': 'red', 'position': 0, 'context': 'put the red b'}], 'objects': [{'name': 'table', 'category': 'furniture', 'modifier': 'the ', 'position': 20, 'context': 'd ball on the table'}], 'conditions': [], 'constraints': [], 'temporal_info': [], 'propositions': ['red_put', 'furniture_table'], 'dependencies': [], 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'destination': [], 'source': [], 'time': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'purpose': [], 'condition': []}, 'interpretation_metadata': {'timestamp': '2025-11-27T15:49:20.112586', 'proposition_count': 2, 'condition_count': 0, 'constraint_count': 0, 'dependency_count': 0}}"
               },
               "subgoal_decomposition": {
                 "success": true,
-                "time": 7.390975952148438e-05
+                "time": 0.0002601146697998047
               },
               "transition_modeling": {
                 "success": true,
-                "time": 0.00019407272338867188
+                "time": 0.00025463104248046875
               },
               "action_sequencing": {
                 "success": false,
-                "time": 0.0031919479370117188
+                "time": 0.0030891895294189453
               }
             },
-            "subgoals_count": 1,
+            "subgoals_count": 4,
             "subgoals_details": [
               {
-                "id": "atomic_1",
-                "description": "Execute atomic action: (red_put->F(furniture_table))",
-                "ltl_formula": "(red_put->F(furniture_table))",
+                "id": "atomic_2",
+                "description": "Execute atomic action: red_put",
+                "ltl_formula": "red_put",
                 "type": 
