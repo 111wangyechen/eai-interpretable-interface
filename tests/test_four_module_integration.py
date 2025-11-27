@@ -1173,6 +1173,25 @@ def main():
         else:
             print("\n⚠️  Four-module integration test completed with issues.")
             return 1
+    except Exception as e:
+        print(f"\n❌ Error running integration test: {e}")
+        import traceback
+        traceback.print_exc()
+        return 1
+
+
+if __name__ == "__main__":
+    exit_code = main()
+    exit(exit_code)
+
+
+def test_four_module_integration():
+    """测试四模块集成功能，供pytest识别"""
+    tester = FourModuleIntegrationTester()
+    success = tester.run_comprehensive_integration_test()
+    
+    # 检查是否至少有50%的测试通过
+    assert success, "四模块集成测试未达到预期成功率"
             
     except Exception as e:
         print(f"\n❌ Integration test failed with exception: {e}")
