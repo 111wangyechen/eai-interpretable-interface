@@ -844,6 +844,23 @@ class SubgoalDecomposer:
         # 移除多余空格
         formula = re.sub(r'\s+', '', formula)
         
+        # 移除外层括号
+        while formula.startswith('(') and formula.endswith(')'):
+            # 验证括号是否匹配
+            depth = 0
+            for i, char in enumerate(formula):
+                if char == '(':
+                    depth += 1
+                elif char == ')':
+                    depth -= 1
+                    if depth == 0 and i < len(formula) - 1:
+                        break
+            # 如果是完整的外层括号，移除
+            if depth == 0:
+                formula = formula[1:-1]
+            else:
+                break
+        
         # 简单的LTL解析器
         structure = {
             'type': 'unknown',
@@ -858,19 +875,23 @@ class SubgoalDecomposer:
                 structure['type'] = 'temporal'
                 structure['operator'] = op
                 # 提取操作数
-                if len(formula) > 1 and formula[1] == '(':
-                    # 找到匹配的括号
-                    depth = 1
-                    end_pos = 2
-                    for i, char in enumerate(formula[2:], 2):
-                        if char == '(':
-                            depth += 1
-                        elif char == ')':
-                            depth -= 1
-                            if depth == 0:
-                                end_pos = i
-                                break
-                    operand = formula[2:end_pos]
+                if len(formula) > 1:
+                    if formula[1] == '(':
+                        # 找到匹配的括号
+                        depth = 1
+                        end_pos = 2
+                        for i, char in enumerate(formula[2:], 2):
+                            if char == '(':
+                                depth += 1
+                            elif char == ')':
+                                depth -= 1
+                                if depth == 0:
+                                    end_pos = i
+                                    break
+                        operand = formula[2:end_pos]
+                    else:
+                        # 处理没有括号的情况，如Fp
+                        operand = formula[1:]
                     structure['operands'].append(operand)
                 break
         
