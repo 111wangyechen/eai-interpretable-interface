@@ -17,15 +17,6 @@ project_root = current_dir  # Since we're in the project root directory
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-# Add module paths
-goal_interpretation_path = os.path.join(project_root, 'goal_interpretation')
-subgoal_decomposition_path = os.path.join(project_root, 'subgoal_decomposition')
-action_sequencing_path = os.path.join(project_root, 'action_sequencing')
-
-for path in [goal_interpretation_path, subgoal_decomposition_path, action_sequencing_path]:
-    if path not in sys.path:
-        sys.path.insert(0, path)
-
 # Debug: Print paths to verify
 print(f"Project root: {project_root}")
 print(f"Goal interpretation path: {goal_interpretation_path}")
@@ -51,62 +42,30 @@ def test_goal_interpretation():
     print_separator("GOAL INTERPRETATION MODULE TEST")
     
     try:
-        # Try enhanced version first
-        try:
-            # Import directly from the module path
-            import importlib.util
-            spec = importlib.util.spec_from_file_location(
-                "enhanced_goal_interpreter", 
-                os.path.join(goal_interpretation_path, "enhanced_goal_interpreter.py")
-            )
-            enhanced_module = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(enhanced_module)
-            EnhancedGoalInterpreter = enhanced_module.EnhancedGoalInterpreter
-            
-            interpreter = EnhancedGoalInterpreter()
-            print_test_result("Import EnhancedGoalInterpreter", True)
-            
-            # Test with English goal
-            english_goal = "Robot should walk to bathroom and wash hands"
-            result = interpreter.interpret(english_goal)
-            
-            # Check key fields
-            success = (result is not None and 
-                      'propositions' in result and 
-                      'ltl_formula' in result and
-                      len(result['propositions']) > 0)
-            
-            print_test_result("English Goal Interpretation", success,
-                            f"Propositions: {result.get('propositions', [])}")
-            
-            if success:
-                print(f"    Generated LTL: {result.get('ltl_formula', 'None')}")
-                print(f"    Language: {result.get('language', 'unknown')}")
-            
-            return result, success
-            
-        except ImportError as e:
-            print(f"Enhanced import failed: {e}")
-            # Fallback to basic version
-            import importlib.util
-            spec = importlib.util.spec_from_file_location(
-                "goal_interpreter", 
-                os.path.join(goal_interpretation_path, "goal_interpreter.py")
-            )
-            basic_module = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(basic_module)
-            GoalInterpreter = basic_module.GoalInterpreter
-            
-            interpreter = GoalInterpreter()
-            print_test_result("Import GoalInterpreter (Basic)", True)
-            
-            english_goal = "Robot should walk to bathroom and wash hands"
-            result = interpreter.interpret(english_goal)
-            
-            success = result is not None
-            print_test_result("Basic Goal Interpretation", success)
-            
-            return result, success
+        # Import from goal_interpretation package
+        from goal_interpretation import EnhancedGoalInterpreter
+        
+        interpreter = EnhancedGoalInterpreter()
+        print_test_result("Import EnhancedGoalInterpreter", True)
+        
+        # Test with English goal
+        english_goal = "Robot should walk to bathroom and wash hands"
+        result = interpreter.interpret(english_goal)
+        
+        # Check key fields
+        success = (result is not None and 
+                  'propositions' in result and 
+                  'ltl_formula' in result and
+                  len(result['propositions']) > 0)
+        
+        print_test_result("English Goal Interpretation", success,
+                        f"Propositions: {result.get('propositions', [])}")
+        
+        if success:
+            print(f"    Generated LTL: {result.get('ltl_formula', 'None')}")
+            print(f"    Language: {result.get('language', 'unknown')}")
+        
+        return result, success
             
     except Exception as e:
         print_test_result("Goal Interpretation", False, str(e))
@@ -118,27 +77,9 @@ def test_subgoal_decomposition(ltl_formula):
     print_separator("SUBGOAL DECOMPOSITION MODULE TEST")
     
     try:
-        # Import modules directly
-        import importlib.util
-        
-        # Import subgoal_decomposer
-        spec = importlib.util.spec_from_file_location(
-            "subgoal_decomposer", 
-            os.path.join(subgoal_decomposition_path, "subgoal_decomposer.py")
-        )
-        subgoal_module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(subgoal_module)
-        SubgoalDecomposer = subgoal_module.SubgoalDecomposer
-        DecompositionStrategy = subgoal_module.DecompositionStrategy
-        
-        # Import goal_interpreter LTLFormula
-        spec = importlib.util.spec_from_file_location(
-            "goal_interpreter", 
-            os.path.join(goal_interpretation_path, "goal_interpreter.py")
-        )
-        goal_module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(goal_module)
-        LTLFormula = goal_module.LTLFormula
+        # Import from packages
+        from subgoal_decomposition import SubgoalDecomposer, DecompositionStrategy
+        from goal_interpretation import LTLFormula
         
         # Create decomposer
         decomposer = SubgoalDecomposer()
@@ -185,29 +126,9 @@ def test_action_sequencing(subgoals):
     print_separator("ACTION SEQUENCING MODULE TEST")
     
     try:
-        # Import modules directly
-        import importlib.util
-        
-        # Import action_sequencer
-        spec = importlib.util.spec_from_file_location(
-            "action_sequencer", 
-            os.path.join(action_sequencing_path, "action_sequencer.py")
-        )
-        sequencer_module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(sequencer_module)
-        ActionSequencer = sequencer_module.ActionSequencer
-        SequencingRequest = sequencer_module.SequencingRequest
-        SequencingConfig = sequencer_module.SequencingConfig
-        
-        # Import action_data
-        spec = importlib.util.spec_from_file_location(
-            "action_data", 
-            os.path.join(action_sequencing_path, "action_data.py")
-        )
-        data_module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(data_module)
-        Action = data_module.Action
-        ActionType = data_module.ActionType
+        # Import from packages
+        from action_sequencing import ActionSequencer, SequencingRequest, SequencingConfig
+        from action_sequencing import Action, ActionType
         
         # Create sequencer
         config = SequencingConfig(
@@ -347,15 +268,8 @@ def test_english_goals_dataset():
     ]
     
     try:
-        # Import enhanced_goal_interpreter directly
-        import importlib.util
-        spec = importlib.util.spec_from_file_location(
-            "enhanced_goal_interpreter", 
-            os.path.join(goal_interpretation_path, "enhanced_goal_interpreter.py")
-        )
-        enhanced_module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(enhanced_module)
-        EnhancedGoalInterpreter = enhanced_module.EnhancedGoalInterpreter
+        # Import from package
+        from goal_interpretation import EnhancedGoalInterpreter
         
         interpreter = EnhancedGoalInterpreter()
         
