@@ -1,28 +1,7 @@
-python -m pytest tests/test_four_module_integration.py -v
-================================================================================================================= test session starts ==================================================================================================================
-platform linux -- Python 3.13.5, pytest-8.3.4, pluggy-1.5.0 -- /home/yeah/anaconda3/bin/python
-cachedir: .pytest_cache
-rootdir: /home/yeah/eai-interpretable-interface
-plugins: anyio-4.7.0
-collected 1 item                                                                                                                                                                                                                                       
-
-tests/test_four_module_integration.py::test_four_module_integration FAILED                                                                                                                                                                       [100%]
-
-======================================================================================================================= FAILURES =======================================================================================================================
-_____________________________________________________________________________________________________________ test_four_module_integration _____________________________________________________________________________________________________________
-
-    def test_four_module_integration():
-        """测试四模块集成功能，供pytest识别"""
-        tester = FourModuleIntegrationTester()
-        success = tester.run_comprehensive_integration_test()
-    
-        # 检查是否至少有50%的测试通过
->       assert success, "四模块集成测试未达到预期成功率"
-E       AssertionError: 四模块集成测试未达到预期成功率
-E       assert None
-
-tests/test_four_module_integration.py:1206: AssertionError
------------------------------------------------------------------------------------------------------------------ Captured stdout call -----------------------------------------------------------------------------------------------------------------
+python -m tests.test_four_module_integration
+✓ All four modules imported successfully
+2025-11-29 15:31:07,006 - AuDeRe - INFO - AuDeRe engine initialized
+2025-11-29 15:31:07,007 - action_sequencing.action_sequencer - INFO - AuDeRe module initialized successfully
 ================================================================================
 Complete Four-Module Integration Test
 Goal Interpretation + Subgoal Decomposition + Transition Modeling + Action Sequencing
@@ -32,33 +11,48 @@ Goal Interpretation + Subgoal Decomposition + Transition Modeling + Action Seque
    ✓ Goal Interpretation module initialized
    ✓ Subgoal Decomposition module initialized
    ✓ Transition Modeling module initialized
+2025-11-29 15:31:07,027 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
    ✓ Action Sequencing module initialized
    ✓ Module initialization: 4/4 modules ready
 
 2. Testing Goal Interpretation to Transition Modeling Flow...
    Processing goal: Put the red ball on the table
-   ✓ Goal interpretation completed in 0.001s
+   ✓ Goal interpretation completed in 0.002s
    Generated LTL formula: (place_red -> F(furniture_table))
    ✓ 4 subgoals generated: ['Execute atomic action: place_red', 'Execute atomic action: furniture_table', 'Eventually: furniture_table', 'Conditional: place_red -> F(furniture_table)']
-   ✓ Goal→Transition flow: 1 sequences generated in 0.000s
+2025-11-29 15:31:07,029 - transition_modeling.transition_modeler - INFO - Processing modeling request with 4 available transitions
+2025-11-29 15:31:07,029 - transition_modeling.transition_predictor - INFO - Generated 0 transition predictions
+2025-11-29 15:31:07,029 - transition_modeling.transition_predictor - INFO - Generated 0 possible sequences
+2025-11-29 15:31:07,029 - transition_modeling.transition_modeler - INFO - Predictor generated 0 raw sequences
+2025-11-29 15:31:07,029 - transition_modeling.transition_modeler - WARNING - No sequences were generated for request request_1764401467029518, creating fallback
+2025-11-29 15:31:07,029 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+   ✓ Goal→Transition flow: 1 sequences generated in 0.001s
 
 3. Testing Subgoal Decomposition to Action Sequencing Flow...
    ✓ 8 subgoals generated: ['Execute atomic action: move_ball', 'Eventually: move_ball', 'Execute atomic action: locations_kitchen', 'Eventually: locations_kitchen', 'Execute atomic action: furniture_table', 'Eventually: furniture_table', 'Parallel
 : F(locations_kitchen) & F(furniture_table)', 'Parallel: F(move_ball) & F(locations_kitchen)&F(furniture_table)']                                                                                                                                          Debug: Processing subgoal 1: Execute atomic action: move_ball
+2025-11-29 15:31:07,040 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
    Debug: Failed to generate action sequence for subgoal 1
    Debug: Processing subgoal 2: Eventually: move_ball
+2025-11-29 15:31:07,044 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
    Debug: Failed to generate action sequence for subgoal 2
    Debug: Processing subgoal 3: Execute atomic action: locations_kitchen
+2025-11-29 15:31:07,048 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
    Debug: Failed to generate action sequence for subgoal 3
    Debug: Processing subgoal 4: Eventually: locations_kitchen
+2025-11-29 15:31:07,052 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
    Debug: Failed to generate action sequence for subgoal 4
    Debug: Processing subgoal 5: Execute atomic action: furniture_table
+2025-11-29 15:31:07,056 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
    Debug: Failed to generate action sequence for subgoal 5
    Debug: Processing subgoal 6: Eventually: furniture_table
+2025-11-29 15:31:07,059 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
    Debug: Failed to generate action sequence for subgoal 6
    Debug: Processing subgoal 7: Parallel: F(locations_kitchen) & F(furniture_table)
+2025-11-29 15:31:07,063 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
    Debug: Failed to generate action sequence for subgoal 7
    Debug: Processing subgoal 8: Parallel: F(move_ball) & F(locations_kitchen)&F(furniture_table)
+2025-11-29 15:31:07,067 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
    Debug: Failed to generate action sequence for subgoal 8
    ✓ Subgoal→Action flow: 8 subgoals → 8 action sequences
 
@@ -87,9 +81,16 @@ Goal Interpretation + Subgoal Decomposition + Transition Modeling + Action Seque
            - Type: SubgoalType.CONDITIONAL
      Step 3: Transition Modeling
        Available transitions count: 4
+2025-11-29 15:31:07,069 - transition_modeling.transition_modeler - INFO - Processing modeling request with 4 available transitions
+2025-11-29 15:31:07,069 - transition_modeling.transition_predictor - INFO - Generated 0 transition predictions
+2025-11-29 15:31:07,069 - transition_modeling.transition_predictor - INFO - Generated 0 possible sequences
+2025-11-29 15:31:07,069 - transition_modeling.transition_modeler - INFO - Predictor generated 0 raw sequences
+2025-11-29 15:31:07,069 - transition_modeling.transition_modeler - WARNING - No sequences were generated for request request_1764401467068973, creating fallback
+2025-11-29 15:31:07,069 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
        ✓ Transition modeling successful, created 1 sequences
      Step 4: Action Sequencing
        Available actions: ['move', 'pickup', 'place']
+2025-11-29 15:31:07,072 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
        ✗ Error in scenario Basic Operation Scenario: Action sequence generation failed
 
    Processing scenario: Multi-step Scenario
@@ -127,9 +128,16 @@ Goal Interpretation + Subgoal Decomposition + Transition Modeling + Action Seque
            - Type: SubgoalType.CONDITIONAL
      Step 3: Transition Modeling
        Available transitions count: 4
+2025-11-29 15:31:07,073 - transition_modeling.transition_modeler - INFO - Processing modeling request with 4 available transitions
+2025-11-29 15:31:07,073 - transition_modeling.transition_predictor - INFO - Generated 0 transition predictions
+2025-11-29 15:31:07,073 - transition_modeling.transition_predictor - INFO - Generated 0 possible sequences
+2025-11-29 15:31:07,073 - transition_modeling.transition_modeler - INFO - Predictor generated 0 raw sequences
+2025-11-29 15:31:07,073 - transition_modeling.transition_modeler - WARNING - No sequences were generated for request request_1764401467073832, creating fallback
+2025-11-29 15:31:07,074 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
        ✓ Transition modeling successful, created 1 sequences
      Step 4: Action Sequencing
        Available actions: ['move', 'pickup', 'place', 'open_door']
+2025-11-29 15:31:07,079 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
        ✗ Error in scenario Multi-step Scenario: Action sequence generation failed
 
    ✗ End-to-End workflow test FAIL: 0/2 scenarios successful (0.0%)
@@ -138,17 +146,38 @@ Goal Interpretation + Subgoal Decomposition + Transition Modeling + Action Seque
    Processing scenario: Multi-Goal Scenario
      ✓ Goal interpretation completed (0.001s)
      ✓ Subgoal decomposition completed, generated 4 subgoals (0.000s)
+2025-11-29 15:31:07,080 - transition_modeling.transition_modeler - INFO - Processing modeling request with 4 available transitions
+2025-11-29 15:31:07,080 - transition_modeling.transition_predictor - INFO - Generated 0 transition predictions
+2025-11-29 15:31:07,080 - transition_modeling.transition_predictor - INFO - Generated 0 possible sequences
+2025-11-29 15:31:07,080 - transition_modeling.transition_modeler - INFO - Predictor generated 0 raw sequences
+2025-11-29 15:31:07,080 - transition_modeling.transition_modeler - WARNING - No sequences were generated for request request_1764401467080820, creating fallback
+2025-11-29 15:31:07,081 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
      ✓ Transition modeling completed, generated 1 sequences (0.000s)
+2025-11-29 15:31:07,086 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
      ✗ Multi-Goal Scenario: Failed - Action sequence generation failed
    Processing scenario: Conditional Constraint Scenario
-     ✓ Goal interpretation completed (0.002s)
+     ✓ Goal interpretation completed (0.001s)
      ✓ Subgoal decomposition completed, generated 7 subgoals (0.000s)
+2025-11-29 15:31:07,088 - transition_modeling.transition_modeler - INFO - Processing modeling request with 4 available transitions
+2025-11-29 15:31:07,088 - transition_modeling.transition_predictor - INFO - Generated 0 transition predictions
+2025-11-29 15:31:07,088 - transition_modeling.transition_predictor - INFO - Generated 0 possible sequences
+2025-11-29 15:31:07,088 - transition_modeling.transition_modeler - INFO - Predictor generated 0 raw sequences
+2025-11-29 15:31:07,088 - transition_modeling.transition_modeler - WARNING - No sequences were generated for request request_1764401467088160, creating fallback
+2025-11-29 15:31:07,088 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
      ✓ Transition modeling completed, generated 1 sequences (0.000s)
+2025-11-29 15:31:07,095 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
      ✗ Conditional Constraint Scenario: Failed - Action sequence generation failed
    Processing scenario: Sequential Constraint Scenario
      ✓ Goal interpretation completed (0.001s)
      ✓ Subgoal decomposition completed, generated 10 subgoals (0.000s)
+2025-11-29 15:31:07,096 - transition_modeling.transition_modeler - INFO - Processing modeling request with 4 available transitions
+2025-11-29 15:31:07,096 - transition_modeling.transition_predictor - INFO - Generated 0 transition predictions
+2025-11-29 15:31:07,096 - transition_modeling.transition_predictor - INFO - Generated 0 possible sequences
+2025-11-29 15:31:07,096 - transition_modeling.transition_modeler - INFO - Predictor generated 0 raw sequences
+2025-11-29 15:31:07,096 - transition_modeling.transition_modeler - WARNING - No sequences were generated for request request_1764401467096407, creating fallback
+2025-11-29 15:31:07,096 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
      ✓ Transition modeling completed, generated 1 sequences (0.000s)
+2025-11-29 15:31:07,101 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
      ✗ Sequential Constraint Scenario: Failed - Action sequence generation failed
    ✗ Complex scenarios: 0/3 successful
 
@@ -156,66 +185,136 @@ Goal Interpretation + Subgoal Decomposition + Transition Modeling + Action Seque
    Preheating system...
    Running 10 performance test iterations...
      Iteration 1/10: Testing low complexity goal
+2025-11-29 15:31:07,103 - transition_modeling.transition_modeler - INFO - Processing modeling request with 4 available transitions
+2025-11-29 15:31:07,103 - transition_modeling.transition_predictor - INFO - Generated 0 transition predictions
+2025-11-29 15:31:07,103 - transition_modeling.transition_predictor - INFO - Generated 0 possible sequences
+2025-11-29 15:31:07,103 - transition_modeling.transition_modeler - INFO - Predictor generated 0 raw sequences
+2025-11-29 15:31:07,104 - transition_modeling.transition_modeler - WARNING - No sequences were generated for request request_1764401467103828, creating fallback
+2025-11-29 15:31:07,104 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-29 15:31:07,107 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
        Iteration 1 metrics:
-         - Total time: 0.004s
-         - Response time: 0.004s
+         - Total time: 0.005s
+         - Response time: 0.005s
          - Success rate: 100.0%
          - Estimated cache hit rate: 20.0%
      Iteration 2/10: Testing medium complexity goal
+2025-11-29 15:31:07,108 - transition_modeling.transition_modeler - INFO - Processing modeling request with 4 available transitions
+2025-11-29 15:31:07,109 - transition_modeling.transition_predictor - INFO - Generated 0 transition predictions
+2025-11-29 15:31:07,109 - transition_modeling.transition_predictor - INFO - Generated 0 possible sequences
+2025-11-29 15:31:07,109 - transition_modeling.transition_modeler - INFO - Predictor generated 0 raw sequences
+2025-11-29 15:31:07,109 - transition_modeling.transition_modeler - WARNING - No sequences were generated for request request_1764401467108943, creating fallback
+2025-11-29 15:31:07,109 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-29 15:31:07,113 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
        Iteration 2 metrics:
-         - Total time: 0.005s
-         - Response time: 0.005s
+         - Total time: 0.006s
+         - Response time: 0.006s
          - Success rate: 100.0%
          - Estimated cache hit rate: 30.0%
      Iteration 3/10: Testing low complexity goal
+2025-11-29 15:31:07,114 - transition_modeling.transition_modeler - INFO - Processing modeling request with 4 available transitions
+2025-11-29 15:31:07,114 - transition_modeling.transition_predictor - INFO - Generated 0 transition predictions
+2025-11-29 15:31:07,114 - transition_modeling.transition_predictor - INFO - Generated 0 possible sequences
+2025-11-29 15:31:07,114 - transition_modeling.transition_modeler - INFO - Predictor generated 0 raw sequences
+2025-11-29 15:31:07,114 - transition_modeling.transition_modeler - WARNING - No sequences were generated for request request_1764401467114526, creating fallback
+2025-11-29 15:31:07,114 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-29 15:31:07,118 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
        Iteration 3 metrics:
-         - Total time: 0.004s
-         - Response time: 0.004s
-         - Success rate: 100.0%
-         - Estimated cache hit rate: 40.0%
-     Iteration 4/10: Testing medium complexity goal
-       Iteration 4 metrics:
-         - Total time: 0.004s
-         - Response time: 0.004s
-         - Success rate: 100.0%
-         - Estimated cache hit rate: 65.0%
-     Iteration 5/10: Testing low complexity goal
-       Iteration 5 metrics:
-         - Total time: 0.004s
-         - Response time: 0.004s
-         - Success rate: 100.0%
-         - Estimated cache hit rate: 70.0%
-     Iteration 6/10: Testing medium complexity goal
-       Iteration 6 metrics:
          - Total time: 0.005s
          - Response time: 0.005s
          - Success rate: 100.0%
+         - Estimated cache hit rate: 40.0%
+     Iteration 4/10: Testing medium complexity goal
+2025-11-29 15:31:07,119 - transition_modeling.transition_modeler - INFO - Processing modeling request with 4 available transitions
+2025-11-29 15:31:07,119 - transition_modeling.transition_predictor - INFO - Generated 0 transition predictions
+2025-11-29 15:31:07,119 - transition_modeling.transition_predictor - INFO - Generated 0 possible sequences
+2025-11-29 15:31:07,119 - transition_modeling.transition_modeler - INFO - Predictor generated 0 raw sequences
+2025-11-29 15:31:07,119 - transition_modeling.transition_modeler - WARNING - No sequences were generated for request request_1764401467119759, creating fallback
+2025-11-29 15:31:07,120 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-29 15:31:07,123 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
+       Iteration 4 metrics:
+         - Total time: 0.005s
+         - Response time: 0.005s
+         - Success rate: 100.0%
+         - Estimated cache hit rate: 65.0%
+     Iteration 5/10: Testing low complexity goal
+2025-11-29 15:31:07,124 - transition_modeling.transition_modeler - INFO - Processing modeling request with 4 available transitions
+2025-11-29 15:31:07,125 - transition_modeling.transition_predictor - INFO - Generated 0 transition predictions
+2025-11-29 15:31:07,125 - transition_modeling.transition_predictor - INFO - Generated 0 possible sequences
+2025-11-29 15:31:07,125 - transition_modeling.transition_modeler - INFO - Predictor generated 0 raw sequences
+2025-11-29 15:31:07,125 - transition_modeling.transition_modeler - WARNING - No sequences were generated for request request_1764401467124941, creating fallback
+2025-11-29 15:31:07,125 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-29 15:31:07,128 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
+       Iteration 5 metrics:
+         - Total time: 0.005s
+         - Response time: 0.005s
+         - Success rate: 100.0%
+         - Estimated cache hit rate: 70.0%
+     Iteration 6/10: Testing medium complexity goal
+2025-11-29 15:31:07,129 - transition_modeling.transition_modeler - INFO - Processing modeling request with 4 available transitions
+2025-11-29 15:31:07,130 - transition_modeling.transition_predictor - INFO - Generated 0 transition predictions
+2025-11-29 15:31:07,130 - transition_modeling.transition_predictor - INFO - Generated 0 possible sequences
+2025-11-29 15:31:07,130 - transition_modeling.transition_modeler - INFO - Predictor generated 0 raw sequences
+2025-11-29 15:31:07,130 - transition_modeling.transition_modeler - WARNING - No sequences were generated for request request_1764401467129918, creating fallback
+2025-11-29 15:31:07,130 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-29 15:31:07,134 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
+       Iteration 6 metrics:
+         - Total time: 0.006s
+         - Response time: 0.006s
+         - Success rate: 100.0%
          - Estimated cache hit rate: 75.0%
      Iteration 7/10: Testing low complexity goal
+2025-11-29 15:31:07,136 - transition_modeling.transition_modeler - INFO - Processing modeling request with 4 available transitions
+2025-11-29 15:31:07,136 - transition_modeling.transition_predictor - INFO - Generated 0 transition predictions
+2025-11-29 15:31:07,136 - transition_modeling.transition_predictor - INFO - Generated 0 possible sequences
+2025-11-29 15:31:07,136 - transition_modeling.transition_modeler - INFO - Predictor generated 0 raw sequences
+2025-11-29 15:31:07,136 - transition_modeling.transition_modeler - WARNING - No sequences were generated for request request_1764401467136254, creating fallback
+2025-11-29 15:31:07,136 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-29 15:31:07,140 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
        Iteration 7 metrics:
-         - Total time: 0.004s
-         - Response time: 0.004s
+         - Total time: 0.005s
+         - Response time: 0.005s
          - Success rate: 100.0%
          - Estimated cache hit rate: 80.0%
      Iteration 8/10: Testing medium complexity goal
+2025-11-29 15:31:07,141 - transition_modeling.transition_modeler - INFO - Processing modeling request with 4 available transitions
+2025-11-29 15:31:07,141 - transition_modeling.transition_predictor - INFO - Generated 0 transition predictions
+2025-11-29 15:31:07,142 - transition_modeling.transition_predictor - INFO - Generated 0 possible sequences
+2025-11-29 15:31:07,142 - transition_modeling.transition_modeler - INFO - Predictor generated 0 raw sequences
+2025-11-29 15:31:07,142 - transition_modeling.transition_modeler - WARNING - No sequences were generated for request request_1764401467141599, creating fallback
+2025-11-29 15:31:07,142 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-29 15:31:07,148 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
        Iteration 8 metrics:
-         - Total time: 0.004s
-         - Response time: 0.004s
+         - Total time: 0.009s
+         - Response time: 0.009s
          - Success rate: 100.0%
          - Estimated cache hit rate: 85.0%
      Iteration 9/10: Testing low complexity goal
+2025-11-29 15:31:07,151 - transition_modeling.transition_modeler - INFO - Processing modeling request with 4 available transitions
+2025-11-29 15:31:07,151 - transition_modeling.transition_predictor - INFO - Generated 0 transition predictions
+2025-11-29 15:31:07,152 - transition_modeling.transition_predictor - INFO - Generated 0 possible sequences
+2025-11-29 15:31:07,152 - transition_modeling.transition_modeler - INFO - Predictor generated 0 raw sequences
+2025-11-29 15:31:07,152 - transition_modeling.transition_modeler - WARNING - No sequences were generated for request request_1764401467151482, creating fallback
+2025-11-29 15:31:07,152 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-29 15:31:07,157 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
        Iteration 9 metrics:
-         - Total time: 0.004s
-         - Response time: 0.004s
+         - Total time: 0.008s
+         - Response time: 0.008s
          - Success rate: 100.0%
          - Estimated cache hit rate: 90.0%
      Iteration 10/10: Testing medium complexity goal
+2025-11-29 15:31:07,159 - transition_modeling.transition_modeler - INFO - Processing modeling request with 4 available transitions
+2025-11-29 15:31:07,159 - transition_modeling.transition_predictor - INFO - Generated 0 transition predictions
+2025-11-29 15:31:07,159 - transition_modeling.transition_predictor - INFO - Generated 0 possible sequences
+2025-11-29 15:31:07,159 - transition_modeling.transition_modeler - INFO - Predictor generated 0 raw sequences
+2025-11-29 15:31:07,159 - transition_modeling.transition_modeler - WARNING - No sequences were generated for request request_1764401467159408, creating fallback
+2025-11-29 15:31:07,160 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
+2025-11-29 15:31:07,164 - action_sequencing.action_sequencer - WARNING - Failed to generate action sequence: No solution found within time/depth limits
        Iteration 10 metrics:
-         - Total time: 0.004s
-         - Response time: 0.004s
+         - Total time: 0.007s
+         - Response time: 0.007s
          - Success rate: 100.0%
          - Estimated cache hit rate: 90.0%
-   ✓ Performance: avg workflow time 0.00s, p95 response time 0.01s, success rate 100.0%, cache hit rate 64.5%
+   ✓ Performance: avg workflow time 0.01s, p95 response time 0.01s, success rate 100.0%, cache hit rate 64.5%
    Performance criteria met: 4/4
      - Time criteria: ✓ (avg < 3s)
      - P95 response time: ✓ (< 5s)
@@ -223,6 +322,9 @@ Goal Interpretation + Subgoal Decomposition + Transition Modeling + Action Seque
      - Cache hit rate: ✓ (> 50%)
 
 7. Testing Error Handling and Recovery...
+2025-11-29 15:31:07,166 - transition_modeling.transition_modeler - INFO - Processing modeling request with 0 available transitions
+2025-11-29 15:31:07,167 - transition_modeling.transition_modeler - WARNING - No available transitions provided in request request_1764401467166841
+2025-11-29 15:31:07,167 - transition_modeling.transition_modeler - INFO - Modeling completed: 1 final valid sequences
    ✓ Error handling: 4 error cases tested
 
 ================================================================================
@@ -231,7 +333,7 @@ INTEGRATION TEST REPORT
 Total Tests: 7
 Successful Tests: 4
 Success Rate: 57.1%
-Total Time: 0.13 seconds
+Total Time: 0.16 seconds
 
 1. module_initialization: ✓ PASS
    Message: Module initialization: 4/4 modules ready
@@ -243,16 +345,16 @@ Total Time: 0.13 seconds
 }
 
 2. goal_to_transition_flow: ✓ PASS
-   Message: Goal→Transition flow: 1 sequences generated in 0.000s
+   Message: Goal→Transition flow: 1 sequences generated in 0.001s
    Details: {
   "goal_interpretation_success": true,
   "subgoal_decomposition_success": true,
   "transition_modeling_success": true,
   "sequences_generated": 1,
-  "goal_interpretation_time": 0.0009679794311523438,
-  "subgoal_decomposition_time": 0.0002651214599609375,
-  "modeling_time": 0.0002231597900390625,
-  "total_time": 0.0014562606811523438
+  "goal_interpretation_time": 0.0017719268798828125,
+  "subgoal_decomposition_time": 0.0002677440643310547,
+  "modeling_time": 0.0005984306335449219,
+  "total_time": 0.002638101577758789
 }
 
 3. subgoal_to_action_flow: ✓ PASS
@@ -283,7 +385,7 @@ Total Time: 0.13 seconds
   "total_scenarios": 2,
   "successful_scenarios": 0,
   "success_rate": 0.0,
-  "workflow_time": 0.009575366973876953,
+  "workflow_time": 0.011945247650146484,
   "scenario_results": [
     {
       "name": "Basic Operation Scenario",
@@ -299,20 +401,20 @@ Total Time: 0.13 seconds
       "steps": {
         "goal_interpretation": {
           "success": true,
-          "time": 0.0008957386016845703,
+          "time": 0.0009274482727050781,
           "result": "{'original_text': 'Put the red ball on the table', 'parse_result': {'original_text': 'put the red ball on the table', 'language': 'en', 'task_complexity': 'simple', 'semantic_structure': {'main_clause': '', 'subordinate_clauses
-': [], 'connectors': [], 'modifiers': []}, 'actions': [{'type': 'place', 'verb': 'put', 'object': 'red', 'position': 0, 'context': 'put the red b'}], 'objects': [{'name': 'table', 'category': 'furniture', 'modifier': 'the ', 'position': 20, 'context': 'd ball on the table'}], 'temporal_info': [], 'conditions': [], 'constraints': [], 'propositions': ['place_red', 'furniture_table'], 'structure': 'simple', 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'destination': [], 'source': [], 'time': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'purpose': [], 'condition': []}, 'dependencies': [], 'modifiers': [{'type': 'adjective', 'modifier': 'put', 'modified': 'the', 'position': 0}, {'type': 'adjective', 'modifier': 'ball', 'modified': 'on', 'position': 12}]}, 'ltl_formula': '(place_red -> F(furniture_table))', 'optimized_formula': '(place_red ->Ffurniture_table)', 'validation_result': {'is_valid': True, 'errors': [], 'warnings': [], 'suggestions': [], 'entity_issues': [], 'temporal_checks': {'operators_used': ['F', ' '], 'has_f_operator': True}}, 'structure': 'simple', 'task_complexity': 'simple', 'language': 'en', 'actions': [{'type': 'place', 'verb': 'put', 'object': 'red', 'position': 0, 'context': 'put the red b'}], 'objects': [{'name': 'table', 'category': 'furniture', 'modifier': 'the ', 'position': 20, 'context': 'd ball on the table'}], 'conditions': [], 'constraints': [], 'temporal_info': [], 'propositions': ['place_red', 'furniture_table'], 'dependencies': [], 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'destination': [], 'source': [], 'time': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'purpose': [], 'condition': []}, 'interpretation_metadata': {'timestamp': '2025-11-29T15:06:58.834681', 'proposition_count': 2, 'condition_count': 0, 'constraint_count': 0, 'dependency_count': 0}}"                                                                                                                                                                                                                        },
+': [], 'connectors': [], 'modifiers': []}, 'actions': [{'type': 'place', 'verb': 'put', 'object': 'red', 'position': 0, 'context': 'put the red b'}], 'objects': [{'name': 'table', 'category': 'furniture', 'modifier': 'the ', 'position': 20, 'context': 'd ball on the table'}], 'temporal_info': [], 'conditions': [], 'constraints': [], 'propositions': ['place_red', 'furniture_table'], 'structure': 'simple', 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'destination': [], 'source': [], 'time': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'purpose': [], 'condition': []}, 'dependencies': [], 'modifiers': [{'type': 'adjective', 'modifier': 'put', 'modified': 'the', 'position': 0}, {'type': 'adjective', 'modifier': 'ball', 'modified': 'on', 'position': 12}]}, 'ltl_formula': '(place_red -> F(furniture_table))', 'optimized_formula': '(place_red ->Ffurniture_table)', 'validation_result': {'is_valid': True, 'errors': [], 'warnings': [], 'suggestions': [], 'entity_issues': [], 'temporal_checks': {'operators_used': ['F', ' '], 'has_f_operator': True}}, 'structure': 'simple', 'task_complexity': 'simple', 'language': 'en', 'actions': [{'type': 'place', 'verb': 'put', 'object': 'red', 'position': 0, 'context': 'put the red b'}], 'objects': [{'name': 'table', 'category': 'furniture', 'modifier': 'the ', 'position': 20, 'context': 'd ball on the table'}], 'conditions': [], 'constraints': [], 'temporal_info': [], 'propositions': ['place_red', 'furniture_table'], 'dependencies': [], 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'destination': [], 'source': [], 'time': [{'marker': 'on', 'filler': 'the table', 'position': 17}], 'purpose': [], 'condition': []}, 'interpretation_metadata': {'timestamp': '2025-11-29T15:31:07.068630', 'proposition_count': 2, 'condition_count': 0, 'constraint_count': 0, 'dependency_count': 0}}"                                                                                                                                                                                                                        },
         "subgoal_decomposition": {
           "success": true,
-          "time": 0.00017976760864257812
+          "time": 0.00016760826110839844
         },
         "transition_modeling": {
           "success": true,
-          "time": 0.00024437904357910156
+          "time": 0.0003216266632080078
         },
         "action_sequencing": {
           "success": false,
-          "time": 0.002644777297973633
+          "time": 0.0028541088104248047
         }
       },
       "subgoals_count": 4,
@@ -376,20 +478,20 @@ Total Time: 0.13 seconds
       "steps": {
         "goal_interpretation": {
           "success": true,
-          "time": 0.0010268688201904297,
+          "time": 0.0009975433349609375,
           "result": "{'original_text': 'Walk to the refrigerator first, then open the refrigerator door', 'parse_result': {'original_text': 'walk to the refrigerator first ,  then open the refrigerator door', 'language': 'en', 'task_complexity': 'c
-omplex', 'semantic_structure': {'main_clause': '', 'subordinate_clauses': [], 'connectors': [], 'modifiers': []}, 'actions': [{'type': 'operation', 'verb': 'open', 'object': 'the', 'position': 39, 'context': 'rigerator first ,  then open the refri', 'sequential_order': 2, 'sequential_pattern': True}], 'objects': [{'name': 'refrigerator', 'category': 'appliances', 'modifier': 'the ', 'position': 8, 'context': 'walk to the refrigerator first ,  '}, {'name': 'refrigerator', 'category': 'appliances', 'modifier': 'the ', 'position': 44, 'context': 'then open the refrigerator door'}, {'name': 'door', 'category': 'locations', 'modifier': 'refrigerator ', 'position': 48, 'context': ' open the refrigerator door'}], 'temporal_info': [{'type': 'relative_time', 'expression': 'then', 'position': 34, 'end_position': 38}], 'conditions': [], 'constraints': [], 'propositions': ['open', 'appliances_refrigerator', 'locations_door', 'relative_time_then'], 'structure': 'sequential', 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'destination': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'source': [], 'time': [], 'purpose': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'condition': []}, 'dependencies': [], 'modifiers': [{'type': 'adjective', 'modifier': 'walk', 'modified': 'to', 'position': 0}, {'type': 'adjective', 'modifier': 'then', 'modified': 'open', 'position': 34}]}, 'ltl_formula': '(((open -> F(appliances_refrigerator)) -> F(locations_door)) -> F(relative_time_then))', 'optimized_formula': '(((open ->Fappliances_refrigerator)->Flocations_door)->Frelative_time_then)', 'validation_result': {'is_valid': True, 'errors': [], 'warnings': [], 'suggestions': [], 'entity_issues': [], 'temporal_checks': {'operators_used': ['F', ' '], 'has_f_operator': True}}, 'structure': 'sequential', 'task_complexity': 'complex', 'language': 'en', 'actions': [{'type': 'operation', 'verb': 'open', 'object': 'the', 'position': 39, 'context': 'rigerator first ,  then open the refri', 'sequential_order': 2, 'sequential_pattern': True}], 'objects': [{'name': 'refrigerator', 'category': 'appliances', 'modifier': 'the ', 'position': 8, 'context': 'walk to the refrigerator first ,  '}, {'name': 'refrigerator', 'category': 'appliances', 'modifier': 'the ', 'position': 44, 'context': 'then open the refrigerator door'}, {'name': 'door', 'category': 'locations', 'modifier': 'refrigerator ', 'position': 48, 'context': ' open the refrigerator door'}], 'conditions': [], 'constraints': [], 'temporal_info': [{'type': 'relative_time', 'expression': 'then', 'position': 34, 'end_position': 38}], 'propositions': ['open', 'appliances_refrigerator', 'locations_door', 'relative_time_then'], 'dependencies': [], 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'destination': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'source': [], 'time': [], 'purpose': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'condition': []}, 'interpretation_metadata': {'timestamp': '2025-11-29T15:06:58.839045', 'proposition_count': 4, 'condition_count': 0, 'constraint_count': 0, 'dependency_count': 0}}"                                                                                                          },
+omplex', 'semantic_structure': {'main_clause': '', 'subordinate_clauses': [], 'connectors': [], 'modifiers': []}, 'actions': [{'type': 'operation', 'verb': 'open', 'object': 'the', 'position': 39, 'context': 'rigerator first ,  then open the refri', 'sequential_order': 2, 'sequential_pattern': True}], 'objects': [{'name': 'refrigerator', 'category': 'appliances', 'modifier': 'the ', 'position': 8, 'context': 'walk to the refrigerator first ,  '}, {'name': 'refrigerator', 'category': 'appliances', 'modifier': 'the ', 'position': 44, 'context': 'then open the refrigerator door'}, {'name': 'door', 'category': 'locations', 'modifier': 'refrigerator ', 'position': 48, 'context': ' open the refrigerator door'}], 'temporal_info': [{'type': 'relative_time', 'expression': 'then', 'position': 34, 'end_position': 38}], 'conditions': [], 'constraints': [], 'propositions': ['open', 'appliances_refrigerator', 'locations_door', 'relative_time_then'], 'structure': 'sequential', 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'destination': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'source': [], 'time': [], 'purpose': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'condition': []}, 'dependencies': [], 'modifiers': [{'type': 'adjective', 'modifier': 'walk', 'modified': 'to', 'position': 0}, {'type': 'adjective', 'modifier': 'then', 'modified': 'open', 'position': 34}]}, 'ltl_formula': '(((open -> F(appliances_refrigerator)) -> F(locations_door)) -> F(relative_time_then))', 'optimized_formula': '(((open ->Fappliances_refrigerator)->Flocations_door)->Frelative_time_then)', 'validation_result': {'is_valid': True, 'errors': [], 'warnings': [], 'suggestions': [], 'entity_issues': [], 'temporal_checks': {'operators_used': ['F', ' '], 'has_f_operator': True}}, 'structure': 'sequential', 'task_complexity': 'complex', 'language': 'en', 'actions': [{'type': 'operation', 'verb': 'open', 'object': 'the', 'position': 39, 'context': 'rigerator first ,  then open the refri', 'sequential_order': 2, 'sequential_pattern': True}], 'objects': [{'name': 'refrigerator', 'category': 'appliances', 'modifier': 'the ', 'position': 8, 'context': 'walk to the refrigerator first ,  '}, {'name': 'refrigerator', 'category': 'appliances', 'modifier': 'the ', 'position': 44, 'context': 'then open the refrigerator door'}, {'name': 'door', 'category': 'locations', 'modifier': 'refrigerator ', 'position': 48, 'context': ' open the refrigerator door'}], 'conditions': [], 'constraints': [], 'temporal_info': [{'type': 'relative_time', 'expression': 'then', 'position': 34, 'end_position': 38}], 'propositions': ['open', 'appliances_refrigerator', 'locations_door', 'relative_time_then'], 'dependencies': [], 'semantic_roles': {'agent': [], 'patient': [], 'instrument': [], 'location': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'destination': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'source': [], 'time': [], 'purpose': [{'marker': 'to', 'filler': 'the refrigerator first', 'position': 5}], 'condition': []}, 'interpretation_metadata': {'timestamp': '2025-11-29T15:31:07.073119', 'proposition_count': 4, 'condition_count': 0, 'constraint_count': 0, 'dependency_count': 0}}"                                                                                                          },
         "subgoal_decomposition": {
           "success": true,
-          "time": 0.0002639293670654297
+          "time": 0.0003044605255126953
         },
         "transition_modeling": {
           "success": true,
-          "time": 0.0002491474151611328
+          "time": 0.0004169940948486328
         },
         "action_sequencing": {
           "success": false,
-          "time": 0.003481149673461914
+          "time": 0.005526542663574219
         }
       },
       "subgoals_count": 7,
@@ -480,19 +582,19 @@ omplex', 'semantic_structure': {'main_clause': '', 'subordinate_clauses': [], 'c
       "steps": {
         "goal_interpretation": {
           "success": true,
-          "time": 0.0010519027709960938
+          "time": 0.0009458065032958984
         },
         "subgoal_decomposition": {
           "success": true,
-          "time": 0.00016164779663085938
+          "time": 0.0001277923583984375
         },
         "transition_modeling": {
           "success": true,
-          "time": 0.00016617774963378906
+          "time": 0.000247955322265625
         },
         "action_sequencing": {
           "success": false,
-          "time": 0.005499362945556641
+          "time": 0.0058209896087646484
         }
       },
       "success": false,
@@ -505,19 +607,19 @@ omplex', 'semantic_structure': {'main_clause': '', 'subordinate_clauses': [], 'c
       "steps": {
         "goal_interpretation": {
           "success": true,
-          "time": 0.0015702247619628906
+          "time": 0.0010137557983398438
         },
         "subgoal_decomposition": {
           "success": true,
-          "time": 0.0002391338348388672
+          "time": 0.0001876354217529297
         },
         "transition_modeling": {
           "success": true,
-          "time": 0.00018930435180664062
+          "time": 0.00024700164794921875
         },
         "action_sequencing": {
           "success": false,
-          "time": 0.0064127445220947266
+          "time": 0.006952524185180664
         }
       },
       "success": false,
@@ -530,19 +632,19 @@ omplex', 'semantic_structure': {'main_clause': '', 'subordinate_clauses': [], 'c
       "steps": {
         "goal_interpretation": {
           "success": true,
-          "time": 0.0007996559143066406
+          "time": 0.0007679462432861328
         },
         "subgoal_decomposition": {
           "success": true,
-          "time": 0.00028014183044433594
+          "time": 0.0002448558807373047
         },
         "transition_modeling": {
           "success": true,
-          "time": 0.000171661376953125
+          "time": 0.00025081634521484375
         },
         "action_sequencing": {
           "success": false,
-          "time": 0.006066560745239258
+          "time": 0.005398988723754883
         }
       },
       "success": false,
@@ -553,16 +655,16 @@ omplex', 'semantic_structure': {'main_clause': '', 'subordinate_clauses': [], 'c
 }
 
 6. performance_and_stability: ✓ PASS
-   Message: Performance: avg workflow time 0.00s, p95 response time 0.01s, success rate 100.0%, cache hit rate 64.5%
+   Message: Performance: avg workflow time 0.01s, p95 response time 0.01s, success rate 100.0%, cache hit rate 64.5%
    Details: {
   "iterations": 10,
   "average_times": {
-    "goal_interpretation": 0.0006420373916625977,
-    "subgoal_decomposition": 0.00015358924865722657,
-    "transition_modeling": 0.0001764535903930664,
-    "action_sequencing": 0.0033597946166992188,
-    "total_workflow": 0.004334640502929687,
-    "p95_response_time": 0.0050411224365234375
+    "goal_interpretation": 0.000754857063293457,
+    "subgoal_decomposition": 0.00018835067749023438,
+    "transition_modeling": 0.0005892515182495117,
+    "action_sequencing": 0.004443025588989258,
+    "total_workflow": 0.005979394912719727,
+    "p95_response_time": 0.008722782135009766
   },
   "performance_criteria": {
     "time_criteria": true,
@@ -613,48 +715,5 @@ INTEGRATION STATUS:
 ⚠️  FAIR: Partial integration, some modules need attention
 
 ⚠️  Could not save report file: Object of type SubgoalType is not JSON serializable
------------------------------------------------------------------------------------------------------------------- Captured log call -------------------------------------------------------------------------------------------------------------------
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  transition_modeling.transition_modeler:transition_modeler.py:555 No sequences were generated for request request_1764400018803850, creating fallback
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  transition_modeling.transition_modeler:transition_modeler.py:555 No sequences were generated for request request_1764400018835177, creating fallback
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  transition_modeling.transition_modeler:transition_modeler.py:555 No sequences were generated for request request_1764400018839637, creating fallback
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  transition_modeling.transition_modeler:transition_modeler.py:555 No sequences were generated for request request_1764400018844680, creating fallback
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  transition_modeling.transition_modeler:transition_modeler.py:555 No sequences were generated for request request_1764400018852238, creating fallback
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  transition_modeling.transition_modeler:transition_modeler.py:555 No sequences were generated for request request_1764400018859982, creating fallback
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  transition_modeling.transition_modeler:transition_modeler.py:555 No sequences were generated for request request_1764400018868122, creating fallback
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  transition_modeling.transition_modeler:transition_modeler.py:555 No sequences were generated for request request_1764400018872360, creating fallback
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  transition_modeling.transition_modeler:transition_modeler.py:555 No sequences were generated for request request_1764400018877399, creating fallback
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  transition_modeling.transition_modeler:transition_modeler.py:555 No sequences were generated for request request_1764400018881755, creating fallback
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  transition_modeling.transition_modeler:transition_modeler.py:555 No sequences were generated for request request_1764400018885955, creating fallback
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  transition_modeling.transition_modeler:transition_modeler.py:555 No sequences were generated for request request_1764400018889998, creating fallback
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  transition_modeling.transition_modeler:transition_modeler.py:555 No sequences were generated for request request_1764400018894455, creating fallback
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  transition_modeling.transition_modeler:transition_modeler.py:555 No sequences were generated for request request_1764400018898947, creating fallback
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  transition_modeling.transition_modeler:transition_modeler.py:555 No sequences were generated for request request_1764400018903287, creating fallback
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  transition_modeling.transition_modeler:transition_modeler.py:555 No sequences were generated for request request_1764400018907786, creating fallback
-WARNING  action_sequencing.action_sequencer:action_sequencer.py:443 Failed to generate action sequence: No solution found within time/depth limits
-WARNING  transition_modeling.transition_modeler:transition_modeler.py:503 No available transitions provided in request request_1764400018912187
-=============================================================================================================== short test summary info ================================================================================================================
-FAILED tests/test_four_module_integration.py::test_four_module_integration - AssertionError: 四模块集成测试未达到预期成功率
-================================================================================================================== 1 failed in 1.23s ===================================================================================================================
+
+⚠️  Four-module integration test completed with issues.
