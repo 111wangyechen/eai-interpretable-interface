@@ -18,7 +18,7 @@ if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
 # 导入集成模块
-from goal_interpretation import GoalInterpreter
+from goal_interpretation import EnhancedGoalInterpreter as GoalInterpreter
 from subgoal_decomposition.subgoal_decomposer_integration import SubgoalDecomposerIntegration
 from action_sequencing.action_sequencer_integration import ActionSequencerIntegration
 

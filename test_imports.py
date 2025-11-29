@@ -38,7 +38,7 @@ except ImportError as e:
 
 try:
     print("\n3. Testing goal_interpretation module...")
-    from goal_interpretation import GoalInterpreter
+    from goal_interpretation import EnhancedGoalInterpreter as GoalInterpreter
     print("   ✓ GoalInterpreter imported successfully")
 except ImportError as e:
     print(f"   ✗ Failed to import from goal_interpretation: {e}")

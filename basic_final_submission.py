@@ -60,7 +60,7 @@ sys.path.insert(0, project_root)
 
 # Import four core modules
 try:
-    from goal_interpretation import GoalInterpreter
+    from goal_interpretation import EnhancedGoalInterpreter as GoalInterpreter
     from subgoal_decomposition import SubgoalLTLIntegration
     from transition_modeling import TransitionModeler, ModelingRequest
     from action_sequencing import ActionSequencer, SequencingRequest, Action, ActionType

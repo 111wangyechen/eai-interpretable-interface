@@ -44,8 +44,8 @@ sys.path.insert(0, project_root)
 # Import four core modules (integrated versions)
 logger.info("Importing core modules...")
 try:
-    from goal_interpretation.interpretable_goal_interpreter import GoalInterpreter, LTLFormula
-    logger.info("✓ GoalInterpreter (integrated) imported successfully")
+    from goal_interpretation import EnhancedGoalInterpreter as GoalInterpreter, LTLFormula
+    logger.info("✓ GoalInterpreter (enhanced) imported successfully")
     from subgoal_decomposition.subgoal_decomposer_integration import SubgoalDecomposerIntegration
     logger.info("✓ SubgoalDecomposerIntegration imported successfully")
     from transition_modeling.transition_modeler_integration import TransitionModelerIntegration

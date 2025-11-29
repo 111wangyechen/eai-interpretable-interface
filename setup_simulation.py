@@ -269,7 +269,7 @@ from setup_simulation import load_config, initialize_environment
 
 # Import EAI Challenge modules
 try:
-    from goal_interpretation import GoalInterpreter
+    from goal_interpretation import EnhancedGoalInterpreter as GoalInterpreter
     from subgoal_decomposition import SubgoalLTLIntegration
     from transition_modeling import TransitionModeler
     from action_sequencing import ActionSequencer

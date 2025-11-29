@@ -42,8 +42,8 @@ class SubgoalLTLIntegration:
     """
     
     def __init__(self, 
-                 goal_interpreter: EnhancedGoalInterpreter = None,
-                 ltl_generator: EnhancedLTLGenerator = None,
+                 goal_interpreter: object = None,
+                 ltl_generator: object = None,
                  subgoal_decomposer: SubgoalDecomposer = None,
                  validator: SubgoalValidator = None,
                  optimizer: SubgoalOptimizer = None,
@@ -59,8 +59,27 @@ class SubgoalLTLIntegration:
             optimizer: 优化器
             analyzer: 分析器
         """
-        self.goal_interpreter = goal_interpreter or EnhancedGoalInterpreter()
-        self.ltl_generator = ltl_generator or EnhancedLTLGenerator()
+        # 避免硬编码EnhancedGoalInterpreter，使用传入的目标解释器或默认GoalInterpreter
+        self.goal_interpreter = goal_interpreter
+        # 只有在没有提供目标解释器时，才尝试动态导入并使用默认实现
+        if self.goal_interpreter is None:
+            try:
+                # 尝试导入GoalInterpreter（basic_final_submission.py中使用的版本）
+                from goal_interpretation import EnhancedGoalInterpreter as GoalInterpreter
+                self.goal_interpreter = GoalInterpreter()
+            except ImportError:
+                #  fallback到EnhancedGoalInterpreter
+                from goal_interpretation import EnhancedGoalInterpreter
+                self.goal_interpreter = EnhancedGoalInterpreter()
+        
+        self.ltl_generator = ltl_generator
+        if self.ltl_generator is None:
+            try:
+                from goal_interpretation import EnhancedLTLGenerator
+                self.ltl_generator = EnhancedLTLGenerator()
+            except ImportError:
+                self.ltl_generator = None
+                
         self.subgoal_decomposer = subgoal_decomposer or SubgoalDecomposer()
         self.validator = validator or SubgoalValidator()
         self.optimizer = optimizer or SubgoalOptimizer()
@@ -94,7 +113,15 @@ class SubgoalLTLIntegration:
         try:
             # 第一步：解释自然语言目标为LTL公式
             interpretation_result = self.goal_interpreter.interpret(natural_goal)
-            ltl_formula_str = interpretation_result['ltl_formula']
+            # 正确获取LTL公式，处理对象属性或字典访问
+            if hasattr(interpretation_result, 'formula'):
+                ltl_formula_str = getattr(interpretation_result, 'formula')
+            elif hasattr(interpretation_result, 'ltl_formula'):
+                ltl_formula_str = getattr(interpretation_result, 'ltl_formula')
+            elif isinstance(interpretation_result, dict):
+                ltl_formula_str = interpretation_result.get('ltl_formula', '')
+            else:
+                ltl_formula_str = str(interpretation_result)
             self.logger.info(f"生成的LTL公式: {ltl_formula_str}")
             
             # 第二步：使用LTL字符串创建LTLFormula对象，然后分解为子目标

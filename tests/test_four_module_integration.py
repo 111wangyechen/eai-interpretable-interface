@@ -18,7 +18,7 @@ sys.path.insert(0, project_root)
 
 # 导入四个模块
 try:
-    from goal_interpretation import GoalInterpreter
+    from goal_interpretation import EnhancedGoalInterpreter as GoalInterpreter
     from subgoal_decomposition import SubgoalDecomposer
     from transition_modeling import TransitionModeler, ModelingRequest, ModelingResponse
     from action_sequencing import ActionSequencer, ActionType, Action, SequencingRequest
