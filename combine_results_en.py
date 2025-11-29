@@ -9,6 +9,7 @@ This script will:
 2. Process input natural language goals
 3. Integrate outputs from each module
 4. Generate JSON format submission files according to competition requirements
+5. Automatically save terminal output to a log file
 """
 
 import os
@@ -18,6 +19,33 @@ import time
 import argparse
 from datetime import datetime
 from typing import Dict, List, Any, Optional, Type
+
+
+class OutputLogger:
+    """
+    Custom output logger that writes to both console and file simultaneously
+    """
+    def __init__(self, log_file: str):
+        self.console = sys.stdout
+        self.log = open(log_file, 'w', encoding='utf-8')
+        
+    def write(self, message: str):
+        """Write message to both console and log file"""
+        self.console.write(message)
+        self.log.write(message)
+        # Flush to ensure immediate writing
+        self.flush()
+        
+    def flush(self):
+        """Flush both console and log file buffers"""
+        self.console.flush()
+        self.log.flush()
+        
+    def close(self):
+        """Close the log file"""
+        if hasattr(self, 'log') and not self.log.closed:
+            self.log.close()
+            sys.stdout = self.console
 
 # Custom JSON encoder to handle non-serializable objects
 class CustomJSONEncoder(json.JSONEncoder):
@@ -453,6 +481,17 @@ def main():
     # Ensure output directory exists
     os.makedirs(args.output_dir, exist_ok=True)
     
+    # Initialize output logger
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    log_file = os.path.join(args.output_dir, f"terminal_output_{timestamp}.log")
+    logger = OutputLogger(log_file)
+    sys.stdout = logger
+    
+    print(f"=== EAI Challenge Submission Script ===")
+    print(f"Start time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"Log file: {log_file}")
+    print(f"Output directory: {args.output_dir}")
+    
     if args.single:
         # Process single goal
         process_goal(args.single, args.output_dir)
@@ -470,14 +509,16 @@ def main():
     elif args.create_sample:
         # Create sample goals file
         create_sample_goals_file(args.create_sample)
+    
+    print(f"\n=== Script completed ===")
+    print(f"End time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print("="*80)
+    
+    # Close the logger
+    logger.close()
 
 
 if __name__ == "__main__":
-    print("="*80)
-    print("EAI Challenge Submission Script")
-    print("Integrated Interface for Embodied Agents")
-    print("="*80)
-    
     try:
         main()
         print("\n✅ Script execution completed")
