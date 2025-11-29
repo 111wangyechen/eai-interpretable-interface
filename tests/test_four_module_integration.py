@@ -289,12 +289,36 @@ class FourModuleIntegrationTester:
                 else:
                     goal_state = {'subgoal_completed': True, 'subgoal_index': i}
                 
-                # 创建更丰富的动作列表，包括导航和操作类型
+                # 创建更丰富的动作列表，包括导航和操作类型，添加适当的preconditions和effects
                 available_actions = [
-                    Action(id="navigate_to_ball", name="navigate_to_ball", action_type=ActionType.NAVIGATION),
-                    Action(id="navigate_to_table", name="navigate_to_table", action_type=ActionType.NAVIGATION),
-                    Action(id="pickup_ball", name="pickup_ball", action_type=ActionType.MANIPULATION),
-                    Action(id="place_ball", name="place_ball", action_type=ActionType.MANIPULATION)
+                    Action(
+                        id="navigate_to_ball", 
+                        name="navigate_to_ball", 
+                        action_type=ActionType.NAVIGATION,
+                        preconditions=["at_location=living_room"],
+                        effects=["at_location=ball_location"]
+                    ),
+                    Action(
+                        id="navigate_to_table", 
+                        name="navigate_to_table", 
+                        action_type=ActionType.NAVIGATION,
+                        preconditions=["at_location=ball_location"],
+                        effects=["at_location=kitchen_table"]
+                    ),
+                    Action(
+                        id="pickup_ball", 
+                        name="pickup_ball", 
+                        action_type=ActionType.MANIPULATION,
+                        preconditions=["at_location=ball_location", "hands_free=true"],
+                        effects=["holding=red_ball", "hands_free=false"]
+                    ),
+                    Action(
+                        id="place_ball", 
+                        name="place_ball", 
+                        action_type=ActionType.MANIPULATION,
+                        preconditions=["at_location=kitchen_table", "holding=red_ball"],
+                        effects=["object_at=kitchen_table", "holding=none", "hands_free=true"]
+                    )
                 ]
                 
                 # 创建SequencingRequest对象
