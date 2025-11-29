@@ -1,0 +1,297 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+EAI Challenge: Basic Final Submission Script
+This script processes goals from the parquet files in the data directory
+and generates submission results according to competition requirements.
+"""
+
+import os
+import sys
+import json
+import time
+import pandas as pd
+from datetime import datetime
+from typing import Dict, List, Any, Optional
+
+# Add project root directory to Python path
+project_root = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, project_root)
+
+# Import four core modules
+try:
+    from goal_interpretation import GoalInterpreter
+    from subgoal_decomposition import SubgoalLTLIntegration
+    from transition_modeling import TransitionModeler, ModelingRequest
+    from action_sequencing import ActionSequencer, SequencingRequest, Action, ActionType
+    print("✓ All four modules imported successfully")
+except ImportError as e:
+    print(f"✗ Module import failed: {e}")
+    sys.exit(1)
+
+
+class CustomJSONEncoder(json.JSONEncoder):
+    """Custom JSON encoder to handle non-serializable objects"""
+    def default(self, obj):
+        # Handle custom objects
+        if hasattr(obj, '__class__'):
+            # Try to use to_dict method if available
+            if hasattr(obj, 'to_dict'):
+                return obj.to_dict()
+            # Otherwise return string representation
+            try:
+                return str(obj)
+            except:
+                return {"type": obj.__class__.__name__, "message": "Non-serializable object"}
+        # Call the parent class default method if all else fails
+        return super().default(obj)
+
+
+def process_single_goal(natural_goal: str, task_id: str, dataset: str) -> Dict[str, Any]:
+    """
+    Process a single natural language goal through all four modules
+    
+    Args:
+        natural_goal: Natural language goal description
+        task_id: Unique task identifier
+        dataset: Dataset name
+    
+    Returns:
+        Processed result dictionary
+    """
+    start_time = time.time()
+    
+    # Initialize modules
+    goal_interpreter = GoalInterpreter()
+    subgoal_integration = SubgoalLTLIntegration()
+    transition_modeler = TransitionModeler()
+    action_sequencer = ActionSequencer()
+    
+    result = {
+        'task_id': task_id,
+        'dataset': dataset,
+        'natural_goal': natural_goal,
+        'status': 'success',
+        'timestamp': datetime.now().isoformat()
+    }
+    
+    try:
+        # 1. Goal Interpretation
+        print(f"   1. Interpreting goal: {natural_goal[:30]}...")
+        goal_result = goal_interpreter.interpret(natural_goal)
+        result['goal_interpretation'] = {
+            'ltl_formula': getattr(goal_result, 'formula', getattr(goal_result, 'ltl_formula', '')),
+            'confidence': getattr(goal_result, 'confidence', 0.0)
+        }
+        
+        # 2. Subgoal Decomposition
+        print("   2. Decomposing into subgoals...")
+        subgoal_result = subgoal_integration.process_goal(natural_goal)
+        if hasattr(subgoal_result, 'decomposition_result'):
+            result['subgoals'] = subgoal_result.decomposition_result
+        
+        # 3. Transition Modeling
+        print("   3. Modeling state transitions...")
+        # Create a basic modeling request with sample states
+        initial_state = {'at_location': 'start', 'task_completed': False}
+        goal_state = {'at_location': 'target', 'task_completed': True}
+        available_transitions = transition_modeler.create_sample_transitions()
+        
+        modeling_request = ModelingRequest(
+            initial_state=initial_state,
+            goal_state=goal_state,
+            available_transitions=available_transitions
+        )
+        
+        modeling_response = transition_modeler.model_transitions(modeling_request)
+        result['transition_model'] = {
+            'request_id': getattr(modeling_response, 'request_id', ''),
+            'predicted_sequences_count': len(getattr(modeling_response, 'predicted_sequences', []))
+        }
+        
+        # 4. Action Sequencing
+        print("   4. Generating action sequence...")
+        # Define basic actions with proper preconditions and effects
+        available_actions = [
+            Action(
+                id="move_to_target",
+                name="MoveToTarget",
+                action_type=ActionType.NAVIGATION,
+                parameters={"target": "target"},
+                preconditions={"at_location": "start"},
+                effects={"at_location": "target"}
+            ),
+            Action(
+                id="complete_task",
+                name="CompleteTask",
+                action_type=ActionType.MANIPULATION,
+                parameters={},
+                preconditions={"at_location": "target"},
+                effects={"task_completed": True}
+            )
+        ]
+        
+        sequencing_request = SequencingRequest(
+            initial_state=initial_state,
+            goal_state=goal_state,
+            available_actions=available_actions
+        )
+        
+        sequencing_response = action_sequencer.generate_sequence(sequencing_request)
+        
+        if sequencing_response.success and hasattr(sequencing_response, 'action_sequence'):
+            result['action_sequence'] = sequencing_response.action_sequence
+        else:
+            result['status'] = 'failed'
+            result['error'] = f"Action sequencing failed: {getattr(sequencing_response, 'error_message', 'Unknown error')}"
+        
+    except Exception as e:
+        result['status'] = 'failed'
+        result['error'] = f"Processing failed: {str(e)}"
+    
+    # Calculate execution time
+    end_time = time.time()
+    result['execution_time_ms'] = int((end_time - start_time) * 1000)
+    
+    return result
+
+
+def process_parquet_files(data_dir: str, output_dir: str) -> List[Dict[str, Any]]:
+    """
+    Process all parquet files in the data directory
+    
+    Args:
+        data_dir: Directory containing parquet files
+        output_dir: Directory to save output files
+    
+    Returns:
+        List of processed results
+    """
+    # Get all parquet files
+    parquet_files = [f for f in os.listdir(data_dir) if f.endswith('.parquet')]
+    if not parquet_files:
+        print(f"✗ No parquet files found in {data_dir}")
+        return []
+    
+    all_results = []
+    
+    for file_name in parquet_files:
+        file_path = os.path.join(data_dir, file_name)
+        dataset_name = file_name.split('-')[0]  # Extract dataset name from filename
+        
+        print(f"\n{'='*80}")
+        print(f"Processing file: {file_name}")
+        print(f"Dataset: {dataset_name}")
+        print(f"{'='*80}")
+        
+        # Read parquet file
+        try:
+            df = pd.read_parquet(file_path)
+            print(f"✓ Successfully read {len(df)} rows")
+        except Exception as e:
+            print(f"✗ Failed to read parquet file: {e}")
+            continue
+        
+        # Ensure required columns are present
+        required_columns = ['task_id', 'natural_language_description']
+        if not all(col in df.columns for col in required_columns):
+            print(f"✗ Missing required columns. Expected: {required_columns}, Got: {list(df.columns)}")
+            continue
+        
+        # Process each row
+        for idx, row in df.iterrows():
+            task_id = str(row['task_id'])
+            natural_goal = str(row['natural_language_description'])
+            
+            print(f"\nProcessing task {idx+1}/{len(df)}: {task_id}")
+            print(f"Goal: {natural_goal}")
+            
+            result = process_single_goal(natural_goal, task_id, dataset_name)
+            all_results.append(result)
+            
+            status = "✓ SUCCESS" if result['status'] == 'success' else "✗ FAILED"
+            print(f"   {status} in {result['execution_time_ms']}ms")
+    
+    return all_results
+
+
+def generate_final_submission(results: List[Dict[str, Any]], output_file: str) -> None:
+    """
+    Generate the final submission file
+    
+    Args:
+        results: List of processed results
+        output_file: Path to save the final submission file
+    """
+    # Calculate summary statistics
+    total_tasks = len(results)
+    successful_tasks = sum(1 for r in results if r['status'] == 'success')
+    failed_tasks = total_tasks - successful_tasks
+    
+    submission_data = {
+        "submission_info": {
+            "version": "1.0.0",
+            "timestamp": datetime.now().isoformat(),
+            "generator": "basic_final_submission.py",
+            "total_tasks": total_tasks,
+            "successful_tasks": successful_tasks,
+            "failed_tasks": failed_tasks,
+            "success_rate": successful_tasks / total_tasks if total_tasks > 0 else 0.0
+        },
+        "results": results
+    }
+    
+    # Save the final submission file
+    try:
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(submission_data, f, indent=2, ensure_ascii=False, cls=CustomJSONEncoder)
+        print(f"\n{'='*80}")
+        print(f"✓ Final submission file generated: {output_file}")
+        print(f"✓ Total tasks processed: {total_tasks}")
+        print(f"✓ Successful: {successful_tasks} ({successful_tasks/total_tasks*100:.1f}%)")
+        print(f"✓ Failed: {failed_tasks} ({failed_tasks/total_tasks*100:.1f}%)")
+        print(f"{'='*80}")
+    except Exception as e:
+        print(f"✗ Failed to generate submission file: {e}")
+        sys.exit(1)
+
+
+def main():
+    """Main function"""
+    print("="*80)
+    print("EAI Challenge: Basic Final Submission Script")
+    print("="*80)
+    
+    # Configuration
+    data_dir = os.path.join(project_root, 'data')
+    output_dir = os.path.join(project_root, 'final_submission_results')
+    final_output_file = os.path.join(project_root, 'final_submission.json')
+    
+    # Create output directory if it doesn't exist
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Process all parquet files
+    print(f"\nProcessing parquet files from: {data_dir}")
+    results = process_parquet_files(data_dir, output_dir)
+    
+    # Generate final submission
+    if results:
+        generate_final_submission(results, final_output_file)
+    else:
+        print("✗ No results to generate submission")
+        sys.exit(1)
+    
+    print("\n✅ Basic final submission script completed successfully")
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\n❌ Script interrupted by user")
+        sys.exit(1)
+    except Exception as e:
+        print(f"\n❌ Script execution error: {e}")
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
