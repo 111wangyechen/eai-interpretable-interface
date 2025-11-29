@@ -158,16 +158,16 @@ def process_single_goal(natural_goal: str, task_id: str, dataset: str) -> Dict[s
                 name="MoveToTarget",
                 action_type=ActionType.NAVIGATION,
                 parameters={"target": "target"},
-                preconditions={"at_location": "start"},
-                effects={"at_location": "target"}
+                preconditions=["at_location == start"],
+                effects=["at_location = target"]
             ),
             Action(
                 id="complete_task",
                 name="CompleteTask",
                 action_type=ActionType.MANIPULATION,
                 parameters={},
-                preconditions={"at_location": "target"},
-                effects={"task_completed": True}
+                preconditions=["at_location == target"],
+                effects=["task_completed = True"]
             )
         ]
         
