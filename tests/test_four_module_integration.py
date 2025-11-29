@@ -295,29 +295,29 @@ class FourModuleIntegrationTester:
                         id="navigate_to_ball", 
                         name="navigate_to_ball", 
                         action_type=ActionType.NAVIGATION,
-                        preconditions=["at_location=living_room"],
-                        effects=["at_location=ball_location"]
+                        preconditions={"at_location": "living_room"},
+                        effects={"at_location": "ball_location"}
                     ),
                     Action(
                         id="navigate_to_table", 
                         name="navigate_to_table", 
                         action_type=ActionType.NAVIGATION,
-                        preconditions=["at_location=ball_location"],
-                        effects=["at_location=kitchen_table"]
+                        preconditions={"at_location": "ball_location"},
+                        effects={"at_location": "kitchen_table"}
                     ),
                     Action(
                         id="pickup_ball", 
                         name="pickup_ball", 
                         action_type=ActionType.MANIPULATION,
-                        preconditions=["at_location=ball_location", "hands_free=true"],
-                        effects=["holding=red_ball", "hands_free=false"]
+                        preconditions={"at_location": "ball_location", "hands_free": True},
+                        effects={"holding": "red_ball", "hands_free": False}
                     ),
                     Action(
                         id="place_ball", 
                         name="place_ball", 
                         action_type=ActionType.MANIPULATION,
-                        preconditions=["at_location=kitchen_table", "holding=red_ball"],
-                        effects=["object_at=kitchen_table", "holding=none", "hands_free=true"]
+                        preconditions={"at_location": "kitchen_table", "holding": "red_ball"},
+                        effects={"object_at": "kitchen_table", "holding": "none", "hands_free": True}
                     )
                 ]
                 
@@ -508,14 +508,22 @@ class FourModuleIntegrationTester:
                     
                     # 根据场景动态准备动作集
                     test_actions = [
-                        Action(id="move", name="move", action_type=ActionType.NAVIGATION),
-                        Action(id="pickup", name="pickup", action_type=ActionType.MANIPULATION),
-                        Action(id="place", name="place", action_type=ActionType.MANIPULATION)
+                        Action(id="move", name="move", action_type=ActionType.NAVIGATION, 
+                               preconditions={"at_location": "start"}, 
+                               effects={"at_location": "table"}),
+                        Action(id="pickup", name="pickup", action_type=ActionType.MANIPULATION, 
+                               preconditions={"at_location": "ball", "has_ball": False}, 
+                               effects={"has_ball": True}),
+                        Action(id="place", name="place", action_type=ActionType.MANIPULATION, 
+                               preconditions={"at_location": "table", "has_ball": True}, 
+                               effects={"has_ball": False})
                     ]
                     
                     # 为特定场景添加更多动作
                     if "冰箱" in scenario['goal'] or "refrigerator" in scenario['goal'].lower():
-                        test_actions.append(Action(id="open_door", name="open_door", action_type=ActionType.MANIPULATION))
+                        test_actions.append(Action(id="open_door", name="open_door", action_type=ActionType.MANIPULATION, 
+                                                   preconditions={"at_location": "refrigerator", "door_open": False}, 
+                                                   effects={"door_open": True}))
                     
                     print(f"       Available actions: {[action.name for action in test_actions]}")
                     
