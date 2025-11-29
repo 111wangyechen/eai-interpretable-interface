@@ -39,7 +39,7 @@ sys.path.insert(0, project_root)
 
 try:
     # Import four core modules
-    from goal_interpretation import GoalInterpreter
+    from goal_interpretation import EnhancedGoalInterpreter
     from subgoal_decomposition import SubgoalLTLIntegration
     from transition_modeling import TransitionModeler, ModelingRequest
     from action_sequencing import ActionSequencer, SequencingRequest, Action, ActionType
@@ -104,7 +104,7 @@ def process_goal(natural_goal: str, output_dir: str = ".") -> Dict[str, Any]:
     print("="*60)
     
     # 1. Goal Interpretation module
-    goal_interpreter = GoalInterpreter()
+    goal_interpreter = EnhancedGoalInterpreter()
     
     # 2. Subgoal Decomposition module
     subgoal_integration = SubgoalLTLIntegration()
@@ -127,9 +127,8 @@ def process_goal(natural_goal: str, output_dir: str = ".") -> Dict[str, Any]:
     try:
         goal_result = goal_interpreter.interpret(natural_goal)
         print(f"✓ Goal interpretation successful")
-        print(f"  LTL Formula: {goal_result.formula}")
-        # Confidence attribute not available in LTLFormula class
-        print(f"  Formula valid: {goal_result.is_valid()}")
+        print(f"  LTL Formula: {goal_result['ltl_formula']}")
+        print(f"  Formula valid: {goal_result['validation_result']['is_valid']}")
     except Exception as e:
         print(f"✗ Goal interpretation failed: {e}")
         return {
@@ -294,9 +293,8 @@ def process_goal(natural_goal: str, output_dir: str = ".") -> Dict[str, Any]:
         'execution_time_ms': int(execution_time * 1000),
         'goal': {
             'natural_language': natural_goal,
-            'ltl_formula': goal_result.formula,
-            # Handle confidence attribute safely
-            'confidence': getattr(goal_result, 'confidence', 0.0) if hasattr(goal_result, 'confidence') else 0.0
+            'ltl_formula': goal_result['ltl_formula'],
+            'confidence': goal_result.get('validation_result', {}).get('confidence', 0.0)
         },
         'subgoals': subgoal_result.decomposition_result.to_dict() if subgoal_result.decomposition_result else None,
         'transition_model': simplified_transition_model,

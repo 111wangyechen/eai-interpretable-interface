@@ -14,7 +14,7 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-from goal_interpretation import GoalInterpreter, LTLFormula, EnhancedLTLGenerator
+from goal_interpretation import EnhancedGoalInterpreter, LTLFormula, EnhancedLTLGenerator
 from .subgoal_decomposer import SubgoalDecomposer, DecompositionResult, Subgoal, SubgoalType
 from .subgoal_validator import SubgoalValidator, SubgoalOptimizer, SubgoalAnalyzer
 
@@ -42,7 +42,7 @@ class SubgoalLTLIntegration:
     """
     
     def __init__(self, 
-                 goal_interpreter: GoalInterpreter = None,
+                 goal_interpreter: EnhancedGoalInterpreter = None,
                  ltl_generator: EnhancedLTLGenerator = None,
                  subgoal_decomposer: SubgoalDecomposer = None,
                  validator: SubgoalValidator = None,
@@ -59,7 +59,7 @@ class SubgoalLTLIntegration:
             optimizer: 优化器
             analyzer: 分析器
         """
-        self.goal_interpreter = goal_interpreter or GoalInterpreter()
+        self.goal_interpreter = goal_interpreter or EnhancedGoalInterpreter()
         self.ltl_generator = ltl_generator or EnhancedLTLGenerator()
         self.subgoal_decomposer = subgoal_decomposer or SubgoalDecomposer()
         self.validator = validator or SubgoalValidator()
@@ -93,10 +93,12 @@ class SubgoalLTLIntegration:
         
         try:
             # 第一步：解释自然语言目标为LTL公式
-            ltl_formula = self.goal_interpreter.interpret(natural_goal)
-            self.logger.info(f"生成的LTL公式: {ltl_formula.formula}")
+            interpretation_result = self.goal_interpreter.interpret(natural_goal)
+            ltl_formula_str = interpretation_result['ltl_formula']
+            self.logger.info(f"生成的LTL公式: {ltl_formula_str}")
             
-            # 第二步：分解LTL公式为子目标
+            # 第二步：使用LTL字符串创建LTLFormula对象，然后分解为子目标
+            ltl_formula = LTLFormula(formula=ltl_formula_str)
             decomposition_result = self.subgoal_decomposer.decompose(
                 ltl_formula, max_depth=max_depth, max_subgoals=max_subgoals
             )
