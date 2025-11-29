@@ -4,6 +4,11 @@
 EAI Challenge: Basic Final Submission Script
 This script processes goals from the parquet files in the data directory
 and generates submission results according to competition requirements.
+
+Features:
+1. Process parquet files from the data directory
+2. Generate submission results according to competition requirements
+3. Automatically save terminal output to a log file
 """
 
 import os
@@ -13,6 +18,41 @@ import time
 import pandas as pd
 from datetime import datetime
 from typing import Dict, List, Any, Optional
+
+
+class OutputLogger:
+    """Class to simultaneously write output to terminal and log file"""
+    
+    def __init__(self, log_file: str):
+        """
+        Initialize OutputLogger
+        
+        Args:
+            log_file (str): Path to the log file
+        """
+        self.terminal = sys.stdout
+        self.log = open(log_file, "a", encoding="utf-8")
+    
+    def write(self, message: str):
+        """
+        Write message to both terminal and log file
+        
+        Args:
+            message (str): Message to write
+        """
+        self.terminal.write(message)
+        self.log.write(message)
+    
+    def flush(self):
+        """Flush both terminal and log file buffers"""
+        self.terminal.flush()
+        self.log.flush()
+        os.fsync(self.log.fileno())
+    
+    def close(self):
+        """Close the log file"""
+        if self.log:
+            self.log.close()
 
 # Add project root directory to Python path
 project_root = os.path.dirname(os.path.abspath(__file__))
@@ -258,30 +298,55 @@ def generate_final_submission(results: List[Dict[str, Any]], output_file: str) -
 
 def main():
     """Main function"""
-    print("="*80)
-    print("EAI Challenge: Basic Final Submission Script")
-    print("="*80)
+    start_time = datetime.now()
+    timestamp = start_time.strftime("%Y%m%d_%H%M%S")
     
     # Configuration
     data_dir = os.path.join(project_root, 'data')
     output_dir = os.path.join(project_root, 'final_submission_results')
     final_output_file = os.path.join(project_root, 'final_submission.json')
+    log_dir = os.path.join(project_root, 'submission_outputs')
+    log_file = os.path.join(log_dir, f'terminal_output_{timestamp}.log')
     
-    # Create output directory if it doesn't exist
+    # Create necessary directories
     os.makedirs(output_dir, exist_ok=True)
+    os.makedirs(log_dir, exist_ok=True)
     
-    # Process all parquet files
-    print(f"\nProcessing parquet files from: {data_dir}")
-    results = process_parquet_files(data_dir, output_dir)
+    # Initialize output logger
+    logger = OutputLogger(log_file)
+    sys.stdout = logger
     
-    # Generate final submission
-    if results:
-        generate_final_submission(results, final_output_file)
-    else:
-        print("✗ No results to generate submission")
-        sys.exit(1)
+    # Print header
+    print("="*80)
+    print("EAI Challenge: Basic Final Submission Script")
+    print("="*80)
+    print(f"Start time: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"Log file: {log_file}")
+    print(f"Output directory: {output_dir}")
     
-    print("\n✅ Basic final submission script completed successfully")
+    try:
+        # Process all parquet files
+        print(f"\nProcessing parquet files from: {data_dir}")
+        results = process_parquet_files(data_dir, output_dir)
+        
+        # Generate final submission
+        if results:
+            generate_final_submission(results, final_output_file)
+            print(f"\n✅ Final submission file generated: {final_output_file}")
+        else:
+            print("✗ No results to generate submission")
+            sys.exit(1)
+        
+        end_time = datetime.now()
+        print(f"\n✅ Basic final submission script completed successfully")
+        print(f"\n=== Script completed ===")
+        print(f"End time: {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
+        print(f"Duration: {end_time - start_time}")
+        print("="*80)
+    finally:
+        # Restore original stdout and close logger
+        sys.stdout = logger.terminal
+        logger.close()
 
 
 if __name__ == "__main__":
