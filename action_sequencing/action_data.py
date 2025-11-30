@@ -282,6 +282,10 @@ class ActionSequence:
         """获取动作序列总时长"""
         return sum(action.duration for action in self.actions)
     
+    def __len__(self) -> int:
+        """返回动作序列中动作的数量"""
+        return len(self.actions)
+    
     def get_statistics(self) -> Dict[str, Any]:
         """获取序列统计信息"""
         total_actions = len(self.actions)
