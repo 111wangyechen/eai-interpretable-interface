@@ -140,18 +140,35 @@ def process_single_goal(natural_goal: str, task_id: str, dataset: str) -> Dict[s
             'email_checked': False,
             'has_ball': False,
             'door_state': 'closed',
+            'has_book': False,
+            'has_spoon': False,
+            'has_knife': False,
+            'has_rag': False,
+            'lights': {'state': 'off'},
+            'temperature': 22,
+            'time_of_day': 'morning',
+            # 桌子状态
+            'table': {'location': 'desk', 'state': 'dusty', 'is_cleanable': True},
+            # 书架状态
+            'bookshelf': {'location': 'room', 'state': 'organized', 'is_accessible': True},
+            # 厨房区域状态
+            'kitchen_counter': {'location': 'kitchen', 'state': 'clean', 'is_usable': True},
+            'stove': {'location': 'kitchen', 'state': 'off', 'is_operable': True},
             # 物体属性
             'rag_n_01_1': {'location': 'cabinet', 'state': 'clean', 'is_graspable': True},
             'pot_plant_n_01_2': {'location': 'window_sill', 'state': 'healthy', 'is_graspable': True},
-            'carton_66': {'location': 'floor', 'state': 'empty', 'is_openable': True},
+            'carton_66': {'location': 'floor', 'state': 'open', 'is_openable': True, 'is_graspable': True},
             'computer': {'location': 'desk', 'state': 'closed', 'is_operable': True},
             'sink_n_01_1': {'location': 'kitchen', 'state': 'empty', 'is_usable': True},
             'fridge': {'location': 'kitchen', 'state': 'closed', 'is_openable': True},
             'pot': {'location': 'stove', 'state': 'clean', 'is_usable': True},
-            # 环境细节
-            'lights': {'state': 'off'},
-            'temperature': 22,
-            'time_of_day': 'morning'
+            'book': {'location': 'table', 'state': 'available', 'is_graspable': True},
+            'spoon': {'location': 'drawer', 'state': 'clean', 'is_graspable': True},
+            'knife': {'location': 'drawer', 'state': 'clean', 'is_graspable': True},
+            'milk': {'location': 'fridge', 'state': 'cold', 'is_liquid': True},
+            'glass': {'location': 'counter', 'state': 'empty', 'is_usable': True},
+            'bread': {'location': 'counter', 'state': 'whole', 'is_edible': True},
+            'soup': {'location': 'fridge', 'state': 'raw', 'is_edible': True}
         }
         goal_state = {
             'at_location': 'desk', 
@@ -160,18 +177,35 @@ def process_single_goal(natural_goal: str, task_id: str, dataset: str) -> Dict[s
             'email_checked': True,
             'has_ball': False,
             'door_state': 'closed',
+            'has_book': False,
+            'has_spoon': False,
+            'has_knife': False,
+            'has_rag': False,
+            'lights': {'state': 'off'},
+            'temperature': 22,
+            'time_of_day': 'morning',
+            # 桌子状态
+            'table': {'location': 'desk', 'state': 'clean', 'is_cleanable': True},
+            # 书架状态
+            'bookshelf': {'location': 'room', 'state': 'organized', 'is_accessible': True},
+            # 厨房区域状态
+            'kitchen_counter': {'location': 'kitchen', 'state': 'clean', 'is_usable': True},
+            'stove': {'location': 'kitchen', 'state': 'off', 'is_operable': True},
             # 物体属性（目标状态）
             'rag_n_01_1': {'location': 'cabinet', 'state': 'clean', 'is_graspable': True},
             'pot_plant_n_01_2': {'location': 'window_sill', 'state': 'healthy', 'is_graspable': True},
-            'carton_66': {'location': 'floor', 'state': 'full', 'is_openable': True},
+            'carton_66': {'location': 'floor', 'state': 'full', 'is_openable': True, 'is_graspable': True},
             'computer': {'location': 'desk', 'state': 'closed', 'is_operable': True},
             'sink_n_01_1': {'location': 'kitchen', 'state': 'empty', 'is_usable': True},
             'fridge': {'location': 'kitchen', 'state': 'closed', 'is_openable': True},
             'pot': {'location': 'stove', 'state': 'clean', 'is_usable': True},
-            # 环境细节（目标状态）
-            'lights': {'state': 'off'},
-            'temperature': 22,
-            'time_of_day': 'morning'
+            'book': {'location': 'carton_66', 'state': 'stored', 'is_graspable': True},
+            'spoon': {'location': 'drawer', 'state': 'clean', 'is_graspable': True},
+            'knife': {'location': 'drawer', 'state': 'clean', 'is_graspable': True},
+            'milk': {'location': 'fridge', 'state': 'cold', 'is_liquid': True},
+            'glass': {'location': 'counter', 'state': 'empty', 'is_usable': True},
+            'bread': {'location': 'counter', 'state': 'whole', 'is_edible': True},
+            'soup': {'location': 'fridge', 'state': 'raw', 'is_edible': True}
         }
         available_transitions = transition_modeler.create_sample_transitions()
         
@@ -208,6 +242,22 @@ def process_single_goal(natural_goal: str, task_id: str, dataset: str) -> Dict[s
                 preconditions=["at_location != kitchen"],
                 effects=["at_location = kitchen"]
             ),
+            Action(
+                id="navigate_to_cabinet",
+                name="NavigateTo",
+                action_type=ActionType.NAVIGATION,
+                parameters={"target": "cabinet"},
+                preconditions=["at_location != cabinet"],
+                effects=["at_location = cabinet"]
+            ),
+            Action(
+                id="navigate_to_room",
+                name="NavigateTo",
+                action_type=ActionType.NAVIGATION,
+                parameters={"target": "room"},
+                preconditions=["at_location != room"],
+                effects=["at_location = room"]
+            ),
             # 物体抓取与释放
             Action(
                 id="grasp_rag",
@@ -215,7 +265,7 @@ def process_single_goal(natural_goal: str, task_id: str, dataset: str) -> Dict[s
                 action_type=ActionType.MANIPULATION,
                 parameters={"object": "rag_n_01_1"},
                 preconditions=["at_location = cabinet", "rag_n_01_1.is_graspable = True"],
-                effects=["has_rag = True"]
+                effects=["has_rag = True", "rag_n_01_1.location = 'hand'"]
             ),
             Action(
                 id="release_rag",
@@ -223,7 +273,55 @@ def process_single_goal(natural_goal: str, task_id: str, dataset: str) -> Dict[s
                 action_type=ActionType.MANIPULATION,
                 parameters={"object": "rag_n_01_1"},
                 preconditions=["has_rag = True"],
-                effects=["has_rag = False"]
+                effects=["has_rag = False", "rag_n_01_1.location = 'cabinet'"]
+            ),
+            Action(
+                id="grasp_book",
+                name="Grasp",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "book"},
+                preconditions=["at_location = desk", "book.is_graspable = True", "book.location = 'table'"],
+                effects=["has_book = True", "book.location = 'hand'"]
+            ),
+            Action(
+                id="release_book",
+                name="Release",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "book"},
+                preconditions=["has_book = True"],
+                effects=["has_book = False"]
+            ),
+            Action(
+                id="grasp_spoon",
+                name="Grasp",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "spoon"},
+                preconditions=["at_location = kitchen", "spoon.is_graspable = True", "spoon.location = 'drawer'"],
+                effects=["has_spoon = True", "spoon.location = 'hand'"]
+            ),
+            Action(
+                id="release_spoon",
+                name="Release",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "spoon"},
+                preconditions=["has_spoon = True"],
+                effects=["has_spoon = False", "spoon.location = 'drawer'"]
+            ),
+            Action(
+                id="grasp_knife",
+                name="Grasp",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "knife"},
+                preconditions=["at_location = kitchen", "knife.is_graspable = True", "knife.location = 'drawer'"],
+                effects=["has_knife = True", "knife.location = 'hand'"]
+            ),
+            Action(
+                id="release_knife",
+                name="Release",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "knife"},
+                preconditions=["has_knife = True"],
+                effects=["has_knife = False", "knife.location = 'drawer'"]
             ),
             # 物体放置与空间操作
             Action(
@@ -231,8 +329,24 @@ def process_single_goal(natural_goal: str, task_id: str, dataset: str) -> Dict[s
                 name="PlaceInside",
                 action_type=ActionType.MANIPULATION,
                 parameters={"object": "book", "container": "carton_66"},
-                preconditions=["has_book = True", "carton_66.state = open"],
-                effects=["carton_66.state = full", "has_book = False"]
+                preconditions=["has_book = True", "carton_66.state = open", "at_location = desk"],
+                effects=["carton_66.state = full", "has_book = False", "book.location = 'carton_66'", "book.state = 'stored'"]
+            ),
+            Action(
+                id="place_on_table",
+                name="PlaceOn",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "book", "surface": "table"},
+                preconditions=["has_book = True", "at_location = desk"],
+                effects=["has_book = False", "book.location = 'table'", "book.state = 'available'"]
+            ),
+            Action(
+                id="place_on_shelf",
+                name="PlaceOn",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "book", "surface": "bookshelf"},
+                preconditions=["has_book = True", "at_location = room", "bookshelf.is_accessible = True"],
+                effects=["has_book = False", "book.location = 'bookshelf'", "book.state = 'organized'"]
             ),
             Action(
                 id="place_nextto_pot",
@@ -240,7 +354,7 @@ def process_single_goal(natural_goal: str, task_id: str, dataset: str) -> Dict[s
                 action_type=ActionType.MANIPULATION,
                 parameters={"object": "spoon", "target": "pot"},
                 preconditions=["has_spoon = True", "at_location = stove"],
-                effects=["has_spoon = False"]
+                effects=["has_spoon = False", "spoon.location = 'stove'", "spoon.state = 'used'"]
             ),
             # 开关与状态切换
             Action(
@@ -267,6 +381,30 @@ def process_single_goal(natural_goal: str, task_id: str, dataset: str) -> Dict[s
                 preconditions=["lights.state == off"],
                 effects=["lights.state = on"]
             ),
+            Action(
+                id="toggle_off_lights",
+                name="ToggleOff",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "lights"},
+                preconditions=["lights.state == on"],
+                effects=["lights.state = off"]
+            ),
+            Action(
+                id="open_fridge",
+                name="Open",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "fridge"},
+                preconditions=["at_location == kitchen", "fridge.state == closed"],
+                effects=["fridge.state = open"]
+            ),
+            Action(
+                id="close_fridge",
+                name="Close",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "fridge"},
+                preconditions=["at_location == kitchen", "fridge.state == open"],
+                effects=["fridge.state = closed"]
+            ),
             # 清洁与维护动作
             Action(
                 id="soak_rag",
@@ -277,29 +415,53 @@ def process_single_goal(natural_goal: str, task_id: str, dataset: str) -> Dict[s
                 effects=["rag_n_01_1.state = soaked"]
             ),
             Action(
-                id="clean_dusty_rag_table",
-                name="CleanDustyRag",
+                id="clean_dusty_table",
+                name="Clean",
                 action_type=ActionType.MANIPULATION,
                 parameters={"object": "table", "tool": "rag_n_01_1"},
-                preconditions=["has_rag = True", "table.state = dusty"],
+                preconditions=["has_rag = True", "at_location = desk", "table.state = dusty", "table.is_cleanable = True"],
                 effects=["table.state = clean"]
             ),
-            # 其他操作动作
+            Action(
+                id="wipe_counter",
+                name="Wipe",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "kitchen_counter", "tool": "rag_n_01_1"},
+                preconditions=["has_rag = True", "at_location = kitchen", "kitchen_counter.is_usable = True"],
+                effects=["kitchen_counter.state = clean"]
+            ),
+            # 物体状态改变动作
             Action(
                 id="slice_bread",
                 name="Slice",
                 action_type=ActionType.MANIPULATION,
                 parameters={"object": "bread"},
-                preconditions=["at_location = kitchen", "has_knife = True"],
+                preconditions=["at_location = kitchen", "has_knife = True", "bread.state = whole"],
                 effects=["bread.state = sliced"]
+            ),
+            Action(
+                id="heat_soup",
+                name="Heat",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "soup", "container": "pot"},
+                preconditions=["at_location = stove", "stove.state = off", "pot.is_usable = True"],
+                effects=["soup.state = heated", "stove.state = on"]
             ),
             Action(
                 id="cook_soup",
                 name="Cook",
                 action_type=ActionType.MANIPULATION,
                 parameters={"object": "soup", "container": "pot"},
-                preconditions=["at_location = stove", "pot.state = empty"],
+                preconditions=["at_location = stove", "stove.state = on", "pot.is_usable = True"],
                 effects=["soup.state = cooked"]
+            ),
+            Action(
+                id="pour_milk",
+                name="Pour",
+                action_type=ActionType.MANIPULATION,
+                parameters={"source": "milk", "destination": "glass"},
+                preconditions=["at_location = kitchen", "glass.state = empty", "milk.state = cold"],
+                effects=["glass.state = full", "milk.state = partially_used"]
             ),
             # 原有的任务相关动作
             Action(
@@ -317,6 +479,32 @@ def process_single_goal(natural_goal: str, task_id: str, dataset: str) -> Dict[s
                 parameters={},
                 preconditions=["email_checked == True"],
                 effects=["task_completed = True"]
+            ),
+            # 辅助动作
+            Action(
+                id="turn_on_stove",
+                name="TurnOn",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "stove"},
+                preconditions=["at_location = kitchen", "stove.state = off", "stove.is_operable = True"],
+                effects=["stove.state = on"]
+            ),
+            Action(
+                id="turn_off_stove",
+                name="TurnOff",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "stove"},
+                preconditions=["at_location = kitchen", "stove.state = on", "stove.is_operable = True"],
+                effects=["stove.state = off"]
+            ),
+            # 通用任务完成动作
+            Action(
+                id="complete_general_task",
+                name="CompleteTask",
+                action_type=ActionType.MANIPULATION,
+                parameters={},
+                preconditions=[],
+                effects=["task_completed = True"]
             )
         ]
         
@@ -325,6 +513,12 @@ def process_single_goal(natural_goal: str, task_id: str, dataset: str) -> Dict[s
             goal_state=goal_state,
             available_actions=available_actions
         )
+        
+        # Update action sequencer configuration to improve planning success
+        action_sequencer.planner.max_depth = 20  # Increase search depth
+        action_sequencer.planner.max_time = 120.0  # Increase timeout
+        action_sequencer.planner.algorithm = action_sequencer.planner.algorithm  # Keep hierarchical planning
+        action_sequencer.planner.enable_state_abstraction = True  # Enable state abstraction for better performance
         
         sequencing_response = action_sequencer.generate_sequence(sequencing_request)
         

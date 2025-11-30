@@ -1031,16 +1031,8 @@ class ActionPlanner:
     def _create_success_result(self, node: PlanningNode, available_actions: List[Action],
                                goal_state: Dict[str, Any]) -> PlanningResult:
         """创建成功结果"""
-        # 修复：从第一个动作的参数中获取初始状态，如果失败则使用空字典
-        initial_state = {}
-        if node.actions and len(node.actions) > 0:
-            # 从第一个动作的参数中提取初始状态
-            first_action_params = node.actions[0].parameters
-            if 'initial_state' in first_action_params:
-                initial_state = first_action_params['initial_state']
-            else:
-                # 如果没有初始状态参数，尝试从节点状态中推断
-                initial_state = node.state
+        # 修复：直接使用节点的初始状态
+        initial_state = node.state
         
         action_sequence = ActionSequence(
             id=f"{self.algorithm.value}_{int(time.time())}",

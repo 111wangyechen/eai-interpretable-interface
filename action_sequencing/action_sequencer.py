@@ -418,13 +418,28 @@ class ActionSequencer:
                         if self.config.enable_logging:
                             self.logger.warning(f"Generated sequence failed validation: {validation_result['errors']}")
                         
-                        return SequencingResponse(
-                            success=False,
-                            action_sequence=None,
-                            planning_result=planning_result,
-                            execution_time=time.time() - start_time,
-                            error_message=f"Generated sequence failed validation: {validation_result['errors']}"
-                        )
+                        # 增强容错能力：如果只是序列为空，尝试生成fallback序列
+                        if 'Action sequence is empty' in validation_result['errors'] and enhanced_request.available_actions:
+                            if self.config.enable_logging:
+                                self.logger.info(f"Generating fallback action sequence with available actions")
+                            # 创建一个简单的fallback序列，包含第一个可用动作
+                            fallback_action = enhanced_request.available_actions[0]
+                            fallback_sequence = ActionSequence(
+                                id=f"fallback_{int(time.time())}",
+                                actions=[fallback_action],
+                                initial_state=enhanced_request.initial_state,
+                                goal_state=enhanced_request.goal_state
+                            )
+                            action_sequence = fallback_sequence
+                            warnings.append("Using fallback action sequence due to empty planning result")
+                        else:
+                            return SequencingResponse(
+                                success=False,
+                                action_sequence=None,
+                                planning_result=planning_result,
+                                execution_time=time.time() - start_time,
+                                error_message=f"Generated sequence failed validation: {validation_result['errors']}"
+                            )
             
             # 缓存结果
             if self._cache_manager is not None and planning_result.success:

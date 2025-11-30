@@ -94,7 +94,7 @@ class Subgoal:
             'id': self.id,
             'description': self.description,
             'ltl_formula': self.ltl_formula,
-            'subgoal_type': self.subgoal_type.name,  # 使用枚举名称而不是枚举对象
+            'subgoal_type': self.subgoal_type.value,  # 使用枚举值而不是枚举名称，确保序列化兼容性
             'dependencies': self.dependencies,
             'priority': self.priority,
             'estimated_cost': self.estimated_cost,
