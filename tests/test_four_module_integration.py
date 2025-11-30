@@ -31,7 +31,9 @@ try:
         TransitionModeler,
         ModelingRequest,
         ModelingResponse,
-        StateTransition  # 转换模型核心数据结构
+        StateTransition,
+        StateCondition,
+        StateEffect  # 转换模型核心数据结构
     )
     from action_sequencing import (
         ActionSequencer,
