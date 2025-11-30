@@ -468,8 +468,8 @@ class ActionPlanner:
             if current_node.depth >= self.max_depth:
                 continue
             
-            # 智能剪枝：如果当前节点的启发式值过高，跳过扩展
-            if current_node.heuristic > 1000:  # 设定一个合理的阈值
+            # 降低剪枝阈值，允许扩展更多节点，特别是对于fallback序列
+            if current_node.heuristic > 2000:  # 提高阈值，允许更多节点扩展
                 continue
             
             # 每扩展一定数量的节点后检查时间
@@ -488,12 +488,13 @@ class ActionPlanner:
                 if successor_hash not in closed_set:
                     heapq.heappush(open_list, successor)
         
-        # 如果没有找到完美解决方案，但找到了有进展的节点，返回次优解
-        if best_node and best_node.actions:
-            # 创建次优解结果
+        # 如果没有找到完美解决方案，尝试生成次优解
+        # 即使没有进展，也要返回一个基础序列，增强对fallback序列的处理
+        if best_node:
+            # 创建次优解结果，即使只有初始状态
             action_sequence = ActionSequence(
                 id=f"suboptimal_{int(time.time())}",
-                actions=best_node.actions,
+                actions=best_node.actions if best_node.actions else [],
                 initial_state=initial_state,
                 goal_state=goal_state
             )

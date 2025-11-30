@@ -53,8 +53,8 @@ class SequencingConfig:
     """动作序列配置类"""
     planning_algorithm: PlanningAlgorithm = PlanningAlgorithm.ASTAR
     heuristic_type: HeuristicType = HeuristicType.GOAL_DISTANCE
-    max_depth: int = 50
-    max_time: float = 30.0
+    max_depth: int = 75  # 增加50%深度限制
+    max_time: float = 45.0  # 增加50%时间限制
     enable_logging: bool = True
     log_level: str = "INFO"
     cache_results: bool = True

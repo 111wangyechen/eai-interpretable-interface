@@ -251,7 +251,20 @@ class SubgoalDecomposerIntegration:
             IntegratedDecompositionResult: 集成结果
         """
         # 提取分解结果
-        subgoals = decomposition_response.subgoals
+        raw_subgoals = decomposition_response.subgoals
+        
+        # 添加子目标去重逻辑，避免语义重复的子目标
+        unique_subgoals = []
+        seen_descriptions = set()
+        
+        for subgoal in raw_subgoals:
+            # 基于描述文本去重，忽略大小写和空格差异
+            normalized_desc = subgoal.description.lower().strip()
+            if normalized_desc not in seen_descriptions:
+                seen_descriptions.add(normalized_desc)
+                unique_subgoals.append(subgoal)
+        
+        subgoals = unique_subgoals
         confidence_score = getattr(decomposition_response, 'confidence_score', 0.0)
         
         # 获取分解策略
