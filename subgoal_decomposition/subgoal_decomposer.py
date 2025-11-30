@@ -30,6 +30,15 @@ class SubgoalType(Enum):
     CONDITIONAL = "conditional"  # 条件执行
     ATOMIC = "atomic"           # 原子动作
     TEMPORAL = "temporal"       # 时序约束
+    
+    def __repr__(self):
+        return self.value
+    
+    def __str__(self):
+        return self.value
+    
+    def to_dict(self):
+        return self.value
 
 
 class DecompositionStrategy(Enum):
@@ -38,6 +47,15 @@ class DecompositionStrategy(Enum):
     TASK_DEPENDENCY = "task_dependency"              # 任务依赖分解
     SEMANTIC_CLUSTERING = "semantic_clustering"     # 语义聚类分解
     HYBRID = "hybrid"                               # 混合策略
+    
+    def __repr__(self):
+        return self.value
+    
+    def __str__(self):
+        return self.value
+    
+    def to_dict(self):
+        return self.value
 
 
 @dataclass
@@ -100,6 +118,22 @@ class DecompositionResult:
         """后处理初始化"""
         if self.metadata is None:
             self.metadata = {}
+    
+    def to_dict(self) -> Dict:
+        """
+        将分解结果转换为字典格式，处理所有枚举类型的序列化
+        
+        Returns:
+            Dict: 可 JSON 序列化的字典
+        """
+        return {
+            'subgoals': [subgoal.to_dict() for subgoal in self.subgoals],
+            'root_subgoal': self.root_subgoal,
+            'execution_order': self.execution_order,
+            'total_cost': self.total_cost,
+            'decomposition_strategy': self.decomposition_strategy.value,  # 使用枚举值
+            'metadata': self.metadata
+        }
 
 
 class SubgoalDecomposer:

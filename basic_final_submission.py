@@ -132,9 +132,47 @@ def process_single_goal(natural_goal: str, task_id: str, dataset: str) -> Dict[s
         
         # 3. Transition Modeling
         print("   3. Modeling state transitions...")
-        # Create a basic modeling request with sample states
-        initial_state = {'at_location': 'start', 'task_completed': False}
-        goal_state = {'at_location': 'target', 'task_completed': True}
+        # Create a comprehensive modeling request with detailed states
+        initial_state = {
+            'at_location': 'desk', 
+            'task_completed': False,
+            'computer_state': 'closed',
+            'email_checked': False,
+            'has_ball': False,
+            'door_state': 'closed',
+            # 物体属性
+            'rag_n_01_1': {'location': 'cabinet', 'state': 'clean', 'is_graspable': True},
+            'pot_plant_n_01_2': {'location': 'window_sill', 'state': 'healthy', 'is_graspable': True},
+            'carton_66': {'location': 'floor', 'state': 'empty', 'is_openable': True},
+            'computer': {'location': 'desk', 'state': 'closed', 'is_operable': True},
+            'sink_n_01_1': {'location': 'kitchen', 'state': 'empty', 'is_usable': True},
+            'fridge': {'location': 'kitchen', 'state': 'closed', 'is_openable': True},
+            'pot': {'location': 'stove', 'state': 'clean', 'is_usable': True},
+            # 环境细节
+            'lights': {'state': 'off'},
+            'temperature': 22,
+            'time_of_day': 'morning'
+        }
+        goal_state = {
+            'at_location': 'desk', 
+            'task_completed': True,
+            'computer_state': 'closed',
+            'email_checked': True,
+            'has_ball': False,
+            'door_state': 'closed',
+            # 物体属性（目标状态）
+            'rag_n_01_1': {'location': 'cabinet', 'state': 'clean', 'is_graspable': True},
+            'pot_plant_n_01_2': {'location': 'window_sill', 'state': 'healthy', 'is_graspable': True},
+            'carton_66': {'location': 'floor', 'state': 'full', 'is_openable': True},
+            'computer': {'location': 'desk', 'state': 'closed', 'is_operable': True},
+            'sink_n_01_1': {'location': 'kitchen', 'state': 'empty', 'is_usable': True},
+            'fridge': {'location': 'kitchen', 'state': 'closed', 'is_openable': True},
+            'pot': {'location': 'stove', 'state': 'clean', 'is_usable': True},
+            # 环境细节（目标状态）
+            'lights': {'state': 'off'},
+            'temperature': 22,
+            'time_of_day': 'morning'
+        }
         available_transitions = transition_modeler.create_sample_transitions()
         
         modeling_request = ModelingRequest(
@@ -151,22 +189,133 @@ def process_single_goal(natural_goal: str, task_id: str, dataset: str) -> Dict[s
         
         # 4. Action Sequencing
         print("   4. Generating action sequence...")
-        # Define basic actions with proper preconditions and effects
+        # Define comprehensive actions with proper preconditions and effects
         available_actions = [
+            # 导航与位置相关动作
             Action(
-                id="move_to_target",
-                name="MoveToTarget",
+                id="navigate_to_desk",
+                name="NavigateTo",
                 action_type=ActionType.NAVIGATION,
-                parameters={"target": "target"},
-                preconditions=["at_location == start"],
-                effects=["at_location = target"]
+                parameters={"target": "desk"},
+                preconditions=["at_location != desk"],
+                effects=["at_location = desk"]
+            ),
+            Action(
+                id="navigate_to_kitchen",
+                name="NavigateTo",
+                action_type=ActionType.NAVIGATION,
+                parameters={"target": "kitchen"},
+                preconditions=["at_location != kitchen"],
+                effects=["at_location = kitchen"]
+            ),
+            # 物体抓取与释放
+            Action(
+                id="grasp_rag",
+                name="Grasp",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "rag_n_01_1"},
+                preconditions=["at_location = cabinet", "rag_n_01_1.is_graspable = True"],
+                effects=["has_rag = True"]
+            ),
+            Action(
+                id="release_rag",
+                name="Release",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "rag_n_01_1"},
+                preconditions=["has_rag = True"],
+                effects=["has_rag = False"]
+            ),
+            # 物体放置与空间操作
+            Action(
+                id="place_inside_carton",
+                name="PlaceInside",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "book", "container": "carton_66"},
+                preconditions=["has_book = True", "carton_66.state = open"],
+                effects=["carton_66.state = full", "has_book = False"]
+            ),
+            Action(
+                id="place_nextto_pot",
+                name="PlaceNextTo",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "spoon", "target": "pot"},
+                preconditions=["has_spoon = True", "at_location = stove"],
+                effects=["has_spoon = False"]
+            ),
+            # 开关与状态切换
+            Action(
+                id="open_computer",
+                name="Open",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "computer"},
+                preconditions=["at_location == desk", "computer_state == closed"],
+                effects=["computer_state = open"]
+            ),
+            Action(
+                id="close_computer",
+                name="Close",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "computer"},
+                preconditions=["at_location == desk", "computer_state == open"],
+                effects=["computer_state = closed"]
+            ),
+            Action(
+                id="toggle_on_lights",
+                name="ToggleOn",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "lights"},
+                preconditions=["lights.state == off"],
+                effects=["lights.state = on"]
+            ),
+            # 清洁与维护动作
+            Action(
+                id="soak_rag",
+                name="Soak",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "rag_n_01_1", "container": "sink_n_01_1"},
+                preconditions=["has_rag = True", "at_location = kitchen", "sink_n_01_1.is_usable = True"],
+                effects=["rag_n_01_1.state = soaked"]
+            ),
+            Action(
+                id="clean_dusty_rag_table",
+                name="CleanDustyRag",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "table", "tool": "rag_n_01_1"},
+                preconditions=["has_rag = True", "table.state = dusty"],
+                effects=["table.state = clean"]
+            ),
+            # 其他操作动作
+            Action(
+                id="slice_bread",
+                name="Slice",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "bread"},
+                preconditions=["at_location = kitchen", "has_knife = True"],
+                effects=["bread.state = sliced"]
+            ),
+            Action(
+                id="cook_soup",
+                name="Cook",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "soup", "container": "pot"},
+                preconditions=["at_location = stove", "pot.state = empty"],
+                effects=["soup.state = cooked"]
+            ),
+            # 原有的任务相关动作
+            Action(
+                id="check_email",
+                name="CheckEmail",
+                action_type=ActionType.MANIPULATION,
+                parameters={"object": "computer"},
+                preconditions=["at_location == desk", "computer_state == open", "email_checked == False"],
+                effects=["email_checked = True"]
             ),
             Action(
                 id="complete_task",
                 name="CompleteTask",
                 action_type=ActionType.MANIPULATION,
                 parameters={},
-                preconditions=["at_location == target"],
+                preconditions=["email_checked == True"],
                 effects=["task_completed = True"]
             )
         ]

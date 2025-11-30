@@ -213,17 +213,38 @@ class ActionSequencerIntegration:
         Returns:
             SequencingRequest: 序列请求
         """
-        # 从转换数据中提取必要信息
-        initial_state = {}
-        goal_state = {}
-        available_actions = []
-        state_transitions = []
+        # 1. 校验子目标数据
+        if not subgoal_data:
+            logger.error("No subgoal data provided for action sequencing")
+            raise ValueError("Invalid subgoal data: empty input")
         
-        if transition_data:
-            initial_state = transition_data.get('initial_state', {})
-            goal_state = transition_data.get('goal_state', {})
-            available_actions = transition_data.get('available_actions', [])
-            state_transitions = transition_data.get('transition_sequence', [])
+        if 'subgoals' not in subgoal_data or not subgoal_data['subgoals']:
+            logger.error("No subgoals provided for action sequencing")
+            raise ValueError("Invalid subgoal data: empty subgoals list")
+        
+        # 2. 校验转换数据
+        if not transition_data:
+            logger.error("Missing transition data for action sequencing")
+            raise ValueError("Invalid transition data: empty input")
+        
+        # 从转换数据中提取必要信息
+        initial_state = transition_data.get('initial_state', {})
+        goal_state = transition_data.get('goal_state', {})
+        available_actions = transition_data.get('available_actions', [])
+        state_transitions = transition_data.get('transition_sequence', [])
+        
+        # 3. 校验状态数据
+        if not initial_state:
+            logger.error("Missing initial state in transition data")
+            raise ValueError("Invalid transition data: missing initial state")
+        
+        if not goal_state:
+            logger.error("Missing goal state in transition data")
+            raise ValueError("Invalid transition data: missing goal state")
+        
+        # 4. 校验可用动作
+        if not available_actions:
+            logger.warning("No available actions provided, using default actions")
         
         # 从子目标数据中提取约束
         constraints = subgoal_data.get('global_action_constraints', {})

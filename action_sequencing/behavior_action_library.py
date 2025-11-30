@@ -36,6 +36,480 @@ class BEHAVIORActionLibrary:
         self.actions: Dict[str, ActionDefinition] = {}
         self._initialize_standard_actions()
     
+    def _add_cleaning_actions(self):
+        """添加清洁与维护动作"""
+        cleaning_actions = [
+            ActionDefinition(
+                name="soak",
+                action_type=ActionType.MANIPULATION,
+                description="将物体浸泡（如抹布、盆栽）",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要浸泡的物体ID"
+                    },
+                    "container_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "容器物体ID（如水槽）"
+                    },
+                    "agent_id": {
+                        "type": "string",
+                        "required": False,
+                        "description": "智能体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "agent.holding == object_id or is_reachable(object_id)",
+                    "exists(container_id)",
+                    "is_reachable(container_id)",
+                    "container_id.contains_liquid == True"
+                ],
+                effects=[
+                    "object.is_soaked = True",
+                    "object.state = 'soaked'",
+                    "agent.energy -= 0.03"
+                ],
+                default_duration=2.0,
+                examples=[
+                    {"parameters": {"object_id": "rag_n_01_1", "container_id": "sink_n_01_1", "agent_id": "agent_n_01_1"}},
+                    {"parameters": {"object_id": "sponge_1", "container_id": "bucket_1"}}
+                ]
+            ),
+            ActionDefinition(
+                name="soak_teapot",
+                action_type=ActionType.MANIPULATION,
+                description="浸泡茶壶（特定物体的浸泡动作）",
+                parameters_schema={
+                    "teapot_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "茶壶物体ID"
+                    },
+                    "liquid_id": {
+                        "type": "string",
+                        "required": False,
+                        "description": "液体物体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "exists(teapot_id)",
+                    "is_reachable(teapot_id)",
+                    "teapot_id.is_empty == True"
+                ],
+                effects=[
+                    "teapot_id.is_soaked = True",
+                    "teapot_id.contains = liquid_id",
+                    "agent.energy -= 0.03"
+                ],
+                default_duration=2.0,
+                examples=[
+                    {"parameters": {"teapot_id": "teapot_1"}},
+                    {"parameters": {"teapot_id": "teapot_2", "liquid_id": "water"}}
+                ]
+            ),
+            ActionDefinition(
+                name="clean_dusty_rag",
+                action_type=ActionType.MANIPULATION,
+                description="用抹布清洁灰尘物体",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要清洁的物体ID"
+                    },
+                    "rag_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "抹布物体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "agent.holding == rag_id",
+                    "exists(object_id)",
+                    "is_reachable(object_id)",
+                    "object_id.is_dusty == True"
+                ],
+                effects=[
+                    "object_id.is_dusty = False",
+                    "object_id.cleanliness = 'clean'",
+                    "rag_id.is_dirty = True",
+                    "agent.energy -= 0.04"
+                ],
+                default_duration=3.0,
+                examples=[
+                    {"parameters": {"object_id": "table_1", "rag_id": "rag_1"}},
+                    {"parameters": {"object_id": "shelf_1", "rag_id": "rag_2"}}
+                ]
+            ),
+            ActionDefinition(
+                name="clean_dusty_towel",
+                action_type=ActionType.MANIPULATION,
+                description="用毛巾清洁灰尘物体",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要清洁的物体ID"
+                    },
+                    "towel_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "毛巾物体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "agent.holding == towel_id",
+                    "exists(object_id)",
+                    "is_reachable(object_id)",
+                    "object_id.is_dusty == True"
+                ],
+                effects=[
+                    "object_id.is_dusty = False",
+                    "object_id.cleanliness = 'clean'",
+                    "towel_id.is_dirty = True",
+                    "agent.energy -= 0.04"
+                ],
+                default_duration=3.0,
+                examples=[
+                    {"parameters": {"object_id": "window_1", "towel_id": "towel_1"}},
+                    {"parameters": {"object_id": "mirror_1", "towel_id": "towel_2"}}
+                ]
+            ),
+            ActionDefinition(
+                name="clean_dusty_cloth",
+                action_type=ActionType.MANIPULATION,
+                description="用布清洁灰尘物体",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要清洁的物体ID"
+                    },
+                    "cloth_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "布物体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "agent.holding == cloth_id",
+                    "exists(object_id)",
+                    "is_reachable(object_id)",
+                    "object_id.is_dusty == True"
+                ],
+                effects=[
+                    "object_id.is_dusty = False",
+                    "object_id.cleanliness = 'clean'",
+                    "cloth_id.is_dirty = True",
+                    "agent.energy -= 0.04"
+                ],
+                default_duration=3.0,
+                examples=[
+                    {"parameters": {"object_id": "chair_1", "cloth_id": "cloth_1"}},
+                    {"parameters": {"object_id": "sofa_1", "cloth_id": "cloth_2"}}
+                ]
+            ),
+            ActionDefinition(
+                name="clean_dusty_brush",
+                action_type=ActionType.MANIPULATION,
+                description="用刷子清洁灰尘物体",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要清洁的物体ID"
+                    },
+                    "brush_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "刷子物体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "agent.holding == brush_id",
+                    "exists(object_id)",
+                    "is_reachable(object_id)",
+                    "object_id.is_dusty == True"
+                ],
+                effects=[
+                    "object_id.is_dusty = False",
+                    "object_id.cleanliness = 'clean'",
+                    "brush_id.is_dirty = True",
+                    "agent.energy -= 0.05"
+                ],
+                default_duration=3.5,
+                examples=[
+                    {"parameters": {"object_id": "keyboard_1", "brush_id": "brush_1"}},
+                    {"parameters": {"object_id": "carpet_1", "brush_id": "brush_2"}}
+                ]
+            ),
+            ActionDefinition(
+                name="clean_dusty_vacuum",
+                action_type=ActionType.MANIPULATION,
+                description="用吸尘器清洁灰尘物体",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要清洁的物体ID"
+                    },
+                    "vacuum_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "吸尘器物体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "agent.holding == vacuum_id or vacuum_id.is_on_floor == True",
+                    "exists(object_id)",
+                    "is_reachable(object_id)",
+                    "object_id.is_dusty == True",
+                    "vacuum_id.is_on == True"
+                ],
+                effects=[
+                    "object_id.is_dusty = False",
+                    "object_id.cleanliness = 'clean'",
+                    "vacuum_id.dust_collected += 1",
+                    "agent.energy -= 0.03"
+                ],
+                default_duration=4.0,
+                examples=[
+                    {"parameters": {"object_id": "floor_1", "vacuum_id": "vacuum_cleaner_1"}},
+                    {"parameters": {"object_id": "carpet_1", "vacuum_id": "vacuum_cleaner_2"}}
+                ]
+            ),
+            ActionDefinition(
+                name="clean_stained_rag",
+                action_type=ActionType.MANIPULATION,
+                description="用抹布清洁有污渍的物体",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要清洁的物体ID"
+                    },
+                    "rag_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "抹布物体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "agent.holding == rag_id",
+                    "exists(object_id)",
+                    "is_reachable(object_id)",
+                    "object_id.is_stained == True"
+                ],
+                effects=[
+                    "object_id.is_stained = False",
+                    "object_id.cleanliness = 'clean'",
+                    "rag_id.is_dirty = True",
+                    "agent.energy -= 0.05"
+                ],
+                default_duration=4.0,
+                examples=[
+                    {"parameters": {"object_id": "table_1", "rag_id": "rag_1"}},
+                    {"parameters": {"object_id": "counter_1", "rag_id": "rag_2"}}
+                ]
+            ),
+            ActionDefinition(
+                name="clean_stained_brush",
+                action_type=ActionType.MANIPULATION,
+                description="用刷子清洁有污渍的物体",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要清洁的物体ID"
+                    },
+                    "brush_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "刷子物体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "agent.holding == brush_id",
+                    "exists(object_id)",
+                    "is_reachable(object_id)",
+                    "object_id.is_stained == True"
+                ],
+                effects=[
+                    "object_id.is_stained = False",
+                    "object_id.cleanliness = 'clean'",
+                    "brush_id.is_dirty = True",
+                    "agent.energy -= 0.06"
+                ],
+                default_duration=4.5,
+                examples=[
+                    {"parameters": {"object_id": "pot_1", "brush_id": "brush_1"}},
+                    {"parameters": {"object_id": "sink_1", "brush_id": "brush_2"}}
+                ]
+            )
+        ]
+        
+        for action_def in cleaning_actions:
+            self.actions[action_def.name] = action_def
+    
+    def _add_cooking_actions(self):
+        """添加烹饪与处理动作"""
+        cooking_actions = [
+            ActionDefinition(
+                name="slice",
+                action_type=ActionType.MANIPULATION,
+                description="切割物体（如食材）",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要切割的物体ID"
+                    },
+                    "tool_id": {
+                        "type": "string",
+                        "required": False,
+                        "description": "切割工具ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "exists(object_id)",
+                    "is_reachable(object_id)",
+                    "can_be_sliced(object_id) == True",
+                    "agent.holding == tool_id or (not tool_id and agent.hands_free() == True)"
+                ],
+                effects=[
+                    "object_id.is_sliced = True",
+                    "object_id.state = 'sliced'",
+                    "agent.energy -= 0.04"
+                ],
+                default_duration=2.5,
+                examples=[
+                    {"parameters": {"object_id": "bread_1"}},
+                    {"parameters": {"object_id": "vegetable_1", "tool_id": "knife_1"}}
+                ]
+            ),
+            ActionDefinition(
+                name="slice-carvingknife",
+                action_type=ActionType.MANIPULATION,
+                description="用雕刻刀切割物体（特定工具的切割动作）",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要切割的物体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "exists(object_id)",
+                    "is_reachable(object_id)",
+                    "can_be_sliced(object_id) == True",
+                    "agent.holding == 'carving_knife'"
+                ],
+                effects=[
+                    "object_id.is_sliced = True",
+                    "object_id.state = 'sliced'",
+                    "object_id.slice_quality = 'high'",
+                    "agent.energy -= 0.05"
+                ],
+                default_duration=3.0,
+                examples=[
+                    {"parameters": {"object_id": "turkey_1"}},
+                    {"parameters": {"object_id": "ham_1"}}
+                ]
+            ),
+            ActionDefinition(
+                name="cook",
+                action_type=ActionType.MANIPULATION,
+                description="烹饪物体（如食材放在锅中）",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要烹饪的物体ID"
+                    },
+                    "cooking_equipment_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "烹饪设备ID（如锅）"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "exists(object_id)",
+                    "exists(cooking_equipment_id)",
+                    "object_id.is_on == cooking_equipment_id",
+                    "cooking_equipment_id.is_on == True",
+                    "object_id.is_cooked == False"
+                ],
+                effects=[
+                    "object_id.is_cooked = True",
+                    "object_id.state = 'cooked'",
+                    "object_id.temperature = 'hot'",
+                    "agent.energy -= 0.06"
+                ],
+                default_duration=5.0,
+                examples=[
+                    {"parameters": {"object_id": "vegetable_1", "cooking_equipment_id": "pan_1"}},
+                    {"parameters": {"object_id": "meat_1", "cooking_equipment_id": "oven_1"}}
+                ]
+            ),
+            ActionDefinition(
+                name="freeze",
+                action_type=ActionType.MANIPULATION,
+                description="冷冻物体（如放入冰箱）",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要冷冻的物体ID"
+                    },
+                    "fridge_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "冰箱物体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "agent.holding == object_id",
+                    "exists(fridge_id)",
+                    "is_reachable(fridge_id)",
+                    "fridge_id.is_open == True",
+                    "fridge_id.temperature < 0",
+                    "object_id.is_frozen == False"
+                ],
+                effects=[
+                    "agent.holding = None",
+                    "object.is_held = False",
+                    "object.location = fridge_id",
+                    "object.is_frozen = True",
+                    "object.state = 'frozen'",
+                    "object.temperature = 'cold'",
+                    "agent.energy -= 0.03"
+                ],
+                default_duration=1.5,
+                examples=[
+                    {"parameters": {"object_id": "food_1", "fridge_id": "fridge_1"}},
+                    {"parameters": {"object_id": "ice_cream_1", "fridge_id": "freezer_1"}}
+                ]
+            )
+        ]
+        
+        for action_def in cooking_actions:
+            self.actions[action_def.name] = action_def
+    
     def _initialize_standard_actions(self):
         """初始化标准动作库"""
         # 导航类动作
@@ -43,6 +517,12 @@ class BEHAVIORActionLibrary:
         
         # 操作类动作
         self._add_manipulation_actions()
+        
+        # 清洁与维护动作
+        self._add_cleaning_actions()
+        
+        # 烹饪与处理动作
+        self._add_cooking_actions()
         
         # 感知类动作
         self._add_perception_actions()
@@ -145,6 +625,37 @@ class BEHAVIORActionLibrary:
                     {"parameters": {"target": "door_1"}},
                     {"parameters": {"target": "north"}}
                 ]
+            ),
+            ActionDefinition(
+                name="navigate_to",
+                action_type=ActionType.NAVIGATION,
+                description="导航到目标位置（如物体、区域）",
+                parameters_schema={
+                    "target": {
+                        "type": "string",
+                        "required": True,
+                        "description": "目标位置或物体"
+                    },
+                    "agent_id": {
+                        "type": "string",
+                        "required": False,
+                        "description": "智能体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "exists(target) or exists(target_location)",
+                    "agent.energy > 0.1"
+                ],
+                effects=[
+                    "agent.location = target_location",
+                    "agent.energy -= 0.01"
+                ],
+                default_duration=2.5,
+                examples=[
+                    {"parameters": {"target": "rag_n_01_1", "agent_id": "agent_n_01_1"}},
+                    {"parameters": {"target": "kitchen_counter"}}
+                ]
             )
         ]
         
@@ -195,6 +706,39 @@ class BEHAVIORActionLibrary:
                 ]
             ),
             ActionDefinition(
+                name="grasp",
+                action_type=ActionType.MANIPULATION,
+                description="抓取物体",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要抓取的物体ID"
+                    },
+                    "agent_id": {
+                        "type": "string",
+                        "required": False,
+                        "description": "智能体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "exists(object_id)",
+                    "is_reachable(object_id)",
+                    "agent.hands_free() == True"
+                ],
+                effects=[
+                    "agent.holding = object_id",
+                    "object.is_held = True",
+                    "agent.energy -= 0.02"
+                ],
+                default_duration=1.0,
+                examples=[
+                    {"parameters": {"object_id": "rag_n_01_1", "agent_id": "agent_n_01_1"}},
+                    {"parameters": {"object_id": "cup_1"}}
+                ]
+            ),
+            ActionDefinition(
                 name="ReleaseObject",
                 action_type=ActionType.MANIPULATION,
                 description="释放手中的物体",
@@ -225,6 +769,38 @@ class BEHAVIORActionLibrary:
                 examples=[
                     {"parameters": {"object_id": "cup_1"}},
                     {"parameters": {"object_id": "book_1", "hand": "left"}}
+                ]
+            ),
+            ActionDefinition(
+                name="release",
+                action_type=ActionType.MANIPULATION,
+                description="释放手中的物体",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要释放的物体ID"
+                    },
+                    "agent_id": {
+                        "type": "string",
+                        "required": False,
+                        "description": "智能体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "agent.holding == object_id"
+                ],
+                effects=[
+                    "agent.holding = None",
+                    "object.is_held = False",
+                    "object.location = agent.location",
+                    "agent.energy -= 0.01"
+                ],
+                default_duration=0.5,
+                examples=[
+                    {"parameters": {"object_id": "pot_plant_n_01_2", "agent_id": "agent_n_01_1"}},
+                    {"parameters": {"object_id": "cup_1"}}
                 ]
             ),
             ActionDefinition(
@@ -263,6 +839,33 @@ class BEHAVIORActionLibrary:
                 ]
             ),
             ActionDefinition(
+                name="open",
+                action_type=ActionType.MANIPULATION,
+                description="打开物体（如柜子、盒子）",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要打开的物体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "exists(object_id)",
+                    "is_reachable(object_id)",
+                    "object.is_open == False"
+                ],
+                effects=[
+                    "object.is_open = True",
+                    "agent.energy -= 0.015"
+                ],
+                default_duration=0.8,
+                examples=[
+                    {"parameters": {"object_id": "cabinet_1"}},
+                    {"parameters": {"object_id": "box_1"}}
+                ]
+            ),
+            ActionDefinition(
                 name="CloseObject",
                 action_type=ActionType.MANIPULATION,
                 description="关闭指定物体",
@@ -288,6 +891,67 @@ class BEHAVIORActionLibrary:
                 examples=[
                     {"parameters": {"object_id": "door_1"}},
                     {"parameters": {"object_id": "window_2"}}
+                ]
+            ),
+            ActionDefinition(
+                name="close",
+                action_type=ActionType.MANIPULATION,
+                description="关闭物体（如门、窗户）",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要关闭的物体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "exists(object_id)",
+                    "is_reachable(object_id)",
+                    "object.is_open == True"
+                ],
+                effects=[
+                    "object.is_open = False",
+                    "agent.energy -= 0.015"
+                ],
+                default_duration=0.8,
+                examples=[
+                    {"parameters": {"object_id": "door_1"}},
+                    {"parameters": {"object_id": "window_2"}}
+                ]
+            ),
+            ActionDefinition(
+                name="toggle_on",
+                action_type=ActionType.MANIPULATION,
+                description="开启设备（如电器）",
+                parameters_schema={
+                    "object": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要开启的物体"
+                    },
+                    "agent": {
+                        "type": "string",
+                        "required": False,
+                        "description": "智能体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "exists(object)",
+                    "is_reachable(object)",
+                    "agent.hands_free() == True",
+                    "object.is_on == False"
+                ],
+                effects=[
+                    "object.is_on = True",
+                    "object.state = 'on'",
+                    "agent.energy -= 0.01"
+                ],
+                default_duration=0.5,
+                examples=[
+                    {"parameters": {"object": "light_switch_1"}},
+                    {"parameters": {"object": "kettle", "agent": "agent_n_01_1"}}
                 ]
             ),
             ActionDefinition(
@@ -363,6 +1027,175 @@ class BEHAVIORActionLibrary:
                 examples=[
                     {"parameters": {"object_id": "cup_1", "target_location": "table_1"}},
                     {"parameters": {"object_id": "book_1", "target_location": "shelf_2", "hand": "left"}}
+                ]
+            ),
+            ActionDefinition(
+                name="place_inside",
+                action_type=ActionType.MANIPULATION,
+                description="将物体放入另一个物体内部（如柜子、盒子）",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要放置的物体ID"
+                    },
+                    "container_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "容器物体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "agent.holding == object_id",
+                    "exists(container_id)",
+                    "is_reachable(container_id)",
+                    "container_id.is_open == True"
+                ],
+                effects=[
+                    "agent.holding = None",
+                    "object.is_held = False",
+                    "object.location = container_id",
+                    "object.is_inside = container_id",
+                    "agent.energy -= 0.025"
+                ],
+                default_duration=1.5,
+                examples=[
+                    {"parameters": {"object_id": "book_1", "container_id": "carton_66"}},
+                    {"parameters": {"object_id": "cup_1", "container_id": "cabinet_1"}}
+                ]
+            ),
+            ActionDefinition(
+                name="place_nextto",
+                action_type=ActionType.MANIPULATION,
+                description="将物体放置在另一个物体旁边",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要放置的物体ID"
+                    },
+                    "target_object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "目标物体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "agent.holding == object_id",
+                    "exists(target_object_id)",
+                    "is_reachable(target_object_location)"
+                ],
+                effects=[
+                    "agent.holding = None",
+                    "object.is_held = False",
+                    "object.location = nextto(target_object_id)",
+                    "agent.energy -= 0.025"
+                ],
+                default_duration=1.5,
+                examples=[
+                    {"parameters": {"object_id": "cup_1", "target_object_id": "table_1"}},
+                    {"parameters": {"object_id": "chair_1", "target_object_id": "desk_1"}}
+                ]
+            ),
+            ActionDefinition(
+                name="place_nextto_ontop",
+                action_type=ActionType.MANIPULATION,
+                description="将物体放置在另一个物体上方或旁边的顶部",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要放置的物体ID"
+                    },
+                    "target_object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "目标物体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "agent.holding == object_id",
+                    "exists(target_object_id)",
+                    "is_reachable(target_object_top)"
+                ],
+                effects=[
+                    "agent.holding = None",
+                    "object.is_held = False",
+                    "object.location = ontop(target_object_id)",
+                    "object.is_on = target_object_id",
+                    "agent.energy -= 0.025"
+                ],
+                default_duration=1.8,
+                examples=[
+                    {"parameters": {"object_id": "book_1", "target_object_id": "shelf_1"}},
+                    {"parameters": {"object_id": "laptop", "target_object_id": "desk_1"}}
+                ]
+            ),
+            ActionDefinition(
+                name="place_onfloor",
+                action_type=ActionType.MANIPULATION,
+                description="将物体放置在地面上",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要放置的物体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "agent.holding == object_id",
+                    "is_reachable(agent.location)"
+                ],
+                effects=[
+                    "agent.holding = None",
+                    "object.is_held = False",
+                    "object.location = agent.location",
+                    "object.is_on_floor = True",
+                    "agent.energy -= 0.02"
+                ],
+                default_duration=1.2,
+                examples=[
+                    {"parameters": {"object_id": "box_1"}},
+                    {"parameters": {"object_id": "shoe_1"}}
+                ]
+            ),
+            ActionDefinition(
+                name="place_under",
+                action_type=ActionType.MANIPULATION,
+                description="将物体放置在另一个物体下方",
+                parameters_schema={
+                    "object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "要放置的物体ID"
+                    },
+                    "target_object_id": {
+                        "type": "string",
+                        "required": True,
+                        "description": "目标物体ID"
+                    }
+                },
+                preconditions=[
+                    "agent.alive == True",
+                    "agent.holding == object_id",
+                    "exists(target_object_id)",
+                    "is_reachable(under(target_object_id))"
+                ],
+                effects=[
+                    "agent.holding = None",
+                    "object.is_held = False",
+                    "object.location = under(target_object_id)",
+                    "object.is_under = target_object_id",
+                    "agent.energy -= 0.025"
+                ],
+                default_duration=1.5,
+                examples=[
+                    {"parameters": {"object_id": "mat_1", "target_object_id": "desk_1"}},
+                    {"parameters": {"object_id": "box_1", "target_object_id": "bed_1"}}
                 ]
             )
         ]
