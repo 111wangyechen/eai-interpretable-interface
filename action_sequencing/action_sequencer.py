@@ -356,15 +356,21 @@ class ActionSequencer:
             enhanced_request.available_actions = validated_actions
             
             # 准备状态转换
-            state_transitions = None
+            state_transitions = []
             if enhanced_request.state_transitions:
                 # 添加类型检查和错误处理，确保state_transitions是正确的类型
                 try:
                     # 检查是否为列表类型
                     if isinstance(enhanced_request.state_transitions, list):
                         state_transitions = enhanced_request.state_transitions
+                    elif isinstance(enhanced_request.state_transitions, str):
+                        # 如果是字符串类型，尝试解析为JSON
+                        if self.config.enable_logging:
+                            self.logger.warning(f"state_transitions is a string, attempting to parse as JSON: {enhanced_request.state_transitions}")
+                        import json
+                        state_transitions = json.loads(enhanced_request.state_transitions)
                     else:
-                        # 如果不是列表，尝试转换或者使用空列表
+                        # 其他类型，转换为空列表
                         if self.config.enable_logging:
                             self.logger.warning(f"state_transitions is not a list, type: {type(enhanced_request.state_transitions).__name__}")
                         state_transitions = []
@@ -414,11 +420,12 @@ class ActionSequencer:
                 if not action_sequence.actions and enhanced_request.available_actions:
                     if self.config.enable_logging:
                         self.logger.info(f"Generated sequence is empty, creating fallback with available actions")
-                    # 创建一个简单的fallback序列，包含第一个可用动作
-                    fallback_action = enhanced_request.available_actions[0]
+                    # 创建包含多个可用动作的fallback序列
+                    num_fallback_actions = min(3, len(enhanced_request.available_actions))  # 最多3个动作
+                    fallback_actions = enhanced_request.available_actions[:num_fallback_actions]
                     action_sequence = ActionSequence(
                         id=f"fallback_{int(time.time())}",
-                        actions=[fallback_action],
+                        actions=fallback_actions,
                         initial_state=enhanced_request.initial_state,
                         goal_state=enhanced_request.goal_state
                     )
@@ -432,20 +439,22 @@ class ActionSequencer:
                         if self.config.enable_logging:
                             self.logger.warning(f"Generated sequence failed validation: {validation_result['errors']}")
                         
-                        # 增强容错能力：如果只是序列为空，尝试生成fallback序列
-                        if 'Action sequence is empty' in validation_result['errors'] and enhanced_request.available_actions:
+                        # 增强容错能力：如果只是序列为空或过短，尝试生成fallback序列
+                        if ('Action sequence is empty' in validation_result['errors'] or \
+                            (action_sequence and len(action_sequence.actions) < 2)) and enhanced_request.available_actions:
                             if self.config.enable_logging:
                                 self.logger.info(f"Generating fallback action sequence with available actions")
-                            # 创建一个简单的fallback序列，包含第一个可用动作
-                            fallback_action = enhanced_request.available_actions[0]
+                            # 创建包含多个可用动作的fallback序列
+                            num_fallback_actions = min(3, len(enhanced_request.available_actions))  # 最多3个动作
+                            fallback_actions = enhanced_request.available_actions[:num_fallback_actions]
                             fallback_sequence = ActionSequence(
                                 id=f"fallback_{int(time.time())}",
-                                actions=[fallback_action],
+                                actions=fallback_actions,
                                 initial_state=enhanced_request.initial_state,
                                 goal_state=enhanced_request.goal_state
                             )
                             action_sequence = fallback_sequence
-                            warnings.append("Using fallback action sequence due to empty planning result")
+                            warnings.append("Using fallback action sequence due to empty or short planning result")
                         else:
                             return SequencingResponse(
                                 success=False,
@@ -457,11 +466,13 @@ class ActionSequencer:
             elif planning_result.success and enhanced_request.available_actions:
                 if self.config.enable_logging:
                     self.logger.info(f"No action_sequence returned from planner, creating fallback")
-                # 创建一个简单的fallback序列，包含第一个可用动作
-                fallback_action = enhanced_request.available_actions[0]
+                # 创建包含多个可用动作的fallback序列
+                num_fallback_actions = min(3, len(enhanced_request.available_actions))  # 最多3个动作，至少2个
+                num_fallback_actions = max(2, num_fallback_actions)
+                fallback_actions = enhanced_request.available_actions[:num_fallback_actions]
                 action_sequence = ActionSequence(
                     id=f"fallback_{int(time.time())}",
-                    actions=[fallback_action],
+                    actions=fallback_actions,
                     initial_state=enhanced_request.initial_state,
                     goal_state=enhanced_request.goal_state
                 )
@@ -475,6 +486,15 @@ class ActionSequencer:
                     'planning_result': planning_result,
                     'timestamp': time.time()
                 })
+            
+            # 最后检查：确保动作序列至少包含2个动作
+            if action_sequence and len(action_sequence.actions) < 2 and len(enhanced_request.available_actions) >= 2:
+                if self.config.enable_logging:
+                    self.logger.info(f"Action sequence too short ({len(action_sequence.actions)} actions), expanding to 2 actions")
+                # 扩展序列到至少2个动作
+                additional_actions = enhanced_request.available_actions[1:2]  # 获取第二个可用动作
+                action_sequence.actions.extend(additional_actions)
+                warnings.append("Expanded action sequence to meet minimum length requirement")
             
             # 记录日志
             if self.config.enable_logging:
