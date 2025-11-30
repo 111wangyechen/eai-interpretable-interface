@@ -382,6 +382,8 @@ class FourModuleIntegrationTester:
                 })
                 return
             
+            # 检查动作序列是否存在且有效
+            assert sequence_response.action_sequence is not None, "动作序列不能为空"
             assert len(sequence_response.action_sequence) >= 2, "动作序列长度不足"
             
             # 验证参数准确性（转换中的参数应被正确传递到动作）
@@ -469,7 +471,9 @@ class FourModuleIntegrationTester:
                 state_transitions=state_transitions_input
             )
             sequence_result = self.action_sequencer.generate_sequence(sequencing_request)
-            assert sequence_result.success and len(sequence_result.action_sequence) > 0, "动作序列生成失败"
+            assert sequence_result.success, "动作序列生成失败"
+            assert sequence_result.action_sequence is not None, "动作序列对象不能为空"
+            assert len(sequence_result.action_sequence) > 0, "动作序列长度必须大于0"
             
             # 5. 全链路数据一致性最终验证
             assert all(self.data_format_checks.values()), "存在数据格式不一致问题"
