@@ -111,7 +111,7 @@ class FourModuleIntegrationTester:
             empty_result = self.goal_interpreter.interpret("")
             assert empty_result is None or isinstance(empty_result, dict), "空目标处理返回格式错误"
             # 正常输入测试
-            sample_goal = "将蓝色方块移到架子上"
+            sample_goal = "Move the blue block to the shelf"
             goal_result = self.goal_interpreter.interpret(sample_goal)
             assert isinstance(goal_result, dict), "目标解释结果应为字典"
             assert "ltl_formula" in goal_result, "目标解释结果缺少ltl_formula字段"
@@ -194,7 +194,7 @@ class FourModuleIntegrationTester:
         print("\n2. 目标→子目标数据传输测试...")
         try:
             # 1. 生成目标解释结果
-            goal_text = "把红色球放进盒子，再放到桌子上"
+            goal_text = "Put the red ball into the box, then place the box on the table"
             goal_result = self.goal_interpreter.interpret(goal_text)
             assert goal_result is not None, "目标解释失败"
             assert "ltl_formula" in goal_result, "目标结果缺少LTL公式"
@@ -242,7 +242,7 @@ class FourModuleIntegrationTester:
         print("\n3. 子目标→转换建模接口测试...")
         try:
             # 1. 准备测试数据（模拟前序流程）
-            test_goal = "移动绿色积木到指定区域"
+            test_goal = "Move the green block to the target area"
             ltl_formula = LTLFormula(f"F(green_block_at_target)")
             subgoal_set = self.subgoal_decomposer.decompose(ltl_formula=ltl_formula)
             assert len(subgoal_set.subgoals) > 0, "未生成测试用子目标"
@@ -413,7 +413,7 @@ class FourModuleIntegrationTester:
         print("\n5. 端到端全链路测试...")
         try:
             # 1. 目标解释
-            goal_text = "打开冰箱，取出牛奶，倒入杯子"
+            goal_text = "Open the fridge, take out the milk, and pour it into the cup"
             print(f"   测试目标: {goal_text}")
             
             goal_result = self.goal_interpreter.interpret(goal_text)
@@ -581,7 +581,7 @@ class FourModuleIntegrationTester:
         
         # 测量目标→子目标延迟
         start = time.time()
-        goal_result = self.goal_interpreter.interpret("把书放到书架第三层")
+        goal_result = self.goal_interpreter.interpret("Put the book on the third shelf")
         subgoal_result = self.subgoal_decomposer.decompose(ltl_formula=goal_result["ltl_formula"])
         performance_data["goal_to_subgoal_latency"] = time.time() - start
         
