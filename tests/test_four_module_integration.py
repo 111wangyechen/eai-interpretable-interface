@@ -139,10 +139,17 @@ class FourModuleIntegrationTester:
         try:
             assert hasattr(self.transition_modeler, "model_transitions"), "转换建模缺少model_transitions方法"
             # 测试ModelingRequest构造与处理
+            # 创建一个符合StateTransition类定义的转换
+            test_transition = StateTransition(
+                name="move",
+                description="移动到目标位置",
+                preconditions=[StateCondition(predicate="at", value="start")],
+                effects=[StateEffect(predicate="at", value="shelf")]
+            )
             test_request = ModelingRequest(
                 initial_state={"at": "start", "holding": None},
                 goal_state={"at": "shelf", "holding": "blue_block"},
-                available_transitions=[StateTransition(from_state="start", to_state="shelf", action="move")]
+                available_transitions=[test_transition]
             )
             transition_result = self.transition_modeler.model_transitions(test_request)
             assert isinstance(transition_result, ModelingResponse), "转换建模结果应为ModelingResponse类型"
@@ -254,7 +261,6 @@ class FourModuleIntegrationTester:
             modeling_request = ModelingRequest(
                 initial_state=subgoal_states["initial_state"],
                 goal_state=subgoal_states["goal_state"],
-                intermediate_states=[subgoal_states.get("mid_state_pick"), subgoal_states.get("mid_state_place")],
                 available_transitions=self.transition_modeler.create_sample_transitions()
             )
             transition_response = self.transition_modeler.model_transitions(modeling_request)
@@ -289,15 +295,17 @@ class FourModuleIntegrationTester:
             # 1. 生成转换建模结果（含详细参数）
             test_transitions = [
                 StateTransition(
-                    from_state={"at": "A", "holding": None},
-                    to_state={"at": "B", "holding": None},
-                    action="move",
+                    name="move",
+                    description="从A移动到B",
+                    preconditions=[StateCondition(predicate="at", value="A"), StateCondition(predicate="holding", value=None)],
+                    effects=[StateEffect(predicate="at", value="B"), StateEffect(predicate="holding", value=None)],
                     parameters={"speed": 1.2, "path": "A→B"}
                 ),
                 StateTransition(
-                    from_state={"at": "B", "holding": None},
-                    to_state={"at": "B", "holding": "box"},
-                    action="pick",
+                    name="pick",
+                    description="在B位置拾取盒子",
+                    preconditions=[StateCondition(predicate="at", value="B"), StateCondition(predicate="holding", value=None)],
+                    effects=[StateEffect(predicate="at", value="B"), StateEffect(predicate="holding", value="box")],
                     parameters={"object": "box", "force": 5.0}
                 )
             ]
