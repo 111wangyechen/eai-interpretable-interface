@@ -25,7 +25,7 @@ try:
     )
     from subgoal_decomposition import (
         SubgoalDecomposer,
-        SubgoalSet  # 子目标分解结果的数据结构
+        DecompositionResult  # 子目标分解结果的数据结构
     )
     from transition_modeling import (
         TransitionModeler,
@@ -126,8 +126,8 @@ class FourModuleIntegrationTester:
             # 测试LTLFormula输入兼容性
             test_ltl = LTLFormula("F(blue_block_on_shelf)")
             subgoal_result = self.subgoal_decomposer.decompose(ltl_formula=test_ltl)
-            assert isinstance(subgoal_result, SubgoalSet), "子目标分解结果应为SubgoalSet类型"
-            assert hasattr(subgoal_result, "subgoals"), "SubgoalSet缺少subgoals属性"
+            assert isinstance(subgoal_result, DecompositionResult), "子目标分解结果应为DecompositionResult类型"
+        assert hasattr(subgoal_result, "subgoals"), "DecompositionResult缺少subgoals属性"
             assert all(hasattr(sg, "description") for sg in subgoal_result.subgoals), "子目标缺少description字段"
             initialization_results["subgoal_decomposition"] = True
             print("   ✓ 子目标分解模块接口验证通过")
@@ -202,7 +202,7 @@ class FourModuleIntegrationTester:
             
             # 3. 传递给子目标分解模块
             subgoal_result = self.subgoal_decomposer.decompose(ltl_formula=ltl_formula)
-            assert isinstance(subgoal_result, SubgoalSet), "子目标分解结果类型错误"
+            assert isinstance(subgoal_result, DecompositionResult), "子目标分解结果类型错误"
             assert len(subgoal_result.subgoals) > 0, "未生成子目标"
             
             # 4. 验证子目标数据结构
@@ -374,7 +374,7 @@ class FourModuleIntegrationTester:
             
             # 2. 子目标分解
             subgoal_result = self.subgoal_decomposer.decompose(ltl_formula=ltl_formula)
-            assert isinstance(subgoal_result, SubgoalSet) and len(subgoal_result.subgoals) > 0, "子目标分解失败"
+            assert isinstance(subgoal_result, DecompositionResult) and len(subgoal_result.subgoals) > 0, "子目标分解失败"
             subgoal_descriptions = [sg.description for sg in subgoal_result.subgoals]
             print(f"   子目标分解结果: {subgoal_descriptions}")
             
