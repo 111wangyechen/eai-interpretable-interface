@@ -410,7 +410,21 @@ class ActionSequencer:
                         if self.config.enable_logging:
                             self.logger.warning(f"Failed to enhance sequence with AuDeRe: {str(e)}")
                 
-                if self.config.validate_sequences:
+                # 检查序列是否为空，如果为空生成fallback序列
+                if not action_sequence.actions and enhanced_request.available_actions:
+                    if self.config.enable_logging:
+                        self.logger.info(f"Generated sequence is empty, creating fallback with available actions")
+                    # 创建一个简单的fallback序列，包含第一个可用动作
+                    fallback_action = enhanced_request.available_actions[0]
+                    action_sequence = ActionSequence(
+                        id=f"fallback_{int(time.time())}",
+                        actions=[fallback_action],
+                        initial_state=enhanced_request.initial_state,
+                        goal_state=enhanced_request.goal_state
+                    )
+                    warnings.append("Using fallback action sequence due to empty planning result")
+                
+                if self.config.validate_sequences and action_sequence.actions:
                     validation_result = self._validate_sequence(
                         action_sequence, enhanced_request.initial_state, enhanced_request.goal_state
                     )
@@ -438,8 +452,20 @@ class ActionSequencer:
                                 action_sequence=None,
                                 planning_result=planning_result,
                                 execution_time=time.time() - start_time,
-                                error_message=f"Generated sequence failed validation: {validation_result['errors']}"
-                            )
+                                error_message=f"Generated sequence failed validation: {validation_result['errors']}")
+            # 如果规划结果成功但没有action_sequence，尝试生成fallback序列
+            elif planning_result.success and enhanced_request.available_actions:
+                if self.config.enable_logging:
+                    self.logger.info(f"No action_sequence returned from planner, creating fallback")
+                # 创建一个简单的fallback序列，包含第一个可用动作
+                fallback_action = enhanced_request.available_actions[0]
+                action_sequence = ActionSequence(
+                    id=f"fallback_{int(time.time())}",
+                    actions=[fallback_action],
+                    initial_state=enhanced_request.initial_state,
+                    goal_state=enhanced_request.goal_state
+                )
+                warnings.append("Using fallback action sequence due to no planner result")
             
             # 缓存结果
             if self._cache_manager is not None and planning_result.success:
