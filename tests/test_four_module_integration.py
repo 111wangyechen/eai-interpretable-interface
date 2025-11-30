@@ -127,7 +127,7 @@ class FourModuleIntegrationTester:
             test_ltl = LTLFormula("F(blue_block_on_shelf)")
             subgoal_result = self.subgoal_decomposer.decompose(ltl_formula=test_ltl)
             assert isinstance(subgoal_result, DecompositionResult), "子目标分解结果应为DecompositionResult类型"
-        assert hasattr(subgoal_result, "subgoals"), "DecompositionResult缺少subgoals属性"
+            assert hasattr(subgoal_result, "subgoals"), "DecompositionResult缺少subgoals属性"
             assert all(hasattr(sg, "description") for sg in subgoal_result.subgoals), "子目标缺少description字段"
             initialization_results["subgoal_decomposition"] = True
             print("   ✓ 子目标分解模块接口验证通过")
