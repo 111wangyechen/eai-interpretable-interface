@@ -123,6 +123,26 @@ class TestLLMIntegration:
         assert isinstance(confidence, float)
         assert 0.0 <= confidence <= 1.0
         
+        # 测试除以零情况 - 模拟一个可能导致除以零的转换
+        # 创建一个没有参数但启用了PDDL语义的转换
+        mock_transition_no_params = MagicMock()
+        mock_transition_no_params.name = "test-action-no-params"
+        mock_transition_no_params.preconditions = []
+        mock_transition_no_params.effects = []
+        mock_transition_no_params.parameters = []
+        
+        # 启用PDDL语义
+        predictor.enable_pddl_semantics = True
+        
+        # 这应该不会导致除以零
+        confidence_no_params = predictor._calculate_transition_confidence(
+            mock_transition_no_params,
+            current_state,
+            goal_state
+        )
+        
+        assert 0.0 <= confidence_no_params <= 1.0, f"置信度值应在0到1之间，实际为{confidence_no_params}"
+        
         logger.info("✓ 置信度计算测试通过")
     
     def test_scene_config_loading(self):
@@ -344,7 +364,6 @@ def run_llm_integration_tests():
         test_instance.test_llm_integration_initialization()
         test_instance.test_confidence_calculation()
         test_instance.test_scene_config_loading()
-        test_instance.test_scene_config_loading()
         test_instance.test_error_handling()
         test_instance.test_confidence_threshold_filtering()
         test_instance.test_integration_with_transition_validator()
@@ -353,6 +372,8 @@ def run_llm_integration_tests():
         return True
     except Exception as e:
         logger.error(f"\n❌ LLM集成测试失败: {str(e)}")
+        import traceback
+        logger.error(f"Traceback: {traceback.format_exc()}")
         return False
     finally:
         test_instance.teardown_method()
