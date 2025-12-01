@@ -108,9 +108,15 @@ class TestLLMIntegration:
             "objects": ["fridge", "counter", "knife"]
         }
         
+        goal_state = {
+            "location": "living_room",
+            "holding": "knife",
+            "objects": ["sofa", "table"]
+        }
+        
         # 调用置信度计算方法
         confidence = predictor._calculate_transition_confidence(
-            transition, current_state
+            transition, current_state, goal_state
         )
         
         # 验证置信度结果类型和范围
