@@ -286,6 +286,14 @@ class ActionSequence:
         """返回动作序列中动作的数量"""
         return len(self.actions)
     
+    def __iter__(self):
+        """实现迭代协议，支持for循环遍历动作"""
+        return iter(self.actions)
+    
+    def __getitem__(self, idx):
+        """实现索引访问，支持action_sequence[0]"""
+        return self.actions[idx]
+    
     def get_statistics(self) -> Dict[str, Any]:
         """获取序列统计信息"""
         total_actions = len(self.actions)

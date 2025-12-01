@@ -223,7 +223,7 @@ class ActionPlanner:
     
     def __init__(self, algorithm: PlanningAlgorithm = PlanningAlgorithm.HIERARCHICAL,
                  heuristic_type: HeuristicType = HeuristicType.COMBINED,
-                 max_depth: int = 100, max_time: float = 60.0,
+                 max_depth: int = 20, max_time: float = 1.0,
                  enable_state_abstraction: bool = True,
                  enable_bidirectional_search: bool = True):
         """

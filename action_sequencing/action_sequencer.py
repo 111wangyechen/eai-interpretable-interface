@@ -45,7 +45,7 @@ from .aude_re import AuDeRe, AudereConfig, create_aude_re
 import importlib
 from . import behavior_action_library
 importlib.reload(behavior_action_library)
-from .behavior_action_library import get_behavior_action_library, validate_action_against_behavior_library
+from .behavior_action_library import get_behavior_action_library, validate_action_against_behavior_library, create_behavior_action
 
 
 @dataclass
@@ -495,6 +495,17 @@ class ActionSequencer:
                 additional_actions = enhanced_request.available_actions[1:2]  # 获取第二个可用动作
                 action_sequence.actions.extend(additional_actions)
                 warnings.append("Expanded action sequence to meet minimum length requirement")
+            
+            # 确保所有动作都被正确标记为官方BEHAVIOR动作（如果它们在官方库中）
+            if action_sequence and action_sequence.actions:
+                behavior_library = get_behavior_action_library()
+                for i, action in enumerate(action_sequence.actions):
+                    # 检查动作是否在官方BEHAVIOR库中
+                    if behavior_library.get_action(action.name):
+                        # 标记为官方BEHAVIOR动作
+                        if not hasattr(action, 'metadata') or action.metadata is None:
+                            action.metadata = {}
+                        action.metadata['is_official_behavior_action'] = True
             
             # 记录日志
             if self.config.enable_logging:
