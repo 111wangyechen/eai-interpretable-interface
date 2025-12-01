@@ -281,8 +281,8 @@ class TestLLMIntegration:
         logger.info("测试：置信度阈值过滤")
         
         # 使用不同的置信度阈值创建预测器
-        high_threshold_predictor = TransitionPredictor(confidence_threshold=0.9)
-        low_threshold_predictor = TransitionPredictor(confidence_threshold=0.5)
+        high_threshold_predictor = TransitionPredictor(config={'confidence_threshold': 0.9})
+        low_threshold_predictor = TransitionPredictor(config={'confidence_threshold': 0.5})
         
         # 模拟预测结果
         mock_transitions = [
