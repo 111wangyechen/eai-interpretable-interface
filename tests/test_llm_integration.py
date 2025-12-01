@@ -253,7 +253,7 @@ class TestLLMIntegration:
         """
         测试错误处理机制
         """
-        self.logger.info("测试：错误处理机制")
+        logger.info("测试：错误处理机制")
         
         predictor = TransitionPredictor(config={'enable_pddl_semantics': True})
         
@@ -264,9 +264,9 @@ class TestLLMIntegration:
         try:
             result = predictor.predict_transitions(current_state=invalid_state, goal_state=goal_state, available_transitions=[])
             assert isinstance(result, list)
-            self.logger.info("✓ 无效状态错误处理测试通过")
+            logger.info("✓ 无效状态错误处理测试通过")
         except Exception as e:
-            self.logger.error(f"✗ 无效状态错误处理测试失败: {str(e)}")
+            logger.error(f"✗ 无效状态错误处理测试失败: {str(e)}")
             raise
         
         # 测试无效转换
@@ -276,9 +276,9 @@ class TestLLMIntegration:
         try:
             result = predictor.predict_transitions(current_state=valid_state, goal_state=goal_state, available_transitions=[invalid_transition])
             assert isinstance(result, list)
-            self.logger.info("✓ 无效转换错误处理测试通过")
+            logger.info("✓ 无效转换错误处理测试通过")
         except Exception as e:
-            self.logger.error(f"✗ 无效转换错误处理测试失败: {str(e)}")
+            logger.error(f"✗ 无效转换错误处理测试失败: {str(e)}")
             raise
         
         # 测试缺少参数
@@ -288,12 +288,12 @@ class TestLLMIntegration:
             # 缺少goal_state参数
             result = predictor.predict_transitions(current_state=valid_state, available_transitions=[])
             assert isinstance(result, list)
-            self.logger.info("✓ 缺少参数错误处理测试通过")
+            logger.info("✓ 缺少参数错误处理测试通过")
         except TypeError:
             # 预期会抛出TypeError，因为goal_state是必需参数
-            self.logger.info("✓ 缺少参数错误处理测试通过")
+            logger.info("✓ 缺少参数错误处理测试通过")
         except Exception as e:
-            self.logger.error(f"✗ 缺少参数错误处理测试失败: {str(e)}")
+            logger.error(f"✗ 缺少参数错误处理测试失败: {str(e)}")
             raise
     
     def test_confidence_threshold_filtering(self):
@@ -400,7 +400,7 @@ class TestLLMIntegration:
             validation_result = validator.validate_transition(pred[0], current_state)
             assert hasattr(validation_result, 'is_valid')
         
-        self.logger.info("✓ 与转换验证器的集成测试通过")
+        logger.info("✓ 与转换验证器的集成测试通过")
 
 def run_llm_integration_tests():
     """
