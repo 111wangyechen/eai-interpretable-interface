@@ -162,6 +162,8 @@ class TransitionPredictor:
                 
                 if total_params > 0:
                     pddl_parameter_match = parameter_match_count / total_params
+                else:
+                    pddl_parameter_match = 1.0  # No parameters to match, so perfect match
                 confidence += pddl_parameter_match * 0.10
             
             # 6. 场景匹配度 (5%)
