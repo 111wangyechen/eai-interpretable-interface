@@ -405,7 +405,13 @@ class ActionPlanner:
                     fallback_result.metadata['reason'] = f"Exception during planning, using fallback action: {fallback_action.name}"
                     return fallback_result
                 # 如果没有可用动作，返回失败
+                # 如果没有可用动作，返回失败
                 return self._create_failure_result(f"Exception during planning: {str(e)}")
+        except Exception as e:
+            # 捕获外部异常
+            if hasattr(self, 'logger'):
+                self.logger.error(f"External planning exception: {str(e)}")
+            return self._create_failure_result(f"External exception during planning: {str(e)}")
     
     def _bfs_planning(self, initial_state: Dict[str, Any], goal_state: Dict[str, Any],
                       available_actions: List[Action]) -> PlanningResult:
