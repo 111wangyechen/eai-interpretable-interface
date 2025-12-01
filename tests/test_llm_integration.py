@@ -77,16 +77,15 @@ class TestLLMIntegration:
         logger.info("测试：LLM集成初始化")
         
         # 创建TransitionPredictor实例，测试LLM相关配置是否正确加载
-        predictor = TransitionPredictor(
-            model_name="qwen/qwen-turbo",
-            confidence_threshold=0.8,
-            max_predictions=5
-        )
+        config = {
+            'confidence_threshold': 0.8,
+            'max_predictions': 5
+        }
+        predictor = TransitionPredictor(config=config)
         
         # 验证初始化参数
-        assert predictor._model_name == "qwen/qwen-turbo"
-        assert predictor._confidence_threshold == 0.8
-        assert predictor._max_predictions == 5
+        assert predictor.confidence_threshold == 0.8
+        assert predictor.max_predictions == 5
         
         logger.info("✓ LLM集成初始化测试通过")
     
@@ -96,7 +95,7 @@ class TestLLMIntegration:
         """
         logger.info("测试：置信度计算")
         
-        predictor = TransitionPredictor()
+        predictor = TransitionPredictor(config={})
         
         # 模拟测试数据
         transition = MagicMock()
