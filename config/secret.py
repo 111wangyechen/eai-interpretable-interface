@@ -1,6 +1,9 @@
 # Configuration file for API keys and sensitive information
 # Please keep this file secure and do not commit to version control
 
+# Import LiteLLM to configure API keys
+import litellm
+
 # LLM Provider API Keys
 API_KEYS = {
     # Example: OpenAI API key
@@ -10,11 +13,15 @@ API_KEYS = {
     # "anthropic": "sk-ant-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     
     # Tongyi Qianwen 3-Max API key (DashScope)
-    # Get from: https://console.baiyun.baidu.com/
+    # Get from: https://dashscope.aliyun.com/
     "dashscope": "your-dashscope-api-key-here",
     
     # Add other API keys as needed
 }
+
+# Configure LiteLLM with the API keys dictionary
+# This allows LiteLLM to automatically use the correct key for each model
+litellm.api_key = API_KEYS
 
 # Model configurations
 MODEL_CONFIGS = {
