@@ -1,0 +1,140 @@
+# Scenarios configuration file for transition modeling
+# Defines different scenarios with their specific settings
+
+scenarios:
+  # 基础场景 - 适用于简单任务
+  basic:
+    name: "基础场景"
+    description: "适用于简单的状态转换建模任务"
+    enabled: true
+    
+    # 模型配置
+    model:
+      name: "qwen/qwen-turbo"
+      temperature: 0.5
+      max_tokens: 500
+    
+    # 转换配置
+    transition:
+      min_length: 2
+      max_length: 5
+      allowed_types: ["atomic", "composite"]
+      default_cost: 1.0
+    
+    # 验证配置
+    validation:
+      enabled: true
+      strictness: "medium"
+      max_retries: 3
+    
+    # 输出配置
+    output:
+      format: "pddl"
+      include_costs: true
+      include_types: true
+  
+  # 复杂场景 - 适用于复杂任务
+  complex:
+    name: "复杂场景"
+    description: "适用于复杂的多步骤状态转换建模"
+    enabled: true
+    
+    # 模型配置
+    model:
+      name: "qwen/qwen-plus"
+      temperature: 0.7
+      max_tokens: 1500
+    
+    # 转换配置
+    transition:
+      min_length: 3
+      max_length: 10
+      allowed_types: ["atomic", "composite", "conditional"]
+      default_cost: 0.5
+    
+    # 验证配置
+    validation:
+      enabled: true
+      strictness: "high"
+      max_retries: 5
+    
+    # 输出配置
+    output:
+      format: "pddl"
+      include_costs: true
+      include_types: true
+      include_confidence: true
+  
+  # 快速场景 - 适用于需要快速响应的任务
+  fast:
+    name: "快速场景"
+    description: "适用于需要快速生成转换序列的任务"
+    enabled: true
+    
+    # 模型配置
+    model:
+      name: "qwen/qwen-turbo"
+      temperature: 0.3
+      max_tokens: 300
+    
+    # 转换配置
+    transition:
+      min_length: 1
+      max_length: 3
+      allowed_types: ["atomic"]
+      default_cost: 1.0
+    
+    # 验证配置
+    validation:
+      enabled: false
+      strictness: "low"
+      max_retries: 1
+    
+    # 输出配置
+    output:
+      format: "json"
+      include_costs: false
+      include_types: false
+  
+  # 调试场景 - 适用于开发和调试
+  debug:
+    name: "调试场景"
+    description: "适用于开发和调试目的"
+    enabled: false
+    
+    # 模型配置
+    model:
+      name: "qwen/qwen-turbo"
+      temperature: 0.9
+      max_tokens: 2000
+    
+    # 转换配置
+    transition:
+      min_length: 1
+      max_length: 15
+      allowed_types: ["atomic", "composite", "conditional", "loop"]
+      default_cost: 0.1
+    
+    # 验证配置
+    validation:
+      enabled: true
+      strictness: "low"
+      max_retries: 10
+    
+    # 输出配置
+    output:
+      format: "yaml"
+      include_costs: true
+      include_types: true
+      include_confidence: true
+      include_debug_info: true
+
+# 默认场景
+default_scenario: "basic"
+
+# 场景优先级
+scenario_priority:
+  - "complex"
+  - "basic"
+  - "fast"
+  - "debug"

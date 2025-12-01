@@ -12,6 +12,7 @@ from collections import defaultdict
 import json
 import time
 import logging
+import random
 
 
 class TransitionType(Enum):
@@ -133,26 +134,30 @@ class StateCondition:
     
     def to_pddl(self) -> str:
         """转换为PDDL格式字符串"""
-        # 构建PDDL谓词表达式
-        param_str = ' '.join(str(p) for p in self.params) if self.params else ''
-        if param_str:
-            pddl_str = f"({self.predicate} {param_str})"
-        else:
-            pddl_str = f"({self.predicate})"
-        
-        # 添加取反
-        if self.negated:
-            pddl_str = f"(not {pddl_str})"
-        
-        # 如果有值和操作符，添加比较
-        if self.value is not None and self.operator in ['=', '!=']:
-            if isinstance(self.value, str):
-                value_str = f'"{self.value}"'
+        try:
+            # 构建PDDL谓词表达式
+            param_str = ' '.join(str(p) for p in self.params) if self.params else ''
+            if param_str:
+                pddl_str = f"({self.predicate} {param_str})"
             else:
-                value_str = str(self.value)
-            pddl_str = f"(= {pddl_str} {value_str})"
-        
-        return pddl_str
+                pddl_str = f"({self.predicate})"
+            
+            # 添加取反
+            if self.negated:
+                pddl_str = f"(not {pddl_str})"
+            
+            # 如果有值和操作符，添加比较
+            if self.value is not None and self.operator in ['=', '!=']:
+                if isinstance(self.value, str):
+                    value_str = f'"{self.value}"'
+                else:
+                    value_str = str(self.value)
+                pddl_str = f"(= {pddl_str} {value_str})"
+            
+            return pddl_str
+        except Exception as e:
+            logging.error(f"Failed to convert StateCondition to PDDL: {str(e)}")
+            return f"({self.predicate})"
 
 
 class StateEffect:
@@ -256,42 +261,46 @@ class StateEffect:
     
     def to_pddl(self) -> str:
         """转换为PDDL格式字符串"""
-        param_str = ' '.join(str(p) for p in self.params) if self.params else ''
-        
-        if self.effect_type == 'add':
-            # PDDL positive effect
-            if param_str:
-                return f"({self.predicate} {param_str})"
-            else:
-                return f"({self.predicate})"
-        
-        elif self.effect_type == 'delete':
-            # PDDL negative effect
-            if param_str:
-                return f"(not ({self.predicate} {param_str}))"
-            else:
-                return f"(not ({self.predicate}))"
-        
-        else:  # assign
-            # PDDL assign effect
-            if self.value is not None:
+        try:
+            param_str = ' '.join(str(p) for p in self.params) if self.params else ''
+            
+            if self.effect_type == 'add':
+                # PDDL positive effect
                 if param_str:
-                    pred_str = f"({self.predicate} {param_str})"
+                    pddl_str = f"({self.predicate} {param_str})"
                 else:
-                    pred_str = f"({self.predicate})"
-                
-                if isinstance(self.value, str):
-                    value_str = f'"{self.value}"'
-                else:
-                    value_str = str(self.value)
-                
-                return f"(= {pred_str} {value_str})"
-            else:
-                # 默认返回正效果
+                    pddl_str = f"({self.predicate})"
+            
+            elif self.effect_type == 'delete':
+                # PDDL negative effect
                 if param_str:
-                    return f"({self.predicate} {param_str})"
+                    pddl_str = f"(not ({self.predicate} {param_str}))"
                 else:
-                    return f"({self.predicate})"
+                    pddl_str = f"(not ({self.predicate}))"
+            
+            else:  # assign
+                # PDDL assign effect
+                if self.value is not None:
+                    if param_str:
+                        pred_str = f"({self.predicate} {param_str})"
+                    else:
+                        pred_str = f"({self.predicate})"
+                    if isinstance(self.value, str):
+                        value_str = f'"{self.value}"'
+                    else:
+                        value_str = str(self.value)
+                    pddl_str = f"(assign {pred_str} {value_str})"
+                else:
+                    pddl_str = f"({self.predicate})"
+            
+            # 添加置信度信息作为PDDL注释
+            if hasattr(self, 'confidence') and self.confidence < 1.0:
+                pddl_str += f" ; confidence: {self.confidence:.2f}"
+            
+            return pddl_str
+        except Exception as e:
+            logging.error(f"Failed to convert StateEffect to PDDL: {str(e)}")
+            return f"({self.predicate})"
 
 
 @dataclass
@@ -326,8 +335,34 @@ class StateTransition:
     def _validate_definition(self) -> None:
         """验证转换定义的一致性和PDDL格式合规性"""
         # 检查ID和名称
-        if not self.id or not self.name:
-            self.logger.warning(f"Transition has empty id or name: {self.id} - {self.name}")
+        if not self.id or not isinstance(self.id, str):
+            self.id = f"transition_{int(time.time() * 1000000)}"
+        
+        if not self.name or not isinstance(self.name, str):
+            self.logger.warning(f"Transition has invalid name: {self.name}, setting to default")
+            self.name = f"transition_{self.id}"
+        
+        # 验证前置条件列表
+        if not isinstance(self.preconditions, list):
+            self.preconditions = []
+        else:
+            # 验证每个前置条件
+            valid_preconditions = []
+            for cond in self.preconditions:
+                if isinstance(cond, StateCondition):
+                    valid_preconditions.append(cond)
+            self.preconditions = valid_preconditions
+        
+        # 验证效果列表
+        if not isinstance(self.effects, list):
+            self.effects = []
+        else:
+            # 验证每个效果
+            valid_effects = []
+            for effect in self.effects:
+                if isinstance(effect, StateEffect):
+                    valid_effects.append(effect)
+            self.effects = valid_effects
         
         # 检查前提条件和效果
         precondition_predicates = set()
@@ -497,33 +532,51 @@ class StateTransition:
     
     def to_pddl(self) -> str:
         """转换为PDDL格式字符串"""
-        # 构建动作定义
-        param_str = ' '.join([f"?{k} - {v}" for k, v in self.parameters.items()]) if self.parameters else ''
-        
-        # 构建前置条件
-        preconds_pddl = []
-        for cond in self.preconditions:
-            if hasattr(cond, 'to_pddl'):
-                preconds_pddl.append(cond.to_pddl())
-        
-        # 构建效果
-        effects_pddl = []
-        for effect in self.effects:
-            if hasattr(effect, 'to_pddl'):
-                effects_pddl.append(effect.to_pddl())
-        
-        # 组装完整PDDL
-        pddl = f"""( :action {self.name.lower()}
+        try:
+            # 构建参数定义
+            param_str = ''
+            if self.parameters:
+                param_list = []
+                for k, v in self.parameters.items():
+                    # 确保参数类型符合PDDL规范
+                    pddl_type = v if v else 'object'
+                    param_list.append(f"?{k} - {pddl_type}")
+                param_str = ' '.join(param_list)
+            
+            # 构建前置条件
+            preconds_pddl = []
+            for cond in self.preconditions:
+                if hasattr(cond, 'to_pddl'):
+                    cond_pddl = cond.to_pddl()
+                    if cond_pddl:
+                        preconds_pddl.append(cond_pddl)
+            
+            # 构建效果
+            effects_pddl = []
+            for effect in self.effects:
+                if hasattr(effect, 'to_pddl'):
+                    effect_pddl = effect.to_pddl()
+                    if effect_pddl:
+                        effects_pddl.append(effect_pddl)
+            
+            # 添加默认成本效果
+            effects_pddl.append(f"(increase (total-cost) {self.cost:.2f})")
+            
+            # 组装完整PDDL
+            pddl = f"""( :action {self.name.lower()}
     :parameters ({param_str})
     :precondition (and
-        {chr(10).join(f'        {p}' for p in preconds_pddl)}
+        {chr(10).join(f'        {p}' for p in preconds_pddl) or '        '}
     )
     :effect (and
-        {chr(10).join(f'        {e}' for e in effects_pddl)}
+        {chr(10).join(f'        {e}' for e in effects_pddl) or '        '}
     )
 )"""
-        
-        return pddl
+            
+            return pddl
+        except Exception as e:
+            logging.error(f"Failed to convert StateTransition to PDDL: {str(e)}")
+            return f"( :action {self.name.lower()} :parameters () :precondition (and) :effect (and))"
     
     def get_consistency_report(self) -> Dict[str, Any]:
         """获取转换的一致性报告"""

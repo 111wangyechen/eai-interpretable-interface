@@ -15,24 +15,16 @@ import hashlib
 from pathlib import Path
 
 # 导入LogicGuard模块
+LogicGuard = None
+create_logic_guard = None
 try:
-    from .logic_guard import LogicGuard, create_logic_guard
-except ImportError:
-    # 如果相对导入失败，尝试绝对导入
-    try:
-        import sys
-        import os
-        # 添加当前目录到Python路径
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        if current_dir not in sys.path:
-            sys.path.insert(0, current_dir)
-        from logic_guard import LogicGuard, create_logic_guard
-    except ImportError:
-        # 如果仍然导入失败，设置为None并在运行时处理
-        LogicGuard = None
-        create_logic_guard = None
-        import logging
-        logging.warning("LogicGuard module not available, some features will be disabled")
+    from .logic_guard import LogicGuard as LG, create_logic_guard as clg
+    LogicGuard = LG
+    create_logic_guard = clg
+except ImportError as e:
+    # 简化导入逻辑，仅记录警告
+    import logging
+    logging.warning(f"LogicGuard module not available, some features will be disabled: {str(e)}")
 
 try:
     from .state_transition import (
@@ -256,23 +248,47 @@ class TransitionModeler:
                 return False
             
             model = self.models[model_id]
+            domain_name = model.domain.replace(' ', '_')
             
             # 构建PDDL域文件内容
             pddl_content = []
-            pddl_content.append(f"(define (domain {model.domain.replace(' ', '_')})")
-            pddl_content.append("  (:requirements :typing)")
+            pddl_content.append(f"(define (domain {domain_name})")
+            pddl_content.append("  (:requirements :typing :action-costs)")
             
-            # 提取谓词定义
+            # 提取谓词定义和对象类型
             predicates = set()
+            object_types = set(['object'])  # 默认对象类型
+            
             for transition in model.transitions:
                 for condition in transition.preconditions:
                     if hasattr(condition, 'to_pddl'):
-                        pred_str = condition.to_pddl().split(' ')[0].strip('()')
+                        pddl_str = condition.to_pddl()
+                        pred_str = pddl_str.split(' ')[0].strip('()')
                         predicates.add(pred_str)
+                        # 提取参数类型（简化处理）
+                        args = pddl_str.split(' ')[1:]
+                        for arg in args:
+                            if '-' in arg:
+                                obj_type = arg.split('-')[-1].strip()
+                                object_types.add(obj_type)
                 for effect in transition.effects:
                     if hasattr(effect, 'to_pddl'):
-                        pred_str = effect.to_pddl().split(' ')[0].strip('()')
+                        pddl_str = effect.to_pddl()
+                        pred_str = pddl_str.split(' ')[0].strip('()')
                         predicates.add(pred_str)
+                        # 提取参数类型（简化处理）
+                        args = pddl_str.split(' ')[1:]
+                        for arg in args:
+                            if '-' in arg:
+                                obj_type = arg.split('-')[-1].strip()
+                                object_types.add(obj_type)
+            
+            # 添加类型定义
+            if len(object_types) > 1:
+                pddl_content.append("  (:types")
+                for obj_type in sorted(object_types - {'object'}):
+                    pddl_content.append(f"    {obj_type} - object")
+                pddl_content.append("  )")
             
             # 添加谓词定义
             pddl_content.append("  (:predicates")
@@ -621,6 +637,8 @@ class TransitionModeler:
             response: 建模响应
             start_time: 开始时间
         """
+        total_requests = self.modeling_stats['total_requests']
+        
         if response.success:
             self.modeling_stats['successful_modeling'] += 1
         else:
@@ -633,7 +651,6 @@ class TransitionModeler:
             self._record_error_type(error_type)
             
         # 更新平均序列生成数量
-        total_requests = self.modeling_stats['total_requests']
         current_avg = self.modeling_stats['average_sequences_generated']
         new_count = len(response.predicted_sequences)
         self.modeling_stats['average_sequences_generated'] = \
@@ -644,6 +661,28 @@ class TransitionModeler:
         current_val_avg = self.modeling_stats['average_validation_time']
         self.modeling_stats['average_validation_time'] = \
             (current_val_avg * (total_requests - 1) + validation_time) / total_requests
+        
+        # 更新最大序列长度
+        max_seq_len = self.modeling_stats['max_sequence_length']
+        for seq in response.predicted_sequences:
+            if len(seq.transitions) > max_seq_len:
+                self.modeling_stats['max_sequence_length'] = len(seq.transitions)
+        
+        # 记录LogicGuard统计信息（如果可用）
+        if self.logic_guard and hasattr(self.logic_guard, 'get_statistics'):
+            try:
+                lg_stats = self.logic_guard.get_statistics()
+                # 合并LogicGuard统计信息
+                if 'logic_guard' not in self.modeling_stats:
+                    self.modeling_stats['logic_guard'] = {}
+                for key, value in lg_stats.items():
+                    if key in self.modeling_stats['logic_guard']:
+                        if isinstance(value, (int, float)):
+                            self.modeling_stats['logic_guard'][key] += value
+                    else:
+                        self.modeling_stats['logic_guard'][key] = value
+            except Exception as e:
+                self.logger.warning(f"Failed to update LogicGuard statistics: {str(e)}")
     
     def _record_error_type(self, error_type: str):
         """

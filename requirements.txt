@@ -27,3 +27,11 @@ pytest>=6.2.0
 # 开发工具
 black>=22.0.0
 flake8>=4.0.0
+
+# LLM集成
+litellm>=1.37.0
+anthropic>=0.20.0
+openai>=1.0.0
+
+# 通义千问3-Max集成
+dashscope>=1.14.0

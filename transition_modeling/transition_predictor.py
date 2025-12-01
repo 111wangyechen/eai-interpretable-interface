@@ -9,6 +9,8 @@ from typing import Dict, List, Any, Optional, Tuple, Union
 import numpy as np
 import json
 import time
+import yaml
+import os
 from collections import defaultdict, Counter
 import logging
 
@@ -53,17 +55,12 @@ class TransitionPredictor:
             'accuracy': 0.0
         }
         
-        # 常见场景的预设转换规则
-        self.common_scenarios = {
-            'open_fridge_take_milk': {
-                'transitions': ['open_fridge', 'take_milk', 'pour_cup'],
-                'weight': 0.3  # 增加常见场景的权重
-            },
-            'make_coffee': {
-                'transitions': ['open_cabinet', 'take_coffee', 'pour_water', 'brew_coffee'],
-                'weight': 0.25
-            }
-        }
+        # 场景配置
+        self.scenarios_config = {}
+        self.common_scenarios = {}
+        
+        # 加载场景配置
+        self._load_scenarios_config()
         
         self.logger.info("Transition Predictor initialized")
     
@@ -123,37 +120,52 @@ class TransitionPredictor:
         try:
             confidence = 0.0
             
-            # 1. 前提条件满足度 (35%)
+            # 1. 前提条件满足度 (30%)
             precondition_score = self._evaluate_preconditions(transition, current_state)
-            confidence += precondition_score * 0.35
+            confidence += precondition_score * 0.30
             
-            # 2. 目标相关性 (30%)
+            # 2. 目标相关性 (25%)
             relevance_score = self._calculate_goal_relevance(transition, current_state, goal_state)
-            confidence += relevance_score * 0.3
+            confidence += relevance_score * 0.25
             
-            # 3. 历史成功率 (15%)
+            # 3. 历史成功率 (20%)
             historical_score = self._get_historical_success_rate(transition)
-            confidence += historical_score * 0.15
+            confidence += historical_score * 0.20
             
             # 4. 转换复杂度惩罚 (10%)
             complexity_penalty = self._calculate_complexity_penalty(transition)
-            confidence -= complexity_penalty * 0.1
+            confidence -= complexity_penalty * 0.10
             
-            # 5. PDDL参数匹配度（如果启用）
+            # 5. PDDL参数匹配度（如果启用）(10%)
             pddl_parameter_match = 1.0
             if self.enable_pddl_semantics and hasattr(transition, 'parameters') and transition.parameters:
                 # 检查参数化谓词的匹配情况
                 parameter_match_count = 0
                 total_params = 0
+                
+                # 检查前置条件参数匹配
                 for condition in transition.preconditions:
-                    if hasattr(condition, 'parameters') and condition.parameters:
-                        total_params += len(condition.parameters)
-                        for param in condition.parameters:
+                    if hasattr(condition, 'params') and condition.params:
+                        total_params += len(condition.params)
+                        for param in condition.params:
                             if param in current_state:
                                 parameter_match_count += 1
+                
+                # 检查效果参数匹配
+                for effect in transition.effects:
+                    if hasattr(effect, 'params') and effect.params:
+                        total_params += len(effect.params)
+                        for param in effect.params:
+                            if param in goal_state:
+                                parameter_match_count += 1
+                
                 if total_params > 0:
                     pddl_parameter_match = parameter_match_count / total_params
-                confidence += pddl_parameter_match * 0.1
+                confidence += pddl_parameter_match * 0.10
+            
+            # 6. 场景匹配度 (5%)
+            scenario_match_score = self._calculate_scenario_match(transition, current_state, goal_state)
+            confidence += scenario_match_score * 0.05
             
             # 确保最小置信度
             min_confidence = 0.01
@@ -269,10 +281,16 @@ class TransitionPredictor:
         
         # 为常见场景增加权重
         for scenario, data in self.common_scenarios.items():
-            if transition.name in data['transitions']:
+            if transition.name in data.get('transitions', []):
                 # 常见场景的转换给予额外加权
-                base_rate = max(base_rate, 0.6 + data['weight'])  # 至少0.6的基础成功率
+                base_rate = max(base_rate, 0.6 + data.get('weight', 0.0))  # 至少0.6的基础成功率
                 break
+        
+        # 基于转换类型调整基础率
+        if transition.transition_type.value == 'atomic':
+            base_rate = min(1.0, base_rate + 0.05)  # 原子转换更可靠
+        elif transition.transition_type.value == 'conditional':
+            base_rate = max(0.3, base_rate - 0.05)  # 条件转换可靠性稍低
         
         return base_rate
     
@@ -442,6 +460,107 @@ class TransitionPredictor:
         
         self.logger.info(f"Model saved to {filepath}")
     
+    def _load_scenarios_config(self):
+        """
+        从配置文件加载场景配置
+        """
+        scenarios_path = os.path.join('config', 'scenarios.yaml')
+        
+        try:
+            if os.path.exists(scenarios_path):
+                with open(scenarios_path, 'r', encoding='utf-8') as f:
+                    scenarios_data = yaml.safe_load(f)
+                
+                self.scenarios_config = scenarios_data.get('scenarios', {})
+                
+                # 转换为common_scenarios格式
+                for scenario_name, scenario_config in self.scenarios_config.items():
+                    if scenario_config.get('enabled', True):
+                        # 从场景配置中提取转换规则
+                        transition_config = scenario_config.get('transition', {})
+                        self.common_scenarios[scenario_name] = {
+                            'transitions': transition_config.get('allowed_types', []),
+                            'weight': transition_config.get('default_cost', 0.5),
+                            'min_length': transition_config.get('min_length', 2),
+                            'max_length': transition_config.get('max_length', 5)
+                        }
+                
+                self.logger.info(f"Loaded scenarios configuration from {scenarios_path}")
+            else:
+                # 使用默认场景配置
+                self.common_scenarios = {
+                    'open_fridge_take_milk': {
+                        'transitions': ['open_fridge', 'take_milk', 'pour_cup'],
+                        'weight': 0.3,
+                        'min_length': 2,
+                        'max_length': 5
+                    },
+                    'make_coffee': {
+                        'transitions': ['open_cabinet', 'take_coffee', 'pour_water', 'brew_coffee'],
+                        'weight': 0.25,
+                        'min_length': 2,
+                        'max_length': 5
+                    }
+                }
+                self.logger.warning(f"Scenarios config file not found at {scenarios_path}, using default scenarios")
+        except Exception as e:
+            self.logger.error(f"Failed to load scenarios config: {e}")
+            # 使用默认配置
+            self.common_scenarios = {
+                'open_fridge_take_milk': {
+                    'transitions': ['open_fridge', 'take_milk', 'pour_cup'],
+                    'weight': 0.3,
+                    'min_length': 2,
+                    'max_length': 5
+                },
+                'make_coffee': {
+                    'transitions': ['open_cabinet', 'take_coffee', 'pour_water', 'brew_coffee'],
+                    'weight': 0.25,
+                    'min_length': 2,
+                    'max_length': 5
+                }
+            }
+    
+    def _calculate_scenario_match(self, 
+                                 transition: StateTransition,
+                                 current_state: Dict[str, Any],
+                                 goal_state: Dict[str, Any]) -> float:
+        """
+        计算转换与当前场景的匹配度
+        
+        Args:
+            transition: 状态转换
+            current_state: 当前状态
+            goal_state: 目标状态
+            
+        Returns:
+            场景匹配分数 (0.0 - 1.0)
+        """
+        match_score = 0.0
+        match_count = 0
+        
+        # 检查转换是否属于任何常见场景
+        for scenario, scenario_data in self.common_scenarios.items():
+            if transition.name in scenario_data.get('transitions', []):
+                match_score += 1.0
+                match_count += 1
+        
+        # 基于状态上下文调整匹配分数
+        for scenario, scenario_data in self.common_scenarios.items():
+            scenario_config = self.scenarios_config.get(scenario, {})
+            # 简单的状态匹配检查
+            if scenario_config.get('name') in str(current_state):
+                match_score += 0.5
+                match_count += 1
+            if scenario_config.get('name') in str(goal_state):
+                match_score += 0.5
+                match_count += 1
+        
+        if match_count == 0:
+            return 0.0
+        
+        return min(1.0, match_score / match_count)
+    
     def load_model(self, filepath: str):
         """加载预测器模型"""
         try:
@@ -457,6 +576,9 @@ class TransitionPredictor:
             })
             self.transition_history = model_data.get('transition_history', [])
             self.state_patterns = defaultdict(list, model_data.get('state_patterns', {}))
+            
+            # 重新加载场景配置，确保最新
+            self._load_scenarios_config()
             
             self.logger.info(f"Model loaded from {filepath}")
             

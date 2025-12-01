@@ -90,32 +90,49 @@ class TransitionValidator:
         """
         self.validation_stats['total_validations'] += 1
         
+        # 检查输入类型
+        if not isinstance(transition, StateTransition):
+            self.validation_stats['failed_validations'] += 1
+            error_msg = f"Invalid transition: {transition}. Must be an instance of StateTransition"
+            self.validation_stats['common_errors'][error_msg] += 1
+            return ValidationResult(False, error_msg)
+        
         try:
             # 1. 基本结构验证
             structure_result = self._validate_transition_structure(transition)
             if not structure_result.is_valid:
+                self.validation_stats['failed_validations'] += 1
+                self.validation_stats['common_errors'][structure_result.message] += 1
                 return structure_result
             
             # 2. 前提条件验证
             precondition_result = self._validate_preconditions(transition, current_state)
             if not precondition_result.is_valid:
+                self.validation_stats['failed_validations'] += 1
+                self.validation_stats['common_errors'][precondition_result.message] += 1
                 return precondition_result
             
             # 3. 效果一致性验证
             effect_result = self._validate_effects(transition, current_state)
             if not effect_result.is_valid:
+                self.validation_stats['failed_validations'] += 1
+                self.validation_stats['common_errors'][effect_result.message] += 1
                 return effect_result
             
             # 4. 资源约束验证
             if self.check_resource_constraints:
                 resource_result = self._validate_resource_constraints(transition, current_state, context)
                 if not resource_result.is_valid:
+                    self.validation_stats['failed_validations'] += 1
+                    self.validation_stats['common_errors'][resource_result.message] += 1
                     return resource_result
             
             # 5. 时序一致性验证
             if self.check_temporal_consistency:
                 temporal_result = self._validate_temporal_consistency(transition, current_state, context)
                 if not temporal_result.is_valid:
+                    self.validation_stats['failed_validations'] += 1
+                    self.validation_stats['common_errors'][temporal_result.message] += 1
                     return temporal_result
             
             self.validation_stats['successful_validations'] += 1
@@ -123,53 +140,79 @@ class TransitionValidator:
             
         except Exception as e:
             self.validation_stats['failed_validations'] += 1
-            error_msg = f"Validation error: {str(e)}"
+            error_msg = f"Validation error in transition {transition.id} ({transition.name}): {str(e)}"
             self.validation_stats['common_errors'][error_msg] += 1
             return ValidationResult(False, error_msg)
     
     def _validate_transition_structure(self, transition: StateTransition) -> ValidationResult:
-        """验证转换结构 - 增强PDDL格式验证"""
+        """验证转换结构 - 增强PDDL格式验证和类型校验"""
         # 检查必要字段
-        if not transition.id or not transition.name:
-            return ValidationResult(False, "Missing required fields: id or name")
+        if not transition.id or not isinstance(transition.id, str):
+            return ValidationResult(False, f"Invalid ID: {transition.id}. Must be a non-empty string")
+        
+        if not transition.name or not isinstance(transition.name, str):
+            return ValidationResult(False, f"Invalid name: {transition.name}. Must be a non-empty string")
         
         # 检查转换类型
         if not isinstance(transition.transition_type, TransitionType):
-            return ValidationResult(False, "Invalid transition type")
+            return ValidationResult(False, f"Invalid transition type: {transition.transition_type}. Must be an instance of TransitionType")
         
-        # 检查数值范围
+        # 检查数值范围和类型
+        if not isinstance(transition.duration, (int, float)):
+            return ValidationResult(False, f"Invalid duration: {transition.duration}. Must be a numeric value")
         if transition.duration < 0:
-            return ValidationResult(False, "Duration cannot be negative")
+            return ValidationResult(False, f"Duration cannot be negative: {transition.duration}")
         
+        if not isinstance(transition.cost, (int, float)):
+            return ValidationResult(False, f"Invalid cost: {transition.cost}. Must be a numeric value")
         if transition.cost < 0:
-            return ValidationResult(False, "Cost cannot be negative")
+            return ValidationResult(False, f"Cost cannot be negative: {transition.cost}")
         
         # 检查PDDL格式的名称合规性
         if self.enable_pddl_validation and not self._is_valid_pddl_name(transition.name):
-            return ValidationResult(False, f"Invalid PDDL name format: {transition.name}. Use only letters, numbers, and dashes.")
+            return ValidationResult(False, f"Invalid PDDL name format: {transition.name}. Use only letters, numbers, and underscores/dashes.")
         
-        # 检查前提条件和效果
-        for condition in transition.preconditions:
-            if not condition.predicate:
-                return ValidationResult(False, "Empty condition predicate")
+        # 检查前提条件列表类型和内容
+        if not isinstance(transition.preconditions, list):
+            return ValidationResult(False, f"Invalid preconditions: {transition.preconditions}. Must be a list of StateCondition objects")
+        
+        for i, condition in enumerate(transition.preconditions):
+            if not isinstance(condition, StateCondition):
+                return ValidationResult(False, f"Invalid precondition at index {i}: {condition}. Must be a StateCondition object")
+            
+            if not condition.predicate or not isinstance(condition.predicate, str):
+                return ValidationResult(False, f"Empty or invalid condition predicate at index {i}")
+            
             # 验证PDDL格式的条件
             if self.enable_pddl_validation:
                 try:
                     if hasattr(condition, 'to_pddl'):
                         condition.to_pddl()
                 except Exception as e:
-                    return ValidationResult(False, f"Invalid PDDL condition: {str(e)}")
+                    return ValidationResult(False, f"Invalid PDDL condition at index {i}: {condition.predicate}. Error: {str(e)}")
         
-        for effect in transition.effects:
-            if not effect.predicate:
-                return ValidationResult(False, "Empty effect predicate")
+        # 检查效果列表类型和内容
+        if not isinstance(transition.effects, list):
+            return ValidationResult(False, f"Invalid effects: {transition.effects}. Must be a list of StateEffect objects")
+        
+        for i, effect in enumerate(transition.effects):
+            if not isinstance(effect, StateEffect):
+                return ValidationResult(False, f"Invalid effect at index {i}: {effect}. Must be a StateEffect object")
+            
+            if not effect.predicate or not isinstance(effect.predicate, str):
+                return ValidationResult(False, f"Empty or invalid effect predicate at index {i}")
+            
+            # 验证效果概率
+            if not isinstance(effect.probability, (int, float)) or effect.probability < 0 or effect.probability > 1:
+                return ValidationResult(False, f"Invalid probability for effect {effect.predicate} at index {i}: {effect.probability}. Must be between 0 and 1")
+            
             # 验证PDDL格式的效果
             if self.enable_pddl_validation:
                 try:
                     if hasattr(effect, 'to_pddl'):
                         effect.to_pddl()
                 except Exception as e:
-                    return ValidationResult(False, f"Invalid PDDL effect: {str(e)}")
+                    return ValidationResult(False, f"Invalid PDDL effect at index {i}: {effect.predicate}. Error: {str(e)}")
         
         # 检查转换复杂度
         complexity = len(transition.preconditions) + len(transition.effects)
@@ -191,18 +234,22 @@ class TransitionValidator:
     def _validate_preconditions(self, 
                               transition: StateTransition, 
                               state: Dict[str, Any]) -> ValidationResult:
-        """验证前提条件"""
-        for condition in transition.preconditions:
+        """验证前提条件 - 增强类型校验"""
+        # 检查状态类型
+        if not isinstance(state, dict):
+            return ValidationResult(False, f"Invalid state: {state}. Must be a dictionary")
+        
+        for i, condition in enumerate(transition.preconditions):
             try:
                 if not condition.evaluate(state):
                     return ValidationResult(
                         False, 
-                        f"Precondition not satisfied: {condition.predicate}"
+                        f"Precondition not satisfied at index {i}: {condition.predicate}. Current state: {state.get(condition.predicate)}"
                     )
             except Exception as e:
                 return ValidationResult(
                     False, 
-                    f"Error evaluating precondition {condition.predicate}: {str(e)}"
+                    f"Error evaluating precondition {condition.predicate} at index {i}: {str(e)}. State: {state}"
                 )
         
         return ValidationResult(True, "Preconditions validation passed")
@@ -210,28 +257,42 @@ class TransitionValidator:
     def _validate_effects(self, 
                         transition: StateTransition, 
                         state: Dict[str, Any]) -> ValidationResult:
-        """验证效果一致性 - 增强PDDL格式验证"""
+        """验证效果一致性 - 增强PDDL格式验证和类型校验"""
+        # 检查状态类型
+        if not isinstance(state, dict):
+            return ValidationResult(False, f"Invalid state: {state}. Must be a dictionary")
+        
         predicted_state = transition.apply_effects(state)
         
+        # 检查预测状态类型
+        if not isinstance(predicted_state, dict):
+            return ValidationResult(False, f"Invalid predicted state: {predicted_state}. Must be a dictionary")
+        
         # 检查状态变化是否合理
-        for effect in transition.effects:
+        for i, effect in enumerate(transition.effects):
             if effect.predicate in predicted_state:
                 # 检查效果值类型
                 if not self._is_valid_effect_value(effect.value):
                     return ValidationResult(
                         False, 
-                        f"Invalid effect value for {effect.predicate}: {effect.value}"
+                        f"Invalid effect value at index {i} for {effect.predicate}: {effect.value}. Must be a bool, int, float, or string"
                     )
         
         # 收集谓词信息（支持参数化）
         predicate_info = defaultdict(list)
-        for effect in transition.effects:
+        for i, effect in enumerate(transition.effects):
             if hasattr(effect, 'params') and effect.params:
+                if not isinstance(effect.params, (list, tuple)):
+                    return ValidationResult(
+                        False, 
+                        f"Invalid params at index {i} for {effect.predicate}: {effect.params}. Must be a list or tuple"
+                    )
                 pred_key = f"{effect.predicate}_{'_'.join(str(p) for p in effect.params)}"
             else:
                 pred_key = effect.predicate
             
             effect_info = {
+                'index': i,
                 'value': effect.value,
                 'probability': effect.probability,
                 'effect_type': getattr(effect, 'effect_type', 'assign')
@@ -241,9 +302,13 @@ class TransitionValidator:
         # 检查重复的效果谓词
         duplicate_predicates = [p for p, effects in predicate_info.items() if len(effects) > 1]
         if duplicate_predicates:
+            duplicate_details = []
+            for pred in duplicate_predicates:
+                effect_indices = [str(e['index']) for e in predicate_info[pred]]
+                duplicate_details.append(f"{pred} (indices: {', '.join(effect_indices)})")
             return ValidationResult(
                 False, 
-                f"Duplicate effect predicates found: {duplicate_predicates}"
+                f"Duplicate effect predicates found: {'; '.join(duplicate_details)}"
             )
         
         # 检查PDDL格式的效果冲突

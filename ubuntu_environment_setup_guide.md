@@ -1,192 +1,163 @@
-# Ubuntu环境下EAI-Eval项目环境更新指南
+# Ubuntu 环境配置指导
 
-本文档提供了在Ubuntu环境下更新和使用`eai-eval` conda环境的详细步骤，以及如何利用项目中的BEHAVIOR和VirtualHome资源。
+## 1. 基础环境准备
 
-## 目录
-- [1. 环境准备](#1-环境准备)
-- [2. 环境创建与更新](#2-环境创建与更新)
-- [3. BEHAVIOR和VirtualHome资源说明](#3-behavior和virtualhome资源说明)
-- [4. 资源使用示例](#4-资源使用示例)
-- [5. 常见问题排查](#5-常见问题排查)
-
-## 1. 环境准备
-
-### 1.1 检查Conda安装
-
+### 1.1 更新系统包
 ```bash
-# 检查conda是否已安装
-conda --version
-
-# 如果未安装，请先安装Miniconda或Anaconda
-# Miniconda安装示例：
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh
-# 按照提示完成安装后，重启终端
+sudo apt update && sudo apt upgrade -y
 ```
 
-### 1.2 检查Python版本
-
-项目使用Python 3.8，environment.yml中已指定。
-
-## 2. 环境创建与更新
-
-### 2.1 使用现有environment.yml创建环境
-
+### 1.2 安装Python和pip
 ```bash
-# 进入项目目录
-cd d:\Tare_projects\eai-interface\eai-interpretable-interface
-
-# 使用environment.yml创建环境
-conda env create -f environment.yml
-
-# 激活环境
-conda activate eai-eval
-
-# 如果环境已存在，更新环境
-conda env update -f environment.yml --prune
+sudo apt install python3 python3-pip python3-venv -y
 ```
 
-### 2.2 验证环境安装
-
+### 1.3 安装Git
 ```bash
-# 验证Python版本
-python --version
-
-# 验证关键依赖
-pip list | grep -E 'torch|numpy|pandas|pyarrow'
+sudo apt install git -y
 ```
 
-### 2.3 安装embodied-agent-interface
+## 2. 项目克隆与设置
 
+### 2.1 克隆项目仓库
 ```bash
-# 安装embodied-agent-interface包
-cd embodied-agent-interface
-pip install -e .
+git clone <your-github-repository-url>
+cd eai-interpretable-interface
 ```
 
-## 3. BEHAVIOR和VirtualHome资源说明
+### 2.2 创建虚拟环境
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
 
-通过检查目录结构，我们发现了以下关键资源：
+## 3. 依赖安装
 
-### 3.1 BEHAVIOR资源
+### 3.1 安装核心依赖
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
 
-位置：`embodied-agent-interface/src/behavior_eval/`
+### 3.2 安装LiteLLM与通义千问3-Max依赖
+```bash
+pip install litellm>=1.37.0 dashscope>=1.14.0 anthropic>=0.20.0 openai>=1.0.0
+```
 
-主要组件：
-- `agent_eval.py`: BEHAVIOR智能体评估模块
-- `data/`: 数据集相关文件
-- `evaluation/`: 评估工具和方法
-- `transition_model/`: 状态转换模型
-- `tl_formula/`: 时序逻辑公式相关实现
+## 4. 配置文件设置
 
-### 3.2 VirtualHome资源
+### 4.1 创建配置目录
+```bash
+mkdir -p config
+```
 
-位置：`embodied-agent-interface/src/virtualhome_eval/`
+### 4.2 创建secret.py文件
+```bash
+touch config/secret.py
+```
 
-主要组件：
-- `agent_eval.py`: VirtualHome智能体评估模块
-- `dataset/`: 数据集相关文件
-- `evaluation/`: 评估工具和方法
-- `resources/`: 资源文件
-- `simulation/`: 模拟环境
-- `tl_formula/`: 时序逻辑公式相关实现
-
-### 3.3 公共接口
-
-位置：`embodied-agent-interface/src/eai_eval/`
-
-提供统一的评估接口和工具。
-
-## 4. 资源使用示例
-
-### 4.1 使用BEHAVIOR评估
-
+编辑secret.py文件，添加以下内容：
 ```python
-from behavior_eval.agent_eval import BEHAVIORAgentEvaluator
+# 配置文件示例
 
-# 初始化评估器
-evaluator = BEHAVIORAgentEvaluator()
+# LiteLLM配置
+LITELLM_CONFIG = {
+    "timeout": 30,
+    "max_retries": 3
+}
 
-# 评估智能体行为
-results = evaluator.evaluate_agent(agent_actions)
-print(results)
+# 通义千问API密钥
+DASHSCOPE_API_KEY = "your-dashscope-api-key"
+
+# OpenAI API密钥（可选）
+OPENAI_API_KEY = "your-openai-api-key"
+
+# Anthropic API密钥（可选）
+ANTHROPIC_API_KEY = "your-anthropic-api-key"
 ```
 
-### 4.2 使用VirtualHome评估
-
-```python
-from virtualhome_eval.agent_eval import VirtualHomeAgentEvaluator
-
-# 初始化评估器
-evaluator = VirtualHomeAgentEvaluator()
-
-# 评估智能体行为
-results = evaluator.evaluate_agent(agent_actions)
-print(results)
-```
-
-### 4.3 使用时序逻辑验证
-
-```python
-from behavior_eval.tl_formula import TLFormulaValidator
-
-# 验证时序逻辑公式
-validator = TLFormulaValidator()
-result = validator.validate(formula, state_sequence)
-print(result)
-```
-
-## 5. 常见问题排查
-
-### 5.1 依赖安装问题
-
-**问题**：某些包安装失败
-
-**解决方案**：
+### 4.3 创建scenarios.yaml文件
 ```bash
-# 单独安装失败的包
-pip install <package_name> --upgrade
-
-# 或使用不同的源
-pip install <package_name> -i https://pypi.tuna.tsinghua.edu.cn/simple
+touch config/scenarios.yaml
 ```
 
-### 5.2 权限问题
+编辑scenarios.yaml文件，添加以下内容：
+```yaml
+# 场景配置
+scenarios:
+  - id: "default"
+    name: "默认场景"
+    description: "基础测试场景"
+    initial_state:
+      - "(at robot location1)"
+      - "(holding robot nothing)"
+    goal_state:
+      - "(at robot location2)"
+    available_actions:
+      - "move"
+      - "pick"
+      - "place"
 
-**问题**：文件权限不足
-
-**解决方案**：
-```bash
-# 修改文件权限
-chmod +x <script_file>
-
-# 或使用sudo安装
+  - id: "kitchen"
+    name: "厨房场景"
+    description: "厨房环境测试场景"
+    initial_state:
+      - "(at robot kitchen)"
+      - "(holding robot nothing)"
+      - "(on cup counter)"
+    goal_state:
+      - "(on cup table)"
+    available_actions:
+      - "move"
+      - "pick"
+      - "place"
+      - "grasp"
 ```
 
-### 5.3 环境变量问题
+## 5. 环境验证
 
-**问题**：找不到某些资源或模块
-
-**解决方案**：
+### 5.1 运行依赖检查脚本
 ```bash
-# 确保环境变量正确设置
-export PYTHONPATH=$PYTHONPATH:$(pwd)/embodied-agent-interface/src
+python check_dependencies.py
 ```
 
-### 5.4 CUDA相关问题
-
-**注意**：当前environment.yml中安装的是CPU版本的PyTorch
-
-**如果需要GPU支持**：
+### 5.2 运行测试用例
 ```bash
-# 卸载CPU版本
-pip uninstall torch torchaudio torchvision
+python -m pytest tests/test_imports.py -v
+```
 
-# 安装GPU版本
-conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia
+## 6. 常见问题解决
+
+### 6.1 权限问题
+如果遇到权限错误，可以尝试：
+```bash
+sudo chown -R $USER:$USER eai-interpretable-interface
+```
+
+### 6.2 依赖冲突
+如果遇到依赖冲突，可以尝试：
+```bash
+pip install --upgrade --force-reinstall -r requirements.txt
+```
+
+### 6.3 Python版本问题
+确保使用Python 3.8或更高版本：
+```bash
+python3 --version
+```
+
+## 7. 启动项目
+
+### 7.1 运行演示
+```bash
+python run_demo.py
+```
+
+### 7.2 运行完整测试
+```bash
+python run_tests.py
 ```
 
 ---
 
-**作者**: EAI开发团队
-**最后更新**: 2024年
+**注意**：请将上述命令中的占位符（如`<your-github-repository-url>`、`your-dashscope-api-key`等）替换为实际值。

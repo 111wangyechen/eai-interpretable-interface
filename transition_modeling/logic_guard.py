@@ -53,6 +53,11 @@ class RuntimeErrorInfo:
         self.state = state
         self.transition = transition
         self.timestamp = time.time()
+        # 明确初始化所有依赖属性
+        self.severity = "medium"  # 错误严重性：low, medium, high
+        self.correction_applied = False  # 是否已应用纠正
+        self.correction_strategy = None  # 应用的纠正策略
+        self.correction_result = None  # 纠正结果：success, failure, partial
 
 
 class CorrectionStrategy:
@@ -160,19 +165,43 @@ class LogicGuard:
         Args:
             config: 配置参数
         """
+        # 明确初始化所有依赖属性
         self.config = config or {}
         self.logger = logging.getLogger(__name__)
         
-        # 配置参数
+        # 基本配置参数
         self.enabled = self.config.get('enabled', True)
         self.model_path = self.config.get('model_path', './models/logic_guard')
+        self.enable_logging = self.config.get('enable_logging', True)
         
         # LTL验证配置
         ltl_config = self.config.get('ltl_verification', {})
         self.ltl_enabled = ltl_config.get('enabled', True)
+        self.ltl_specifications = []
+        
+        # 运行时检测配置
+        runtime_config = self.config.get('runtime_detection', {})
+        self.runtime_enabled = runtime_config.get('enabled', True)
+        self.detection_interval = runtime_config.get('detection_interval', 0.1)
+        self.error_types = runtime_config.get('error_types', [
+            'precondition_failure', 'effect_conflict', 'invalid_state', 'cycle_detected'
+        ])
+        
+        # 自动纠正配置
+        correction_config = self.config.get('auto_correction', {})
+        self.correction_enabled = correction_config.get('enabled', True)
+        self.correction_strategies = correction_config.get('correction_strategies', [
+            'state_recovery', 'action_replanning'
+        ])
+        self.max_correction_attempts = correction_config.get('max_correction_attempts', 3)
+        
+        # 初始化纠正策略
+        self.strategy_instances = {
+            'state_recovery': StateRecoveryStrategy(),
+            'action_replanning': ActionReplanningStrategy()
+        }
         
         # 初始化LTL规范
-        self.ltl_specifications = []
         if self.ltl_enabled:
             for spec_config in ltl_config.get('specifications', []):
                 spec = LTLSpecification(
@@ -182,24 +211,6 @@ class LogicGuard:
                 )
                 self.ltl_specifications.append(spec)
         
-        # 运行时检测配置
-        runtime_config = self.config.get('runtime_detection', {})
-        self.runtime_enabled = runtime_config.get('enabled', True)
-        self.detection_interval = runtime_config.get('detection_interval', 0.1)
-        self.error_types = runtime_config.get('error_types', [])
-        
-        # 自动纠正配置
-        correction_config = self.config.get('auto_correction', {})
-        self.correction_enabled = correction_config.get('enabled', True)
-        self.correction_strategies = correction_config.get('correction_strategies', [])
-        self.max_correction_attempts = correction_config.get('max_correction_attempts', 3)
-        
-        # 初始化纠正策略
-        self.strategy_instances = {
-            'state_recovery': StateRecoveryStrategy(),
-            'action_replanning': ActionReplanningStrategy()
-        }
-        
         # 统计信息
         self.stats = {
             'ltl_verifications': 0,
@@ -207,10 +218,14 @@ class LogicGuard:
             'runtime_errors_detected': 0,
             'corrections_applied': 0,
             'correction_success': 0,
-            'correction_failure': 0
+            'correction_failure': 0,
+            'partial_corrections': 0,  # 新增：部分纠正计数
+            'error_types': defaultdict(int),  # 新增：按错误类型统计
+            'strategy_usage': defaultdict(int)  # 新增：纠正策略使用统计
         }
         
-        self.logger.info("LogicGuard initialized")
+        if self.enable_logging:
+            self.logger.info("LogicGuard initialized")
     
     def extract_ltl_specifications(self, context: Dict[str, Any]) -> List[LTLSpecification]:
         """
@@ -352,7 +367,7 @@ class LogicGuard:
     
     def auto_correct_sequences(self, sequences: List[TransitionSequence], errors: List[RuntimeErrorInfo]) -> List[TransitionSequence]:
         """
-        自动纠正序列
+        自动纠正序列，添加详细的纠正效果评估
         
         Args:
             sequences: 原始序列
@@ -384,13 +399,53 @@ class LogicGuard:
                             
                             # 验证纠正结果
                             validation = self._validate_correction(corrected_sequence, error)
-                            if validation:
+                            
+                            if validation['success']:
                                 current_sequence = corrected_sequence
                                 self.stats['correction_success'] += 1
+                                self.stats['strategy_usage'][strategy_name] += 1
+                                
+                                # 更新错误信息
+                                error.correction_applied = True
+                                error.correction_strategy = strategy_name
+                                error.correction_result = "success"
+                                
+                                if self.enable_logging:
+                                    self.logger.info(f"Correction successful using {strategy_name}: {validation['message']}")
                                 break
+                            elif validation['confidence'] > 0.5:
+                                # 部分成功，接受纠正
+                                current_sequence = corrected_sequence
+                                self.stats['partial_corrections'] += 1
+                                self.stats['strategy_usage'][strategy_name] += 1
+                                
+                                # 更新错误信息
+                                error.correction_applied = True
+                                error.correction_strategy = strategy_name
+                                error.correction_result = "partial"
+                                
+                                if self.enable_logging:
+                                    self.logger.info(f"Partial correction using {strategy_name}: {validation['message']}")
+                                break
+                            else:
+                                self.stats['correction_failure'] += 1
+                                
+                                # 更新错误信息
+                                error.correction_applied = True
+                                error.correction_strategy = strategy_name
+                                error.correction_result = "failure"
+                                
+                                if self.enable_logging:
+                                    self.logger.warning(f"Correction failed using {strategy_name}: {validation['message']}")
                         except Exception as e:
-                            self.logger.error(f"Correction failed: {e}")
+                            if self.enable_logging:
+                                self.logger.error(f"Correction failed: {e}")
                             self.stats['correction_failure'] += 1
+                            
+                            # 更新错误信息
+                            error.correction_applied = True
+                            error.correction_strategy = strategy_name
+                            error.correction_result = "failure"
                 
                 correction_attempts += 1
             
@@ -398,20 +453,110 @@ class LogicGuard:
         
         return corrected_sequences
     
-    def _validate_correction(self, sequence: TransitionSequence, error: RuntimeErrorInfo) -> bool:
+    def _validate_correction(self, sequence: TransitionSequence, error: RuntimeErrorInfo) -> Dict[str, Any]:
         """
-        验证纠正结果
+        验证纠正结果，添加详细的纠正效果评估
         
         Args:
             sequence: 纠正后的序列
             error: 原始错误
             
         Returns:
-            是否纠正成功
+            纠正效果评估结果，包含success, confidence, message等
         """
-        # 简化的验证逻辑
-        # 检查错误是否已解决
-        return True
+        # 详细的纠正效果评估
+        correction_result = {
+            'success': False,
+            'confidence': 0.0,
+            'message': "Correction validation failed",
+            'issues': [],
+            'timestamp': time.time()
+        }
+        
+        try:
+            # 1. 验证序列的基本有效性
+            if not sequence.is_valid_sequence():
+                correction_result['message'] = "Corrected sequence is invalid"
+                correction_result['issues'].append("Invalid sequence structure")
+                return correction_result
+            
+            # 2. 验证原始错误是否已解决
+            errors_after_correction = self.detect_runtime_errors(sequence)
+            original_error_still_exists = any(
+                e.error_type == error.error_type and e.step == error.step
+                for e in errors_after_correction
+            )
+            
+            if original_error_still_exists:
+                correction_result['message'] = "Original error still exists"
+                correction_result['issues'].append(f"Error {error.error_type} still present at step {error.step}")
+                return correction_result
+            
+            # 3. 验证没有引入新的严重错误
+            new_severe_errors = [
+                e for e in errors_after_correction 
+                if e.step >= error.step and "high" in str(e)
+            ]
+            
+            if new_severe_errors:
+                correction_result['message'] = "New severe errors introduced"
+                for e in new_severe_errors:
+                    correction_result['issues'].append(f"New error {e.error_type} at step {e.step}")
+                return correction_result
+            
+            # 4. 评估纠正效果
+            current_state = sequence.initial_state.copy()
+            for step, transition in enumerate(sequence.transitions[:error.step + 1]):
+                current_state = transition.apply_effects(current_state)
+            
+            # 计算纠正后的状态质量
+            state_quality = self._evaluate_state_quality(current_state)
+            
+            # 计算成功置信度
+            confidence = 0.8  # 基础置信度
+            if len(errors_after_correction) == 0:
+                confidence = 1.0
+            elif len(errors_after_correction) < len(self.detect_runtime_errors(sequence)):
+                confidence = 0.6
+            
+            correction_result.update({
+                'success': True,
+                'confidence': confidence,
+                'message': "Correction validated successfully",
+                'state_quality': state_quality,
+                'remaining_errors': len(errors_after_correction)
+            })
+            
+        except Exception as e:
+            correction_result['message'] = f"Validation error: {str(e)}"
+            correction_result['issues'].append(f"Exception during validation: {str(e)}")
+        
+        return correction_result
+    
+    def _evaluate_state_quality(self, state: Dict[str, Any]) -> float:
+        """
+        评估状态质量，用于纠正效果评估
+        
+        Args:
+            state: 当前状态
+            
+        Returns:
+            状态质量分数 (0.0 - 1.0)
+        """
+        # 简化的状态质量评估
+        quality = 1.0
+        
+        # 检查是否存在错误状态
+        if state.get('error_state', False):
+            quality -= 0.5
+        
+        # 检查关键属性是否存在
+        key_properties = ['status', 'position', 'temperature']
+        for prop in key_properties:
+            if prop not in state:
+                quality -= 0.1
+        
+        return max(0.0, min(1.0, quality))
     
     def get_statistics(self) -> Dict[str, Any]:
         """
@@ -461,9 +606,10 @@ class LogicGuard:
                     'satisfied': validation_results.get(spec.name, True),
                     'violations': [
                         {
-                            'step': v[0],
-                            'state': v[1],
-                            'message': v[2]
+                            'step': v['step'],
+                            'state': v['state'],
+                            'message': v['message'],
+                            'timestamp': v['timestamp']
                         } for v in spec.violations
                     ]
                 }
@@ -474,18 +620,17 @@ class LogicGuard:
                 'valid': all(validation_results.values()) if validation_results else True,
                 'specifications': detailed_specs,
                 'total_verifications': self.stats['ltl_verifications'],
-                'total_violations': self.stats['ltl_violations']
+                'total_violations': self.stats['ltl_violations'],
+                'timestamp': time.time()
             }
             
-            # Check if logging is enabled in config or use default
-            if self.config.get('enable_logging', False):
+            if self.enable_logging:
                 self.logger.info(f"LTL validation completed: valid={result['valid']}, specs_checked={len(specifications)}")
             
             return result
             
         except Exception as e:
-            # Check if logging is enabled in config or use default
-            if self.config.get('enable_logging', False):
+            if self.enable_logging:
                 self.logger.error(f"Error during LTL validation: {str(e)}")
             
             # Return a failure result
@@ -494,7 +639,8 @@ class LogicGuard:
                 'specifications': [],
                 'total_verifications': self.stats['ltl_verifications'],
                 'total_violations': self.stats['ltl_violations'],
-                'error': str(e)
+                'error': str(e),
+                'timestamp': time.time()
             }
     
     def clear_cache(self):
