@@ -318,7 +318,22 @@ class ActionSequencer:
             invalid_actions = []
             warnings = []
             
+            # 添加动作名称映射，将常用动作名称映射到官方BEHAVIOR动作库中的名称
+            action_name_mapping = {
+                "MoveToLocation": "WalkToLocation",
+                "MoveTo": "WalkToLocation",
+                "move": "navigate_to",
+                "Move": "WalkToLocation",
+                "CompleteTask": "finish"
+            }
+            
             for action in enhanced_request.available_actions:
+                # 尝试将动作名称映射到官方BEHAVIOR动作库中的名称
+                if action.name in action_name_mapping:
+                    original_name = action.name
+                    action.name = action_name_mapping[original_name]
+                    warnings.append(f"Mapped action '{original_name}' to official BEHAVIOR action '{action.name}'")
+                    
                 validation_result = validate_action_against_behavior_library(action)
                 if validation_result['is_valid']:
                     validated_actions.append(action)

@@ -298,92 +298,114 @@ class ActionPlanner:
             if not available_actions:
                 return self._create_failure_result("No available actions")
             
-            # 设置状态管理器
-            self.state_manager.reset_to_initial_state(initial_state)
-            if state_transitions:
-                for transition in state_transitions:
-                    self.state_manager.add_transition(transition)
+            # 主规划方法，带超时和多算法备选机制
+            if not state_transitions:
+                state_transitions = []
             
-            # 根据算法选择规划方法
-            if self.algorithm == PlanningAlgorithm.BFS:
-                result = self._bfs_planning(initial_state, goal_state, available_actions)
-            elif self.algorithm == PlanningAlgorithm.DFS:
-                result = self._dfs_planning(initial_state, goal_state, available_actions)
-            elif self.algorithm == PlanningAlgorithm.ASTAR:
-                result = self._astar_planning(initial_state, goal_state, available_actions)
-            elif self.algorithm == PlanningAlgorithm.GREEDY:
-                result = self._greedy_planning(initial_state, goal_state, available_actions)
-            elif self.algorithm == PlanningAlgorithm.HIERARCHICAL:
-                result = self._hierarchical_planning(initial_state, goal_state, available_actions)
-            elif self.algorithm == PlanningAlgorithm.SAMPLING_BASED:
-                result = self._sampling_based_planning(initial_state, goal_state, available_actions)
-            else:
-                raise ValueError(f"Unsupported planning algorithm: {self.algorithm}")
+            # 记录规划开始时间
+            planning_start = time.time()
             
-            # 检查结果，如果成功且有动作序列，返回结果
-            if result.success and result.action_sequence and result.action_sequence.actions:
-                return result
-            else:
-                # 尝试其他算法作为备选
-                if hasattr(self, 'logger'):
-                    self.logger.warning(f"Primary algorithm failed, trying alternative algorithms: {self.algorithm}")
+            try:
+                # 初始化动作执行缓存
+                self.action_execution_cache = {}
                 
-                # 依次尝试其他算法
-                alternative_algorithms = [PlanningAlgorithm.BFS, PlanningAlgorithm.DFS, PlanningAlgorithm.GREEDY, PlanningAlgorithm.SAMPLING_BASED]
+                # 设置状态管理器
+                self.state_manager.reset_to_initial_state(initial_state)
+                if state_transitions:
+                    for transition in state_transitions:
+                        self.state_manager.add_transition(transition)
                 
-                for alt_algorithm in alternative_algorithms:
-                    if alt_algorithm != self.algorithm:  # 跳过已经尝试过的算法
-                        # 调用备选算法
-                        if alt_algorithm == PlanningAlgorithm.BFS:
-                            alt_result = self._bfs_planning(initial_state, goal_state, available_actions)
-                        elif alt_algorithm == PlanningAlgorithm.DFS:
-                            alt_result = self._dfs_planning(initial_state, goal_state, available_actions)
-                        elif alt_algorithm == PlanningAlgorithm.GREEDY:
-                            alt_result = self._greedy_planning(initial_state, goal_state, available_actions)
-                        elif alt_algorithm == PlanningAlgorithm.SAMPLING_BASED:
-                            alt_result = self._sampling_based_planning(initial_state, goal_state, available_actions)
-                        else:
-                            continue
+                # 根据算法选择规划方法，优化：默认使用A*算法
+                main_algorithm = self.algorithm if self.algorithm else PlanningAlgorithm.ASTAR
+                
+                if main_algorithm == PlanningAlgorithm.ASTAR:
+                    result = self._astar_planning(initial_state, goal_state, available_actions)
+                elif main_algorithm == PlanningAlgorithm.GREEDY:
+                    result = self._greedy_planning(initial_state, goal_state, available_actions)
+                elif main_algorithm == PlanningAlgorithm.BFS:
+                    result = self._bfs_planning(initial_state, goal_state, available_actions)
+                elif main_algorithm == PlanningAlgorithm.DFS:
+                    result = self._dfs_planning(initial_state, goal_state, available_actions)
+                elif main_algorithm == PlanningAlgorithm.HIERARCHICAL:
+                    result = self._hierarchical_planning(initial_state, goal_state, available_actions)
+                elif main_algorithm == PlanningAlgorithm.SAMPLING_BASED:
+                    result = self._sampling_based_planning(initial_state, goal_state, available_actions)
+                else:
+                    raise ValueError(f"Unsupported planning algorithm: {main_algorithm}")
+                
+                # 检查结果，如果成功且有动作序列，返回结果
+                if result.success and result.action_sequence and result.action_sequence.actions:
+                    return result
+                else:
+                    # 尝试其他算法作为备选，优化：只尝试更高效的算法
+                    if hasattr(self, 'logger'):
+                        self.logger.warning(f"Primary algorithm failed, trying alternative algorithms: {main_algorithm}")
                         
-                        if alt_result.success and alt_result.action_sequence and alt_result.action_sequence.actions:
-                            if hasattr(self, 'logger'):
-                                self.logger.info(f"Alternative algorithm succeeded: {alt_algorithm}")
-                            return alt_result
-                
-                # 如果所有算法都失败，创建一个包含第一个可用动作的序列
-                fallback_action = available_actions[0]
-                fallback_result = self._create_success_result(PlanningNode(
-                    state=initial_state,
-                    actions=[fallback_action],
-                    cost=fallback_action.duration,
-                    heuristic=0.0,
-                    total_cost=fallback_action.duration,
-                    depth=1
-                ), available_actions, goal_state)
-                fallback_result.metadata['reason'] = f"All planning algorithms failed, using fallback action: {fallback_action.name}"
+                        # 依次尝试其他高效算法，跳过已经尝试过的
+                        alternative_algorithms = [PlanningAlgorithm.ASTAR, PlanningAlgorithm.GREEDY, PlanningAlgorithm.BFS]
+                        tried_algorithms = {main_algorithm}
+                        
+                        for alt_algorithm in alternative_algorithms:
+                            if alt_algorithm not in tried_algorithms:  # 跳过已经尝试过的算法
+                                tried_algorithms.add(alt_algorithm)
+                                # 调用备选算法
+                                if alt_algorithm == PlanningAlgorithm.ASTAR:
+                                    alt_result = self._astar_planning(initial_state, goal_state, available_actions)
+                                elif alt_algorithm == PlanningAlgorithm.GREEDY:
+                                    alt_result = self._greedy_planning(initial_state, goal_state, available_actions)
+                                elif alt_algorithm == PlanningAlgorithm.BFS:
+                                    alt_result = self._bfs_planning(initial_state, goal_state, available_actions)
+                                else:
+                                    continue
+                                
+                                if alt_result.success and alt_result.action_sequence and alt_result.action_sequence.actions:
+                                    if hasattr(self, 'logger'):
+                                        self.logger.info(f"Alternative algorithm succeeded: {alt_algorithm}")
+                                    return alt_result
+                        
+                    # 如果所有算法都失败，创建一个包含至少一个可用动作的序列
+                    if available_actions:
+                        # 优化：选择最合适的动作作为fallback
+                        best_fallback_action = available_actions[0]
+                        # 选择执行时间最短的动作
+                        for action in available_actions:
+                            if action.duration < best_fallback_action.duration:
+                                best_fallback_action = action
+                        
+                        fallback_result = self._create_success_result(PlanningNode(
+                            state=initial_state,
+                            actions=[best_fallback_action],
+                            cost=best_fallback_action.duration,
+                            heuristic=0.0,
+                            total_cost=best_fallback_action.duration,
+                            depth=1
+                        ), available_actions, goal_state)
+                        fallback_result.metadata['reason'] = f"All planning algorithms failed, using fallback action: {best_fallback_action.name}"
+                        if hasattr(self, 'logger'):
+                            self.logger.warning(f"All planning algorithms failed, using fallback action: {best_fallback_action.name}")
+                        return fallback_result
+                    # 如果没有可用动作，返回失败
+                    return self._create_failure_result(f"No available actions to generate sequence")
+            
+            except Exception as e:
+                # 捕获所有异常，返回失败或fallback
                 if hasattr(self, 'logger'):
-                    self.logger.warning(f"All planning algorithms failed, using fallback action: {fallback_action.name}")
-                return fallback_result
-        
-        except Exception as e:
-            # 捕获所有异常，返回失败或fallback
-            if hasattr(self, 'logger'):
-                self.logger.error(f"Planning exception: {str(e)}")
-            # 尝试创建fallback序列
-            if available_actions:
-                fallback_action = available_actions[0]
-                fallback_result = self._create_success_result(PlanningNode(
-                    state=initial_state,
-                    actions=[fallback_action],
-                    cost=fallback_action.duration,
-                    heuristic=0.0,
-                    total_cost=fallback_action.duration,
-                    depth=1
-                ), available_actions, goal_state)
-                fallback_result.metadata['reason'] = f"Exception during planning, using fallback action: {fallback_action.name}"
-                return fallback_result
-            # 如果没有可用动作，返回失败
-            return self._create_failure_result(f"Exception during planning: {str(e)}")
+                    self.logger.error(f"Planning exception: {str(e)}")
+                # 尝试创建fallback序列
+                if available_actions:
+                    fallback_action = available_actions[0]
+                    fallback_result = self._create_success_result(PlanningNode(
+                        state=initial_state,
+                        actions=[fallback_action],
+                        cost=fallback_action.duration,
+                        heuristic=0.0,
+                        total_cost=fallback_action.duration,
+                        depth=1
+                    ), available_actions, goal_state)
+                    fallback_result.metadata['reason'] = f"Exception during planning, using fallback action: {fallback_action.name}"
+                    return fallback_result
+                # 如果没有可用动作，返回失败
+                return self._create_failure_result(f"Exception during planning: {str(e)}")
     
     def _bfs_planning(self, initial_state: Dict[str, Any], goal_state: Dict[str, Any],
                       available_actions: List[Action]) -> PlanningResult:
@@ -481,22 +503,28 @@ class ActionPlanner:
         
         return self._create_failure_result()
     
-    def _astar_planning(self, initial_state: Dict[str, Any], goal_state: Dict[str, Any],
-                       available_actions: List[Action]) -> PlanningResult:
-        """增强的A*搜索规划"""
+    def _astar_planning(self, initial_state: Dict[str, Any], goal_state: Dict[str, Any], 
+                        available_actions: List[Action]) -> PlanningResult:
+        """A*搜索规划算法，带优化"""
+        start_time = time.time()
+        self.nodes_expanded = 0
+        
+        # 初始化开放列表和关闭列表
         open_list = []
         closed_set = set()
         
-        # 处理状态中可能包含的不可哈希类型（如字典）
-        def make_hashable(value):
-            if isinstance(value, dict):
-                return tuple(sorted((k, make_hashable(v)) for k, v in value.items()))
-            elif isinstance(value, list):
-                return tuple(make_hashable(v) for v in value)
-            return value
+        # 状态哈希缓存，避免重复计算
+        self.state_hash_cache = {}
         
-        # 优化：状态哈希缓存
         def get_state_hash(state):
+            """获取状态的哈希值"""
+            def make_hashable(value):
+                if isinstance(value, dict):
+                    return tuple(sorted((k, make_hashable(v)) for k, v in value.items()))
+                elif isinstance(value, list):
+                    return tuple(make_hashable(v) for v in value)
+                return value
+            
             hashable_state = {k: make_hashable(v) for k, v in state.items()}
             state_tuple = tuple(sorted(hashable_state.items()))
             if state_tuple not in self.state_hash_cache:
@@ -523,7 +551,7 @@ class ActionPlanner:
         # 定期检查时间
         last_time_check = time.time()
         
-        while open_list and (time.time() - self.planning_start_time) < self.max_time:
+        while open_list and (time.time() - start_time) < self.max_time:
             current_node = heapq.heappop(open_list)
             self.nodes_expanded += 1
             
@@ -541,7 +569,7 @@ class ActionPlanner:
                     'initial_state': initial_state,
                     'goal_state': goal_state,
                     'actions_taken': len(current_node.actions),
-                    'time_taken': time.time() - self.planning_start_time
+                    'time_taken': time.time() - start_time
                 })
                 return result
             
@@ -556,13 +584,13 @@ class ActionPlanner:
             if current_node.depth >= self.max_depth:
                 continue
             
-            # 降低剪枝阈值，允许扩展更多节点，特别是对于fallback序列
-            if current_node.heuristic > 2000:  # 提高阈值，允许更多节点扩展
+            # 优化：设置更合理的启发式阈值，避免扩展过于遥远的节点
+            if current_node.heuristic > 1000:  # 优化：降低阈值，减少不必要的节点扩展
                 continue
             
             # 每扩展一定数量的节点后检查时间
-            if self.nodes_expanded % 100 == 0:
-                if (time.time() - self.planning_start_time) >= self.max_time * 0.9:  # 预留10%时间处理结果
+            if self.nodes_expanded % 50 == 0:  # 优化：更频繁地检查时间
+                if (time.time() - start_time) >= self.max_time * 0.8:  # 优化：预留更多时间处理结果
                     break
             
             # 优化的后继节点生成
@@ -966,7 +994,7 @@ class ActionPlanner:
         sorted_actions = sort_actions_by_relevance(available_actions, node.state, goal_state)
         
         # 限制扩展的动作数量，优先考虑最相关的动作
-        max_actions_to_expand = min(10, len(sorted_actions))  # 限制每次扩展的动作数量
+        max_actions_to_expand = min(5, len(sorted_actions))  # 限制每次扩展的动作数量为5，提高性能
         actions_to_expand = sorted_actions[:max_actions_to_expand]
         
         for action in actions_to_expand:
@@ -983,92 +1011,47 @@ class ActionPlanner:
                         # 缓存执行结果
                         self.action_execution_cache[cache_key] = copy.deepcopy(new_state)
                     
-                    # 优化状态表示 - 如果启用了状态抽象
-                    if self.enable_state_abstraction:
-                        # 移除不影响目标的状态变量
-                        goal_keys = set(goal_state.keys())
-                        # 收集所有动作前置条件和效果中涉及的变量
-                        relevant_keys = set()
-                        for a in available_actions:
-                            relevant_keys.update(a.preconditions.keys())
-                            relevant_keys.update(a.effects.keys())
-                        # 保留相关变量和目标变量
-                        relevant_keys.update(goal_keys)
-                        # 过滤状态
-                        abstracted_state = {k: v for k, v in new_state.items() 
-                                          if k in relevant_keys or k.startswith('_')}
-                        new_state = abstracted_state
+                    # 优化：如果没有状态变化，跳过此动作
+                    if new_state == node.state:
+                        continue
                     
-                    # 创建新动作对象 - 复用原始动作对象以减少内存使用
-                    new_action = Action(
-                        id=f"{action.id}_{node.depth}",
-                        name=action.name,
-                        action_type=action.action_type,
-                        parameters=copy.deepcopy(action.parameters),
-                        preconditions=copy.deepcopy(action.preconditions),
-                        effects=copy.deepcopy(action.effects),
-                        duration=action.duration,
-                        success_probability=action.success_probability
-                    )
+                    # 生成新动作实例，保留原始动作的参数
+                    new_action = copy.deepcopy(action)
                     
-                    # 计算启发式值
-                    heuristic = self.heuristic_calculator.calculate(new_state, goal_state, available_actions)
+                    # 检查是否有对应的状态转换，并将转换参数传递到动作中
+                    if hasattr(self, 'state_manager') and self.state_manager:
+                        # 获取可能的状态转换
+                        transitions = self.state_manager.get_transitions_for_state(node.state)
+                        for transition in transitions:
+                            if transition.action_id == action.id or transition.action_id == action.name:
+                                # 将转换参数合并到动作参数中
+                                if transition.parameters:
+                                    if not new_action.parameters:
+                                        new_action.parameters = {}
+                                    new_action.parameters.update(transition.parameters)
                     
-                    # 创建后继节点
-                    successor = PlanningNode(
+                    # 计算新的启发式值和成本
+                    new_cost = node.cost + new_action.duration
+                    new_heuristic = self.heuristic_calculator.calculate(new_state, goal_state, available_actions)
+                    new_total_cost = new_cost + new_heuristic
+                    
+                    # 创建新节点
+                    new_node = PlanningNode(
                         state=new_state,
                         actions=node.actions + [new_action],
-                        cost=node.cost + action.duration,
-                        heuristic=heuristic,
-                        total_cost=node.cost + action.duration + heuristic,
+                        cost=new_cost,
+                        heuristic=new_heuristic,
+                        total_cost=new_total_cost,
                         depth=node.depth + 1,
                         parent=node
                     )
                     
-                    successors.append(successor)
-                    
-                except Exception:
+                    successors.append(new_node)
+                except Exception as e:
+                    # 捕获并记录异常，但不中断后继生成
+                    if hasattr(self, 'logger'):
+                        self.logger.warning(f"Error generating successor for action {action.name}: {str(e)}")
                     continue
-        
-        # 如果没有找到任何后继节点，尝试创建默认动作以确保进展
-        if not successors and node.depth < self.max_depth:
-            try:
-                # 创建一个简单的状态改变动作
-                new_state = copy.deepcopy(node.state)
-                new_state['_step'] = new_state.get('_step', 0) + 1
-                
-                # 创建虚拟动作
-                default_action = Action(
-                    id=f"default_{node.depth}",
-                    name="default_progress",
-                    action_type=ActionType.NAVIGATION,
-                    parameters={},
-                    preconditions={},
-                    effects={"_step": new_state['_step']},
-                    duration=1.0,
-                    success_probability=1.0
-                )
-                
-                heuristic = self.heuristic_calculator.calculate(new_state, goal_state, available_actions)
-                
-                successor = PlanningNode(
-                    state=new_state,
-                    actions=node.actions + [default_action],
-                    cost=node.cost + 1.0,
-                    heuristic=heuristic,
-                    total_cost=node.cost + 1.0 + heuristic,
-                    depth=node.depth + 1,
-                    parent=node
-                )
-                
-                successors.append(successor)
-            except Exception:
-                pass
-        
-        # 进一步优化：如果后继节点太多，按启发式值筛选最优的几个
-        if len(successors) > 15:  # 设定一个合理的阈值
-            successors.sort(key=lambda x: x.total_cost)
-            successors = successors[:15]
         
         return successors
     
