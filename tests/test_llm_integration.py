@@ -280,30 +280,36 @@ class TestLLMIntegration:
         """
         logger.info("测试：置信度阈值过滤")
         
-        # 使用不同的置信度阈值创建预测器
-        high_threshold_predictor = TransitionPredictor(config={'confidence_threshold': 0.9})
-        low_threshold_predictor = TransitionPredictor(config={'confidence_threshold': 0.5})
-        
-        # 模拟预测结果
-        mock_transitions = [
-            MagicMock(id="t1", name="action1", confidence=0.95),
-            MagicMock(id="t2", name="action2", confidence=0.8),
-            MagicMock(id="t3", name="action3", confidence=0.6)
+        # 创建测试转换
+        test_transitions = [
+            MagicMock(name="action1", preconditions=[], effects=[]),
+            MagicMock(name="action2", preconditions=[], effects=[]),
+            MagicMock(name="action3", preconditions=[], effects=[])
         ]
         
-        with patch.object(high_threshold_predictor, '_generate_transition_candidates', return_value=mock_transitions):
-            high_threshold_results = high_threshold_predictor.predict_transitions(
-                {}, num_predictions=3
-            )
-            # 高阈值应该只返回高置信度的转换
-            assert len(high_threshold_results) <= len(mock_transitions)
+        # 使用不同的置信度阈值创建预测器
+        high_threshold_predictor = TransitionPredictor(config={'confidence_threshold': 0.9})
+        low_threshold_predictor = TransitionPredictor(config={'confidence_threshold': 0.1})
         
-        with patch.object(low_threshold_predictor, '_generate_transition_candidates', return_value=mock_transitions):
-            low_threshold_results = low_threshold_predictor.predict_transitions(
-                {}, num_predictions=3
-            )
-            # 低阈值应该返回更多转换
-            assert len(low_threshold_results) <= len(mock_transitions)
+        # 定义状态
+        current_state = {'location': 'kitchen'}
+        goal_state = {'location': 'living_room'}
+        
+        # 测试高阈值过滤
+        high_threshold_results = high_threshold_predictor.predict_transitions(
+            current_state, goal_state, test_transitions
+        )
+        
+        # 测试低阈值过滤
+        low_threshold_results = low_threshold_predictor.predict_transitions(
+            current_state, goal_state, test_transitions
+        )
+        
+        # 验证结果类型和范围
+        assert isinstance(high_threshold_results, list)
+        assert isinstance(low_threshold_results, list)
+        assert 0 <= len(high_threshold_results) <= len(test_transitions)
+        assert 0 <= len(low_threshold_results) <= len(test_transitions)
         
         logger.info("✓ 置信度阈值过滤测试通过")
     
