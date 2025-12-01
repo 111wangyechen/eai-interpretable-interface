@@ -1,67 +1,40 @@
 # Configuration file for API keys and sensitive information
 # Please keep this file secure and do not commit to version control
 
-# Import LiteLLM to configure API keys
-import litellm
-
 # LLM Provider API Keys
 API_KEYS = {
-    # Example: OpenAI API key
-    # "openai": "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    
-    # Example: Anthropic API key  
-    # "anthropic": "sk-ant-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    
     # Tongyi Qianwen 3-Max API key (DashScope)
-    # Get from: https://dashscope.aliyun.com/
-    "dashscope": "your-dashscope-api-key-here",
-    
-    # Add other API keys as needed
+    "dashscope": "sk-4eb2cc33545742999a0570f40e680f40",  # 你的真实密钥
+    # 其他密钥（如OpenAI）可保留，不影响
 }
 
-# Configure LiteLLM with the API keys dictionary
-# This allows LiteLLM to automatically use the correct key for each model
-litellm.api_key = API_KEYS
-
-# Model configurations
+# Model configurations（适配原生调用）
 MODEL_CONFIGS = {
-    # Primary LLM model for transition modeling
-    "primary_model": "dashscope/qwen3-max",  # Tongyi Qianwen 3-Max
-    
-    # Fallback models in case primary fails
-    "fallback_models": [
-        "dashscope/qwen-plus",  # Tongyi Qianwen Plus
-        # "gpt-3.5-turbo",   # OpenAI GPT-3.5 Turbo (commented out as no OpenAI key configured)
-    ],
-    
-    # Model parameters
+    "primary_model": "qwen3-max",  # 原生调用无需前缀
+    "fallback_models": ["qwen-plus"],
     "default_params": {
-        "temperature": 0.1,  # Lower temperature for more consistent logical outputs
+        "temperature": 0.1,
         "max_tokens": 1000,
         "top_p": 0.9,
     }
 }
 
-# Security settings
+# 其他配置（安全、日志）可保留，不影响
 SECURITY = {
-    # Enable/disable API key validation
     "validate_api_keys": True,
-    
-    # Rate limiting settings (requests per minute)
     "rate_limit": {
         "enabled": True,
         "requests_per_minute": 60,
     }
 }
 
-# Logging settings
 LOGGING = {
     "level": "INFO",
     "file": "logs/app.log",
     "rotate": True,
-    "max_size": 10 * 1024 * 1024,  # 10MB
+    "max_size": 10 * 1024 * 1024,
     "backup_count": 5,
-    "console_output": True,  # Enable console output for debugging
+    "console_output": True,
 }
 
 # Export the configuration
