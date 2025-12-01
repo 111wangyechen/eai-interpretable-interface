@@ -26,19 +26,19 @@ litellm.api_key = API_KEYS
 # Model configurations
 MODEL_CONFIGS = {
     # Primary LLM model for transition modeling
-    "primary_model": "qwen/qwen-turbo",  # Tongyi Qianwen Turbo
+    "primary_model": "dashscope/qwen3-max",  # Tongyi Qianwen 3-Max
     
     # Fallback models in case primary fails
     "fallback_models": [
-        "qwen/qwen-plus",  # Tongyi Qianwen Plus
-        "gpt-3.5-turbo",   # OpenAI GPT-3.5 Turbo
+        "dashscope/qwen-plus",  # Tongyi Qianwen Plus
+        # "gpt-3.5-turbo",   # OpenAI GPT-3.5 Turbo (commented out as no OpenAI key configured)
     ],
     
     # Model parameters
     "default_params": {
-        "temperature": 0.7,
+        "temperature": 0.1,  # Lower temperature for more consistent logical outputs
         "max_tokens": 1000,
-        "top_p": 0.95,
+        "top_p": 0.9,
     }
 }
 
@@ -61,6 +61,7 @@ LOGGING = {
     "rotate": True,
     "max_size": 10 * 1024 * 1024,  # 10MB
     "backup_count": 5,
+    "console_output": True,  # Enable console output for debugging
 }
 
 # Export the configuration
