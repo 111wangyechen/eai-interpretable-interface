@@ -339,7 +339,7 @@ class TestLLMIntegration:
         """
         测试与转换验证器的集成
         """
-        self.logger.info("测试：与转换验证器的集成")
+        logger.info("测试：与转换验证器的集成")
         
         from transition_modeling.transition_validator import TransitionValidator
         
