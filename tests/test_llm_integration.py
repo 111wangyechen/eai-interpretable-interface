@@ -143,35 +143,35 @@ class TestLLMIntegration:
                 
                 logger.info("✓ 场景配置加载测试通过")
     
-    @patch('transition_modeling.transition_predictor.litellm.completion')
-    def test_llm_model_call(self, mock_completion):
+    def test_llm_model_call(self):
         """
         测试LLM模型调用
         """
         logger.info("测试：LLM模型调用")
         
-        # 模拟LLM响应
-        mock_completion.return_value = MagicMock(
-            choices=[MagicMock(
-                message=MagicMock(
-                    content="{\"transitions\": [{\"id\": \"test-1\", \"name\": \"test-action\", \"confidence\": 0.9}]}"
-                )
-            )]
-        )
-        
         predictor = TransitionPredictor()
         
-        # 模拟当前状态
+        # 模拟当前状态和目标状态
         current_state = {
             "location": "living_room",
             "holding": "remote_control",
             "objects": ["tv", "sofa", "lamp"]
         }
         
+        goal_state = {
+            "location": "bedroom",
+            "holding": "none",
+            "objects": ["bed", "nightstand"]
+        }
+        
+        # 模拟可用转换
+        mock_transitions = []
+        
         # 调用预测方法
         predictions = predictor.predict_transitions(
             current_state,
-            num_predictions=3
+            goal_state,
+            mock_transitions
         )
         
         # 验证预测结果
@@ -188,18 +188,28 @@ class TestLLMIntegration:
         # 模拟不同场景配置
         predictor = TransitionPredictor()
         
-        # 模拟当前状态
+        # 模拟当前状态和目标状态
         current_state = {
             "location": "bedroom",
             "holding": "book",
             "objects": ["bed", "nightstand", "lamp"]
         }
         
+        goal_state = {
+            "location": "living_room",
+            "holding": "none",
+            "objects": ["tv", "sofa"]
+        }
+        
+        # 模拟可用转换
+        mock_transitions = []
+        
         # 测试基本场景
         with patch.object(predictor, '_get_best_matching_scene', return_value="basic"):
             basic_predictions = predictor.predict_transitions(
                 current_state,
-                num_predictions=2
+                goal_state,
+                mock_transitions
             )
             assert isinstance(basic_predictions, list)
         
@@ -207,7 +217,8 @@ class TestLLMIntegration:
         with patch.object(predictor, '_get_best_matching_scene', return_value="debug"):
             debug_predictions = predictor.predict_transitions(
                 current_state,
-                num_predictions=2
+                goal_state,
+                mock_transitions
             )
             assert isinstance(debug_predictions, list)
         
