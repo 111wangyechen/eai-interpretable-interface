@@ -177,12 +177,16 @@ class TransitionPredictor:
             return max(0.0, min(1.0, confidence))
             
         except ZeroDivisionError as e:
-            self.logger.error(f"Error calculating confidence for transition {transition.name}: Division by zero detected. Check all denominator values.")
-            self.logger.error(f"Transition: {transition.name}, Current state: {current_state}, Goal state: {goal_state}")
+            # 添加类型检查，确保transition.name访问安全
+            transition_name = transition.name if hasattr(transition, 'name') else str(transition)
+            self.logger.error(f"Error calculating confidence for transition {transition_name}: Division by zero detected. Check all denominator values.")
+            self.logger.error(f"Transition: {transition_name}, Current state: {current_state}, Goal state: {goal_state}")
             return 0.01  # 返回最小置信度而不是0
         except Exception as e:
-            self.logger.error(f"Error calculating confidence for transition {transition.name}: {e}")
-            self.logger.error(f"Transition: {transition.name}, Current state: {current_state}, Goal state: {goal_state}")
+            # 添加类型检查，确保transition.name访问安全
+            transition_name = transition.name if hasattr(transition, 'name') else str(transition)
+            self.logger.error(f"Error calculating confidence for transition {transition_name}: {e}")
+            self.logger.error(f"Transition: {transition_name}, Current state: {current_state}, Goal state: {goal_state}")
             import traceback
             self.logger.error(f"Traceback: {traceback.format_exc()}")
             return 0.01  # 返回最小置信度而不是0
